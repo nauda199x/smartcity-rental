@@ -248,7 +248,7 @@
 <script>
 // ── KẾT NỐI GOOGLE SHEET ──
 const SHEET_ID = "1BBnB5PPLR3HZWHqsa5qvvtgWvFMiHNE2ZMIlUSXcKZk";
-const SHEET_URL = `https://docs.google.com/spreadsheets/d/${SHEET_ID}/gviz/tq?tqx=out:json`;
+const SHEET_URL = `https://docs.google.com/spreadsheets/d/${SHEET_ID}/gviz/tq?tqx=out:csv&sheet=Sheet1`;
 const ZALO = "0977923284";
 const BG = ["#E6F1FB","#E1F5EE","#FAEEDA","#EEEDFE","#FBEAF0","#EAF3DE","#FEF3E2","#E8F4FD"];
 const EMOJI = ["🏙️","🌿","🌅","🏢","🌸","🌳","🌆","💎","✨","🔮","🌺","🌊"];
@@ -296,37 +296,49 @@ function chuanHoaNgay(s) {
 async function loadSheet() {
   document.getElementById("cardGrid").innerHTML = `<div class="empty"><div class="empty-icon">⏳</div><h3>Đang tải dữ liệu...</h3></div>`;
   try {
-    const res = await fetch(SHEET_URL);
+    const csvUrl = `https://docs.google.com/spreadsheets/d/${SHEET_ID}/export?format=csv&gid=0`;
+    const res = await fetch(csvUrl);
+    if(!res.ok) throw new Error("HTTP " + res.status);
     const text = await res.text();
-    const json = JSON.parse(text.replace(/.*google.visualization.Query.setResponse\(|\);$/gs, ""));
-    const rows = json.table.rows;
+
+    // Parse CSV
+    const lines = text.split("\n").filter(l => l.trim());
+    const rows = lines.slice(1).map(line => {
+      const cols = [];
+      let cur = "", inQ = false;
+      for(let c of line) {
+        if(c==='"') inQ=!inQ;
+        else if(c===',' && !inQ) { cols.push(cur.trim().replace(/^"|"$/g,'')); cur=""; }
+        else cur+=c;
+      }
+      cols.push(cur.trim().replace(/^"|"$/g,''));
+      return cols;
+    });
 
     APARTMENTS = rows
-      .filter(r => r.c[COL.trang_thai] && r.c[COL.trang_thai].v &&
-                   r.c[COL.trang_thai].v.toString().toLowerCase().includes("còn"))
+      .filter(r => r[8] && r[8].toLowerCase().includes("còn"))
       .map((r, i) => ({
         id: "",
-        tower: r.c[COL.toa]?.v || "",
-        type: chuanHoaLoai(r.c[COL.loai]?.v || ""),
-        area: (r.c[COL.dien_tich]?.v || "") + "",
-        furniture: chuanHoaNoiThat(r.c[COL.noi_that]?.v || ""),
-        price: parseFloat((r.c[COL.gia]?.v || "0").toString().replace(/[^0-9]/g, "")),
-        available: chuanHoaNgay(r.c[COL.ngay]?.v || ""),
-        img: r.c[COL.anh]?.v || "",
+        tower: r[1] || "",
+        type: chuanHoaLoai(r[2] || ""),
+        area: (r[3] || "").replace("m2","").replace("m²","").trim(),
+        furniture: chuanHoaNoiThat(r[4] || ""),
+        price: parseFloat((r[5] || "0").replace(/[^0-9.,]/g, "").replace(",",".")),
+        available: chuanHoaNgay(r[6] || ""),
+        img: r[7] || "",
         emoji: EMOJI[i % EMOJI.length]
       }))
       .filter(a => a.tower && a.type);
 
     updateBadges();
     renderCards(APARTMENTS);
-    // Thống kê
     const ngay = APARTMENTS.filter(a => a.available === "Có thể vào ở ngay").length;
     const sap = APARTMENTS.filter(a => a.available !== "Có thể vào ở ngay").length;
     document.getElementById("totalCount").textContent = APARTMENTS.length;
     document.getElementById("ngayCount").textContent = ngay;
     document.getElementById("sapCount").textContent = sap;
   } catch(e) {
-    console.error(e);
+    console.error("Sheet error:", e);
     document.getElementById("cardGrid").innerHTML = `<div class="empty"><div class="empty-icon">⚠️</div><h3>Không tải được dữ liệu</h3><p>Vui lòng thử lại hoặc <a href="https://zalo.me/${ZALO}" style="color:var(--navy)">nhắn Zalo</a></p></div>`;
   }
 }
