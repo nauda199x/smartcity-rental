@@ -328,7 +328,7 @@ async function loadSheet() {
         furniture: chuanHoaNoiThat(r[4] || ""),
         price: parseFloat((r[5] || "0").replace(/[^0-9]/g, "")) || 0,
         available: chuanHoaNgay(r[6] || ""),
-        img: r[7] || "",
+        img: fixImgUrl(r[7] || ""),
         emoji: EMOJI[i % EMOJI.length]
       }))
       .filter(a => a.tower && a.type);
@@ -344,6 +344,16 @@ async function loadSheet() {
     console.error("Sheet error:", e);
     document.getElementById("cardGrid").innerHTML = `<div class="empty"><div class="empty-icon">⚠️</div><h3>Không tải được dữ liệu</h3><p>Vui lòng thử lại hoặc <a href="https://zalo.me/${ZALO}" style="color:var(--navy)">nhắn Zalo</a></p></div>`;
   }
+}
+
+function fixImgUrl(url) {
+  if(!url) return "";
+  // Link file Drive: https://drive.google.com/file/d/ID/view
+  const driveMatch = url.match(/\/file\/d\/([^\/\?]+)/);
+  if(driveMatch) return `https://lh3.googleusercontent.com/d/${driveMatch[1]}`;
+  // Link thư mục Drive → bỏ qua
+  if(url.includes("drive.google.com/drive")) return "";
+  return url;
 }
 
 function fmtPrice(p){ return (p/1000000).toFixed(p%1000000===0?0:1)+" triệu"; }
