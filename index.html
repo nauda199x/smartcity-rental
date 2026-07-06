@@ -38,7 +38,7 @@ header{background:var(--navy-dark);padding:14px 24px;display:flex;align-items:ce
 .radio-item:hover{background:var(--gray-light);}
 .radio-item.active{background:#EAF2FF;color:var(--navy);font-weight:500;}
 .radio-dot{width:15px;height:15px;border-radius:50%;border:1.5px solid #C5CDD8;flex-shrink:0;position:relative;}
-.radio-item.active .radio-dot grid-column{border-color:var(--navy);}
+.radio-item.active .radio-dot{border-color:var(--navy);}
 .radio-item.active .radio-dot::after{content:'';position:absolute;top:3px;left:3px;width:7px;height:7px;border-radius:50%;background:var(--navy);}
 .radio-badge{margin-left:auto;font-size:11px;color:var(--gray);background:var(--gray-light);padding:1px 7px;border-radius:999px;}
 .radio-item.active .radio-badge{background:var(--navy);color:white;}
@@ -60,9 +60,9 @@ header{background:var(--navy-dark);padding:14px 24px;display:flex;align-items:ce
 .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:16px;}
 .card{background:var(--white);border-radius:var(--radius);box-shadow:var(--shadow);overflow:hidden;cursor:pointer;transition:transform 0.18s,box-shadow 0.18s;border:1px solid transparent;}
 .card:hover{transform:translateY(-3px);box-shadow:var(--shadow-hover);border-color:var(--gray-light);}
-.card-img{height:140px;display:flex;align-items:center;justify-content:center;font-size:44px;position:relative;overflow:hidden;}
+.card-img{height:140px;position:relative;overflow:hidden;}
 .card-img img{width:100%;height:100%;object-fit:cover;}
-.card-img .overlay{position:absolute;inset:0;background:rgba(27,58,92,0.65);display:none;align-items:center;justify-content:center;color:white;font-size:13px;font-weight:500;}
+.card-img .overlay{position:absolute;inset:0;background:rgba(27,58,92,0.75);display:none;align-items:center;justify-content:center;color:white;font-size:13px;font-weight:600;letter-spacing:0.5px;}
 .card:hover .overlay{display:flex;}
 .card-body{padding:14px;}
 .card-code-wrap{display:flex;align-items:center;justify-content:space-between;margin-bottom:8px;}
@@ -83,12 +83,12 @@ header{background:var(--navy-dark);padding:14px 24px;display:flex;align-items:ce
 .empty-icon{font-size:48px;margin-bottom:12px;}
 .empty h3{font-size:16px;color:var(--navy);margin-bottom:6px;}
 
-/* Lightbox mới - Thiết kế tối ưu cho ô nhúng Google Drive Folder */
+/* Cửa sổ bật lên (Lightbox) hiển thị album ảnh trực tiếp */
 .lightbox{display:none;position:fixed;inset:0;background:rgba(0,0,0,0.65);z-index:200;align-items:center;justify-content:center;padding:16px;}
 .lightbox.show{display:flex;}
 .lb-box{background:var(--white);border-radius:var(--radius);padding:20px;max-width:550px;width:100%;text-align:center;position:relative;box-shadow:0 10px 30px rgba(0,0,0,0.3);}
 .lb-close-btn{position:absolute;top:12px;right:14px;font-size:22px;cursor:pointer;color:var(--gray);background:none;border:none;z-index:10;}
-.lb-drive-frame{width:100%;height:320px;margin-bottom:14px;border:1px solid var(--gray-light);border-radius:var(--radius-sm);overflow:hidden;background:#fafafa;}
+.lb-drive-frame{width:100%;height:340px;margin-bottom:14px;border:1px solid var(--gray-light);border-radius:var(--radius-sm);overflow:hidden;background:#fafafa;}
 .lb-drive-frame iframe{width:100%;height:100%;border:none;}
 .lb-code{display:inline-block;font-size:13px;font-weight:700;color:var(--navy);background:#EAF2FF;padding:3px 12px;border-radius:999px;margin-bottom:6px;}
 .lb-title{font-size:17px;font-weight:700;color:var(--navy);margin-bottom:4px;}
@@ -100,6 +100,7 @@ header{background:var(--navy-dark);padding:14px 24px;display:flex;align-items:ce
 
 footer{background:var(--navy-dark);color:rgba(255,255,255,0.5);text-align:center;padding:20px;font-size:13px;margin-top:20px;}
 footer strong{color:var(--gold-light);}
+
 @media(max-width:700px){
   .page-body{grid-template-columns:1fr;padding:0 12px 32px;}
   .sidebar{margin-right:0;position:static;overflow:hidden;max-height:0;transition:max-height 0.3s ease,padding 0.3s ease;padding:0 18px;}
@@ -115,6 +116,7 @@ footer strong{color:var(--gold-light);}
 </style>
 </head>
 <body>
+
 <header>
   <div class="logo">
     <div class="logo-icon">🏢</div>
@@ -124,7 +126,7 @@ footer strong{color:var(--gold-light);}
 </header>
 
 <div class="hero">
-  <img class="hero-img" src="hero.jpg" alt="Vinhomes Smart City">
+  <img class="hero-img" src="hero.jpg" alt="Vinhomes Smart City" onerror="this.style.display='none'">
   <div class="hero-overlay"></div>
   <div class="hero-content">
     <div class="hero-tag">Cập nhật hằng ngày</div>
@@ -187,13 +189,11 @@ footer strong{color:var(--gold-light);}
   </div>
 </div>
 
-<!-- Giao diện Lightbox chứa cửa sổ lưới ảnh Google Drive chính chủ -->
+<!-- Khung Lightbox chứa Album Ảnh từ Google Drive -->
 <div class="lightbox" id="lightbox" onclick="closeLB(event)">
   <div class="lb-box">
     <button class="lb-close-btn" onclick="document.getElementById('lightbox').classList.remove('show')">✕</button>
-    <div class="lb-drive-frame" id="lbDriveFrame">
-       <!-- Iframe nhúng thư mục ảnh sẽ được nạp tự động ở đây -->
-    </div>
+    <div class="lb-drive-frame" id="lbDriveFrame"></div>
     <div class="lb-code" id="lbCode"></div>
     <div class="lb-title" id="lbTitle"></div>
     <div class="lb-info" id="lbInfo"></div>
@@ -211,8 +211,6 @@ footer strong{color:var(--gold-light);}
 <script>
 var ZALO = "0977923284";
 var SHEET_ID = "1BBnB5PPLR3HZWHqsa5qvvtgWvFMiHNE2ZMIlUSXcKZk";
-var BG = ["#E6F1FB","#E1F5EE","#FAEEDA","#EEEDFE","#FBEAF0","#EAF3DE","#FEF3E2","#E8F4FD"];
-var EMOJI = ["🏙️","🌿","🌅","🏢","🌸","🌳","🌆","💎","✨","🔮","🌺","🌊"];
 var APARTMENTS = [];
 var FILTERED_LIST = [];
 
@@ -227,12 +225,13 @@ function parseDriveFolderId(url) {
 
 function chuanHoaLoai(s) {
   if (!s) return "";
-  s = s.trim();
-  if (s === "1 Ngủ +" || s === "1 ngu +") return "1 phòng ngủ +";
-  if (s === "2 Ngủ +" || s === "2 ngu +") return "2 phòng ngủ +";
-  if (s === "1 Ngủ" || s === "1 ngu") return "1 phòng ngủ";
-  if (s === "2 Ngủ" || s === "2 ngu") return "2 phòng ngủ";
-  if (s === "3 Ngủ" || s === "3 ngu") return "3 phòng ngủ";
+  s = s.trim().toLowerCase();
+  if (s.indexOf("studio") >= 0) return "Studio";
+  if (s === "1 ngủ" || s === "1 ngu" || s.indexOf("1 phòng ngủ") === 0) return "1 phòng ngủ";
+  if (s === "1 ngủ +" || s === "1 ngu +" || s === "1 ngủ+" || s.indexOf("1 phòng ngủ +") >= 0) return "1 phòng ngủ +";
+  if (s === "2 ngủ" || s === "2 ngu" || s.indexOf("2 phòng ngủ") === 0) return "2 phòng ngủ";
+  if (s === "2 ngủ +" || s === "2 ngu +" || s === "2 ngủ+" || s.indexOf("2 phòng ngủ +") >= 0) return "2 phòng ngủ +";
+  if (s === "3 ngủ" || s === "3 ngu" || s.indexOf("3 phòng ngủ") === 0) return "3 phòng ngủ";
   return s;
 }
 
@@ -263,9 +262,10 @@ function loadSheet() {
   var script = document.createElement("script");
   window._gvizCallback = function(data) {
     try {
-      var cols = data.table.cols.map(function(c) { return c.label; });
+      var cols = data.table.cols.map(function(c) { return c.label ? c.label.trim() : ""; });
       var rows = data.table.rows;
       APARTMENTS = [];
+      
       for (var i = 0; i < rows.length; i++) {
         var r = rows[i];
         var get = function(name) {
@@ -275,6 +275,7 @@ function loadSheet() {
           if (!cell) return "";
           return (cell.v !== null && cell.v !== undefined) ? String(cell.v) : (cell.f || "");
         };
+        
         var status = get("Trạng thái").toLowerCase();
         var tower = get("Tòa");
         var type = chuanHoaLoai(get("Loại"));
@@ -293,17 +294,13 @@ function loadSheet() {
           price: parseFloat(get("Giá thuê").replace(/[^0-9]/g,"")) || 0,
           available: chuanHoaNgay(get("Ngày vào ở")),
           driveId: driveId,
-          isFolder: isFolder,
-          coverImg: !isFolder && driveId ? "https://drive.google.com/thumbnail?sz=w500&id=" + driveId : "",
-          emoji: EMOJI[APARTMENTS.length % EMOJI.length]
+          isFolder: isFolder
         });
       }
+      
       updateBadges();
       FILTERED_LIST = [...APARTMENTS];
       renderCards(FILTERED_LIST);
-      
-      // Quét ngầm ảnh đại diện từ folder
-      fetchFolderCovers();
 
       var ngay = 0, sap = 0;
       for (var j = 0; j < APARTMENTS.length; j++) {
@@ -315,36 +312,11 @@ function loadSheet() {
       document.getElementById("sapCount").textContent = sap;
     } catch(e) {
       console.error(e);
-      document.getElementById("cardGrid").innerHTML = '<div class="empty"><div class="empty-icon">⚠️</div><h3>Lỗi đồng bộ cấu trúc cột</h3></div>';
+      document.getElementById("cardGrid").innerHTML = '<div class="empty"><div class="empty-icon">⚠️</div><h3>Lỗi đồng bộ cấu trúc dữ liệu</h3></div>';
     }
   };
   script.src = "https://docs.google.com/spreadsheets/d/" + SHEET_ID + "/gviz/tq?tqx=responseHandler:_gvizCallback";
   document.head.appendChild(script);
-}
-
-function fetchFolderCovers() {
-  APARTMENTS.forEach(function(item, index) {
-    if (item.isFolder && item.driveId) {
-      var proxyUrl = "https://images1-focus-opensocial.googleusercontent.com/gadgets/proxy?container=focus&refresh=2592000&url=" + encodeURIComponent("https://drive.google.com/embeddedfolderview?id=" + item.driveId);
-      fetch(proxyUrl)
-        .then(res => res.text())
-        .then(html => {
-          var m = html.match(/\"id\":\"([a-zA-Z0-9_-]+)\"/);
-          if (m && m[1]) {
-            item.coverImg = "https://drive.google.com/thumbnail?sz=w500&id=" + m[1];
-            var cards = document.querySelectorAll('.card');
-            FILTERED_LIST.forEach(function(fItem, fIdx) {
-              if (fItem.driveId === item.driveId && cards[fIdx]) {
-                var imgContainer = cards[fIdx].querySelector('.card-img');
-                if (imgContainer && !imgContainer.querySelector('img')) {
-                  imgContainer.innerHTML = '<img src="' + item.coverImg + '" alt="' + item.tower + '" onerror="this.parentElement.innerHTML=\'' + item.emoji + '\'"><div class="overlay">🔍 Xem Album Ảnh</div>';
-                }
-              }
-            });
-          }
-        }).catch(e => console.log(e));
-    }
-  });
 }
 
 function updateBadges() {
@@ -365,15 +337,20 @@ function renderCards(list) {
     grid.innerHTML = '<div class="empty"><div class="empty-icon">🔍</div><h3>Không tìm thấy căn phù hợp</h3></div>';
     return;
   }
+  
   grid.innerHTML = list.map(function(a, i) {
-    var bg = BG[i % BG.length];
-    var em = a.emoji || EMOJI[i % EMOJI.length];
-    var imgHtml = a.coverImg ? '<img src="' + a.coverImg + '" alt="' + a.tower + '" onerror="this.parentElement.innerHTML=\'' + em + '\'">' : em;
     var isNgay = a.available === "Có thể vào ở ngay";
     var dateHtml = isNgay ? '<span style="color:#2A6B2A;font-weight:500">✅ Vào ở ngay</span>' : '📅 ' + a.available;
+    
+    // Khung thiết kế ảnh đại diện dạng Modern Gradient sang trọng
+    var cardCoverTemplate = '<div style="width:100%; height:100%; background:linear-gradient(135deg, #1B3A5C, #2A5F8F); display:flex; flex-direction:column; align-items:center; justify-content:center; color:white; font-size:13px; font-weight:500; gap:6px;">'
+      + '<span style="font-size:32px;">🏢</span>'
+      + '<span style="color:#F0D98A; font-size:11px; letter-spacing:0.5px; text-transform:uppercase; font-weight:600;">Vinhomes Smart City</span>'
+      + '</div>';
+
     return '<div class="card" onclick="openLB(' + i + ')">'
-      + '<div class="card-img" style="' + (a.coverImg ? '' : 'background:' + bg) + '">'
-      + imgHtml + '<div class="overlay">🔍 Xem Album Ảnh</div></div>'
+      + '<div class="card-img">'
+      + cardCoverTemplate + '<div class="overlay">🔍 Xem Album Chi Tiết</div></div>'
       + '<div class="card-body">'
       + '<div class="card-code-wrap"><span class="card-code">' + a.tower + '</span></div>'
       + '<div class="card-type">' + a.type + '</div>'
@@ -402,15 +379,18 @@ function applyFilters() {
   var from = parseFloat(document.getElementById("priceFrom").value) || 0;
   var to = parseFloat(document.getElementById("priceTo").value) || 999;
   var sort = document.getElementById("sortSel").value;
+  
   FILTERED_LIST = APARTMENTS.filter(function(a) {
     return (!type || a.type === type)
       && (!furniture || a.furniture === furniture)
       && (a.price/1000000 >= from && a.price/1000000 <= to);
   });
+  
   if (sort === "price-asc") FILTERED_LIST.sort(function(a,b){return a.price-b.price;});
   else if (sort === "price-desc") FILTERED_LIST.sort(function(a,b){return b.price-a.price;});
   else if (sort === "area-asc") FILTERED_LIST.sort(function(a,b){return parseInt(a.area)-parseInt(b.area);});
   else if (sort === "area-desc") FILTERED_LIST.sort(function(a,b){return parseInt(b.area)-parseInt(a.area);});
+  
   var tags = document.getElementById("activeTags");
   tags.innerHTML = '';
   [type, furniture].filter(Boolean).forEach(function(t) { tags.innerHTML += '<div class="atag">✓ ' + t + '</div>'; });
@@ -438,7 +418,6 @@ function resetAll() {
   applyFilters();
 }
 
-// HÀM MỞ LIGHTBOX: Nhúng thẳng thư mục Google Drive để hiện trọn bộ album 3-5 ảnh
 function openLB(idx) {
   var a = FILTERED_LIST[idx];
   if (!a) return;
@@ -451,17 +430,16 @@ function openLB(idx) {
   document.getElementById("lbZalo").href = "https://zalo.me/" + ZALO + "?text=H%E1%BB%8Fi%20thu%C3%AA%20c%C4%83n%20h%E1%BB%99%20t%C3%B2a%20" + encodeURIComponent(a.tower);
   
   var frameBox = document.getElementById("lbDriveFrame");
-  
   if (a.driveId) {
     if (a.isFolder) {
-      // Nhúng cả thư mục Drive dưới dạng lưới (Grid), người dùng xem được mọi ảnh phòng ngủ, WC...
-      frameBox.innerHTML = '<iframe src="https://drive.google.com/embeddedfolderview?id=' + a.driveId + '#grid" allow="autoplay"></iframe>';
+      // Nhúng toàn bộ Folder Drive hiển thị dạng Grid thu nhỏ cực đẹp
+      frameBox.innerHTML = '<iframe src="https://drive.google.com/embeddedfolderview?id=' + a.driveId + '#grid"></iframe>';
     } else {
-      // Nếu là link 1 tệp ảnh đơn lẻ
+      // Trường hợp dán link 1 file ảnh lẻ
       frameBox.innerHTML = '<iframe src="https://drive.google.com/file/d/' + a.driveId + '/preview"></iframe>';
     }
   } else {
-    frameBox.innerHTML = '<div style="display:flex;align-items:center;justify-content:center;height:100%;font-size:50px;">' + (a.emoji || '🏢') + '</div>';
+    frameBox.innerHTML = '<div style="display:flex;align-items:center;justify-content:center;height:100%;font-size:50px;background:#EAF2FF;color:#1B3A5C;">🏢</div>';
   }
   
   document.getElementById("lightbox").classList.add("show");
