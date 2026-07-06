@@ -167,9 +167,9 @@
     <h1>Căn hộ đang trống<br><em>sẵn sàng cho thuê ngay</em></h1>
     <p>Thông tin thật · Ảnh thật · Giá thật — Không qua trung gian</p>
     <div class="stats">
-      <div class="stat-item"><span class="stat-num" id="totalCount">10</span><span class="stat-label">Căn đang trống</span></div>
-      <div class="stat-item"><span class="stat-num">50</span><span class="stat-label">Tòa nhà</span></div>
-      <div class="stat-item"><span class="stat-num">6</span><span class="stat-label">Loại căn hộ</span></div>
+      <div class="stat-item"><span class="stat-num" id="totalCount">--</span><span class="stat-label">Căn đang trống</span></div>
+      <div class="stat-item"><span class="stat-num" id="ngayCount">--</span><span class="stat-label">Vào ở ngay</span></div>
+      <div class="stat-item"><span class="stat-num" id="sapCount">--</span><span class="stat-label">Sắp trống</span></div>
     </div>
   </div>
 </div>
@@ -297,7 +297,10 @@ async function loadSheet() {
   document.getElementById("cardGrid").innerHTML = `<div class="empty"><div class="empty-icon">⏳</div><h3>Đang tải dữ liệu...</h3></div>`;
   try {
     const csvUrl = `https://docs.google.com/spreadsheets/d/${SHEET_ID}/export?format=csv&gid=0`;
-    const res = await fetch(csvUrl);
+    const res = await fetch(csvUrl, {
+      method: 'GET',
+      headers: { 'Accept': 'text/csv' }
+    });
     if(!res.ok) throw new Error("HTTP " + res.status);
     const text = await res.text();
 
@@ -323,7 +326,7 @@ async function loadSheet() {
         type: chuanHoaLoai(r[2] || ""),
         area: (r[3] || "").replace("m2","").replace("m²","").trim(),
         furniture: chuanHoaNoiThat(r[4] || ""),
-        price: parseFloat((r[5] || "0").replace(/[^0-9.,]/g, "").replace(",",".")),
+        price: parseFloat((r[5] || "0").replace(/[^0-9]/g, "")) || 0,
         available: chuanHoaNgay(r[6] || ""),
         img: r[7] || "",
         emoji: EMOJI[i % EMOJI.length]
