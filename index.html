@@ -296,39 +296,25 @@ function chuanHoaNgay(s) {
 async function loadSheet() {
   document.getElementById("cardGrid").innerHTML = `<div class="empty"><div class="empty-icon">⏳</div><h3>Đang tải dữ liệu...</h3></div>`;
   try {
-    const csvUrl = `https://docs.google.com/spreadsheets/d/${SHEET_ID}/export?format=csv&gid=0`;
-    const res = await fetch(csvUrl, {
-      method: 'GET',
-      headers: { 'Accept': 'text/csv' }
-    });
+    const res = await fetch(`https://script.google.com/macros/s/AKfycbynKiEA6FJgGNuSOCYSYG1mzNdlwJsZ-OwfuHZtgD_RdnkOQqsbP7paqhYkIkEKYENI/exec?action=sheet`);
     if(!res.ok) throw new Error("HTTP " + res.status);
-    const text = await res.text();
-
-    // Parse CSV
-    const lines = text.split("\n").filter(l => l.trim());
-    const rows = lines.slice(1).map(line => {
-      const cols = [];
-      let cur = "", inQ = false;
-      for(let c of line) {
-        if(c==='"') inQ=!inQ;
-        else if(c===',' && !inQ) { cols.push(cur.trim().replace(/^"|"$/g,'')); cur=""; }
-        else cur+=c;
-      }
-      cols.push(cur.trim().replace(/^"|"$/g,''));
-      return cols;
-    });
+    const data = await res.json();
+    const rows = data.rows || [];
 
     APARTMENTS = rows
-      .filter(r => r[8] && r[8].toLowerCase().includes("còn"))
+      .filter(r => {
+        const status = (r["Trạng thái"] || r["Trang thai"] || "").toString().toLowerCase();
+        return status.includes("còn") || status.includes("con");
+      })
       .map((r, i) => ({
         id: "",
-        tower: r[1] || "",
-        type: chuanHoaLoai(r[2] || ""),
-        area: (r[3] || "").replace("m2","").replace("m²","").trim(),
-        furniture: chuanHoaNoiThat(r[4] || ""),
-        price: parseFloat((r[5] || "0").replace(/[^0-9]/g, "")) || 0,
-        available: chuanHoaNgay(r[6] || ""),
-        img: fixImgUrl(r[7] || ""),
+        tower: r["Tòa"] || r["Toa"] || "",
+        type: chuanHoaLoai(r["Loại"] || r["Loai"] || ""),
+        area: (r["Diện tích"] || r["Dien tich"] || "").toString().replace("m2","").replace("m²","").trim(),
+        furniture: chuanHoaNoiThat(r["Nội thất"] || r["Noi that"] || ""),
+        price: parseFloat((r["Giá thuê"] || r["Gia thue"] || "0").toString().replace(/[^0-9]/g,"")) || 0,
+        available: chuanHoaNgay((r["Ngày vào ở"] || r["Ngay vao o"] || "").toString()),
+        img: r["Ảnh"] || r["Anh"] || "",
         emoji: EMOJI[i % EMOJI.length]
       }))
       .filter(a => a.tower && a.type);
@@ -346,7 +332,7 @@ async function loadSheet() {
   }
 }
 
-const IMG_API = "https://script.google.com/macros/s/AKfycbwaE3JpGxg3iKdeUIqBIovl58vH7bzwmwsfsZMvqbmREj9ld4FBwMtMWRdSswiYaUWH/exec";
+const IMG_API = "https://script.google.com/macros/s/AKfycbynKiEA6FJgGNuSOCYSYG1mzNdlwJsZ-OwfuHZtgD_RdnkOQqsbP7paqhYkIkEKYENI/exec";
 
 function getFolderIdFromUrl(url) {
   if(!url) return null;
