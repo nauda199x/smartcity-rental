@@ -163,7 +163,7 @@
     <h1>Căn hộ đang trống<br><em>sẵn sàng cho thuê ngay</em></h1>
     <p>Thông tin thật · Ảnh thật · Giá thật — Không qua trung gian</p>
     <div class="stats">
-      <div class="stat-item"><span class="stat-num" id="totalCount">0</span><span class="stat-label">Căn đang trống</span></div>
+      <div class="stat-item"><span class="stat-num" id="totalCount">10</span><span class="stat-label">Căn đang trống</span></div>
       <div class="stat-item"><span class="stat-num">50</span><span class="stat-label">Tòa nhà</span></div>
       <div class="stat-item"><span class="stat-num">6</span><span class="stat-label">Loại căn hộ</span></div>
     </div>
@@ -229,7 +229,7 @@
     <div class="lb-price" id="lbPrice"></div>
     <div class="lb-date" id="lbDate"></div>
     <a id="lbZalo" href="#" target="_blank" class="lb-zalo">💬 Nhắn Zalo hỏi thuê</a>
-    <div class="lb-hint">Báo mã căn khi nhắn để được tư vấn nhanh nhất</div>
+    <div class="lb-hint">Báo tòa và loại căn khi nhắn để được tư vấn nhanh nhất</div>
   </div>
 </div>
 
@@ -239,27 +239,85 @@
 </footer>
 
 <script>
-// ── DỮ LIỆU ──
-// Anh thay dữ liệu mẫu này bằng 50 căn thật của anh
-// img: để trống "" nếu chưa có ảnh, hoặc dán link Google Drive
-const APARTMENTS = [
-  { id:"SC-A001", tower:"The Sakura", type:"1 phòng ngủ",   area:50, furniture:"Cơ bản",     price:9500000,  available:"01/07/2026", img:"" },
-  { id:"SC-A002", tower:"The Sakura", type:"2 phòng ngủ",   area:72, furniture:"Đầy đủ",     price:12500000, available:"01/08/2026", img:"" },
-  { id:"SC-A003", tower:"The Miami",  type:"Studio",        area:38, furniture:"Nguyên bản", price:6500000,  available:"15/06/2026", img:"" },
-  { id:"SC-A004", tower:"The Miami",  type:"1 phòng ngủ +", area:62, furniture:"Đầy đủ",     price:13000000, available:"10/07/2026", img:"" },
-  { id:"SC-A005", tower:"The Zurich", type:"1 phòng ngủ",   area:55, furniture:"Cơ bản",     price:10000000, available:"20/06/2026", img:"" },
-  { id:"SC-A006", tower:"The Zurich", type:"2 phòng ngủ +", area:88, furniture:"Đầy đủ",     price:16000000, available:"01/08/2026", img:"" },
-  { id:"SC-A007", tower:"The Grand",  type:"2 phòng ngủ",   area:75, furniture:"Cơ bản",     price:13500000, available:"25/07/2026", img:"" },
-  { id:"SC-A008", tower:"The Ruby",   type:"1 phòng ngủ +", area:58, furniture:"Cơ bản",     price:9000000,  available:"01/07/2026", img:"" },
-  { id:"SC-A009", tower:"The Emerald",type:"2 phòng ngủ",   area:70, furniture:"Nguyên bản", price:11000000, available:"15/07/2026", img:"" },
-  { id:"SC-A010", tower:"The Diamond",type:"3 phòng ngủ",   area:95, furniture:"Đầy đủ",     price:22000000, available:"01/08/2026", img:"" },
-  { id:"SC-A011", tower:"The Pearl",  type:"Studio",        area:40, furniture:"Nguyên bản", price:7000000,  available:"05/07/2026", img:"" },
-  { id:"SC-A012", tower:"The Lotus",  type:"1 phòng ngủ",   area:52, furniture:"Đầy đủ",     price:11500000, available:"20/07/2026", img:"" },
-];
-
+// ── KẾT NỐI GOOGLE SHEET ──
+const SHEET_ID = "1BBnB5PPLR3HZWHqsa5qvvtgWvFMiHNE2ZMIlUSXcKZk";
+const SHEET_URL = `https://docs.google.com/spreadsheets/d/${SHEET_ID}/gviz/tq?tqx=out:json`;
 const ZALO = "0977923284";
 const BG = ["#E6F1FB","#E1F5EE","#FAEEDA","#EEEDFE","#FBEAF0","#EAF3DE","#FEF3E2","#E8F4FD"];
 const EMOJI = ["🏙️","🌿","🌅","🏢","🌸","🌳","🌆","💎","✨","🔮","🌺","🌊"];
+
+let APARTMENTS = [];
+
+// Map tên cột từ Sheet
+const COL = {
+  toa: 1,        // B
+  loai: 2,       // C
+  dien_tich: 3,  // D
+  noi_that: 4,   // E
+  gia: 5,        // F
+  ngay: 6,       // G
+  anh: 7,        // H
+  trang_thai: 8  // I
+};
+
+function chuanHoaNoiThat(s) {
+  if (!s) return "Đầy đủ";
+  s = s.toLowerCase().trim();
+  if (s.includes("nguyên") || s.includes("nguyen")) return "Nguyên bản";
+  if (s.includes("cơ bản") || s.includes("co ban")) return "Cơ bản";
+  return "Đầy đủ";
+}
+
+function chuanHoaLoai(s) {
+  if (!s) return "";
+  s = s.trim();
+  if (s === "1 Ngủ +" || s === "1 ngu +") return "1 phòng ngủ +";
+  if (s === "2 Ngủ +" || s === "2 ngu +") return "2 phòng ngủ +";
+  if (s === "1 Ngủ" || s === "1 ngu") return "1 phòng ngủ";
+  if (s === "2 Ngủ" || s === "2 ngu") return "2 phòng ngủ";
+  if (s === "3 Ngủ" || s === "3 ngu") return "3 phòng ngủ";
+  return s;
+}
+
+function chuanHoaNgay(s) {
+  if (!s) return "Có thể vào ở ngay";
+  s = s.trim().toLowerCase();
+  if (s === "luon" || s === "luôn" || s === "" || s === "ngay") return "Có thể vào ở ngay";
+  return s;
+}
+
+async function loadSheet() {
+  document.getElementById("cardGrid").innerHTML = `<div class="empty"><div class="empty-icon">⏳</div><h3>Đang tải dữ liệu...</h3></div>`;
+  try {
+    const res = await fetch(SHEET_URL);
+    const text = await res.text();
+    const json = JSON.parse(text.replace(/.*google.visualization.Query.setResponse\(|\);$/gs, ""));
+    const rows = json.table.rows;
+
+    APARTMENTS = rows
+      .filter(r => r.c[COL.trang_thai] && r.c[COL.trang_thai].v &&
+                   r.c[COL.trang_thai].v.toString().toLowerCase().includes("còn"))
+      .map((r, i) => ({
+        id: "",
+        tower: r.c[COL.toa]?.v || "",
+        type: chuanHoaLoai(r.c[COL.loai]?.v || ""),
+        area: (r.c[COL.dien_tich]?.v || "") + "",
+        furniture: chuanHoaNoiThat(r.c[COL.noi_that]?.v || ""),
+        price: parseFloat((r.c[COL.gia]?.v || "0").toString().replace(/[^0-9]/g, "")),
+        available: chuanHoaNgay(r.c[COL.ngay]?.v || ""),
+        img: r.c[COL.anh]?.v || "",
+        emoji: EMOJI[i % EMOJI.length]
+      }))
+      .filter(a => a.tower && a.type);
+
+    updateBadges();
+    renderCards(APARTMENTS);
+    document.getElementById("totalCount").textContent = APARTMENTS.length;
+  } catch(e) {
+    console.error(e);
+    document.getElementById("cardGrid").innerHTML = `<div class="empty"><div class="empty-icon">⚠️</div><h3>Không tải được dữ liệu</h3><p>Vui lòng thử lại hoặc <a href="https://zalo.me/${ZALO}" style="color:var(--navy)">nhắn Zalo</a></p></div>`;
+  }
+}
 
 function fmtPrice(p){ return (p/1000000).toFixed(p%1000000===0?0:1)+" triệu"; }
 function ntClass(f){ return f==="Nguyên bản"?"nguyen":f==="Cơ bản"?"coban":"daydu"; }
@@ -269,46 +327,48 @@ function updateBadges(){
   const furs=["Nguyên bản","Cơ bản","Đầy đủ"];
   document.querySelectorAll('.radio-item[data-group="type"]').forEach((el,i)=>{
     const n=APARTMENTS.filter(a=>a.type===types[i]).length;
-    el.querySelector('.radio-badge').textContent=n;
+    el.querySelector('.radio-badge').textContent=n||'0';
   });
   document.querySelectorAll('.radio-item[data-group="furniture"]').forEach((el,i)=>{
     const n=APARTMENTS.filter(a=>a.furniture===furs[i]).length;
-    el.querySelector('.radio-badge').textContent=n;
+    el.querySelector('.radio-badge').textContent=n||'0';
   });
 }
 
 function renderCards(list){
   const grid=document.getElementById("cardGrid");
   document.getElementById("resultCount").textContent=list.length;
-  document.getElementById("totalCount").textContent=list.length;
+  document.getElementById("totalCount").textContent=APARTMENTS.length;
   if(!list.length){
     grid.innerHTML=`<div class="empty"><div class="empty-icon">🔍</div><h3>Không tìm thấy căn phù hợp</h3><p>Thử bỏ bớt tiêu chí hoặc <a href="https://zalo.me/${ZALO}" style="color:var(--navy)">nhắn Zalo</a> để được tư vấn</p></div>`;
     return;
   }
   grid.innerHTML=list.map((a,i)=>{
     const bg=BG[i%BG.length];
-    const em=EMOJI[i%EMOJI.length];
+    const em=a.emoji||EMOJI[i%EMOJI.length];
     const imgHtml=a.img
-      ?`<img src="${a.img}" alt="${a.id}" onerror="this.parentElement.innerHTML='${em}'">`
+      ?`<img src="${a.img}" alt="${a.tower}" onerror="this.parentElement.innerHTML='${em}'">`
       :em;
+    const isNgay=a.available==="Có thể vào ở ngay";
     return `<div class="card">
       <div class="card-img" style="${a.img?'':'background:'+bg}" onclick='openLB(${JSON.stringify(a)})'>
         ${imgHtml}<div class="overlay">🔍 Xem ảnh</div>
       </div>
       <div class="card-body">
         <div class="card-code-wrap">
-          <span class="card-code">${a.id}</span>
-          <span class="card-tower">${a.tower}</span>
+          <span class="card-code">${a.tower}</span>
         </div>
         <div class="card-type">${a.type}</div>
         <div class="card-tags">
           <span class="tag">${a.area}m²</span>
           <span class="tag-nt ${ntClass(a.furniture)}">${a.furniture}</span>
         </div>
-        <div class="card-date">Vào ở: ${a.available}</div>
+        <div class="card-date" style="${isNgay?'color:#2A6B2A;font-weight:500':''}">
+          ${isNgay?'✅ Vào ở ngay':'📅 '+a.available}
+        </div>
         <div class="card-footer">
           <div class="card-price">${fmtPrice(a.price)} <small>/tháng</small></div>
-          <a href="https://zalo.me/${ZALO}?text=Hỏi thuê căn ${a.id}" target="_blank" class="card-zalo">Zalo</a>
+          <a href="https://zalo.me/${ZALO}?text=Hỏi thuê căn hộ tòa ${a.tower} - ${a.type}" target="_blank" class="card-zalo">Zalo</a>
         </div>
       </div>
     </div>`;
@@ -333,8 +393,8 @@ function applyFilters(){
   );
   if(sort==="price-asc") list.sort((a,b)=>a.price-b.price);
   else if(sort==="price-desc") list.sort((a,b)=>b.price-a.price);
-  else if(sort==="area-asc") list.sort((a,b)=>a.area-b.area);
-  else if(sort==="area-desc") list.sort((a,b)=>b.area-a.area);
+  else if(sort==="area-asc") list.sort((a,b)=>parseInt(a.area)-parseInt(b.area));
+  else if(sort==="area-desc") list.sort((a,b)=>parseInt(b.area)-parseInt(a.area));
   const tags=document.getElementById("activeTags");
   tags.innerHTML='';
   [type,furniture].filter(Boolean).forEach(t=>{tags.innerHTML+=`<div class="atag">✓ ${t}</div>`;});
@@ -361,21 +421,23 @@ function resetAll(){
 function openLB(a){
   const lbImg=document.getElementById("lbImg");
   if(a.img){
-    lbImg.innerHTML=`<img src="${a.img}" alt="${a.id}" onerror="this.parentElement.innerHTML='🏢'">`;
+    lbImg.innerHTML=`<img src="${a.img}" alt="${a.tower}" onerror="this.parentElement.innerHTML='🏢'">`;
+    lbImg.style.background='';
   } else {
-    lbImg.innerHTML=EMOJI[APARTMENTS.indexOf(APARTMENTS.find(x=>x.id===a.id))%EMOJI.length];
-    lbImg.style.background=BG[APARTMENTS.indexOf(APARTMENTS.find(x=>x.id===a.id))%BG.length];
+    lbImg.innerHTML=a.emoji||'🏢';
+    lbImg.style.background=BG[APARTMENTS.findIndex(x=>x.tower===a.tower&&x.type===a.type)%BG.length]||'#E6F1FB';
   }
-  document.getElementById("lbCode").textContent=a.id;
+  document.getElementById("lbCode").textContent=a.tower;
   document.getElementById("lbTitle").textContent=a.type+" · "+a.area+"m²";
-  document.getElementById("lbTower").textContent=a.tower;
+  document.getElementById("lbTower").textContent="Vinhomes Smart City";
   document.getElementById("lbInfo").innerHTML=`
     <span class="lb-tag">${a.area}m²</span>
     <span class="lb-tag">${a.furniture}</span>
   `;
   document.getElementById("lbPrice").textContent=fmtPrice(a.price)+" / tháng";
-  document.getElementById("lbDate").textContent="📅 Vào ở từ: "+a.available;
-  document.getElementById("lbZalo").href=`https://zalo.me/${ZALO}?text=Hỏi thuê căn ${a.id}`;
+  const isNgay=a.available==="Có thể vào ở ngay";
+  document.getElementById("lbDate").textContent=isNgay?"✅ Có thể vào ở ngay":"📅 Vào ở từ: "+a.available;
+  document.getElementById("lbZalo").href=`https://zalo.me/${ZALO}?text=Hỏi thuê căn hộ tòa ${a.tower} - ${a.type}`;
   document.getElementById("lightbox").classList.add("show");
 }
 
@@ -384,8 +446,8 @@ function closeLB(e){
     document.getElementById("lightbox").classList.remove("show");
 }
 
-updateBadges();
-renderCards(APARTMENTS);
+// Load dữ liệu từ Sheet khi trang mở
+loadSheet();
 </script>
 </body>
 </html>
