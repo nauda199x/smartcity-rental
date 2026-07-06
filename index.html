@@ -296,7 +296,7 @@ function chuanHoaNgay(s) {
 async function loadSheet() {
   document.getElementById("cardGrid").innerHTML = `<div class="empty"><div class="empty-icon">⏳</div><h3>Đang tải dữ liệu...</h3></div>`;
   try {
-    const res = await fetch(`https://script.google.com/macros/s/AKfycbynKiEA6FJgGNuSOCYSYG1mzNdlwJsZ-OwfuHZtgD_RdnkOQqsbP7paqhYkIkEKYENI/exec?action=sheet`);
+    const res = await fetch(`https://script.google.com/macros/s/AKfycbxuZG8fnxUkaSQwYJaiDFn-yDE8bClTekX2818eyeV92c6pi_xD6dxa5q75QsWYmyrZ/exec?action=sheet`);
     if(!res.ok) throw new Error("HTTP " + res.status);
     const data = await res.json();
     const rows = data.rows || [];
@@ -332,7 +332,7 @@ async function loadSheet() {
   }
 }
 
-const IMG_API = "https://script.google.com/macros/s/AKfycbynKiEA6FJgGNuSOCYSYG1mzNdlwJsZ-OwfuHZtgD_RdnkOQqsbP7paqhYkIkEKYENI/exec";
+const IMG_API = "https://script.google.com/macros/s/AKfycbxuZG8fnxUkaSQwYJaiDFn-yDE8bClTekX2818eyeV92c6pi_xD6dxa5q75QsWYmyrZ/exec";
 
 function getFolderIdFromUrl(url) {
   if(!url) return null;
