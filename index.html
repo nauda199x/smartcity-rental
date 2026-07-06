@@ -212,8 +212,11 @@ var APARTMENTS = [];
 
 function fixDriveUrl(url) {
   if (!url) return "";
+  // Lấy FILE_ID từ link Drive
   var m = url.match(/\/file\/d\/([^\/\?]+)/);
-  if (m) return "https://lh3.googleusercontent.com/d/" + m[1];
+  if (m) return "https://drive.google.com/thumbnail?sz=w1000&id=" + m[1];
+  // Link đã đúng định dạng thumbnail
+  if (url.indexOf("thumbnail") >= 0) return url;
   if (url.indexOf("lh3.googleusercontent.com") >= 0) return url;
   return "";
 }
