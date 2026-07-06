@@ -295,29 +295,38 @@ function chuanHoaNgay(s) {
 
 async function loadSheet() {
   document.getElementById("cardGrid").innerHTML = `<div class="empty"><div class="empty-icon">⏳</div><h3>Đang tải dữ liệu...</h3></div>`;
+  const SHEET_ID = "1BBnB5PPLR3HZWHqsa5qvvtgWvFMiHNE2ZMIlUSXcKZk";
+  const url = `https://docs.google.com/spreadsheets/d/${SHEET_ID}/gviz/tq?tqx=out:json`;
   try {
-    const res = await fetch(`https://script.google.com/macros/s/AKfycbxuZG8fnxUkaSQwYJaiDFn-yDE8bClTekX2818eyeV92c6pi_xD6dxa5q75QsWYmyrZ/exec?action=sheet`);
-    if(!res.ok) throw new Error("HTTP " + res.status);
-    const data = await res.json();
-    const rows = data.rows || [];
+    const res = await fetch(url);
+    const text = await res.text();
+    const json = JSON.parse(text.substr(text.indexOf('{'), text.lastIndexOf('}')-text.indexOf('{')+1));
+    const rows = json.table.rows;
+    const cols = json.table.cols.map(c => c.label);
 
     APARTMENTS = rows
-      .filter(r => {
-        const status = (r["Trạng thái"] || r["Trang thai"] || "").toString().toLowerCase();
-        return status.includes("còn") || status.includes("con");
+      .map((r, i) => {
+        const get = (name) => {
+          const idx = cols.findIndex(c => c === name);
+          return idx >= 0 && r.c[idx] ? (r.c[idx].v || r.c[idx].f || "") : "";
+        };
+        return {
+          id: "",
+          tower: get("Tòa") || "",
+          type: chuanHoaLoai(get("Loại") || ""),
+          area: (get("Diện tích") || "").toString().replace("m2","").replace("m²","").trim(),
+          furniture: chuanHoaNoiThat(get("Nội thất") || ""),
+          price: parseFloat((get("Giá thuê") || "0").toString().replace(/[^0-9]/g,"")) || 0,
+          available: chuanHoaNgay((get("Ngày vào ở") || "").toString()),
+          img: fixDriveUrl(get("Ảnh") || ""),
+          emoji: EMOJI[i % EMOJI.length],
+          status: get("Trạng thái") || ""
+        };
       })
-      .map((r, i) => ({
-        id: "",
-        tower: r["Tòa"] || r["Toa"] || "",
-        type: chuanHoaLoai(r["Loại"] || r["Loai"] || ""),
-        area: (r["Diện tích"] || r["Dien tich"] || "").toString().replace("m2","").replace("m²","").trim(),
-        furniture: chuanHoaNoiThat(r["Nội thất"] || r["Noi that"] || ""),
-        price: parseFloat((r["Giá thuê"] || r["Gia thue"] || "0").toString().replace(/[^0-9]/g,"")) || 0,
-        available: chuanHoaNgay((r["Ngày vào ở"] || r["Ngay vao o"] || "").toString()),
-        img: r["Ảnh"] || r["Anh"] || "",
-        emoji: EMOJI[i % EMOJI.length]
-      }))
-      .filter(a => a.tower && a.type);
+      .filter(a => {
+        const s = a.status.toLowerCase();
+        return a.tower && a.type && (s.includes("còn") || s.includes("con"));
+      });
 
     updateBadges();
     renderCards(APARTMENTS);
@@ -339,6 +348,17 @@ function getFolderIdFromUrl(url) {
   // Link thư mục: /drive/folders/ID hoặc /folders/ID
   const m = url.match(/folders\/([^\/?&]+)/);
   return m ? m[1] : null;
+}
+
+function fixDriveUrl(url) {
+  if(!url) return "";
+  // Link file: /file/d/ID/view
+  const fileMatch = url.match(/\/file\/d\/([^\/\?]+)/);
+  if(fileMatch) return "https://lh3.googleusercontent.com/d/" + fileMatch[1];
+  // Link lh3 trực tiếp
+  if(url.includes("lh3.googleusercontent.com")) return url;
+  // Link thư mục → để nguyên (xử lý sau)
+  return url;
 }
 
 function fixImgUrl(url) {
