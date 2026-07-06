@@ -3,469 +3,1127 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="Tìm thuê căn hộ Vinhomes Smart City — Thông tin thật, ảnh thật, cập nhật hằng ngày">
-<title>Tìm Thuê Căn Hộ Smart City</title>
+<title>Tìm Thuê Căn Hộ Vinhomes Smart City — Premium Housing</title>
+<meta name="description" content="Hệ thống tìm kiếm và đặt lịch xem căn hộ trống tại Vinhomes Smart City. Thông tin xác thực, cập nhật thời gian thực, trực tiếp từ chính chủ.">
+
+<!-- Open Graph / Facebook -->
+<meta property="og:type" content="website">
+<meta property="og:title" content="Tìm Thuê Căn Hộ Vinhomes Smart City — Premium Housing">
+<meta property="og:description" content="Tìm kiếm căn hộ trống phù hợp chỉ trong 3 giây. Ảnh thật, giá thật, không qua trung gian.">
+
+<!-- Google Fonts: Inter -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
 <style>
-:root{--navy:#1B3A5C;--navy-dark:#122840;--gold:#C9A84C;--gold-light:#F0D98A;--bg:#F4F6F9;--white:#FFFFFF;--gray:#6B7280;--gray-light:#E8ECF2;--text:#1A1A2E;--radius:12px;--radius-sm:8px;--shadow:0 2px 12px rgba(27,58,92,0.08);--shadow-hover:0 6px 24px rgba(27,58,92,0.14);}
-*{box-sizing:border-box;margin:0;padding:0;}
-body{font-family:'Segoe UI',system-ui,sans-serif;background:var(--bg);color:var(--text);font-size:15px;line-height:1.6;}
-header{background:var(--navy-dark);padding:14px 24px;display:flex;align-items:center;justify-content:space-between;position:sticky;top:0;z-index:50;box-shadow:0 2px 12px rgba(0,0,0,0.2);}
-.logo{display:flex;align-items:center;gap:10px;}
-.logo-icon{width:36px;height:36px;background:var(--gold);border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:18px;}
-.logo-text{color:var(--white);font-size:16px;font-weight:600;line-height:1.2;}
-.logo-text span{display:block;font-size:11px;font-weight:400;color:var(--gold-light);}
-.zalo-btn{display:flex;align-items:center;gap:8px;background:#0068FF;color:white;padding:8px 16px;border-radius:999px;font-size:13px;font-weight:500;text-decoration:none;}
-.hero{position:relative;height:340px;overflow:hidden;display:flex;align-items:center;justify-content:center;}
-.hero-img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;}
-.hero-overlay{position:absolute;inset:0;background:linear-gradient(135deg,rgba(18,40,64,0.82),rgba(27,58,92,0.70),rgba(42,95,143,0.60));}
-.hero-content{position:relative;z-index:2;text-align:center;padding:0 20px;}
-.hero-tag{display:inline-block;background:rgba(201,168,76,0.25);color:var(--gold-light);font-size:12px;letter-spacing:1px;text-transform:uppercase;padding:4px 14px;border-radius:999px;margin-bottom:14px;border:1px solid rgba(201,168,76,0.4);}
-.hero h1{color:var(--white);font-size:28px;font-weight:700;margin-bottom:10px;line-height:1.3;text-shadow:0 2px 8px rgba(0,0,0,0.3);}
-.hero h1 em{font-style:normal;color:var(--gold-light);}
-.hero p{color:rgba(255,255,255,0.75);font-size:15px;margin-bottom:24px;}
-.stats{display:flex;justify-content:center;gap:32px;}
-.stat-item{text-align:center;}
-.stat-num{font-size:26px;font-weight:700;color:var(--gold-light);display:block;}
-.stat-label{font-size:12px;color:rgba(255,255,255,0.6);}
-.page-body{display:grid;grid-template-columns:210px 1fr;gap:0;max-width:1200px;margin:-20px auto 0;padding:0 16px 40px;align-items:start;}
-.sidebar{background:var(--white);border-radius:var(--radius);box-shadow:var(--shadow);padding:18px;position:sticky;top:70px;margin-right:16px;}
-.sidebar-header{display:flex;align-items:center;justify-content:space-between;margin-bottom:16px;}
-.sidebar-title-main{font-size:13px;font-weight:600;color:var(--navy);text-transform:uppercase;letter-spacing:0.5px;}
-.reset-btn{font-size:11px;color:var(--gray);cursor:pointer;text-decoration:underline;background:none;border:none;font-family:inherit;}
-.filter-group{margin-bottom:16px;}
-.filter-title{font-size:11px;font-weight:600;color:var(--gray);text-transform:uppercase;letter-spacing:0.6px;margin-bottom:8px;padding-bottom:6px;border-bottom:1px solid var(--gray-light);}
-.radio-item{display:flex;align-items:center;gap:8px;padding:6px 8px;border-radius:var(--radius-sm);cursor:pointer;font-size:13px;color:var(--text);user-select:none;}
-.radio-item:hover{background:var(--gray-light);}
-.radio-item.active{background:#EAF2FF;color:var(--navy);font-weight:500;}
-.radio-dot{width:15px;height:15px;border-radius:50%;border:1.5px solid #C5CDD8;flex-shrink:0;position:relative;}
-.radio-item.active .radio-dot{border-color:var(--navy);}
-.radio-item.active .radio-dot::after{content:'';position:absolute;top:3px;left:3px;width:7px;height:7px;border-radius:50%;background:var(--navy);}
-.radio-badge{margin-left:auto;font-size:11px;color:var(--gray);background:var(--gray-light);padding:1px 7px;border-radius:999px;}
-.radio-item.active .radio-badge{background:var(--navy);color:white;}
-.price-inputs{display:flex;flex-direction:column;gap:8px;}
-.price-row{display:flex;align-items:center;gap:6px;font-size:12px;color:var(--gray);}
-.price-row input{width:72px;padding:5px 8px;font-size:12px;border:1px solid #D1D9E3;border-radius:var(--radius-sm);color:var(--text);font-family:inherit;}
-.apply-btn{width:100%;margin-top:14px;padding:10px;font-size:13px;font-weight:600;background:var(--navy);color:white;border:none;border-radius:var(--radius-sm);cursor:pointer;font-family:inherit;}
-.apply-btn:hover{background:var(--navy-dark);}
-.content{min-width:0;}
-.content-top{display:flex;align-items:center;justify-content:space-between;margin-bottom:12px;padding:12px 16px;background:var(--white);border-radius:var(--radius);box-shadow:var(--shadow);}
-.result-count{font-size:14px;font-weight:600;color:var(--navy);}
-.result-count span{font-weight:400;color:var(--gray);font-size:13px;}
-.sort-wrap{display:flex;align-items:center;gap:6px;font-size:13px;color:var(--gray);}
-.sort-wrap select{border:1px solid #D1D9E3;border-radius:var(--radius-sm);padding:5px 10px;font-size:13px;color:var(--text);font-family:inherit;background:white;cursor:pointer;}
-.active-tags{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:14px;}
-.atag{display:inline-flex;align-items:center;gap:5px;background:#EAF2FF;color:var(--navy);font-size:12px;font-weight:500;padding:4px 10px;border-radius:999px;border:1px solid #C5D8F5;}
-.filter-toggle-btn{display:none;align-items:center;gap:6px;padding:8px 14px;font-size:13px;font-weight:500;background:var(--navy);color:white;border:none;border-radius:var(--radius-sm);cursor:pointer;font-family:inherit;margin-bottom:12px;width:100%;justify-content:center;}
-.filter-badge{background:var(--gold);color:var(--navy);font-size:11px;font-weight:700;padding:2px 7px;border-radius:999px;}
-.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:16px;}
-.card{background:var(--white);border-radius:var(--radius);box-shadow:var(--shadow);overflow:hidden;cursor:pointer;transition:transform 0.18s,box-shadow 0.18s;border:1px solid transparent;}
-.card:hover{transform:translateY(-3px);box-shadow:var(--shadow-hover);border-color:var(--gray-light);}
-.card-img{height:140px;position:relative;overflow:hidden;}
-.card-img img{width:100%;height:100%;object-fit:cover;}
-.card-img .overlay{position:absolute;inset:0;background:rgba(27,58,92,0.75);display:none;align-items:center;justify-content:center;color:white;font-size:13px;font-weight:600;letter-spacing:0.5px;}
-.card:hover .overlay{display:flex;}
-.card-body{padding:14px;}
-.card-code-wrap{display:flex;align-items:center;justify-content:space-between;margin-bottom:8px;}
-.card-code{font-size:13px;font-weight:700;color:var(--navy);background:#EAF2FF;padding:3px 10px;border-radius:999px;}
-.card-type{font-size:15px;font-weight:600;color:var(--text);margin-bottom:7px;}
-.card-tags{display:flex;flex-wrap:wrap;gap:4px;margin-bottom:8px;}
-.tag{font-size:11px;padding:2px 8px;border-radius:999px;background:var(--gray-light);color:var(--gray);}
-.tag-nt{font-size:11px;padding:2px 8px;border-radius:999px;font-weight:500;}
-.tag-nt.nguyen{background:#F3F1EB;color:#5C5547;}
-.tag-nt.coban{background:#EAF2FF;color:#1B5FAA;}
-.tag-nt.daydu{background:#EAF5EA;color:#2A6B2A;}
-.card-date{font-size:12px;color:var(--gray);margin-bottom:10px;}
-.card-footer{display:flex;align-items:center;justify-content:space-between;padding-top:10px;border-top:1px solid var(--gray-light);}
-.card-price{font-size:17px;font-weight:700;color:var(--navy);}
-.card-price small{font-size:11px;font-weight:400;color:var(--gray);}
-.card-zalo{font-size:12px;background:#0068FF;color:white;padding:5px 12px;border-radius:999px;text-decoration:none;font-weight:500;}
-.empty{grid-column:1/-1;text-align:center;padding:48px 24px;color:var(--gray);}
-.empty-icon{font-size:48px;margin-bottom:12px;}
-.empty h3{font-size:16px;color:var(--navy);margin-bottom:6px;}
+:root {
+  --primary: #2563EB;
+  --primary-hover: #1D4ED8;
+  --accent: #F59E0B;
+  --bg: #F8FAFC;
+  --white: #FFFFFF;
+  --text-main: #0F172A;
+  --text-muted: #64748B;
+  --border: #E2E8F0;
+  --radius-lg: 18px;
+  --radius-md: 12px;
+  --radius-sm: 8px;
+  --shadow-sm: 0 1px 3px rgba(0,0,0,0.05), 0 1px 2px rgba(0,0,0,0.03);
+  --shadow-md: 0 4px 6px -1px rgba(0,0,0,0.05), 0 2px 4px -1px rgba(0,0,0,0.03);
+  --shadow-lg: 0 20px 25px -5px rgba(0,0,0,0.05), 0 10px 10px -5px rgba(0,0,0,0.03);
+  --transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+}
 
-/* Cửa sổ bật lên (Lightbox) hiển thị album ảnh trực tiếp */
-.lightbox{display:none;position:fixed;inset:0;background:rgba(0,0,0,0.65);z-index:200;align-items:center;justify-content:center;padding:16px;}
-.lightbox.show{display:flex;}
-.lb-box{background:var(--white);border-radius:var(--radius);padding:20px;max-width:550px;width:100%;text-align:center;position:relative;box-shadow:0 10px 30px rgba(0,0,0,0.3);}
-.lb-close-btn{position:absolute;top:12px;right:14px;font-size:22px;cursor:pointer;color:var(--gray);background:none;border:none;z-index:10;}
-.lb-drive-frame{width:100%;height:340px;margin-bottom:14px;border:1px solid var(--gray-light);border-radius:var(--radius-sm);overflow:hidden;background:#fafafa;}
-.lb-drive-frame iframe{width:100%;height:100%;border:none;}
-.lb-code{display:inline-block;font-size:13px;font-weight:700;color:var(--navy);background:#EAF2FF;padding:3px 12px;border-radius:999px;margin-bottom:6px;}
-.lb-title{font-size:17px;font-weight:700;color:var(--navy);margin-bottom:4px;}
-.lb-info{display:flex;justify-content:center;gap:6px;margin-bottom:10px;}
-.lb-tag{font-size:11px;padding:2px 8px;border-radius:999px;background:var(--gray-light);color:var(--gray);}
-.lb-price{font-size:20px;font-weight:700;color:var(--navy);margin-bottom:4px;}
-.lb-date{font-size:12px;color:var(--gray);margin-bottom:16px;}
-.lb-zalo{display:inline-flex;align-items:center;gap:8px;background:#0068FF;color:white;padding:10px 24px;border-radius:999px;font-size:14px;font-weight:600;text-decoration:none;}
+* { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Inter', sans-serif; -webkit-font-smoothing: antialiased; }
+body { background-color: var(--bg); color: var(--text-main); font-size: 14px; line-height: 1.5; overflow-x: hidden; }
 
-footer{background:var(--navy-dark);color:rgba(255,255,255,0.5);text-align:center;padding:20px;font-size:13px;margin-top:20px;}
-footer strong{color:var(--gold-light);}
+/* 2. HEADER & NAVBAR */
+header {
+  background: rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border-bottom: 1px solid var(--border);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  padding: 14px 24px;
+  transition: var(--transition);
+}
+.nav-container {
+  max-width: 1280px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+}
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  text-decoration: none;
+  cursor: pointer;
+}
+.brand-logo {
+  width: 36px;
+  height: 36px;
+  background: var(--primary);
+  border-radius: var(--radius-sm);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+}
+.brand-name {
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--text-main);
+  letter-spacing: -0.3px;
+}
+.brand-name span {
+  display: block;
+  font-size: 11px;
+  color: var(--text-muted);
+  font-weight: 400;
+}
+.search-bar-wrapper {
+  flex: 1;
+  max-width: 460px;
+  position: relative;
+}
+.search-bar-wrapper input {
+  width: 100%;
+  padding: 10px 16px 10px 40px;
+  border: 1px solid var(--border);
+  border-radius: 99px;
+  font-size: 13px;
+  background: var(--bg);
+  transition: var(--transition);
+  outline: none;
+}
+.search-bar-wrapper input:focus {
+  background: var(--white);
+  border-color: var(--primary);
+  box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.15);
+}
+.search-icon {
+  position: absolute;
+  left: 14px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: var(--text-muted);
+  pointer-events: none;
+}
+.nav-actions {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 10px 18px;
+  border-radius: 99px;
+  font-size: 13px;
+  font-weight: 600;
+  text-decoration: none;
+  transition: var(--transition);
+  cursor: pointer;
+  border: none;
+}
+.btn-outline {
+  background: var(--white);
+  border: 1px solid var(--border);
+  color: var(--text-main);
+}
+.btn-outline:hover {
+  background: var(--bg);
+  border-color: var(--text-main);
+}
+.btn-primary {
+  background: var(--primary);
+  color: var(--white);
+}
+.btn-primary:hover {
+  background: var(--primary-hover);
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(37, 99, 235, 0.2);
+}
 
-@media(max-width:700px){
-  .page-body{grid-template-columns:1fr;padding:0 12px 32px;}
-  .sidebar{margin-right:0;position:static;overflow:hidden;max-height:0;transition:max-height 0.3s ease,padding 0.3s ease;padding:0 18px;}
-  .sidebar.open{max-height:800px;padding:18px;margin-bottom:14px;}
-  .filter-toggle-btn{display:flex;}
-  .hero{height:280px;}
-  .hero h1{font-size:22px;}
-  .stats{gap:20px;}
-  .stat-num{font-size:22px;}
-  .grid{grid-template-columns:repeat(auto-fill,minmax(160px,1fr));gap:10px;}
-  .lb-drive-frame{height:280px;}
+/* 1. HERO SECTION */
+.hero {
+  position: relative;
+  height: 200px;
+  background: linear-gradient(135deg, #1e3a8a 0%, #0f172a 100%);
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+}
+.hero-blur-bg {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at 80% 20%, rgba(37, 99, 235, 0.25), transparent 40%),
+              radial-gradient(circle at 20% 80%, rgba(245, 158, 11, 0.15), transparent 50%);
+  filter: blur(20px);
+}
+.hero-container {
+  max-width: 1280px;
+  width: 100%;
+  margin: 0 auto;
+  padding: 0 24px;
+  position: relative;
+  z-index: 10;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.hero-text h1 {
+  color: var(--white);
+  font-size: 26px;
+  font-weight: 700;
+  letter-spacing: -0.5px;
+  margin-bottom: 6px;
+}
+.hero-text p {
+  color: rgba(255,255,255,0.7);
+  font-size: 14px;
+}
+.hero-stats {
+  display: flex;
+  gap: 24px;
+  background: rgba(255, 255, 255, 0.06);
+  padding: 16px 24px;
+  border-radius: var(--radius-md);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+.stat-box { text-align: center; }
+.stat-val { font-size: 22px; font-weight: 700; color: var(--white); display: block; }
+.stat-lbl { font-size: 11px; color: rgba(255,255,255,0.5); text-transform: uppercase; margin-top: 2px; }
+
+/* MAIN CONTENT LAYOUT */
+.main-layout {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 24px;
+}
+
+/* 3. FILTERS (CHIPS DESIGN) */
+.filter-section {
+  background: var(--white);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  padding: 20px;
+  margin-bottom: 24px;
+  box-shadow: var(--shadow-sm);
+}
+.filter-row {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+.filter-row:not(:last-child) {
+  margin-bottom: 16px;
+  padding-bottom: 16px;
+  border-bottom: 1px solid #F1F5F9;
+}
+.filter-label {
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+.chips-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+.chip {
+  background: var(--white);
+  border: 1px solid var(--border);
+  padding: 8px 16px;
+  border-radius: 99px;
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--text-main);
+  cursor: pointer;
+  transition: var(--transition);
+  user-select: none;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+.chip:hover {
+  border-color: var(--text-main);
+  background: var(--bg);
+}
+.chip.active {
+  background: var(--text-main);
+  border-color: var(--text-main);
+  color: var(--white);
+}
+.chip-count {
+  font-size: 11px;
+  opacity: 0.6;
+  background: rgba(0,0,0,0.05);
+  padding: 1px 6px;
+  border-radius: 99px;
+}
+.chip.active .chip-count {
+  background: rgba(255,255,255,0.2);
+  opacity: 1;
+}
+
+/* CONTENT HEADING */
+.content-meta {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 16px;
+}
+.counter-txt { font-size: 16px; font-weight: 600; color: var(--text-main); }
+.counter-txt span { font-weight: 400; color: var(--text-muted); font-size: 14px; }
+.sort-select {
+  padding: 8px 14px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  background: var(--white);
+  font-size: 13px;
+  outline: none;
+  cursor: pointer;
+}
+
+/* 4. APARTMENT CARD GRID */
+.grid-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 24px;
+}
+.room-card {
+  background: var(--white);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  box-shadow: var(--shadow-sm);
+  transition: var(--transition);
+  border: 1px solid var(--border);
+  display: flex;
+  flex-direction: column;
+  position: relative;
+}
+.room-card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-lg);
+  border-color: rgba(0,0,0,0.08);
+}
+.card-media {
+  position: relative;
+  height: 200px;
+  background: #E2E8F0;
+  overflow: hidden;
+}
+.card-media img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s ease;
+}
+.room-card:hover .card-media img {
+  transform: scale(1.05);
+}
+.card-badges {
+  position: absolute;
+  top: 12px;
+  left: 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  z-index: 5;
+}
+.badge {
+  padding: 4px 10px;
+  border-radius: 6px;
+  font-size: 11px;
+  font-weight: 600;
+  color: white;
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+.badge-now { background: #EF4444; }
+.badge-soon { background: var(--accent); }
+.card-img-placeholder {
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(135deg, #3B82F6 0%, #1D4ED8 100%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color: white;
+}
+.card-body {
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+.card-header-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 6px;
+}
+.card-tower {
+  font-size: 12px;
+  font-weight: 700;
+  color: var(--primary);
+  background: rgba(37, 99, 235, 0.08);
+  padding: 2px 8px;
+  border-radius: 4px;
+}
+.card-title {
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--text-main);
+  margin-bottom: 8px;
+  line-height: 1.3;
+}
+.card-specs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-bottom: 12px;
+}
+.spec-tag {
+  font-size: 11px;
+  padding: 3px 8px;
+  border-radius: 4px;
+  background: #F1F5F9;
+  color: var(--text-muted);
+  font-weight: 500;
+}
+.spec-tag.nt-nguyen { background: #FEF3C7; color: #92400E; }
+.spec-tag.nt-coban { background: #E0F2FE; color: #0369A1; }
+.spec-tag.nt-daydu { background: #DCFCE7; color: #166534; }
+
+.card-status-line {
+  font-size: 12px;
+  color: var(--text-muted);
+  margin-bottom: 16px;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+.card-footer-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: auto;
+  padding-top: 14px;
+  border-top: 1px solid #F1F5F9;
+}
+.card-price {
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--text-main);
+}
+.card-price span {
+  font-size: 12px;
+  font-weight: 400;
+  color: var(--text-muted);
+}
+.card-actions {
+  display: flex;
+  gap: 6px;
+}
+.btn-icon-only {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #E0F2FE;
+  color: #0284C7;
+  text-decoration: none;
+  transition: var(--transition);
+}
+.btn-icon-only:hover {
+  background: #0284C7;
+  color: white;
+}
+
+/* 5 & 6. AIRBNB DETAILED POPUP & GALLERY */
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+  z-index: 200;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+}
+.modal-overlay.show { display: flex; }
+.modal-window {
+  background: var(--white);
+  border-radius: var(--radius-lg);
+  width: 100%;
+  max-width: 680px;
+  max-height: 90vh;
+  overflow-y: auto;
+  position: relative;
+  box-shadow: var(--shadow-lg);
+  animation: modalWake 0.25s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+@keyframes modalWake {
+  from { transform: scale(0.95); opacity: 0; }
+  to { transform: scale(1); opacity: 1; }
+}
+.modal-close-btn {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background: var(--white);
+  border: 1px solid var(--border);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  z-index: 10;
+  box-shadow: var(--shadow-sm);
+  transition: var(--transition);
+}
+.modal-close-btn:hover { background: var(--bg); transform: rotate(90deg); }
+
+/* GALLERY CRITICAL LAYOUT */
+.gallery-section {
+  background: #0F172A;
+  position: relative;
+}
+.gallery-viewport {
+  height: 320px;
+  width: 100%;
+}
+.gallery-viewport iframe {
+  width: 100%;
+  height: 100%;
+  border: none;
+}
+.gallery-fallback {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  gap: 10px;
+}
+
+.modal-content-details { padding: 24px; }
+.modal-meta-top { display: flex; align-items: center; gap: 8px; margin-bottom: 8px; }
+.modal-title { font-size: 22px; font-weight: 700; color: var(--text-main); letter-spacing: -0.5px; }
+.modal-price-sticky {
+  background: #F8FAFC;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  padding: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin: 20px 0;
+}
+.details-section-title {
+  font-size: 14px;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  letter-spacing: 0.5px;
+  margin-bottom: 12px;
+  margin-top: 24px;
+  padding-bottom: 6px;
+  border-bottom: 1px solid var(--border);
+}
+.features-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 12px;
+}
+.feature-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 13.5px;
+  color: var(--text-main);
+}
+.feature-icon-wrapper {
+  color: var(--primary);
+  display: flex;
+  align-items: center;
+}
+
+/* UTILITIES */
+.empty-state {
+  grid-column: 1/-1;
+  text-align: center;
+  padding: 60px 20px;
+  background: var(--white);
+  border-radius: var(--radius-lg);
+  border: 1px dashed var(--border);
+}
+.empty-state-icon { color: var(--text-muted); margin-bottom: 12px; }
+
+/* 11. SKELETON LOADING */
+.skeleton-card {
+  background: var(--white);
+  border-radius: var(--radius-lg);
+  height: 360px;
+  overflow: hidden;
+  border: 1px solid var(--border);
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+.skeleton-img { height: 180px; background: #E2E8F0; border-radius: var(--radius-md); position: relative; overflow: hidden; }
+.skeleton-line { height: 16px; background: #E2E8F0; border-radius: 4px; position: relative; overflow: hidden; }
+.skeleton-line.short { width: 40%; }
+.skeleton-line.mid { width: 70%; }
+.skeleton-img::after, .skeleton-line::after {
+  content: ""; position: absolute; inset: 0;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.4), transparent);
+  transform: translateX(-100%); animation: loadingPulse 1.5s infinite;
+}
+@keyframes loadingPulse { 100% { transform: translateX(100%); } }
+
+/* FOOTER */
+footer {
+  background: #0F172A;
+  color: #94A3B8;
+  padding: 40px 24px;
+  text-align: center;
+  font-size: 13px;
+  margin-top: 48px;
+  border-top: 1px solid #1E293B;
+}
+footer strong { color: var(--white); }
+
+/* 7. MOBILE OPTIMIZATION & FLOATING */
+.floating-zalo {
+  position: fixed;
+  bottom: 24px;
+  right: 24px;
+  background: #0068FF;
+  color: white;
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 16px rgba(0,104,255,0.4);
+  z-index: 90;
+  transition: var(--transition);
+  text-decoration: none;
+}
+.floating-zalo:hover { transform: scale(1.08); }
+
+@media (max-width: 768px) {
+  header { padding: 12px 16px; }
+  .search-bar-wrapper { display: none; } /* Tối ưu không gian Mobile */
+  .hero { height: auto; padding: 32px 16px; }
+  .hero-container { flex-direction: column; gap: 20px; align-items: flex-start; }
+  .hero-stats { width: 100%; justify-content: space-between; }
+  .main-layout { padding: 16px; }
+  .grid-container { grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); gap: 16px; }
+  .modal-window { max-height: 100vh; border-radius: 0; position: fixed; inset: 0; }
+  .features-grid { grid-template-columns: 1fr; }
 }
 </style>
 </head>
 <body>
 
+<!-- FIXED HEADER NAVBAR -->
 <header>
-  <div class="logo">
-    <div class="logo-icon">🏢</div>
-    <div class="logo-text">Tìm Thuê Căn Hộ Smart City<span>Vinhomes Smart City — Hà Nội</span></div>
+  <div class="nav-container">
+    <a class="brand" onclick="resetAllFilters()">
+      <div class="brand-logo">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path><polyline points="9 22 9 12 15 12 15 22"></polyline></svg>
+      </div>
+      <div class="brand-name">SmartCity Housing<span>Premium Finder</span></div>
+    </a>
+    
+    <div class="search-bar-wrapper">
+      <div class="search-icon">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+      </div>
+      <input type="text" id="globalSearchInput" placeholder="Nhập tên tòa, diện tích để tìm nhanh..." oninput="triggerSearchFilter()">
+    </div>
+
+    <div class="nav-actions">
+      <a href="tel:0977923284" class="btn btn-outline">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
+        Hotline
+      </a>
+      <a href="https://zalo.me/0977923284" target="_blank" class="btn btn-primary">💬 Nhắn Zalo</a>
+    </div>
   </div>
-  <a href="https://zalo.me/0977923284" target="_blank" class="zalo-btn">💬 Zalo tư vấn</a>
 </header>
 
-<div class="hero">
-  <img class="hero-img" src="hero.jpg" alt="Vinhomes Smart City" onerror="this.style.display='none'">
-  <div class="hero-overlay"></div>
-  <div class="hero-content">
-    <div class="hero-tag">Cập nhật hằng ngày</div>
-    <h1>Căn hộ đang trống<br><em>sẵn sàng cho thuê ngay</em></h1>
-    <p>Thông tin thật · Ảnh thật · Giá thật — Không qua trung gian</p>
-    <div class="stats">
-      <div class="stat-item"><span class="stat-num" id="totalCount">--</span><span class="stat-label">Căn đang trống</span></div>
-      <div class="stat-item"><span class="stat-num" id="ngayCount">--</span><span class="stat-label">Vào ở ngay</span></div>
-      <div class="stat-item"><span class="stat-num" id="sapCount">--</span><span class="stat-label">Sắp trống</span></div>
+<!-- 1. COMPACT HERO BANNER -->
+<section class="hero">
+  <div class="hero-blur-bg"></div>
+  <div class="hero-container">
+    <div class="hero-text">
+      <h1>Căn hộ Vinhomes Smart City</h1>
+      <p>Nguồn dữ liệu xác thực thực tế. Cập nhật liên tục mỗi ngày.</p>
+    </div>
+    <div class="hero-stats">
+      <div class="stat-box"><span class="stat-val" id="statTotal">--</span><span class="stat-lbl">Tổng căn</span></div>
+      <div class="stat-box"><span class="stat-val" id="statReady">--</span><span class="stat-lbl">Ở ngay</span></div>
     </div>
   </div>
-</div>
+</section>
 
-<div class="page-body">
-  <div class="sidebar" id="sidebar">
-    <div class="sidebar-header">
-      <div class="sidebar-title-main">Bộ lọc</div>
-      <button class="reset-btn" onclick="resetAll()">Xóa tất cả</button>
-    </div>
-    <div class="filter-group">
-      <div class="filter-title">Loại căn hộ</div>
-      <div class="radio-item" data-group="type" onclick="selectRadio(this)"><div class="radio-dot"></div>Studio<span class="radio-badge">0</span></div>
-      <div class="radio-item" data-group="type" onclick="selectRadio(this)"><div class="radio-dot"></div>1 phòng ngủ<span class="radio-badge">0</span></div>
-      <div class="radio-item" data-group="type" onclick="selectRadio(this)"><div class="radio-dot"></div>1 phòng ngủ +<span class="radio-badge">0</span></div>
-      <div class="radio-item" data-group="type" onclick="selectRadio(this)"><div class="radio-dot"></div>2 phòng ngủ<span class="radio-badge">0</span></div>
-      <div class="radio-item" data-group="type" onclick="selectRadio(this)"><div class="radio-dot"></div>2 phòng ngủ +<span class="radio-badge">0</span></div>
-      <div class="radio-item" data-group="type" onclick="selectRadio(this)"><div class="radio-dot"></div>3 phòng ngủ<span class="radio-badge">0</span></div>
-    </div>
-    <div class="filter-group">
-      <div class="filter-title">Nội thất</div>
-      <div class="radio-item" data-group="furniture" onclick="selectRadio(this)"><div class="radio-dot"></div>Nguyên bản<span class="radio-badge">0</span></div>
-      <div class="radio-item" data-group="furniture" onclick="selectRadio(this)"><div class="radio-dot"></div>Cơ bản<span class="radio-badge">0</span></div>
-      <div class="radio-item" data-group="furniture" onclick="selectRadio(this)"><div class="radio-dot"></div>Đầy đủ<span class="radio-badge">0</span></div>
-    </div>
-    <div class="filter-group">
-      <div class="filter-title">Giá thuê (triệu/tháng)</div>
-      <div class="price-inputs">
-        <div class="price-row">Từ <input id="priceFrom" type="number" placeholder="0" min="0" oninput="applyFilters()"> triệu</div>
-        <div class="price-row">Đến <input id="priceTo" type="number" placeholder="∞" min="0" oninput="applyFilters()"> triệu</div>
+<main class="main-layout">
+  
+  <!-- 3. COMPONENT BỘ LỌC DẠNG FILTER CHIPS -->
+  <section class="filter-section">
+    <div class="filter-row">
+      <div class="filter-label">Cấu trúc phòng ngủ</div>
+      <div class="chips-container" id="typeChipsWrapper">
+        <!-- Chèn bằng Javascript ngầm để đếm badge -->
       </div>
     </div>
-    <button class="apply-btn" onclick="applyFilters()">Áp dụng bộ lọc</button>
-  </div>
-
-  <div class="content">
-    <button class="filter-toggle-btn" id="filterToggleBtn" onclick="toggleFilter()">⚙️ Bộ lọc <span class="filter-badge" id="filterBadge">0</span></button>
-    <div class="content-top">
-      <div class="result-count"><span id="resultCount">0</span> căn <span>phù hợp</span></div>
-      <div class="sort-wrap">Sắp xếp:
-        <select id="sortSel" onchange="applyFilters()">
-          <option value="price-asc">Giá tăng dần</option>
-          <option value="price-desc">Giá giảm dần</option>
-          <option value="area-asc">Diện tích nhỏ → lớn</option>
-          <option value="area-desc">Diện tích lớn → nhỏ</option>
-        </select>
+    
+    <div class="filter-row">
+      <div class="filter-label">Khoảng giá thuê tháng</div>
+      <div class="chips-container" id="priceChipsWrapper">
+        <div class="chip" data-price-range="all" onclick="selectPriceChip(this)">Tất cả mức giá</div>
+        <div class="chip" data-price-range="under8" onclick="selectPriceChip(this)">Dưới 8 triệu</div>
+        <div class="chip" data-price-range="8to10" onclick="selectPriceChip(this)">8 – 10 triệu</div>
+        <div class="chip" data-price-range="10to12" onclick="selectPriceChip(this)">10 – 12 triệu</div>
+        <div class="chip" data-price-range="12to15" onclick="selectPriceChip(this)">12 – 15 triệu</div>
+        <div class="chip" data-price-range="above15" onclick="selectPriceChip(this)">Trên 15 triệu</div>
       </div>
     </div>
-    <div class="active-tags" id="activeTags"></div>
-    <div class="grid" id="cardGrid"><div class="empty"><div class="empty-icon">⏳</div><h3>Đang tải dữ liệu...</h3></div></div>
+  </section>
+
+  <!-- LISTING INTERFACE METADATA -->
+  <div class="content-meta">
+    <div class="counter-txt"><span id="matchCounter">0</span> căn hộ <span>đang trống phù hợp</span></div>
+    <div>
+      <select class="sort-select" id="sortDropdown" onchange="executeFilteringAndSorting()">
+        <option value="price-asc">Giá: Thấp đến Cao</option>
+        <option value="price-desc">Giá: Cao đến Thấp</option>
+        <option value="area-desc">Diện tích: Lớn nhất</option>
+      </select>
+    </div>
+  </div>
+
+  <!-- CONTAINER HIỂN THỊ CHÍNH -->
+  <div class="grid-container" id="masterGrid">
+    <!-- Hiển thị cấu trúc Skeleton tạm thời khi load dữ liệu -->
+    <div class="skeleton-card"><div class="skeleton-img"></div><div class="skeleton-line mid"></div><div class="skeleton-line short"></div></div>
+    <div class="skeleton-card"><div class="skeleton-img"></div><div class="skeleton-line mid"></div><div class="skeleton-line short"></div></div>
+    <div class="skeleton-card"><div class="skeleton-img"></div><div class="skeleton-line mid"></div><div class="skeleton-line short"></div></div>
+  </div>
+</main>
+
+<!-- 5 & 6. AIRBNB MODAL DETAIL WINDOW & EMBEDDED DRIVE GALLERY -->
+<div class="modal-overlay" id="detailModalOverlay" onclick="handleOverlayOutsideClick(event)">
+  <div class="modal-window">
+    <button class="modal-close-btn" onclick="hideDetailPopup()">✕</button>
+    
+    <!-- GALLERY KHUNG ẢNH -->
+    <div class="gallery-section">
+      <div class="gallery-viewport" id="modalGalleryViewport">
+        <!-- Iframe hoặc hình vẽ placeholder sẽ được cấu hình động tại đây -->
+      </div>
+    </div>
+    
+    <!-- CHI TIẾT NỘI DUNG PHÂN TẦNG SẠCH SẼ -->
+    <div class="modal-content-details">
+      <div class="modal-meta-top">
+        <span class="card-tower" id="modalTowerLabel">--</span>
+      </div>
+      <h2 class="modal-title" id="modalMainTitle">--</h2>
+      
+      <div class="modal-price-sticky">
+        <div>
+          <div style="font-size: 13px; color: var(--text-muted);">Giá thuê niêm yết</div>
+          <div class="modal-price" id="modalPriceLabel" style="font-size: 22px; font-weight: 700; color: var(--primary);">--</div>
+        </div>
+        <a id="modalZaloDirectLink" href="#" target="_blank" class="btn btn-primary" style="padding: 12px 24px;">
+          💬 Chat Zalo nhận báo giá ngay
+        </a>
+      </div>
+
+      <div class="details-section-title">Thông số kỹ thuật căn hộ</div>
+      <div class="features-grid">
+        <div class="feature-item">
+          <div class="feature-icon-wrapper">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect><line x1="9" y1="3" x2="9" y2="21"></line></svg>
+          </div>
+          <div>Diện tích sử dụng: <strong id="modalAreaLabel">--</strong></div>
+        </div>
+        <div class="feature-item">
+          <div class="feature-icon-wrapper">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>
+          </div>
+          <div>Hiện trạng bàn giao: <strong id="modalFurnitureLabel">--</strong></div>
+        </div>
+        <div class="feature-item">
+          <div class="feature-icon-wrapper">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+          </div>
+          <div>Ngày bàn giao nhà: <strong id="modalAvailableLabel">--</strong></div>
+        </div>
+        <div class="feature-item">
+          <div class="feature-icon-wrapper">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>
+          </div>
+          <div>Môi trường: <strong>An ninh 24/7, Tiện ích Vinhomes</strong></div>
+        </div>
+      </div>
+
+      <div class="details-section-title">Vị trí & Bản đồ dự án</div>
+      <div style="font-size: 13px; color: var(--text-muted); line-height: 1.6;">
+        Căn hộ thuộc phân khu cao cấp tại đại đô thị thông minh <strong>Vinhomes Smart City</strong>, Tây Mỗ Đại Mỗ, Nam Từ Liêm, Hà Nội. Thừa hưởng trọn vẹn hệ thống tiện ích gồm biển hồ nhân tạo, vườn Nhật Zen Park và trung tâm thương mại Vincom Mega Mall.
+      </div>
+    </div>
   </div>
 </div>
 
-<!-- Khung Lightbox chứa Album Ảnh từ Google Drive -->
-<div class="lightbox" id="lightbox" onclick="closeLB(event)">
-  <div class="lb-box">
-    <button class="lb-close-btn" onclick="document.getElementById('lightbox').classList.remove('show')">✕</button>
-    <div class="lb-drive-frame" id="lbDriveFrame"></div>
-    <div class="lb-code" id="lbCode"></div>
-    <div class="lb-title" id="lbTitle"></div>
-    <div class="lb-info" id="lbInfo"></div>
-    <div class="lb-price" id="lbPrice"></div>
-    <div class="lb-date" id="lbDate"></div>
-    <a id="lbZalo" href="#" target="_blank" class="lb-zalo">💬 Nhắn Zalo hỏi thuê</a>
-  </div>
-</div>
+<!-- FLOATING ICON ZALO (UX OPTIMIZATION) -->
+<a href="https://zalo.me/0977923284" target="_blank" class="floating-zalo" title="Liên hệ tư vấn Zalo">
+  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path></svg>
+</a>
 
 <footer>
-  <strong>Tìm Thuê Căn Hộ Smart City</strong> · Vinhomes Smart City, Nam Từ Liêm, Hà Nội<br>
-  Zalo tư vấn: <strong>0977 923 284</strong> · Cập nhật hằng ngày
+  <strong>SmartCity Housing System</strong> · Hệ thống phân phối giỏ hàng cho thuê Vinhomes Smart City<br>
+  Đại diện tư vấn dự án hỗ trợ thủ tục hồ sơ: <strong>0977 923 284</strong>
 </footer>
 
 <script>
-var ZALO = "0977923284";
-var SHEET_ID = "1BBnB5PPLR3HZWHqsa5qvvtgWvFMiHNE2ZMIlUSXcKZk";
-var APARTMENTS = [];
-var FILTERED_LIST = [];
+var TARGET_ZALO_PHONE = "0977923284";
+var GOOGLE_SPREADSHEET_ID = "1BBnB5PPLR3HZWHqsa5qvvtgWvFMiHNE2ZMIlUSXcKZk";
+var MASTER_APARTMENTS_DATA = [];
+var ACTIVE_FILTERED_POOL = [];
 
-function parseDriveFolderId(url) {
-  if (!url) return "";
-  var folderMatch = url.match(/\/folders\/([a-zA-Z0-9_-]+)/);
-  if (folderMatch) return folderMatch[1];
-  var fileMatch = url.match(/\/file\/d\/([a-zA-Z0-9_-]+)/);
-  if (fileMatch) return fileMatch[1];
+var CURRENT_SELECTED_TYPE_CHIP = "all";
+var CURRENT_SELECTED_PRICE_CHIP = "all";
+
+// Hàm xử lý cắt ID Drive từ URL an toàn tuyệt đối
+function extractDriveIdentifier(link) {
+  if (!link) return "";
+  var folderRegex = /\/folders\/([a-zA-Z0-9_-]+)/;
+  var folderMatch = link.match(folderRegex);
+  if (folderMatch) return { id: folderMatch[1], isFolder: true };
+  
+  var fileRegex = /\/file\/d\/([a-zA-Z0-9_-]+)/;
+  var fileMatch = link.match(fileRegex);
+  if (fileMatch) return { id: fileMatch[1], isFolder: false };
   return "";
 }
 
-function chuanHoaLoai(s) {
-  if (!s) return "";
-  s = s.trim().toLowerCase();
-  if (s.indexOf("studio") >= 0) return "Studio";
-  if (s === "1 ngủ" || s === "1 ngu" || s.indexOf("1 phòng ngủ") === 0) return "1 phòng ngủ";
-  if (s === "1 ngủ +" || s === "1 ngu +" || s === "1 ngủ+" || s.indexOf("1 phòng ngủ +") >= 0) return "1 phòng ngủ +";
-  if (s === "2 ngủ" || s === "2 ngu" || s.indexOf("2 phòng ngủ") === 0) return "2 phòng ngủ";
-  if (s === "2 ngủ +" || s === "2 ngu +" || s === "2 ngủ+" || s.indexOf("2 phòng ngủ +") >= 0) return "2 phòng ngủ +";
-  if (s === "3 ngủ" || s === "3 ngu" || s.indexOf("3 phòng ngủ") === 0) return "3 phòng ngủ";
-  return s;
+function normalizeRoomType(text) {
+  if (!text) return "";
+  var s = text.trim().toLowerCase();
+  if (s.includes("studio")) return "Studio";
+  if (s === "1 ngủ" || s === "1 ngu" || s.startsWith("1 phòng ngủ")) return "1 phòng ngủ";
+  if (s === "1 ngủ +" || s === "1 ngu +" || s === "1 ngủ+" || s.includes("1 phòng ngủ +")) return "1 phòng ngủ +";
+  if (s === "2 ngủ" || s === "2 ngu" || s.startsWith("2 phòng ngủ")) return "2 phòng ngủ";
+  if (s === "2 ngủ +" || s === "2 ngu +" || s === "2 ngủ+" || s.includes("2 phòng ngủ +")) return "2 phòng ngủ +";
+  if (s === "3 ngủ" || s === "3 ngu" || s.startsWith("3 phòng ngủ")) return "3 phòng ngủ";
+  return text.trim();
 }
 
-function chuanHoaNoiThat(s) {
-  if (!s) return "Đầy đủ";
-  var l = s.toLowerCase().trim();
-  if (l.indexOf("nguyên") >= 0 || l.indexOf("nguyen") >= 0) return "Nguyên bản";
-  if (l.indexOf("cơ bản") >= 0 || l.indexOf("co ban") >= 0) return "Cơ bản";
+function normalizeFurnitureState(text) {
+  if (!text) return "Đầy đủ";
+  var l = text.toLowerCase().trim();
+  if (l.includes("nguyên")) return "Nguyên bản";
+  if (l.includes("cơ bản") || l.includes("co ban")) return "Cơ bản";
   return "Đầy đủ";
 }
 
-function chuanHoaNgay(s) {
-  if (!s) return "Có thể vào ở ngay";
-  var l = s.trim().toLowerCase();
+function normalizeDateInfo(text) {
+  if (!text) return "Có thể vào ở ngay";
+  var l = text.trim().toLowerCase();
   if (l === "luon" || l === "luôn" || l === "" || l === "ngay") return "Có thể vào ở ngay";
-  return s.trim();
+  return text.trim();
 }
 
-function fmtPrice(p) {
-  return (p / 1000000).toFixed(p % 1000000 === 0 ? 0 : 1) + " triệu";
+function formatCurrencyDisplay(num) {
+  return (num / 1000000).toFixed(num % 1000000 === 0 ? 0 : 1) + " triệu";
 }
 
-function ntClass(f) {
-  return f === "Nguyên bản" ? "nguyen" : f === "Cơ bản" ? "coban" : "daydu";
+function loadDatabaseFromGoogleSheet() {
+  var apiEndpointUrl = "https://docs.google.com/spreadsheets/d/" + GOOGLE_SPREADSHEET_ID + "/gviz/tq?tqx=responseHandler:processRawSheetJSON";
+  var scriptTag = document.createElement("script");
+  scriptTag.src = apiEndpointUrl;
+  document.head.appendChild(scriptTag);
 }
 
-function loadSheet() {
-  var script = document.createElement("script");
-  window._gvizCallback = function(data) {
-    try {
-      var cols = data.table.cols.map(function(c) { return c.label ? c.label.trim() : ""; });
-      var rows = data.table.rows;
-      APARTMENTS = [];
-      
-      for (var i = 0; i < rows.length; i++) {
-        var r = rows[i];
-        var get = function(name) {
-          var idx = cols.indexOf(name);
-          if (idx < 0) return "";
-          var cell = r.c[idx];
-          if (!cell) return "";
-          return (cell.v !== null && cell.v !== undefined) ? String(cell.v) : (cell.f || "");
-        };
-        
-        var status = get("Trạng thái").toLowerCase();
-        var tower = get("Tòa");
-        var type = chuanHoaLoai(get("Loại"));
-        if (!tower || !type) continue;
-        if (status.indexOf("còn") < 0 && status.indexOf("con") < 0) continue;
-        
-        var rawImgUrl = get("Ảnh");
-        var driveId = parseDriveFolderId(rawImgUrl);
-        var isFolder = rawImgUrl.indexOf("/folders/") >= 0;
+// Callback tiếp nhận và xử lý cấu trúc JSON trả về từ Google Visualization API
+window.processRawSheetJSON = function(rawJSONData) {
+  try {
+    var headers = rawJSONData.table.cols.map(function(col) { return col.label ? col.label.trim() : ""; });
+    var dataRows = rawJSONData.table.rows;
+    MASTER_APARTMENTS_DATA = [];
 
-        APARTMENTS.push({
-          tower: tower,
-          type: type,
-          area: get("Diện tích").replace("m2","").replace("m²","").trim(),
-          furniture: chuanHoaNoiThat(get("Nội thất")),
-          price: parseFloat(get("Giá thuê").replace(/[^0-9]/g,"")) || 0,
-          available: chuanHoaNgay(get("Ngày vào ở")),
-          driveId: driveId,
-          isFolder: isFolder
-        });
-      }
-      
-      updateBadges();
-      FILTERED_LIST = [...APARTMENTS];
-      renderCards(FILTERED_LIST);
+    for (var i = 0; i < dataRows.length; i++) {
+      var row = dataRows[i];
+      var getValueByHeader = function(headerName) {
+        var matchIndex = headers.indexOf(headerName);
+        if (matchIndex < 0) return "";
+        var cellObj = row.c[matchIndex];
+        if (!cellObj) return "";
+        return (cellObj.v !== null && cellObj.v !== undefined) ? String(cellObj.v) : (cellObj.f || "");
+      };
 
-      var ngay = 0, sap = 0;
-      for (var j = 0; j < APARTMENTS.length; j++) {
-        if (APARTMENTS[j].available === "Có thể vào ở ngay") ngay++;
-        else sap++;
-      }
-      document.getElementById("totalCount").textContent = APARTMENTS.length;
-      document.getElementById("ngayCount").textContent = ngay;
-      document.getElementById("sapCount").textContent = sap;
-    } catch(e) {
-      console.error(e);
-      document.getElementById("cardGrid").innerHTML = '<div class="empty"><div class="empty-icon">⚠️</div><h3>Lỗi đồng bộ cấu trúc dữ liệu</h3></div>';
+      var rawStatus = getValueByHeader("Trạng thái").toLowerCase();
+      var blockName = getValueByHeader("Tòa");
+      var roomType = normalizeRoomType(getValueByHeader("Loại"));
+
+      if (!blockName || !roomType) continue;
+      if (!rawStatus.includes("còn") && !rawStatus.includes("con")) continue;
+
+      var rawImgUrl = getValueByHeader("Ảnh");
+      var driveMeta = extractDriveIdentifier(rawImgUrl);
+
+      MASTER_APARTMENTS_DATA.push({
+        tower: blockName,
+        type: roomType,
+        area: getValueByHeader("Diện tích").replace("m2","").replace("m²","").trim(),
+        furniture: normalizeFurnitureState(getValueByHeader("Nội thất")),
+        price: parseFloat(getValueByHeader("Giá thuê").replace(/[^0-9]/g,"")) || 0,
+        available: normalizeDateInfo(getValueByHeader("Ngày vào ở")),
+        driveId: driveMeta ? driveMeta.id : "",
+        isFolder: driveMeta ? driveMeta.isFolder : false
+      });
     }
-  };
-  script.src = "https://docs.google.com/spreadsheets/d/" + SHEET_ID + "/gviz/tq?tqx=responseHandler:_gvizCallback";
-  document.head.appendChild(script);
+
+    renderFilterChipsSystem();
+    executeFilteringAndSorting();
+    calculateSystemDashboardStats();
+
+  } catch (err) {
+    console.error("Lỗi đồng bộ cấu trúc ứng dụng:", err);
+    document.getElementById("masterGrid").innerHTML = '<div class="empty-state"><h3>Đã xảy ra sự cố khi kết nối dữ liệu Sheet.</h3></div>';
+  }
+};
+
+function calculateSystemDashboardStats() {
+  var immediateInCount = 0;
+  for (var i = 0; i < MASTER_APARTMENTS_DATA.length; i++) {
+    if (MASTER_APARTMENTS_DATA[i].available === "Có thể vào ở ngay") {
+      immediateInCount++;
+    }
+  }
+  document.getElementById("statTotal").textContent = MASTER_APARTMENTS_DATA.length;
+  document.getElementById("statReady").textContent = immediateInCount;
 }
 
-function updateBadges() {
-  var types = ["Studio","1 phòng ngủ","1 phòng ngủ +","2 phòng ngủ","2 phòng ngủ +","3 phòng ngủ"];
-  var furs = ["Nguyên bản","Cơ bản","Đầy đủ"];
-  document.querySelectorAll('.radio-item[data-group="type"]').forEach(function(el, i) {
-    el.querySelector('.radio-badge').textContent = APARTMENTS.filter(function(a) { return a.type === types[i]; }).length;
-  });
-  document.querySelectorAll('.radio-item[data-group="furniture"]').forEach(function(el, i) {
-    el.querySelector('.radio-badge').textContent = APARTMENTS.filter(function(a) { return a.furniture === furs[i]; }).length;
-  });
+function renderFilterChipsSystem() {
+  var typesArr = ["Studio", "1 phòng ngủ", "1 phòng ngủ +", "2 phòng ngủ", "2 phòng ngủ +", "3 phòng ngủ"];
+  var container = document.getElementById("typeChipsWrapper");
+  
+  var htmlString = '<div class="chip active" data-type="all" onclick="selectTypeChip(this)">Tất cả phòng <span class="chip-count">' + MASTER_APARTMENTS_DATA.length + '</span></div>';
+  
+  for (var i = 0; i < typesArr.length; i++) {
+    var count = MASTER_APARTMENTS_DATA.filter(function(item) { return item.type === typesArr[i]; }).length;
+    htmlString += '<div class="chip" data-type="' + typesArr[i] + '" onclick="selectTypeChip(this)">' + typesArr[i] + ' <span class="chip-count">' + count + '</span></div>';
+  }
+  container.innerHTML = htmlString;
 }
 
-function renderCards(list) {
-  var grid = document.getElementById("cardGrid");
-  document.getElementById("resultCount").textContent = list.length;
-  if (!list.length) {
-    grid.innerHTML = '<div class="empty"><div class="empty-icon">🔍</div><h3>Không tìm thấy căn phù hợp</h3></div>';
+function selectTypeChip(element) {
+  var parent = document.getElementById("typeChipsWrapper");
+  var chips = parent.getElementsByClassName("chip");
+  for (var i = 0; i < chips.length; i++) { chips[i].classList.remove("active"); }
+  element.classList.add("active");
+  CURRENT_SELECTED_TYPE_CHIP = element.getAttribute("data-type");
+  executeFilteringAndSorting();
+}
+
+function selectPriceChip(element) {
+  var parent = document.getElementById("priceChipsWrapper");
+  var chips = parent.getElementsByClassName("chip");
+  for (var i = 0; i < chips.length; i++) { chips[i].classList.remove("active"); }
+  element.classList.add("active");
+  CURRENT_SELECTED_PRICE_CHIP = element.getAttribute("data-price-range");
+  executeFilteringAndSorting();
+}
+
+function triggerSearchFilter() {
+  executeFilteringAndSorting();
+}
+
+function executeFilteringAndSorting() {
+  var searchKeyword = document.getElementById("globalSearchInput").value.trim().toLowerCase();
+  
+  ACTIVE_FILTERED_POOL = MASTER_APARTMENTS_DATA.filter(function(room) {
+    // 1. Kiểm tra Type Chip
+    if (CURRENT_SELECTED_TYPE_CHIP !== "all" && room.type !== CURRENT_SELECTED_TYPE_CHIP) return false;
+    
+    // 2. Kiểm tra Price Chip
+    var numericalPriceInMillions = room.price / 1000000;
+    if (CURRENT_SELECTED_PRICE_CHIP === "under8" && numericalPriceInMillions >= 8) return false;
+    if (CURRENT_SELECTED_PRICE_CHIP === "8to10" && (numericalPriceInMillions < 8 || numericalPriceInMillions > 10)) return false;
+    if (CURRENT_SELECTED_PRICE_CHIP === "10to12" && (numericalPriceInMillions < 10 || numericalPriceInMillions > 12)) return false;
+    if (CURRENT_SELECTED_PRICE_CHIP === "12to15" && (numericalPriceInMillions < 12 || numericalPriceInMillions > 15)) return false;
+    if (CURRENT_SELECTED_PRICE_CHIP === "above15" && numericalPriceInMillions <= 15) return false;
+    
+    // 3. Kiểm tra Search Box Toàn cục
+    if (searchKeyword) {
+      var searchString = (room.tower + " " + room.type + " " + room.area + "m2 " + room.furniture).toLowerCase();
+      if (!searchString.includes(searchKeyword)) return false;
+    }
+    
+    return true;
+  });
+
+  // Áp dụng thuật toán sắp xếp
+  var currentSortRule = document.getElementById("sortDropdown").value;
+  if (currentSortRule === "price-asc") {
+    ACTIVE_FILTERED_POOL.sort(function(a, b) { return a.price - b.price; });
+  } else if (currentSortRule === "price-desc") {
+    ACTIVE_FILTERED_POOL.sort(function(a, b) { return b.price - a.price; });
+  } else if (currentSortRule === "area-desc") {
+    ACTIVE_FILTERED_POOL.sort(function(a, b) { return parseInt(b.area) - parseInt(a.area); });
+  }
+
+  document.getElementById("matchCounter").textContent = ACTIVE_FILTERED_POOL.length;
+  renderApartmentCardsGrid();
+}
+
+function renderApartmentCardsGrid() {
+  var container = document.getElementById("masterGrid");
+  if (ACTIVE_FILTERED_POOL.length === 0) {
+    container.innerHTML = '<div class="empty-state"><div class="empty-state-icon"><svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg></div><h3>Không tìm thấy căn hộ trùng khớp bộ lọc</h3><p style="color:var(--text-muted); font-size:13px; margin-top:4px;">Anh vui lòng đổi bộ lọc hoặc xóa bớt từ khóa tìm kiếm thử xem sao nhé.</p></div>';
     return;
   }
-  
-  grid.innerHTML = list.map(function(a, i) {
-    var isNgay = a.available === "Có thể vào ở ngay";
-    var dateHtml = isNgay ? '<span style="color:#2A6B2A;font-weight:500">✅ Vào ở ngay</span>' : '📅 ' + a.available;
+
+  var generatedHtml = ACTIVE_FILTERED_POOL.map(function(room, idx) {
+    var isAvailableNow = room.available === "Có thể vào ở ngay";
+    var badgeCode = isAvailableNow ? '<span class="badge badge-now">🔥 Vào ngay</span>' : '<span class="badge badge-soon">📅 ' + room.available + '</span>';
     
-    // Khung thiết kế ảnh đại diện dạng Modern Gradient sang trọng
-    var cardCoverTemplate = '<div style="width:100%; height:100%; background:linear-gradient(135deg, #1B3A5C, #2A5F8F); display:flex; flex-direction:column; align-items:center; justify-content:center; color:white; font-size:13px; font-weight:500; gap:6px;">'
-      + '<span style="font-size:32px;">🏢</span>'
-      + '<span style="color:#F0D98A; font-size:11px; letter-spacing:0.5px; text-transform:uppercase; font-weight:600;">Vinhomes Smart City</span>'
+    var decorationFurnitureClass = "nt-daydu";
+    if (room.furniture === "Nguyên bản") decorationFurnitureClass = "nt-nguyen";
+    if (room.furniture === "Cơ bản") decorationFurnitureClass = "nt-coban";
+
+    var modernGradientPlaceholder = '<div class="card-img-placeholder">'
+      + '<svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path></svg>'
+      + '<span style="font-size:11px; margin-top:8px; opacity:0.8; font-weight:600; letter-spacing:0.5px; text-transform:uppercase;">Vinhomes Premium</span>'
       + '</div>';
 
-    return '<div class="card" onclick="openLB(' + i + ')">'
-      + '<div class="card-img">'
-      + cardCoverTemplate + '<div class="overlay">🔍 Xem Album Chi Tiết</div></div>'
+    return '<div class="room-card" onclick="displayDetailPopup(' + idx + ')">'
+      + '<div class="card-media">'
+      + '<div class="card-badges">' + badgeCode + '</div>'
+      + modernGradientPlaceholder
+      + '</div>'
       + '<div class="card-body">'
-      + '<div class="card-code-wrap"><span class="card-code">' + a.tower + '</span></div>'
-      + '<div class="card-type">' + a.type + '</div>'
-      + '<div class="card-tags"><span class="tag">' + a.area + 'm²</span>'
-      + '<span class="tag-nt ' + ntClass(a.furniture) + '">' + a.furniture + '</span></div>'
-      + '<div class="card-date">' + dateHtml + '</div>'
-      + '<div class="card-footer">'
-      + '<div class="card-price">' + fmtPrice(a.price) + ' <small>/tháng</small></div>'
-      + '<a href="https://zalo.me/' + ZALO + '?text=H%E1%BB%8Fi%20thu%C3%AA%20c%C4%83n%20h%E1%BB%99%20t%C3%B2a%20' + encodeURIComponent(a.tower) + '" target="_blank" class="card-zalo" onclick="event.stopPropagation();">Zalo</a>'
-      + '</div></div></div>';
+      + '<div class="card-header-row">'
+      + '<span class="card-tower">' + room.tower + '</span>'
+      + '</div>'
+      + '<h3 class="card-title">' + room.type + ' Premium</h3>'
+      + '<div class="card-specs">'
+      + '<span class="spec-tag">' + room.area + ' m²</span>'
+      + '<span class="spec-tag ' + decorationFurnitureClass + '">' + room.furniture + '</span>'
+      + '</div>'
+      + '<div class="card-status-line">'
+      + '<svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>'
+      + (isAvailableNow ? 'Sẵn sàng dọn vào ở ngay' : 'Trống lịch xem từ ' + room.available)
+      + '</div>'
+      + '<div class="card-footer-row">'
+      + '<div class="card-price">' + formatCurrencyDisplay(room.price) + '<span>/tháng</span></div>'
+      + '<div class="card-actions">'
+      + '<a href="https://zalo.me/' + TARGET_ZALO_PHONE + '?text=Tôi%20muốn%20hỏi%20thuê%20căn%20hộ%20tại%20tòa%20' + encodeURIComponent(room.tower) + '" target="_blank" class="btn-icon-only" onclick="event.stopPropagation();">'
+      + '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path></svg>'
+      + '</a>'
+      + '</div>'
+      + '</div>'
+      + '</div>'
+      + '</div>';
   }).join("");
+
+  container.innerHTML = generatedHtml;
 }
 
-function getSelected(group) {
-  var el = document.querySelector('.radio-item[data-group="' + group + '"].active');
-  if (!el) return '';
-  var clone = el.cloneNode(true);
-  var badge = clone.querySelector('.radio-badge');
-  if (badge) badge.remove();
-  return clone.textContent.trim();
-}
+function displayDetailPopup(index) {
+  var room = ACTIVE_FILTERED_POOL[index];
+  if (!room) return;
 
-function applyFilters() {
-  var type = getSelected("type");
-  var furniture = getSelected("furniture");
-  var from = parseFloat(document.getElementById("priceFrom").value) || 0;
-  var to = parseFloat(document.getElementById("priceTo").value) || 999;
-  var sort = document.getElementById("sortSel").value;
+  document.getElementById("modalTowerLabel").textContent = "Vinhomes Smart City • Tòa " + room.tower;
+  document.getElementById("modalMainTitle").textContent = room.type + " diện tích " + room.area + "m²";
+  document.getElementById("modalPriceLabel").textContent = formatCurrencyDisplay(room.price);
+  document.getElementById("modalAreaLabel").textContent = room.area + " m²";
+  document.getElementById("modalFurnitureLabel").textContent = room.furniture;
+  document.getElementById("modalAvailableLabel").textContent = room.available;
   
-  FILTERED_LIST = APARTMENTS.filter(function(a) {
-    return (!type || a.type === type)
-      && (!furniture || a.furniture === furniture)
-      && (a.price/1000000 >= from && a.price/1000000 <= to);
-  });
-  
-  if (sort === "price-asc") FILTERED_LIST.sort(function(a,b){return a.price-b.price;});
-  else if (sort === "price-desc") FILTERED_LIST.sort(function(a,b){return b.price-a.price;});
-  else if (sort === "area-asc") FILTERED_LIST.sort(function(a,b){return parseInt(a.area)-parseInt(b.area);});
-  else if (sort === "area-desc") FILTERED_LIST.sort(function(a,b){return parseInt(b.area)-parseInt(a.area);});
-  
-  var tags = document.getElementById("activeTags");
-  tags.innerHTML = '';
-  [type, furniture].filter(Boolean).forEach(function(t) { tags.innerHTML += '<div class="atag">✓ ' + t + '</div>'; });
-  if (document.getElementById("priceFrom").value || document.getElementById("priceTo").value)
-    tags.innerHTML += '<div class="atag">✓ ' + from + '–' + (document.getElementById("priceTo").value||'∞') + ' triệu</div>';
-  
-  var badg = document.getElementById("filterBadge");
-  if (badg) badg.textContent = countActiveFilters();
-  renderCards(FILTERED_LIST);
-}
+  var chatMessageText = "Xin chào, tôi đang quan tâm đến căn hộ tòa " + room.tower + " (" + room.type + ", " + room.furniture + ", giá " + formatCurrencyDisplay(room.price) + "). Vui lòng gửi thông tin chi tiết.";
+  document.getElementById("modalZaloDirectLink").href = "https://zalo.me/" + TARGET_ZALO_PHONE + "?text=" + encodeURIComponent(chatMessageText);
 
-function selectRadio(el) {
-  var group = el.getAttribute("data-group");
-  var wasActive = el.classList.contains("active");
-  document.querySelectorAll('.radio-item[data-group="' + group + '"]').forEach(function(r){r.classList.remove("active");});
-  if (!wasActive) el.classList.add("active");
-  applyFilters();
-}
-
-function resetAll() {
-  document.querySelectorAll(".radio-item").forEach(function(r){r.classList.remove("active");});
-  document.getElementById("priceFrom").value = '';
-  document.getElementById("priceTo").value = '';
-  document.getElementById("activeTags").innerHTML = '';
-  applyFilters();
-}
-
-function openLB(idx) {
-  var a = FILTERED_LIST[idx];
-  if (!a) return;
-  
-  document.getElementById("lbCode").textContent = a.tower;
-  document.getElementById("lbTitle").textContent = a.type + ' · ' + a.area + 'm²';
-  document.getElementById("lbInfo").innerHTML = '<span class="lb-tag">' + a.area + 'm²</span><span class="lb-tag">' + a.furniture + '</span>';
-  document.getElementById("lbPrice").textContent = fmtPrice(a.price) + " / tháng";
-  document.getElementById("lbDate").textContent = a.available === "Có thể vào ở ngay" ? "✅ Có thể vào ở ngay" : "📅 Vào ở từ: " + a.available;
-  document.getElementById("lbZalo").href = "https://zalo.me/" + ZALO + "?text=H%E1%BB%8Fi%20thu%C3%AA%20c%C4%83n%20h%E1%BB%99%20t%C3%B2a%20" + encodeURIComponent(a.tower);
-  
-  var frameBox = document.getElementById("lbDriveFrame");
-  if (a.driveId) {
-    if (a.isFolder) {
-      // Nhúng toàn bộ Folder Drive hiển thị dạng Grid thu nhỏ cực đẹp
-      frameBox.innerHTML = '<iframe src="https://drive.google.com/embeddedfolderview?id=' + a.driveId + '#grid"></iframe>';
+  var targetViewport = document.getElementById("modalGalleryViewport");
+  if (room.driveId) {
+    if (room.isFolder) {
+      targetViewport.innerHTML = '<iframe src="https://drive.google.com/embeddedfolderview?id=' + room.driveId + '#grid"></iframe>';
     } else {
-      // Trường hợp dán link 1 file ảnh lẻ
-      frameBox.innerHTML = '<iframe src="https://drive.google.com/file/d/' + a.driveId + '/preview"></iframe>';
+      targetViewport.innerHTML = '<iframe src="https://drive.google.com/file/d/' + room.driveId + '/preview"></iframe>';
     }
   } else {
-    frameBox.innerHTML = '<div style="display:flex;align-items:center;justify-content:center;height:100%;font-size:50px;background:#EAF2FF;color:#1B3A5C;">🏢</div>';
+    targetViewport.innerHTML = '<div class="gallery-fallback"><svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path></svg><span>Đang kết nối Album ảnh Drive...</span></div>';
   }
+
+  document.getElementById("detailModalOverlay").classList.add("show");
+}
+
+function hideDetailPopup() {
+  document.getElementById("detailModalOverlay").classList.remove("show");
+  document.getElementById("modalGalleryViewport").innerHTML = ""; // Xóa iframe để giải phóng Ram trình duyệt
+}
+
+function handleOverlayOutsideClick(event) {
+  if (event.target === document.getElementById("detailModalOverlay")) {
+    hideDetailPopup();
+  }
+}
+
+function resetAllFilters() {
+  document.getElementById("globalSearchInput").value = "";
+  CURRENT_SELECTED_TYPE_CHIP = "all";
+  CURRENT_SELECTED_PRICE_CHIP = "all";
   
-  document.getElementById("lightbox").classList.add("show");
+  var typeWrapper = document.getElementById("typeChipsWrapper");
+  var typeChips = typeWrapper.getElementsByClassName("chip");
+  for (var i = 0; i < typeChips.length; i++) {
+    if (typeChips[i].getAttribute("data-type") === "all") typeChips[i].classList.add("active");
+    else typeChips[i].classList.remove("active");
+  }
+
+  var priceWrapper = document.getElementById("priceChipsWrapper");
+  var priceChips = priceWrapper.getElementsByClassName("chip");
+  for (var j = 0; j < priceChips.length; j++) {
+    if (priceChips[j].getAttribute("data-price-range") === "all") priceChips[j].classList.add("active");
+    else priceChips[j].classList.remove("active");
+  }
+
+  executeFilteringAndSorting();
 }
 
-function closeLB(e) {
-  if (e.target === document.getElementById("lightbox"))
-    document.getElementById("lightbox").classList.remove("show");
-}
-
-function toggleFilter() {
-  var s = document.getElementById("sidebar");
-  s.classList.toggle("open");
-  var isOpen = s.classList.contains("open");
-  document.getElementById("filterToggleBtn").innerHTML = isOpen ? "✕ Đóng bộ lọc" : "⚙️ Bộ lọc <span class='filter-badge'>" + countActiveFilters() + "</span>";
-}
-
-function countActiveFilters() {
-  var c = 0;
-  if (document.querySelector('.radio-item[data-group="type"].active')) c++;
-  if (document.querySelector('.radio-item[data-group="furniture"].active')) c++;
-  if (document.getElementById("priceFrom").value || document.getElementById("priceTo").value) c++;
-  return c;
-}
-
-loadSheet();
+// Khởi chạy hệ thống tự động
+loadDatabaseFromGoogleSheet();
 </script>
 </body>
 </html>
