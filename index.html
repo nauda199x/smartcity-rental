@@ -253,7 +253,6 @@ function ntClass(f) {
 }
 
 function loadSheet() {
-  var url = "https://docs.google.com/spreadsheets/d/" + SHEET_ID + "/gviz/tq?tqx=out:json";
   var script = document.createElement("script");
   window._gvizCallback = function(data) {
     try {
@@ -300,7 +299,7 @@ function loadSheet() {
       document.getElementById("cardGrid").innerHTML = '<div class="empty"><div class="empty-icon">⚠️</div><h3>Lỗi tải dữ liệu</h3></div>';
     }
   };
-  script.src = url + "&callback=_gvizCallback";
+  script.src = "https://docs.google.com/spreadsheets/d/" + SHEET_ID + "/gviz/tq?tqx=responseHandler:_gvizCallback";
   script.onerror = function() {
     document.getElementById("cardGrid").innerHTML = '<div class="empty"><div class="empty-icon">⚠️</div><h3>Không tải được dữ liệu</h3><p>Vui lòng thử lại</p></div>';
   };
