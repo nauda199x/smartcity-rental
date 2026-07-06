@@ -346,14 +346,36 @@ async function loadSheet() {
   }
 }
 
+const IMG_API = "https://script.google.com/macros/s/AKfycbwaE3JpGxg3iKdeUIqBIovl58vH7bzwmwsfsZMvqbmREj9ld4FBwMtMWRdSswiYaUWH/exec";
+
+function getFolderIdFromUrl(url) {
+  if(!url) return null;
+  // Link thư mục: /drive/folders/ID hoặc /folders/ID
+  const m = url.match(/folders\/([^\/?&]+)/);
+  return m ? m[1] : null;
+}
+
 function fixImgUrl(url) {
   if(!url) return "";
-  // Link file Drive: https://drive.google.com/file/d/ID/view
-  const driveMatch = url.match(/\/file\/d\/([^\/\?]+)/);
-  if(driveMatch) return `https://lh3.googleusercontent.com/d/${driveMatch[1]}`;
-  // Link thư mục Drive → bỏ qua
-  if(url.includes("drive.google.com/drive")) return "";
+  // Link file Drive
+  const fileMatch = url.match(/\/file\/d\/([^\/\?]+)/);
+  if(fileMatch) return `https://lh3.googleusercontent.com/d/${fileMatch[1]}`;
+  // Link thư mục → trả về url gốc để xử lý sau
+  if(url.includes("drive.google.com")) return url;
   return url;
+}
+
+async function getImagesFromFolder(folderUrl) {
+  const folderId = getFolderIdFromUrl(folderUrl);
+  if(!folderId) return [];
+  try {
+    const res = await fetch(`${IMG_API}?id=${folderId}`);
+    const data = await res.json();
+    return data.images || [];
+  } catch(e) {
+    console.error("IMG API error:", e);
+    return [];
+  }
 }
 
 function fmtPrice(p){ return (p/1000000).toFixed(p%1000000===0?0:1)+" triệu"; }
@@ -383,12 +405,16 @@ function renderCards(list){
   grid.innerHTML=list.map((a,i)=>{
     const bg=BG[i%BG.length];
     const em=a.emoji||EMOJI[i%EMOJI.length];
-    const imgHtml=a.img
-      ?`<img src="${a.img}" alt="${a.tower}" onerror="this.parentElement.innerHTML='${em}'">`
-      :em;
+    const isFolder = a.img && a.img.includes("drive.google.com/drive");
+    const imgHtml = isFolder
+      ? `<div class="img-loading">⏳</div>`
+      : (a.img
+          ? `<img src="${a.img}" alt="${a.tower}" onerror="this.style.display='none'">`
+          : em);
     const isNgay=a.available==="Có thể vào ở ngay";
-    return `<div class="card">
-      <div class="card-img" style="${a.img?'':'background:'+bg}" onclick='openLB(${JSON.stringify(a)})'>
+    const cardId = `card-${i}`;
+    return `<div class="card" id="${cardId}">
+      <div class="card-img" style="${(!a.img||isFolder)?'background:'+bg:''}" onclick='openLB(${JSON.stringify(a)})'>
         ${imgHtml}<div class="overlay">🔍 Xem ảnh</div>
       </div>
       <div class="card-body">
@@ -455,15 +481,8 @@ function resetAll(){
   renderCards(APARTMENTS);
 }
 
-function openLB(a){
+async function openLB(a){
   const lbImg=document.getElementById("lbImg");
-  if(a.img){
-    lbImg.innerHTML=`<img src="${a.img}" alt="${a.tower}" onerror="this.parentElement.innerHTML='🏢'">`;
-    lbImg.style.background='';
-  } else {
-    lbImg.innerHTML=a.emoji||'🏢';
-    lbImg.style.background=BG[APARTMENTS.findIndex(x=>x.tower===a.tower&&x.type===a.type)%BG.length]||'#E6F1FB';
-  }
   document.getElementById("lbCode").textContent=a.tower;
   document.getElementById("lbTitle").textContent=a.type+" · "+a.area+"m²";
   document.getElementById("lbTower").textContent="Vinhomes Smart City";
@@ -476,6 +495,42 @@ function openLB(a){
   document.getElementById("lbDate").textContent=isNgay?"✅ Có thể vào ở ngay":"📅 Vào ở từ: "+a.available;
   document.getElementById("lbZalo").href=`https://zalo.me/${ZALO}?text=Hỏi thuê căn hộ tòa ${a.tower} - ${a.type}`;
   document.getElementById("lightbox").classList.add("show");
+
+  // Load ảnh
+  const isFolder = a.img && a.img.includes("drive.google.com/drive");
+  if(isFolder) {
+    lbImg.innerHTML = `<div style="padding:20px;color:#6B7280;font-size:13px">⏳ Đang tải ảnh...</div>`;
+    lbImg.style.background = '#F4F6F9';
+    const imgs = await getImagesFromFolder(a.img);
+    if(imgs.length > 0) {
+      let idx = 0;
+      const showImg = (i) => {
+        lbImg.innerHTML = `
+          <img src="${imgs[i]}" style="width:100%;height:100%;object-fit:cover" onerror="this.src=''" alt="ảnh ${i+1}">
+          ${imgs.length > 1 ? `
+          <div style="position:absolute;bottom:8px;right:8px;display:flex;gap:4px">
+            ${imgs.map((_,j)=>`<div onclick="event.stopPropagation();showGallery(${j})" style="width:8px;height:8px;border-radius:50%;background:${j===i?'white':'rgba(255,255,255,0.5)';cursor:pointer"></div>`).join('')}
+          </div>
+          <button onclick="event.stopPropagation();showGallery(${(i-1+imgs.length)%imgs.length})" style="position:absolute;left:8px;top:50%;transform:translateY(-50%);background:rgba(0,0,0,0.4);color:white;border:none;border-radius:50%;width:28px;height:28px;cursor:pointer;font-size:14px">‹</button>
+          <button onclick="event.stopPropagation();showGallery(${(i+1)%imgs.length})" style="position:absolute;right:8px;top:50%;transform:translateY(-50%);background:rgba(0,0,0,0.4);color:white;border:none;border-radius:50%;width:28px;height:28px;cursor:pointer;font-size:14px">›</button>
+          ` : ''}
+        `;
+        lbImg.style.position='relative';
+        lbImg.style.background='#000';
+      };
+      window.showGallery = showImg;
+      showImg(0);
+    } else {
+      lbImg.innerHTML = '🏢';
+      lbImg.style.background = '#E6F1FB';
+    }
+  } else if(a.img) {
+    lbImg.innerHTML = `<img src="${a.img}" style="width:100%;height:100%;object-fit:cover" onerror="this.parentElement.innerHTML='🏢'" alt="${a.tower}">`;
+    lbImg.style.background = '';
+  } else {
+    lbImg.innerHTML = a.emoji||'🏢';
+    lbImg.style.background = BG[APARTMENTS.findIndex(x=>x.tower===a.tower&&x.type===a.type)%BG.length]||'#E6F1FB';
+  }
 }
 
 function closeLB(e){
