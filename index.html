@@ -137,12 +137,12 @@
     .hero {
       position: relative;
       background:
-        linear-gradient(110deg, rgba(8, 20, 55, .92), rgba(15, 35, 90, .74)),
-        radial-gradient(circle at 82% 20%, rgba(20, 184, 166, .22), transparent 34%);
+        linear-gradient(110deg, rgba(8, 20, 55, .82), rgba(15, 35, 90, .62)),
+        radial-gradient(circle at 82% 20%, rgba(20, 184, 166, .18), transparent 34%),
+        url("assets/hero-smartcity.jpg");
       background-size: cover;
-      background-position: center;
+      background-position: center 38%;
       color: #fff;
-      transition: background-image .6s ease;
     }
 
     .hero-inner {
@@ -1062,25 +1062,11 @@
       renderPagination(apartments.length);
     }
 
-    function setHeroPhoto(apartments) {
-      const withPhoto = apartments.filter(item => item.show && item.cover);
-      if (!withPhoto.length) return;
-      const featured = [...withPhoto].sort((a, b) => b.price - a.price)[0];
-      const hero = $(".hero");
-      const overlay = "linear-gradient(110deg, rgba(8, 20, 55, .92), rgba(15, 35, 90, .74)), radial-gradient(circle at 82% 20%, rgba(20, 184, 166, .22), transparent 34%)";
-      const img = new Image();
-      img.onload = () => {
-        hero.style.backgroundImage = `${overlay}, url("${featured.cover}")`;
-      };
-      img.src = featured.cover;
-    }
-
     async function init() {
       try {
         const rows = await loadData();
         state.apartments = rows.map(toApartment);
         render();
-        setHeroPhoto(state.apartments);
         if (!isConfiguredEndpoint() && CONFIG.allowUnsafeSheetPreview) {
           console.warn("Đang đọc trực tiếp Google Sheet. Để ẩn tuyệt đối cột nội bộ, hãy dùng Apps Script endpoint trong CONFIG.dataEndpoint.");
         }
