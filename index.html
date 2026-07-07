@@ -619,11 +619,11 @@
 
   <script>
     const CONFIG = {
-      dataEndpoint: "",
+      dataEndpoint: "https://script.google.com/macros/s/AKfycbzN_cT6JR-ulr9G-6Qfqu-psYFD51Ef49jRwAgShLRPrqU0fUONk-V0TDGQ21m-iOs2lA/exec",
       zaloPhone: "0977923284",
       fallbackSheetId: "1BBnB5PPLR3HZWHqsa5qvvtgWvFMiHNE2ZMIlUSXcKZk",
       fallbackGid: "0",
-      allowUnsafeSheetPreview: true
+      allowUnsafeSheetPreview: false
     };
 
     const state = {
@@ -687,8 +687,18 @@
       const text = normalizeText(url);
       if (!text) return "";
       const fileMatch = text.match(/\/file\/d\/([^/]+)/) || text.match(/[?&]id=([^&]+)/);
-      if (fileMatch) return `https://drive.google.com/uc?export=view&id=${fileMatch[1]}`;
+      if (fileMatch) return `https://drive.google.com/thumbnail?id=${fileMatch[1]}&sz=w1000`;
       return text;
+    }
+
+    function parseGvizDate(value) {
+      const raw = typeof value === "string" ? value : String(value ?? "");
+      const match = raw.match(/^Date\((\d+)\s*,\s*(\d+)\s*,\s*(\d+)/);
+      if (!match) return normalizeText(value);
+      const year = Number(match[1]);
+      const month = Number(match[2]) + 1; // gviz months are 0-indexed
+      const day = Number(match[3]);
+      return `${String(day).padStart(2, "0")}/${String(month).padStart(2, "0")}/${year}`;
     }
 
     function isConfiguredEndpoint() {
@@ -758,7 +768,7 @@
       const area = parseArea(row["Diện tích"]);
       const interior = normalizeText(row["Nội thất"]);
       const price = parseMoney(row["Giá thuê"]);
-      const availableDate = normalizeText(row["Ngày vào ở"] || row["Ngày trống"]);
+      const availableDate = parseGvizDate(row["Ngày vào ở"] || row["Ngày trống"]);
       const cover = driveUrlToViewUrl(row["Ảnh đại diện"]);
       const photos = splitLinks(row["Danh sách ảnh"]).map(driveUrlToViewUrl);
       const videos = splitLinks(row["Video"] || row["Danh sách video"]).map(driveUrlToViewUrl);
