@@ -1168,8 +1168,7 @@
           const target = Number(button.dataset.page);
           if (target === state.page) return;
           state.page = target;
-          renderCards(getFilteredApartments());
-          renderPagination(getFilteredApartments().length);
+          render();
           window.scrollTo({ top: $("#listingGrid").offsetTop - 90, behavior: "smooth" });
         });
       });
