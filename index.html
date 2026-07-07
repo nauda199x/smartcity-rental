@@ -684,6 +684,7 @@
     <div class="list-head">
       <div class="result-count" id="resultCount">Đang tải dữ liệu...</div>
       <select id="sortSelect" aria-label="Sắp xếp căn hộ">
+        <option value="random">Ngẫu nhiên</option>
         <option value="price-asc">Giá: Thấp đến Cao</option>
         <option value="price-desc">Giá: Cao đến Thấp</option>
         <option value="area-desc">Diện tích: Lớn nhất</option>
@@ -724,7 +725,7 @@
       type: "all",
       price: "all",
       query: "",
-      sort: "price-asc",
+      sort: "random",
       page: 1
     };
 
@@ -933,6 +934,27 @@
       return haystack.includes(state.query);
     }
 
+    /** Băm chuỗi thành 1 số ổn định (FNV-1a) - dùng để xáo trộn thứ tự nhưng vẫn tái lập được */
+    function bamChuoi(str) {
+      let hash = 2166136261;
+      for (let i = 0; i < str.length; i++) {
+        hash ^= str.charCodeAt(i);
+        hash = Math.imul(hash, 16777619);
+      }
+      return hash >>> 0;
+    }
+
+    /** Hạt giống đổi mỗi 4 tiếng - trong cùng khung 4 tiếng đó thứ tự giữ nguyên ổn định */
+    function hatGiongTheoKhungGio() {
+      const KHUNG_GIO_MS = 4 * 60 * 60 * 1000; // 4 tiếng
+      return Math.floor(Date.now() / KHUNG_GIO_MS);
+    }
+
+    function khoaSapXepNgauNhien(apartment) {
+      const phanRieng = apartment.apartmentId || `${apartment.tower}|${apartment.type}|${apartment.price}|${apartment.area}`;
+      return bamChuoi(hatGiongTheoKhungGio() + "|" + phanRieng);
+    }
+
     function getFilteredApartments() {
       return state.apartments
         .filter(apartment => apartment.show)
@@ -943,7 +965,8 @@
         .sort((a, b) => {
           if (state.sort === "price-desc") return b.price - a.price;
           if (state.sort === "area-desc") return b.area - a.area;
-          return a.price - b.price;
+          if (state.sort === "price-asc") return a.price - b.price;
+          return khoaSapXepNgauNhien(a) - khoaSapXepNgauNhien(b);
         });
     }
 
