@@ -336,6 +336,8 @@
 
     .tower {
       display: inline-flex;
+      align-items: center;
+      gap: 5px;
       margin-bottom: 10px;
       border-radius: 6px;
       padding: 4px 8px;
@@ -344,6 +346,8 @@
       font-size: 12px;
       font-weight: 800;
     }
+
+    .tower svg { flex-shrink: 0; }
 
     .card h3 {
       margin: 0 0 10px;
@@ -359,6 +363,9 @@
     }
 
     .tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
       border-radius: 6px;
       padding: 5px 8px;
       background: #f3f4f6;
@@ -366,6 +373,8 @@
       font-size: 12px;
       font-weight: 700;
     }
+
+    .tag svg { flex-shrink: 0; }
 
     .tag.furnished {
       background: #ede9fe;
@@ -966,11 +975,27 @@
         <article class="card">
           ${mediaMarkup(apartment, index)}
           <div class="body">
-            <span class="tower">${apartment.tower}</span>
+            <span class="tower">
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                <path d="M3 9.5 12 3l9 6.5V20a1 1 0 0 1-1 1h-5v-6H9v6H4a1 1 0 0 1-1-1V9.5Z" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/>
+              </svg>
+              ${apartment.tower}
+            </span>
             <h3>${apartment.type}</h3>
             <div class="meta">
-              <span class="tag">${apartment.area ? apartment.area + " m²" : "Đang cập nhật"}</span>
-              <span class="tag furnished">${apartment.interior || "Nội thất cập nhật"}</span>
+              <span class="tag">
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                  <path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+                ${apartment.area ? apartment.area + " m²" : "Đang cập nhật"}
+              </span>
+              <span class="tag furnished">
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                  <path d="M21 8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4a2 2 0 0 0 1-1.73V8Z" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/>
+                  <path d="M3.27 6.96 12 12.01l8.73-5.05M12 22.08V12" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/>
+                </svg>
+                ${apartment.interior || "Nội thất cập nhật"}
+              </span>
             </div>
             <div class="available">
               <svg width="15" height="15" viewBox="0 0 24 24" fill="none" aria-hidden="true">
@@ -979,8 +1004,18 @@
               ${availabilityText(apartment)}
             </div>
             <div class="card-foot">
-              <div class="price">${formatPrice(apartment.price)}<small>/tháng</small></div>
-              <a class="ask" href="${zaloLink(apartment)}" target="_blank" rel="noopener">Hỏi căn này</a>
+              <div class="price">
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" aria-hidden="true" style="vertical-align: -2px; margin-right: 3px;">
+                  <path d="M12 2v20M17 5.5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                </svg>
+                ${formatPrice(apartment.price)}<small>/tháng</small>
+              </div>
+              <a class="ask" href="${zaloLink(apartment)}" target="_blank" rel="noopener">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                  <path d="M21 11.5a8.4 8.4 0 0 1-8.5 8.3 9.5 9.5 0 0 1-3.5-.67L3 21l1.9-5.1a8 8 0 0 1-.9-3.7A8.4 8.4 0 0 1 12.5 4 8.4 8.4 0 0 1 21 11.5Z" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/>
+                </svg>
+                Hỏi căn này
+              </a>
             </div>
           </div>
         </article>
