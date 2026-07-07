@@ -135,19 +135,23 @@
     }
 
     .hero {
+      position: relative;
       background:
-        linear-gradient(110deg, rgba(12, 28, 73, .96), rgba(30, 64, 175, .82)),
-        radial-gradient(circle at 82% 20%, rgba(20, 184, 166, .25), transparent 34%);
+        linear-gradient(110deg, rgba(8, 20, 55, .92), rgba(15, 35, 90, .74)),
+        radial-gradient(circle at 82% 20%, rgba(20, 184, 166, .22), transparent 34%);
+      background-size: cover;
+      background-position: center;
       color: #fff;
+      transition: background-image .6s ease;
     }
 
     .hero-inner {
-      min-height: 210px;
+      min-height: 240px;
       display: grid;
       grid-template-columns: 1fr auto;
       align-items: center;
       gap: 28px;
-      padding: 40px 0;
+      padding: 48px 0;
     }
 
     h1 {
@@ -422,6 +426,48 @@
       text-align: center;
     }
 
+    .pagination {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      margin-top: 32px;
+    }
+
+    .page-btn {
+      min-width: 40px;
+      height: 40px;
+      padding: 0 12px;
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      background: #fff;
+      color: #1f2937;
+      font-weight: 700;
+      font-size: 14px;
+      cursor: pointer;
+    }
+
+    .page-btn:hover { border-color: #94a3b8; }
+
+    .page-btn.active {
+      border-color: #111827;
+      background: #111827;
+      color: #fff;
+    }
+
+    .page-btn:disabled {
+      opacity: .4;
+      cursor: not-allowed;
+    }
+
+    .page-ellipsis {
+      min-width: 24px;
+      text-align: center;
+      color: var(--muted);
+      font-weight: 700;
+    }
+
     .floating-zalo {
       position: fixed;
       right: 24px;
@@ -498,16 +544,20 @@
       object-fit: contain;
     }
 
+    @media (max-width: 1180px) {
+      .grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+    }
+
     @media (max-width: 980px) {
       .nav { grid-template-columns: 1fr auto; }
       .search { grid-column: 1 / -1; grid-row: 2; padding-bottom: 14px; }
-      .hero-inner { grid-template-columns: 1fr; }
+      .hero-inner { grid-template-columns: 1fr; padding: 36px 0; }
       .stats { width: min(360px, 100%); }
-      .grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+      .grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 18px; }
     }
 
     @media (max-width: 640px) {
-      .shell { width: min(100% - 28px, 1220px); }
+      .shell { width: min(100% - 24px, 1220px); }
       .nav {
         min-height: 84px;
         grid-template-columns: 1fr auto;
@@ -516,15 +566,25 @@
       .brand { gap: 9px; }
       .brand small { font-size: 11px; }
       .actions { gap: 8px; }
-      .pill-btn { width: 46px; padding: 0; }
+      .pill-btn { width: 46px; height: 44px; padding: 0; }
       .pill-btn span { display: none; }
-      .hero-inner { padding: 34px 0; }
-      .filters { padding: 18px; }
-      .chip { min-height: 38px; padding: 0 13px; }
-      .list-head { align-items: stretch; flex-direction: column; }
-      .grid { grid-template-columns: 1fr; gap: 18px; }
+      .hero-inner { padding: 28px 0; gap: 20px; }
+      h1 { font-size: clamp(26px, 7vw, 34px); }
+      .hero p { font-size: 14px; line-height: 1.55; }
+      .stat { padding: 18px 16px; }
+      .stat strong { font-size: 22px; }
+      .filters { padding: 16px; margin-top: 18px; }
+      .filter-group + .filter-group { margin-top: 16px; padding-top: 16px; }
+      .chip { min-height: 42px; padding: 0 14px; font-size: 14px; }
+      .list-head { align-items: stretch; flex-direction: column; gap: 10px; }
+      #sortSelect { height: 44px; }
+      .grid { grid-template-columns: 1fr; gap: 16px; }
+      .card-foot { flex-wrap: wrap; }
+      .ask { flex: 1; height: 44px; }
       .gallery { grid-template-columns: 1fr; }
-      .floating-zalo { right: 18px; bottom: 18px; }
+      .floating-zalo { right: 16px; bottom: 16px; width: 54px; height: 54px; }
+      .pagination { gap: 6px; margin-top: 24px; }
+      .page-btn { min-width: 42px; height: 42px; }
     }
   </style>
 </head>
@@ -599,6 +659,7 @@
     </div>
 
     <section class="grid" id="listingGrid" aria-live="polite"></section>
+    <nav class="pagination" id="pagination" aria-label="Phân trang danh sách căn hộ"></nav>
   </main>
 
   <a class="floating-zalo" href="https://zalo.me/0977923284" target="_blank" rel="noopener" aria-label="Chat Zalo">
@@ -631,8 +692,11 @@
       type: "all",
       price: "all",
       query: "",
-      sort: "price-asc"
+      sort: "price-asc",
+      page: 1
     };
+
+    const PAGE_SIZE = 12;
 
     const typeFilters = [
       { key: "all", label: "Tất cả phòng" },
@@ -860,6 +924,7 @@
       $("#typeFilters").querySelectorAll("button").forEach(button => {
         button.addEventListener("click", () => {
           state.type = button.dataset.type;
+          state.page = 1;
           render();
         });
       });
@@ -867,6 +932,7 @@
       $("#priceFilters").querySelectorAll("button").forEach(button => {
         button.addEventListener("click", () => {
           state.price = button.dataset.price;
+          state.page = 1;
           render();
         });
       });
@@ -946,12 +1012,67 @@
       $("#readyCount").textContent = ready;
     }
 
+    function renderPagination(totalItems) {
+      const container = $("#pagination");
+      const totalPages = Math.max(1, Math.ceil(totalItems / PAGE_SIZE));
+
+      if (state.page > totalPages) state.page = totalPages;
+      if (totalPages <= 1) {
+        container.innerHTML = "";
+        return;
+      }
+
+      const current = state.page;
+      const pages = new Set([1, totalPages, current, current - 1, current + 1]);
+      const sorted = [...pages].filter(p => p >= 1 && p <= totalPages).sort((a, b) => a - b);
+
+      let html = `<button class="page-btn" type="button" data-page="${current - 1}" ${current === 1 ? "disabled" : ""} aria-label="Trang trước">‹</button>`;
+
+      let previous = 0;
+      sorted.forEach(page => {
+        if (previous && page - previous > 1) {
+          html += `<span class="page-ellipsis">…</span>`;
+        }
+        html += `<button class="page-btn ${page === current ? "active" : ""}" type="button" data-page="${page}">${page}</button>`;
+        previous = page;
+      });
+
+      html += `<button class="page-btn" type="button" data-page="${current + 1}" ${current === totalPages ? "disabled" : ""} aria-label="Trang sau">›</button>`;
+
+      container.innerHTML = html;
+      container.querySelectorAll("[data-page]").forEach(button => {
+        button.addEventListener("click", () => {
+          const target = Number(button.dataset.page);
+          if (target === state.page) return;
+          state.page = target;
+          renderCards(getFilteredApartments());
+          renderPagination(getFilteredApartments().length);
+          window.scrollTo({ top: $("#listingGrid").offsetTop - 90, behavior: "smooth" });
+        });
+      });
+    }
+
     function render() {
       renderStats();
       renderFilters();
       const apartments = getFilteredApartments();
       $("#resultCount").innerHTML = `<strong>${apartments.length}</strong> căn hộ đang trống phù hợp`;
-      renderCards(apartments);
+      const start = (state.page - 1) * PAGE_SIZE;
+      renderCards(apartments.slice(start, start + PAGE_SIZE));
+      renderPagination(apartments.length);
+    }
+
+    function setHeroPhoto(apartments) {
+      const withPhoto = apartments.filter(item => item.show && item.cover);
+      if (!withPhoto.length) return;
+      const featured = [...withPhoto].sort((a, b) => b.price - a.price)[0];
+      const hero = $(".hero");
+      const overlay = "linear-gradient(110deg, rgba(8, 20, 55, .92), rgba(15, 35, 90, .74)), radial-gradient(circle at 82% 20%, rgba(20, 184, 166, .22), transparent 34%)";
+      const img = new Image();
+      img.onload = () => {
+        hero.style.backgroundImage = `${overlay}, url("${featured.cover}")`;
+      };
+      img.src = featured.cover;
     }
 
     async function init() {
@@ -959,6 +1080,7 @@
         const rows = await loadData();
         state.apartments = rows.map(toApartment);
         render();
+        setHeroPhoto(state.apartments);
         if (!isConfiguredEndpoint() && CONFIG.allowUnsafeSheetPreview) {
           console.warn("Đang đọc trực tiếp Google Sheet. Để ẩn tuyệt đối cột nội bộ, hãy dùng Apps Script endpoint trong CONFIG.dataEndpoint.");
         }
@@ -971,11 +1093,13 @@
 
     $("#searchInput").addEventListener("input", event => {
       state.query = event.target.value.trim().toLowerCase();
+      state.page = 1;
       render();
     });
 
     $("#sortSelect").addEventListener("change", event => {
       state.sort = event.target.value;
+      state.page = 1;
       render();
     });
 
