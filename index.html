@@ -679,6 +679,10 @@
         <div class="filter-label">Khoảng giá thuê tháng</div>
         <div class="chips" id="priceFilters"></div>
       </div>
+      <div class="filter-group">
+        <div class="filter-label">Nội thất</div>
+        <div class="chips" id="interiorFilters"></div>
+      </div>
     </section>
 
     <div class="list-head">
@@ -724,6 +728,7 @@
       apartments: [],
       type: "all",
       price: "all",
+      interior: "all",
       query: "",
       sort: "random",
       page: 1
@@ -748,6 +753,13 @@
       { key: "10to12", label: "10 - 12 triệu", test: price => price > 10000000 && price <= 12000000 },
       { key: "12to15", label: "12 - 15 triệu", test: price => price > 12000000 && price <= 15000000 },
       { key: "over15", label: "Trên 15 triệu", test: price => price > 15000000 }
+    ];
+
+    const interiorFilters = [
+      { key: "all", label: "Tất cả" },
+      { key: "full nội thất", label: "Full nội thất" },
+      { key: "nhà nguyên bản", label: "Nhà Nguyên Bản" },
+      { key: "đồ cơ bản", label: "Đồ Cơ bản" }
     ];
 
     const $ = selector => document.querySelector(selector);
@@ -921,6 +933,11 @@
       return filter ? filter.test(apartment.price) : true;
     }
 
+    function apartmentMatchesInterior(apartment) {
+      if (state.interior === "all") return true;
+      return normalizeKey(apartment.interior) === state.interior;
+    }
+
     function apartmentMatchesQuery(apartment) {
       if (!state.query) return true;
       const haystack = [
@@ -961,6 +978,7 @@
         .filter(apartment => apartment.tower && apartment.type && apartment.price)
         .filter(apartmentMatchesType)
         .filter(apartmentMatchesPrice)
+        .filter(apartmentMatchesInterior)
         .filter(apartmentMatchesQuery)
         .sort((a, b) => {
           if (state.sort === "price-desc") return b.price - a.price;
@@ -984,6 +1002,13 @@
         return `<button class="chip ${state.price === filter.key ? "active" : ""}" data-price="${filter.key}" type="button">${filter.label}</button>`;
       }).join("");
 
+      $("#interiorFilters").innerHTML = interiorFilters.map(filter => {
+        const count = filter.key === "all"
+          ? publicApartments.length
+          : publicApartments.filter(apartment => normalizeKey(apartment.interior) === filter.key).length;
+        return `<button class="chip ${state.interior === filter.key ? "active" : ""}" data-interior="${filter.key}" type="button">${filter.label} <small>${count}</small></button>`;
+      }).join("");
+
       $("#typeFilters").querySelectorAll("button").forEach(button => {
         button.addEventListener("click", () => {
           state.type = button.dataset.type;
@@ -995,6 +1020,14 @@
       $("#priceFilters").querySelectorAll("button").forEach(button => {
         button.addEventListener("click", () => {
           state.price = button.dataset.price;
+          state.page = 1;
+          render();
+        });
+      });
+
+      $("#interiorFilters").querySelectorAll("button").forEach(button => {
+        button.addEventListener("click", () => {
+          state.interior = button.dataset.interior;
           state.page = 1;
           render();
         });
