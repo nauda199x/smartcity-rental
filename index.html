@@ -349,6 +349,20 @@
 
     .tower svg { flex-shrink: 0; }
 
+    .apt-id {
+      display: inline-flex;
+      align-items: center;
+      margin-bottom: 10px;
+      margin-left: 6px;
+      border-radius: 6px;
+      padding: 4px 8px;
+      background: #f3f4f6;
+      color: #6b7280;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: .02em;
+    }
+
     .card h3 {
       margin: 0 0 10px;
       font-size: 18px;
@@ -834,6 +848,7 @@
     }
 
     function toApartment(row) {
+      const apartmentId = normalizeText(row["Mã nội bộ"]);
       const visible = normalizeKey(row["Hiển thị trên Web"] || row["Hiển thị trên web"] || row["Hiển thị"]);
       const status = normalizeText(row["Trạng thái căn"] || row["Trạng thái"]);
       const tower = normalizeText(row["Tòa"]);
@@ -847,6 +862,7 @@
       const videos = splitLinks(row["Video"] || row["Danh sách video"]).map(driveUrlToViewUrl);
 
       return {
+        apartmentId,
         tower,
         type,
         area,
@@ -875,7 +891,8 @@
     }
 
     function zaloLink(apartment) {
-      const text = `Tôi muốn hỏi thuê căn hộ ${apartment.type} tòa ${apartment.tower}, diện tích ${apartment.area || ""}m2, giá ${formatPrice(apartment.price)}/tháng`;
+      const idPart = apartment.apartmentId ? `Mã căn ${apartment.apartmentId} - ` : "";
+      const text = `${idPart}Tôi muốn hỏi thuê căn hộ ${apartment.type} tòa ${apartment.tower}, diện tích ${apartment.area || ""}m2, giá ${formatPrice(apartment.price)}/tháng`;
       return `https://zalo.me/${CONFIG.zaloPhone}?text=${encodeURIComponent(text)}`;
     }
 
@@ -981,6 +998,7 @@
               </svg>
               ${apartment.tower}
             </span>
+            ${apartment.apartmentId ? `<span class="apt-id">Mã ${apartment.apartmentId}</span>` : ""}
             <h3>${apartment.type}</h3>
             <div class="meta">
               <span class="tag">
