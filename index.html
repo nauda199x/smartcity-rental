@@ -333,15 +333,24 @@
     }
 
     .media.empty {
-      display: grid;
-      place-items: center;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
       background:
-        linear-gradient(135deg, #1d4ed8, #2563eb 58%, #0f766e);
-      color: #fff;
+        repeating-linear-gradient(135deg, #f4f4f4 0px, #f4f4f4 14px, #ececec 14px, #ececec 28px);
+      color: #9aa3b0;
       text-align: center;
-      font-weight: 800;
-      letter-spacing: .04em;
-      font-size: 12px;
+    }
+
+    .media.empty svg { color: #bcc4cf; }
+
+    .media.empty span:last-child {
+      font-weight: 700;
+      font-size: 12.5px;
+      letter-spacing: .01em;
+      color: #98a2b3;
     }
 
     .badge {
@@ -358,6 +367,19 @@
 
     .badge.date {
       background: rgba(245, 158, 11, .95);
+    }
+
+    .badge-moi {
+      position: absolute;
+      right: 14px;
+      top: 14px;
+      border-radius: 999px;
+      padding: 7px 11px;
+      background: rgba(217, 70, 239, .95);
+      color: #fff;
+      font-size: 12px;
+      font-weight: 800;
+      letter-spacing: .02em;
     }
 
     .body {
@@ -380,9 +402,9 @@
     .tower svg { flex-shrink: 0; }
 
     .apt-id {
-      color: var(--muted);
-      font-weight: 700;
-      font-size: 15px;
+      color: #a3acba;
+      font-weight: 600;
+      font-size: 14px;
     }
 
     .card h3 {
@@ -413,8 +435,13 @@
     .tag svg { flex-shrink: 0; }
 
     .tag.furnished {
-      background: #ede9fe;
-      color: #6d28d9;
+      background: #ecfdf5;
+      color: #047857;
+    }
+
+    .tag.basic {
+      background: #f1f5f9;
+      color: #475569;
     }
 
     .available {
@@ -440,12 +467,16 @@
     .price {
       font-size: 20px;
       font-weight: 900;
+      color: #c2410c;
+      white-space: nowrap;
+      flex-shrink: 0;
     }
 
     .price small {
       color: var(--muted);
       font-size: 12px;
       font-weight: 600;
+      white-space: nowrap;
     }
 
     .ask {
@@ -853,7 +884,7 @@
         <option value="random">Ngẫu nhiên</option>
         <option value="price-asc">Giá: Thấp đến Cao</option>
         <option value="price-desc">Giá: Cao đến Thấp</option>
-        <option value="area-desc">Diện tích: Lớn nhất</option>
+        <option value="newest">Mới cập nhật</option>
       </select>
     </div>
 
@@ -1103,6 +1134,20 @@
       const photos = splitLinks(row["Danh sách ảnh"]).map(driveUrlToViewUrl);
       const videos = splitLinks(row["Video"] || row["Danh sách video"]).map(driveUrlToViewUrl);
 
+      const ngayThemRaw = normalizeText(row["Ngày thêm vào hệ thống"]);
+      let addedAt = NaN;
+      if (ngayThemRaw) {
+        if (/^\d{4}-\d{2}-\d{2}/.test(ngayThemRaw)) {
+          addedAt = Date.parse(ngayThemRaw);
+        } else {
+          const khopNgay = ngayThemRaw.match(/^(\d{2})\/(\d{2})\/(\d{4})/);
+          if (khopNgay) {
+            addedAt = new Date(Number(khopNgay[3]), Number(khopNgay[2]) - 1, Number(khopNgay[1])).getTime();
+          }
+        }
+      }
+      const isNew = !isNaN(addedAt) && (Date.now() - addedAt) < 48 * 60 * 60 * 1000;
+
       return {
         apartmentId,
         tower,
@@ -1112,6 +1157,8 @@
         price,
         availableDate,
         status,
+        addedAt: isNaN(addedAt) ? 0 : addedAt,
+        isNew,
         show: visible === "có" || visible === "co" || visible === "yes" || visible === "true",
         cover: cover || photos[0] || "",
         photos,
@@ -1202,7 +1249,7 @@
         .filter(apartmentMatchesQuery)
         .sort((a, b) => {
           if (state.sort === "price-desc") return b.price - a.price;
-          if (state.sort === "area-desc") return b.area - a.area;
+          if (state.sort === "newest") return b.addedAt - a.addedAt;
           if (state.sort === "price-asc") return a.price - b.price;
           return khoaSapXepNgauNhien(a) - khoaSapXepNgauNhien(b);
         });
@@ -1254,17 +1301,29 @@
       });
     }
 
+    function noiThatClass(interior) {
+      const key = normalizeKey(interior);
+      if (key.includes("full")) return "furnished";
+      return "basic";
+    }
+
     function mediaMarkup(apartment, index) {
       const badgeClass = availabilityText(apartment).includes("ngay") ? "" : "date";
       const badgeText = availabilityText(apartment).includes("ngay") ? "Vào ngay" : apartment.availableDate;
+      const badgeMoi = apartment.isNew ? `<span class="badge-moi">Mới</span>` : "";
       if (!apartment.cover) {
         return `<button class="media empty" type="button" data-gallery="${index}">
           <span class="badge ${badgeClass}">${badgeText}</span>
-          <span>VINHOMES SMART CITY</span>
+          ${badgeMoi}
+          <svg width="42" height="42" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+            <path d="M3 9.5 12 3l9 6.5V20a1 1 0 0 1-1 1h-5v-6H9v6H4a1 1 0 0 1-1-1V9.5Z" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/>
+          </svg>
+          <span>Hình ảnh đang được cập nhật</span>
         </button>`;
       }
       return `<button class="media" type="button" data-gallery="${index}" aria-label="Xem ảnh căn hộ ${apartment.tower}">
         <span class="badge ${badgeClass}">${badgeText}</span>
+        ${badgeMoi}
         <img src="${apartment.cover}" alt="Căn hộ ${apartment.type} tòa ${apartment.tower}" loading="lazy" onerror="this.closest('.media').classList.add('empty'); this.remove();">
       </button>`;
     }
@@ -1296,7 +1355,7 @@
                 </svg>
                 ${apartment.area ? apartment.area + " m²" : "Đang cập nhật"}
               </span>
-              <span class="tag furnished">
+              <span class="tag ${noiThatClass(apartment.interior)}">
                 <svg width="12" height="12" viewBox="0 0 24 24" fill="none" aria-hidden="true">
                   <path d="M21 8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4a2 2 0 0 0 1-1.73V8Z" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/>
                   <path d="M3.27 6.96 12 12.01l8.73-5.05M12 22.08V12" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/>
