@@ -1172,10 +1172,21 @@
       return `${(price / 1000000).toFixed(1).replace(".", ",")} triệu`;
     }
 
+    /** So sánh theo NGÀY (bỏ qua giờ) - ngày hôm nay không tính là "đã qua" */
+    function laNgayDaQua(dateStr) {
+      const khop = String(dateStr).match(/^(\d{2})\/(\d{2})\/(\d{4})/);
+      if (!khop) return false;
+      const ngay = new Date(Number(khop[3]), Number(khop[2]) - 1, Number(khop[1]));
+      const homNay = new Date();
+      homNay.setHours(0, 0, 0, 0);
+      return ngay.getTime() < homNay.getTime();
+    }
+
     function availabilityText(apartment) {
       const date = normalizeText(apartment.availableDate);
       if (!date) return "Sẵn sàng dọn vào ở ngay";
       if (["luôn", "ở ngay", "o ngay", "ngay"].includes(normalizeKey(date))) return "Sẵn sàng dọn vào ở ngay";
+      if (laNgayDaQua(date)) return "Sẵn sàng dọn vào ở ngay";
       return `Trống lịch xem từ ${date}`;
     }
 
