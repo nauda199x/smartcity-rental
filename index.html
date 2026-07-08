@@ -755,6 +755,7 @@
 
   <script>
     const CONFIG = {
+      staticDataUrl: "data.json",
       dataEndpoint: "https://script.google.com/macros/s/AKfycbxY1yHLAt99PJM30gSUfDaWM9xGhNpNJ6Uubn1Z3RK6N5g3bnCjZj6dNUBDiftVtSaS5A/exec",
       zaloPhone: "0977923284",
       fallbackSheetId: "1BBnB5PPLR3HZWHqsa5qvvtgWvFMiHNE2ZMIlUSXcKZk",
@@ -883,9 +884,46 @@
       });
     }
 
+    function cho(ms) {
+      return new Promise(resolve => window.setTimeout(resolve, ms));
+    }
+
+    /** Tự động thử lại khi endpoint bị lỗi thoáng qua (ví dụ đụng độ với lịch đồng bộ đang chạy) */
+    async function loadJsonpCoThuLai(url, soLanThuToiDa = 3) {
+      let loiCuoi;
+      for (let lan = 1; lan <= soLanThuToiDa; lan++) {
+        try {
+          return await loadJsonp(url);
+        } catch (err) {
+          loiCuoi = err;
+          if (lan < soLanThuToiDa) {
+            await cho(1200 * lan); // chờ lâu hơn dần: 1.2s, 2.4s...
+          }
+        }
+      }
+      throw loiCuoi;
+    }
+
+    /** Đọc file JSON tĩnh (đã được Apps Script tự đẩy lên GitHub) - nhanh và chịu được traffic lớn
+     *  vì được phục vụ bởi hạ tầng CDN của GitHub Pages, không phụ thuộc giới hạn của Apps Script. */
+    async function loadStaticData() {
+      if (!CONFIG.staticDataUrl) return null;
+      try {
+        const response = await fetch(CONFIG.staticDataUrl);
+        if (!response.ok) return null;
+        const data = await response.json();
+        return Array.isArray(data) && data.length ? data : null;
+      } catch (err) {
+        return null; // im lặng rơi xuống phương án dự phòng bên dưới
+      }
+    }
+
     async function loadData() {
+      const duLieuTinh = await loadStaticData();
+      if (duLieuTinh) return duLieuTinh;
+
       if (isConfiguredEndpoint()) {
-        return loadJsonp(CONFIG.dataEndpoint);
+        return loadJsonpCoThuLai(CONFIG.dataEndpoint);
       }
 
       if (!CONFIG.allowUnsafeSheetPreview) {
