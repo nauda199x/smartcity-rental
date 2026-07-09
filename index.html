@@ -353,16 +353,24 @@
       color: #98a2b3;
     }
 
-    .badge {
+    .badge-row {
       position: absolute;
       left: 14px;
       top: 14px;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      z-index: 2;
+    }
+
+    .badge {
       border-radius: 999px;
       padding: 7px 10px;
       background: rgba(5, 150, 105, .95);
       color: #fff;
       font-size: 12px;
       font-weight: 800;
+      white-space: nowrap;
     }
 
     .badge.date {
@@ -370,16 +378,17 @@
     }
 
     .badge-moi {
-      position: absolute;
-      right: 14px;
-      top: 14px;
+      display: inline-flex;
+      align-items: center;
       border-radius: 999px;
       padding: 7px 11px;
-      background: rgba(217, 70, 239, .95);
+      background: linear-gradient(120deg, #f43f5e, #fb923c);
       color: #fff;
       font-size: 12px;
       font-weight: 800;
       letter-spacing: .02em;
+      white-space: nowrap;
+      box-shadow: 0 6px 14px rgba(244, 63, 94, .35);
     }
 
     .body {
@@ -884,7 +893,7 @@
         <option value="random">Ngẫu nhiên</option>
         <option value="price-asc">Giá: Thấp đến Cao</option>
         <option value="price-desc">Giá: Cao đến Thấp</option>
-        <option value="newest">Mới cập nhật</option>
+        <option value="newest">✨ Chỉ xem căn mới/vừa cập nhật</option>
       </select>
     </div>
 
@@ -1258,6 +1267,7 @@
         .filter(apartmentMatchesPrice)
         .filter(apartmentMatchesInterior)
         .filter(apartmentMatchesQuery)
+        .filter(apartment => state.sort !== "newest" || apartment.isNew)
         .sort((a, b) => {
           if (state.sort === "price-desc") return b.price - a.price;
           if (state.sort === "newest") return b.addedAt - a.addedAt;
@@ -1321,11 +1331,11 @@
     function mediaMarkup(apartment, index) {
       const badgeClass = availabilityText(apartment).includes("ngay") ? "" : "date";
       const badgeText = availabilityText(apartment).includes("ngay") ? "Vào ngay" : apartment.availableDate;
-      const badgeMoi = apartment.isNew ? `<span class="badge-moi">Mới</span>` : "";
+      const badgeMoi = apartment.isNew ? `<span class="badge-moi">✨ Mới</span>` : "";
+      const hangBadge = `<span class="badge-row"><span class="badge ${badgeClass}">${badgeText}</span>${badgeMoi}</span>`;
       if (!apartment.cover) {
         return `<button class="media empty" type="button" data-gallery="${index}">
-          <span class="badge ${badgeClass}">${badgeText}</span>
-          ${badgeMoi}
+          ${hangBadge}
           <svg width="42" height="42" viewBox="0 0 24 24" fill="none" aria-hidden="true">
             <path d="M3 9.5 12 3l9 6.5V20a1 1 0 0 1-1 1h-5v-6H9v6H4a1 1 0 0 1-1-1V9.5Z" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/>
           </svg>
@@ -1333,8 +1343,7 @@
         </button>`;
       }
       return `<button class="media" type="button" data-gallery="${index}" aria-label="Xem ảnh căn hộ ${apartment.tower}">
-        <span class="badge ${badgeClass}">${badgeText}</span>
-        ${badgeMoi}
+        ${hangBadge}
         <img src="${apartment.cover}" alt="Căn hộ ${apartment.type} tòa ${apartment.tower}" loading="lazy" onerror="this.closest('.media').classList.add('empty'); this.remove();">
       </button>`;
     }
@@ -1343,7 +1352,10 @@
       const grid = $("#listingGrid");
       if (!apartments.length) {
         grid.className = "";
-        grid.innerHTML = `<div class="empty-state">Chưa có căn hộ phù hợp với bộ lọc hiện tại.</div>`;
+        const thongBao = state.sort === "newest"
+          ? "Hiện chưa có căn nào mới/vừa cập nhật trong 3 ngày qua. Anh/chị đổi sang xem toàn bộ danh sách nhé."
+          : "Chưa có căn hộ phù hợp với bộ lọc hiện tại.";
+        grid.innerHTML = `<div class="empty-state">${thongBao}</div>`;
         return;
       }
 
