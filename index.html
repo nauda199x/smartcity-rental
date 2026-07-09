@@ -1146,7 +1146,7 @@
           }
         }
       }
-      const isNew = !isNaN(addedAt) && (Date.now() - addedAt) < 48 * 60 * 60 * 1000;
+      const isNew = !isNaN(addedAt) && (Date.now() - addedAt) < 72 * 60 * 60 * 1000;
 
       return {
         apartmentId,
@@ -1475,6 +1475,11 @@
 
     async function init() {
       try {
+        const thamSo = new URLSearchParams(location.search);
+        if (thamSo.get("moi") === "1") {
+          state.sort = "newest";
+          $("#sortSelect").value = "newest";
+        }
         const rows = await loadData();
         state.apartments = rows.map(toApartment);
         render();
