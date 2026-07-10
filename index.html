@@ -23,6 +23,63 @@
   <meta name="twitter:description" content="Danh sách căn hộ cho thuê Vinhomes Smart City được cập nhật từ dữ liệu thực tế.">
   <meta name="twitter:image" content="https://timthuesmartcity.com/og-smartcity.jpg">
 
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "Giá thuê căn hộ Vinhomes Smart City hiện nay khoảng bao nhiêu?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Giá thuê căn hộ tại Vinhomes Smart City khá đa dạng, dao động phổ biến từ khoảng 6,5 triệu đồng/tháng cho căn Studio đến trên 15 triệu đồng/tháng cho căn 2-3 phòng ngủ, tùy vào diện tích, tòa và tình trạng nội thất. Anh/chị có thể dùng bộ lọc khoảng giá trên trang để xem chính xác các căn phù hợp ngân sách."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Vinhomes Smart City nằm ở đâu?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Vinhomes Smart City tọa lạc tại quận Nam Từ Liêm, Hà Nội, là một trong những khu đô thị thông minh quy mô lớn tại khu vực phía Tây thủ đô."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Có những loại căn hộ nào cho thuê tại Vinhomes Smart City?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Đa dạng loại hình từ Studio, 1 phòng ngủ, 1 phòng ngủ+, 2 phòng ngủ, 2 phòng ngủ+ đến 3 phòng ngủ, trải rộng trên nhiều tòa trong khu đô thị, phù hợp với người độc thân, cặp đôi hoặc gia đình."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Căn hộ cho thuê có đầy đủ nội thất không?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Tùy từng căn, tình trạng nội thất được phân loại rõ trên từng tin đăng: Full nội thất (đầy đủ đồ dùng sẵn sàng dọn vào ở), Đồ Cơ bản, hoặc Nhà Nguyên Bản (chưa có nội thất). Anh/chị có thể lọc theo nhu cầu ngay trên trang."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Làm sao để xem căn hộ hoặc liên hệ hỏi thuê?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Anh/chị có thể bấm nút 'Hỏi căn này' trên từng tin đăng để nhắn Zalo trực tiếp, hoặc liên hệ hotline/Zalo 0977923284 để được tư vấn và sắp xếp lịch xem căn phù hợp."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Thông tin căn hộ trên trang có được cập nhật thường xuyên không?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Dữ liệu được đồng bộ tự động nhiều lần trong ngày để phản ánh đúng tình trạng còn trống, giá thuê và hình ảnh thực tế, giúp anh/chị an tâm về độ chính xác thông tin."
+        }
+      }
+    ]
+  }
+  </script>
+
   <style>
     :root {
       --bg: #f5f7fb;
@@ -740,6 +797,98 @@
       object-fit: contain;
     }
 
+    .seo-block {
+      margin-top: 40px;
+      padding: 28px;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background: var(--surface);
+    }
+
+    .seo-block h2 {
+      margin: 0 0 14px;
+      font-size: 22px;
+      line-height: 1.3;
+    }
+
+    .seo-block p {
+      margin: 0 0 12px;
+      color: #374151;
+      font-size: 15px;
+      line-height: 1.75;
+    }
+
+    .seo-block p:last-child { margin-bottom: 0; }
+
+    .faq-block {
+      margin-top: 20px;
+      padding: 28px;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background: var(--surface);
+    }
+
+    .faq-block h2 {
+      margin: 0 0 16px;
+      font-size: 22px;
+      line-height: 1.3;
+    }
+
+    .faq-item {
+      border-top: 1px solid #eef2f7;
+      padding: 14px 0;
+    }
+
+    .faq-item:first-of-type {
+      border-top: 0;
+      padding-top: 0;
+    }
+
+    .faq-item summary {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      cursor: pointer;
+      list-style: none;
+      font-weight: 800;
+      font-size: 15px;
+      color: var(--ink);
+    }
+
+    .faq-item summary::-webkit-details-marker { display: none; }
+
+    .faq-item summary::after {
+      content: "+";
+      flex-shrink: 0;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 24px;
+      height: 24px;
+      border-radius: 50%;
+      background: #f3f4f6;
+      color: #4b5563;
+      font-size: 16px;
+      font-weight: 700;
+    }
+
+    .faq-item[open] summary::after {
+      content: "−";
+    }
+
+    .faq-item p {
+      margin: 10px 0 0;
+      color: #4b5563;
+      font-size: 14.5px;
+      line-height: 1.7;
+    }
+
+    @media (max-width: 640px) {
+      .seo-block, .faq-block { padding: 20px; }
+      .seo-block h2, .faq-block h2 { font-size: 19px; }
+    }
+
     @media (max-width: 1180px) {
       .grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
     }
@@ -951,6 +1100,47 @@
       </div>
     </section>
     <nav class="pagination" id="pagination" aria-label="Phân trang danh sách căn hộ"></nav>
+
+    <section class="seo-block" aria-label="Giới thiệu">
+      <h2>Cho thuê căn hộ Vinhomes Smart City</h2>
+      <p>SmartCity Housing tổng hợp và cập nhật danh sách <strong>căn hộ cho thuê tại Vinhomes Smart City</strong>, khu đô thị thông minh tọa lạc tại quận Nam Từ Liêm, Hà Nội. Dữ liệu trên trang được đồng bộ tự động nhiều lần trong ngày, phản ánh đúng tình trạng còn trống, giá thuê và hình ảnh thực tế của từng căn.</p>
+      <p>Đa dạng loại hình <strong>thuê chung cư Smart City</strong> từ Studio, 1 phòng ngủ, 1 phòng ngủ+, 2 phòng ngủ, 2 phòng ngủ+ đến 3 phòng ngủ, trải rộng trên nhiều tòa trong khu đô thị. Giá thuê linh hoạt theo diện tích và tình trạng nội thất (Full nội thất, Đồ Cơ bản, hoặc Nhà Nguyên Bản), phù hợp với người độc thân, cặp đôi hoặc gia đình đang tìm <strong>căn hộ Vinhomes Smart City giá tốt</strong>.</p>
+      <p>Anh/chị có thể lọc nhanh theo cấu trúc phòng ngủ, khoảng giá thuê tháng và loại nội thất ngay trên trang để tìm được căn phù hợp nhất, sau đó bấm "Hỏi căn này" để nhắn Zalo trực tiếp hoặc liên hệ hotline để được tư vấn và sắp xếp lịch xem căn.</p>
+    </section>
+
+    <section class="faq-block" aria-label="Câu hỏi thường gặp">
+      <h2>Câu hỏi thường gặp</h2>
+
+      <details class="faq-item">
+        <summary>Giá thuê căn hộ Vinhomes Smart City hiện nay khoảng bao nhiêu?</summary>
+        <p>Giá thuê căn hộ tại Vinhomes Smart City khá đa dạng, dao động phổ biến từ khoảng 6,5 triệu đồng/tháng cho căn Studio đến trên 15 triệu đồng/tháng cho căn 2-3 phòng ngủ, tùy vào diện tích, tòa và tình trạng nội thất. Anh/chị có thể dùng bộ lọc khoảng giá trên trang để xem chính xác các căn phù hợp ngân sách.</p>
+      </details>
+
+      <details class="faq-item">
+        <summary>Vinhomes Smart City nằm ở đâu?</summary>
+        <p>Vinhomes Smart City tọa lạc tại quận Nam Từ Liêm, Hà Nội, là một trong những khu đô thị thông minh quy mô lớn tại khu vực phía Tây thủ đô.</p>
+      </details>
+
+      <details class="faq-item">
+        <summary>Có những loại căn hộ nào cho thuê tại Vinhomes Smart City?</summary>
+        <p>Đa dạng loại hình từ Studio, 1 phòng ngủ, 1 phòng ngủ+, 2 phòng ngủ, 2 phòng ngủ+ đến 3 phòng ngủ, trải rộng trên nhiều tòa trong khu đô thị, phù hợp với người độc thân, cặp đôi hoặc gia đình.</p>
+      </details>
+
+      <details class="faq-item">
+        <summary>Căn hộ cho thuê có đầy đủ nội thất không?</summary>
+        <p>Tùy từng căn, tình trạng nội thất được phân loại rõ trên từng tin đăng: Full nội thất (đầy đủ đồ dùng sẵn sàng dọn vào ở), Đồ Cơ bản, hoặc Nhà Nguyên Bản (chưa có nội thất). Anh/chị có thể lọc theo nhu cầu ngay trên trang.</p>
+      </details>
+
+      <details class="faq-item">
+        <summary>Làm sao để xem căn hộ hoặc liên hệ hỏi thuê?</summary>
+        <p>Anh/chị có thể bấm nút "Hỏi căn này" trên từng tin đăng để nhắn Zalo trực tiếp, hoặc liên hệ hotline/Zalo 0977923284 để được tư vấn và sắp xếp lịch xem căn phù hợp.</p>
+      </details>
+
+      <details class="faq-item">
+        <summary>Thông tin căn hộ trên trang có được cập nhật thường xuyên không?</summary>
+        <p>Dữ liệu được đồng bộ tự động nhiều lần trong ngày để phản ánh đúng tình trạng còn trống, giá thuê và hình ảnh thực tế, giúp anh/chị an tâm về độ chính xác thông tin.</p>
+      </details>
+    </section>
   </main>
 
   <a class="floating-zalo" href="https://zalo.me/0977923284" target="_blank" rel="noopener" aria-label="Chat Zalo">
