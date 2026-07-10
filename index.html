@@ -916,8 +916,13 @@
       .hero-inner { padding: 28px 0; gap: 20px; }
       h1 { font-size: clamp(26px, 7vw, 34px); }
       .hero p { font-size: 14px; line-height: 1.55; }
+      .stats {
+        background: rgba(8, 20, 55, .38);
+        border-color: rgba(255,255,255,.24);
+      }
       .stat { padding: 18px 16px; }
-      .stat strong { font-size: 22px; }
+      .stat strong { font-size: 22px; text-shadow: 0 1px 4px rgba(0,0,0,.45); }
+      .stat span { text-shadow: 0 1px 3px rgba(0,0,0,.4); }
       .filters {
         display: none;
         position: fixed;
@@ -989,8 +994,16 @@
 
       .list-head { align-items: stretch; flex-direction: column; gap: 10px; }
       #sortSelect { height: 44px; }
-      .grid { grid-template-columns: 1fr; gap: 16px; }
-      .card-foot { flex-wrap: wrap; }
+      .grid { grid-template-columns: 1fr; gap: 14px; }
+
+      /* Ảnh đại diện thấp hơn (16:10 thay vì 4:3) để mỗi lần cuộn thấy được nhiều thông tin
+         (ảnh + giá + tag) hơn, thay vì chỉ thấy trọn 1 ảnh phải cuộn tiếp mới thấy giá. */
+      .media { aspect-ratio: 16 / 10; }
+      .body { padding: 13px 14px; }
+      .card h3 { margin-bottom: 8px; font-size: 17px; }
+      .meta { margin-bottom: 10px; gap: 6px; }
+      .available { min-height: 0; }
+      .card-foot { flex-wrap: wrap; margin-top: 10px; padding-top: 12px; }
       .ask { flex: 1; height: 44px; }
       .gallery { grid-template-columns: 1fr; }
       .floating-zalo { display: none; }
