@@ -152,6 +152,48 @@
       color: #fff;
     }
 
+    .new-today-bar {
+      display: none;
+      width: 100%;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      padding: 12px 16px;
+      border: 0;
+      background: linear-gradient(120deg, #f43f5e, #fb923c);
+      color: #fff;
+      font-weight: 800;
+      font-size: 14px;
+      text-align: center;
+      cursor: pointer;
+      letter-spacing: .01em;
+    }
+
+    .new-today-bar.show {
+      display: flex;
+    }
+
+    .new-today-bar strong {
+      font-size: 16px;
+    }
+
+    .new-today-bar .arrow {
+      transition: transform .2s;
+    }
+
+    .new-today-bar:hover .arrow {
+      transform: translateX(4px);
+    }
+
+    @media (max-width: 640px) {
+      .new-today-bar {
+        font-size: 12.5px;
+        padding: 10px 14px;
+        gap: 8px;
+      }
+      .new-today-bar strong { font-size: 14px; }
+    }
+
     .hero {
       position: relative;
       background:
@@ -846,6 +888,11 @@
     </div>
   </header>
 
+  <button class="new-today-bar" id="newTodayBar" type="button">
+    <span>✨ Hôm nay cập nhật thêm <strong id="newTodayCount">0</strong> căn hộ mới toanh — bấm xem ngay kẻo lỡ</span>
+    <span class="arrow" aria-hidden="true">→</span>
+  </button>
+
   <section class="hero">
     <div class="shell hero-inner">
       <div>
@@ -1436,6 +1483,28 @@
       $("#readyCount").textContent = ready;
     }
 
+    /** Kiểm tra 1 mốc thời gian có rơi đúng vào NGÀY HÔM NAY (theo giờ máy khách) hay không */
+    function laThemVaoHomNay(timestamp) {
+      if (!timestamp) return false;
+      const d = new Date(timestamp);
+      const now = new Date();
+      return d.getFullYear() === now.getFullYear()
+        && d.getMonth() === now.getMonth()
+        && d.getDate() === now.getDate();
+    }
+
+    /** Banner nổi bật đầu trang: "Hôm nay cập nhật thêm X căn hộ mới" - chỉ hiện khi có căn mới hôm nay */
+    function renderNewTodayBar() {
+      const soCanMoiHomNay = state.apartments.filter(item => item.show && laThemVaoHomNay(item.addedAt)).length;
+      const bar = $("#newTodayBar");
+      if (soCanMoiHomNay > 0) {
+        $("#newTodayCount").textContent = soCanMoiHomNay;
+        bar.classList.add("show");
+      } else {
+        bar.classList.remove("show");
+      }
+    }
+
     function renderPagination(totalItems) {
       const container = $("#pagination");
       const totalPages = Math.max(1, Math.ceil(totalItems / PAGE_SIZE));
@@ -1477,6 +1546,7 @@
 
     function render() {
       renderStats();
+      renderNewTodayBar();
       renderFilters();
       const apartments = getFilteredApartments();
       $("#resultCount").innerHTML = `<strong>${apartments.length}</strong> căn hộ đang trống phù hợp`;
@@ -1515,6 +1585,14 @@
       state.sort = event.target.value;
       state.page = 1;
       render();
+    });
+
+    $("#newTodayBar").addEventListener("click", () => {
+      state.sort = "newest";
+      $("#sortSelect").value = "newest";
+      state.page = 1;
+      render();
+      window.scrollTo({ top: $("#listingGrid").offsetTop - 90, behavior: "smooth" });
     });
 
     $("#closeModal").addEventListener("click", () => $("#galleryModal").classList.remove("open"));
