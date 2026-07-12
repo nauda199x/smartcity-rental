@@ -912,6 +912,160 @@
       .seo-block h2, .faq-block h2 { font-size: 19px; }
     }
 
+    .lead-prompt {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      margin-top: 28px;
+      padding: 20px 24px;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background: linear-gradient(120deg, #eff6ff, #ecfdf5);
+    }
+
+    .lead-prompt-text strong {
+      display: block;
+      font-size: 16px;
+      margin-bottom: 4px;
+    }
+
+    .lead-prompt-text span {
+      color: var(--muted);
+      font-size: 13.5px;
+    }
+
+    .lead-prompt-btn {
+      flex-shrink: 0;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      height: 44px;
+      padding: 0 20px;
+      border-radius: 999px;
+      background: #111827;
+      color: #fff;
+      font-weight: 800;
+      font-size: 14px;
+      white-space: nowrap;
+      cursor: pointer;
+      border: 0;
+    }
+
+    .empty-state .lead-prompt-btn {
+      margin: 16px auto 0;
+    }
+
+    @media (max-width: 640px) {
+      .lead-prompt { flex-direction: column; align-items: stretch; text-align: center; padding: 18px; }
+      .lead-prompt-btn { justify-content: center; }
+    }
+
+    .lead-form { padding: 20px; }
+
+    .lead-form p.lead-intro {
+      margin: 0 0 18px;
+      color: var(--muted);
+      font-size: 14px;
+      line-height: 1.6;
+    }
+
+    .lead-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 14px;
+    }
+
+    .lead-field {
+      margin-bottom: 14px;
+    }
+
+    .lead-field label {
+      display: block;
+      margin-bottom: 6px;
+      font-weight: 700;
+      font-size: 13px;
+      color: #374151;
+    }
+
+    .lead-field input,
+    .lead-field select,
+    .lead-field textarea {
+      width: 100%;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      padding: 10px 12px;
+      font-size: 14px;
+      background: #fff;
+      color: #111827;
+    }
+
+    .lead-field input:focus,
+    .lead-field select:focus,
+    .lead-field textarea:focus {
+      outline: none;
+      border-color: #93c5fd;
+      box-shadow: 0 0 0 3px rgba(37, 99, 235, .12);
+    }
+
+    .lead-field textarea { resize: vertical; min-height: 70px; }
+
+    .lead-honeypot { position: absolute; left: -9999px; opacity: 0; height: 0; overflow: hidden; }
+
+    .lead-submit {
+      width: 100%;
+      height: 48px;
+      border: 0;
+      border-radius: 12px;
+      background: var(--brand);
+      color: #fff;
+      font-weight: 800;
+      font-size: 15px;
+      cursor: pointer;
+    }
+
+    .lead-submit:disabled { opacity: .6; cursor: not-allowed; }
+
+    .lead-error {
+      display: none;
+      margin-bottom: 14px;
+      padding: 10px 14px;
+      border-radius: 8px;
+      background: #fef2f2;
+      color: #b91c1c;
+      font-size: 13.5px;
+    }
+
+    .lead-error.show { display: block; }
+
+    .lead-success {
+      display: none;
+      text-align: center;
+      padding: 24px 12px;
+    }
+
+    .lead-success.show { display: block; }
+
+    .lead-success .icon {
+      font-size: 40px;
+      margin-bottom: 10px;
+    }
+
+    .lead-success h4 {
+      margin: 0 0 8px;
+      font-size: 18px;
+    }
+
+    .lead-success p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    @media (max-width: 640px) {
+      .lead-row { grid-template-columns: 1fr; }
+    }
+
     @media (max-width: 1180px) {
       .grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
     }
@@ -1139,6 +1293,19 @@
     </section>
     <nav class="pagination" id="pagination" aria-label="Phân trang danh sách căn hộ"></nav>
 
+    <div class="lead-prompt">
+      <div class="lead-prompt-text">
+        <strong>Chưa thấy căn ưng ý?</strong>
+        <span>Để lại nhu cầu, tụi mình chủ động tìm và liên hệ lại trong hôm nay.</span>
+      </div>
+      <button class="lead-prompt-btn" type="button" id="openLeadModalBtn">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+          <path d="m21 21-4.35-4.35M10.5 18a7.5 7.5 0 1 1 0-15 7.5 7.5 0 0 1 0 15Z" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+        </svg>
+        Nhờ tìm giúp
+      </button>
+    </div>
+
     <section class="seo-block" aria-label="Giới thiệu">
       <h2>Cho thuê căn hộ Vinhomes Smart City</h2>
       <p>Cho thuê chung cư Smart City tổng hợp và cập nhật danh sách <strong>căn hộ cho thuê tại Vinhomes Smart City</strong>, khu đô thị thông minh tọa lạc tại Tây Mỗ, Hà Nội. Dữ liệu trên trang được đồng bộ tự động nhiều lần trong ngày, phản ánh đúng tình trạng còn trống, giá thuê và hình ảnh thực tế của từng căn.</p>
@@ -1212,10 +1379,91 @@
     </div>
   </div>
 
+  <div class="modal" id="leadModal" role="dialog" aria-modal="true" aria-labelledby="leadModalTitle">
+    <div class="modal-panel" style="width: min(560px, 100%);">
+      <div class="modal-head">
+        <strong id="leadModalTitle">Bạn cần căn như thế nào?</strong>
+        <button class="close" id="closeLeadModal" type="button" aria-label="Đóng">×</button>
+      </div>
+
+      <form class="lead-form" id="leadForm" autocomplete="off">
+        <p class="lead-intro">Để lại thông tin, tụi mình sẽ chủ động tìm căn phù hợp và liên hệ lại trong hôm nay.</p>
+
+        <div class="lead-error" id="leadError"></div>
+
+        <div class="lead-field lead-honeypot" aria-hidden="true">
+          <label for="leadWebsite">Để trống ô này</label>
+          <input type="text" id="leadWebsite" name="website" tabindex="-1" autocomplete="off">
+        </div>
+
+        <div class="lead-row">
+          <div class="lead-field">
+            <label for="leadHoTen">Họ tên *</label>
+            <input type="text" id="leadHoTen" name="hoTen" placeholder="Nguyễn Văn A" required maxlength="100">
+          </div>
+          <div class="lead-field">
+            <label for="leadSdt">Số điện thoại *</label>
+            <input type="tel" id="leadSdt" name="sdt" placeholder="09xxxxxxxx" required maxlength="20">
+          </div>
+        </div>
+
+        <div class="lead-row">
+          <div class="lead-field">
+            <label for="leadLoaiCan">Loại căn cần tìm</label>
+            <select id="leadLoaiCan" name="loaiCan">
+              <option value="">Chưa xác định / tùy anh chị tư vấn</option>
+              <option value="Studio">Studio</option>
+              <option value="1 Ngủ">1 phòng ngủ</option>
+              <option value="1 Ngủ +">1 phòng ngủ +</option>
+              <option value="2 Ngủ">2 phòng ngủ</option>
+              <option value="2 Ngủ +">2 phòng ngủ +</option>
+              <option value="3 Ngủ">3 phòng ngủ</option>
+            </select>
+          </div>
+          <div class="lead-field">
+            <label for="leadKhoangGia">Khoảng giá mong muốn</label>
+            <select id="leadKhoangGia" name="khoangGia">
+              <option value="">Chưa xác định</option>
+              <option value="6,5 - 7,5 triệu">6,5 - 7,5 triệu</option>
+              <option value="7,5 - 10 triệu">7,5 - 10 triệu</option>
+              <option value="10 - 12 triệu">10 - 12 triệu</option>
+              <option value="12 - 15 triệu">12 - 15 triệu</option>
+              <option value="Trên 15 triệu">Trên 15 triệu</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="lead-row">
+          <div class="lead-field">
+            <label for="leadNgayVao">Ngày cần vào ở</label>
+            <input type="date" id="leadNgayVao" name="ngayVao">
+          </div>
+          <div class="lead-field">
+            <label for="leadKhuVuc">Khu vực / Tòa mong muốn</label>
+            <input type="text" id="leadKhuVuc" name="khuVuc" placeholder="VD: Sa2, gần hồ..." maxlength="100">
+          </div>
+        </div>
+
+        <div class="lead-field">
+          <label for="leadGhiChu">Ghi chú thêm</label>
+          <textarea id="leadGhiChu" name="ghiChu" placeholder="Nhu cầu khác (số người ở, có thú cưng, view...)" maxlength="500"></textarea>
+        </div>
+
+        <button class="lead-submit" type="submit" id="leadSubmitBtn">Gửi yêu cầu, để tụi mình tìm giúp</button>
+      </form>
+
+      <div class="lead-success" id="leadSuccess">
+        <div class="icon">✅</div>
+        <h4>Đã nhận được yêu cầu của anh/chị</h4>
+        <p>Tụi mình sẽ chủ động liên hệ lại trong thời gian sớm nhất. Cảm ơn anh/chị đã tin tưởng!</p>
+      </div>
+    </div>
+  </div>
+
   <script>
     const CONFIG = {
       staticDataUrl: "data.json",
-      dataEndpoint: "https://script.google.com/macros/s/AKfycbxY1yHLAt99PJM30gSUfDaWM9xGhNpNJ6Uubn1Z3RK6N5g3bnCjZj6dNUBDiftVtSaS5A/exec",
+      dataEndpoint: "https://script.google.com/macros/s/AKfycbxr4SBes-LSV5-2RwRk4ZNpY61smHtNrXsi3Se7bqpJqeA4MDh1zStE8MzcrlhmKcSITg/exec",
       zaloPhone: "0977923284",
       fallbackSheetId: "1BBnB5PPLR3HZWHqsa5qvvtgWvFMiHNE2ZMIlUSXcKZk",
       fallbackGid: "0",
@@ -1339,6 +1587,39 @@
         };
 
         script.src = `${url}${separator}callback=${encodeURIComponent(callbackName)}`;
+        document.head.appendChild(script);
+      });
+    }
+
+    /** JSONP tổng quát có kèm tham số tùy ý - dùng để gửi form (không bị chặn CORS vì đi qua <script> tag) */
+    function jsonpGuiThamSo(url, thamSo) {
+      return new Promise((resolve, reject) => {
+        const callbackName = `smartCityLead_${Date.now()}_${Math.random().toString(16).slice(2)}`;
+        const script = document.createElement("script");
+        const timeout = window.setTimeout(() => {
+          cleanup();
+          reject(new Error("Hết thời gian chờ, vui lòng thử lại."));
+        }, 15000);
+
+        function cleanup() {
+          window.clearTimeout(timeout);
+          delete window[callbackName];
+          script.remove();
+        }
+
+        window[callbackName] = payload => {
+          cleanup();
+          resolve(payload || {});
+        };
+
+        script.onerror = () => {
+          cleanup();
+          reject(new Error("Không gửi được yêu cầu, vui lòng thử lại."));
+        };
+
+        const qs = new URLSearchParams({ ...thamSo, callback: callbackName }).toString();
+        const separator = url.includes("?") ? "&" : "?";
+        script.src = `${url}${separator}${qs}`;
         document.head.appendChild(script);
       });
     }
@@ -1629,8 +1910,18 @@
         grid.className = "";
         const thongBao = state.sort === "newest"
           ? "Hiện chưa có căn nào mới/vừa cập nhật trong 3 ngày qua. Anh/chị đổi sang xem toàn bộ danh sách nhé."
-          : "Chưa có căn hộ phù hợp với bộ lọc hiện tại.";
-        grid.innerHTML = `<div class="empty-state">${thongBao}</div>`;
+          : "Chưa có căn hộ phù hợp với bộ lọc hiện tại. Để lại nhu cầu, tụi mình sẽ chủ động tìm căn phù hợp và liên hệ lại.";
+        grid.innerHTML = `
+          <div class="empty-state">
+            ${thongBao}
+            <button class="lead-prompt-btn" type="button" id="openLeadModalBtnEmpty">
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                <path d="m21 21-4.35-4.35M10.5 18a7.5 7.5 0 1 1 0-15 7.5 7.5 0 0 1 0 15Z" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+              </svg>
+              Nhờ tìm giúp
+            </button>
+          </div>`;
+        $("#openLeadModalBtnEmpty").addEventListener("click", moLeadModal);
         return;
       }
 
@@ -1790,6 +2081,9 @@
           state.sort = "newest";
           $("#sortSelect").value = "newest";
         }
+        if (thamSo.get("form") === "1") {
+          moLeadModal(); // link dùng để dán bên ngoài (Zalo, Facebook...) - tự mở sẵn form, không cần đợi tải xong danh sách căn hộ
+        }
         const rows = await loadData();
         state.apartments = rows.map(toApartment);
         render();
@@ -1830,7 +2124,89 @@
     document.addEventListener("keydown", event => {
       if (event.key === "Escape") {
         $("#galleryModal").classList.remove("open");
+        $("#leadModal").classList.remove("open");
         dongBoLocMobile();
+      }
+    });
+
+    /** Kiểm tra số điện thoại VN hợp lệ ở mức cơ bản, khớp phía client trước khi gửi lên server */
+    function sdtHopLe(sdt) {
+      const chuan = String(sdt || "").replace(/[\s.\-()]/g, "");
+      return /^(0|\+?84)\d{9,10}$/.test(chuan);
+    }
+
+    function moLeadModal() {
+      $("#leadForm").classList.remove("hidden");
+      $("#leadForm").style.display = "";
+      $("#leadSuccess").classList.remove("show");
+      $("#leadError").classList.remove("show");
+      $("#leadModal").classList.add("open");
+    }
+    function dongLeadModal() {
+      $("#leadModal").classList.remove("open");
+    }
+
+    $("#openLeadModalBtn").addEventListener("click", moLeadModal);
+    $("#closeLeadModal").addEventListener("click", dongLeadModal);
+    $("#leadModal").addEventListener("click", event => {
+      if (event.target.id === "leadModal") dongLeadModal();
+    });
+
+    $("#leadForm").addEventListener("submit", async event => {
+      event.preventDefault();
+      const errorBox = $("#leadError");
+      errorBox.classList.remove("show");
+
+      const hoTen = $("#leadHoTen").value.trim();
+      const sdt = $("#leadSdt").value.trim();
+
+      if (!hoTen || !sdt) {
+        errorBox.textContent = "Anh/chị vui lòng nhập họ tên và số điện thoại.";
+        errorBox.classList.add("show");
+        return;
+      }
+      if (!sdtHopLe(sdt)) {
+        errorBox.textContent = "Số điện thoại chưa đúng định dạng, anh/chị kiểm tra lại giúp em.";
+        errorBox.classList.add("show");
+        return;
+      }
+      if (!isConfiguredEndpoint()) {
+        errorBox.textContent = "Chưa cấu hình nơi nhận yêu cầu, vui lòng liên hệ trực tiếp qua Zalo/Hotline giúp em.";
+        errorBox.classList.add("show");
+        return;
+      }
+
+      const submitBtn = $("#leadSubmitBtn");
+      submitBtn.disabled = true;
+      submitBtn.textContent = "Đang gửi...";
+
+      try {
+        const ketQua = await jsonpGuiThamSo(CONFIG.dataEndpoint, {
+          action: "guiYeuCau",
+          hoTen,
+          sdt,
+          loaiCan: $("#leadLoaiCan").value,
+          khoangGia: $("#leadKhoangGia").value,
+          ngayVao: $("#leadNgayVao").value,
+          khuVuc: $("#leadKhuVuc").value.trim(),
+          ghiChu: $("#leadGhiChu").value.trim(),
+          website: $("#leadWebsite").value // honeypot - người dùng thật luôn để trống
+        });
+
+        if (ketQua && ketQua.ok) {
+          $("#leadForm").style.display = "none";
+          $("#leadSuccess").classList.add("show");
+          $("#leadForm").reset();
+        } else {
+          errorBox.textContent = (ketQua && ketQua.loi) || "Có lỗi xảy ra, vui lòng thử lại hoặc liên hệ trực tiếp qua Zalo.";
+          errorBox.classList.add("show");
+        }
+      } catch (err) {
+        errorBox.textContent = "Không gửi được yêu cầu, vui lòng thử lại hoặc liên hệ trực tiếp qua Zalo.";
+        errorBox.classList.add("show");
+      } finally {
+        submitBtn.disabled = false;
+        submitBtn.textContent = "Gửi yêu cầu, để tụi mình tìm giúp";
       }
     });
 
