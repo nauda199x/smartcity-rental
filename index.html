@@ -8,7 +8,6 @@
     function gtag(){dataLayer.push(arguments);}
     gtag('js', new Date());
     gtag('config', 'G-VF9KHC5TWD');
-    gtag('config', 'AW-18332411415');
   </script>
 
   <meta charset="utf-8">
@@ -1093,6 +1092,7 @@
 
     @media (max-width: 640px) {
       .shell { width: min(100% - 24px, 1220px); }
+      .grid { grid-template-columns: 1fr; gap: 16px; }
       .nav {
         min-height: 84px;
         grid-template-columns: 1fr auto;
@@ -1748,6 +1748,7 @@
         isNew,
         show: visible === "có" || visible === "co" || visible === "yes" || visible === "true",
         cover: cover || photos[0] || "",
+        imgBroken: false,
         photos,
         videos
       };
@@ -1832,8 +1833,13 @@
       return Math.floor(Date.now() / KHUNG_GIO_MS);
     }
 
+    /** Mã định danh ổn định cho 1 căn - dùng để tra lại đúng object khi ảnh báo lỗi tải */
+    function apartmentKey(apartment) {
+      return apartment.apartmentId || `${apartment.tower}|${apartment.type}|${apartment.price}|${apartment.area}`;
+    }
+
     function khoaSapXepNgauNhien(apartment) {
-      const phanRieng = apartment.apartmentId || `${apartment.tower}|${apartment.type}|${apartment.price}|${apartment.area}`;
+      const phanRieng = apartmentKey(apartment);
       return bamChuoi(hatGiongTheoKhungGio() + "|" + phanRieng);
     }
 
@@ -1847,6 +1853,10 @@
         .filter(apartmentMatchesQuery)
         .filter(apartment => state.sort !== "newest" || apartment.isNew)
         .sort((a, b) => {
+          // Ưu tiên căn đã có ẢNH TẢI ĐƯỢC lên trước - căn chưa có ảnh hoặc ảnh lỗi (link Drive hỏng/không xem được) luôn xếp xuống cuối
+          const chuaCoAnhA = (a.cover && !a.imgBroken) ? 0 : 1;
+          const chuaCoAnhB = (b.cover && !b.imgBroken) ? 0 : 1;
+          if (chuaCoAnhA !== chuaCoAnhB) return chuaCoAnhA - chuaCoAnhB;
           if (state.sort === "price-desc") return b.price - a.price;
           if (state.sort === "newest") return b.addedAt - a.addedAt;
           if (state.sort === "price-asc") return a.price - b.price;
@@ -1911,7 +1921,7 @@
       const badgeText = availabilityText(apartment).includes("ngay") ? "Vào ngay" : apartment.availableDate;
       const badgeMoi = apartment.isNew ? `<span class="badge-moi">✨ Mới</span>` : "";
       const hangBadge = `<span class="badge-row"><span class="badge ${badgeClass}">${badgeText}</span>${badgeMoi}</span>`;
-      if (!apartment.cover) {
+      if (!apartment.cover || apartment.imgBroken) {
         return `<button class="media empty" type="button" data-gallery="${index}">
           ${hangBadge}
           <svg width="42" height="42" viewBox="0 0 24 24" fill="none" aria-hidden="true">
@@ -1922,8 +1932,23 @@
       }
       return `<button class="media" type="button" data-gallery="${index}" aria-label="Xem ảnh căn hộ ${apartment.tower}">
         ${hangBadge}
-        <img src="${apartment.cover}" alt="Căn hộ ${apartment.type} tòa ${apartment.tower}" loading="lazy" onerror="this.closest('.media').classList.add('empty'); this.remove();">
+        <img src="${apartment.cover}" alt="Căn hộ ${apartment.type} tòa ${apartment.tower}" loading="lazy" data-akey="${apartmentKey(apartment)}" onerror="xuLyAnhLoi(this)">
       </button>`;
+    }
+
+    let henGioSapXepLai = null;
+    /** Ảnh trong Sheet có link nhưng tải lỗi (Drive hỏng quyền/đã xoá): đánh dấu căn này như "chưa có ảnh"
+     *  rồi xếp lại danh sách sau một nhịp ngắn, để không phải căn nào cũng đẩy 1 lần gây giật trang. */
+    function xuLyAnhLoi(imgEl) {
+      const key = imgEl.dataset.akey;
+      imgEl.closest(".media").classList.add("empty");
+      imgEl.remove();
+      const apartment = state.apartments.find(item => apartmentKey(item) === key);
+      if (apartment && !apartment.imgBroken) {
+        apartment.imgBroken = true;
+        clearTimeout(henGioSapXepLai);
+        henGioSapXepLai = setTimeout(render, 900);
+      }
     }
 
     function renderCards(apartments) {
