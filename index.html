@@ -538,11 +538,14 @@
       padding: 4px 8px;
       background: #eff6ff;
       color: #1d4ed8;
-      font-size: 12px;
+      font-size: 14px;
       font-weight: 800;
+      letter-spacing: 0.2px;
     }
 
-    .tower svg { flex-shrink: 0; }
+    .tower svg { flex-shrink: 0; width: 14px; height: 14px; }
+    .tower .toa-code { font-weight: 800; }
+    .tower .phan-khu { font-weight: 600; opacity: 0.85; }
 
     .apt-id {
       color: #a3acba;
@@ -1917,6 +1920,29 @@
       return "basic";
     }
 
+    /** Ánh xạ mã tòa -> tên phân khu (dựa trên danh sách phân khu Smart City đã xác nhận) */
+    function tenPhanKhu(toa) {
+      const t = String(toa || "").toUpperCase().replace(/[\s.]/g, "");
+      if (!t) return "";
+      if (t.startsWith("SA")) return "Sakura";
+      if (t.startsWith("GS")) return "Miami";
+      if (t.startsWith("MAS")) return "Masteri";
+      if (t.startsWith("TC")) return "Canopy";
+      if (t.startsWith("TK")) return "Tonkin";
+      if (/^I\d/.test(t)) return "Imperia";
+      if (/^A\d/.test(t)) return "Lumiere";
+      if (/^S\d/.test(t)) return "Sapphire";
+      if (/^G\d/.test(t)) return "Sola Park";
+      return "";
+    }
+
+    /** HTML tên tòa hiển thị trên card: mã tòa in đậm + tên phân khu */
+    function nhanToaHtml(toa) {
+      const pk = tenPhanKhu(toa);
+      const ma = `<b class="toa-code">${toa}</b>`;
+      return pk ? `${ma}<span class="phan-khu"> · ${pk}</span>` : ma;
+    }
+
     function mediaMarkup(apartment, index) {
       const badgeClass = availabilityText(apartment).includes("ngay") ? "" : "date";
       const badgeText = availabilityText(apartment).includes("ngay") ? "Vào ngay" : apartment.availableDate;
@@ -1982,7 +2008,7 @@
               <svg width="12" height="12" viewBox="0 0 24 24" fill="none" aria-hidden="true">
                 <path d="M3 9.5 12 3l9 6.5V20a1 1 0 0 1-1 1h-5v-6H9v6H4a1 1 0 0 1-1-1V9.5Z" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/>
               </svg>
-              ${apartment.tower}
+              ${nhanToaHtml(apartment.tower)}
             </span>
             <h3>${apartment.type}${apartment.apartmentId ? ` <span class="apt-id">- ${apartment.apartmentId}</span>` : ""}</h3>
             <div class="meta">
