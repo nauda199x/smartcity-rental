@@ -12,19 +12,19 @@
 
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Tìm thuê căn hộ Vinhomes Smart City</title>
+  <title>Cho thuê căn hộ chung cư Vinhomes Smart City tháng 07/2026</title>
   <link rel="icon" href="/favicon.ico" sizes="any">
   <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">
   <link rel="icon" type="image/png" sizes="192x192" href="/favicon-192.png">
   <link rel="apple-touch-icon" href="/favicon-192.png">
 
-  <meta name="description" content="Danh sách căn hộ cho thuê Vinhomes Smart City được cập nhật từ dữ liệu thực tế. Lọc theo loại căn, giá thuê và tình trạng vào ở.">
+  <meta name="description" content="Cho thuê căn hộ chung cư Vinhomes Smart City giá tốt, cập nhật mỗi ngày. Đầy đủ Studio, 1-2-3 phòng ngủ theo từng tòa, lọc nhanh theo giá và tình trạng nội thất.">
 
   <!-- Open Graph: hiển thị ảnh/tiêu đề đẹp khi dán link trên Zalo, Facebook, Messenger -->
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://timthuesmartcity.com/">
-  <meta property="og:title" content="Tìm thuê căn hộ Vinhomes Smart City">
-  <meta property="og:description" content="Danh sách căn hộ cho thuê Vinhomes Smart City được cập nhật từ dữ liệu thực tế. Lọc theo loại căn, giá thuê và tình trạng vào ở.">
+  <meta property="og:title" content="Cho thuê căn hộ chung cư Vinhomes Smart City tháng 07/2026">
+  <meta property="og:description" content="Cho thuê căn hộ chung cư Vinhomes Smart City giá tốt, cập nhật mỗi ngày. Đầy đủ Studio, 1-2-3 phòng ngủ theo từng tòa.">
   <meta property="og:image" content="https://timthuesmartcity.com/og-smartcity.jpg">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
@@ -32,8 +32,8 @@
 
   <!-- Twitter Card (một số app dùng chung chuẩn này để xem trước link) -->
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Tìm thuê căn hộ Vinhomes Smart City">
-  <meta name="twitter:description" content="Danh sách căn hộ cho thuê Vinhomes Smart City được cập nhật từ dữ liệu thực tế.">
+  <meta name="twitter:title" content="Cho thuê căn hộ chung cư Vinhomes Smart City tháng 07/2026">
+  <meta name="twitter:description" content="Cho thuê căn hộ chung cư Vinhomes Smart City giá tốt, cập nhật mỗi ngày.">
   <meta name="twitter:image" content="https://timthuesmartcity.com/og-smartcity.jpg">
 
   <script type="application/ld+json">
@@ -1253,7 +1253,7 @@
   <section class="hero">
     <div class="shell hero-inner">
       <div>
-        <h1>Tìm thuê căn hộ chung cư Vinhomes Smart City</h1>
+        <h1>Cho thuê căn hộ chung cư Vinhomes Smart City tháng 07/2026</h1>
         <p>Bộ lọc thông minh — tìm nhanh theo giá thuê, loại căn hộ và tình trạng nội thất. Dữ liệu cập nhật liên tục từ thực tế, giúp anh/chị chọn đúng căn ưng ý chỉ trong vài phút.</p>
       </div>
       <div class="stats" aria-label="Tổng quan căn hộ">
@@ -2298,6 +2298,22 @@
     $("#filtersBackdrop").addEventListener("click", dongBoLocMobile);
 
     init();
+  </script>
+  <script>
+    /* Tự cập nhật "tháng MM/YYYY" trong tiêu đề & H1 theo thời gian thực - không phải sửa tay hàng tháng */
+    (function () {
+      var d = new Date();
+      var thang = String(d.getMonth() + 1).padStart(2, "0");
+      var nam = d.getFullYear();
+      var tieuDe = "Cho thuê căn hộ chung cư Vinhomes Smart City tháng " + thang + "/" + nam;
+      document.title = tieuDe;
+      var h1 = document.querySelector("h1");
+      if (h1) h1.textContent = tieuDe;
+      var og = document.querySelector('meta[property="og:title"]');
+      if (og) og.setAttribute("content", tieuDe);
+      var tw = document.querySelector('meta[name="twitter:title"]');
+      if (tw) tw.setAttribute("content", tieuDe);
+    })();
   </script>
 </body>
 </html>
