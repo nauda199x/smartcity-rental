@@ -1222,7 +1222,7 @@
         <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true">
           <path d="m21 21-4.35-4.35M10.5 18a7.5 7.5 0 1 1 0-15 7.5 7.5 0 0 1 0 15Z" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
         </svg>
-        <input id="searchInput" type="search" placeholder="Nhập tòa, loại căn, diện tích để tìm nhanh...">
+        <input id="searchInput" type="search" placeholder="Nhập mã căn, tòa, loại căn, diện tích để tìm nhanh...">
       </div>
 
       <div class="actions">
@@ -1807,6 +1807,7 @@
     function apartmentMatchesQuery(apartment) {
       if (!state.query) return true;
       const haystack = [
+        apartment.apartmentId,
         apartment.tower,
         apartment.type,
         apartment.area,
