@@ -858,20 +858,35 @@
 
     .seo-block p:last-child { margin-bottom: 0; }
 
-    /* ===== DẢI DUYỆT NHANH Ở HERO (thêm 22/07/2026) ===== */
-    .duyet-nhanh {
-      display: flex; flex-wrap: wrap; align-items: center; gap: 8px;
-      margin-top: 18px;
+    /* ===== KHÁM PHÁ THEO LOẠI CĂN HỘ - cuối trang (chuyển từ hero xuống 23/07/2026) ===== */
+    .kham-pha {
+      background: #fff; border: 1px solid var(--line); border-radius: 14px;
+      padding: 26px 28px; margin: 0 0 26px;
     }
-    .duyet-nhan { font-size: 13.5px; opacity: .85; margin-right: 2px; }
-    .duyet-nhanh a {
-      display: inline-block; padding: 6px 14px; border-radius: 999px;
-      font-size: 13.5px; font-weight: 600; text-decoration: none;
-      background: rgba(255,255,255,.16); color: inherit;
-      border: 1px solid rgba(255,255,255,.28);
-      transition: background .18s;
+    .kham-pha h2 { margin: 0 0 8px; font-size: 21px; }
+    .kham-pha-dan { margin: 0 0 20px; color: var(--muted); font-size: 14.5px; }
+    .kham-pha-luoi {
+      display: grid; gap: 12px;
+      grid-template-columns: repeat(auto-fit, minmax(215px, 1fr));
     }
-    .duyet-nhanh a:hover { background: rgba(255,255,255,.3); }
+    .kham-pha-luoi a {
+      display: block; padding: 14px 16px; border-radius: 12px;
+      border: 1px solid var(--line); background: var(--bg);
+      text-decoration: none; color: inherit;
+      transition: border-color .18s, transform .18s, box-shadow .18s;
+    }
+    .kham-pha-luoi a:hover {
+      border-color: var(--brand); transform: translateY(-2px);
+      box-shadow: 0 10px 24px rgba(15, 23, 42, .07);
+    }
+    .kham-pha-luoi strong {
+      display: block; font-size: 15.5px; color: var(--brand-dark); margin-bottom: 3px;
+    }
+    .kham-pha-luoi span { font-size: 13px; color: var(--muted); line-height: 1.45; }
+    @media (max-width: 640px) {
+      .kham-pha { padding: 20px 16px; }
+      .kham-pha-luoi { grid-template-columns: 1fr; gap: 10px; }
+    }
 
     /* ===== MỤC LỤC KHO DỮ LIỆU (thêm 22/07/2026) ===== */
     .muc-luc {
@@ -1175,20 +1190,47 @@
       .filter-group + .filter-group { margin-top: 16px; padding-top: 16px; }
       .chip { min-height: 42px; padding: 0 14px; font-size: 14px; }
 
+      /* NÚT MỞ BỘ LỌC TRÊN ĐIỆN THOẠI (thiết kế lại 23/07/2026)
+         Trên điện thoại bộ lọc luôn ở trạng thái thu gọn, chỉ mở khi bấm nút này. Bản cũ là
+         nút trắng viền mảnh chữ "Lọc căn hộ" - nhìn như một nút phụ nên nhiều khách không để ý,
+         dẫn tới cuộn tay qua hàng trăm căn thay vì lọc. Nay làm nổi hẳn: nền xanh thương hiệu,
+         kính lúp trong vòng tròn sáng, có dòng phụ nói rõ phải bấm, mũi tên chỉ mở ra.
+         Chỉ đổi giao diện - vẫn gọi đúng moBoLocMobile() như cũ, không đụng logic lọc. */
       .mobile-filter-toggle {
-        display: inline-flex;
+        display: flex;
         align-items: center;
-        gap: 8px;
+        gap: 12px;
         width: 100%;
-        height: 46px;
         margin-top: 18px;
-        border: 1px solid var(--line);
-        border-radius: 12px;
-        background: #fff;
-        color: #1f2937;
-        font-weight: 800;
-        font-size: 14.5px;
-        padding: 0 16px;
+        padding: 13px 16px;
+        border: 0;
+        border-radius: 14px;
+        background: linear-gradient(135deg, var(--brand) 0%, #1d4ed8 100%);
+        color: #fff;
+        text-align: left;
+        box-shadow: 0 8px 22px rgba(37, 99, 235, .3);
+        cursor: pointer;
+      }
+      .mobile-filter-toggle:active { transform: scale(.985); }
+      .mft-icon {
+        flex: 0 0 auto;
+        width: 38px; height: 38px;
+        display: flex; align-items: center; justify-content: center;
+        border-radius: 50%;
+        background: rgba(255, 255, 255, .2);
+      }
+      .mft-text { flex: 1; min-width: 0; }
+      .mft-text b {
+        display: block; font-size: 15px; font-weight: 800; line-height: 1.3;
+      }
+      .mft-text small {
+        display: block; font-size: 12.5px; font-weight: 400;
+        opacity: .88; margin-top: 2px;
+        overflow: hidden; text-overflow: ellipsis; white-space: nowrap;
+      }
+      .mft-arrow { flex: 0 0 auto; opacity: .9; }
+      @media (prefers-reduced-motion: reduce) {
+        .mobile-filter-toggle:active { transform: none; }
       }
 
       .filters-backdrop.open {
@@ -1308,28 +1350,29 @@
         <div class="stat"><strong id="readyCount">--</strong><span>Ở ngay</span></div>
       </div>
 
-      <!-- DUYỆT NHANH THEO LOẠI CĂN (thêm 22/07/2026)
-           Vừa là lối tắt cho khách, vừa là đường dẫn để Google bò sang các trang danh mục.
-           Đây là link THẬT tới trang HTML tĩnh riêng, không phải nút lọc - nhờ vậy Google
-           hiểu website có nhiều trang nội dung chứ không phải 1 trang đơn lẻ. -->
-      <nav class="duyet-nhanh" aria-label="Duyệt theo loại căn hộ">
-        <span class="duyet-nhan">Duyệt nhanh:</span>
-        <a href="/studio/">Studio</a>
-        <a href="/1pn/">1 ngủ</a>
-        <a href="/1pn-plus/">1 ngủ +</a>
-        <a href="/2pn/">2 ngủ</a>
-        <a href="/2pn-plus/">2 ngủ +</a>
-        <a href="/3pn/">3 ngủ</a>
-      </nav>
+      <!-- ĐÃ CHUYỂN 23/07/2026: khối "Duyệt nhanh" trước đây nằm ngay đây, dưới ô thống kê.
+           Vấn đề: đặt sát khu tìm kiếm khiến khách tưởng đó là BỘ LỌC, bấm vào bị nhảy hẳn
+           sang trang khác nên hụt hẫng. Nay chuyển xuống cuối trang thành mục
+           "Khám phá theo loại căn hộ" (xem ngay trên footer) - đúng vai trò điều hướng,
+           không tranh chỗ với công cụ tìm nhà. Các trang đích SEO giữ nguyên, không đổi URL. -->
     </div>
   </section>
 
   <main class="shell">
-    <button class="mobile-filter-toggle" id="mobileFilterToggle" type="button">
-      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-        <path d="M4 6h16M7 12h10M10 18h4" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+    <button class="mobile-filter-toggle" id="mobileFilterToggle" type="button" aria-label="Mở bộ lọc để tìm căn hộ phù hợp">
+      <span class="mft-icon" aria-hidden="true">
+        <svg width="19" height="19" viewBox="0 0 24 24" fill="none">
+          <circle cx="11" cy="11" r="6.5" stroke="currentColor" stroke-width="2"/>
+          <path d="m16 16 4.5 4.5" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+        </svg>
+      </span>
+      <span class="mft-text">
+        <b>Ấn vào đây để tìm căn hộ phù hợp</b>
+        <small id="mftTomTat">Lọc theo phòng ngủ, giá thuê và nội thất</small>
+      </span>
+      <svg class="mft-arrow" width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+        <path d="m9 6 6 6-6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
       </svg>
-      Lọc căn hộ
     </button>
     <div class="filters-backdrop" id="filtersBackdrop"></div>
     <section class="filters" id="filtersSection" aria-label="Bộ lọc căn hộ">
@@ -1505,6 +1548,24 @@
     <section class="seo-block" aria-label="Giới thiệu">
       <h2>Cho thuê căn hộ Vinhomes Smart City</h2>
       <p>Cho thuê chung cư Smart City tổng hợp <strong>căn hộ cho thuê tại Vinhomes Smart City</strong> (Tây Mỗ, Nam Từ Liêm, Hà Nội) với dữ liệu đồng bộ tự động nhiều lần mỗi ngày, phản ánh đúng tình trạng còn trống, giá thuê và ảnh thật của từng căn. Đủ loại hình từ Studio, 1 phòng ngủ, 2 phòng ngủ đến 3 phòng ngủ, trải trên các phân khu Sapphire, Miami, Sakura, Masteri West Heights, Imperia, Lumière, Canopy và Tonkin. Anh/chị xem theo <a href="#mucLucKhoDuLieu">danh mục</a> hoặc dùng bộ lọc phía trên để tìm căn phù hợp, sau đó nhắn Zalo để được dẫn xem nhà.</p>
+    </section>
+
+    <!-- KHÁM PHÁ THEO LOẠI CĂN HỘ (chuyển xuống đây 23/07/2026)
+         Trước đây nằm trong hero với tên "Duyệt nhanh" - khách nhầm là bộ lọc.
+         Đặt ở cuối trang thì đúng vai trò hơn: khách xem hết danh sách, cuộn tới đây
+         là lúc muốn mở rộng tìm kiếm sang nhóm khác. Vẫn là link THẬT tới trang tĩnh
+         riêng nên Google vẫn bò sang được bình thường, không mất giá trị SEO. -->
+    <section class="kham-pha" aria-label="Khám phá theo loại căn hộ">
+      <h2>Khám phá theo loại căn hộ</h2>
+      <p class="kham-pha-dan">Mỗi loại căn có một trang riêng với danh sách đầy đủ, bảng giá thực tế theo từng phân khu và những lưu ý khi thuê.</p>
+      <div class="kham-pha-luoi">
+        <a href="/studio/"><strong>Studio</strong><span>Không gian mở, hợp 1–2 người</span></a>
+        <a href="/1pn/"><strong>1 phòng ngủ</strong><span>Phòng ngủ tách riêng</span></a>
+        <a href="/1pn-plus/"><strong>1 phòng ngủ +</strong><span>Có phần mở rộng kê thêm giường</span></a>
+        <a href="/2pn/"><strong>2 phòng ngủ</strong><span>Loại có nhiều căn nhất</span></a>
+        <a href="/2pn-plus/"><strong>2 phòng ngủ +</strong><span>Căn góc, rộng và thoáng hơn</span></a>
+        <a href="/3pn/"><strong>3 phòng ngủ</strong><span>Gia đình đông người</span></a>
+      </div>
     </section>
 
   </main>
@@ -2306,10 +2367,34 @@
       });
     }
 
+    /* Hiện tóm tắt bộ lọc đang áp dụng ngay trên nút mở bộ lọc (thêm 23/07/2026).
+       Trên điện thoại bộ lọc bị thu gọn, nếu không có dòng này thì khách lọc xong, đóng bảng
+       lại là không còn thấy mình đang lọc gì - dễ tưởng web hiển thị thiếu căn. Hàm chỉ ĐỌC
+       state để đổi chữ, không sửa gì trong state nên không ảnh hưởng kết quả lọc. */
+    function capNhatTomTatBoLoc() {
+      const o = document.getElementById("mftTomTat");
+      if (!o) return;
+      const nhan = (danhSach, khoa) => {
+        if (khoa === "all") return null;
+        const muc = danhSach.find(m => m.key === khoa);
+        return muc ? muc.label : null;
+      };
+      const phan = [
+        nhan(typeFilters, state.type),
+        nhan(priceFilters, state.price),
+        nhan(interiorFilters, state.interior)
+      ].filter(Boolean);
+      if (state.query) phan.push(`“${state.query}”`);
+      o.textContent = phan.length
+        ? "Đang lọc: " + phan.join(" · ")
+        : "Lọc theo phòng ngủ, giá thuê và nội thất";
+    }
+
     function render() {
       renderStats();
       renderNewTodayBar();
       renderFilters();
+      capNhatTomTatBoLoc();
       const apartments = getFilteredApartments();
       $("#resultCount").innerHTML = `<strong>${apartments.length}</strong> căn hộ đang trống phù hợp`;
       const start = (state.page - 1) * PAGE_SIZE;
