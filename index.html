@@ -19,6 +19,12 @@
   <link rel="apple-touch-icon" href="/favicon-192.png">
 
   <meta name="description" content="Cho thuê căn hộ chung cư Vinhomes Smart City giá tốt, cập nhật mỗi ngày. Đầy đủ Studio, 1-2-3 phòng ngủ theo từng tòa, lọc nhanh theo giá và tình trạng nội thất.">
+  <!-- CANONICAL (thêm 23/07/2026): báo cho Google biết địa chỉ CHÍNH THỨC của trang này.
+       Thiếu thẻ này thì cùng một nội dung dễ bị Google coi là nhiều trang khác nhau
+       (/ và /index.html, hoặc các biến thể có tham số ?loai=studio&gia=... mình vừa thêm)
+       -> sức mạnh SEO bị chia nhỏ ra nhiều địa chỉ thay vì dồn hết về một chỗ.
+       Các trang danh mục (/studio/, /sapphire/...) đã có canonical riêng từ lúc sinh trang. -->
+  <link rel="canonical" href="https://timthuesmartcity.com/">
 
   <!-- Open Graph: hiển thị ảnh/tiêu đề đẹp khi dán link trên Zalo, Facebook, Messenger -->
   <meta property="og:type" content="website">
@@ -2231,7 +2237,7 @@
 
       grid.className = "grid";
       grid.innerHTML = apartments.map((apartment, index) => `
-        <article class="card">
+        <article class="card" data-ma-noi-bo="${apartment.apartmentId || ""}">
           ${mediaMarkup(apartment, index)}
           <div class="body">
             <span class="tower">
@@ -2573,6 +2579,10 @@
           $("#leadForm").style.display = "none";
           $("#leadSuccess").classList.add("show");
           $("#leadForm").reset();
+          // Báo cho khối đo lường biết đã gửi thành công (xem ganDoLuongChuyenDoi ở cuối file).
+          // Dùng sự kiện tuỳ chỉnh thay vì gọi thẳng gtag để phần đo lường tách bạch hẳn
+          // khỏi phần xử lý form - đo lường hỏng cũng không ảnh hưởng việc nhận yêu cầu.
+          document.dispatchEvent(new CustomEvent("guiYeuCauThanhCong"));
         } else {
           errorBox.textContent = (ketQua && ketQua.loi) || "Có lỗi xảy ra, vui lòng thử lại hoặc liên hệ trực tiếp qua Zalo.";
           errorBox.classList.add("show");
@@ -2598,6 +2608,90 @@
     $("#closeFilters").addEventListener("click", dongBoLocMobile);
     $("#apDungFilters").addEventListener("click", dongBoLocMobile);
     $("#filtersBackdrop").addEventListener("click", dongBoLocMobile);
+
+    /* ================================================================
+       ĐO LƯỜNG CHUYỂN ĐỔI GA4 (thêm 23/07/2026)
+       ----------------------------------------------------------------
+       Trước đây web chỉ có dòng khai báo gtag('config'), tức là CHỈ đếm lượt xem trang.
+       Mà hành động ra tiền ở đây là bấm Zalo / bấm gọi / gửi form - toàn bộ đều khiến
+       khách RỜI trang, nên lượt xem trang không đo được. Kết quả: không biết mỗi ngày
+       bao nhiêu người thực sự liên hệ, cũng không biết 25 trang danh mục SEO có mang
+       khách về hay không.
+
+       Cách làm: DÙNG MỘT LISTENER DUY NHẤT bắt mọi cú bấm trên trang rồi tự nhận diện.
+       Ưu điểm so với gắn tay vào từng nút:
+         - Thẻ căn hộ do JS vẽ ra sau khi tải dữ liệu, gắn tay sẽ sót
+         - Không phải sửa một dòng HTML nào đang chạy tốt
+         - Sau này thêm nút Zalo ở đâu cũng tự được đếm
+
+       CHỈ ĐỌC thông tin để gửi đi, không can thiệp hành vi bấm - link vẫn mở như thường.
+       Mã gửi đi là "Mã nội bộ" (CT.Stu.681...), KHÔNG phải mã căn thật, nên không lộ
+       dữ liệu chủ nhà qua Google Analytics.
+       ================================================================ */
+    (function ganDoLuongChuyenDoi() {
+      // Bọc an toàn: khách chặn quảng cáo thì gtag không tồn tại, không được để văng lỗi
+      function guiSuKien(ten, thongTin) {
+        try {
+          if (typeof gtag === "function") gtag("event", ten, thongTin || {});
+        } catch (e) { /* im lặng bỏ qua - đo lường hỏng không được ảnh hưởng người dùng */ }
+      }
+
+      /** Đoán xem nút vừa bấm nằm ở khu vực nào của trang, để biết chỗ nào hiệu quả nhất */
+      function viTriCuaNut(el) {
+        if (el.closest(".card")) return "the_can_ho";
+        if (el.closest(".sticky-cta")) return "thanh_duoi_dien_thoai";
+        if (el.closest(".floating-zalo")) return "nut_noi_goc_phai";
+        if (el.closest(".topbar")) return "dau_trang";
+        if (el.closest(".empty")) return "khi_khong_co_ket_qua";
+        if (el.closest(".new-today")) return "can_moi_hom_nay";
+        return "khac";
+      }
+
+      /** Lấy mã nội bộ của căn nếu nút nằm trong một thẻ căn hộ.
+       *  LƯU Ý: thuộc tính data-ma-noi-bo nằm NGAY TRÊN thẻ .card chứ không phải phần tử con,
+       *  nên phải đọc thẳng từ chính nó - dùng querySelector sẽ luôn trả về rỗng vì hàm đó
+       *  chỉ tìm trong các phần tử con. */
+      function maCanGanNhat(el) {
+        const the = el.closest(".card");
+        return the ? (the.getAttribute("data-ma-noi-bo") || "") : "";
+      }
+
+      document.addEventListener("click", function (e) {
+        const a = e.target.closest("a");
+        if (!a) return;
+        const href = a.getAttribute("href") || "";
+
+        if (href.indexOf("zalo.me") !== -1) {
+          guiSuKien("lien_he_zalo", {
+            vi_tri: viTriCuaNut(a),
+            ma_can: maCanGanNhat(a),
+            bo_loc_dang_dung: [state.type, state.price, state.interior]
+              .filter(v => v && v !== "all").join(" | ") || "khong_loc"
+          });
+          return;
+        }
+
+        if (href.indexOf("tel:") === 0) {
+          guiSuKien("goi_dien", { vi_tri: viTriCuaNut(a) });
+          return;
+        }
+
+        // Bấm sang trang danh mục SEO - dùng để biết khối "Khám phá" và "Mục lục" có ai dùng không
+        const m = href.match(/^\/([a-z0-9\-]+)\/$/);
+        if (m) {
+          guiSuKien("xem_trang_danh_muc", {
+            danh_muc: m[1],
+            vi_tri: a.closest(".kham-pha") ? "kham_pha_cuoi_trang"
+                  : a.closest(".muc-luc") ? "muc_luc_kho_du_lieu" : "khac"
+          });
+        }
+      }, true);
+
+      // Gửi yêu cầu thành công qua form "Nhờ tìm giúp"
+      document.addEventListener("guiYeuCauThanhCong", function () {
+        guiSuKien("gui_yeu_cau_tim_nha", { vi_tri: "form_nho_tim_giup" });
+      });
+    })();
 
     init();
   </script>
