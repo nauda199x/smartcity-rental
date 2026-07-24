@@ -864,6 +864,29 @@
 
     .seo-block p:last-child { margin-bottom: 0; }
 
+    /* ===== MỜI CHỦ NHÀ GỬI CĂN - cuối trang (thêm 24/07/2026) ===== */
+    .moi-chu-nha {
+      background: linear-gradient(135deg, #1e3a8a 0%, #2563eb 100%);
+      color: #fff; padding: 26px 0; margin-top: 10px;
+    }
+    .moi-chu-nha-trong {
+      display: flex; align-items: center; justify-content: space-between;
+      gap: 20px; flex-wrap: wrap;
+    }
+    .moi-chu-nha h2 { margin: 0 0 5px; font-size: 20px; }
+    .moi-chu-nha p { margin: 0; font-size: 14.5px; opacity: .9; max-width: 56ch; }
+    .moi-chu-nha-nut {
+      flex: 0 0 auto; background: #fff; color: var(--brand-dark);
+      font-weight: 700; font-size: 15px; text-decoration: none;
+      padding: 13px 24px; border-radius: 12px; white-space: nowrap;
+    }
+    .moi-chu-nha-nut:hover { background: #eff4ff; }
+    @media (max-width: 640px) {
+      .moi-chu-nha { padding: 22px 0; }
+      .moi-chu-nha-trong { flex-direction: column; align-items: stretch; }
+      .moi-chu-nha-nut { text-align: center; }
+    }
+
     /* ===== KHÁM PHÁ THEO LOẠI CĂN HỘ - cuối trang (chuyển từ hero xuống 23/07/2026) ===== */
     .kham-pha {
       background: #fff; border: 1px solid var(--line); border-radius: 14px;
@@ -1576,11 +1599,28 @@
 
   </main>
 
+  <!-- MỜI CHỦ NHÀ GỬI CĂN (thêm 24/07/2026)
+       Trang chủ phục vụ KHÁCH THUÊ, còn đây là lời mời dành cho CHỦ NHÀ - hai nhóm khác nhau.
+       Vì vậy đặt ở cuối trang, sau khi khách thuê đã xem xong danh sách, để không tranh chỗ
+       với công cụ tìm nhà. Chủ nhà nào lướt tới đây thường là đang tìm chỗ đăng tin.
+       Đây cũng là đường để Google tìm ra trang /gui-thue/ - không có link nội bộ thì trang
+       đó gần như vô hình dù đã nằm trong sitemap. -->
+  <section class="moi-chu-nha">
+    <div class="shell moi-chu-nha-trong">
+      <div>
+        <h2>Anh/chị có căn hộ cần cho thuê?</h2>
+        <p>Gửi thông tin và ảnh trực tiếp tại đây, chúng tôi đăng tin và tìm khách giúp. Không mất phí, không cần tài khoản.</p>
+      </div>
+      <a class="moi-chu-nha-nut" href="/gui-thue/">Gửi căn cho thuê →</a>
+    </div>
+  </section>
+
   <footer style="border-top:1px solid var(--line); background:var(--surface); padding:24px 0; margin-top:8px;">
     <div class="shell" style="display:flex; justify-content:space-between; flex-wrap:wrap; gap:12px; align-items:center; color:var(--muted); font-size:13.5px;">
       <span>© 2026 Cho thuê chung cư Smart City</span>
       <nav style="display:flex; gap:18px; flex-wrap:wrap;">
         <a href="/cam-nang-thue-nha.html" style="color:var(--muted); font-weight:600;">Cẩm nang thuê nhà</a>
+        <a href="/gui-thue/" style="color:var(--muted); font-weight:600;">Chủ nhà gửi căn</a>
       </nav>
     </div>
   </footer>
@@ -1700,7 +1740,7 @@
   <script>
     const CONFIG = {
       staticDataUrl: "data.json",
-      dataEndpoint: "https://script.google.com/macros/s/AKfycbxr4SBes-LSV5-2RwRk4ZNpY61smHtNrXsi3Se7bqpJqeA4MDh1zStE8MzcrlhmKcSITg/exec",
+      dataEndpoint: "https://script.google.com/macros/s/AKfycbxB78omU6IJvr_50e2dQStN6o9Q87wuEoXoYqMubl9-kcJ44u6EL3Uc6t-V62gcWAgjnQ/exec",
       zaloPhone: "0977923284",
       fallbackSheetId: "1BBnB5PPLR3HZWHqsa5qvvtgWvFMiHNE2ZMIlUSXcKZk",
       fallbackGid: "0",

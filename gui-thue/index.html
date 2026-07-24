@@ -1,0 +1,570 @@
+<!doctype html>
+<html lang="vi">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Gửi căn hộ cho thuê – Vinhomes Smart City | Cho thuê chung cư Smart City</title>
+<meta name="description" content="Chủ nhà có căn hộ tại Vinhomes Smart City cần cho thuê? Điền thông tin và tải ảnh trực tiếp tại đây, chúng tôi đăng tin và tìm khách miễn phí.">
+<link rel="canonical" href="https://timthuesmartcity.com/gui-thue/">
+<link rel="icon" href="/favicon.ico" sizes="any">
+<meta name="robots" content="index,follow">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://timthuesmartcity.com/gui-thue/">
+<meta property="og:title" content="Gửi căn hộ cho thuê – Vinhomes Smart City">
+<meta property="og:description" content="Điền thông tin và tải ảnh trực tiếp từ điện thoại. Không cần tài khoản, không mất phí.">
+<meta property="og:locale" content="vi_VN">
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-VF9KHC5TWD"></script>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}
+gtag('js',new Date());gtag('config','G-VF9KHC5TWD');</script>
+<style>
+:root{--bg:#f5f7fb;--surface:#fff;--ink:#111827;--muted:#667085;--line:#e5e7eb;
+--brand:#2563eb;--brand-dark:#1e3a8a;--ok:#059669;--warn:#b45309;--err:#dc2626;
+--r:12px;--sh:0 14px 34px rgba(15,23,42,.07)}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);
+font:16px/1.6 system-ui,-apple-system,"Segoe UI",Roboto,Arial,sans-serif}
+a{color:var(--brand);text-decoration:none}
+.khung{max-width:680px;margin:0 auto;padding:0 16px}
+.top{background:var(--surface);border-bottom:1px solid var(--line)}
+.top .khung{display:flex;align-items:center;justify-content:space-between;
+gap:12px;min-height:60px;flex-wrap:wrap}
+.hieu{font-weight:700;color:var(--brand-dark);font-size:16.5px}
+.hieu small{display:block;font-weight:400;font-size:12px;color:var(--muted)}
+.top nav a{color:var(--muted);font-size:14px}
+
+h1{font-size:clamp(23px,5vw,30px);line-height:1.25;margin:22px 0 8px}
+.dan{color:var(--muted);margin:0 0 6px}
+.loi-ich{display:flex;gap:8px;flex-wrap:wrap;margin:14px 0 24px}
+.loi-ich span{background:var(--surface);border:1px solid var(--line);border-radius:99px;
+padding:6px 13px;font-size:13.5px;color:var(--muted)}
+
+form{background:var(--surface);border:1px solid var(--line);border-radius:var(--r);
+padding:22px 20px;box-shadow:var(--sh);margin-bottom:20px}
+fieldset{border:0;padding:0;margin:0 0 22px}
+legend{font-size:13px;font-weight:700;text-transform:uppercase;letter-spacing:.04em;
+color:var(--muted);padding:0;margin-bottom:14px}
+.o{margin-bottom:16px}
+.o label{display:block;font-size:14.5px;font-weight:600;margin-bottom:6px}
+.o label .sao{color:var(--err)}
+.o .goi-y{display:block;font-size:12.5px;font-weight:400;color:var(--muted);margin-top:3px}
+input,select,textarea{width:100%;font:inherit;color:inherit;background:#fff;
+border:1px solid var(--line);border-radius:10px;padding:11px 13px;min-height:46px}
+input:focus,select:focus,textarea:focus{outline:2px solid var(--brand);outline-offset:1px;border-color:var(--brand)}
+textarea{min-height:82px;resize:vertical}
+select{appearance:none;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%23667085' stroke-width='3'%3E%3Cpath d='m6 9 6 6 6-6'/%3E%3C/svg%3E");
+background-repeat:no-repeat;background-position:right 14px center;padding-right:38px}
+.doi{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.don-vi{position:relative}
+.don-vi input{padding-right:96px}
+.don-vi .nhan{position:absolute;right:12px;top:50%;transform:translateY(-50%);
+font-size:13.5px;color:var(--muted);pointer-events:none}
+.xem-truoc{font-size:13.5px;color:var(--ok);font-weight:600;margin-top:6px;min-height:20px}
+.chon-nhanh{display:flex;gap:7px;flex-wrap:wrap;margin-top:8px}
+.chon-nhanh button{width:auto;min-height:0;padding:5px 12px;font-size:13px;
+border:1px solid var(--line);border-radius:99px;background:var(--bg);color:var(--ink);cursor:pointer}
+.chon-nhanh button:hover{border-color:var(--brand);color:var(--brand)}
+
+/* ẢNH */
+.nut-anh{display:flex;align-items:center;gap:12px;width:100%;padding:16px;
+border:2px dashed var(--line);border-radius:var(--r);background:var(--bg);
+cursor:pointer;text-align:left}
+.nut-anh:hover{border-color:var(--brand);background:#eff4ff}
+.nut-anh .bieu-tuong{flex:0 0 auto;width:42px;height:42px;border-radius:50%;
+background:var(--brand);color:#fff;display:flex;align-items:center;justify-content:center}
+.nut-anh b{display:block;font-size:15px}
+.nut-anh small{display:block;font-size:12.5px;color:var(--muted);margin-top:2px}
+#chonAnh{display:none}
+.luoi-anh{display:grid;grid-template-columns:repeat(auto-fill,minmax(88px,1fr));
+gap:8px;margin-top:12px}
+.o-anh{position:relative;aspect-ratio:1;border-radius:9px;overflow:hidden;border:1px solid var(--line)}
+.o-anh img{width:100%;height:100%;object-fit:cover;display:block}
+.o-anh .xoa{position:absolute;top:4px;right:4px;width:23px;height:23px;min-height:0;
+padding:0;border-radius:50%;border:0;background:rgba(17,24,39,.72);color:#fff;
+font-size:15px;line-height:1;cursor:pointer;display:flex;align-items:center;justify-content:center}
+.o-anh .bia{position:absolute;left:0;right:0;bottom:0;background:rgba(37,99,235,.92);
+color:#fff;font-size:10.5px;text-align:center;padding:2px}
+.dem-anh{font-size:13px;color:var(--muted);margin-top:9px}
+
+.gui{width:100%;min-height:52px;border:0;border-radius:12px;background:var(--brand);
+color:#fff;font-size:16px;font-weight:700;cursor:pointer;box-shadow:0 8px 22px rgba(37,99,235,.3)}
+.gui:disabled{opacity:.6;cursor:not-allowed;box-shadow:none}
+.tien-trinh{display:none;margin-top:14px}
+.tien-trinh.hien{display:block}
+.thanh{height:7px;background:var(--line);border-radius:99px;overflow:hidden}
+.thanh i{display:block;height:100%;width:0;background:var(--brand);transition:width .3s}
+.tien-trinh p{font-size:13.5px;color:var(--muted);margin:8px 0 0;text-align:center}
+
+.bao{display:none;border-radius:10px;padding:12px 14px;font-size:14.5px;margin-bottom:16px}
+.bao.hien{display:block}
+.bao.loi{background:#fef2f2;color:var(--err);border:1px solid #fecaca}
+.xong{display:none;background:var(--surface);border:1px solid var(--line);
+border-radius:var(--r);padding:32px 24px;text-align:center;box-shadow:var(--sh)}
+.xong.hien{display:block}
+.xong .dau{width:58px;height:58px;border-radius:50%;background:#ecfdf5;color:var(--ok);
+display:flex;align-items:center;justify-content:center;margin:0 auto 14px}
+.xong h2{margin:0 0 8px;font-size:21px}
+.xong p{color:var(--muted);margin:0 0 18px}
+.xong .ma{display:inline-block;background:var(--bg);border:1px solid var(--line);
+border-radius:8px;padding:7px 16px;font-weight:700;font-size:17px;margin-bottom:16px}
+
+.chan{border-top:1px solid var(--line);padding:22px 0 40px;color:var(--muted);font-size:13.5px}
+.rieng-tu{font-size:13px;color:var(--muted);background:var(--bg);border-radius:9px;
+padding:11px 13px;margin-top:4px}
+@media(max-width:520px){.doi{grid-template-columns:1fr}form{padding:18px 15px}}
+</style>
+</head>
+<body>
+
+<header class="top">
+  <div class="khung">
+    <a class="hieu" href="/">Cho thuê chung cư Smart City<small>Ảnh thật · Cập nhật mỗi ngày</small></a>
+    <nav><a href="/">Xem căn đang cho thuê</a></nav>
+  </div>
+</header>
+
+<main class="khung">
+  <h1>Gửi căn hộ cần cho thuê</h1>
+  <p class="dan">Anh/chị có căn hộ tại Vinhomes Smart City cần cho thuê, điền thông tin bên dưới và tải ảnh trực tiếp từ điện thoại. Chúng tôi đăng tin và tìm khách giúp.</p>
+  <div class="loi-ich">
+    <span>Không mất phí đăng tin</span>
+    <span>Không cần tài khoản</span>
+    <span>Tin lên trong ngày</span>
+  </div>
+
+  <div class="bao loi" id="hopLoi"></div>
+
+  <form id="mauGui" autocomplete="off">
+
+    <fieldset>
+      <legend>Thông tin căn hộ</legend>
+
+      <div class="doi">
+        <div class="o">
+          <label for="toa">Tòa <span class="sao">*</span></label>
+          <select id="toa" required>
+            <option value="">— Chọn tòa —</option>
+            <optgroup label="The Sapphire">
+              <option>S101</option><option>S102</option><option>S103</option>
+              <option>S105</option><option>S106</option>
+              <option>S201</option><option>S202</option><option>S203</option><option>S205</option>
+              <option>S301</option><option>S302</option><option>S303</option>
+              <option>S401</option><option>S402</option><option>S403</option>
+            </optgroup>
+            <optgroup label="Masteri West Heights">
+              <option value="MasA">West A</option><option value="MasB">West B</option>
+              <option value="MasC">West C</option><option value="MasD">West D</option>
+            </optgroup>
+            <optgroup label="The Miami (Grand Sapphire)">
+              <option>GS1</option><option>GS2</option><option>GS3</option>
+              <option>GS5</option><option>GS6</option>
+            </optgroup>
+            <optgroup label="The Sakura">
+              <option>SA1</option><option>SA2</option><option>SA3</option><option>SA5</option>
+            </optgroup>
+            <optgroup label="Imperia Smart City">
+              <option>I1</option><option>I2</option><option>I3</option>
+              <option>I4</option><option>I5</option>
+            </optgroup>
+            <optgroup label="Lumière Evergreen">
+              <option value="A1">The Aqua (A1)</option>
+              <option value="A2">The Atmos (A2)</option>
+              <option value="A3">The Aura (A3)</option>
+            </optgroup>
+            <optgroup label="The Canopy Residences">
+              <option>TC1</option><option>TC2</option><option>TC3</option>
+            </optgroup>
+            <optgroup label="The Tonkin">
+              <option>TK1</option><option>TK2</option>
+            </optgroup>
+            <optgroup label="The Victoria">
+              <option>V1</option><option>V2</option><option>V3</option>
+            </optgroup>
+            <optgroup label="Imperia Sola Park">
+              <option>G1</option><option>G2</option><option>G3</option>
+              <option>G5</option><option>G6</option>
+            </optgroup>
+          </select>
+        </div>
+
+        <div class="o">
+          <label for="soCan">Số căn <span class="sao">*</span></label>
+          <input id="soCan" inputmode="numeric" maxlength="6" placeholder="1829" required>
+          <span class="goi-y">Chỉ số căn, không cần gõ tên tòa</span>
+        </div>
+      </div>
+
+      <div class="o">
+        <div class="rieng-tu" id="xemMaCan">Mã căn sẽ là: <strong>— chọn tòa và nhập số căn —</strong></div>
+      </div>
+
+      <div class="doi">
+        <div class="o">
+          <label for="loai">Loại căn <span class="sao">*</span></label>
+          <select id="loai" required>
+            <option value="">— Chọn loại —</option>
+            <option>Studio</option>
+            <option>1 Ngủ</option>
+            <option>1 Ngủ +</option>
+            <option>2 Ngủ</option>
+            <option>2 Ngủ +</option>
+            <option>3 Ngủ</option>
+          </select>
+        </div>
+
+        <div class="o">
+          <label for="dienTich">Diện tích <span class="sao">*</span></label>
+          <div class="don-vi">
+            <input id="dienTich" inputmode="decimal" placeholder="55" required>
+            <span class="nhan">m²</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="o">
+        <label for="noiThat">Tình trạng nội thất <span class="sao">*</span></label>
+        <select id="noiThat" required>
+          <option value="">— Chọn tình trạng —</option>
+          <option>Full nội thất</option>
+          <option>Đồ Cơ bản</option>
+          <option>Nhà Nguyên Bản</option>
+        </select>
+      </div>
+
+      <div class="o">
+        <label for="gia">Giá thuê mong muốn <span class="sao">*</span></label>
+        <div class="don-vi">
+          <input id="gia" inputmode="decimal" placeholder="7.5" required>
+          <span class="nhan">triệu/tháng</span>
+        </div>
+        <div class="xem-truoc" id="xemGia"></div>
+        <div class="chon-nhanh" id="giaNhanh">
+          <button type="button" data-gia="6">6 triệu</button>
+          <button type="button" data-gia="7">7 triệu</button>
+          <button type="button" data-gia="8">8 triệu</button>
+          <button type="button" data-gia="10">10 triệu</button>
+          <button type="button" data-gia="12">12 triệu</button>
+          <button type="button" data-gia="15">15 triệu</button>
+        </div>
+      </div>
+
+      <div class="o">
+        <label for="ngayTrong">Ngày có thể vào ở</label>
+        <input id="ngayTrong" type="date">
+        <span class="goi-y"><label style="display:inline;font-weight:400">
+          <input type="checkbox" id="trongNgay" style="width:auto;min-height:0;margin-right:5px">
+          Trống, vào ở được ngay</label></span>
+      </div>
+
+      <div class="o">
+        <label for="ghiChu">Ghi chú thêm</label>
+        <textarea id="ghiChu" maxlength="500" placeholder="Ví dụ: view công viên, hướng Đông Nam, có máy giặt riêng, ưu tiên khách thuê dài hạn..."></textarea>
+      </div>
+    </fieldset>
+
+    <fieldset>
+      <legend>Ảnh căn hộ</legend>
+      <label class="nut-anh" for="chonAnh">
+        <span class="bieu-tuong">
+          <svg width="21" height="21" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+            <path d="M4 8a2 2 0 0 1 2-2h1.5l1.2-2h6.6l1.2 2H18a2 2 0 0 1 2 2v9a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V8Z" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/>
+            <circle cx="12" cy="12.5" r="3.2" stroke="currentColor" stroke-width="2"/>
+          </svg>
+        </span>
+        <span>
+          <b>Chọn ảnh từ máy</b>
+          <small>Bấm để mở thư viện ảnh hoặc chụp mới. Chọn được nhiều ảnh cùng lúc.</small>
+        </span>
+      </label>
+      <input type="file" id="chonAnh" accept="image/*" multiple>
+      <div class="luoi-anh" id="luoiAnh"></div>
+      <p class="dem-anh" id="demAnh">Chưa chọn ảnh nào. Nên có ít nhất 5 ảnh: phòng khách, phòng ngủ, bếp, vệ sinh, ban công.</p>
+    </fieldset>
+
+    <fieldset>
+      <legend>Thông tin liên hệ</legend>
+      <div class="o">
+        <label for="sdt">Số điện thoại <span class="sao">*</span></label>
+        <input id="sdt" type="tel" inputmode="tel" maxlength="15" placeholder="09xx xxx xxx" required>
+        <div class="rieng-tu">Số điện thoại chỉ dùng để chúng tôi liên hệ lại với anh/chị.
+          <strong>Không hiển thị trên website</strong> và không cung cấp cho bên thứ ba.</div>
+      </div>
+      <!-- Bẫy chống robot: người thật luôn để trống ô này vì nó bị ẩn -->
+      <div style="position:absolute;left:-9999px" aria-hidden="true">
+        <label for="website">Website</label>
+        <input id="website" tabindex="-1" autocomplete="off">
+      </div>
+    </fieldset>
+
+    <button class="gui" id="nutGui" type="submit">Gửi căn hộ cho thuê</button>
+
+    <div class="tien-trinh" id="tienTrinh">
+      <div class="thanh"><i id="thanhChay"></i></div>
+      <p id="chuTienTrinh">Đang gửi...</p>
+    </div>
+  </form>
+
+  <div class="xong" id="manXong">
+    <div class="dau">
+      <svg width="28" height="28" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+        <path d="m5 13 4.5 4.5L19 7" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+    </div>
+    <h2>Đã nhận thông tin căn hộ</h2>
+    <div class="ma" id="maDaGui"></div>
+    <p>Chúng tôi sẽ kiểm tra và đăng tin trong ngày. Nếu cần bổ sung gì, chúng tôi gọi lại theo số anh/chị vừa để lại.</p>
+    <p><a href="/">Xem các căn đang cho thuê →</a></p>
+  </div>
+</main>
+
+<footer class="chan">
+  <div class="khung">
+    <p><strong>Cho thuê chung cư Smart City</strong> — môi giới cá nhân, không phải đại diện
+    chính thức của Vinhomes hay Vingroup. Hotline &amp; Zalo: 0977923284.</p>
+    <p><a href="/">Trang chủ</a> · <a href="/cam-nang-thue-nha.html">Cẩm nang thuê nhà</a></p>
+  </div>
+</footer>
+
+<script>
+(function () {
+  "use strict";
+  var API = "https://script.google.com/macros/s/AKfycbxB78omU6IJvr_50e2dQStN6o9Q87wuEoXoYqMubl9-kcJ44u6EL3Uc6t-V62gcWAgjnQ/exec";
+
+  /* Ảnh: nén NGAY TRÊN MÁY CHỦ NHÀ trước khi gửi.
+     Ảnh điện thoại giờ 4-5MB/tấm, 10 tấm là ~45MB - gửi thẳng thì mạng 4G sẽ đứt giữa
+     chừng và chủ nhà bỏ cuộc. Nén về cạnh dài tối đa 1600px, chất lượng 0.78 -> còn
+     khoảng 200-400KB/tấm, tổng ~3MB, gửi trong 20-30 giây. Chất lượng này vẫn thừa đẹp
+     để hiển thị trên web (thẻ căn hộ chỉ rộng ~400px). */
+  var CANH_TOI_DA = 1600, CHAT_LUONG = 0.78, TOI_DA_ANH = 20;
+
+  var $ = function (id) { return document.getElementById(id); };
+  var dsAnh = [];   // [{ten, blob, url}]
+
+  /* ---------- Mã căn: ghép tòa + số căn ---------- */
+  function capNhatMaCan() {
+    var toa = $("toa").value.trim();
+    var so = $("soCan").value.replace(/\D/g, "");
+    $("soCan").value = so;
+    var box = $("xemMaCan");
+    if (toa && so) {
+      box.innerHTML = "Mã căn sẽ là: <strong>" + toa + so + "</strong>";
+    } else {
+      box.innerHTML = "Mã căn sẽ là: <strong>— chọn tòa và nhập số căn —</strong>";
+    }
+  }
+  $("toa").addEventListener("change", capNhatMaCan);
+  $("soCan").addEventListener("input", capNhatMaCan);
+
+  /* ---------- Giá thuê: cố định đơn vị "triệu", hiện lại số đầy đủ ----------
+     Chống đúng nỗi lo nhập lung tung (7tr / 7000k / 7 triệu / 7000000):
+     ô chỉ nhận số, đơn vị in cứng bên cạnh, và hiện ngay số đầy đủ để chủ nhà tự soát. */
+  function docGia(txt) {
+    var s = String(txt || "").trim().toLowerCase().replace(/,/g, ".");
+    if (!s) return 0;
+    var so = parseFloat(s.replace(/[^\d.]/g, ""));
+    if (isNaN(so) || so <= 0) return 0;
+    // Người dùng gõ đủ kiểu -> quy hết về đồng
+    if (/(triệu|trieu|tr)\b/.test(s) || so < 1000) return Math.round(so * 1e6);   // 7 / 7.5 / "7tr"
+    if (/k\b/.test(s) || so < 100000) return Math.round(so * 1000);               // "7000k" / 7000
+    return Math.round(so);                                                         // 7000000
+  }
+  function dinhDang(d) { return d.toLocaleString("vi-VN") + " đ/tháng"; }
+  function capNhatGia() {
+    var d = docGia($("gia").value);
+    var o = $("xemGia");
+    if (!d) { o.textContent = ""; o.style.color = ""; return; }
+    if (d < 3e6 || d > 60e6) {
+      o.textContent = "⚠ " + dinhDang(d) + " — anh/chị kiểm tra lại giúp";
+      o.style.color = "var(--warn)";
+    } else {
+      o.textContent = "= " + dinhDang(d);
+      o.style.color = "var(--ok)";
+    }
+  }
+  $("gia").addEventListener("input", capNhatGia);
+  $("giaNhanh").addEventListener("click", function (e) {
+    var b = e.target.closest("button[data-gia]");
+    if (!b) return;
+    $("gia").value = b.getAttribute("data-gia");
+    capNhatGia();
+  });
+
+  $("trongNgay").addEventListener("change", function () {
+    $("ngayTrong").disabled = this.checked;
+    if (this.checked) $("ngayTrong").value = "";
+  });
+
+  /* ---------- Chọn và nén ảnh ---------- */
+  function nenAnh(file) {
+    return new Promise(function (xong, hong) {
+      var doc = new FileReader();
+      doc.onerror = function () { hong(new Error("Không đọc được ảnh")); };
+      doc.onload = function () {
+        var img = new Image();
+        img.onerror = function () { hong(new Error("Ảnh lỗi hoặc không đúng định dạng")); };
+        img.onload = function () {
+          var w = img.width, h = img.height;
+          if (Math.max(w, h) > CANH_TOI_DA) {
+            var ti = CANH_TOI_DA / Math.max(w, h);
+            w = Math.round(w * ti); h = Math.round(h * ti);
+          }
+          var c = document.createElement("canvas");
+          c.width = w; c.height = h;
+          c.getContext("2d").drawImage(img, 0, 0, w, h);
+          c.toBlob(function (blob) {
+            blob ? xong(blob) : hong(new Error("Không nén được ảnh"));
+          }, "image/jpeg", CHAT_LUONG);
+        };
+        img.src = doc.result;
+      };
+      doc.readAsDataURL(file);
+    });
+  }
+
+  function veLuoiAnh() {
+    var luoi = $("luoiAnh");
+    luoi.innerHTML = dsAnh.map(function (a, i) {
+      return '<div class="o-anh"><img src="' + a.url + '" alt="Ảnh ' + (i + 1) + '">' +
+             '<button type="button" class="xoa" data-i="' + i + '" aria-label="Xóa ảnh">×</button>' +
+             (i === 0 ? '<span class="bia">Ảnh bìa</span>' : '') + '</div>';
+    }).join("");
+    var tong = dsAnh.reduce(function (s, a) { return s + a.blob.size; }, 0);
+    $("demAnh").textContent = dsAnh.length
+      ? "Đã chọn " + dsAnh.length + " ảnh (" + (tong / 1048576).toFixed(1) + " MB sau khi nén). Ảnh đầu tiên dùng làm ảnh bìa."
+      : "Chưa chọn ảnh nào. Nên có ít nhất 5 ảnh: phòng khách, phòng ngủ, bếp, vệ sinh, ban công.";
+  }
+
+  $("luoiAnh").addEventListener("click", function (e) {
+    var b = e.target.closest(".xoa");
+    if (!b) return;
+    var i = Number(b.getAttribute("data-i"));
+    URL.revokeObjectURL(dsAnh[i].url);
+    dsAnh.splice(i, 1);
+    veLuoiAnh();
+  });
+
+  $("chonAnh").addEventListener("change", async function () {
+    var files = Array.prototype.slice.call(this.files || []);
+    this.value = "";
+    if (!files.length) return;
+    if (dsAnh.length + files.length > TOI_DA_ANH) {
+      files = files.slice(0, TOI_DA_ANH - dsAnh.length);
+      baoLoi("Mỗi căn nhận tối đa " + TOI_DA_ANH + " ảnh, các ảnh thừa đã được bỏ qua.");
+    }
+    $("demAnh").textContent = "Đang xử lý ảnh...";
+    for (var i = 0; i < files.length; i++) {
+      try {
+        var blob = await nenAnh(files[i]);
+        dsAnh.push({ ten: files[i].name, blob: blob, url: URL.createObjectURL(blob) });
+        veLuoiAnh();
+      } catch (err) { /* bỏ qua ảnh lỗi, không chặn các ảnh còn lại */ }
+    }
+    veLuoiAnh();
+  });
+
+  /* ---------- Gửi ---------- */
+  function baoLoi(t) {
+    var h = $("hopLoi");
+    h.textContent = t; h.classList.add("hien");
+    h.scrollIntoView({ behavior: "smooth", block: "center" });
+  }
+  function anLoi() { $("hopLoi").classList.remove("hien"); }
+  function tienDo(pt, chu) {
+    $("tienTrinh").classList.add("hien");
+    $("thanhChay").style.width = pt + "%";
+    $("chuTienTrinh").textContent = chu;
+  }
+
+  function blobSangBase64(blob) {
+    return new Promise(function (xong) {
+      var r = new FileReader();
+      r.onload = function () { xong(String(r.result).split(",")[1]); };
+      r.readAsDataURL(blob);
+    });
+  }
+
+  /* Gửi bằng POST với Content-Type text/plain - đây là "yêu cầu đơn giản" nên trình duyệt
+     KHÔNG hỏi trước quyền truy cập chéo miền, tránh được lỗi CORS hay gặp với Apps Script.
+     Không dùng GET như form "Nhờ tìm giúp" vì địa chỉ web có giới hạn độ dài, không chứa nổi ảnh. */
+  async function goiAPI(goi) {
+    var res = await fetch(API, {
+      method: "POST",
+      headers: { "Content-Type": "text/plain;charset=utf-8" },
+      body: JSON.stringify(goi)
+    });
+    return await res.json();
+  }
+
+  function sdtHopLe(s) {
+    return /^(0|\+?84)\d{9,10}$/.test(String(s || "").replace(/[\s.\-()]/g, ""));
+  }
+
+  $("mauGui").addEventListener("submit", async function (e) {
+    e.preventDefault();
+    anLoi();
+
+    var toa = $("toa").value.trim();
+    var soCan = $("soCan").value.replace(/\D/g, "");
+    var gia = docGia($("gia").value);
+    var dienTich = parseFloat(String($("dienTich").value).replace(/[^\d.]/g, ""));
+    var sdt = $("sdt").value.trim();
+
+    if (!toa) return baoLoi("Anh/chị chọn giúp tòa nhà.");
+    if (!soCan) return baoLoi("Anh/chị nhập số căn hộ.");
+    if (!$("loai").value) return baoLoi("Anh/chị chọn loại căn hộ.");
+    if (!dienTich || dienTich < 15 || dienTich > 200) return baoLoi("Diện tích chưa hợp lệ, anh/chị kiểm tra lại giúp.");
+    if (!$("noiThat").value) return baoLoi("Anh/chị chọn tình trạng nội thất.");
+    if (!gia) return baoLoi("Anh/chị nhập giá thuê mong muốn.");
+    if (!sdtHopLe(sdt)) return baoLoi("Số điện thoại chưa đúng, anh/chị kiểm tra lại giúp.");
+
+    $("nutGui").disabled = true;
+    $("nutGui").textContent = "Đang gửi...";
+
+    try {
+      tienDo(6, "Đang gửi thông tin căn hộ...");
+      var b1 = await goiAPI({
+        action: "chuNhaGuiCan",
+        toa: toa, soCan: soCan, loai: $("loai").value,
+        dienTich: dienTich, noiThat: $("noiThat").value, gia: gia,
+        ngayTrong: $("trongNgay").checked ? "" : $("ngayTrong").value,
+        ghiChu: $("ghiChu").value.trim(), sdt: sdt,
+        soAnh: dsAnh.length,
+        website: $("website").value   // bẫy chống robot
+      });
+      if (!b1 || !b1.ok) throw new Error((b1 && b1.loi) || "Không gửi được thông tin, anh/chị thử lại giúp.");
+
+      // Gửi từng ảnh một, không gửi cả loạt - tránh gói dữ liệu quá lớn bị máy chủ từ chối
+      for (var i = 0; i < dsAnh.length; i++) {
+        tienDo(10 + Math.round((i / Math.max(dsAnh.length, 1)) * 82),
+               "Đang tải ảnh " + (i + 1) + "/" + dsAnh.length + "...");
+        var kq = await goiAPI({
+          action: "chuNhaGuiAnh",
+          phien: b1.phien,
+          thuMuc: b1.thuMuc,
+          thuTu: i + 1,
+          duLieu: await blobSangBase64(dsAnh[i].blob)
+        });
+        if (!kq || !kq.ok) { /* một ảnh lỗi thì bỏ qua, không hủy cả lần gửi */ }
+      }
+
+      tienDo(96, "Đang hoàn tất...");
+      await goiAPI({ action: "chuNhaGuiXong", phien: b1.phien, thuMuc: b1.thuMuc });
+      tienDo(100, "Xong!");
+
+      try { if (typeof gtag === "function") gtag("event", "chu_nha_gui_can", { toa: toa, loai: $("loai").value }); } catch (e2) {}
+
+      $("mauGui").style.display = "none";
+      $("maDaGui").textContent = b1.maCan;
+      $("manXong").classList.add("hien");
+      window.scrollTo({ top: 0, behavior: "smooth" });
+
+    } catch (err) {
+      baoLoi(err.message || "Có lỗi khi gửi, anh/chị thử lại hoặc nhắn Zalo 0977923284 giúp.");
+      $("tienTrinh").classList.remove("hien");
+      $("nutGui").disabled = false;
+      $("nutGui").textContent = "Gửi căn hộ cho thuê";
+    }
+  });
+})();
+</script>
+</body>
+</html>
