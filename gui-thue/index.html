@@ -112,13 +112,32 @@ border-radius:8px;padding:7px 16px;font-weight:700;font-size:17px;margin-bottom:
 .rieng-tu{font-size:13px;color:var(--muted);background:var(--bg);border-radius:9px;
 padding:11px 13px;margin-top:4px}
 
-/* ===== HERO trang gửi căn (thêm 25/07/2026, chỉnh 25/07 lần 2) =====
-   Banner ảnh làm dải đầu trang, KHỐNG CHẾ chiều cao để form hiện sớm, không đẩy xuống quá sâu.
-   object-fit:cover + neo giữa để phần chữ chính của banner luôn hiển thị đẹp mọi màn hình.
-   Ảnh nằm cùng thư mục /gui-thue/ trên GitHub. */
-.anh-hero{display:block;background:var(--brand-dark);line-height:0}
-.anh-hero img{display:block;width:100%;height:260px;object-fit:cover;object-position:center}
-@media(max-width:520px){.anh-hero img{height:150px}
+/* ===== HERO trang gửi căn (thiết kế lại 25/07/2026 theo phong cách trang chủ) =====
+   Dùng lại ảnh hero-smartcity.jpg của trang chủ + lớp phủ gradient navy, chữ trắng đè lên.
+   Ảnh phải nằm cùng thư mục /gui-thue/ trên GitHub (chép hero-smartcity.jpg vào đây). */
+.hero{position:relative;color:#fff;
+background:linear-gradient(110deg,rgba(8,20,55,.86),rgba(15,35,90,.66)),
+radial-gradient(circle at 82% 20%,rgba(20,184,166,.18),transparent 34%),
+url("hero-smartcity.jpg");
+background-size:cover;background-position:center 38%}
+.hero .khung{padding:52px 16px}
+.hero .nhan-tin{display:inline-flex;align-items:center;gap:8px;font-size:13.5px;font-weight:600;
+background:rgba(255,255,255,.13);border:1px solid rgba(255,255,255,.28);
+border-radius:99px;padding:6px 14px;margin-bottom:16px}
+.hero .nhan-tin i{width:8px;height:8px;border-radius:50%;background:#4ade80;
+box-shadow:0 0 0 3px rgba(74,222,128,.3)}
+.hero h1{color:#fff;margin:0 0 14px;font-size:clamp(27px,4.6vw,44px);line-height:1.12;letter-spacing:0}
+.hero h1 span{color:#7dd3fc}
+.hero .phu{color:rgba(255,255,255,.82);font-size:16.5px;line-height:1.6;margin:0 0 24px;max-width:600px}
+.hero .cta-hang{display:flex;gap:12px;flex-wrap:wrap;align-items:center}
+.hero .cta{display:inline-flex;align-items:center;gap:9px;background:#f97316;color:#fff;
+font-weight:700;font-size:17px;border-radius:12px;padding:15px 28px;
+box-shadow:0 12px 30px rgba(249,115,22,.4);border:0;cursor:pointer}
+.hero .cta:hover{background:#ea580c;text-decoration:none}
+.hero .cta-phu{color:#fff;font-weight:600;font-size:14.5px;text-decoration:underline;text-underline-offset:3px}
+.hero .cta-phu:hover{color:#7dd3fc}
+.hero .duoi-cta{display:block;font-size:13.5px;color:rgba(255,255,255,.7);margin-top:15px}
+@media(max-width:520px){.hero .khung{padding:38px 16px}
 .doi{grid-template-columns:1fr}form{padding:18px 15px}}
 </style>
 </head>
@@ -131,12 +150,23 @@ padding:11px 13px;margin-top:4px}
   </div>
 </header>
 
-<a class="anh-hero" href="#mauGui" aria-label="Gửi căn hộ cho thuê ngay">
-  <img src="hero-dang-can.jpg" alt="Gửi căn cho thuê Vinhomes Smart City — tìm khách nhanh, miễn phí đăng tin" loading="eager">
-</a>
+<section class="hero">
+  <div class="khung">
+    <span class="nhan-tin"><i></i>Đang có khách hỏi thuê mỗi ngày</span>
+    <h1>Có căn cần cho thuê?<br><span>Chúng em lo tìm khách giúp anh/chị</span></h1>
+    <p class="phu">Gửi thông tin và ảnh căn hộ ngay bên dưới. Chúng em có sẵn khách đang tìm nhà mỗi ngày, đăng tin và dẫn khách xem căn giúp anh/chị — cho thuê nhanh nhất, anh/chị không phải mất công tự đăng nhiều nơi rồi ngóng.</p>
+    <div class="cta-hang">
+      <a class="cta" href="#mauGui">Gửi căn ngay
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </a>
+      <a class="cta-phu" href="/">Xem các căn đang cho thuê</a>
+    </div>
+    <span class="duoi-cta">Chỉ mất 2 phút · Miễn phí đăng tin · Số điện thoại không hiển thị công khai</span>
+  </div>
+</section>
 
 <main class="khung">
-  <h1 class="tieu-de-gui">Gửi căn — chúng tôi tìm khách thuê giúp</h1>
+  <h2 class="tieu-de-gui">Gửi căn — chúng em tìm khách thuê giúp</h2>
   <p class="dan">Điền thông tin và tải ảnh trực tiếp từ điện thoại. Chỉ mất 2 phút, không cần tài khoản. Số điện thoại của anh/chị không hiển thị công khai.</p>
 
   <div class="bao loi" id="hopLoi"></div>
