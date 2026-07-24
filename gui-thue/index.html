@@ -33,6 +33,7 @@ gap:12px;min-height:60px;flex-wrap:wrap}
 .top nav a{color:var(--muted);font-size:14px}
 
 h1{font-size:clamp(23px,5vw,30px);line-height:1.25;margin:22px 0 8px}
+.tieu-de-gui{margin-top:26px}
 .dan{color:var(--muted);margin:0 0 6px}
 .loi-ich{display:flex;gap:8px;flex-wrap:wrap;margin:14px 0 24px}
 .loi-ich span{background:var(--surface);border:1px solid var(--line);border-radius:99px;
@@ -111,33 +112,14 @@ border-radius:8px;padding:7px 16px;font-weight:700;font-size:17px;margin-bottom:
 .rieng-tu{font-size:13px;color:var(--muted);background:var(--bg);border-radius:9px;
 padding:11px 13px;margin-top:4px}
 
-/* ===== HERO trang gửi căn (thêm 25/07/2026) - tạo uy tín khi gửi link cho chủ nhà ===== */
-/* Dải ảnh banner đầu trang. Ảnh banner đã hoàn chỉnh (tiêu đề + lợi ích + thanh tin cậy)
-   nên hiện TRỌN, không cắt. Nằm cùng thư mục /gui-thue/ trên GitHub. */
+/* ===== HERO trang gửi căn (thêm 25/07/2026, chỉnh 25/07 lần 2) =====
+   Banner ảnh làm dải đầu trang, KHỐNG CHẾ chiều cao để form hiện sớm, không đẩy xuống quá sâu.
+   object-fit:cover + neo giữa để phần chữ chính của banner luôn hiển thị đẹp mọi màn hình.
+   Ảnh nằm cùng thư mục /gui-thue/ trên GitHub. */
 .anh-hero{display:block;background:var(--brand-dark);line-height:0}
-.anh-hero img{display:block;width:100%;height:auto}
-
-.hero{background:linear-gradient(135deg,var(--brand-dark),var(--brand));color:#fff}
-.hero .khung{padding:22px 16px}
-.hero .nhan-tin{display:inline-flex;align-items:center;gap:7px;font-size:13px;font-weight:600;
-background:rgba(255,255,255,.14);border:1px solid rgba(255,255,255,.25);
-border-radius:99px;padding:5px 13px;margin-bottom:14px}
-.hero .nhan-tin i{width:7px;height:7px;border-radius:50%;background:#4ade80;
-box-shadow:0 0 0 3px rgba(74,222,128,.3)}
-.hero h1{color:#fff;margin:0 0 12px;font-size:clamp(25px,5.6vw,34px);line-height:1.2}
-.hero h1 span{color:#bfdbfe}
-.hero .phu{color:#dbeafe;font-size:16px;line-height:1.6;margin:0 0 20px;max-width:560px}
-.hero .so-lieu{display:flex;gap:26px;flex-wrap:wrap;margin-bottom:22px}
-.hero .so-lieu b{display:block;font-size:23px;font-weight:800;line-height:1.1}
-.hero .so-lieu small{display:block;font-size:12.5px;color:#bfdbfe;margin-top:3px}
-.hero .cta{display:inline-flex;align-items:center;gap:8px;background:#fff;color:var(--brand-dark);
-font-weight:700;font-size:16px;border-radius:12px;padding:13px 24px;
-box-shadow:0 10px 26px rgba(0,0,0,.22)}
-.hero .cta:hover{transform:translateY(-1px)}
-.hero .duoi-cta{display:block;font-size:13px;color:#bfdbfe;margin-top:11px}
-
-@media(max-width:520px){.doi{grid-template-columns:1fr}form{padding:18px 15px}
-.hero .so-lieu{gap:18px}.hero .so-lieu b{font-size:20px}}
+.anh-hero img{display:block;width:100%;height:260px;object-fit:cover;object-position:center}
+@media(max-width:520px){.anh-hero img{height:150px}
+.doi{grid-template-columns:1fr}form{padding:18px 15px}}
 </style>
 </head>
 <body>
@@ -153,21 +135,10 @@ box-shadow:0 10px 26px rgba(0,0,0,.22)}
   <img src="hero-dang-can.jpg" alt="Gửi căn cho thuê Vinhomes Smart City — tìm khách nhanh, miễn phí đăng tin" loading="eager">
 </a>
 
-<section class="hero">
-  <div class="khung">
-    <div class="so-lieu">
-      <div><b>300+</b><small>căn đang được rao</small></div>
-      <div><b>Trong ngày</b><small>căn lên web sau duyệt</small></div>
-      <div><b>6 năm</b><small>kinh nghiệm Smart City</small></div>
-    </div>
-    <a class="cta" href="#mauGui">Gửi căn ngay
-      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
-    </a>
-    <span class="duoi-cta">Chỉ mất 2 phút · Không cần tài khoản · Số điện thoại không hiển thị công khai</span>
-  </div>
-</section>
-
 <main class="khung">
+  <h1 class="tieu-de-gui">Gửi căn — chúng tôi tìm khách thuê giúp</h1>
+  <p class="dan">Điền thông tin và tải ảnh trực tiếp từ điện thoại. Chỉ mất 2 phút, không cần tài khoản. Số điện thoại của anh/chị không hiển thị công khai.</p>
+
   <div class="bao loi" id="hopLoi"></div>
 
   <form id="mauGui" autocomplete="off">
