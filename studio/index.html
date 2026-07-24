@@ -79,6 +79,13 @@ details p{margin:9px 0 2px;color:var(--muted);font-size:14.5px}
 border-radius:99px;padding:12px 20px;font-weight:600;box-shadow:var(--sh)}
 .zalo-noi:hover{text-decoration:none}
 @media(max-width:640px){.luoi{grid-template-columns:1fr}.top nav{display:none}.bai{padding:18px 16px}}
+.cta-home{display:block;text-align:center;text-decoration:none;border-radius:var(--r);font-weight:700}
+.cta-home:hover{text-decoration:none}
+.cta-home small{display:block;font-weight:400;font-size:13px;margin-top:3px;opacity:.9}
+.cta-home.tren{background:#fff;color:var(--brand);border:2px solid var(--brand);padding:13px 18px;margin:0 0 22px}
+.cta-home.tren:hover{background:#eff4ff}
+.cta-home.duoi{background:var(--brand-dark);color:#fff;border:0;padding:16px 18px;margin:26px 0 8px}
+.cta-home.duoi:hover{background:var(--brand)}
 </style>
 </head>
 <body>
@@ -104,6 +111,10 @@ border-radius:99px;padding:12px 20px;font-weight:600;box-shadow:var(--sh)}
     <div class="o"><b>25–35m²</b><span>diện tích</span></div>
     <div class="o"><b>8</b><span>phân khu</span></div>
   </div>
+
+  <a class="cta-home tren" href="/">Xem tất cả căn còn trống kèm ảnh thật
+    <small>Về trang tìm căn — lọc theo giá, tòa, nội thất và xem đầy đủ hình ảnh từng căn</small></a>
+
 
   
   <section class="luoi">
@@ -738,6 +749,10 @@ gì về giấy tờ, đã có dịch vụ lo trọn thủ tục tạm trú.</p>
     <h2>Câu hỏi thường gặp</h2>
     <details><summary>Thuê căn hộ ở đây cần cọc bao nhiêu?</summary><p>Thông thường cọc 1 tháng tiền nhà, hợp đồng ký 1 năm và thanh toán theo kỳ 3 tháng. Một số chủ nhà linh động hơn nếu anh/chị thuê dài hạn.</p></details><details><summary>Giá thuê đã bao gồm phí dịch vụ chưa?</summary><p>Giá niêm yết là tiền nhà, chưa gồm phí dịch vụ, điện nước và phí gửi xe. Mức phí dịch vụ khác nhau theo từng phân khu, anh/chị xem chi tiết trong bài <a href="/phi-dich-vu-vinhomes-smart-city.html">phí dịch vụ Vinhomes Smart City</a>.</p></details><details><summary>Nuôi thú cưng có được không?</summary><p>Tùy chủ nhà từng căn cho phép hay không, không có quy định chung. Anh/chị báo trước nhu cầu để em lọc đúng những căn chủ nhà đồng ý.</p></details><details><summary>Giá thuê có rẻ hơn vào mùa thấp điểm không?</summary><p>Giá thuê tại Smart City không biến động theo mùa. Chênh lệch giá chủ yếu đến từ phân khu, tình trạng nội thất và kỳ vọng riêng của từng chủ nhà.</p></details><details><summary>Xem nhà trực tiếp được không?</summary><p>Được. Anh/chị nhắn Zalo trước để em kiểm tra căn còn trống và sắp lịch dẫn xem, thường trong ngày hoặc chậm nhất hôm sau.</p></details>
   </section>
+
+  <a class="cta-home duoi" href="/">Về trang chủ tìm căn phù hợp với anh/chị
+    <small>Hàng trăm căn đang trống, đầy đủ ảnh thật và bộ lọc chi tiết</small></a>
+
 </main>
 
 <footer class="chan">
@@ -764,6 +779,7 @@ gì về giấy tờ, đã có dịch vụ lo trọn thủ tục tạm trú.</p>
   function viTri(el) {
     if (el.closest(".the")) return "the_can_ho";
     if (el.closest(".zalo-noi")) return "nut_noi_goc_phai";
+    if (el.closest(".cta-home")) return "nut_ve_trang_chu";
     if (el.closest(".cta-loc")) return "nut_loc_chi_tiet";
     if (el.closest(".lq")) return "danh_muc_lien_quan";
     if (el.closest(".top")) return "dau_trang";
