@@ -110,7 +110,34 @@ border-radius:8px;padding:7px 16px;font-weight:700;font-size:17px;margin-bottom:
 .chan{border-top:1px solid var(--line);padding:22px 0 40px;color:var(--muted);font-size:13.5px}
 .rieng-tu{font-size:13px;color:var(--muted);background:var(--bg);border-radius:9px;
 padding:11px 13px;margin-top:4px}
-@media(max-width:520px){.doi{grid-template-columns:1fr}form{padding:18px 15px}}
+
+/* ===== HERO trang gửi căn (thêm 25/07/2026) - tạo uy tín khi gửi link cho chủ nhà ===== */
+/* Dải ảnh banner đầu trang. Ảnh banner đã hoàn chỉnh (tiêu đề + lợi ích + thanh tin cậy)
+   nên hiện TRỌN, không cắt. Nằm cùng thư mục /gui-thue/ trên GitHub. */
+.anh-hero{display:block;background:var(--brand-dark);line-height:0}
+.anh-hero img{display:block;width:100%;height:auto}
+
+.hero{background:linear-gradient(135deg,var(--brand-dark),var(--brand));color:#fff}
+.hero .khung{padding:22px 16px}
+.hero .nhan-tin{display:inline-flex;align-items:center;gap:7px;font-size:13px;font-weight:600;
+background:rgba(255,255,255,.14);border:1px solid rgba(255,255,255,.25);
+border-radius:99px;padding:5px 13px;margin-bottom:14px}
+.hero .nhan-tin i{width:7px;height:7px;border-radius:50%;background:#4ade80;
+box-shadow:0 0 0 3px rgba(74,222,128,.3)}
+.hero h1{color:#fff;margin:0 0 12px;font-size:clamp(25px,5.6vw,34px);line-height:1.2}
+.hero h1 span{color:#bfdbfe}
+.hero .phu{color:#dbeafe;font-size:16px;line-height:1.6;margin:0 0 20px;max-width:560px}
+.hero .so-lieu{display:flex;gap:26px;flex-wrap:wrap;margin-bottom:22px}
+.hero .so-lieu b{display:block;font-size:23px;font-weight:800;line-height:1.1}
+.hero .so-lieu small{display:block;font-size:12.5px;color:#bfdbfe;margin-top:3px}
+.hero .cta{display:inline-flex;align-items:center;gap:8px;background:#fff;color:var(--brand-dark);
+font-weight:700;font-size:16px;border-radius:12px;padding:13px 24px;
+box-shadow:0 10px 26px rgba(0,0,0,.22)}
+.hero .cta:hover{transform:translateY(-1px)}
+.hero .duoi-cta{display:block;font-size:13px;color:#bfdbfe;margin-top:11px}
+
+@media(max-width:520px){.doi{grid-template-columns:1fr}form{padding:18px 15px}
+.hero .so-lieu{gap:18px}.hero .so-lieu b{font-size:20px}}
 </style>
 </head>
 <body>
@@ -122,15 +149,25 @@ padding:11px 13px;margin-top:4px}
   </div>
 </header>
 
-<main class="khung">
-  <h1>Gửi căn hộ cần cho thuê</h1>
-  <p class="dan">Anh/chị có căn hộ tại Vinhomes Smart City cần cho thuê, điền thông tin bên dưới và tải ảnh trực tiếp từ điện thoại. Chúng tôi đăng tin và tìm khách giúp.</p>
-  <div class="loi-ich">
-    <span>Không mất phí đăng tin</span>
-    <span>Không cần tài khoản</span>
-    <span>Tin lên trong ngày</span>
-  </div>
+<a class="anh-hero" href="#mauGui" aria-label="Gửi căn hộ cho thuê ngay">
+  <img src="hero-dang-can.jpg" alt="Gửi căn cho thuê Vinhomes Smart City — tìm khách nhanh, miễn phí đăng tin" loading="eager">
+</a>
 
+<section class="hero">
+  <div class="khung">
+    <div class="so-lieu">
+      <div><b>300+</b><small>căn đang được rao</small></div>
+      <div><b>Trong ngày</b><small>căn lên web sau duyệt</small></div>
+      <div><b>6 năm</b><small>kinh nghiệm Smart City</small></div>
+    </div>
+    <a class="cta" href="#mauGui">Gửi căn ngay
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    </a>
+    <span class="duoi-cta">Chỉ mất 2 phút · Không cần tài khoản · Số điện thoại không hiển thị công khai</span>
+  </div>
+</section>
+
+<main class="khung">
   <div class="bao loi" id="hopLoi"></div>
 
   <form id="mauGui" autocomplete="off">
@@ -188,8 +225,8 @@ padding:11px 13px;margin-top:4px}
 
         <div class="o">
           <label for="soCan">Số căn <span class="sao">*</span></label>
-          <input id="soCan" inputmode="numeric" maxlength="6" placeholder="1829" required>
-          <span class="goi-y">Chỉ số căn, không cần gõ tên tòa</span>
+          <input id="soCan" inputmode="text" maxlength="7" placeholder="1829" required>
+          <span class="goi-y">Chỉ số căn, không cần gõ tên tòa. Căn tầng 13A thì nhập cả chữ, ví dụ 1308A.</span>
         </div>
       </div>
 
@@ -309,9 +346,9 @@ padding:11px 13px;margin-top:4px}
         <path d="m5 13 4.5 4.5L19 7" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/>
       </svg>
     </div>
-    <h2>Đã nhận thông tin căn hộ</h2>
+    <h2>Đã nhận căn của anh/chị!</h2>
     <div class="ma" id="maDaGui"></div>
-    <p>Chúng tôi sẽ kiểm tra và đăng tin trong ngày. Nếu cần bổ sung gì, chúng tôi gọi lại theo số anh/chị vừa để lại.</p>
+    <p>Chúng tôi sẽ kiểm tra, đăng lên web trong ngày và bắt đầu tìm khách thuê giúp anh/chị. Nếu cần bổ sung gì, chúng tôi gọi lại theo số anh/chị vừa để lại.</p>
     <p><a href="/">Xem các căn đang cho thuê →</a></p>
   </div>
 </main>
@@ -339,14 +376,16 @@ padding:11px 13px;margin-top:4px}
   var $ = function (id) { return document.getElementById(id); };
   var dsAnh = [];   // [{ten, blob, url}]
 
-  /* ---------- Mã căn: ghép tòa + số căn ---------- */
+  /* ---------- Mã căn: ghép tòa + "." + số căn ----------
+     SỬA 25/07/2026: GIỮ cả chữ trong số căn (căn tầng 13A -> 1308A), chỉ bỏ ký tự đặc biệt,
+     và ghép có DẤU CHẤM ngăn giữa tòa với số căn cho KHỚP ĐỊNH DẠNG CÔNG TY (S102.2501). */
   function capNhatMaCan() {
     var toa = $("toa").value.trim();
-    var so = $("soCan").value.replace(/\D/g, "");
+    var so = $("soCan").value.replace(/[^A-Za-z0-9]/g, "").toUpperCase();
     $("soCan").value = so;
     var box = $("xemMaCan");
     if (toa && so) {
-      box.innerHTML = "Mã căn sẽ là: <strong>" + toa + so + "</strong>";
+      box.innerHTML = "Mã căn sẽ là: <strong>" + toa + "." + so + "</strong>";
     } else {
       box.innerHTML = "Mã căn sẽ là: <strong>— chọn tòa và nhập số căn —</strong>";
     }
@@ -503,7 +542,7 @@ padding:11px 13px;margin-top:4px}
     anLoi();
 
     var toa = $("toa").value.trim();
-    var soCan = $("soCan").value.replace(/\D/g, "");
+    var soCan = $("soCan").value.replace(/[^A-Za-z0-9]/g, "").toUpperCase();
     var gia = docGia($("gia").value);
     var dienTich = parseFloat(String($("dienTich").value).replace(/[^\d.]/g, ""));
     var sdt = $("sdt").value.trim();
