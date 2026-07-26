@@ -15,11 +15,12 @@
   :root{
     --nen:#f7f9fb;
     --muc:#1a2b3c;
-    --xanh:#0e6e8c;      /* xanh teal - tông Smart City */
+    --xanh:#0e6e8c;
     --xanh-dam:#0a5164;
     --vien:#e2e8ee;
     --nhan:#eef4f7;
-    --cao-cap:#b8863b;   /* nhấn cho nhóm cao cấp */
+    --cao-cap:#b8863b;
+    --caption:#5c6b7a;
   }
   *{box-sizing:border-box;margin:0;padding:0}
   body{
@@ -27,16 +28,17 @@
     color:var(--muc);line-height:1.7;background:var(--nen);
     -webkit-font-smoothing:antialiased;
   }
-  .wrap{max-width:840px;margin:0 auto;padding:24px 18px 64px}
+  .wrap{max-width:860px;margin:0 auto;padding:24px 18px 64px}
   header.bai{padding:16px 0 8px;border-bottom:1px solid var(--vien);margin-bottom:28px}
   .eyebrow{color:var(--xanh);font-weight:700;font-size:.8rem;letter-spacing:.06em;text-transform:uppercase}
   h1{font-size:1.85rem;line-height:1.25;margin:8px 0 12px;font-weight:800}
   .meta{color:#68788a;font-size:.9rem}
-  h2{font-size:1.35rem;margin:40px 0 14px;font-weight:700;color:var(--xanh-dam);
+  h2{font-size:1.35rem;margin:44px 0 14px;font-weight:700;color:var(--xanh-dam);
      padding-left:12px;border-left:4px solid var(--xanh)}
-  h3{font-size:1.08rem;margin:24px 0 10px;font-weight:700}
+  h3{font-size:1.12rem;margin:30px 0 8px;font-weight:700}
   p{margin:0 0 14px}
   .intro{font-size:1.05rem;color:#3a4b5c}
+  .dan{color:#3a4b5c}
   /* Bảng giá */
   .bang-cuon{overflow-x:auto;margin:18px 0;border:1px solid var(--vien);border-radius:12px}
   table{width:100%;border-collapse:collapse;min-width:520px;background:#fff}
@@ -45,40 +47,42 @@
   tbody tr:last-child td{border-bottom:none}
   tbody tr:nth-child(even){background:var(--nhan)}
   td.gia{font-weight:700;color:var(--xanh-dam);white-space:nowrap}
-  /* Thẻ nhóm phân khu */
   .nhom{display:flex;flex-wrap:wrap;gap:8px;margin:10px 0 6px}
   .chip{background:#fff;border:1px solid var(--vien);border-radius:999px;
         padding:5px 13px;font-size:.86rem;font-weight:600}
   .chip.cc{border-color:var(--cao-cap);color:var(--cao-cap)}
   .luuy{background:var(--nhan);border-left:4px solid var(--cao-cap);
         padding:12px 16px;border-radius:0 8px 8px 0;margin:16px 0;font-size:.92rem;color:#4a5b6c}
-  /* Thư viện ảnh - CHUẨN HOÁ TỈ LỆ: mọi ảnh ngang/dọc đều hiển thị đồng đều */
+  /* Thư viện ảnh - khung 4:3 đồng đều + caption */
   .gallery{
-    display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin:14px 0 8px;
+    display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin:16px 0 4px;
   }
-  .gallery figure{margin:0;border-radius:10px;overflow:hidden;background:#e8edf1;
-    border:1px solid var(--vien);box-shadow:0 1px 3px rgba(0,0,0,.05)}
+  .gallery figure{
+    margin:0;border-radius:12px;overflow:hidden;background:#fff;
+    border:1px solid var(--vien);box-shadow:0 1px 4px rgba(0,0,0,.05);
+    display:flex;flex-direction:column;
+  }
   .gallery img{
-    width:100%;
-    aspect-ratio:4/3;        /* KHUNG CỐ ĐỊNH cho tất cả */
-    object-fit:cover;        /* ảnh lấp đầy khung, không méo, không lệch hàng */
-    display:block;
-    transition:transform .3s ease;
+    width:100%;aspect-ratio:4/3;object-fit:cover;display:block;
+    transition:transform .35s ease;
   }
-  .gallery figure:hover img{transform:scale(1.04)}
-  /* CTA liên hệ */
+  .gallery figure:hover img{transform:scale(1.05)}
+  .gallery figcaption{
+    padding:9px 11px;font-size:.82rem;line-height:1.4;color:var(--caption);
+    border-top:1px solid var(--vien);flex:1;
+  }
+  /* CTA */
   .cta{background:linear-gradient(135deg,var(--xanh),var(--xanh-dam));
-       color:#fff;border-radius:14px;padding:26px 24px;margin:40px 0 8px;text-align:center}
+       color:#fff;border-radius:14px;padding:26px 24px;margin:44px 0 8px;text-align:center}
   .cta h2{color:#fff;border:none;padding:0;margin:0 0 8px;font-size:1.3rem}
   .cta p{color:#dbeef4;margin-bottom:16px}
   .cta a{display:inline-block;background:#fff;color:var(--xanh-dam);
          font-weight:700;text-decoration:none;padding:12px 28px;border-radius:999px}
   .disclaimer{font-size:.82rem;color:#8493a3;margin-top:28px;padding-top:16px;border-top:1px solid var(--vien)}
   a.back{display:inline-block;margin-top:24px;color:var(--xanh);text-decoration:none;font-weight:600}
-  /* Mobile */
   @media(max-width:640px){
     h1{font-size:1.5rem}
-    .gallery{grid-template-columns:repeat(2,1fr)}
+    .gallery{grid-template-columns:repeat(2,1fr);gap:10px}
     .wrap{padding:18px 14px 48px}
   }
   @media(prefers-reduced-motion:reduce){
@@ -140,50 +144,111 @@
 </div>
 
 <h2>Hình ảnh thực tế căn hộ theo từng loại</h2>
+<p class="dan">Dưới đây là hình ảnh thực tế các căn hộ đang cho thuê, sắp xếp theo loại căn và phân khu để anh chị dễ hình dung không gian trước khi đi xem nhà.</p>
 
 <h3>Căn hộ Studio</h3>
-<p>Phù hợp người độc thân, cặp đôi hoặc thuê ngắn hạn. Thiết kế gọn gàng, đầy đủ bếp, khu vực nghỉ và ban công.</p>
+<p class="dan">Phù hợp người độc thân, cặp đôi hoặc thuê ngắn hạn. Thiết kế tối ưu diện tích, đầy đủ bếp, khu nghỉ và ban công — vào ở được ngay.</p>
 <div class="gallery">
-  <figure><img src="images/cho-thue-studio-vinhomes-smart-city-01.webp" alt="Cho thuê căn hộ Studio Sapphire Vinhomes Smart City full nội thất" loading="lazy" width="800" height="600"></figure>
-  <figure><img src="images/cho-thue-studio-vinhomes-smart-city-02.webp" alt="Bếp căn hộ Studio Vinhomes Smart City đầy đủ tiện nghi" loading="lazy" width="800" height="600"></figure>
-  <figure><img src="images/cho-thue-studio-vinhomes-smart-city-03.webp" alt="Không gian sinh hoạt căn Studio Vinhomes Smart City" loading="lazy" width="800" height="600"></figure>
-  <figure><img src="images/cho-thue-studio-vinhomes-smart-city-04.webp" alt="Khu bếp căn hộ Studio cho thuê tại Vinhomes Smart City" loading="lazy" width="800" height="600"></figure>
+  <figure>
+    <img src="images/cho-thue-studio-vinhomes-smart-city-01.webp" alt="căn hộ studio vinhomes smart city cho thuê full nội thất" loading="lazy" width="800" height="600">
+    <figcaption>Studio Sapphire full nội thất – khu nghỉ &amp; sofa gọn gàng</figcaption>
+  </figure>
+  <figure>
+    <img src="images/cho-thue-studio-vinhomes-smart-city-02.webp" alt="bếp căn hộ studio vinhomes smart city cho thuê" loading="lazy" width="800" height="600">
+    <figcaption>Bếp studio thiết kế thông minh, tối ưu diện tích</figcaption>
+  </figure>
+  <figure>
+    <img src="images/cho-thue-studio-vinhomes-smart-city-03.webp" alt="căn hộ studio vinhomes smart city cho thuê sáng thoáng" loading="lazy" width="800" height="600">
+    <figcaption>Góc tiếp khách studio sáng sủa, ấm cúng</figcaption>
+  </figure>
+  <figure>
+    <img src="images/cho-thue-studio-vinhomes-smart-city-04.webp" alt="khu bếp căn hộ studio vinhomes smart city cho thuê" loading="lazy" width="800" height="600">
+    <figcaption>Khu bếp studio đầy đủ thiết bị, sẵn sàng ở ngay</figcaption>
+  </figure>
 </div>
 
-<h3>Căn hộ 1PN+ </h3>
-<p>Có phòng ngủ riêng tách biệt phòng khách, thích hợp cho cặp đôi hoặc gia đình nhỏ cần không gian riêng tư.</p>
+<h3>Căn hộ 1PN+</h3>
+<p class="dan">Có phòng ngủ riêng tách biệt phòng khách, thích hợp cho cặp đôi hoặc gia đình nhỏ cần không gian riêng tư mà vẫn tối ưu chi phí.</p>
 <div class="gallery">
-  <figure><img src="images/cho-thue-1pn-plus-vinhomes-smart-city-01.webp" alt="Phòng khách căn hộ 1PN+ Imperia Vinhomes Smart City nội thất hiện đại" loading="lazy" width="800" height="600"></figure>
-  <figure><img src="images/cho-thue-1pn-plus-vinhomes-smart-city-02.webp" alt="Phòng ngủ căn hộ 1PN+ Vinhomes Smart City view thành phố" loading="lazy" width="800" height="600"></figure>
-  <figure><img src="images/cho-thue-1pn-plus-vinhomes-smart-city-03.webp" alt="Bàn ăn căn hộ 1PN+ Vinhomes Smart City thoáng sáng" loading="lazy" width="800" height="600"></figure>
-  <figure><img src="images/cho-thue-1pn-plus-vinhomes-smart-city-04.webp" alt="Không gian bếp và khách căn 1PN+ Vinhomes Smart City" loading="lazy" width="800" height="600"></figure>
+  <figure>
+    <img src="images/cho-thue-1pn-plus-vinhomes-smart-city-01.webp" alt="căn hộ 1pn+ imperia smart city cho thuê nội thất hiện đại" loading="lazy" width="800" height="600">
+    <figcaption>Phòng khách 1PN+ Imperia thông bếp, rộng thoáng</figcaption>
+  </figure>
+  <figure>
+    <img src="images/cho-thue-1pn-plus-vinhomes-smart-city-02.webp" alt="phòng ngủ căn hộ 1pn+ vinhomes smart city cho thuê view thành phố" loading="lazy" width="800" height="600">
+    <figcaption>Phòng ngủ 1PN+ view các tòa nội khu</figcaption>
+  </figure>
+  <figure>
+    <img src="images/cho-thue-1pn-plus-vinhomes-smart-city-03.webp" alt="bàn ăn căn hộ 1pn+ vinhomes smart city cho thuê" loading="lazy" width="800" height="600">
+    <figcaption>Khu bàn ăn 1PN+ tách biệt, riêng tư</figcaption>
+  </figure>
+  <figure>
+    <img src="images/cho-thue-1pn-plus-vinhomes-smart-city-04.webp" alt="căn hộ 1pn+ vinhomes smart city cho thuê bếp và khách liền mạch" loading="lazy" width="800" height="600">
+    <figcaption>Bếp và phòng khách liền mạch, nhiều ánh sáng</figcaption>
+  </figure>
 </div>
 
 <h3>Căn hộ 2PN</h3>
-<p>Lựa chọn phổ biến nhất cho gia đình. Hai phòng ngủ, phòng khách rộng, bếp riêng và ban công.</p>
+<p class="dan">Lựa chọn phổ biến nhất cho gia đình. Hai phòng ngủ, phòng khách rộng, bếp riêng và ban công lớn đón sáng.</p>
 <div class="gallery">
-  <figure><img src="images/cho-thue-2pn-vinhomes-smart-city-01.webp" alt="Phòng khách căn hộ 2PN Sola Park Vinhomes Smart City rộng thoáng" loading="lazy" width="800" height="600"></figure>
-  <figure><img src="images/cho-thue-2pn-vinhomes-smart-city-02.webp" alt="Căn hộ 2PN Vinhomes Smart City nội thất đầy đủ" loading="lazy" width="800" height="600"></figure>
-  <figure><img src="images/cho-thue-2pn-vinhomes-smart-city-03.webp" alt="Phòng khách 2PN Vinhomes Smart City view nội khu" loading="lazy" width="800" height="600"></figure>
-  <figure><img src="images/cho-thue-2pn-vinhomes-smart-city-04.webp" alt="Bếp căn hộ 2PN Vinhomes Smart City hiện đại" loading="lazy" width="800" height="600"></figure>
+  <figure>
+    <img src="images/cho-thue-2pn-vinhomes-smart-city-01.webp" alt="căn hộ 2pn sola park smart city cho thuê rộng thoáng" loading="lazy" width="800" height="600">
+    <figcaption>Phòng khách 2PN Sola Park rộng, ban công lớn</figcaption>
+  </figure>
+  <figure>
+    <img src="images/cho-thue-2pn-vinhomes-smart-city-02.webp" alt="căn hộ 2pn vinhomes smart city cho thuê nội thất đầy đủ" loading="lazy" width="800" height="600">
+    <figcaption>Không gian khách 2PN nội thất đầy đủ</figcaption>
+  </figure>
+  <figure>
+    <img src="images/cho-thue-2pn-vinhomes-smart-city-03.webp" alt="căn hộ 2pn vinhomes smart city cho thuê view nội khu" loading="lazy" width="800" height="600">
+    <figcaption>Phòng khách 2PN view nội khu xanh mát</figcaption>
+  </figure>
+  <figure>
+    <img src="images/cho-thue-2pn-vinhomes-smart-city-04.webp" alt="bếp căn hộ 2pn vinhomes smart city cho thuê hiện đại" loading="lazy" width="800" height="600">
+    <figcaption>Bếp 2PN hiện đại, tách biệt phòng khách</figcaption>
+  </figure>
 </div>
 
 <h3>Phân khu cao cấp Masteris</h3>
-<p>Một trong các phân khu cao cấp nhất dự án, nội thất sang trọng, view hồ và cây xanh.</p>
+<p class="dan">Một trong các phân khu cao cấp nhất dự án, nội thất sang trọng, nhiều căn có view hồ và cây xanh — phù hợp khách thuê tìm không gian đẳng cấp.</p>
 <div class="gallery">
-  <figure><img src="images/cho-thue-can-ho-masteris-smart-city-01.webp" alt="Cho thuê căn hộ Masteris Vinhomes Smart City cao cấp" loading="lazy" width="800" height="600"></figure>
-  <figure><img src="images/cho-thue-can-ho-masteris-smart-city-02.webp" alt="Bàn ăn căn hộ Masteris Vinhomes Smart City sang trọng" loading="lazy" width="800" height="600"></figure>
-  <figure><img src="images/cho-thue-can-ho-masteris-smart-city-03.webp" alt="Phòng ngủ căn hộ Masteris Vinhomes Smart City" loading="lazy" width="800" height="600"></figure>
-  <figure><img src="images/cho-thue-can-ho-masteris-smart-city-04.webp" alt="Phòng ngủ Masteris Vinhomes Smart City view hồ đẹp" loading="lazy" width="800" height="600"></figure>
+  <figure>
+    <img src="images/cho-thue-can-ho-masteris-smart-city-01.webp" alt="căn hộ masteris smart city cho thuê thiết kế mở" loading="lazy" width="800" height="600">
+    <figcaption>Căn Masteris thiết kế mở, bếp – khách – ngủ liên thông</figcaption>
+  </figure>
+  <figure>
+    <img src="images/cho-thue-can-ho-masteris-smart-city-02.webp" alt="căn hộ masteris smart city cho thuê bàn ăn sang trọng" loading="lazy" width="800" height="600">
+    <figcaption>Bàn ăn Masteris sang trọng, vách gương ánh kim</figcaption>
+  </figure>
+  <figure>
+    <img src="images/cho-thue-can-ho-masteris-smart-city-03.webp" alt="phòng ngủ căn hộ masteris smart city cho thuê" loading="lazy" width="800" height="600">
+    <figcaption>Phòng ngủ Masteris ấm cúng, nhiều tiện nghi</figcaption>
+  </figure>
+  <figure>
+    <img src="images/cho-thue-can-ho-masteris-smart-city-04.webp" alt="căn hộ masteris smart city cho thuê phòng ngủ view hồ" loading="lazy" width="800" height="600">
+    <figcaption>Phòng ngủ Masteris view hồ và cây xanh</figcaption>
+  </figure>
 </div>
 
 <h3>Phân khu Lumiere &amp; Sakura</h3>
-<p>Lumiere thuộc nhóm cao cấp với thiết kế tinh tế; Sakura mặt bằng rộng, phù hợp gia đình.</p>
+<p class="dan">Lumiere thuộc nhóm cao cấp với thiết kế tinh tế, sàn lát xương cá; Sakura có mặt bằng rộng, bố trí thoáng, rất hợp gia đình đông thành viên.</p>
 <div class="gallery">
-  <figure><img src="images/cho-thue-can-ho-lumiere-smart-city-01.webp" alt="Cho thuê căn hộ 1PN+ Lumiere Vinhomes Smart City sang trọng" loading="lazy" width="800" height="600"></figure>
-  <figure><img src="images/cho-thue-can-ho-lumiere-smart-city-02.webp" alt="Phòng khách căn hộ Lumiere Vinhomes Smart City" loading="lazy" width="800" height="600"></figure>
-  <figure><img src="images/cho-thue-can-ho-sakura-smart-city-01.webp" alt="Cho thuê căn hộ 2PN Sakura Vinhomes Smart City rộng rãi" loading="lazy" width="800" height="600"></figure>
-  <figure><img src="images/cho-thue-can-ho-sakura-smart-city-02.webp" alt="Phòng khách căn hộ Sakura Vinhomes Smart City thoáng sáng" loading="lazy" width="800" height="600"></figure>
+  <figure>
+    <img src="images/cho-thue-can-ho-lumiere-smart-city-01.webp" alt="căn hộ 1pn+ lumiere smart city cho thuê sang trọng" loading="lazy" width="800" height="600">
+    <figcaption>Căn hộ Lumiere phong cách tinh tế, sàn xương cá</figcaption>
+  </figure>
+  <figure>
+    <img src="images/cho-thue-can-ho-lumiere-smart-city-02.webp" alt="phòng khách căn hộ lumiere smart city cho thuê cao cấp" loading="lazy" width="800" height="600">
+    <figcaption>Phòng khách Lumiere tông trung tính, cao cấp</figcaption>
+  </figure>
+  <figure>
+    <img src="images/cho-thue-can-ho-sakura-smart-city-01.webp" alt="căn hộ 2pn sakura smart city cho thuê rộng rãi" loading="lazy" width="800" height="600">
+    <figcaption>Phòng khách Sakura rộng rãi, view thoáng</figcaption>
+  </figure>
+  <figure>
+    <img src="images/cho-thue-can-ho-sakura-smart-city-02.webp" alt="căn hộ sakura smart city cho thuê không gian mở" loading="lazy" width="800" height="600">
+    <figcaption>Khu khách – bếp Sakura mở, phù hợp gia đình</figcaption>
+  </figure>
 </div>
 
 <div class="cta">
