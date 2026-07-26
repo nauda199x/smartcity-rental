@@ -1457,6 +1457,145 @@
 
     
 
+    <style>
+      .can-noi-bat{margin:10px 0 6px}
+      .can-noi-bat>h2{font-size:20px;color:var(--ink);margin:0 0 2px}
+      .cnb-dan{color:var(--muted);font-size:14px;margin:0 0 14px}
+      .cnb-luoi{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:14px}
+      .cnb-card{display:flex;flex-direction:column;border:1px solid var(--line);border-radius:14px;overflow:hidden;background:var(--surface);text-decoration:none;color:inherit;transition:box-shadow .15s,transform .15s}
+      .cnb-card:hover{box-shadow:0 6px 20px rgba(30,58,138,.12);transform:translateY(-2px)}
+      .cnb-card img{width:100%;height:150px;object-fit:cover;display:block;background:var(--bg)}
+      .cnb-body{padding:10px 13px 13px}
+      .cnb-khu{font-size:12px;color:var(--brand-dark);font-weight:600;margin-bottom:2px}
+      .cnb-card h3{font-size:15px;color:var(--ink);margin:0 0 7px;line-height:1.35}
+      .cnb-meta{display:flex;gap:7px;flex-wrap:wrap;margin-bottom:8px}
+      .cnb-meta span{font-size:12px;color:var(--muted);background:var(--bg);border-radius:6px;padding:2px 8px}
+      .cnb-gia{font-weight:700;color:var(--brand);font-size:15px}
+      .cnb-them{display:inline-block;margin-top:14px;color:var(--brand);font-weight:600;text-decoration:none;font-size:14px}
+      @media(max-width:640px){.cnb-luoi{grid-template-columns:1fr}}
+    </style>
+    <!-- CĂN NỔI BẬT (khối TĨNH, thêm 26/07/2026)
+         Vì sao cần: danh sách chính (#listingGrid) render bằng JavaScript từ data.json,
+         nếu Google không chạy JS thì trang chủ - trang quan trọng nhất - thiếu nội dung
+         cấp-từng-căn. Khối này là HTML tĩnh, luôn hiển thị kể cả khi tắt JS, cung cấp
+         số liệu căn thật + link nội bộ về các trang danh mục. Ảnh dùng .webp local
+         (minh hoạ theo loại căn), không phụ thuộc link Google Drive. -->
+    <section class="can-noi-bat" aria-label="Một số căn hộ cho thuê nổi bật">
+      <h2>Một số căn hộ Vinhomes Smart City đang cho thuê</h2>
+      <p class="cnb-dan">Vài căn tiêu biểu trong hơn 250 căn đang trống — đủ Studio, 1–3 phòng ngủ trải khắp các phân khu. Ảnh minh hoạ theo loại căn; bấm vào từng nhóm để xem danh sách đầy đủ kèm ảnh thật.</p>
+      <div class="cnb-luoi">
+      <a class="cnb-card" href="/studio/">
+        <img src="/images/cho-thue-studio-vinhomes-smart-city-01.webp" width="320" height="180" loading="lazy" alt="Căn hộ Studio cho thuê tại Vinhomes Smart City">
+        <div class="cnb-body">
+          <div class="cnb-khu">The Sapphire · S302</div>
+          <h3>Studio S302 · 25 m²</h3>
+          <div class="cnb-meta"><span>25 m²</span><span>Nhà Nguyên Bản</span></div>
+          <div class="cnb-gia">6 triệu/tháng</div>
+        </div>
+      </a>
+      <a class="cnb-card" href="/studio/">
+        <img src="/images/cho-thue-studio-vinhomes-smart-city-02.webp" width="320" height="180" loading="lazy" alt="Căn hộ Studio cho thuê tại Vinhomes Smart City">
+        <div class="cnb-body">
+          <div class="cnb-khu">Masteri West Heights · MasB</div>
+          <h3>Studio MasB · 33 m²</h3>
+          <div class="cnb-meta"><span>33 m²</span><span>Full nội thất</span></div>
+          <div class="cnb-gia">10,5 triệu/tháng</div>
+        </div>
+      </a>
+      <a class="cnb-card" href="/1pn-plus/">
+        <img src="/images/cho-thue-1pn-plus-vinhomes-smart-city-01.webp" width="320" height="180" loading="lazy" alt="Căn hộ 1 phòng ngủ + cho thuê tại Vinhomes Smart City">
+        <div class="cnb-body">
+          <div class="cnb-khu">The Sakura · SA3</div>
+          <h3>1 Ngủ + SA3 · 43 m²</h3>
+          <div class="cnb-meta"><span>43 m²</span><span>Nhà Nguyên Bản</span></div>
+          <div class="cnb-gia">7,5 triệu/tháng</div>
+        </div>
+      </a>
+      <a class="cnb-card" href="/1pn-plus/">
+        <img src="/images/cho-thue-1pn-plus-vinhomes-smart-city-02.webp" width="320" height="180" loading="lazy" alt="Căn hộ 1 phòng ngủ + cho thuê tại Vinhomes Smart City">
+        <div class="cnb-body">
+          <div class="cnb-khu">Masteri West Heights · MasB</div>
+          <h3>1 Ngủ + MasB · 46 m²</h3>
+          <div class="cnb-meta"><span>46 m²</span><span>Full nội thất</span></div>
+          <div class="cnb-gia">13,5 triệu/tháng</div>
+        </div>
+      </a>
+      <a class="cnb-card" href="/2pn/">
+        <img src="/images/cho-thue-2pn-vinhomes-smart-city-01.webp" width="320" height="180" loading="lazy" alt="Căn hộ 2 phòng ngủ cho thuê tại Vinhomes Smart City">
+        <div class="cnb-body">
+          <div class="cnb-khu">The Sakura · SA5</div>
+          <h3>2 Ngủ SA5 · 54 m²</h3>
+          <div class="cnb-meta"><span>54 m²</span><span>Nhà Nguyên Bản</span></div>
+          <div class="cnb-gia">8 triệu/tháng</div>
+        </div>
+      </a>
+      <a class="cnb-card" href="/2pn/">
+        <img src="/images/cho-thue-2pn-vinhomes-smart-city-02.webp" width="320" height="180" loading="lazy" alt="Căn hộ 2 phòng ngủ cho thuê tại Vinhomes Smart City">
+        <div class="cnb-body">
+          <div class="cnb-khu">Lumière Evergreen · A3</div>
+          <h3>2 Ngủ A3 · 53 m²</h3>
+          <div class="cnb-meta"><span>53 m²</span><span>Nhà Nguyên Bản</span></div>
+          <div class="cnb-gia">11 triệu/tháng</div>
+        </div>
+      </a>
+      <a class="cnb-card" href="/2pn/">
+        <img src="/images/cho-thue-2pn-vinhomes-smart-city-01.webp" width="320" height="180" loading="lazy" alt="Căn hộ 2 phòng ngủ cho thuê tại Vinhomes Smart City">
+        <div class="cnb-body">
+          <div class="cnb-khu">Lumière Evergreen · A3</div>
+          <h3>2 Ngủ A3 · 61 m²</h3>
+          <div class="cnb-meta"><span>61 m²</span><span>Full nội thất</span></div>
+          <div class="cnb-gia">16 triệu/tháng</div>
+        </div>
+      </a>
+      <a class="cnb-card" href="/2pn-plus/">
+        <img src="/images/cho-thue-2pn-vinhomes-smart-city-04.webp" width="320" height="180" loading="lazy" alt="Căn hộ 2 phòng ngủ + cho thuê tại Vinhomes Smart City">
+        <div class="cnb-body">
+          <div class="cnb-khu">Vinhomes Smart City · TC2</div>
+          <h3>2 Ngủ + TC2 · 72 m²</h3>
+          <div class="cnb-meta"><span>72 m²</span><span>Nhà Nguyên Bản</span></div>
+          <div class="cnb-gia">9 triệu/tháng</div>
+        </div>
+      </a>
+      <a class="cnb-card" href="/2pn-plus/">
+        <img src="/images/cho-thue-2pn-vinhomes-smart-city-03.webp" width="320" height="180" loading="lazy" alt="Căn hộ 2 phòng ngủ + cho thuê tại Vinhomes Smart City">
+        <div class="cnb-body">
+          <div class="cnb-khu">Masteri West Heights · MasA</div>
+          <h3>2 Ngủ + MasA · 63 m²</h3>
+          <div class="cnb-meta"><span>63 m²</span><span>Full nội thất</span></div>
+          <div class="cnb-gia">18 triệu/tháng</div>
+        </div>
+      </a>
+      <a class="cnb-card" href="/3pn/">
+        <img src="/images/cho-thue-2pn-vinhomes-smart-city-04.webp" width="320" height="180" loading="lazy" alt="Căn hộ 3 phòng ngủ cho thuê tại Vinhomes Smart City">
+        <div class="cnb-body">
+          <div class="cnb-khu">The Sakura · SA3</div>
+          <h3>3 Ngủ SA3 · 81 m²</h3>
+          <div class="cnb-meta"><span>81 m²</span><span>Nhà Nguyên Bản</span></div>
+          <div class="cnb-gia">10 triệu/tháng</div>
+        </div>
+      </a>
+      <a class="cnb-card" href="/3pn/">
+        <img src="/images/cho-thue-2pn-vinhomes-smart-city-02.webp" width="320" height="180" loading="lazy" alt="Căn hộ 3 phòng ngủ cho thuê tại Vinhomes Smart City">
+        <div class="cnb-body">
+          <div class="cnb-khu">The Miami · GS6</div>
+          <h3>3 Ngủ GS6 · 80.3 m²</h3>
+          <div class="cnb-meta"><span>80.3 m²</span><span>Full nội thất</span></div>
+          <div class="cnb-gia">18 triệu/tháng</div>
+        </div>
+      </a>
+      <a class="cnb-card" href="/1pn/">
+        <img src="/images/cho-thue-1pn-plus-vinhomes-smart-city-03.webp" width="320" height="180" loading="lazy" alt="Căn hộ 1 phòng ngủ cho thuê tại Vinhomes Smart City">
+        <div class="cnb-body">
+          <div class="cnb-khu">Lumière Evergreen · A3</div>
+          <h3>1 Ngủ A3 · 44 m²</h3>
+          <div class="cnb-meta"><span>44 m²</span><span>Nhà Nguyên Bản</span></div>
+          <div class="cnb-gia">9,5 triệu/tháng</div>
+        </div>
+      </a>
+      </div>
+      <a class="cnb-them" href="/#listingGrid">Xem tất cả căn đang trống với bộ lọc theo giá, tòa, nội thất →</a>
+    </section>
+
     <!-- MỤC LỤC KHO DỮ LIỆU (thêm 22/07/2026)
          Mục đích kép:
           - Với khách: lối vào nhanh theo đúng nhu cầu, không phải mò bộ lọc.
