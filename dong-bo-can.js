@@ -1,11 +1,14 @@
 /*!
- * dong-bo-can.js  v2 — Đồng bộ HAI CHIỀU cho 25 trang danh mục tĩnh
+ * dong-bo-can.js  v3 — Đồng bộ HAI CHIỀU cho 25 trang danh mục tĩnh
  * timthuesmartcity.com
  *
  * v1 chỉ ẩn căn đã thuê. v2 dựng lại toàn bộ lưới căn từ data.json:
  *   - Căn đã tắt "Hiển thị trên Web"  -> biến mất
  *   - Căn mới nhập vào Sheet          -> tự xuất hiện
  *   - Giá / diện tích / nội thất đổi  -> tự cập nhật theo dữ liệu mới
+ * v3 thêm album ảnh: thẻ căn hộ nào có ảnh trong "Danh sách ảnh" thì bấm
+ *   được để xem toàn bộ ảnh, giống hệt trang chủ. Trước đây trang danh mục
+ *   chỉ hiện 1 ảnh bìa và không bấm được gì.
  *
  * AN TOÀN: nếu tải data.json thất bại hoặc trang không khai báo bộ lọc
  * -> KHÔNG đụng gì vào trang, giữ nguyên 100% nội dung tĩnh.
@@ -46,6 +49,63 @@
     if (!p) return "Liên hệ";
     if (p % 1000000 === 0) return (p / 1000000) + " triệu";
     return String(Math.round(p / 100000) / 10).replace(".", ",") + " triệu";
+  }
+
+  /* ---------- Tách & chuẩn hoá link ảnh/video (giống hệt logic trang chủ) ---------- */
+  function splitLinks(v) {
+    if (Array.isArray(v)) {
+      var raMang = [];
+      for (var j = 0; j < v.length; j++) if (v[j]) raMang.push(v[j]);
+      return raMang;
+    }
+    var s = chuan(v);
+    if (!s) return [];
+    var mieng = s.split(/[\n,;]+/);
+    var ra = [];
+    for (var i = 0; i < mieng.length; i++) {
+      var p = String(mieng[i]).trim();
+      if (p) ra.push(p);
+    }
+    return ra;
+  }
+
+  /* Ảnh trên Google Drive không xem trực tiếp được -> đổi sang dạng thumbnail xem được.
+     Mọi nơi cần link ảnh PHẢI đi qua hàm này, không được ghép cứng tên miền Drive,
+     để sau này chuyển ảnh về host riêng chỉ cần sửa một chỗ. */
+  function driveUrlToViewUrl(v) {
+    var text = chuan(v);
+    if (!text) return "";
+    var m = text.match(/\/file\/d\/([^/]+)/) || text.match(/[?&]id=([^&]+)/);
+    if (m) return "https://drive.google.com/thumbnail?id=" + m[1] + "&sz=w1000";
+    return text;
+  }
+
+  function laVideo(url) {
+    return /\.(mp4|mov|m4v|webm)(\?|$)/i.test(chuan(url));
+  }
+
+  /* Ghép "Ảnh đại diện" + "Danh sách ảnh" thành một danh sách không trùng lặp,
+     tách riêng "Video". Đây là toàn bộ media của một căn hộ dùng cho album. */
+  function danhSachMedia(r) {
+    var daThay = {};
+    var anh = [];
+    function themAnh(u) {
+      var v = driveUrlToViewUrl(u);
+      if (!v || daThay[v]) return;
+      daThay[v] = true;
+      anh.push(v);
+    }
+    themAnh(r["Ảnh đại diện"]);
+    var dsAnhTho = splitLinks(r["Danh sách ảnh"]);
+    for (var i = 0; i < dsAnhTho.length; i++) themAnh(dsAnhTho[i]);
+
+    var video = [];
+    var dsVideoTho = splitLinks(r["Video"]);
+    for (var k = 0; k < dsVideoTho.length; k++) {
+      var vv = driveUrlToViewUrl(dsVideoTho[k]);
+      if (vv) video.push(vv);
+    }
+    return { anh: anh, video: video };
   }
 
   /* Ánh xạ mã tòa -> tên phân khu (giống hệt trang chủ, tiền tố dài đứng trước) */
@@ -92,6 +152,234 @@
     return h(d.getDate()) + "/" + h(d.getMonth() + 1) + "/" + d.getFullYear();
   }
 
+  /* =====================================================================
+   * ALBUM ẢNH (lightbox) — toàn bộ CSS + HTML do script này tự tạo ra,
+   * tiền tố "dbc-" để không đụng độ với CSS sẵn có của 25 trang tĩnh.
+   * ===================================================================== */
+
+  var dbcTrang = {
+    media: [],       // danh sách url ảnh/video của căn đang xem
+    chiSo: 0,        // ảnh đang xem, 0-based
+    dangMo: false,
+    cuonTruoc: "",   // overflow cũ của <body>, để khôi phục khi đóng
+    phanTuTruoc: null // phần tử đang có focus trước khi mở album, để trả focus lại
+  };
+
+  var dbcDom = null; // cache tham chiếu DOM sau khi dựng lần đầu
+
+  function dbcChenCss() {
+    if (document.getElementById("dbc-style")) return;
+    var css =
+      ".dbc-xem-duoc{cursor:pointer}" +
+      ".dbc-huy-hieu{position:absolute;right:8px;bottom:8px;background:rgba(17,24,39,.72);" +
+        "color:#fff;font-size:12px;font-weight:600;padding:3px 9px;border-radius:999px;" +
+        "line-height:1.4;pointer-events:none}" +
+      ".the-anh{position:relative}" +
+      ".dbc-xem-duoc .the-anh img{transition:transform .3s ease}" +
+      ".dbc-xem-duoc:hover .the-anh img{transform:scale(1.04)}" +
+      "@media(prefers-reduced-motion:reduce){" +
+        ".dbc-xem-duoc .the-anh img{transition:none}" +
+        ".dbc-xem-duoc:hover .the-anh img{transform:none}" +
+      "}" +
+      ".dbc-nen{position:fixed;inset:0;z-index:9999;background:rgba(15,23,42,.92);" +
+        "display:none;align-items:center;justify-content:center;padding:0}" +
+      ".dbc-nen.dbc-mo{display:flex}" +
+      ".dbc-hop{width:100%;height:100%;max-width:960px;max-height:100vh;display:flex;" +
+        "flex-direction:column;background:transparent}" +
+      "@media(min-width:760px){.dbc-hop{height:92vh;margin:4vh auto}}" +
+      ".dbc-dau{display:flex;align-items:center;gap:10px;padding:12px 14px;color:#fff;" +
+        "font-family:inherit}" +
+      ".dbc-dem{font-size:13px;font-weight:700;background:rgba(255,255,255,.15);" +
+        "border-radius:999px;padding:3px 10px;flex:0 0 auto}" +
+      ".dbc-ten{flex:1;font-size:14px;font-weight:600;overflow:hidden;text-overflow:ellipsis;" +
+        "white-space:nowrap}" +
+      ".dbc-dong{flex:0 0 auto;width:44px;height:44px;border:0;background:rgba(255,255,255,.12);" +
+        "color:#fff;border-radius:999px;font-size:22px;line-height:1;cursor:pointer}" +
+      ".dbc-dong:hover{background:rgba(255,255,255,.24)}" +
+      ".dbc-than{position:relative;flex:1;display:flex;align-items:center;justify-content:center;" +
+        "min-height:0;touch-action:pan-y}" +
+      ".dbc-khung-anh{width:100%;height:100%;display:flex;align-items:center;justify-content:center;" +
+        "min-height:0}" +
+      ".dbc-media{max-width:100%;max-height:100%;-o-object-fit:contain;object-fit:contain;display:block}" +
+      ".dbc-loi{color:#e5e7eb;background:#1f2937;border-radius:8px;padding:26px 20px;" +
+        "font-size:14px;text-align:center}" +
+      ".dbc-truoc,.dbc-sau{position:absolute;top:50%;margin-top:-22px;width:44px;height:44px;" +
+        "border:0;border-radius:999px;background:rgba(255,255,255,.14);color:#fff;font-size:22px;" +
+        "cursor:pointer;z-index:2}" +
+      ".dbc-truoc{left:8px}.dbc-sau{right:8px}" +
+      ".dbc-truoc:hover,.dbc-sau:hover{background:rgba(255,255,255,.28)}" +
+      "@media(max-width:539px){.dbc-truoc,.dbc-sau{display:none}}" +
+      ".dbc-chan{padding:14px;text-align:center}" +
+      ".dbc-zalo{display:inline-flex;align-items:center;justify-content:center;height:44px;" +
+        "padding:0 22px;border-radius:999px;background:#2563eb;color:#fff;font-weight:700;" +
+        "font-size:14.5px;text-decoration:none}" +
+      ".dbc-zalo:hover{background:#1e3a8a}";
+    var st = document.createElement("style");
+    st.id = "dbc-style";
+    st.appendChild(document.createTextNode(css));
+    document.head.appendChild(st);
+  }
+
+  function dbcTaoKhung() {
+    if (dbcDom) return dbcDom;
+    dbcChenCss();
+
+    var nen = document.createElement("div");
+    nen.className = "dbc-nen";
+
+    var hop = document.createElement("div");
+    hop.className = "dbc-hop";
+    hop.setAttribute("role", "dialog");
+    hop.setAttribute("aria-modal", "true");
+
+    var dau = document.createElement("div");
+    dau.className = "dbc-dau";
+    var dem = document.createElement("span");
+    dem.className = "dbc-dem";
+    var ten = document.createElement("span");
+    ten.className = "dbc-ten";
+    var dong = document.createElement("button");
+    dong.type = "button";
+    dong.className = "dbc-dong";
+    dong.setAttribute("aria-label", "Đóng album ảnh");
+    dong.innerHTML = "&times;";
+    dau.appendChild(dem);
+    dau.appendChild(ten);
+    dau.appendChild(dong);
+
+    var than = document.createElement("div");
+    than.className = "dbc-than";
+    var truoc = document.createElement("button");
+    truoc.type = "button";
+    truoc.className = "dbc-truoc";
+    truoc.setAttribute("aria-label", "Ảnh trước");
+    truoc.innerHTML = "&lsaquo;";
+    var khungAnh = document.createElement("div");
+    khungAnh.className = "dbc-khung-anh";
+    var sau = document.createElement("button");
+    sau.type = "button";
+    sau.className = "dbc-sau";
+    sau.setAttribute("aria-label", "Ảnh sau");
+    sau.innerHTML = "&rsaquo;";
+    than.appendChild(truoc);
+    than.appendChild(khungAnh);
+    than.appendChild(sau);
+
+    var chan = document.createElement("div");
+    chan.className = "dbc-chan";
+    var zalo = document.createElement("a");
+    zalo.className = "dbc-zalo";
+    zalo.href = "https://zalo.me/" + SDT;
+    zalo.target = "_blank";
+    zalo.rel = "noopener";
+    zalo.textContent = "Nhắn Zalo về căn này";
+    chan.appendChild(zalo);
+
+    hop.appendChild(dau);
+    hop.appendChild(than);
+    hop.appendChild(chan);
+    nen.appendChild(hop);
+    document.body.appendChild(nen);
+
+    dong.addEventListener("click", dbcDong);
+    truoc.addEventListener("click", function () { dbcHien(dbcTrang.chiSo - 1); });
+    sau.addEventListener("click", function () { dbcHien(dbcTrang.chiSo + 1); });
+    nen.addEventListener("click", function (ev) {
+      if (ev.target === nen) dbcDong();
+    });
+
+    /* Vuốt trái/phải trên điện thoại để chuyển ảnh */
+    var chamX = 0, chamY = 0;
+    than.addEventListener("touchstart", function (ev) {
+      if (!ev.touches || !ev.touches.length) return;
+      chamX = ev.touches[0].clientX;
+      chamY = ev.touches[0].clientY;
+    }, { passive: true });
+    than.addEventListener("touchend", function (ev) {
+      if (!ev.changedTouches || !ev.changedTouches.length) return;
+      var dx = ev.changedTouches[0].clientX - chamX;
+      var dy = ev.changedTouches[0].clientY - chamY;
+      if (Math.abs(dx) > 40 && Math.abs(dx) > Math.abs(dy)) {
+        if (dx < 0) dbcHien(dbcTrang.chiSo + 1); else dbcHien(dbcTrang.chiSo - 1);
+      }
+    }, { passive: true });
+
+    document.addEventListener("keydown", function (ev) {
+      if (!dbcTrang.dangMo) return;
+      var phim = ev.key;
+      if (phim === "Escape" || phim === "Esc") { dbcDong(); }
+      else if (phim === "ArrowLeft") { dbcHien(dbcTrang.chiSo - 1); }
+      else if (phim === "ArrowRight") { dbcHien(dbcTrang.chiSo + 1); }
+    });
+
+    dbcDom = { nen: nen, dem: dem, ten: ten, khungAnh: khungAnh };
+    return dbcDom;
+  }
+
+  /* Chỉ tải ảnh đang xem + 1 ảnh kế tiếp, không tải cả album cùng lúc */
+  function dbcTaiTruoc(url) {
+    if (!url || laVideo(url)) return;
+    var im = new Image();
+    im.src = url;
+  }
+
+  function dbcHien(chiSoMoi) {
+    var tong = dbcTrang.media.length;
+    if (!tong) return;
+    var i = ((chiSoMoi % tong) + tong) % tong; // vòng tròn, kể cả số âm
+    dbcTrang.chiSo = i;
+    var url = dbcTrang.media[i];
+    var d = dbcDom;
+
+    d.khungAnh.innerHTML = "";
+    if (laVideo(url)) {
+      var v = document.createElement("video");
+      v.className = "dbc-media";
+      v.src = url;
+      v.controls = true;
+      v.setAttribute("playsinline", "");
+      d.khungAnh.appendChild(v);
+    } else {
+      var img = document.createElement("img");
+      img.className = "dbc-media";
+      img.alt = dbcTrang.tieuDe || "Ảnh căn hộ";
+      img.onerror = function () {
+        d.khungAnh.innerHTML = '<div class="dbc-loi">Ảnh không tải được</div>';
+      };
+      img.src = url;
+      d.khungAnh.appendChild(img);
+    }
+
+    dbcTaiTruoc(dbcTrang.media[(i + 1) % tong]);
+    d.dem.textContent = (i + 1) + " / " + tong;
+  }
+
+  function dbcMo(media, tieuDe, gia, chiSoBatDau) {
+    if (!media || !media.length) return;
+    var d = dbcTaoKhung();
+    dbcTrang.media = media;
+    dbcTrang.tieuDe = tieuDe;
+    dbcTrang.dangMo = true;
+    dbcTrang.phanTuTruoc = document.activeElement;
+    dbcTrang.cuonTruoc = document.body.style.overflow;
+
+    d.ten.textContent = gia ? (tieuDe + " — " + gia + "/tháng") : tieuDe;
+    dbcHien(chiSoBatDau || 0);
+
+    d.nen.className = "dbc-nen dbc-mo";
+    document.body.style.overflow = "hidden";
+  }
+
+  function dbcDong() {
+    if (!dbcTrang.dangMo || !dbcDom) return;
+    dbcTrang.dangMo = false;
+    dbcDom.nen.className = "dbc-nen";
+    document.body.style.overflow = dbcTrang.cuonTruoc || "";
+    if (dbcTrang.phanTuTruoc && typeof dbcTrang.phanTuTruoc.focus === "function") {
+      dbcTrang.phanTuTruoc.focus();
+    }
+  }
+
   /* ---------- Dựng thẻ căn hộ, đúng markup sẵn có của trang tĩnh ---------- */
   function dungThe(r) {
     var ma = chuan(r["Mã nội bộ"]);
@@ -110,12 +398,24 @@
     if (noiThat) meta.push(noiThat);
     if (pk) meta.push(pk);
 
+    var media = danhSachMedia(r);
+    var toanBoMedia = media.anh.concat(media.video);
+    var soMedia = toanBoMedia.length;
+
     var alt = "Cho thuê " + loai + " " + toa + " Vinhomes Smart City" + (dt ? " " + Math.round(dt) + "m2" : "");
-    var khungAnh = anh
-      ? '<div class="the-anh"><img src="' + esc(anh) + '" alt="' + esc(alt) + '" loading="lazy" ' +
+    var khungAnh;
+    if (anh) {
+      var huyHieu = soMedia > 0
+        ? '<span class="dbc-huy-hieu">🖼 ' + soMedia + ' ảnh</span>'
+        : "";
+      khungAnh = '<div class="the-anh"><img src="' + esc(anh) + '" alt="' + esc(alt) + '" loading="lazy" ' +
         'decoding="async" width="400" height="300" ' +
-        "onerror=\"this.closest('.the').classList.add('khong-anh');this.remove()\"></div>"
-      : '<div class="the-anh"></div>';
+        "onerror=\"this.closest('.the').classList.add('khong-anh');" +
+        "var b=this.parentNode.querySelector('.dbc-huy-hieu');if(b)b.parentNode.removeChild(b);" +
+        "this.remove()\">" + huyHieu + "</div>";
+    } else {
+      khungAnh = '<div class="the-anh"></div>';
+    }
 
     var el = document.createElement("article");
     el.className = anh ? "the" : "the khong-anh";
@@ -133,6 +433,30 @@
           '<a href="tel:' + SDT + '">Gọi</a>' +
         "</div>" +
       "</div>";
+
+    /* Thẻ bấm được để mở album — chỉ khi có ít nhất 1 ảnh/video.
+       Bỏ qua khi bấm vào nút Zalo/Gọi để hai nút đó vẫn hoạt động bình thường. */
+    if (soMedia > 0) {
+      el.classList.add("dbc-xem-duoc");
+      el.setAttribute("tabindex", "0");
+      el.setAttribute("role", "button");
+      el.setAttribute("aria-label", "Xem " + soMedia + " ảnh căn " + loai + " " + toa);
+
+      var giaHienThi = dinhDangGia(soTien(r["Giá thuê"]));
+      var tieuDeAlbum = (loai + " · " + toa);
+      el.addEventListener("click", function (ev) {
+        if (ev.target.closest("a")) return;
+        dbcMo(toanBoMedia, tieuDeAlbum, giaHienThi, 0);
+      });
+      el.addEventListener("keydown", function (ev) {
+        if (ev.target.closest("a")) return;
+        if (ev.key === "Enter" || ev.key === " " || ev.key === "Spacebar") {
+          ev.preventDefault();
+          dbcMo(toanBoMedia, tieuDeAlbum, giaHienThi, 0);
+        }
+      });
+    }
+
     return el;
   }
 
@@ -166,6 +490,11 @@
     var luoi = document.querySelector(".luoi");
     if (!luoi || !duLieu || !duLieu.length) return;
 
+    /* Chèn CSS ngay khi biết chắc sẽ dựng lưới - không chờ tới lúc khách mở
+       album mới chèn, vì huy hiệu số ảnh và hiệu ứng hover cần CSS này ngay
+       khi thẻ xuất hiện lần đầu. */
+    dbcChenCss();
+
     var dsCan = [];
     for (var i = 0; i < duLieu.length; i++) {
       if (laCanHopLe(duLieu[i]) && chuan(duLieu[i]["Mã nội bộ"]) && khopBoLoc(duLieu[i], bl)) {
@@ -178,6 +507,14 @@
     if (dsCan.length === 0 && soCu > 0) return;
 
     dsCan.sort(function (a, b) { return soTien(a["Giá thuê"]) - soTien(b["Giá thuê"]); });
+
+    /* Căn có ảnh xếp trước (vẫn theo giá tăng dần), căn chưa có ảnh dồn xuống cuối,
+       để khách không gặp ô "Đang cập nhật ảnh" xen giữa danh sách. */
+    var coAnh = [], khongAnh = [];
+    for (var n = 0; n < dsCan.length; n++) {
+      if (anhBia(dsCan[n])) coAnh.push(dsCan[n]); else khongAnh.push(dsCan[n]);
+    }
+    dsCan = coAnh.concat(khongAnh);
 
     var moi = document.createDocumentFragment();
     for (var j = 0; j < dsCan.length; j++) moi.appendChild(dungThe(dsCan[j]));
