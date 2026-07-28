@@ -427,6 +427,82 @@
       color: #fff;
     }
 
+    /* ===== THEM 28/07/2026: bo loc phan khu + goi y tim kiem + day bang loc dinh =====
+       Muc tieu: them nhom "Phan khu" ma bang loc tren dien thoai KHONG dai them cam giac.
+       Cach lam: chip hep lai + nhan rut gon tren mobile + nut "Xem N can" dinh day. */
+    .chip small {
+      margin-left: 5px;
+      font-size: 12px;
+      font-weight: 700;
+      opacity: .5;
+    }
+    .chip.active small { opacity: .78; }
+    .chip:disabled { opacity: .36; cursor: not-allowed; }
+    .chip-short { display: none; }
+
+    .filters-foot-bar {
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+      gap: 10px;
+      margin-top: 20px;
+      padding-top: 16px;
+      border-top: 1px solid #eef2f7;
+    }
+    .filters-foot-bar.trong { display: none; }
+
+    .btn-xoa-loc {
+      height: 40px;
+      padding: 0 16px;
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      background: #fff;
+      color: #475467;
+      font-weight: 700;
+      cursor: pointer;
+    }
+    .btn-xoa-loc:hover { border-color: #cbd5e1; color: var(--ink); }
+    .btn-xoa-loc[hidden] { display: none; }
+
+    /* Goi y nhanh duoi o tim kiem: CHI hien khi khach bam vao o tim.
+       Nho vay dau trang khong ton them mot dong co dinh nao - dieu quan trong
+       tren dien thoai, noi thanh dieu huong da chiem 84px va dang dinh (sticky). */
+    .search-suggest {
+      position: absolute;
+      left: 0;
+      right: 0;
+      top: calc(100% + 8px);
+      z-index: 30;
+      padding: 12px 14px 14px;
+      border: 1px solid var(--line);
+      border-radius: 14px;
+      background: #fff;
+      box-shadow: 0 18px 40px rgba(15, 23, 42, .16);
+    }
+    .search-suggest[hidden] { display: none; }
+    .ss-label {
+      display: block;
+      margin-bottom: 9px;
+      color: var(--muted);
+      font-size: 11.5px;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: .05em;
+    }
+    .ss-row { display: flex; flex-wrap: wrap; gap: 7px; }
+    .ss-chip {
+      height: 34px;
+      padding: 0 13px;
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      background: #f8fafc;
+      color: #1f2937;
+      font-size: 13.5px;
+      font-weight: 700;
+      cursor: pointer;
+    }
+    .ss-chip:hover { border-color: #93c5fd; background: #eff6ff; }
+
     main {
       padding: 24px 0 64px;
     }
@@ -1208,6 +1284,16 @@
       .stat { padding: 18px 16px; }
       .stat strong { font-size: 22px; text-shadow: 0 1px 4px rgba(0,0,0,.45); }
       .stat span { text-shadow: 0 1px 3px rgba(0,0,0,.4); }
+      /* BANG LOC DIEN THOAI - SUA 28/07/2026
+         Van de khi them nhom "Phan khu": bang loc tu 3 nhom len 4 nhom, de bi cam giac
+         dai kin man hinh va nut xac nhan bi day xuong duoi cung phai cuon moi thay.
+         Ba viec xu ly:
+           1. Dau bang va day bang DINH (sticky) - cuon bao nhieu cung luon thay
+              nut dong va nut "Xem N can", khong bao gio lac loi giua danh sach chip.
+           2. Chip HEP lai (nhan rut gon "2 PN" thay vi "2 phong ngu") - 9 phan khu
+              chi con 3 hang thay vi 5 hang.
+           3. Chieu cao toi da 84vh nhung van chua mot dai nen phia sau, de khach
+              biet minh dang o mot lop noi len chu khong phai da nhay sang trang khac. */
       .filters {
         display: none;
         position: fixed;
@@ -1216,17 +1302,30 @@
         bottom: 0;
         top: auto;
         z-index: 45;
-        max-height: 82vh;
+        max-height: 84vh;
         overflow-y: auto;
+        overscroll-behavior: contain;
+        -webkit-overflow-scrolling: touch;
         margin-top: 0;
         border-radius: 18px 18px 0 0;
-        padding: 16px 16px calc(16px + env(safe-area-inset-bottom));
+        padding: 0 14px;
         box-shadow: 0 -20px 50px rgba(15, 23, 42, .28);
         animation: truotLenSheet .22s ease-out;
       }
       .filters.open { display: block; }
-      .filter-group + .filter-group { margin-top: 16px; padding-top: 16px; }
-      .chip { min-height: 42px; padding: 0 14px; font-size: 14px; }
+      .filter-group + .filter-group { margin-top: 13px; padding-top: 13px; }
+      .filter-label { margin-bottom: 9px; font-size: 11.5px; }
+
+      /* Cao 44px cho du chuan cham cua Apple, nhung HEP hon ban cu (padding 12 thay vi 14,
+         chu 13.5 thay vi 14) de xep duoc nhieu chip hon tren mot hang. */
+      .chip { min-height: 44px; padding: 0 12px; font-size: 13.5px; }
+      .chips { gap: 8px; }
+      .chip-full { display: none; }
+      .chip-short { display: inline; }
+      .chip small { margin-left: 4px; font-size: 11.5px; }
+
+      .search-suggest { padding: 11px 12px 12px; }
+      .ss-chip { height: 38px; font-size: 14px; }
 
       /* NÚT MỞ BỘ LỌC TRÊN ĐIỆN THOẠI (thiết kế lại 23/07/2026)
          Trên điện thoại bộ lọc luôn ở trạng thái thu gọn, chỉ mở khi bấm nút này. Bản cũ là
@@ -1283,15 +1382,41 @@
         display: flex;
         align-items: center;
         justify-content: space-between;
-        margin-bottom: 14px;
+        position: sticky;
+        top: 0;
+        z-index: 3;
+        margin: 0 -14px 10px;
+        padding: 14px 14px 10px;
+        background: var(--surface);
+        border-bottom: 1px solid #eef2f7;
+        border-radius: 18px 18px 0 0;
         font-size: 16px;
       }
 
+      /* Thanh day DINH: nut "Xem N can" luon nam trong tam ngon cai.
+         Day chinh la thu cho phep them nhom Phan khu ma khach khong thay bang loc dai them. */
+      /* Tren dien thoai thanh day LUON hien - vi no cho nut "Xem N can" */
+      .filters-foot-bar, .filters-foot-bar.trong { display: flex; }
+      .filters-foot-bar {
+        position: sticky;
+        bottom: 0;
+        z-index: 3;
+        justify-content: stretch;
+        margin: 14px -14px 0;
+        padding: 12px 14px calc(12px + env(safe-area-inset-bottom));
+        background: var(--surface);
+        border-top: 1px solid #eef2f7;
+      }
+
+      .btn-xoa-loc { flex: 0 0 auto; height: 46px; padding: 0 15px; font-size: 14px; }
+
       .filters-sheet-foot {
         display: block;
-        width: 100%;
-        height: 48px;
-        margin-top: 20px;
+        flex: 1;
+        min-width: 0;
+        height: 46px;
+        margin-top: 0;
+        border: 0;
         border-radius: 12px;
         background: #111827;
         color: #fff;
@@ -1344,7 +1469,16 @@
         <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true">
           <path d="m21 21-4.35-4.35M10.5 18a7.5 7.5 0 1 1 0-15 7.5 7.5 0 0 1 0 15Z" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
         </svg>
-        <input id="searchInput" type="search" placeholder="Nhập mã căn, tòa, loại căn, diện tích để tìm nhanh...">
+        <input id="searchInput" type="search" autocomplete="off"
+               placeholder="Tìm phân khu, mã căn, loại căn… (VD: Sapphire, 2PN, 8 triệu)"
+               aria-label="Tìm căn hộ theo phân khu, mã căn, loại căn hoặc giá">
+        <!-- Bảng gợi ý chỉ bật lên khi khách bấm vào ô tìm, nên không chiếm chỗ cố định
+             trên đầu trang. Mục đích: cho khách BIẾT là gõ tên phân khu được -
+             trước đây ô tìm có hỗ trợ nhưng không nói ra nên gần như không ai dùng. -->
+        <div class="search-suggest" id="searchSuggest" hidden>
+          <span class="ss-label">Gợi ý nhanh</span>
+          <div class="ss-row" id="searchSuggestRow"></div>
+        </div>
       </div>
 
       <!-- ĐẦU TRANG = ĐIỀU HƯỚNG, KHÔNG PHẢI CHỖ CHỐT ĐƠN (sửa 22/07/2026)
@@ -1406,7 +1540,7 @@
       </span>
       <span class="mft-text">
         <b>Ấn vào đây để tìm căn hộ phù hợp</b>
-        <small id="mftTomTat">Lọc theo phòng ngủ, giá thuê và nội thất</small>
+        <small id="mftTomTat">Lọc theo phân khu, phòng ngủ và giá thuê</small>
       </span>
       <svg class="mft-arrow" width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true">
         <path d="m9 6 6 6-6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
@@ -1417,6 +1551,10 @@
       <div class="filters-sheet-head">
         <strong>Bộ lọc căn hộ</strong>
         <button class="close" id="closeFilters" type="button" aria-label="Đóng">×</button>
+      </div>
+      <div class="filter-group">
+        <div class="filter-label">Phân khu</div>
+        <div class="chips" id="phanKhuFilters"></div>
       </div>
       <div class="filter-group">
         <div class="filter-label">Cấu trúc phòng ngủ</div>
@@ -1430,7 +1568,10 @@
         <div class="filter-label">Nội thất</div>
         <div class="chips" id="interiorFilters"></div>
       </div>
-      <button class="filters-sheet-foot" id="apDungFilters" type="button">Áp dụng</button>
+      <div class="filters-foot-bar">
+        <button class="btn-xoa-loc" id="xoaBoLoc" type="button" hidden>Xóa lọc</button>
+        <button class="filters-sheet-foot" id="apDungFilters" type="button">Xem <span id="soCanKhop">…</span> căn</button>
+      </div>
     </section>
 
     <div class="list-head">
@@ -1760,6 +1901,7 @@
 
     const state = {
       apartments: [],
+      phanKhu: "all",
       type: "all",
       price: "all",
       interior: "all",
@@ -1770,31 +1912,107 @@
 
     const PAGE_SIZE = 12;
 
+    /* Moi bo loc co 2 nhan: "label" cho man hinh rong, "short" cho dien thoai.
+       Ly do: tren dien thoai chip hep lai thi so hang chip giam gan mot nua,
+       nho vay them duoc nhom Phan khu ma bang loc khong dai them bao nhieu. */
     const typeFilters = [
-      { key: "all", label: "Tất cả phòng" },
-      { key: "studio", label: "Studio" },
-      { key: "1 ngủ", label: "1 phòng ngủ" },
-      { key: "1 ngủ +", label: "1 phòng ngủ +" },
-      { key: "2 ngủ", label: "2 phòng ngủ" },
-      { key: "2 ngủ +", label: "2 phòng ngủ +" },
-      { key: "3 ngủ", label: "3 phòng ngủ" }
+      { key: "all", label: "Tất cả phòng", short: "Tất cả" },
+      { key: "studio", label: "Studio", short: "Studio" },
+      { key: "1 ngủ", label: "1 phòng ngủ", short: "1 PN" },
+      { key: "1 ngủ +", label: "1 phòng ngủ +", short: "1 PN+" },
+      { key: "2 ngủ", label: "2 phòng ngủ", short: "2 PN" },
+      { key: "2 ngủ +", label: "2 phòng ngủ +", short: "2 PN+" },
+      { key: "3 ngủ", label: "3 phòng ngủ", short: "3 PN" }
     ];
 
+    /* SUA 28/07/2026 - HO DAY KHOANG GIA: moc thap nhat truoc day la 6,5 trieu,
+       nen 5 can gia 6-6,4 trieu KHONG loc ra duoc bang bat ky moc nao (chi hien khi
+       de "Tat ca"). Doi moc dau thanh "Duoi 7,5 trieu" de khong con can nao rot ra ngoai. */
     const priceFilters = [
-      { key: "all", label: "Tất cả mức giá", test: () => true },
-      { key: "65to75", label: "6,5 - 7,5 triệu", test: price => price >= 6500000 && price <= 7500000 },
-      { key: "75to10", label: "7,5 - 10 triệu", test: price => price > 7500000 && price <= 10000000 },
-      { key: "10to12", label: "10 - 12 triệu", test: price => price > 10000000 && price <= 12000000 },
-      { key: "12to15", label: "12 - 15 triệu", test: price => price > 12000000 && price <= 15000000 },
-      { key: "over15", label: "Trên 15 triệu", test: price => price > 15000000 }
+      { key: "all", label: "Tất cả mức giá", short: "Tất cả", test: () => true },
+      { key: "65to75", label: "Dưới 7,5 triệu", short: "< 7,5tr", test: price => price > 0 && price <= 7500000 },
+      { key: "75to10", label: "7,5 - 10 triệu", short: "7,5-10tr", test: price => price > 7500000 && price <= 10000000 },
+      { key: "10to12", label: "10 - 12 triệu", short: "10-12tr", test: price => price > 10000000 && price <= 12000000 },
+      { key: "12to15", label: "12 - 15 triệu", short: "12-15tr", test: price => price > 12000000 && price <= 15000000 },
+      { key: "over15", label: "Trên 15 triệu", short: "> 15tr", test: price => price > 15000000 }
     ];
 
     const interiorFilters = [
-      { key: "all", label: "Tất cả" },
-      { key: "full nội thất", label: "Full nội thất" },
-      { key: "nhà nguyên bản", label: "Nhà Nguyên Bản" },
-      { key: "đồ cơ bản", label: "Đồ Cơ bản" }
+      { key: "all", label: "Tất cả", short: "Tất cả" },
+      { key: "full nội thất", label: "Full nội thất", short: "Full NT" },
+      { key: "nhà nguyên bản", label: "Nhà Nguyên Bản", short: "Nguyên bản" },
+      { key: "đồ cơ bản", label: "Đồ Cơ bản", short: "Cơ bản" }
     ];
+
+    /* ================================================================
+       TU DONG NGHIA CHO O TIM KIEM (them 28/07/2026)
+       ----------------------------------------------------------------
+       Truoc khi sua, o tim kiem chi so khop y nguyen chuoi khach go voi du lieu tho
+       trong Sheet. Da kiem tra tren 266 can that va thay khach go dung cai ten ma
+       CHINH website in ra van cho ve man hinh trang:
+         "the sapphire" -> 0 can  (tieu de trang /sapphire/ viet dung chu nay)
+         "2 phong ngu"  -> 0 can  (dung chu tren chip loc, du lieu ghi "2 Ngu")
+         "2pn"          -> 0 can  (cach viet pho bien nhat cua nguoi Viet)
+         "8 trieu"      -> 0 can  (du lieu la so tho 8000000)
+         "masteris"     -> 0 can  (ma tra ve "Masteri", khong co "s")
+       Cach xu ly: moi can duoc dung san mot chuoi tim kiem gom day du cac cach viet,
+       da bo dau san. Khach go kieu nao cung ra.
+       ================================================================ */
+    const BI_DANH_PHAN_KHU = {
+      "Sapphire": "sapphire the sapphire",
+      "Sakura": "sakura the sakura samty",
+      // KHONG dat ten cu "Grand Sapphire" vao day: no lam tu khoa "sapphire" keo theo
+      // ca 37 can Miami (da phat hien khi chay kiem thu 28/07/2026). Ma toa GS van tim duoc.
+      "Miami": "miami the miami gs",
+      "Masteri": "masteri masteris masteri west heights masteris west heights west heights mas",
+      "Imperia": "imperia the imperia",
+      "Lumiere": "lumiere the lumiere lumiere boulevard luminere",
+      "Tonkin": "tonkin the tonkin tk",
+      "Canopy": "canopy the canopy canopy residences tc",
+      "Sola Park": "sola park solapark sola",
+      "Victoria": "victoria the victoria"
+    };
+
+    const BI_DANH_LOAI = {
+      "studio": "studio stu 0pn 0 pn can studio",
+      "1 ngủ": "1pn 1 pn 1 ngu 1 phong ngu mot phong ngu 1n",
+      "1 ngủ +": "1pn+ 1 pn+ 1pnplus 1 ngu + 1 phong ngu plus",
+      "2 ngủ": "2pn 2 pn 2 ngu 2 phong ngu hai phong ngu 2n",
+      "2 ngủ +": "2pn+ 2 pn+ 2pnplus 2 ngu + 2 phong ngu plus",
+      "3 ngủ": "3pn 3 pn 3 ngu 3 phong ngu ba phong ngu 3n"
+    };
+
+    const BI_DANH_NOI_THAT = {
+      "full nội thất": "full noi that fullnt full do day du do co san do",
+      "đồ cơ bản": "do co ban co ban basic ban giao co ban",
+      "nhà nguyên bản": "nha nguyen ban nguyen ban nha trong khong do tho"
+    };
+
+    /** Bo dau tieng Viet (ca chu d gach) de khach go co dau hay khong dau deu ra. */
+    function boDau(value) {
+      return String(value == null ? "" : value)
+        .normalize("NFD")
+        .replace(/[\u0300-\u036f]/g, "")
+        .replace(/đ/g, "d")
+        .replace(/Đ/g, "D");
+    }
+
+    /** Sinh cac cach viet gia tien ma khach hay go: "8 trieu", "8tr", "8,5 trieu", "8500000"... */
+    function biDanhGia(price) {
+      if (!price) return "";
+      const trieu = price / 1000000;
+      const chuan = Number.isInteger(trieu) ? String(trieu) : trieu.toFixed(1);
+      const dungPhay = chuan.replace(".", ",");
+      const dungCham = chuan.replace(",", ".");
+      const cachViet = new Set([chuan, dungPhay, dungCham, String(price)]);
+      [dungPhay, dungCham].forEach(so => {
+        cachViet.add(so + " trieu");
+        cachViet.add(so + "trieu");
+        cachViet.add(so + " tr");
+        cachViet.add(so + "tr");
+      });
+      return [...cachViet].join(" ");
+    }
 
     const $ = selector => document.querySelector(selector);
 
@@ -2001,9 +2219,29 @@
       }
       const isNew = !isNaN(addedAt) && (Date.now() - addedAt) < 72 * 60 * 60 * 1000;
 
+      const phanKhu = tenPhanKhu(tower);
+      // Dung san chuoi tim kiem MOT LAN luc nap du lieu, khong dung lai moi lan go phim.
+      const blobTim = boDau([
+        apartmentId,
+        tower,
+        String(tower).replace(/[\s.\-_]/g, ""),
+        phanKhu,
+        BI_DANH_PHAN_KHU[phanKhu] || "",
+        type,
+        BI_DANH_LOAI[normalizeKey(type)] || "",
+        area ? `${area} ${area}m2 ${area} m2` : "",
+        interior,
+        BI_DANH_NOI_THAT[normalizeKey(interior)] || "",
+        availableDate,
+        biDanhGia(price)
+      ].join(" ")).toLowerCase();
+
       return {
         apartmentId,
         tower,
+        phanKhu,
+        phanKhuKey: normalizeKey(phanKhu),
+        blobTim,
         type,
         area,
         interior,
@@ -2070,19 +2308,50 @@
       return normalizeKey(apartment.interior) === state.interior;
     }
 
+    function apartmentMatchesPhanKhu(apartment) {
+      if (state.phanKhu === "all") return true;
+      return apartment.phanKhuKey === state.phanKhu;
+    }
+
+    /* SO KHOP TU KHOA - SUA 28/07/2026
+       Ban cu: khop chuoi con tho. Go "8" ra 119 can vi "8" nam trong "48 m2", "8000000"...
+       Ban moi, hai thay doi:
+         1. Tach tu khoa thanh nhieu TU, phai co DU tat ca cac tu moi tinh la khop.
+            -> go "sapphire 2pn" ra dung can 2PN ben Sapphire.
+         2. Moi tu phai khop tu DAU MOT TU trong du lieu, khong khop giua chung.
+            -> go "8 trieu" khong con an vao "48 m2" nua. */
+    let boNhoTuKhoa = { raw: null, dieuKien: [] };
+
+    function bienDichTuKhoa(tuKhoa) {
+      if (boNhoTuKhoa.raw === tuKhoa) return boNhoTuKhoa.dieuKien;
+      const cacTu = boDau(tuKhoa).toLowerCase().split(/\s+/).filter(Boolean);
+      const dieuKien = cacTu.map(tu => {
+        const an = tu.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
+        /* Tu bat dau bang CHU SO phai khop TRON VEN ca tu.
+           Neu chi khop "bat dau bang" thi go "8 trieu" se an vao "48 m2", "18 m2"...
+           (da do thuc te: ra 48 can lung tung truoc khi sua).
+           Con tu bang CHU thi van khop kieu "bat dau bang", de khach go
+           "sapph", "master", "canop" van ra dung ket qua. */
+        // Voi tu la chu so, phan dau con phai loai ca dau cham va dau phay:
+        // dien tich le kieu "41.2 m2" tao ra mot so "2" dung rieng sau dau cham,
+        // khien tu khoa "2 phong ngu" bat nham ca can 1 phong ngu (do khi kiem thu).
+        return /^[0-9]/.test(tu)
+          ? new RegExp("(^|[^a-z0-9.,])" + an + "($|[^a-z0-9+])")
+          : new RegExp("(^|[^a-z0-9])" + an);
+      });
+      boNhoTuKhoa = { raw: tuKhoa, dieuKien };
+      return dieuKien;
+    }
+
+    function khopTuKhoa(apartment, tuKhoa) {
+      if (!tuKhoa) return true;
+      const dieuKien = bienDichTuKhoa(tuKhoa);
+      if (!dieuKien.length) return true;
+      return dieuKien.every(dk => dk.test(apartment.blobTim));
+    }
+
     function apartmentMatchesQuery(apartment) {
-      if (!state.query) return true;
-      const haystack = [
-        apartment.apartmentId,
-        apartment.tower,
-        tenPhanKhu(apartment.tower),
-        apartment.type,
-        apartment.area,
-        apartment.interior,
-        apartment.availableDate,
-        apartment.price
-      ].join(" ").toLowerCase();
-      return haystack.includes(state.query);
+      return khopTuKhoa(apartment, state.query);
     }
 
     /** Băm chuỗi thành 1 số ổn định (FNV-1a) - dùng để xáo trộn thứ tự nhưng vẫn tái lập được */
@@ -2115,6 +2384,7 @@
       return state.apartments
         .filter(apartment => apartment.show)
         .filter(apartment => apartment.tower && apartment.type && apartment.price)
+        .filter(apartmentMatchesPhanKhu)
         .filter(apartmentMatchesType)
         .filter(apartmentMatchesPrice)
         .filter(apartmentMatchesInterior)
@@ -2132,50 +2402,109 @@
         });
     }
 
+    /** Danh sach phan khu dung tu DU LIEU THAT, xep theo so can nhieu -> it.
+     *  Chi hien phan khu dang CO can cho thue - khong bay ra chip "Sola Park (0)"
+     *  roi de khach bam vao va nhan man hinh trang. */
+    function danhSachPhanKhu() {
+      const dem = new Map();
+      state.apartments
+        .filter(item => item.show && item.tower && item.type && item.price && item.phanKhu)
+        .forEach(item => dem.set(item.phanKhu, (dem.get(item.phanKhu) || 0) + 1));
+      const theoSoCan = [...dem.entries()].sort((a, b) => b[1] - a[1]);
+      return [{ key: "all", label: "Tất cả phân khu", short: "Tất cả" }]
+        .concat(theoSoCan.map(([ten]) => ({ key: normalizeKey(ten), label: ten, short: ten })));
+    }
+
+    /* DEM SO CAN CHO TUNG CHIP (sua 28/07/2026)
+       Ban cu dem tren toan bo danh sach nen con so khong doi khi khach loc.
+       Ban moi dem theo dung cac bo loc CON LAI dang bat, giong cach Booking/Airbnb lam:
+       khach dang o Sapphire thi chip "3 PN" phai hien so can 3PN CUA RIENG Sapphire.
+       Chip nao ra 0 can se bi lam mo va khoa lai - khach khoi bam vao roi that vong. */
+    function demTheoBoLoc(nhomBoQua, khoaThayThe) {
+      const tam = {
+        phanKhu: state.phanKhu,
+        type: state.type,
+        price: state.price,
+        interior: state.interior,
+        query: state.query
+      };
+      tam[nhomBoQua] = khoaThayThe;
+      const mucGia = priceFilters.find(item => item.key === tam.price);
+      let dem = 0;
+      for (const can of state.apartments) {
+        if (!can.show || !can.tower || !can.type || !can.price) continue;
+        if (tam.phanKhu !== "all" && can.phanKhuKey !== tam.phanKhu) continue;
+        if (tam.type !== "all" && !typeMatchesFilterKey(can.type, tam.type)) continue;
+        if (mucGia && !mucGia.test(can.price)) continue;
+        if (tam.interior !== "all" && normalizeKey(can.interior) !== tam.interior) continue;
+        if (!khopTuKhoa(can, tam.query)) continue;
+        dem++;
+      }
+      return dem;
+    }
+
+    function veChip(muc, soCan, thuocTinh, dangChon) {
+      const nhan = `<span class="chip-full">${muc.label}</span><span class="chip-short">${muc.short || muc.label}</span>`;
+      const khoa = soCan === 0 && !dangChon ? " disabled" : "";
+      return `<button class="chip ${dangChon ? "active" : ""}" ${thuocTinh}="${muc.key}" type="button"${khoa}`
+        + ` aria-label="${muc.label} - ${soCan} căn">${nhan} <small>${soCan}</small></button>`;
+    }
+
     function renderFilters() {
-      const publicApartments = state.apartments.filter(item => item.show && item.tower && item.type);
+      const dsPhanKhu = danhSachPhanKhu();
+      // Neu link chia se co ?pk= khong khop phan khu nao dang co can thi tra ve "tat ca",
+      // de khach mo link cu khong roi vao man hinh trang khong hieu vi sao.
+      if (state.phanKhu !== "all" && !dsPhanKhu.some(muc => muc.key === state.phanKhu)) {
+        state.phanKhu = "all";
+      }
 
-      $("#typeFilters").innerHTML = typeFilters.map(filter => {
-        const count = filter.key === "all"
-          ? publicApartments.length
-          : publicApartments.filter(apartment => typeMatchesFilterKey(apartment.type, filter.key)).length;
-        return `<button class="chip ${state.type === filter.key ? "active" : ""}" data-type="${filter.key}" type="button">${filter.label} <small>${count}</small></button>`;
-      }).join("");
+      $("#phanKhuFilters").innerHTML = dsPhanKhu
+        .map(muc => veChip(muc, demTheoBoLoc("phanKhu", muc.key), "data-phankhu", state.phanKhu === muc.key))
+        .join("");
 
-      $("#priceFilters").innerHTML = priceFilters.map(filter => {
-        return `<button class="chip ${state.price === filter.key ? "active" : ""}" data-price="${filter.key}" type="button">${filter.label}</button>`;
-      }).join("");
+      $("#typeFilters").innerHTML = typeFilters
+        .map(muc => veChip(muc, demTheoBoLoc("type", muc.key), "data-type", state.type === muc.key))
+        .join("");
 
-      $("#interiorFilters").innerHTML = interiorFilters.map(filter => {
-        const count = filter.key === "all"
-          ? publicApartments.length
-          : publicApartments.filter(apartment => normalizeKey(apartment.interior) === filter.key).length;
-        return `<button class="chip ${state.interior === filter.key ? "active" : ""}" data-interior="${filter.key}" type="button">${filter.label} <small>${count}</small></button>`;
-      }).join("");
+      $("#priceFilters").innerHTML = priceFilters
+        .map(muc => veChip(muc, demTheoBoLoc("price", muc.key), "data-price", state.price === muc.key))
+        .join("");
 
-      $("#typeFilters").querySelectorAll("button").forEach(button => {
-        button.addEventListener("click", () => {
-          state.type = button.dataset.type;
-          state.page = 1;
-          render();
+      $("#interiorFilters").innerHTML = interiorFilters
+        .map(muc => veChip(muc, demTheoBoLoc("interior", muc.key), "data-interior", state.interior === muc.key))
+        .join("");
+
+      const ganSuKien = (vungChip, thuocTinh, khoaState) => {
+        $(vungChip).querySelectorAll("button").forEach(nut => {
+          nut.addEventListener("click", () => {
+            state[khoaState] = nut.dataset[thuocTinh];
+            state.page = 1;
+            render();
+          });
         });
-      });
+      };
+      ganSuKien("#phanKhuFilters", "phankhu", "phanKhu");
+      ganSuKien("#typeFilters", "type", "type");
+      ganSuKien("#priceFilters", "price", "price");
+      ganSuKien("#interiorFilters", "interior", "interior");
+    }
 
-      $("#priceFilters").querySelectorAll("button").forEach(button => {
-        button.addEventListener("click", () => {
-          state.price = button.dataset.price;
-          state.page = 1;
-          render();
-        });
-      });
+    /** Co dang loc gi khong - dung de bat/tat nut "Xoa loc". */
+    function dangCoBoLoc() {
+      return state.phanKhu !== "all" || state.type !== "all"
+        || state.interior !== "all" || state.price !== "all" || !!state.query;
+    }
 
-      $("#interiorFilters").querySelectorAll("button").forEach(button => {
-        button.addEventListener("click", () => {
-          state.interior = button.dataset.interior;
-          state.page = 1;
-          render();
-        });
-      });
+    function xoaToanBoBoLoc() {
+      state.phanKhu = "all";
+      state.type = "all";
+      state.price = "all";
+      state.interior = "all";
+      state.query = "";
+      state.page = 1;
+      const oTim = $("#searchInput");
+      if (oTim) oTim.value = "";
+      render();
     }
 
     function noiThatClass(interior) {
@@ -2437,6 +2766,7 @@
         return muc ? muc.label : null;
       };
       const phan = [
+        nhan(danhSachPhanKhu(), state.phanKhu),
         nhan(typeFilters, state.type),
         nhan(priceFilters, state.price),
         nhan(interiorFilters, state.interior)
@@ -2444,7 +2774,7 @@
       if (state.query) phan.push(`“${state.query}”`);
       o.textContent = phan.length
         ? "Đang lọc: " + phan.join(" · ")
-        : "Lọc theo phòng ngủ, giá thuê và nội thất";
+        : "Lọc theo phân khu, phòng ngủ và giá thuê";
     }
 
     function render() {
@@ -2454,6 +2784,16 @@
       capNhatTomTatBoLoc();
       const apartments = getFilteredApartments();
       $("#resultCount").innerHTML = `<strong>${apartments.length}</strong> căn hộ đang trống phù hợp`;
+
+      /* Nut day bang loc hien SO CAN ngay tren nut. Khach thay ket qua truoc khi dong bang,
+         khong phai dong ra dong vao de do xem con bao nhieu can. */
+      const oSoCan = $("#soCanKhop");
+      if (oSoCan) oSoCan.textContent = apartments.length;
+      const nutXoa = $("#xoaBoLoc");
+      const thanhDay = document.querySelector(".filters-foot-bar");
+      if (nutXoa) nutXoa.hidden = !dangCoBoLoc();
+      if (thanhDay) thanhDay.classList.toggle("trong", !dangCoBoLoc());
+
       const start = (state.page - 1) * PAGE_SIZE;
       renderCards(apartments.slice(start, start + PAGE_SIZE));
       renderPagination(apartments.length);
@@ -2496,6 +2836,14 @@
             "full": "full nội thất",
             "co-ban": "đồ cơ bản",
             "nguyen-ban": "nhà nguyên bản"
+          },
+          // Them 28/07/2026: cho phep gui link Zalo kieu "toan bo can Sapphire"
+          // -> timthuesmartcity.com/?pk=sapphire  (khach mo ra la da loc san)
+          pk: {
+            "sapphire": "sapphire", "masteri": "masteri", "masteris": "masteri",
+            "miami": "miami", "sakura": "sakura", "imperia": "imperia",
+            "canopy": "canopy", "lumiere": "lumiere", "tonkin": "tonkin",
+            "sola": "sola park", "sola-park": "sola park", "victoria": "victoria"
           }
         };
 
@@ -2507,6 +2855,13 @@
           if (bangMa && bangMa[k]) k = bangMa[k];
           if (danhSach.some(muc => muc.key === k)) state[khoa] = k;
         };
+        // Phan khu duoc kiem tra lai lan nua trong renderFilters (luc do moi co du lieu that),
+        // nen o day chi can nhan gia tri, khong can danh sach hop le truoc.
+        const maPhanKhu = thamSo.get("pk");
+        if (maPhanKhu) {
+          const k = normalizeKey(maPhanKhu);
+          state.phanKhu = MA_GON.pk[k] ? normalizeKey(MA_GON.pk[k]) : k;
+        }
         datNeuHopLe(thamSo.get("loai"), typeFilters, "type", MA_GON.loai);
         datNeuHopLe(thamSo.get("gia"), priceFilters, "price", null);
         datNeuHopLe(thamSo.get("noithat"), interiorFilters, "interior", MA_GON.noithat);
@@ -2535,6 +2890,65 @@
       state.page = 1;
       render();
     });
+
+    /* ================================================================
+       BANG GOI Y DUOI O TIM KIEM (them 28/07/2026)
+       ----------------------------------------------------------------
+       O tim kiem VAN da ho tro go ten phan khu tu truoc, nhung khong cho nao noi ra
+       dieu do - dong chu goi y cu chi ghi "ma can, toa, loai can, dien tich".
+       Chuc nang co ma khach khong biet la co thi coi nhu khong ton tai.
+       Bang nay CHI bat len khi khach bam vao o tim, nen dau trang khong ton them
+       mot dong co dinh nao - quan trong voi dien thoai vi thanh dieu huong dang dinh.
+       ================================================================ */
+    const oTimKiem = $("#searchInput");
+    const bangGoiY = $("#searchSuggest");
+
+    function veGoiYTimKiem() {
+      const vung = $("#searchSuggestRow");
+      if (!vung) return;
+      const phanKhuTop = danhSachPhanKhu().slice(1, 7).map(muc => muc.label);
+      const goiY = phanKhuTop.concat(["Studio", "2PN", "1PN+"]);
+      vung.innerHTML = goiY
+        .map(tu => `<button class="ss-chip" type="button" data-goiy="${tu}">${tu}</button>`)
+        .join("");
+    }
+
+    function moGoiY() {
+      if (!bangGoiY) return;
+      veGoiYTimKiem();
+      if ($("#searchSuggestRow").children.length) bangGoiY.hidden = false;
+    }
+
+    function dongGoiY() {
+      if (bangGoiY) bangGoiY.hidden = true;
+    }
+
+    if (oTimKiem && bangGoiY) {
+      oTimKiem.addEventListener("focus", moGoiY);
+      oTimKiem.addEventListener("click", moGoiY);
+      // Giu con tro trong o tim khi bam chip, de ban phim dien thoai khong nhay tat roi bat lai
+      bangGoiY.addEventListener("mousedown", event => event.preventDefault());
+      bangGoiY.addEventListener("click", event => {
+        const nut = event.target.closest("[data-goiy]");
+        if (!nut) return;
+        oTimKiem.value = nut.dataset.goiy;
+        state.query = nut.dataset.goiy.trim().toLowerCase();
+        state.page = 1;
+        dongGoiY();
+        oTimKiem.blur();
+        render();
+      });
+      document.addEventListener("click", event => {
+        if (!event.target.closest(".search")) dongGoiY();
+      });
+      oTimKiem.addEventListener("keydown", event => {
+        if (event.key === "Escape") { dongGoiY(); oTimKiem.blur(); }
+      });
+      // Tren dien thoai o tim hep hon nhieu, dong goi y dai bi cat cut -> rut gon lai.
+      if (window.matchMedia("(max-width: 640px)").matches) {
+        oTimKiem.placeholder = "Sapphire, 2PN, 8 triệu, mã căn…";
+      }
+    }
 
     $("#sortSelect").addEventListener("change", event => {
       state.sort = event.target.value;
@@ -2650,15 +3064,24 @@
     function moBoLocMobile() {
       $("#filtersSection").classList.add("open");
       $("#filtersBackdrop").classList.add("open");
+      // Khoa cuon trang nen: truoc day khach vuot trong bang loc den cuoi la trang phia sau
+      // cuon theo, dong bang lai thi mat vi tri cu - kha kho chiu tren dien thoai.
+      document.body.style.overflow = "hidden";
+      dongGoiY();
     }
     function dongBoLocMobile() {
       $("#filtersSection").classList.remove("open");
       $("#filtersBackdrop").classList.remove("open");
+      document.body.style.overflow = "";
     }
     $("#mobileFilterToggle").addEventListener("click", moBoLocMobile);
     $("#closeFilters").addEventListener("click", dongBoLocMobile);
     $("#apDungFilters").addEventListener("click", dongBoLocMobile);
     $("#filtersBackdrop").addEventListener("click", dongBoLocMobile);
+    $("#xoaBoLoc").addEventListener("click", xoaToanBoBoLoc);
+    document.addEventListener("keydown", event => {
+      if (event.key === "Escape" && $("#filtersSection").classList.contains("open")) dongBoLocMobile();
+    });
 
     /* ================================================================
        ĐO LƯỜNG CHUYỂN ĐỔI GA4 (thêm 23/07/2026)
