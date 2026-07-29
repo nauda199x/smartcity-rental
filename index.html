@@ -24,6 +24,10 @@
        (/ và /index.html, hoặc các biến thể có tham số ?loai=studio&gia=... mình vừa thêm)
        -> sức mạnh SEO bị chia nhỏ ra nhiều địa chỉ thay vì dồn hết về một chỗ.
        Các trang danh mục (/studio/, /sapphire/...) đã có canonical riêng từ lúc sinh trang. -->
+  <!-- Báo trước cho trình duyệt tải ảnh nền hero ngay, không phải chờ đọc xong CSS.
+       PageSpeed báo thiếu đúng fetchpriority=high ở mục "Phát hiện yêu cầu LCP". -->
+  <link rel="preload" as="image" href="/hero-800.webp" media="(max-width: 700px)" fetchpriority="high">
+  <link rel="preload" as="image" href="/hero-1600.webp" media="(min-width: 701px)" fetchpriority="high">
   <link rel="canonical" href="https://timthuesmartcity.com/">
 
   <!-- Open Graph: hiển thị ảnh/tiêu đề đẹp khi dán link trên Zalo, Facebook, Messenger -->
@@ -306,9 +310,9 @@
       background:
         linear-gradient(110deg, rgba(8, 20, 55, .82), rgba(15, 35, 90, .62)),
         radial-gradient(circle at 82% 20%, rgba(20, 184, 166, .18), transparent 34%),
-        url("hero-smartcity.jpg");
+        url("hero-1600.webp");
       background-size: cover;
-      background-position: center 38%;
+      background-position: center;
       color: #fff;
     }
 
@@ -1247,6 +1251,18 @@
 
     @media (max-width: 640px) {
       .lead-row { grid-template-columns: 1fr; }
+    }
+
+    /* Điện thoại tải bản 800x620 (~71KB) thay cho bản 1600 (~126KB).
+       Ảnh cũ hero-smartcity.jpg là 1800x2400 nặng 451KB, dựng đứng, trong khi khối hero
+       rất thấp và rộng nên gần hết ảnh bị cắt bỏ. Đây là nguyên nhân LCP 4,6 giây. */
+    @media (max-width: 700px) {
+      .hero {
+        background-image:
+          linear-gradient(110deg, rgba(8, 20, 55, .82), rgba(15, 35, 90, .62)),
+          radial-gradient(circle at 82% 20%, rgba(20, 184, 166, .18), transparent 34%),
+          url("hero-800.webp");
+      }
     }
 
     @media (max-width: 1180px) {
