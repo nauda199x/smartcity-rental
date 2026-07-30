@@ -12,7 +12,7 @@
 
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Thuê chung cư Smart City — Cho thuê căn hộ Vinhomes Smart City T07/2026</title>
+  <title>Thuê chung cư Smart City – Cho thuê căn hộ Vinhomes T07/2026</title>
   <link rel="icon" href="/favicon.ico" sizes="any">
   <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">
   <link rel="icon" type="image/png" sizes="192x192" href="/favicon-192.png">
@@ -1238,9 +1238,14 @@
       margin-bottom: 10px;
     }
 
-    .lead-success h4 {
+    /* Trước đây là <h4>. Đây chỉ là dòng thông báo trong hộp thoại, không phải
+       cấp mục của nội dung trang, nên đổi sang <div> + CSS để không tạo bước
+       nhảy H2 -> H4 trong cấu trúc heading. */
+    .lead-success .tieu-de {
       margin: 0 0 8px;
       font-size: 18px;
+      font-weight: 700;
+      line-height: 1.3;
     }
 
     .lead-success p {
@@ -1688,7 +1693,7 @@
         <div class="muc-luc-nhom">
           <h3>Cẩm nang thuê nhà</h3>
           <ul>
-            <li><a href="/bang-gia-thue-smart-city-thang-7-2026.html">Bảng giá thuê mới nhất</a></li>
+            <li><a href="/bang-gia-thue-vinhomes-smart-city.html">Bảng giá thuê theo phân khu</a></li>
             <li><a href="/phi-dich-vu-vinhomes-smart-city.html">Phí dịch vụ từng phân khu</a></li>
             <li><a href="/gia-thue-studio-smart-city.html">Giá thuê Studio chi tiết</a></li>
             <li><a href="/tien-ich-vinhomes-smart-city.html">Tiện ích trong khu đô thị</a></li>
@@ -1743,7 +1748,7 @@
     <section class="seo-block" aria-label="Giới thiệu">
       <h2>Thuê chung cư Smart City — cho thuê căn hộ Vinhomes Smart City</h2>
       <p><strong>Cho thuê chung cư Smart City</strong> tổng hợp căn hộ cho thuê tại Vinhomes Smart City (Tây Mỗ, Nam Từ Liêm, Hà Nội) với dữ liệu đồng bộ tự động nhiều lần mỗi ngày, phản ánh đúng tình trạng còn trống, giá thuê và ảnh thật của từng căn. Đủ loại hình từ Studio, 1 phòng ngủ, 2 phòng ngủ đến 3 phòng ngủ, trải trên các phân khu Sapphire, Miami, Sakura, Masteri West Heights, Imperia, Lumière, Canopy và Tonkin.</p>
-      <p>Giá <strong>thuê nhà Smart City</strong> hiện dao động phổ biến từ khoảng 5,5 triệu/tháng với căn Studio, tăng dần theo diện tích, phân khu và tình trạng nội thất. Anh/chị xem chi tiết tại <a href="/bang-gia-thue-smart-city-thang-7-2026.html">bảng giá thuê cập nhật</a>, hoặc dùng bộ lọc phía trên để lọc nhanh theo ngân sách và loại căn.</p>
+      <p>Giá <strong>thuê nhà Smart City</strong> hiện dao động phổ biến từ khoảng 5,5 triệu/tháng với căn Studio, tăng dần theo diện tích, phân khu và tình trạng nội thất. Anh/chị xem chi tiết tại <a href="/bang-gia-thue-vinhomes-smart-city.html">bảng giá thuê theo từng phân khu</a>, hoặc dùng bộ lọc phía trên để lọc nhanh theo ngân sách và loại căn.</p>
       <p>Mỗi tin <strong>cho thuê Vinhomes Smart City</strong> đều ghi rõ giá, diện tích, hướng và tình trạng nội thất (Full nội thất / Cơ bản / Nguyên bản). Anh/chị xem theo <a href="#mucLucKhoDuLieu">danh mục</a>, sau đó nhắn Zalo để được dẫn xem nhà trực tiếp.</p>
     </section>
 
@@ -1899,7 +1904,7 @@
 
       <div class="lead-success" id="leadSuccess">
         <div class="icon">✅</div>
-        <h4>Đã nhận được yêu cầu của anh/chị</h4>
+        <div class="tieu-de">Đã nhận được yêu cầu của anh/chị</div>
         <p>Tụi mình sẽ chủ động liên hệ lại trong thời gian sớm nhất. Cảm ơn anh/chị đã tin tưởng!</p>
       </div>
     </div>
