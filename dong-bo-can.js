@@ -140,6 +140,35 @@
     return laNgayDaQua(s);
   }
 
+  /* Căn vừa được nhập trong 72 tiếng - giống hệt ngưỡng "Mới" của trang chủ */
+  function laCanMoi(r) {
+    var s = chuan(r["Ngày thêm vào hệ thống"]);
+    if (!s) return false;
+    var moc = NaN;
+    if (/^\d{4}-\d{2}-\d{2}/.test(s)) {
+      moc = Date.parse(s);
+    } else {
+      var m = /^(\d{1,2})\/(\d{1,2})\/(\d{4})/.exec(s);
+      if (m) moc = new Date(Number(m[3]), Number(m[2]) - 1, Number(m[1])).getTime();
+    }
+    return !isNaN(moc) && (Date.now() - moc) < 72 * 60 * 60 * 1000;
+  }
+
+  /* Rút ngày còn ngày/tháng - năm là thông tin thừa trong khuôn khổ một thẻ */
+  function ngayNganGon(s) {
+    var m = /^(\d{1,2})\/(\d{1,2})/.exec(chuan(s));
+    return m ? m[1] + "/" + m[2] : chuan(s);
+  }
+
+  /* Chữ trên huy hiệu tình trạng. Mỗi thẻ chỉ hiện ĐÚNG MỘT huy hiệu: căn vừa
+     về ưu tiên nhãn "Mới", còn lại hiện tình trạng trống. Luôn kèm nhãn -
+     con số ngày đứng trần rất dễ bị hiểu nhầm. */
+  function nhanTinhTrang(r) {
+    if (laCanMoi(r)) return "✨ Mới";
+    if (vaoONgay(r)) return "Vào ngay";
+    return "Trống từ " + ngayNganGon(r["Ngày vào ở"]);
+  }
+
   function anhBia(r) {
     var a = chuan(r["Ảnh đại diện"]);
     if (a) return a;
@@ -389,14 +418,12 @@
     var noiThat = chuan(r["Nội thất"]);
     var pk = tenPhanKhu(toa);
     var anh = anhBia(r);
-    var ngayHtml = vaoONgay(r)
-      ? '<span class="ngay san">Có thể vào ở ngay</span>'
-      : '<span class="ngay">Vào ở: ' + esc(r["Ngày vào ở"]) + "</span>";
+    var huyHieuTinhTrang = '<span class="tinh-trang">' + esc(nhanTinhTrang(r)) + "</span>";
 
-    var meta = [];
-    if (dt) meta.push(Math.round(dt) + "m²");
-    if (noiThat) meta.push(noiThat);
-    if (pk) meta.push(pk);
+    /* Thứ tự thông tin theo đúng cái khách thuê cân nhắc: loại căn + diện tích
+       nổi nhất, mã tòa hạ xuống dòng phụ đi kèm phân khu. */
+    var tenHtml = esc(loai) + (dt ? " · " + Math.round(dt) + " m²" : "");
+    var viTri = pk ? pk + " · " + toa : toa;
 
     var media = danhSachMedia(r);
     var toanBoMedia = media.anh.concat(media.video);
@@ -412,9 +439,9 @@
         'decoding="async" width="400" height="300" ' +
         "onerror=\"this.closest('.the').classList.add('khong-anh');" +
         "var b=this.parentNode.querySelector('.dbc-huy-hieu');if(b)b.parentNode.removeChild(b);" +
-        "this.remove()\">" + huyHieu + "</div>";
+        "this.remove()\">" + huyHieu + huyHieuTinhTrang + "</div>";
     } else {
-      khungAnh = '<div class="the-anh"></div>';
+      khungAnh = '<div class="the-anh">' + huyHieuTinhTrang + "</div>";
     }
 
     var el = document.createElement("article");
@@ -423,19 +450,19 @@
     el.innerHTML =
       khungAnh +
       '<div class="than">' +
-        '<div class="gia">' + esc(dinhDangGia(soTien(r["Giá thuê"]))) + "<small>/tháng</small></div>" +
-        '<h3 class="ten">' + esc(loai) + " · " + esc(toa) +
-          ' <span class="ma">Mã ' + esc(ma) + "</span></h3>" +
-        '<p class="meta">' + esc(meta.join(" · ")) + "</p>" +
-        ngayHtml +
-        '<div class="nut">' +
+        '<h3 class="ten">' + tenHtml + "</h3>" +
+        '<p class="vi-tri">' + esc(viTri) + "</p>" +
+        (noiThat ? '<p class="nhan-nt">' + esc(noiThat) + "</p>" : "") +
+        '<div class="chan-the">' +
+          '<div class="gia">' + esc(dinhDangGia(soTien(r["Giá thuê"]))) + "<small>/tháng</small></div>" +
           '<a class="zalo" href="https://zalo.me/' + SDT + '" target="_blank" rel="noopener">Nhắn Zalo</a>' +
-          '<a href="tel:' + SDT + '">Gọi</a>' +
         "</div>" +
+        /* Căn chưa có mã nội bộ thì ẩn hẳn dòng này, không hiện nhãn rỗng. */
+        (ma ? '<p class="ma-can">Mã căn: <b>' + esc(ma) + "</b></p>" : "") +
       "</div>";
 
     /* Thẻ bấm được để mở album — chỉ khi có ít nhất 1 ảnh/video.
-       Bỏ qua khi bấm vào nút Zalo/Gọi để hai nút đó vẫn hoạt động bình thường. */
+       Bỏ qua khi bấm vào nút Zalo để nút đó vẫn hoạt động bình thường. */
     if (soMedia > 0) {
       el.classList.add("dbc-xem-duoc");
       el.setAttribute("tabindex", "0");

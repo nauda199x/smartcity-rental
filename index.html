@@ -582,74 +582,43 @@
       color: #98a2b3;
     }
 
-    .badge-row {
+    /* Mỗi thẻ chỉ hiện ĐÚNG MỘT huy hiệu, luôn dùng màu trạng thái (xanh lá).
+       Trước đây có 3 kiểu huy hiệu 3 màu khác nhau (xanh / cam / gradient hồng-cam)
+       nên không có điểm nhấn nào thật sự nổi. Giờ phân biệt bằng CHỮ, không bằng màu. */
+    .badge {
       position: absolute;
       left: 14px;
       top: 14px;
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
       z-index: 2;
-    }
-
-    .badge {
-      border-radius: 999px;
-      padding: 7px 10px;
-      background: rgba(5, 150, 105, .95);
-      color: #fff;
-      font-size: 12px;
-      font-weight: 800;
-      white-space: nowrap;
-    }
-
-    .badge.date {
-      background: rgba(245, 158, 11, .95);
-    }
-
-    .badge-moi {
-      display: inline-flex;
-      align-items: center;
       border-radius: 999px;
       padding: 7px 11px;
-      background: linear-gradient(120deg, #f43f5e, #fb923c);
+      background: var(--ok);
       color: #fff;
       font-size: 12px;
       font-weight: 800;
-      letter-spacing: .02em;
       white-space: nowrap;
-      box-shadow: 0 6px 14px rgba(244, 63, 94, .35);
     }
 
     .body {
       padding: 16px;
     }
 
+    /* Mã tòa là thông tin phục vụ người quản lý, không phải tiêu chí khách thuê
+       dùng để chọn căn -> bỏ nền xanh, hạ xuống thành dòng phụ dưới tiêu đề. */
     .tower {
       display: inline-flex;
       align-items: center;
       gap: 5px;
       margin-bottom: 10px;
-      border-radius: 6px;
-      padding: 4px 8px;
-      background: #eff6ff;
-      color: #1d4ed8;
-      font-size: 14px;
-      font-weight: 800;
-      letter-spacing: 0.2px;
+      color: var(--muted);
+      font-size: 13px;
+      font-weight: 600;
     }
 
     .tower svg { flex-shrink: 0; width: 14px; height: 14px; }
-    .tower .toa-code { font-weight: 800; }
-    .tower .phan-khu { font-weight: 600; opacity: 0.85; }
-
-    .apt-id {
-      color: #a3acba;
-      font-weight: 600;
-      font-size: 14px;
-    }
 
     .card h3 {
-      margin: 0 0 10px;
+      margin: 0 0 4px;
       font-size: 18px;
       line-height: 1.25;
     }
@@ -661,39 +630,21 @@
       margin-bottom: 12px;
     }
 
+    /* Nhãn nội thất dùng CHUNG màu trạng thái với huy hiệu trên ảnh - đó là
+       1 trong 2 màu nhấn duy nhất của thẻ (màu còn lại dành cho nút liên hệ). */
     .tag {
       display: inline-flex;
       align-items: center;
       gap: 5px;
       border-radius: 6px;
       padding: 5px 8px;
-      background: #f3f4f6;
-      color: #4b5563;
+      background: #ecfdf5;
+      color: #047857;
       font-size: 12px;
       font-weight: 700;
     }
 
     .tag svg { flex-shrink: 0; }
-
-    .tag.furnished {
-      background: #ecfdf5;
-      color: #047857;
-    }
-
-    .tag.basic {
-      background: #f1f5f9;
-      color: #475569;
-    }
-
-    .available {
-      display: flex;
-      gap: 6px;
-      align-items: center;
-      min-height: 36px;
-      color: var(--muted);
-      font-size: 13px;
-      line-height: 1.35;
-    }
 
     .card-foot {
       display: flex;
@@ -705,10 +656,17 @@
       border-top: 1px solid #eef2f7;
     }
 
+    /* Giá không cần màu: cỡ chữ 19px + độ đậm 900 đã đủ làm điểm nhấn.
+       Thêm màu cam vào đây chỉ tranh chỗ với nút liên hệ.
+       "/tháng" xuống dòng dưới để cả hàng giá + nút vừa đúng bề ngang thẻ ở
+       lưới 4 cột trên máy tính (thẻ chỉ rộng ~287px). */
     .price {
-      font-size: 20px;
+      display: flex;
+      flex-direction: column;
+      line-height: 1.15;
+      font-size: 19px;
       font-weight: 900;
-      color: #c2410c;
+      color: var(--ink);
       white-space: nowrap;
       flex-shrink: 0;
     }
@@ -720,18 +678,38 @@
       white-space: nowrap;
     }
 
+    /* Nút tạo doanh thu -> phải là thứ nổi nhất thẻ: nền đặc, chữ trắng.
+       Cao 44px cho đủ vùng chạm trên điện thoại. */
     .ask {
       display: inline-flex;
       align-items: center;
       justify-content: center;
-      gap: 8px;
-      min-width: 108px;
-      height: 38px;
+      gap: 6px;
+      height: 44px;
+      padding: 0 12px;
       border-radius: 999px;
-      background: #eff6ff;
-      color: var(--brand);
+      background: var(--brand);
+      color: #fff;
       font-weight: 800;
       font-size: 13px;
+      white-space: nowrap;
+    }
+
+    .ask:hover { background: var(--brand-dark); }
+
+    /* Mã căn nội bộ: chủ nhà tra lại căn khi khách chụp màn hình gửi qua Zalo.
+       Đặt cuối thẻ, cỡ nhỏ, màu phụ - có mặt nhưng không tranh chú ý với giá. */
+    .ma-can {
+      margin: 10px 0 0;
+      color: var(--muted);
+      font-size: 12px;
+      line-height: 1.4;
+    }
+
+    .ma-can b {
+      font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+      font-weight: 700;
+      letter-spacing: .02em;
     }
 
     .empty-state, .error-state {
@@ -1458,11 +1436,10 @@
          (ảnh + giá + tag) hơn, thay vì chỉ thấy trọn 1 ảnh phải cuộn tiếp mới thấy giá. */
       .media { aspect-ratio: 16 / 10; }
       .body { padding: 13px 14px; }
-      .card h3 { margin-bottom: 8px; font-size: 17px; }
+      .card h3 { font-size: 17px; }
       .meta { margin-bottom: 10px; gap: 6px; }
-      .available { min-height: 0; }
-      .card-foot { flex-wrap: wrap; margin-top: 10px; padding-top: 12px; }
-      .ask { flex: 1; height: 44px; }
+      .card-foot { margin-top: 10px; padding-top: 12px; }
+      .ask { padding: 0 18px; font-size: 13.5px; }
       .gallery { grid-template-columns: 1fr; }
       .floating-zalo { display: none; }
       .sticky-cta { display: flex; }
@@ -2295,12 +2272,27 @@
       return ngay.getTime() < homNay.getTime();
     }
 
-    function availabilityText(apartment) {
+    /** Căn dọn vào ở được ngay, hay còn phải chờ tới ngày khách cũ trả nhà */
+    function sanSangONgay(apartment) {
       const date = normalizeText(apartment.availableDate);
-      if (!date) return "Sẵn sàng dọn vào ở ngay";
-      if (["luôn", "ở ngay", "o ngay", "ngay"].includes(normalizeKey(date))) return "Sẵn sàng dọn vào ở ngay";
-      if (laNgayDaQua(date)) return "Sẵn sàng dọn vào ở ngay";
-      return `Trống lịch xem từ ${date}`;
+      if (!date) return true;
+      if (["luôn", "ở ngay", "o ngay", "ngay"].includes(normalizeKey(date))) return true;
+      return laNgayDaQua(date);
+    }
+
+    /** Rút ngày còn ngày/tháng - năm là thông tin thừa trong khuôn khổ một thẻ căn hộ */
+    function ngayNganGon(dateStr) {
+      const khop = String(dateStr).match(/^(\d{1,2})\/(\d{1,2})/);
+      return khop ? `${khop[1]}/${khop[2]}` : normalizeText(dateStr);
+    }
+
+    /** Chữ trên huy hiệu tình trạng. Mỗi thẻ chỉ hiện ĐÚNG MỘT huy hiệu:
+     *  căn vừa về ưu tiên nhãn "Mới", còn lại hiện tình trạng trống.
+     *  Luôn có nhãn đi kèm - con số ngày đứng trần rất dễ bị hiểu nhầm. */
+    function nhanTinhTrang(apartment) {
+      if (apartment.isNew) return "✨ Mới";
+      if (sanSangONgay(apartment)) return "Vào ngay";
+      return `Trống từ ${ngayNganGon(apartment.availableDate)}`;
     }
 
     function zaloLink(apartment) {
@@ -2528,12 +2520,6 @@
       render();
     }
 
-    function noiThatClass(interior) {
-      const key = normalizeKey(interior);
-      if (key.includes("full")) return "furnished";
-      return "basic";
-    }
-
     /** Ánh xạ mã tòa -> tên phân khu.
      *  CẬP NHẬT 22/07/2026 theo danh sách phân khu CHÍNH THỨC của Vinhomes Smart City.
      *  Đã đối chiếu với toàn bộ mã tòa thực tế trong dữ liệu: khớp 100%, không mã nào lọt ngoài.
@@ -2573,18 +2559,15 @@
       return "";
     }
 
-    /** HTML tên tòa hiển thị trên card: mã tòa in đậm + tên phân khu */
+    /** Dòng vị trí trên thẻ: phân khu trước, mã tòa sau - khách nhớ phân khu
+     *  chứ hiếm khi nhớ mã tòa, nên phân khu đứng trước cho dễ quét mắt. */
     function nhanToaHtml(toa) {
       const pk = tenPhanKhu(toa);
-      const ma = `<b class="toa-code">${toa}</b>`;
-      return pk ? `${ma}<span class="phan-khu"> · ${pk}</span>` : ma;
+      return pk ? `${pk} · ${toa}` : String(toa || "");
     }
 
     function mediaMarkup(apartment, index) {
-      const badgeClass = availabilityText(apartment).includes("ngay") ? "" : "date";
-      const badgeText = availabilityText(apartment).includes("ngay") ? "Vào ngay" : apartment.availableDate;
-      const badgeMoi = apartment.isNew ? `<span class="badge-moi">✨ Mới</span>` : "";
-      const hangBadge = `<span class="badge-row"><span class="badge ${badgeClass}">${badgeText}</span>${badgeMoi}</span>`;
+      const hangBadge = `<span class="badge">${nhanTinhTrang(apartment)}</span>`;
       if (!apartment.cover || apartment.imgBroken) {
         return `<button class="media empty" type="button" data-gallery="${index}">
           ${hangBadge}
@@ -2641,21 +2624,16 @@
         <article class="card" data-ma-noi-bo="${apartment.apartmentId || ""}">
           ${mediaMarkup(apartment, index)}
           <div class="body">
+            <h3>${apartment.type}${apartment.area ? ` · ${apartment.area} m²` : ""}</h3>
             <span class="tower">
               <svg width="12" height="12" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-                <path d="M3 9.5 12 3l9 6.5V20a1 1 0 0 1-1 1h-5v-6H9v6H4a1 1 0 0 1-1-1V9.5Z" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/>
+                <path d="M12 21s7-5.5 7-11a7 7 0 1 0-14 0c0 5.5 7 11 7 11Z" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/>
+                <circle cx="12" cy="10" r="2.4" stroke="currentColor" stroke-width="2"/>
               </svg>
               ${nhanToaHtml(apartment.tower)}
             </span>
-            <h3>${apartment.type}${apartment.apartmentId ? ` <span class="apt-id">- ${apartment.apartmentId}</span>` : ""}</h3>
             <div class="meta">
               <span class="tag">
-                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-                  <path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                </svg>
-                ${apartment.area ? apartment.area + " m²" : "Đang cập nhật"}
-              </span>
-              <span class="tag ${noiThatClass(apartment.interior)}">
                 <svg width="12" height="12" viewBox="0 0 24 24" fill="none" aria-hidden="true">
                   <path d="M21 8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4a2 2 0 0 0 1-1.73V8Z" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/>
                   <path d="M3.27 6.96 12 12.01l8.73-5.05M12 22.08V12" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/>
@@ -2663,19 +2641,8 @@
                 ${apartment.interior || "Nội thất cập nhật"}
               </span>
             </div>
-            <div class="available">
-              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-                <path d="M12 8v5l3 2M21 12A9 9 0 1 1 3 12a9 9 0 0 1 18 0Z" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
-              </svg>
-              ${availabilityText(apartment)}
-            </div>
             <div class="card-foot">
-              <div class="price">
-                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" aria-hidden="true" style="vertical-align: -2px; margin-right: 3px;">
-                  <path d="M12 2v20M17 5.5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
-                </svg>
-                ${formatPrice(apartment.price)}<small>/tháng</small>
-              </div>
+              <div class="price">${formatPrice(apartment.price)}<small>/tháng</small></div>
               <a class="ask" href="${zaloLink(apartment)}" target="_blank" rel="noopener">
                 <svg width="14" height="14" viewBox="0 0 24 24" fill="none" aria-hidden="true">
                   <path d="M21 11.5a8.4 8.4 0 0 1-8.5 8.3 9.5 9.5 0 0 1-3.5-.67L3 21l1.9-5.1a8 8 0 0 1-.9-3.7A8.4 8.4 0 0 1 12.5 4 8.4 8.4 0 0 1 21 11.5Z" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/>
@@ -2683,6 +2650,7 @@
                 Hỏi căn này
               </a>
             </div>
+            ${apartment.apartmentId ? `<p class="ma-can">Mã căn: <b>${apartment.apartmentId}</b></p>` : ""}
           </div>
         </article>
       `).join("");
@@ -2708,7 +2676,7 @@
 
     function renderStats() {
       const publicApartments = state.apartments.filter(item => item.show && item.tower && item.type && item.price);
-      const ready = publicApartments.filter(item => availabilityText(item).includes("ngay")).length;
+      const ready = publicApartments.filter(item => sanSangONgay(item)).length;
       $("#totalCount").textContent = publicApartments.length;
       $("#readyCount").textContent = ready;
     }
