@@ -1,0 +1,105 @@
+name: Cập nhật số căn và tháng trong thẻ SEO
+
+# Số căn nằm trong <title>/og:title và tháng nằm trong thẻ SEO của trang chủ.
+# dong-bo-can.js chạy trong trình duyệt nên không sửa được những chỗ đó, dẫn
+# tới việc Google hiển thị con số cũ. Workflow này sửa thẳng vào file HTML.
+
+on:
+  schedule:
+    # 19:00 UTC = 02:00 giờ Việt Nam (UTC+7) ngày hôm sau.
+    - cron: "0 19 * * *"
+  workflow_dispatch:
+    inputs:
+      chi_thu:
+        description: "Chỉ xem trước, không commit gì"
+        type: boolean
+        default: false
+
+permissions:
+  contents: write
+
+# Không để hai lần chạy chồng nhau — sẽ đá nhau khi push.
+concurrency:
+  group: cap-nhat-so-can
+  cancel-in-progress: false
+
+jobs:
+  cap-nhat:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Lấy code
+        uses: actions/checkout@v4
+
+      - name: Chuẩn bị Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+
+      - name: Đếm căn và cập nhật thẻ SEO
+        id: chay
+        run: |
+          set -o pipefail
+          node scripts/cap-nhat-so-can.mjs ${{ inputs.chi_thu && '--thu' || '' }} \
+            2>&1 | tee ket-qua.txt
+
+      - name: Ghi kết quả vào phần tóm tắt của lần chạy
+        if: always()
+        run: |
+          {
+            echo "## Kết quả cập nhật thẻ SEO"
+            echo
+            echo '```'
+            cat ket-qua.txt 2>/dev/null || echo "(script không chạy được)"
+            echo '```'
+            echo
+            echo "### Thẻ SEO sau khi sửa"
+            echo
+            echo '| Trang | `<title>` |'
+            echo '| --- | --- |'
+            for f in $(grep -rl 'bo-loc-trang' --include='*.html' . | sort); do
+              t=$(sed -n 's:.*<title>\(.*\)</title>.*:\1:p' "$f" | head -1)
+              echo "| ${f#./} | ${t} |"
+            done
+            echo
+            echo '**Trang chủ:** '"$(sed -n 's:.*<title>\(.*\)</title>.*:\1:p' index.html | head -1)"
+          } >> "$GITHUB_STEP_SUMMARY"
+
+      - name: Xem thay đổi
+        if: always()
+        run: git --no-pager diff --stat
+
+      - name: Commit và push nếu thực sự có thay đổi
+        if: ${{ !inputs.chi_thu }}
+        env:
+          NHANH: ${{ github.ref_name }}
+        run: |
+          set -euo pipefail
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+
+          # RÀNG BUỘC: data.json do Apps Script đẩy lên, workflow này không bao
+          # giờ được ghi đè. Script không sửa file đó, nhưng vẫn dựng thêm một
+          # lớp chặn ở đây cho chắc.
+          git checkout -- data.json || true
+
+          if git diff --quiet -- '*.html'; then
+            echo "Không có gì thay đổi — bỏ qua commit, không tạo commit rác."
+            exit 0
+          fi
+
+          git add -- '*.html'
+          git commit -m "Tự động cập nhật số căn và tháng trong thẻ SEO"
+
+          # Apps Script có thể vừa push data.json lên trong lúc job đang chạy,
+          # nên rebase trước khi push. Thử lại vài lần nếu mạng/đụng độ.
+          for lan in 1 2 3 4; do
+            if git pull --rebase origin "$NHANH" && git push origin "HEAD:$NHANH"; then
+              echo "Đã push thành công."
+              exit 0
+            fi
+            cho=$((2 ** lan))
+            echo "Push thất bại, thử lại sau ${cho}s..."
+            sleep "$cho"
+          done
+          echo "Không push được sau 4 lần thử."
+          exit 1
