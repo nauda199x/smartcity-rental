@@ -45,23 +45,43 @@ padding:14px 18px;font-weight:600;margin:0 0 24px;text-align:center}
 .luoi{display:grid;gap:16px;grid-template-columns:repeat(auto-fill,minmax(256px,1fr));margin:0 0 28px}
 .the{background:var(--surface);border:1px solid var(--line);border-radius:var(--r);
 overflow:hidden;display:flex;flex-direction:column;box-shadow:var(--sh)}
-.the-anh{aspect-ratio:4/3;background:#eef2f7;overflow:hidden}
+.the-anh{position:relative;aspect-ratio:4/3;background:#eef2f7;overflow:hidden}
 .the-anh img{width:100%;height:100%;object-fit:cover;display:block}
 .the.khong-anh .the-anh::after{content:"Đang cập nhật ảnh";display:flex;height:100%;
 align-items:center;justify-content:center;color:var(--muted);font-size:13px}
-.than{padding:13px 15px 15px;display:flex;flex-direction:column;gap:5px;flex:1}
-.gia{font-size:20px;font-weight:700;color:var(--ok)}
-.gia small{font-size:13px;font-weight:400;color:var(--muted)}
-.ten{margin:0;font-size:15px;font-weight:600;display:flex;align-items:center;gap:7px;flex-wrap:wrap}
-.ma{font-weight:400;font-size:11.5px;color:var(--muted);background:var(--bg);
-border:1px solid var(--line);border-radius:4px;padding:1px 6px;white-space:nowrap}
-.meta{margin:0;font-size:13.5px;color:var(--muted)}
-.ngay{font-size:12.5px;color:var(--muted)}.ngay.san{color:var(--ok);font-weight:600}
-.nut{display:flex;gap:8px;margin-top:auto;padding-top:11px}
-.nut a{flex:1;text-align:center;padding:8px 10px;border-radius:6px;font-size:14px;
-font-weight:600;border:1px solid var(--line);color:var(--ink)}
-.nut a:hover{text-decoration:none}
-.nut a.zalo{background:var(--brand);border-color:var(--brand);color:#fff}
+/* Mỗi thẻ chỉ hiện ĐÚNG MỘT huy hiệu và luôn dùng màu trạng thái. Huy hiệu
+   luôn có nhãn đi kèm - con số ngày đứng trần rất dễ bị hiểu nhầm. */
+.tinh-trang{position:absolute;left:10px;top:10px;z-index:2;background:var(--ok);color:#fff;
+font-size:12px;font-weight:700;border-radius:999px;padding:5px 10px;white-space:nowrap}
+.than{padding:13px 15px 15px;display:flex;flex-direction:column;gap:4px;flex:1}
+.ten{margin:0;font-size:16.5px;font-weight:700;line-height:1.3}
+/* Mã tòa phục vụ người quản lý chứ không phải tiêu chí khách thuê dùng để
+   chọn căn -> hạ xuống dòng phụ, bỏ nền màu. */
+.vi-tri{margin:0;font-size:13px;font-weight:600;color:var(--muted)}
+/* Nhãn nội thất dùng CHUNG màu trạng thái với huy hiệu trên ảnh - đó là 1
+   trong 2 màu nhấn duy nhất của thẻ (màu còn lại dành cho nút liên hệ). */
+.nhan-nt{align-self:flex-start;margin:3px 0 0;background:#ecfdf5;color:#047857;
+font-size:12px;font-weight:700;border-radius:6px;padding:4px 8px}
+.chan-the{display:flex;align-items:center;justify-content:space-between;gap:10px;
+margin-top:auto;padding-top:12px;border-top:1px solid var(--line)}
+/* Cỡ chữ và độ đậm đã đủ làm điểm nhấn cho giá, không cần thêm màu.
+   "/tháng" xuống dòng dưới để cả hàng giá + nút vừa đúng bề ngang thẻ ở
+   lưới nhiều cột trên máy tính (thẻ chỉ rộng ~275px). */
+.gia{display:flex;flex-direction:column;line-height:1.15;font-size:20px;
+font-weight:800;color:var(--ink);white-space:nowrap}
+.gia small{font-size:12px;font-weight:600;color:var(--muted)}
+/* Nút liên hệ là hành động tạo doanh thu -> nền đặc, chữ trắng, cao 44px
+   cho đủ vùng chạm trên điện thoại. */
+.zalo{display:inline-flex;align-items:center;justify-content:center;min-height:44px;
+padding:0 15px;border-radius:999px;background:var(--brand);color:#fff;font-size:14px;
+font-weight:700;white-space:nowrap}
+.zalo:hover{text-decoration:none;background:var(--brand-dark)}
+/* Mã căn nội bộ: chủ nhà tra lại căn khi khách chụp màn hình gửi qua Zalo.
+   Đặt cuối thẻ, cỡ nhỏ, màu phụ - có mặt nhưng không tranh chú ý với giá. */
+.ma-can{margin:9px 0 0;font-size:12px;color:var(--muted)}
+.ma-can b{font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;
+font-weight:700;letter-spacing:.02em}
+@media(max-width:360px){.gia{font-size:18px}.zalo{padding:0 12px;font-size:13.5px}}
 .bai{background:var(--surface);border:1px solid var(--line);border-radius:var(--r);
 padding:24px 26px;margin:0 0 24px}
 .bai h2{margin:0 0 12px;font-size:20px}.bai h3{font-size:16.5px;margin:20px 0 7px}
@@ -120,418 +140,417 @@ border-radius:99px;padding:12px 20px;font-weight:600;box-shadow:var(--sh)}
   <h2 class="tieu-de-luoi" style="font-size:1.15rem;margin:0 0 14px">Danh sách 32 căn đang cho thuê</h2>
   <section class="luoi">
       <article class="the" data-ma-noi-bo="CT.Stu.668">
-        <div class="the-anh"><img src="https://drive.google.com/thumbnail?id=1s65ZONFUMRoEU6cgBltIEQoUbIiB0i_S&amp;sz=w1000" alt="Cho thuê Studio GS2 Vinhomes Smart City 32m2" loading="lazy" decoding="async" width="400" height="300" onerror="this.closest('.the').classList.add('khong-anh');this.remove()"></div>
+        <div class="the-anh"><img src="https://drive.google.com/thumbnail?id=1s65ZONFUMRoEU6cgBltIEQoUbIiB0i_S&amp;sz=w1000" alt="Cho thuê Studio GS2 Vinhomes Smart City 32m2" loading="lazy" decoding="async" width="400" height="300" onerror="this.closest('.the').classList.add('khong-anh');this.remove()"><span class="tinh-trang">Trống từ 15/07</span></div>
         <div class="than">
-          <div class="gia">7,5 triệu<small>/tháng</small></div>
-          <h3 class="ten">Studio · GS2 <span class="ma">Mã CT.Stu.668</span></h3>
-          <p class="meta">32m² · Full nội thất · Miami</p>
-          <span class="ngay">Vào ở: 15/07/2026</span>
-          <div class="nut">
+          <h3 class="ten">Studio · 32 m²</h3>
+          <p class="vi-tri">Miami · GS2</p>
+          <p class="nhan-nt">Full nội thất</p>
+          <div class="chan-the">
+            <div class="gia">7,5 triệu<small>/tháng</small></div>
             <a class="zalo" href="https://zalo.me/0977923284" target="_blank" rel="noopener">Nhắn Zalo</a>
-            <a href="tel:0977923284">Gọi</a>
           </div>
+          <p class="ma-can">Mã căn: <b>CT.Stu.668</b></p>
         </div>
       </article>
       <article class="the" data-ma-noi-bo="CT.Stu.663">
-        <div class="the-anh"><img src="https://drive.google.com/thumbnail?id=10tn4jdytXttOhWjKkdJ6dLpMYZGqei3U&amp;sz=w1000" alt="Cho thuê Studio SA5 Vinhomes Smart City 32m2" loading="lazy" decoding="async" width="400" height="300" onerror="this.closest('.the').classList.add('khong-anh');this.remove()"></div>
+        <div class="the-anh"><img src="https://drive.google.com/thumbnail?id=10tn4jdytXttOhWjKkdJ6dLpMYZGqei3U&amp;sz=w1000" alt="Cho thuê Studio SA5 Vinhomes Smart City 32m2" loading="lazy" decoding="async" width="400" height="300" onerror="this.closest('.the').classList.add('khong-anh');this.remove()"><span class="tinh-trang">Vào ngay</span></div>
         <div class="than">
-          <div class="gia">7,5 triệu<small>/tháng</small></div>
-          <h3 class="ten">Studio · SA5 <span class="ma">Mã CT.Stu.663</span></h3>
-          <p class="meta">32m² · Full nội thất · Sakura</p>
-          <span class="ngay san">Có thể vào ở ngay</span>
-          <div class="nut">
+          <h3 class="ten">Studio · 32 m²</h3>
+          <p class="vi-tri">Sakura · SA5</p>
+          <p class="nhan-nt">Full nội thất</p>
+          <div class="chan-the">
+            <div class="gia">7,5 triệu<small>/tháng</small></div>
             <a class="zalo" href="https://zalo.me/0977923284" target="_blank" rel="noopener">Nhắn Zalo</a>
-            <a href="tel:0977923284">Gọi</a>
           </div>
+          <p class="ma-can">Mã căn: <b>CT.Stu.663</b></p>
         </div>
       </article>
       <article class="the" data-ma-noi-bo="CT.Stu.616">
-        <div class="the-anh"><img src="https://drive.google.com/thumbnail?id=1ypGgbT0UCULri-erbIDpZHStAhwq3PyT&amp;sz=w1000" alt="Cho thuê Studio S403 Vinhomes Smart City 34m2" loading="lazy" decoding="async" width="400" height="300" onerror="this.closest('.the').classList.add('khong-anh');this.remove()"></div>
+        <div class="the-anh"><img src="https://drive.google.com/thumbnail?id=1ypGgbT0UCULri-erbIDpZHStAhwq3PyT&amp;sz=w1000" alt="Cho thuê Studio S403 Vinhomes Smart City 34m2" loading="lazy" decoding="async" width="400" height="300" onerror="this.closest('.the').classList.add('khong-anh');this.remove()"><span class="tinh-trang">Trống từ 19/07</span></div>
         <div class="than">
-          <div class="gia">7,5 triệu<small>/tháng</small></div>
-          <h3 class="ten">Studio · S403 <span class="ma">Mã CT.Stu.616</span></h3>
-          <p class="meta">34m² · Full nội thất · Sapphire</p>
-          <span class="ngay">Vào ở: 19/07/2026</span>
-          <div class="nut">
+          <h3 class="ten">Studio · 34 m²</h3>
+          <p class="vi-tri">Sapphire · S403</p>
+          <p class="nhan-nt">Full nội thất</p>
+          <div class="chan-the">
+            <div class="gia">7,5 triệu<small>/tháng</small></div>
             <a class="zalo" href="https://zalo.me/0977923284" target="_blank" rel="noopener">Nhắn Zalo</a>
-            <a href="tel:0977923284">Gọi</a>
           </div>
+          <p class="ma-can">Mã căn: <b>CT.Stu.616</b></p>
         </div>
       </article>
       <article class="the" data-ma-noi-bo="CT.Stu.675">
-        <div class="the-anh"><img src="https://drive.google.com/thumbnail?id=1zb_gajbIil1utBP5EjzB-fRm-hjT06ab&amp;sz=w1000" alt="Cho thuê Studio GS3 Vinhomes Smart City 28m2" loading="lazy" decoding="async" width="400" height="300" onerror="this.closest('.the').classList.add('khong-anh');this.remove()"></div>
+        <div class="the-anh"><img src="https://drive.google.com/thumbnail?id=1zb_gajbIil1utBP5EjzB-fRm-hjT06ab&amp;sz=w1000" alt="Cho thuê Studio GS3 Vinhomes Smart City 28m2" loading="lazy" decoding="async" width="400" height="300" onerror="this.closest('.the').classList.add('khong-anh');this.remove()"><span class="tinh-trang">Trống từ 01/08</span></div>
         <div class="than">
-          <div class="gia">7,5 triệu<small>/tháng</small></div>
-          <h3 class="ten">Studio · GS3 <span class="ma">Mã CT.Stu.675</span></h3>
-          <p class="meta">28m² · Full nội thất · Miami</p>
-          <span class="ngay">Vào ở: 01/08/2026</span>
-          <div class="nut">
+          <h3 class="ten">Studio · 28 m²</h3>
+          <p class="vi-tri">Miami · GS3</p>
+          <p class="nhan-nt">Full nội thất</p>
+          <div class="chan-the">
+            <div class="gia">7,5 triệu<small>/tháng</small></div>
             <a class="zalo" href="https://zalo.me/0977923284" target="_blank" rel="noopener">Nhắn Zalo</a>
-            <a href="tel:0977923284">Gọi</a>
           </div>
+          <p class="ma-can">Mã căn: <b>CT.Stu.675</b></p>
         </div>
       </article>
       <article class="the" data-ma-noi-bo="CT.Stu.680">
-        <div class="the-anh"><img src="https://drive.google.com/thumbnail?id=1SIOdOutB9Fhb9BiIhODUBmSrVu1bKfCV&amp;sz=w1000" alt="Cho thuê Studio TC1 Vinhomes Smart City 35m2" loading="lazy" decoding="async" width="400" height="300" onerror="this.closest('.the').classList.add('khong-anh');this.remove()"></div>
+        <div class="the-anh"><img src="https://drive.google.com/thumbnail?id=1SIOdOutB9Fhb9BiIhODUBmSrVu1bKfCV&amp;sz=w1000" alt="Cho thuê Studio TC1 Vinhomes Smart City 35m2" loading="lazy" decoding="async" width="400" height="300" onerror="this.closest('.the').classList.add('khong-anh');this.remove()"><span class="tinh-trang">Vào ngay</span></div>
         <div class="than">
-          <div class="gia">7,5 triệu<small>/tháng</small></div>
-          <h3 class="ten">Studio · TC1 <span class="ma">Mã CT.Stu.680</span></h3>
-          <p class="meta">35m² · Full nội thất · Canopy</p>
-          <span class="ngay san">Có thể vào ở ngay</span>
-          <div class="nut">
+          <h3 class="ten">Studio · 35 m²</h3>
+          <p class="vi-tri">Canopy · TC1</p>
+          <p class="nhan-nt">Full nội thất</p>
+          <div class="chan-the">
+            <div class="gia">7,5 triệu<small>/tháng</small></div>
             <a class="zalo" href="https://zalo.me/0977923284" target="_blank" rel="noopener">Nhắn Zalo</a>
-            <a href="tel:0977923284">Gọi</a>
           </div>
+          <p class="ma-can">Mã căn: <b>CT.Stu.680</b></p>
         </div>
       </article>
       <article class="the" data-ma-noi-bo="CT.Stu.694">
-        <div class="the-anh"><img src="https://drive.google.com/thumbnail?id=1dZPSL_5-E5Uw7fZl6XD-2ggExzvCJ1sk&amp;sz=w1000" alt="Cho thuê Studio S202 Vinhomes Smart City 32m2" loading="lazy" decoding="async" width="400" height="300" onerror="this.closest('.the').classList.add('khong-anh');this.remove()"></div>
+        <div class="the-anh"><img src="https://drive.google.com/thumbnail?id=1dZPSL_5-E5Uw7fZl6XD-2ggExzvCJ1sk&amp;sz=w1000" alt="Cho thuê Studio S202 Vinhomes Smart City 32m2" loading="lazy" decoding="async" width="400" height="300" onerror="this.closest('.the').classList.add('khong-anh');this.remove()"><span class="tinh-trang">Vào ngay</span></div>
         <div class="than">
-          <div class="gia">7,5 triệu<small>/tháng</small></div>
-          <h3 class="ten">Studio · S202 <span class="ma">Mã CT.Stu.694</span></h3>
-          <p class="meta">32m² · Full nội thất · Sapphire</p>
-          <span class="ngay san">Có thể vào ở ngay</span>
-          <div class="nut">
+          <h3 class="ten">Studio · 32 m²</h3>
+          <p class="vi-tri">Sapphire · S202</p>
+          <p class="nhan-nt">Full nội thất</p>
+          <div class="chan-the">
+            <div class="gia">7,5 triệu<small>/tháng</small></div>
             <a class="zalo" href="https://zalo.me/0977923284" target="_blank" rel="noopener">Nhắn Zalo</a>
-            <a href="tel:0977923284">Gọi</a>
           </div>
+          <p class="ma-can">Mã căn: <b>CT.Stu.694</b></p>
         </div>
       </article>
       <article class="the" data-ma-noi-bo="CT.Stu.698">
-        <div class="the-anh"><img src="https://drive.google.com/thumbnail?id=1cH1HEfc9_WubYkNmKkBL5xDwFPmAhbwI&amp;sz=w1000" alt="Cho thuê Studio S103 Vinhomes Smart City 32m2" loading="lazy" decoding="async" width="400" height="300" onerror="this.closest('.the').classList.add('khong-anh');this.remove()"></div>
+        <div class="the-anh"><img src="https://drive.google.com/thumbnail?id=1cH1HEfc9_WubYkNmKkBL5xDwFPmAhbwI&amp;sz=w1000" alt="Cho thuê Studio S103 Vinhomes Smart City 32m2" loading="lazy" decoding="async" width="400" height="300" onerror="this.closest('.the').classList.add('khong-anh');this.remove()"><span class="tinh-trang">Vào ngay</span></div>
         <div class="than">
-          <div class="gia">7,5 triệu<small>/tháng</small></div>
-          <h3 class="ten">Studio · S103 <span class="ma">Mã CT.Stu.698</span></h3>
-          <p class="meta">32m² · Full nội thất · Sapphire</p>
-          <span class="ngay san">Có thể vào ở ngay</span>
-          <div class="nut">
+          <h3 class="ten">Studio · 32 m²</h3>
+          <p class="vi-tri">Sapphire · S103</p>
+          <p class="nhan-nt">Full nội thất</p>
+          <div class="chan-the">
+            <div class="gia">7,5 triệu<small>/tháng</small></div>
             <a class="zalo" href="https://zalo.me/0977923284" target="_blank" rel="noopener">Nhắn Zalo</a>
-            <a href="tel:0977923284">Gọi</a>
           </div>
+          <p class="ma-can">Mã căn: <b>CT.Stu.698</b></p>
         </div>
       </article>
       <article class="the" data-ma-noi-bo="CT.Stu.702">
-        <div class="the-anh"><img src="https://drive.google.com/thumbnail?id=1XtY55gMRjSYOdGJj2yqJ0xuAYIUAeWp4&amp;sz=w1000" alt="Cho thuê Studio SA2 Vinhomes Smart City 26m2" loading="lazy" decoding="async" width="400" height="300" onerror="this.closest('.the').classList.add('khong-anh');this.remove()"></div>
+        <div class="the-anh"><img src="https://drive.google.com/thumbnail?id=1XtY55gMRjSYOdGJj2yqJ0xuAYIUAeWp4&amp;sz=w1000" alt="Cho thuê Studio SA2 Vinhomes Smart City 26m2" loading="lazy" decoding="async" width="400" height="300" onerror="this.closest('.the').classList.add('khong-anh');this.remove()"><span class="tinh-trang">Trống từ 08/08</span></div>
         <div class="than">
-          <div class="gia">7,5 triệu<small>/tháng</small></div>
-          <h3 class="ten">Studio · SA2 <span class="ma">Mã CT.Stu.702</span></h3>
-          <p class="meta">26m² · Full nội thất · Sakura</p>
-          <span class="ngay">Vào ở: 08/08/2026</span>
-          <div class="nut">
+          <h3 class="ten">Studio · 26 m²</h3>
+          <p class="vi-tri">Sakura · SA2</p>
+          <p class="nhan-nt">Full nội thất</p>
+          <div class="chan-the">
+            <div class="gia">7,5 triệu<small>/tháng</small></div>
             <a class="zalo" href="https://zalo.me/0977923284" target="_blank" rel="noopener">Nhắn Zalo</a>
-            <a href="tel:0977923284">Gọi</a>
           </div>
+          <p class="ma-can">Mã căn: <b>CT.Stu.702</b></p>
         </div>
       </article>
       <article class="the" data-ma-noi-bo="CT.Stu.712">
-        <div class="the-anh"><img src="https://drive.google.com/thumbnail?id=1jQAYgIjQ01FjoJR740pM2LfhKW9o7oUj&amp;sz=w1000" alt="Cho thuê Studio SA5 Vinhomes Smart City 32m2" loading="lazy" decoding="async" width="400" height="300" onerror="this.closest('.the').classList.add('khong-anh');this.remove()"></div>
+        <div class="the-anh"><img src="https://drive.google.com/thumbnail?id=1jQAYgIjQ01FjoJR740pM2LfhKW9o7oUj&amp;sz=w1000" alt="Cho thuê Studio SA5 Vinhomes Smart City 32m2" loading="lazy" decoding="async" width="400" height="300" onerror="this.closest('.the').classList.add('khong-anh');this.remove()"><span class="tinh-trang">Vào ngay</span></div>
         <div class="than">
-          <div class="gia">7,5 triệu<small>/tháng</small></div>
-          <h3 class="ten">Studio · SA5 <span class="ma">Mã CT.Stu.712</span></h3>
-          <p class="meta">32m² · Full nội thất · Sakura</p>
-          <span class="ngay san">Có thể vào ở ngay</span>
-          <div class="nut">
+          <h3 class="ten">Studio · 32 m²</h3>
+          <p class="vi-tri">Sakura · SA5</p>
+          <p class="nhan-nt">Full nội thất</p>
+          <div class="chan-the">
+            <div class="gia">7,5 triệu<small>/tháng</small></div>
             <a class="zalo" href="https://zalo.me/0977923284" target="_blank" rel="noopener">Nhắn Zalo</a>
-            <a href="tel:0977923284">Gọi</a>
           </div>
+          <p class="ma-can">Mã căn: <b>CT.Stu.712</b></p>
         </div>
       </article>
       <article class="the" data-ma-noi-bo="CT.Stu.670">
-        <div class="the-anh"><img src="https://drive.google.com/thumbnail?id=1ofckb_vS40HJcFvojd7KHRttjmUSgJwh&amp;sz=w1000" alt="Cho thuê Studio TC1 Vinhomes Smart City 30m2" loading="lazy" decoding="async" width="400" height="300" onerror="this.closest('.the').classList.add('khong-anh');this.remove()"></div>
+        <div class="the-anh"><img src="https://drive.google.com/thumbnail?id=1ofckb_vS40HJcFvojd7KHRttjmUSgJwh&amp;sz=w1000" alt="Cho thuê Studio TC1 Vinhomes Smart City 30m2" loading="lazy" decoding="async" width="400" height="300" onerror="this.closest('.the').classList.add('khong-anh');this.remove()"><span class="tinh-trang">Trống từ 23/07</span></div>
         <div class="than">
-          <div class="gia">8 triệu<small>/tháng</small></div>
-          <h3 class="ten">Studio · TC1 <span class="ma">Mã CT.Stu.670</span></h3>
-          <p class="meta">30m² · Full nội thất · Canopy</p>
-          <span class="ngay">Vào ở: 23/07/2026</span>
-          <div class="nut">
+          <h3 class="ten">Studio · 30 m²</h3>
+          <p class="vi-tri">Canopy · TC1</p>
+          <p class="nhan-nt">Full nội thất</p>
+          <div class="chan-the">
+            <div class="gia">8 triệu<small>/tháng</small></div>
             <a class="zalo" href="https://zalo.me/0977923284" target="_blank" rel="noopener">Nhắn Zalo</a>
-            <a href="tel:0977923284">Gọi</a>
           </div>
+          <p class="ma-can">Mã căn: <b>CT.Stu.670</b></p>
         </div>
       </article>
       <article class="the" data-ma-noi-bo="CT.Stu.253">
-        <div class="the-anh"><img src="https://drive.google.com/thumbnail?id=1KM9xkufZcuHzL7FscPpE_jwQeL5LLLfC&amp;sz=w1000" alt="Cho thuê Studio I1 Vinhomes Smart City 32m2" loading="lazy" decoding="async" width="400" height="300" onerror="this.closest('.the').classList.add('khong-anh');this.remove()"></div>
+        <div class="the-anh"><img src="https://drive.google.com/thumbnail?id=1KM9xkufZcuHzL7FscPpE_jwQeL5LLLfC&amp;sz=w1000" alt="Cho thuê Studio I1 Vinhomes Smart City 32m2" loading="lazy" decoding="async" width="400" height="300" onerror="this.closest('.the').classList.add('khong-anh');this.remove()"><span class="tinh-trang">Vào ngay</span></div>
         <div class="than">
-          <div class="gia">8 triệu<small>/tháng</small></div>
-          <h3 class="ten">Studio · I1 <span class="ma">Mã CT.Stu.253</span></h3>
-          <p class="meta">32m² · Full nội thất · Imperia</p>
-          <span class="ngay san">Có thể vào ở ngay</span>
-          <div class="nut">
+          <h3 class="ten">Studio · 32 m²</h3>
+          <p class="vi-tri">Imperia · I1</p>
+          <p class="nhan-nt">Full nội thất</p>
+          <div class="chan-the">
+            <div class="gia">8 triệu<small>/tháng</small></div>
             <a class="zalo" href="https://zalo.me/0977923284" target="_blank" rel="noopener">Nhắn Zalo</a>
-            <a href="tel:0977923284">Gọi</a>
           </div>
+          <p class="ma-can">Mã căn: <b>CT.Stu.253</b></p>
         </div>
       </article>
       <article class="the" data-ma-noi-bo="CT.Stu.656">
-        <div class="the-anh"><img src="https://drive.google.com/thumbnail?id=1IJap3YKevpeDoLiVaGHILc9CQaKQJQkJ&amp;sz=w1000" alt="Cho thuê Studio SA1 Vinhomes Smart City 28m2" loading="lazy" decoding="async" width="400" height="300" onerror="this.closest('.the').classList.add('khong-anh');this.remove()"></div>
+        <div class="the-anh"><img src="https://drive.google.com/thumbnail?id=1IJap3YKevpeDoLiVaGHILc9CQaKQJQkJ&amp;sz=w1000" alt="Cho thuê Studio SA1 Vinhomes Smart City 28m2" loading="lazy" decoding="async" width="400" height="300" onerror="this.closest('.the').classList.add('khong-anh');this.remove()"><span class="tinh-trang">Vào ngay</span></div>
         <div class="than">
-          <div class="gia">8 triệu<small>/tháng</small></div>
-          <h3 class="ten">Studio · SA1 <span class="ma">Mã CT.Stu.656</span></h3>
-          <p class="meta">28m² · Full nội thất · Sakura</p>
-          <span class="ngay san">Có thể vào ở ngay</span>
-          <div class="nut">
+          <h3 class="ten">Studio · 28 m²</h3>
+          <p class="vi-tri">Sakura · SA1</p>
+          <p class="nhan-nt">Full nội thất</p>
+          <div class="chan-the">
+            <div class="gia">8 triệu<small>/tháng</small></div>
             <a class="zalo" href="https://zalo.me/0977923284" target="_blank" rel="noopener">Nhắn Zalo</a>
-            <a href="tel:0977923284">Gọi</a>
           </div>
+          <p class="ma-can">Mã căn: <b>CT.Stu.656</b></p>
         </div>
       </article>
       <article class="the" data-ma-noi-bo="CT.Stu.685">
-        <div class="the-anh"><img src="https://drive.google.com/thumbnail?id=1A7pj5H5LqszzzRQYcaHyEJCF4MisGokM&amp;sz=w1000" alt="Cho thuê Studio MasB Vinhomes Smart City 35m2" loading="lazy" decoding="async" width="400" height="300" onerror="this.closest('.the').classList.add('khong-anh');this.remove()"></div>
+        <div class="the-anh"><img src="https://drive.google.com/thumbnail?id=1A7pj5H5LqszzzRQYcaHyEJCF4MisGokM&amp;sz=w1000" alt="Cho thuê Studio MasB Vinhomes Smart City 35m2" loading="lazy" decoding="async" width="400" height="300" onerror="this.closest('.the').classList.add('khong-anh');this.remove()"><span class="tinh-trang">Vào ngay</span></div>
         <div class="than">
-          <div class="gia">8 triệu<small>/tháng</small></div>
-          <h3 class="ten">Studio · MasB <span class="ma">Mã CT.Stu.685</span></h3>
-          <p class="meta">35m² · Đồ Cơ bản · Masteri</p>
-          <span class="ngay san">Có thể vào ở ngay</span>
-          <div class="nut">
+          <h3 class="ten">Studio · 35 m²</h3>
+          <p class="vi-tri">Masteri · MasB</p>
+          <p class="nhan-nt">Đồ Cơ bản</p>
+          <div class="chan-the">
+            <div class="gia">8 triệu<small>/tháng</small></div>
             <a class="zalo" href="https://zalo.me/0977923284" target="_blank" rel="noopener">Nhắn Zalo</a>
-            <a href="tel:0977923284">Gọi</a>
           </div>
+          <p class="ma-can">Mã căn: <b>CT.Stu.685</b></p>
         </div>
       </article>
       <article class="the" data-ma-noi-bo="CT.Stu.708">
-        <div class="the-anh"><img src="https://drive.google.com/thumbnail?id=1Bo2_wzwo0zHClsVFpEyJGU0JIIecJlnP&amp;sz=w1000" alt="Cho thuê Studio TK2 Vinhomes Smart City 25m2" loading="lazy" decoding="async" width="400" height="300" onerror="this.closest('.the').classList.add('khong-anh');this.remove()"></div>
+        <div class="the-anh"><img src="https://drive.google.com/thumbnail?id=1Bo2_wzwo0zHClsVFpEyJGU0JIIecJlnP&amp;sz=w1000" alt="Cho thuê Studio TK2 Vinhomes Smart City 25m2" loading="lazy" decoding="async" width="400" height="300" onerror="this.closest('.the').classList.add('khong-anh');this.remove()"><span class="tinh-trang">Trống từ 01/08</span></div>
         <div class="than">
-          <div class="gia">8 triệu<small>/tháng</small></div>
-          <h3 class="ten">Studio · TK2 <span class="ma">Mã CT.Stu.708</span></h3>
-          <p class="meta">25m² · Full nội thất · Tonkin</p>
-          <span class="ngay">Vào ở: 01/08/2026</span>
-          <div class="nut">
+          <h3 class="ten">Studio · 25 m²</h3>
+          <p class="vi-tri">Tonkin · TK2</p>
+          <p class="nhan-nt">Full nội thất</p>
+          <div class="chan-the">
+            <div class="gia">8 triệu<small>/tháng</small></div>
             <a class="zalo" href="https://zalo.me/0977923284" target="_blank" rel="noopener">Nhắn Zalo</a>
-            <a href="tel:0977923284">Gọi</a>
           </div>
+          <p class="ma-can">Mã căn: <b>CT.Stu.708</b></p>
         </div>
       </article>
       <article class="the" data-ma-noi-bo="CT.Stu.709">
-        <div class="the-anh"><img src="https://drive.google.com/thumbnail?id=18n0msbxf7WAvfUNobTTVzo0j05X75FEQ&amp;sz=w1000" alt="Cho thuê Studio MasA Vinhomes Smart City 29m2" loading="lazy" decoding="async" width="400" height="300" onerror="this.closest('.the').classList.add('khong-anh');this.remove()"></div>
+        <div class="the-anh"><img src="https://drive.google.com/thumbnail?id=18n0msbxf7WAvfUNobTTVzo0j05X75FEQ&amp;sz=w1000" alt="Cho thuê Studio MasA Vinhomes Smart City 29m2" loading="lazy" decoding="async" width="400" height="300" onerror="this.closest('.the').classList.add('khong-anh');this.remove()"><span class="tinh-trang">Trống từ 01/08</span></div>
         <div class="than">
-          <div class="gia">8 triệu<small>/tháng</small></div>
-          <h3 class="ten">Studio · MasA <span class="ma">Mã CT.Stu.709</span></h3>
-          <p class="meta">29m² · Đồ Cơ bản · Masteri</p>
-          <span class="ngay">Vào ở: 01/08/2026</span>
-          <div class="nut">
+          <h3 class="ten">Studio · 29 m²</h3>
+          <p class="vi-tri">Masteri · MasA</p>
+          <p class="nhan-nt">Đồ Cơ bản</p>
+          <div class="chan-the">
+            <div class="gia">8 triệu<small>/tháng</small></div>
             <a class="zalo" href="https://zalo.me/0977923284" target="_blank" rel="noopener">Nhắn Zalo</a>
-            <a href="tel:0977923284">Gọi</a>
           </div>
+          <p class="ma-can">Mã căn: <b>CT.Stu.709</b></p>
         </div>
       </article>
       <article class="the" data-ma-noi-bo="CT.Stu.716">
-        <div class="the-anh"><img src="https://drive.google.com/thumbnail?id=1nTGuBmIUwY1NzhvXYzolvgGxnTfj5bmo&amp;sz=w1000" alt="Cho thuê Studio TK2 Vinhomes Smart City 25m2" loading="lazy" decoding="async" width="400" height="300" onerror="this.closest('.the').classList.add('khong-anh');this.remove()"></div>
+        <div class="the-anh"><img src="https://drive.google.com/thumbnail?id=1nTGuBmIUwY1NzhvXYzolvgGxnTfj5bmo&amp;sz=w1000" alt="Cho thuê Studio TK2 Vinhomes Smart City 25m2" loading="lazy" decoding="async" width="400" height="300" onerror="this.closest('.the').classList.add('khong-anh');this.remove()"><span class="tinh-trang">Trống từ 10/08</span></div>
         <div class="than">
-          <div class="gia">8 triệu<small>/tháng</small></div>
-          <h3 class="ten">Studio · TK2 <span class="ma">Mã CT.Stu.716</span></h3>
-          <p class="meta">25m² · Full nội thất · Tonkin</p>
-          <span class="ngay">Vào ở: 10/08/2026</span>
-          <div class="nut">
+          <h3 class="ten">Studio · 25 m²</h3>
+          <p class="vi-tri">Tonkin · TK2</p>
+          <p class="nhan-nt">Full nội thất</p>
+          <div class="chan-the">
+            <div class="gia">8 triệu<small>/tháng</small></div>
             <a class="zalo" href="https://zalo.me/0977923284" target="_blank" rel="noopener">Nhắn Zalo</a>
-            <a href="tel:0977923284">Gọi</a>
           </div>
+          <p class="ma-can">Mã căn: <b>CT.Stu.716</b></p>
         </div>
       </article>
       <article class="the" data-ma-noi-bo="CT.Stu.683">
-        <div class="the-anh"><img src="https://drive.google.com/thumbnail?id=186MpDjP1iJ4CjUGwKJMbHgUJXjQZkxgU&amp;sz=w1000" alt="Cho thuê Studio TK2 Vinhomes Smart City 25m2" loading="lazy" decoding="async" width="400" height="300" onerror="this.closest('.the').classList.add('khong-anh');this.remove()"></div>
+        <div class="the-anh"><img src="https://drive.google.com/thumbnail?id=186MpDjP1iJ4CjUGwKJMbHgUJXjQZkxgU&amp;sz=w1000" alt="Cho thuê Studio TK2 Vinhomes Smart City 25m2" loading="lazy" decoding="async" width="400" height="300" onerror="this.closest('.the').classList.add('khong-anh');this.remove()"><span class="tinh-trang">Trống từ 01/08</span></div>
         <div class="than">
-          <div class="gia">8,3 triệu<small>/tháng</small></div>
-          <h3 class="ten">Studio · TK2 <span class="ma">Mã CT.Stu.683</span></h3>
-          <p class="meta">25m² · Full nội thất · Tonkin</p>
-          <span class="ngay">Vào ở: 01/08/2026</span>
-          <div class="nut">
+          <h3 class="ten">Studio · 25 m²</h3>
+          <p class="vi-tri">Tonkin · TK2</p>
+          <p class="nhan-nt">Full nội thất</p>
+          <div class="chan-the">
+            <div class="gia">8,3 triệu<small>/tháng</small></div>
             <a class="zalo" href="https://zalo.me/0977923284" target="_blank" rel="noopener">Nhắn Zalo</a>
-            <a href="tel:0977923284">Gọi</a>
           </div>
+          <p class="ma-can">Mã căn: <b>CT.Stu.683</b></p>
         </div>
       </article>
       <article class="the" data-ma-noi-bo="CT.Stu.687">
-        <div class="the-anh"><img src="https://drive.google.com/thumbnail?id=1O-xdQ35_2iqDnAXVbSZA12VA1aHBHsgp&amp;sz=w1000" alt="Cho thuê Studio MasD Vinhomes Smart City 32m2" loading="lazy" decoding="async" width="400" height="300" onerror="this.closest('.the').classList.add('khong-anh');this.remove()"></div>
+        <div class="the-anh"><img src="https://drive.google.com/thumbnail?id=1O-xdQ35_2iqDnAXVbSZA12VA1aHBHsgp&amp;sz=w1000" alt="Cho thuê Studio MasD Vinhomes Smart City 32m2" loading="lazy" decoding="async" width="400" height="300" onerror="this.closest('.the').classList.add('khong-anh');this.remove()"><span class="tinh-trang">Vào ngay</span></div>
         <div class="than">
-          <div class="gia">8,5 triệu<small>/tháng</small></div>
-          <h3 class="ten">Studio · MasD <span class="ma">Mã CT.Stu.687</span></h3>
-          <p class="meta">32m² · Full nội thất · Masteri</p>
-          <span class="ngay san">Có thể vào ở ngay</span>
-          <div class="nut">
+          <h3 class="ten">Studio · 32 m²</h3>
+          <p class="vi-tri">Masteri · MasD</p>
+          <p class="nhan-nt">Full nội thất</p>
+          <div class="chan-the">
+            <div class="gia">8,5 triệu<small>/tháng</small></div>
             <a class="zalo" href="https://zalo.me/0977923284" target="_blank" rel="noopener">Nhắn Zalo</a>
-            <a href="tel:0977923284">Gọi</a>
           </div>
+          <p class="ma-can">Mã căn: <b>CT.Stu.687</b></p>
         </div>
       </article>
       <article class="the" data-ma-noi-bo="CT.Stu.713">
-        <div class="the-anh"><img src="https://drive.google.com/thumbnail?id=1LshzFyUgtTjSB-ibQEoKNT0o3-Ot-_Qk&amp;sz=w1000" alt="Cho thuê Studio MasC Vinhomes Smart City 27m2" loading="lazy" decoding="async" width="400" height="300" onerror="this.closest('.the').classList.add('khong-anh');this.remove()"></div>
+        <div class="the-anh"><img src="https://drive.google.com/thumbnail?id=1LshzFyUgtTjSB-ibQEoKNT0o3-Ot-_Qk&amp;sz=w1000" alt="Cho thuê Studio MasC Vinhomes Smart City 27m2" loading="lazy" decoding="async" width="400" height="300" onerror="this.closest('.the').classList.add('khong-anh');this.remove()"><span class="tinh-trang">Vào ngay</span></div>
         <div class="than">
-          <div class="gia">8,5 triệu<small>/tháng</small></div>
-          <h3 class="ten">Studio · MasC <span class="ma">Mã CT.Stu.713</span></h3>
-          <p class="meta">27m² · Full nội thất · Masteri</p>
-          <span class="ngay san">Có thể vào ở ngay</span>
-          <div class="nut">
+          <h3 class="ten">Studio · 27 m²</h3>
+          <p class="vi-tri">Masteri · MasC</p>
+          <p class="nhan-nt">Full nội thất</p>
+          <div class="chan-the">
+            <div class="gia">8,5 triệu<small>/tháng</small></div>
             <a class="zalo" href="https://zalo.me/0977923284" target="_blank" rel="noopener">Nhắn Zalo</a>
-            <a href="tel:0977923284">Gọi</a>
           </div>
+          <p class="ma-can">Mã căn: <b>CT.Stu.713</b></p>
         </div>
       </article>
       <article class="the" data-ma-noi-bo="CT.Stu.715">
-        <div class="the-anh"><img src="https://drive.google.com/thumbnail?id=1Su90rI58a7o3e7VbbAAE-m-z8jYkLPKF&amp;sz=w1000" alt="Cho thuê Studio TK2 Vinhomes Smart City 25m2" loading="lazy" decoding="async" width="400" height="300" onerror="this.closest('.the').classList.add('khong-anh');this.remove()"></div>
+        <div class="the-anh"><img src="https://drive.google.com/thumbnail?id=1Su90rI58a7o3e7VbbAAE-m-z8jYkLPKF&amp;sz=w1000" alt="Cho thuê Studio TK2 Vinhomes Smart City 25m2" loading="lazy" decoding="async" width="400" height="300" onerror="this.closest('.the').classList.add('khong-anh');this.remove()"><span class="tinh-trang">Vào ngay</span></div>
         <div class="than">
-          <div class="gia">8,5 triệu<small>/tháng</small></div>
-          <h3 class="ten">Studio · TK2 <span class="ma">Mã CT.Stu.715</span></h3>
-          <p class="meta">25m² · Full nội thất · Tonkin</p>
-          <span class="ngay san">Có thể vào ở ngay</span>
-          <div class="nut">
+          <h3 class="ten">Studio · 25 m²</h3>
+          <p class="vi-tri">Tonkin · TK2</p>
+          <p class="nhan-nt">Full nội thất</p>
+          <div class="chan-the">
+            <div class="gia">8,5 triệu<small>/tháng</small></div>
             <a class="zalo" href="https://zalo.me/0977923284" target="_blank" rel="noopener">Nhắn Zalo</a>
-            <a href="tel:0977923284">Gọi</a>
           </div>
+          <p class="ma-can">Mã căn: <b>CT.Stu.715</b></p>
         </div>
       </article>
       <article class="the" data-ma-noi-bo="328">
-        <div class="the-anh"><img src="https://drive.google.com/thumbnail?id=1q9uaCiuEz4ZybMPZiaoEX9-A1dMzMoJR&amp;sz=w1000" alt="Cho thuê Studio MasA Vinhomes Smart City 32m2" loading="lazy" decoding="async" width="400" height="300" onerror="this.closest('.the').classList.add('khong-anh');this.remove()"></div>
+        <div class="the-anh"><img src="https://drive.google.com/thumbnail?id=1q9uaCiuEz4ZybMPZiaoEX9-A1dMzMoJR&amp;sz=w1000" alt="Cho thuê Studio MasA Vinhomes Smart City 32m2" loading="lazy" decoding="async" width="400" height="300" onerror="this.closest('.the').classList.add('khong-anh');this.remove()"><span class="tinh-trang">Vào ngay</span></div>
         <div class="than">
-          <div class="gia">8,5 triệu<small>/tháng</small></div>
-          <h3 class="ten">Studio · MasA <span class="ma">Mã 328</span></h3>
-          <p class="meta">32m² · Full nội thất · Masteri</p>
-          <span class="ngay san">Có thể vào ở ngay</span>
-          <div class="nut">
+          <h3 class="ten">Studio · 32 m²</h3>
+          <p class="vi-tri">Masteri · MasA</p>
+          <p class="nhan-nt">Full nội thất</p>
+          <div class="chan-the">
+            <div class="gia">8,5 triệu<small>/tháng</small></div>
             <a class="zalo" href="https://zalo.me/0977923284" target="_blank" rel="noopener">Nhắn Zalo</a>
-            <a href="tel:0977923284">Gọi</a>
           </div>
+          <p class="ma-can">Mã căn: <b>328</b></p>
         </div>
       </article>
       <article class="the" data-ma-noi-bo="CT.Stu.661">
-        <div class="the-anh"><img src="https://drive.google.com/thumbnail?id=14iqm7aiDnKcrtkAcVuU7oHvIUWI1Tb-C&amp;sz=w1000" alt="Cho thuê Studio MasD Vinhomes Smart City 30m2" loading="lazy" decoding="async" width="400" height="300" onerror="this.closest('.the').classList.add('khong-anh');this.remove()"></div>
+        <div class="the-anh"><img src="https://drive.google.com/thumbnail?id=14iqm7aiDnKcrtkAcVuU7oHvIUWI1Tb-C&amp;sz=w1000" alt="Cho thuê Studio MasD Vinhomes Smart City 30m2" loading="lazy" decoding="async" width="400" height="300" onerror="this.closest('.the').classList.add('khong-anh');this.remove()"><span class="tinh-trang">Vào ngay</span></div>
         <div class="than">
-          <div class="gia">9 triệu<small>/tháng</small></div>
-          <h3 class="ten">Studio · MasD <span class="ma">Mã CT.Stu.661</span></h3>
-          <p class="meta">30m² · Full nội thất · Masteri</p>
-          <span class="ngay san">Có thể vào ở ngay</span>
-          <div class="nut">
+          <h3 class="ten">Studio · 30 m²</h3>
+          <p class="vi-tri">Masteri · MasD</p>
+          <p class="nhan-nt">Full nội thất</p>
+          <div class="chan-the">
+            <div class="gia">9 triệu<small>/tháng</small></div>
             <a class="zalo" href="https://zalo.me/0977923284" target="_blank" rel="noopener">Nhắn Zalo</a>
-            <a href="tel:0977923284">Gọi</a>
           </div>
+          <p class="ma-can">Mã căn: <b>CT.Stu.661</b></p>
         </div>
       </article>
       <article class="the" data-ma-noi-bo="CT.Stu.660">
-        <div class="the-anh"><img src="https://drive.google.com/thumbnail?id=1GHHWzHqLQ9XEAdiuDdPXqTxUllsNYq_j&amp;sz=w1000" alt="Cho thuê Studio SA2 Vinhomes Smart City 30m2" loading="lazy" decoding="async" width="400" height="300" onerror="this.closest('.the').classList.add('khong-anh');this.remove()"></div>
+        <div class="the-anh"><img src="https://drive.google.com/thumbnail?id=1GHHWzHqLQ9XEAdiuDdPXqTxUllsNYq_j&amp;sz=w1000" alt="Cho thuê Studio SA2 Vinhomes Smart City 30m2" loading="lazy" decoding="async" width="400" height="300" onerror="this.closest('.the').classList.add('khong-anh');this.remove()"><span class="tinh-trang">Vào ngay</span></div>
         <div class="than">
-          <div class="gia">9 triệu<small>/tháng</small></div>
-          <h3 class="ten">Studio · SA2 <span class="ma">Mã CT.Stu.660</span></h3>
-          <p class="meta">30m² · Full nội thất · Sakura</p>
-          <span class="ngay san">Có thể vào ở ngay</span>
-          <div class="nut">
+          <h3 class="ten">Studio · 30 m²</h3>
+          <p class="vi-tri">Sakura · SA2</p>
+          <p class="nhan-nt">Full nội thất</p>
+          <div class="chan-the">
+            <div class="gia">9 triệu<small>/tháng</small></div>
             <a class="zalo" href="https://zalo.me/0977923284" target="_blank" rel="noopener">Nhắn Zalo</a>
-            <a href="tel:0977923284">Gọi</a>
           </div>
+          <p class="ma-can">Mã căn: <b>CT.Stu.660</b></p>
         </div>
       </article>
       <article class="the" data-ma-noi-bo="CT.Stu.689">
-        <div class="the-anh"><img src="https://drive.google.com/thumbnail?id=1F0NrBVxBB30kxsE3j5G-CNWAmqLl78pi&amp;sz=w1000" alt="Cho thuê Studio MasA Vinhomes Smart City 30m2" loading="lazy" decoding="async" width="400" height="300" onerror="this.closest('.the').classList.add('khong-anh');this.remove()"></div>
+        <div class="the-anh"><img src="https://drive.google.com/thumbnail?id=1F0NrBVxBB30kxsE3j5G-CNWAmqLl78pi&amp;sz=w1000" alt="Cho thuê Studio MasA Vinhomes Smart City 30m2" loading="lazy" decoding="async" width="400" height="300" onerror="this.closest('.the').classList.add('khong-anh');this.remove()"><span class="tinh-trang">Trống từ 15/07</span></div>
         <div class="than">
-          <div class="gia">9 triệu<small>/tháng</small></div>
-          <h3 class="ten">Studio · MasA <span class="ma">Mã CT.Stu.689</span></h3>
-          <p class="meta">30m² · Full nội thất · Masteri</p>
-          <span class="ngay">Vào ở: 15/07/2026</span>
-          <div class="nut">
+          <h3 class="ten">Studio · 30 m²</h3>
+          <p class="vi-tri">Masteri · MasA</p>
+          <p class="nhan-nt">Full nội thất</p>
+          <div class="chan-the">
+            <div class="gia">9 triệu<small>/tháng</small></div>
             <a class="zalo" href="https://zalo.me/0977923284" target="_blank" rel="noopener">Nhắn Zalo</a>
-            <a href="tel:0977923284">Gọi</a>
           </div>
+          <p class="ma-can">Mã căn: <b>CT.Stu.689</b></p>
         </div>
       </article>
       <article class="the" data-ma-noi-bo="CT.Stu.703">
-        <div class="the-anh"><img src="https://drive.google.com/thumbnail?id=1HHm7yao90KuFANH7NgimtWUqzejiIMo-&amp;sz=w1000" alt="Cho thuê Studio TC1 Vinhomes Smart City 30m2" loading="lazy" decoding="async" width="400" height="300" onerror="this.closest('.the').classList.add('khong-anh');this.remove()"></div>
+        <div class="the-anh"><img src="https://drive.google.com/thumbnail?id=1HHm7yao90KuFANH7NgimtWUqzejiIMo-&amp;sz=w1000" alt="Cho thuê Studio TC1 Vinhomes Smart City 30m2" loading="lazy" decoding="async" width="400" height="300" onerror="this.closest('.the').classList.add('khong-anh');this.remove()"><span class="tinh-trang">Vào ngay</span></div>
         <div class="than">
-          <div class="gia">9 triệu<small>/tháng</small></div>
-          <h3 class="ten">Studio · TC1 <span class="ma">Mã CT.Stu.703</span></h3>
-          <p class="meta">30m² · Full nội thất · Canopy</p>
-          <span class="ngay san">Có thể vào ở ngay</span>
-          <div class="nut">
+          <h3 class="ten">Studio · 30 m²</h3>
+          <p class="vi-tri">Canopy · TC1</p>
+          <p class="nhan-nt">Full nội thất</p>
+          <div class="chan-the">
+            <div class="gia">9 triệu<small>/tháng</small></div>
             <a class="zalo" href="https://zalo.me/0977923284" target="_blank" rel="noopener">Nhắn Zalo</a>
-            <a href="tel:0977923284">Gọi</a>
           </div>
+          <p class="ma-can">Mã căn: <b>CT.Stu.703</b></p>
         </div>
       </article>
       <article class="the" data-ma-noi-bo="CT.Stu.545">
-        <div class="the-anh"><img src="https://drive.google.com/thumbnail?id=178XfMYrwLGXdzEvUC8NEGVvVTc-yA1_C&amp;sz=w1000" alt="Cho thuê Studio MasA Vinhomes Smart City 33m2" loading="lazy" decoding="async" width="400" height="300" onerror="this.closest('.the').classList.add('khong-anh');this.remove()"></div>
+        <div class="the-anh"><img src="https://drive.google.com/thumbnail?id=178XfMYrwLGXdzEvUC8NEGVvVTc-yA1_C&amp;sz=w1000" alt="Cho thuê Studio MasA Vinhomes Smart City 33m2" loading="lazy" decoding="async" width="400" height="300" onerror="this.closest('.the').classList.add('khong-anh');this.remove()"><span class="tinh-trang">Vào ngay</span></div>
         <div class="than">
-          <div class="gia">10 triệu<small>/tháng</small></div>
-          <h3 class="ten">Studio · MasA <span class="ma">Mã CT.Stu.545</span></h3>
-          <p class="meta">33m² · Full nội thất · Masteri</p>
-          <span class="ngay san">Có thể vào ở ngay</span>
-          <div class="nut">
+          <h3 class="ten">Studio · 33 m²</h3>
+          <p class="vi-tri">Masteri · MasA</p>
+          <p class="nhan-nt">Full nội thất</p>
+          <div class="chan-the">
+            <div class="gia">10 triệu<small>/tháng</small></div>
             <a class="zalo" href="https://zalo.me/0977923284" target="_blank" rel="noopener">Nhắn Zalo</a>
-            <a href="tel:0977923284">Gọi</a>
           </div>
+          <p class="ma-can">Mã căn: <b>CT.Stu.545</b></p>
         </div>
       </article>
       <article class="the" data-ma-noi-bo="CT.Stu.696">
-        <div class="the-anh"><img src="https://drive.google.com/thumbnail?id=1jAdy4WKe0i3k7tMrNvgNDmYjdBqEKYll&amp;sz=w1000" alt="Cho thuê Studio A3 Vinhomes Smart City 33m2" loading="lazy" decoding="async" width="400" height="300" onerror="this.closest('.the').classList.add('khong-anh');this.remove()"></div>
+        <div class="the-anh"><img src="https://drive.google.com/thumbnail?id=1jAdy4WKe0i3k7tMrNvgNDmYjdBqEKYll&amp;sz=w1000" alt="Cho thuê Studio A3 Vinhomes Smart City 33m2" loading="lazy" decoding="async" width="400" height="300" onerror="this.closest('.the').classList.add('khong-anh');this.remove()"><span class="tinh-trang">Trống từ 01/08</span></div>
         <div class="than">
-          <div class="gia">10 triệu<small>/tháng</small></div>
-          <h3 class="ten">Studio · A3 <span class="ma">Mã CT.Stu.696</span></h3>
-          <p class="meta">33m² · Full nội thất · Lumiere</p>
-          <span class="ngay">Vào ở: 01/08/2026</span>
-          <div class="nut">
+          <h3 class="ten">Studio · 33 m²</h3>
+          <p class="vi-tri">Lumiere · A3</p>
+          <p class="nhan-nt">Full nội thất</p>
+          <div class="chan-the">
+            <div class="gia">10 triệu<small>/tháng</small></div>
             <a class="zalo" href="https://zalo.me/0977923284" target="_blank" rel="noopener">Nhắn Zalo</a>
-            <a href="tel:0977923284">Gọi</a>
           </div>
+          <p class="ma-can">Mã căn: <b>CT.Stu.696</b></p>
         </div>
       </article>
       <article class="the khong-anh" data-ma-noi-bo="CT.Stu.710">
-        <div class="the-anh"></div>
+        <div class="the-anh"><span class="tinh-trang">Vào ngay</span></div>
         <div class="than">
-          <div class="gia">7,5 triệu<small>/tháng</small></div>
-          <h3 class="ten">Studio · SA5 <span class="ma">Mã CT.Stu.710</span></h3>
-          <p class="meta">31m² · Full nội thất · Sakura</p>
-          <span class="ngay san">Có thể vào ở ngay</span>
-          <div class="nut">
+          <h3 class="ten">Studio · 31 m²</h3>
+          <p class="vi-tri">Sakura · SA5</p>
+          <p class="nhan-nt">Full nội thất</p>
+          <div class="chan-the">
+            <div class="gia">7,5 triệu<small>/tháng</small></div>
             <a class="zalo" href="https://zalo.me/0977923284" target="_blank" rel="noopener">Nhắn Zalo</a>
-            <a href="tel:0977923284">Gọi</a>
           </div>
+          <p class="ma-can">Mã căn: <b>CT.Stu.710</b></p>
         </div>
       </article>
       <article class="the khong-anh" data-ma-noi-bo="CT.Stu.717">
-        <div class="the-anh"></div>
+        <div class="the-anh"><span class="tinh-trang">Vào ngay</span></div>
         <div class="than">
-          <div class="gia">8 triệu<small>/tháng</small></div>
-          <h3 class="ten">Studio · I2 <span class="ma">Mã CT.Stu.717</span></h3>
-          <p class="meta">28m² · Full nội thất · Imperia</p>
-          <span class="ngay san">Có thể vào ở ngay</span>
-          <div class="nut">
+          <h3 class="ten">Studio · 28 m²</h3>
+          <p class="vi-tri">Imperia · I2</p>
+          <p class="nhan-nt">Full nội thất</p>
+          <div class="chan-the">
+            <div class="gia">8 triệu<small>/tháng</small></div>
             <a class="zalo" href="https://zalo.me/0977923284" target="_blank" rel="noopener">Nhắn Zalo</a>
-            <a href="tel:0977923284">Gọi</a>
           </div>
+          <p class="ma-can">Mã căn: <b>CT.Stu.717</b></p>
         </div>
       </article>
       <article class="the khong-anh" data-ma-noi-bo="CT.Stu.614">
-        <div class="the-anh"></div>
+        <div class="the-anh"><span class="tinh-trang">Vào ngay</span></div>
         <div class="than">
-          <div class="gia">8,5 triệu<small>/tháng</small></div>
-          <h3 class="ten">Studio · MasA <span class="ma">Mã CT.Stu.614</span></h3>
-          <p class="meta">29m² · Full nội thất · Masteri</p>
-          <span class="ngay san">Có thể vào ở ngay</span>
-          <div class="nut">
+          <h3 class="ten">Studio · 29 m²</h3>
+          <p class="vi-tri">Masteri · MasA</p>
+          <p class="nhan-nt">Full nội thất</p>
+          <div class="chan-the">
+            <div class="gia">8,5 triệu<small>/tháng</small></div>
             <a class="zalo" href="https://zalo.me/0977923284" target="_blank" rel="noopener">Nhắn Zalo</a>
-            <a href="tel:0977923284">Gọi</a>
           </div>
+          <p class="ma-can">Mã căn: <b>CT.Stu.614</b></p>
         </div>
       </article>
       <article class="the khong-anh" data-ma-noi-bo="CT.Stu.130">
-        <div class="the-anh"></div>
+        <div class="the-anh"><span class="tinh-trang">Vào ngay</span></div>
         <div class="than">
-          <div class="gia">9 triệu<small>/tháng</small></div>
-          <h3 class="ten">Studio · MasB <span class="ma">Mã CT.Stu.130</span></h3>
-          <p class="meta">31m² · Full nội thất · Masteri</p>
-          <span class="ngay san">Có thể vào ở ngay</span>
-          <div class="nut">
+          <h3 class="ten">Studio · 31 m²</h3>
+          <p class="vi-tri">Masteri · MasB</p>
+          <p class="nhan-nt">Full nội thất</p>
+          <div class="chan-the">
+            <div class="gia">9 triệu<small>/tháng</small></div>
             <a class="zalo" href="https://zalo.me/0977923284" target="_blank" rel="noopener">Nhắn Zalo</a>
-            <a href="tel:0977923284">Gọi</a>
           </div>
+          <p class="ma-can">Mã căn: <b>CT.Stu.130</b></p>
         </div>
       </article>
       <article class="the khong-anh" data-ma-noi-bo="">
-        <div class="the-anh"></div>
+        <div class="the-anh"><span class="tinh-trang">Vào ngay</span></div>
         <div class="than">
-          <div class="gia">9 triệu<small>/tháng</small></div>
-          <h3 class="ten">Studio · MasA </h3>
-          <p class="meta">32m² · Full nội thất · Masteri</p>
-          <span class="ngay san">Có thể vào ở ngay</span>
-          <div class="nut">
+          <h3 class="ten">Studio · 32 m²</h3>
+          <p class="vi-tri">Masteri · MasA</p>
+          <p class="nhan-nt">Full nội thất</p>
+          <div class="chan-the">
+            <div class="gia">9 triệu<small>/tháng</small></div>
             <a class="zalo" href="https://zalo.me/0977923284" target="_blank" rel="noopener">Nhắn Zalo</a>
-            <a href="tel:0977923284">Gọi</a>
           </div>
         </div>
       </article>
