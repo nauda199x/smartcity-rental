@@ -134,6 +134,28 @@
       border-radius: 999px; background: #111827; color: #fff; font-weight: 800; font-size: 14.5px;
     }
 
+    /* Khối "nhờ tìm giúp căn" chuyển từ trang bảng giá cũ sang */
+    .nho-tim {
+      display: flex; align-items: center; justify-content: space-between; gap: 16px;
+      margin: 20px 0 0; padding: 20px 24px;
+      border: 1px solid var(--line); border-radius: var(--radius); background: var(--surface);
+    }
+    .nho-tim-chu strong { display: block; font-size: 16px; margin-bottom: 4px; }
+    .nho-tim-chu span { color: var(--muted); font-size: 13.5px; }
+    .nho-tim-nut {
+      flex-shrink: 0; display: inline-flex; align-items: center; height: 44px; padding: 0 20px;
+      border-radius: 999px; background: #111827; color: #fff; font-weight: 800; font-size: 14px;
+      white-space: nowrap;
+    }
+
+    /* Dòng dẫn sang trang phí dịch vụ - cố ý làm nổi hơn link thường vì đây là
+       nơi duy nhất chứa con số phí, trang này không lặp lại số đó. */
+    .dan-phi {
+      margin: 0 0 18px; padding: 14px 18px;
+      border: 1px solid #bfdbfe; border-radius: var(--radius); background: #eff6ff;
+    }
+    .dan-phi a { font-weight: 700; font-size: 15px; }
+
     details.faq { border-bottom: 1px solid var(--line); padding: 12px 0; }
     details.faq summary { cursor: pointer; font-weight: 700; font-size: 15px; }
     details.faq p { margin: 10px 0 0; font-size: 14.5px; color: #374151; }
@@ -239,7 +261,7 @@
 
     <p>Điều đầu tiên tạo ra chênh lệch là <strong>vị trí trong khu đô thị</strong>. Smart City rộng, và khoảng cách từ tòa nhà tới cổng chính, tới Vincom Mega Mall hay tới tuyến xe buýt nội khu ảnh hưởng trực tiếp tới việc căn đó dễ cho thuê hay không. Những tòa đi bộ vài phút là ra tới trung tâm thương mại luôn giữ giá tốt hơn các tòa nằm sâu phía trong, dù diện tích và số phòng ngủ giống nhau.</p>
 
-    <p>Thứ hai là <strong>năm bàn giao</strong>. Các phân khu bàn giao sớm đã qua vài chu kỳ khách thuê, thiết bị và mặt bằng chung cũ hơn, nên chủ nhà thường phải để giá mềm hơn để cạnh tranh. Ngược lại, phân khu bàn giao muộn có thiết kế căn hộ hợp thị hiếu hơn, sảnh và hành lang còn mới, và chủ nhà kỳ vọng giá cao hơn ngay từ lần cho thuê đầu tiên.</p>
+    <p>Thứ hai là <strong>năm bàn giao</strong>. Các phân khu bàn giao sớm đã qua vài chu kỳ khách thuê, thiết bị và mặt bằng chung cũ hơn, nên chủ nhà thường phải để giá mềm hơn để cạnh tranh. Ngược lại, phân khu bàn giao muộn có thiết kế căn hộ hợp thị hiếu hơn, sảnh và hành lang còn mới, và chủ nhà kỳ vọng giá cao hơn ngay từ lần cho thuê đầu tiên. Tại Smart City, Sapphire là nhóm phân khu bàn giao sớm nhất trong khu đô thị, các phân khu còn lại bàn giao sau đó — khoảng cách vài năm này là một phần lý do các hàng trong bảng trên không đồng đều nhau.</p>
 
     <p>Thứ ba là <strong>tiện ích nội khu riêng của từng phân khu</strong>. Ngoài tiện ích chung của toàn khu đô thị, mỗi phân khu còn có bể bơi, phòng gym, vườn trên mái hay sảnh lễ tân riêng ở mức đầu tư khác nhau. Phần tiện ích riêng này là lý do hai căn cùng loại, cùng diện tích, cách nhau vài trăm mét vẫn có thể lệch giá rõ rệt — và cũng là phần khách thuê dài hạn quan tâm nhất sau tiền nhà.</p>
 
@@ -248,21 +270,20 @@
     <p id="doiChieu2pn" hidden></p>
 
     <h2>Những chi phí khác ngoài tiền thuê</h2>
-    <p>Tiền nhà trong bảng trên chưa phải tổng chi phí ở hàng tháng. Ba khoản dưới đây nên hỏi rõ trước khi đặt cọc, vì cộng lại chúng có thể làm thay đổi đáng kể ngân sách anh/chị dự tính.</p>
 
-    <h3>Phí dịch vụ</h3>
-    <p>Phí dịch vụ tính theo mét vuông thông thủy mỗi tháng và khác nhau giữa các phân khu. Khoản này gần như luôn do khách thuê trả, không nằm trong tiền nhà đã báo.</p>
-    <!-- CẦN ĐIỀN: mức phí dịch vụ thực tế theo từng phân khu (đồng/m²/tháng) -->
+    <!-- CỐ Ý KHÔNG ĐỂ CON SỐ PHÍ Ở ĐÂY.
+         Mức phí dịch vụ và phí gửi xe chỉ tồn tại ở một nơi duy nhất trong website là
+         /phi-dich-vu-vinhomes-smart-city.html. Nếu chép số sang đây thì mỗi lần phí đổi
+         sẽ phải sửa 2 chỗ, và chỉ cần quên 1 chỗ là website tự nói ngược nhau. -->
+    <p>Tiền nhà trong bảng trên chưa phải tổng chi phí ở hàng tháng. <strong>Phí dịch vụ</strong> tính theo mét vuông thông thủy mỗi tháng, mức thu khác nhau giữa các phân khu và gần như luôn do khách thuê trả, không nằm trong giá đã báo. <strong>Phí gửi xe</strong> máy và ô tô tính riêng, theo tháng và theo từng hầm của mỗi phân khu — với ô tô nên hỏi thêm là chỗ đỗ còn suất hay đang phải chờ danh sách, vì có tòa đã kín chỗ. Cộng cả hai khoản này lại, ngân sách ở hàng tháng có thể lệch khá nhiều so với con số anh/chị nhìn thấy trong bảng giá, nên hỏi rõ trước khi đặt cọc.</p>
 
-    <h3>Phí gửi xe</h3>
-    <p>Xe máy và ô tô tính riêng, theo tháng và theo từng hầm của mỗi phân khu. Với ô tô cần hỏi thêm là chỗ đỗ còn suất hay đang phải chờ danh sách, vì có tòa đã kín chỗ.</p>
-    <!-- CẦN ĐIỀN: mức phí gửi xe máy và ô tô thực tế theo tháng -->
+    <p class="dan-phi">
+      <a href="/phi-dich-vu-vinhomes-smart-city.html">Xem mức phí dịch vụ và phí gửi xe chi tiết theo từng phân khu →</a>
+    </p>
 
-    <h3>Tiền cọc và kỳ thanh toán</h3>
-    <p>Cần thống nhất trước ba con số: cọc bao nhiêu tháng tiền nhà, đóng tiền theo kỳ mấy tháng một lần, và điều kiện hoàn cọc khi kết thúc hợp đồng. Đây là phần dễ phát sinh tranh chấp nhất nếu chỉ nói miệng.</p>
-    <!-- CẦN ĐIỀN: mức cọc và kỳ thanh toán tiêu chuẩn đang áp dụng -->
+    <p><strong>Tiền cọc và kỳ thanh toán:</strong> thông lệ phổ biến tại Vinhomes Smart City là <strong>đặt cọc 1 tháng, thanh toán theo kỳ 3 tháng</strong>. Một số chủ nhà có thể áp dụng điều kiện khác tùy thỏa thuận. Ngoài hai con số này, anh/chị nên thống nhất trước cả điều kiện hoàn cọc khi kết thúc hợp đồng — đây là phần dễ phát sinh tranh chấp nhất nếu chỉ nói miệng.</p>
 
-    <p>Chi tiết từng khoản, anh/chị xem thêm bài <a href="/phi-dich-vu-vinhomes-smart-city.html">phí dịch vụ Vinhomes Smart City</a> và bài <a href="/luu-y-do-xe-thu-cung-phi-dich-vu-smart-city.html">lưu ý về đỗ xe, thú cưng và phí dịch vụ</a>.</p>
+    <p>Các lưu ý khác về đỗ xe, thú cưng và quy định sử dụng căn hộ, anh/chị xem thêm bài <a href="/luu-y-do-xe-thu-cung-phi-dich-vu-smart-city.html">lưu ý về đỗ xe, thú cưng và phí dịch vụ</a>.</p>
 
     <h2>Câu hỏi thường gặp</h2>
 
@@ -318,6 +339,17 @@
       </div>
 
       <a class="cta-chinh" href="/">Xem toàn bộ căn đang trống →</a>
+    </div>
+
+    <!-- Khối này chuyển từ trang bảng giá cũ (bang-gia-thue-smart-city-thang-7-2026.html)
+         sang. Nút mở sẵn form để lại nhu cầu ở trang chủ qua tham số ?form=1 - trang mới
+         trước đó chỉ có link xem danh sách, không có đường nào dẫn vào form này. -->
+    <div class="nho-tim">
+      <div class="nho-tim-chu">
+        <strong>Chưa thấy căn nào đúng ý trong tầm giá?</strong>
+        <span>Để lại nhu cầu, tụi mình chủ động tìm và liên hệ lại trong hôm nay.</span>
+      </div>
+      <a class="nho-tim-nut" href="/?form=1">Nhờ tìm giúp căn phù hợp</a>
     </div>
   </article>
 

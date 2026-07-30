@@ -156,6 +156,42 @@ trong khung riêng, trang không tràn ngang ở cả 3 độ rộng, không có
 
 ---
 
+## 6b. Đợt 2 — hợp nhất 2 trang bảng giá và bỏ placeholder
+
+Đợt 1 tạo trang bảng giá mới mà không biết repo đã có sẵn một trang cùng chủ đề. Đợt 2 sửa việc đó.
+
+| File | Thay đổi |
+|---|---|
+| `bang-gia-thue-smart-city-thang-7-2026.html` | Thay toàn bộ nội dung thành trang chuyển hướng: canonical trỏ sang trang mới, `noindex, follow`, `meta http-equiv="refresh"` 0 giây, kèm dòng chữ + nút bấm tay dự phòng. **File được giữ lại**, không xóa, để link cũ đã chia sẻ ra ngoài không thành 404. |
+| `bang-gia-thue-vinhomes-smart-city.html` | Nhận 2 phần nội dung chuyển từ trang cũ (xem mục dưới); bỏ 3 comment `CẦN ĐIỀN`, thay bằng đoạn mô tả định tính + dòng dẫn link nổi bật sang trang phí dịch vụ + thông lệ cọc 1 tháng / kỳ 3 tháng |
+| `sitemap.xml` | Gỡ URL trang cũ (còn 36 URL). Trang chuyển hướng đã `noindex` nên không khai báo. |
+| `index.html` | 3 chỗ: gộp 2 mục trùng trong mục lục thành 1, và đổi 1 link trong đoạn văn giữa trang |
+| `cam-nang-thue-nha.html` | 2 chỗ: link "xem bảng giá chi tiết" và thẻ bài viết ở cuối trang (đổi cả tiêu đề + mô tả vì URL mới không gắn tháng) |
+
+**Nội dung chuyển từ trang cũ sang trang mới:**
+
+1. **Khối "Nhờ tìm giúp căn phù hợp"** — nút mở sẵn form để lại nhu cầu ở trang chủ qua
+   `/?form=1`. Trang mới trước đó không có đường nào dẫn vào form này. Đã kiểm tra bằng
+   Chromium: bấm nút → chuyển sang trang chủ và form tự mở.
+2. **Thông tin Sapphire là nhóm phân khu bàn giao sớm nhất** — dữ liệu `data.json` không có
+   năm bàn giao nên đây là kiến thức biên tập không thể tự sinh ra được. Đã ghép vào đoạn
+   "năm bàn giao" ở mục giải thích chênh lệch giá.
+
+**Nội dung KHÔNG chuyển, và lý do:**
+
+| Phần của trang cũ | Lý do bỏ |
+|---|---|
+| Bảng giá cứng phân khu Sapphire (Studio 5,5–7,5 triệu, 3PN 12–16 triệu…) | Số cứng, đã lệch so với dữ liệu thật hiện tại (Studio đang 6–7,5; 3PN đang 12–18). Bảng động của trang mới thay thế hoàn toàn. |
+| Bảng "chênh lệch so với Sapphire": nhóm +500.000đ và nhóm +1.000.000đ | Số cứng và **đã bị dữ liệu thật phản bác**: theo bảng động, Masteri nằm ở nhóm "+1 triệu" nhưng thực tế lệch khoảng 1,6 triệu ở Studio, còn Canopy nằm ở nhóm "+500.000đ" nhưng thực tế lệch khoảng 1,1 triệu. Trang mới đã diễn giải cùng ý này bằng 4 đoạn định tính + một câu so sánh 2PN tính động từ chính bảng. Ngoài ra khẳng định này vẫn còn nguyên trong `cam-nang-thue-nha.html` nên không mất đi. |
+| Đoạn mở đầu, khung lưu ý cuối bài, link về danh sách căn hộ | Trang mới đã có phần tương đương và đầy đủ hơn (disclaimer của trang mới còn nói thêm "chưa bao gồm phí dịch vụ"). |
+
+**Về việc chuyển hướng:** GitHub Pages không cho cấu hình redirect 301 thật ở tầng server.
+Bộ ba canonical + `noindex` + meta refresh là phương án khả thi nhất trên hạ tầng này.
+Khác biệt so với 301 thật: Google mất nhiều thời gian hơn để dồn tín hiệu về URL mới, và
+trang cũ vẫn phải tải một nhịp trước khi chuyển.
+
+---
+
 ## 7. Những điểm ghi nhận nhưng KHÔNG sửa
 
 Các điểm dưới đây nằm ngoài phạm vi Task A và B, ghi lại để chủ repo quyết định:
@@ -174,6 +210,11 @@ Các điểm dưới đây nằm ngoài phạm vi Task A và B, ghi lại để 
    thời gian. Đợt này giữ nguyên đúng số cũ (không tự đổi số), nhưng đây là món nợ kỹ thuật
    nên xử lý.
 4. **`data.json` không có field timestamp.** Chi tiết cách xử lý ở phần dưới.
+5. **`cam-nang-thue-nha.html` cũng có một bảng giá số cứng riêng.** Trang này có bảng giá
+   theo loại căn và cả khẳng định "+500.000đ / +1 triệu so với Sapphire" — cùng loại số cứng
+   vừa được dọn khỏi trang bảng giá. Theo nguyên tắc "mỗi con số chỉ tồn tại ở một nơi",
+   bảng này nên được thay bằng link sang trang bảng giá động. Đợt 2 chỉ được yêu cầu xử lý
+   2 file bảng giá nên **chưa sửa**, ghi lại để xử lý sau.
 
 ---
 
