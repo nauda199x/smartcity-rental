@@ -1,0 +1,15 @@
+# Rác hệ điều hành
+.DS_Store
+Thumbs.db
+
+# Thư mục tạm của công cụ tạo file, KHÔNG được lên production
+mnt/
+outputs/
+temp/
+tmp/
+
+# File nén gửi qua lại, không phải nội dung website
+*.zip
+
+# Phụ thuộc npm (nếu sau này dùng build tool)
+node_modules/

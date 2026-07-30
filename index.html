@@ -12,7 +12,7 @@
 
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Thuê chung cư Smart City — Cho thuê căn hộ Vinhomes Smart City T07/2026</title>
+  <title>Thuê chung cư Smart City – Cho thuê căn hộ Vinhomes T07/2026</title>
   <link rel="icon" href="/favicon.ico" sizes="any">
   <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">
   <link rel="icon" type="image/png" sizes="192x192" href="/favicon-192.png">
@@ -1238,9 +1238,14 @@
       margin-bottom: 10px;
     }
 
-    .lead-success h4 {
+    /* Trước đây là <h4>. Đây chỉ là dòng thông báo trong hộp thoại, không phải
+       cấp mục của nội dung trang, nên đổi sang <div> + CSS để không tạo bước
+       nhảy H2 -> H4 trong cấu trúc heading. */
+    .lead-success .tieu-de {
       margin: 0 0 8px;
       font-size: 18px;
+      font-weight: 700;
+      line-height: 1.3;
     }
 
     .lead-success p {
@@ -1899,7 +1904,7 @@
 
       <div class="lead-success" id="leadSuccess">
         <div class="icon">✅</div>
-        <h4>Đã nhận được yêu cầu của anh/chị</h4>
+        <div class="tieu-de">Đã nhận được yêu cầu của anh/chị</div>
         <p>Tụi mình sẽ chủ động liên hệ lại trong thời gian sớm nhất. Cảm ơn anh/chị đã tin tưởng!</p>
       </div>
     </div>
