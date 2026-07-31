@@ -199,17 +199,11 @@
   function dbcChenCss() {
     if (document.getElementById("dbc-style")) return;
     var css =
-      ".dbc-xem-duoc{cursor:pointer}" +
-      ".dbc-huy-hieu{position:absolute;right:8px;bottom:8px;background:rgba(17,24,39,.72);" +
-        "color:#fff;font-size:12px;font-weight:600;padding:3px 9px;border-radius:999px;" +
-        "line-height:1.4;pointer-events:none}" +
-      ".the-anh{position:relative}" +
-      ".dbc-xem-duoc .the-anh img{transition:transform .3s ease}" +
-      ".dbc-xem-duoc:hover .the-anh img{transform:scale(1.04)}" +
-      "@media(prefers-reduced-motion:reduce){" +
-        ".dbc-xem-duoc .the-anh img{transition:none}" +
-        ".dbc-xem-duoc:hover .the-anh img{transform:none}" +
-      "}" +
+      /* Dáng của .dbc-xem-duoc, .dbc-huy-hieu, .the-anh và hiệu ứng phóng ảnh
+         khi rê chuột đã chuyển hẳn sang /assets/v3.css. Để lại ở đây thì khối
+         style chèn lúc chạy sẽ đè lên file dùng chung và thẻ căn trên trang
+         danh mục lệch khỏi thẻ căn trang chủ. Chỉ giữ phần album ảnh. */
+      ".dbc-huy-hieu{pointer-events:none}" +
       ".dbc-nen{position:fixed;inset:0;z-index:9999;background:rgba(15,23,42,.92);" +
         "display:none;align-items:center;justify-content:center;padding:0}" +
       ".dbc-nen.dbc-mo{display:flex}" +
@@ -430,18 +424,28 @@
     var soMedia = toanBoMedia.length;
 
     var alt = "Cho thuê " + loai + " " + toa + " Vinhomes Smart City" + (dt ? " " + Math.round(dt) + "m2" : "");
+
+    /* Giao diện v3: nhãn nội thất là huy hiệu nằm trên ảnh, ngay dưới huy hiệu
+       tình trạng. Chỉ "Full nội thất" được tô xanh dương — căn cơ bản hay
+       nguyên bản dùng màu trung tính để huy hiệu không hứa quá thực tế. */
+    var huyHieuNoiThat = noiThat
+      ? '<span class="badge-nt' + (khoa(noiThat) === "full nội thất" ? "" : " thuong") + '">' +
+        esc(noiThat) + "</span>"
+      : "";
+
     var khungAnh;
     if (anh) {
+      /* Số ảnh: icon do CSS vẽ bằng mask, nên chuỗi chỉ còn con số + chữ "ảnh". */
       var huyHieu = soMedia > 0
-        ? '<span class="dbc-huy-hieu">🖼 ' + soMedia + ' ảnh</span>'
+        ? '<span class="dbc-huy-hieu">' + soMedia + ' ảnh</span>'
         : "";
       khungAnh = '<div class="the-anh"><img src="' + esc(anh) + '" alt="' + esc(alt) + '" loading="lazy" ' +
         'decoding="async" width="400" height="300" ' +
         "onerror=\"this.closest('.the').classList.add('khong-anh');" +
         "var b=this.parentNode.querySelector('.dbc-huy-hieu');if(b)b.parentNode.removeChild(b);" +
-        "this.remove()\">" + huyHieu + huyHieuTinhTrang + "</div>";
+        "this.remove()\">" + huyHieu + huyHieuTinhTrang + huyHieuNoiThat + "</div>";
     } else {
-      khungAnh = '<div class="the-anh">' + huyHieuTinhTrang + "</div>";
+      khungAnh = '<div class="the-anh">' + huyHieuTinhTrang + huyHieuNoiThat + "</div>";
     }
 
     var el = document.createElement("article");
@@ -452,7 +456,6 @@
       '<div class="than">' +
         '<h3 class="ten">' + tenHtml + "</h3>" +
         '<p class="vi-tri">' + esc(viTri) + "</p>" +
-        (noiThat ? '<p class="nhan-nt">' + esc(noiThat) + "</p>" : "") +
         '<div class="chan-the">' +
           '<div class="gia">' + esc(dinhDangGia(soTien(r["Giá thuê"]))) + "<small>/tháng</small></div>" +
           '<a class="zalo" href="https://zalo.me/' + SDT + '" target="_blank" rel="noopener">Nhắn Zalo</a>' +
