@@ -1,0 +1,447 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Cho thuê căn hộ Vinhomes Smart City — bản demo giao diện v3</title>
+<meta name="robots" content="noindex, nofollow">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;600;700;800&family=Be+Vietnam+Pro:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --navy:#12325C;
+  --navy-2:#1B4B8F;
+  --blue:#2563EB;
+  --zalo:#0068FF;
+  --green:#0E8A45;
+  --green-lt:#E7F5ED;
+  --amber:#B4761A;
+  --ink:#16202B;
+  --gray:#5B6875;
+  --gray-lt:#8A96A3;
+  --bg:#F4F6F9;
+  --line:#E3E8EE;
+  --r:12px;
+  --r-sm:8px;
+  --maxw:1200px;
+  --sh:0 1px 2px rgba(22,32,43,.05), 0 8px 24px -14px rgba(22,32,43,.22);
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--ink);font-family:"Be Vietnam Pro",system-ui,sans-serif;font-size:15.5px;line-height:1.6;-webkit-font-smoothing:antialiased}
+.wrap{max-width:var(--maxw);margin:0 auto;padding:0 20px}
+a{color:inherit;text-decoration:none}
+button,select,input{font:inherit;color:inherit}
+:focus-visible{outline:2px solid var(--blue);outline-offset:2px}
+h1,h2,h3,.jk{font-family:"Plus Jakarta Sans",system-ui,sans-serif;letter-spacing:-.02em}
+
+.demobar{background:#16202B;color:#C7D2DF;text-align:center;padding:8px 16px;font-size:.76rem}
+.demobar b{color:#fff}
+
+/* HEADER */
+header{position:sticky;top:0;z-index:60;background:#fff;border-bottom:1px solid var(--line)}
+.nav{display:flex;align-items:center;gap:30px;height:70px}
+.brand{display:flex;align-items:center;gap:10px}
+.mark{width:36px;height:36px;border-radius:9px;background:linear-gradient(140deg,var(--navy-2),var(--blue));display:grid;place-items:center;color:#fff;font-family:"Plus Jakarta Sans";font-weight:800;font-size:.95rem}
+.brand b{display:block;font-family:"Plus Jakarta Sans";font-weight:800;font-size:1.02rem;line-height:1.2}
+.brand span{display:block;font-size:.72rem;color:var(--gray-lt)}
+.nav ul{display:flex;gap:24px;list-style:none;margin-left:auto}
+.nav ul a{font-size:.92rem;color:var(--gray);padding:6px 0;border-bottom:2px solid transparent;transition:.2s}
+.nav ul a:hover,.nav ul a.on{color:var(--navy-2);border-color:var(--navy-2)}
+.zbtn{display:inline-flex;align-items:center;gap:8px;background:var(--zalo);color:#fff;padding:11px 20px;border-radius:99px;font-weight:600;font-size:.9rem;box-shadow:0 6px 16px -8px var(--zalo);transition:.2s}
+.zbtn:hover{background:#0057D8}
+.zbtn svg{width:16px;height:16px;flex:none}
+
+/* HERO */
+.hero{position:relative;background:var(--navy);color:#fff;padding:64px 0 110px;overflow:hidden}
+.hero-img{position:absolute;inset:0}
+/* THAY BẰNG ẢNH THẬT: <img src="images/hero-smart-city.webp" alt="..."> */
+.hero-img .ph{position:absolute;inset:0;background:
+  radial-gradient(900px 400px at 76% 8%,rgba(255,190,120,.32),transparent 62%),
+  linear-gradient(115deg,#0D2544 0%,#1B4B8F 44%,#3E7BB8 66%,#7D5B3E 88%,#2A1D2E 100%)}
+.hero-img .ph::after{content:"";position:absolute;inset:0;
+  background:repeating-linear-gradient(92deg,rgba(255,255,255,.05) 0 3px,transparent 3px 54px),
+             repeating-linear-gradient(2deg,rgba(255,214,150,.05) 0 2px,transparent 2px 26px)}
+.hero-img .veil{position:absolute;inset:0;background:linear-gradient(95deg,rgba(10,26,48,.95) 0%,rgba(10,26,48,.78) 42%,rgba(10,26,48,.25) 100%)}
+.ph-tag{position:absolute;right:16px;top:16px;z-index:3;font-size:.62rem;letter-spacing:.1em;color:rgba(255,255,255,.6);border:1px dashed rgba(255,255,255,.4);padding:5px 9px;border-radius:6px}
+.hero-in{position:relative;z-index:4}
+.hero h1{font-size:clamp(2.1rem,4.6vw,3.4rem);font-weight:800;line-height:1.12;max-width:15ch}
+.hero .sub{margin-top:12px;font-size:clamp(1rem,1.6vw,1.18rem);color:rgba(255,255,255,.82);font-weight:300}
+.pill{display:inline-flex;align-items:center;gap:9px;margin-top:20px;background:rgba(14,138,69,.22);border:1px solid rgba(110,220,160,.45);color:#B6F0CE;padding:8px 16px;border-radius:99px;font-size:.86rem}
+.dot{width:7px;height:7px;border-radius:50%;background:#4ADE80;animation:pulse 2.2s infinite}
+@keyframes pulse{0%,100%{opacity:1}50%{opacity:.35}}
+.stats{display:flex;gap:0;margin-top:34px;flex-wrap:wrap}
+.stats > div{padding-right:38px;margin-right:38px;border-right:1px solid rgba(255,255,255,.22)}
+.stats > div:last-child{border:0;margin:0;padding:0}
+.stats .n{font-family:"Plus Jakarta Sans";font-weight:800;font-size:2.2rem;line-height:1}
+.stats .n small{font-size:.95rem;font-weight:600;opacity:.85}
+.stats .l{font-size:.82rem;color:rgba(255,255,255,.7);margin-top:4px}
+
+/* FILTER BAR nổi đè đáy hero */
+.filterbar{position:relative;z-index:20;margin-top:-56px}
+.fb{background:#fff;border:1px solid var(--line);border-radius:var(--r);box-shadow:var(--sh);padding:10px;display:grid;grid-template-columns:repeat(4,1fr) auto auto;gap:8px;align-items:center}
+.fld{position:relative;border-right:1px solid var(--line);padding:4px 12px}
+.fld:nth-child(4){border-right:0}
+.fld label{display:block;font-size:.7rem;color:var(--gray-lt);margin-bottom:1px}
+.fld select{width:100%;border:0;background:none;font-size:.95rem;font-weight:500;appearance:none;cursor:pointer;padding-right:20px}
+.fld::after{content:"";position:absolute;right:14px;bottom:14px;width:6px;height:6px;border-right:1.6px solid var(--gray-lt);border-bottom:1.6px solid var(--gray-lt);transform:rotate(45deg);pointer-events:none}
+.fb .find{background:var(--navy-2);color:#fff;border:0;border-radius:var(--r-sm);padding:14px 26px;font-weight:600;cursor:pointer;display:inline-flex;align-items:center;gap:8px;transition:.2s}
+.fb .find:hover{background:var(--navy)}
+.fb .clear{background:none;border:0;color:var(--gray);font-size:.86rem;cursor:pointer;padding:0 12px;white-space:nowrap}
+.fb .clear:hover{color:var(--navy-2)}
+
+/* SECTIONS */
+section{padding:52px 0}
+.sh{display:flex;align-items:center;justify-content:space-between;gap:20px;margin-bottom:22px}
+.sh h2{font-size:1.55rem;font-weight:800}
+.sh p{font-size:.88rem;color:var(--gray);margin-top:3px}
+.more{font-size:.88rem;color:var(--navy-2);font-weight:600;border:1px solid var(--line);background:#fff;padding:9px 16px;border-radius:99px;cursor:pointer;white-space:nowrap}
+.more:hover{border-color:var(--navy-2)}
+
+/* CARDS */
+.grid{display:grid;grid-template-columns:repeat(4,1fr);gap:20px}
+.card{background:#fff;border:1px solid var(--line);border-radius:var(--r);overflow:hidden;display:flex;flex-direction:column;transition:transform .25s,box-shadow .25s}
+.card:hover{transform:translateY(-3px);box-shadow:var(--sh)}
+.ph-img{aspect-ratio:4/3;position:relative;background:linear-gradient(150deg,#DCE4EE,#B9C7D8 60%,#93A6BC)}
+.ph-img.v1{background:linear-gradient(150deg,#E6DED2,#CDBBA4 60%,#A89179)}
+.ph-img.v2{background:linear-gradient(150deg,#D6E2E4,#AFC6CB 60%,#89A5AE)}
+.ph-img.v3{background:linear-gradient(150deg,#E2DEE9,#C0B8CE 60%,#9A90AE)}
+.ph-img i{position:absolute;inset:0;display:grid;place-items:center;color:rgba(22,32,43,.28);font-size:.68rem;font-style:normal;letter-spacing:.08em}
+.bd{position:absolute;top:10px;left:10px;display:flex;gap:6px;z-index:2}
+.b{font-size:.68rem;font-weight:600;padding:4px 9px;border-radius:6px}
+.b.now{background:var(--green);color:#fff}
+.b.full{background:var(--blue);color:#fff}
+.pcount{position:absolute;top:10px;right:10px;z-index:2;background:rgba(22,32,43,.62);color:#fff;font-size:.7rem;padding:4px 9px;border-radius:6px;display:inline-flex;gap:5px;align-items:center}
+.cb{padding:14px 15px 15px;display:flex;flex-direction:column;gap:7px;flex:1}
+.tt{font-size:.94rem;font-weight:600;color:var(--ink)}
+.tt span{color:var(--gray-lt);font-weight:400}
+.pr{font-family:"Plus Jakarta Sans";font-weight:800;font-size:1.35rem;color:var(--navy-2)}
+.pr small{font-family:"Be Vietnam Pro";font-size:.78rem;color:var(--gray);font-weight:400}
+.loc{font-size:.84rem;color:var(--gray);display:flex;align-items:center;gap:6px}
+.loc svg{width:13px;height:13px;flex:none;color:var(--gray-lt)}
+.upd{font-size:.76rem;color:var(--green);display:flex;align-items:center;gap:6px;margin-top:auto;padding-top:6px}
+.upd i{width:6px;height:6px;border-radius:50%;background:#4ADE80}
+.cz{margin-top:8px;width:100%;background:var(--zalo);color:#fff;border:0;border-radius:var(--r-sm);padding:11px;font-weight:600;font-size:.88rem;cursor:pointer;display:inline-flex;align-items:center;justify-content:center;gap:7px;transition:.2s}
+.cz:hover{background:#0057D8}
+.cz svg{width:15px;height:15px}
+.empty{grid-column:1/-1;background:#fff;border:1px dashed var(--line);border-radius:var(--r);padding:48px 20px;text-align:center;color:var(--gray)}
+.empty b{display:block;font-family:"Plus Jakarta Sans";font-size:1.1rem;color:var(--ink);margin-bottom:6px}
+
+/* HUB loại căn */
+.hub{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
+.hub a{background:#fff;border:1px solid var(--line);border-radius:var(--r);padding:22px 18px;text-align:center;transition:.22s}
+.hub a:hover{border-color:var(--navy-2);transform:translateY(-2px)}
+.hub .ic{width:48px;height:48px;margin:0 auto 12px;border-radius:12px;background:#EEF3FA;display:grid;place-items:center;color:var(--navy-2)}
+.hub .ic svg{width:22px;height:22px}
+.hub .nm{font-family:"Plus Jakarta Sans";font-weight:700;font-size:1rem}
+.hub .ct{font-size:.84rem;color:var(--gray);margin-top:3px}
+
+/* 3 CỘT DƯỚI */
+.tri{display:grid;grid-template-columns:1fr 1fr 1.1fr;gap:20px;align-items:start}
+.panel{background:#fff;border:1px solid var(--line);border-radius:var(--r);padding:20px}
+.panel h2{font-size:1.12rem;font-weight:800;margin-bottom:14px}
+.post{display:flex;gap:12px;padding:12px 0;border-bottom:1px solid var(--line)}
+.post:last-child{border:0;padding-bottom:0}
+.post .th{width:82px;height:62px;flex:none;border-radius:var(--r-sm);background:linear-gradient(150deg,#DCE4EE,#A9BACD)}
+.post h3{font-size:.9rem;font-weight:700;line-height:1.35}
+.post p{font-size:.8rem;color:var(--gray);margin-top:4px;line-height:1.45}
+details{border-bottom:1px solid var(--line)}
+details:last-of-type{border:0}
+details summary{list-style:none;cursor:pointer;padding:13px 26px 13px 0;font-size:.9rem;font-weight:500;position:relative}
+details summary::-webkit-details-marker{display:none}
+details summary::after{content:"+";position:absolute;right:4px;top:11px;font-size:1.15rem;color:var(--gray-lt)}
+details[open] summary::after{content:"–"}
+details p{font-size:.86rem;color:var(--gray);padding:0 0 14px}
+.form-panel{background:linear-gradient(170deg,#F7FAFF,#fff);border-color:#D8E4F5}
+.form-panel h2{text-align:center;color:var(--navy);line-height:1.3}
+.form-panel > p.sd{text-align:center;font-size:.85rem;color:var(--gray);margin:-8px 0 16px}
+.fg{margin-bottom:11px}
+.fg label{display:block;font-size:.8rem;color:var(--gray);margin-bottom:5px}
+.fg input,.fg select{width:100%;border:1px solid var(--line);border-radius:var(--r-sm);padding:11px 13px;font-size:.9rem;background:#fff}
+.fg input:focus,.fg select:focus{border-color:var(--navy-2);outline:none}
+.drop{border:1.5px dashed #C3D2E6;border-radius:var(--r-sm);padding:18px;text-align:center;color:var(--gray-lt);font-size:.84rem;background:#fff}
+.submit{width:100%;margin-top:12px;background:var(--navy-2);color:#fff;border:0;border-radius:var(--r-sm);padding:13px;font-weight:700;cursor:pointer}
+.submit:hover{background:var(--navy)}
+.perks{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-top:16px;padding-top:16px;border-top:1px solid var(--line);text-align:center}
+.perks div{font-size:.75rem;color:var(--gray);line-height:1.35}
+.perks .pi{width:34px;height:34px;margin:0 auto 7px;border-radius:50%;background:var(--green-lt);display:grid;place-items:center;color:var(--green)}
+.perks svg{width:16px;height:16px}
+
+footer{background:#fff;border-top:1px solid var(--line);padding:38px 0 96px;color:var(--gray);font-size:.86rem}
+.foot{display:grid;grid-template-columns:1.6fr 1fr 1fr;gap:32px}
+footer h3{font-family:"Plus Jakarta Sans";font-size:.82rem;font-weight:700;color:var(--ink);margin-bottom:12px}
+footer ul{list-style:none;display:flex;flex-direction:column;gap:7px}
+footer a:hover{color:var(--navy-2)}
+.dis{margin-top:26px;padding-top:16px;border-top:1px solid var(--line);font-size:.78rem;color:var(--gray-lt)}
+
+/* Zalo bubble + sticky mobile */
+.bubble{position:fixed;right:20px;bottom:22px;z-index:70;width:56px;height:56px;border-radius:50%;background:var(--zalo);color:#fff;display:grid;place-items:center;box-shadow:0 10px 26px -10px rgba(0,104,255,.8);cursor:pointer}
+.bubble svg{width:26px;height:26px}
+.bubble::after{content:"1";position:absolute;top:-2px;right:-2px;width:19px;height:19px;border-radius:50%;background:#EF4444;color:#fff;font-size:.66rem;display:grid;place-items:center;font-weight:700}
+.mbar{position:fixed;left:0;right:0;bottom:0;z-index:70;display:none;grid-template-columns:.8fr 1.2fr;background:#fff;border-top:1px solid var(--line)}
+.mbar a{padding:14px;text-align:center;font-weight:700;font-size:.92rem;display:flex;align-items:center;justify-content:center;gap:7px}
+.mbar .m1{color:var(--navy-2)}
+.mbar .m2{background:var(--zalo);color:#fff;margin:7px;border-radius:var(--r-sm)}
+.mbar svg{width:16px;height:16px}
+
+@media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}html{scroll-behavior:auto}}
+
+@media (max-width:1080px){
+  .grid{grid-template-columns:repeat(2,1fr)}
+  .fb{grid-template-columns:repeat(2,1fr)}
+  .fld{border-right:0}
+  .fb .find{grid-column:1/-1}
+  .fb .clear{grid-column:1/-1;padding:4px}
+  .tri{grid-template-columns:1fr}
+  .hub{grid-template-columns:repeat(2,1fr)}
+  .foot{grid-template-columns:1fr 1fr}
+}
+@media (max-width:640px){
+  .nav ul{display:none}
+  .nav .zbtn{margin-left:auto;padding:9px 15px;font-size:.85rem}
+  .hero{padding:44px 0 96px}
+  .stats > div{padding-right:22px;margin-right:22px}
+  .stats .n{font-size:1.6rem}
+  .grid{grid-template-columns:1fr}
+  .foot{grid-template-columns:1fr}
+  .bubble{display:none}
+  .mbar{display:grid}
+  section{padding:38px 0}
+  .sh{flex-direction:column;align-items:flex-start}
+}
+</style>
+</head>
+<body>
+
+<div class="demobar">Bản demo giao diện <b>v3</b> — hướng portal nền sáng. Căn hộ và ảnh trong trang là <b>dữ liệu mẫu</b>.</div>
+
+<header>
+  <nav class="wrap nav">
+    <a class="brand" href="#">
+      <span class="mark">TT</span>
+      <span><b>timthuesmartcity.com</b><span>Quỹ căn thật · Cập nhật mỗi ngày</span></span>
+    </a>
+    <ul>
+      <li><a href="#" class="on">Trang chủ</a></li>
+      <li><a href="#quy-can">Tìm căn</a></li>
+      <li><a href="#loai-can">Phân khu</a></li>
+      <li><a href="#cam-nang">Cẩm nang</a></li>
+      <li><a href="#chu-nha">Ký gửi căn</a></li>
+    </ul>
+    <a class="zbtn" href="#" data-zalo><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 3C6.9 3 2.8 6.4 2.8 10.6c0 2.4 1.3 4.5 3.4 5.9-.1.6-.5 2-.6 2.3-.1.4.2.4.4.3.2-.1 2.4-1.6 3.4-2.2.8.1 1.7.2 2.6.2 5.1 0 9.2-3.4 9.2-7.5S17.1 3 12 3z"/></svg>Nhắn Zalo</a>
+  </nav>
+</header>
+
+<div class="hero">
+  <div class="hero-img">
+    <!-- THAY BẰNG ẢNH THẬT: <img src="images/hero-smart-city.webp" alt="Vinhomes Smart City Tây Mỗ buổi tối"> -->
+    <div class="ph"></div><div class="veil"></div>
+    <span class="ph-tag">VỊ TRÍ ẢNH HERO · 1920×1080 · WEBP · &lt;250KB</span>
+  </div>
+  <div class="wrap hero-in">
+    <h1>Cho thuê căn hộ Vinhomes Smart City</h1>
+    <p class="sub">Ảnh thật · Mã căn công khai · Cập nhật liên tục</p>
+    <div class="pill"><span class="dot"></span>Quỹ căn đồng bộ lại mỗi 30 phút</div>
+    <div class="stats">
+      <div><div class="n" id="s-count">—</div><div class="l">căn đang trống</div></div>
+      <div><div class="n"><small>từ </small><span id="s-min">—</span></div><div class="l">giá thuê thấp nhất / tháng</div></div>
+      <div><div class="n" id="s-zone">—</div><div class="l">phân khu có căn cho thuê</div></div>
+    </div>
+  </div>
+</div>
+
+<div class="wrap filterbar">
+  <div class="fb">
+    <div class="fld"><label for="f-type">Loại căn</label><select id="f-type"></select></div>
+    <div class="fld"><label for="f-zone">Phân khu</label><select id="f-zone"></select></div>
+    <div class="fld"><label for="f-price">Khoảng giá</label><select id="f-price"></select></div>
+    <div class="fld"><label for="f-fur">Nội thất</label><select id="f-fur"></select></div>
+    <button class="find" id="btn-find"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" style="width:16px;height:16px"><circle cx="11" cy="11" r="7"/><path d="M20 20l-3.5-3.5"/></svg>Tìm căn</button>
+    <button class="clear" id="btn-clear">Xóa bộ lọc</button>
+  </div>
+</div>
+
+<section id="quy-can" class="wrap">
+  <div class="sh">
+    <div>
+      <h2>Căn hộ đang cho thuê</h2>
+      <p>Mã căn hiển thị công khai để Anh/Chị đối chiếu với chủ nhà trước khi đi xem.</p>
+    </div>
+    <button class="more">Xem tất cả <span id="all-n"></span> căn →</button>
+  </div>
+  <div class="grid" id="grid"></div>
+</section>
+
+<section id="loai-can" class="wrap" style="padding-top:0">
+  <div class="sh"><div><h2>Kho dữ liệu theo loại căn</h2><p>Số căn tính trực tiếp từ quỹ căn hiện có, không nhập tay.</p></div></div>
+  <div class="hub" id="hub"></div>
+</section>
+
+<section class="wrap" style="padding-top:0">
+  <div class="tri">
+    <div class="panel" id="cam-nang">
+      <h2>Cẩm nang thuê nhà</h2>
+      <a class="post" href="#"><div class="th"></div><div><h3>Kinh nghiệm thuê căn hộ Vinhomes Smart City</h3><p>Những lưu ý khi xem căn, ký hợp đồng và bàn giao.</p></div></a>
+      <a class="post" href="#"><div class="th"></div><div><h3>So sánh giá thuê giữa các phân khu</h3><p>Sapphire, Miami, Masteri chênh nhau bao nhiêu mỗi tháng.</p></div></a>
+      <a class="post" href="#"><div class="th"></div><div><h3>Chi phí thuê nhà cần chuẩn bị những gì</h3><p>Tiền cọc, phí dịch vụ, phí gửi xe và các khoản phát sinh.</p></div></a>
+    </div>
+
+    <div class="panel">
+      <h2>Câu hỏi thường gặp</h2>
+      <details><summary>Thuê căn hộ ở đây có cần đặt cọc không?</summary><p>Thông thường chủ nhà yêu cầu cọc 1 tháng và thanh toán trước 1–3 tháng. Mức cụ thể thay đổi theo từng căn.</p></details>
+      <details><summary>Thanh toán tiền thuê như thế nào?</summary><p>Phần lớn chủ nhà nhận theo chu kỳ 3 tháng hoặc 6 tháng, chuyển khoản trực tiếp cho chủ nhà.</p></details>
+      <details><summary>Có xem căn ngoài giờ hành chính được không?</summary><p>Được. Anh/Chị nhắn trước khung giờ mong muốn để em sắp lịch với chủ nhà.</p></details>
+      <details><summary>Làm sao biết căn còn trống hay đã cho thuê?</summary><p>Dữ liệu đồng bộ lại 30 phút một lần, căn đã thuê sẽ tự rời khỏi trang.</p></details>
+      <details><summary>Người thuê có mất phí xem căn không?</summary><p>Anh/Chị vui lòng xác nhận lại chính sách phí thực tế trước khi đưa nội dung này lên trang.</p></details>
+    </div>
+
+    <div class="panel form-panel" id="chu-nha">
+      <h2>Có căn cần cho thuê?<br>Gửi căn, em lo tìm khách</h2>
+      <p class="sd">Căn của Anh/Chị lên trang trong ngày.</p>
+      <div class="fg"><label for="i-name">Họ và tên</label><input id="i-name" placeholder="Nhập họ và tên"></div>
+      <div class="fg"><label for="i-tel">Số điện thoại</label><input id="i-tel" inputmode="tel" placeholder="Nhập số điện thoại"></div>
+      <div class="fg"><label for="i-type">Loại căn hộ</label><select id="i-type"><option>Chọn loại căn hộ</option><option>Studio</option><option>1PN</option><option>1PN+</option><option>2PN</option><option>2PN+</option><option>3PN</option></select></div>
+      <div class="fg"><label>Hình ảnh căn hộ</label><div class="drop">Kéo thả hoặc chọn ảnh<br><span style="font-size:.76rem">Tối đa 10 ảnh</span></div></div>
+      <button class="submit" data-form>Gửi thông tin</button>
+      <div class="perks">
+        <div><div class="pi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg></div>Miễn phí đăng tin</div>
+        <div><div class="pi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 5h4l2 5-3 2a13 13 0 006 6l2-3 5 2v4a2 2 0 01-2 2A18 18 0 013 7a2 2 0 012-2z"/></svg></div>Số điện thoại không hiển thị công khai</div>
+        <div><div class="pi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="9" cy="8" r="3"/><path d="M3 20a6 6 0 0112 0M16 11a3 3 0 100-6"/></svg></div>Có sẵn khách đang tìm</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="foot">
+      <div>
+        <h3>timthuesmartcity.com</h3>
+        <p>Môi giới cá nhân chuyên cho thuê căn hộ tại Vinhomes Smart City, Tây Mỗ, Nam Từ Liêm, Hà Nội. Không phải đại diện chính thức của Vinhomes.</p>
+      </div>
+      <div><h3>Phân khu</h3><ul><li><a href="#">Sapphire</a></li><li><a href="#">Masteri</a></li><li><a href="#">Lumiere</a></li><li><a href="#">Sola Park</a></li></ul></div>
+      <div><h3>Loại căn</h3><ul><li><a href="#">Studio</a></li><li><a href="#">1 phòng ngủ</a></li><li><a href="#">2 phòng ngủ</a></li><li><a href="#">3 phòng ngủ</a></li></ul></div>
+    </div>
+    <p class="dis">Bản demo giao diện — số Zalo, ảnh thật và endpoint form ký gửi cần nối trước khi đưa lên production.</p>
+  </div>
+</footer>
+
+<a class="bubble" href="#" data-zalo aria-label="Nhắn Zalo"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 3C6.9 3 2.8 6.4 2.8 10.6c0 2.4 1.3 4.5 3.4 5.9-.1.6-.5 2-.6 2.3-.1.4.2.4.4.3.2-.1 2.4-1.6 3.4-2.2.8.1 1.7.2 2.6.2 5.1 0 9.2-3.4 9.2-7.5S17.1 3 12 3z"/></svg></a>
+
+<div class="mbar">
+  <a class="m1" href="tel:+84000000000">Gọi</a>
+  <a class="m2" href="#" data-zalo><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 3C6.9 3 2.8 6.4 2.8 10.6c0 2.4 1.3 4.5 3.4 5.9-.1.6-.5 2-.6 2.3-.1.4.2.4.4.3.2-.1 2.4-1.6 3.4-2.2.8.1 1.7.2 2.6.2 5.1 0 9.2-3.4 9.2-7.5S17.1 3 12 3z"/></svg>Nhắn Zalo xem căn</a>
+</div>
+
+<script>
+/* ===== DỮ LIỆU MẪU — thay bằng data.json thật =====
+   Mọi con số trên trang (số căn trống, giá thấp nhất, số phân khu,
+   số căn theo từng loại) đều TÍNH TỪ mảng này. Không viết cứng số nào. */
+const DEMO = [
+ {code:"S301",   zone:"Sapphire",  type:"Studio", price:6.7,  area:32, fur:"Đủ đồ",   pics:8,  hrs:2,  now:true,  v:""},
+ {code:"S205",   zone:"Sapphire",  type:"1PN+",   price:7.8,  area:43, fur:"Đủ đồ",   pics:12, hrs:1,  now:true,  v:"v1"},
+ {code:"M1207",  zone:"Miami",     type:"2PN",    price:9.5,  area:54, fur:"Đủ đồ",   pics:10, hrs:3,  now:false, v:"v2"},
+ {code:"A2603",  zone:"Masteri",   type:"2PN+",   price:11.0, area:63, fur:"Cao cấp", pics:7,  hrs:2,  now:true,  v:"v3"},
+ {code:"SA1104", zone:"Sakura",    type:"2PN",    price:9.8,  area:57, fur:"Cơ bản",  pics:9,  hrs:8,  now:false, v:"v2"},
+ {code:"IP1907", zone:"Imperia",   type:"3PN",    price:14.5, area:78, fur:"Đủ đồ",   pics:22, hrs:3,  now:true,  v:""},
+ {code:"G0512",  zone:"Sola Park", type:"1PN",    price:7.5,  area:38, fur:"Đủ đồ",   pics:12, hrs:6,  now:true,  v:"v1"},
+ {code:"A2803",  zone:"Lumiere",   type:"2PN+",   price:13.0, area:68, fur:"Cao cấp", pics:20, hrs:2,  now:true,  v:"v3"},
+ {code:"TK0909", zone:"Tonkin",    type:"1PN+",   price:9.5,  area:47, fur:"Đủ đồ",   pics:13, hrs:12, now:false, v:"v2"},
+ {code:"TC1215", zone:"Canopy",    type:"Studio", price:7.0,  area:32, fur:"Đủ đồ",   pics:10, hrs:7,  now:true,  v:"v1"},
+ {code:"S2011",  zone:"Sapphire",  type:"3PN",    price:13.5, area:76, fur:"Đủ đồ",   pics:19, hrs:9,  now:true,  v:""},
+ {code:"MC0704", zone:"Masteri",   type:"1PN",    price:9.0,  area:43, fur:"Cao cấp", pics:15, hrs:5,  now:true,  v:"v3"}
+];
+
+const ZONES = ["Sapphire","Miami","Sakura","Imperia","Sola Park","Lumiere","Masteri","Tonkin","Canopy"];
+const TYPES = ["Studio","1PN","1PN+","2PN","2PN+","3PN"];
+const FURS  = ["Cơ bản","Đủ đồ","Cao cấp"];
+const BANDS = [["0-7","Dưới 7 triệu"],["7-10","7 – 10 triệu"],["10-13","10 – 13 triệu"],["13-99","Trên 13 triệu"]];
+
+const $ = id => document.getElementById(id);
+const money = v => v.toFixed(1).replace(".0","").replace(".",",");
+const fill = (el,first,items) => el.innerHTML = `<option value="">${first}</option>` +
+  items.map(i => Array.isArray(i) ? `<option value="${i[0]}">${i[1]}</option>` : `<option>${i}</option>`).join("");
+
+fill($("f-type"),"Tất cả loại căn",TYPES);
+fill($("f-zone"),"Tất cả phân khu",ZONES);
+fill($("f-price"),"Tất cả mức giá",BANDS);
+fill($("f-fur"),"Tất cả nội thất",FURS);
+
+/* số liệu hero — đếm động */
+$("s-count").textContent = DEMO.length;
+$("s-min").textContent   = money(Math.min(...DEMO.map(a=>a.price)))+" triệu";
+$("s-zone").textContent  = new Set(DEMO.map(a=>a.zone)).size;
+$("all-n").textContent   = DEMO.length;
+
+/* hub loại căn — đếm động, gộp 1PN với 1PN+ và 2PN với 2PN+ */
+const bedIcon = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 18v-7a2 2 0 012-2h14a2 2 0 012 2v7M3 14h18M6 9V7a1 1 0 011-1h3a1 1 0 011 1v2M13 9V7a1 1 0 011-1h3a1 1 0 011 1v2"/></svg>';
+const HUB = [
+  {nm:"Studio",        types:["Studio"]},
+  {nm:"1 Phòng ngủ",   types:["1PN","1PN+"]},
+  {nm:"2 Phòng ngủ",   types:["2PN","2PN+"]},
+  {nm:"3 Phòng ngủ",   types:["3PN"]}
+];
+$("hub").innerHTML = HUB.map(h=>{
+  const n = DEMO.filter(a=>h.types.includes(a.type)).length;
+  return `<a href="#" data-hub="${h.types.join('|')}">
+    <div class="ic">${bedIcon}</div>
+    <div class="nm">${h.nm}</div>
+    <div class="ct">${n} căn đang trống</div>
+  </a>`;
+}).join("");
+
+const zsvg = '<svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 3C6.9 3 2.8 6.4 2.8 10.6c0 2.4 1.3 4.5 3.4 5.9-.1.6-.5 2-.6 2.3-.1.4.2.4.4.3.2-.1 2.4-1.6 3.4-2.2.8.1 1.7.2 2.6.2 5.1 0 9.2-3.4 9.2-7.5S17.1 3 12 3z"/></svg>';
+const pin  = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 21s-7-5.6-7-11a7 7 0 1114 0c0 5.4-7 11-7 11z"/><circle cx="12" cy="10" r="2.5"/></svg>';
+
+function card(a){
+  return `<article class="card">
+    <div class="ph-img ${a.v}">
+      <i>VỊ TRÍ ẢNH THẬT · 4:3</i>
+      <div class="bd">
+        ${a.now?'<span class="b now">Ở ngay</span>':''}
+        ${a.fur!=="Cơ bản"?'<span class="b full">Full nội thất</span>':''}
+      </div>
+      <span class="pcount">${a.pics} ảnh</span>
+    </div>
+    <div class="cb">
+      <p class="tt">${a.type} <span>•</span> ${a.area}m²</p>
+      <p class="pr">${money(a.price)} triệu<small> /tháng</small></p>
+      <p class="loc">${pin}${a.zone} • ${a.code}</p>
+      <p class="upd"><i></i>Cập nhật ${a.hrs} giờ trước</p>
+      <button class="cz" data-zalo>${zsvg}Nhắn Zalo</button>
+    </div>
+  </article>`;
+}
+
+function render(){
+  const t=$("f-type").value, z=$("f-zone").value, p=$("f-price").value, f=$("f-fur").value;
+  const list = DEMO.filter(a=>{
+    if(t && a.type!==t) return false;
+    if(z && a.zone!==z) return false;
+    if(f && a.fur!==f)  return false;
+    if(p){const[lo,hi]=p.split("-").map(Number); if(a.price<lo||a.price>=hi) return false;}
+    return true;
+  });
+  $("all-n").textContent = list.length;
+  $("grid").innerHTML = list.length ? list.map(card).join("")
+    : `<div class="empty"><b>Chưa có căn khớp bộ lọc này</b>Quỹ căn thay đổi hằng ngày — nhắn Zalo để em kiểm tra căn sắp trống.</div>`;
+}
+
+["f-type","f-zone","f-price","f-fur"].forEach(id=>$(id).addEventListener("change",render));
+$("btn-find").addEventListener("click",()=>{render();$("quy-can").scrollIntoView({behavior:"smooth"})});
+$("btn-clear").addEventListener("click",()=>{["f-type","f-zone","f-price","f-fur"].forEach(id=>$(id).value="");render()});
+$("hub").addEventListener("click",e=>{
+  const a=e.target.closest("[data-hub]"); if(!a)return; e.preventDefault();
+  const types=a.dataset.hub.split("|");
+  $("f-type").value = types[0];
+  render(); $("quy-can").scrollIntoView({behavior:"smooth"});
+});
+document.addEventListener("click",e=>{
+  if(e.target.closest("[data-zalo]")){e.preventDefault();alert("Demo: nút này sẽ mở https://zalo.me/<số Zalo của Anh>");}
+  if(e.target.closest("[data-form]")){e.preventDefault();alert("Demo: form này sẽ gửi về Apps Script → tab \"Chủ nhà gửi căn\".");}
+});
+render();
+</script>
+</body>
+</html>
