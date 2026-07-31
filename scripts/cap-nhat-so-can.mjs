@@ -3,17 +3,19 @@
  * cap-nhat-so-can.mjs — Cập nhật số căn và tháng trong thẻ SEO tĩnh
  * timthuesmartcity.com
  *
- * Vì sao cần script này: số căn nằm trong <title> / og:title, còn tháng nằm
- * trong <title> / og:title / <h1> của trang chủ. dong-bo-can.js chạy trong
- * trình duyệt nên sửa được nội dung trong <body>, nhưng KHÔNG sửa được thẻ
- * mà Google đọc lúc crawl. Hai loại số này vì thế lệch dần theo thời gian.
+ * Vì sao cần script này: số căn nằm trong <title> / og:title / meta
+ * description, còn tháng nằm trong <title> / og:title / <h1> của trang chủ.
+ * dong-bo-can.js chạy trong trình duyệt nên sửa được nội dung trong <body>,
+ * nhưng KHÔNG sửa được thẻ mà Google đọc lúc crawl. Hai loại số này vì thế
+ * lệch dần theo thời gian.
  *
  * Script chạy trong GitHub Actions, sửa trực tiếp file HTML trong repo.
  *
  * NGUYÊN TẮC:
  *   - Logic đếm căn phải GIỐNG HỆT dong-bo-can.js. Mọi thay đổi bộ lọc ở đó
  *     phải được đồng bộ sang đây, nếu không title sẽ hứa khác lưới căn.
- *   - Chỉ thay con số và tháng, giữ nguyên 100% phần chữ của tiêu đề.
+ *   - Chỉ thay con số và ngày/tháng, giữ nguyên 100% phần chữ của tiêu đề
+ *     và của description.
  *   - Danh sách trang cần sửa được QUÉT từ repo (trang nào khai báo
  *     #bo-loc-trang thì là trang danh mục), không viết cứng.
  *   - Số căn về 0 -> giữ nguyên title cũ và ghi cảnh báo. Gần như chắc chắn
@@ -127,6 +129,62 @@ function thaySoCan(doan, soMoi) {
   return { doan: moi, doiRoi: moi !== doan };
 }
 
+/* --- Description ---
+ * Description có hai con số trôi theo thời gian: số căn ("Danh sách 33 căn…")
+ * và ngày ("cập nhật 24/07/2026"). Trước đây script không đụng tới nên
+ * description lệch hẳn so với <title> — ví dụ title ghi 16 căn còn
+ * description ghi 12 căn.
+ *
+ * Hai regex dưới đây neo vào đúng cụm chữ đứng ngay trước con số, nên chỉ
+ * con số và ngày bị thay, còn lại giữ nguyên từng ký tự.
+ *
+ * Chữ "cập nhật" trong repo có cả hai kiểu viết hoa/thường (8 chỗ viết
+ * thường, 3 chỗ viết hoa ở <meta name="description">; 15/10 ở og:description).
+ * Regex bắt cả hai và trả lại đúng cụm đã khớp, không tự chuẩn hoá kiểu viết.
+ */
+const RE_DESC_SO_CAN = /(Danh sách\s+)\d+(\s+căn)/;
+const RE_DESC_NGAY = /([Cc]ập nhật\s+)\d{2}\/\d{2}\/\d{4}/;
+
+/* Google cắt description quanh mốc này. Vượt thì ghi cảnh báo để rà tay,
+   không tự cắt chữ — cắt máy móc dễ đứt câu giữa chừng. */
+const DAI_TOI_DA_DESC = 165;
+
+function thayTrongDescription(doan, soMoi, ngayMoi, ten, nhan, canhBao) {
+  let moi = doan;
+  let khop = false;
+
+  if (RE_DESC_SO_CAN.test(moi)) {
+    moi = moi.replace(RE_DESC_SO_CAN, (_, truoc, sau) => truoc + soMoi + sau);
+    khop = true;
+  } else {
+    canhBao.push(`${ten} ${nhan}: không khớp mẫu "Danh sách N căn" — GIỮ NGUYÊN số căn.`);
+  }
+
+  if (RE_DESC_NGAY.test(moi)) {
+    moi = moi.replace(RE_DESC_NGAY, (_, truoc) => truoc + ngayMoi);
+    khop = true;
+  } else if (/[Cc]ập nhật/.test(moi)) {
+    /* Có chữ "cập nhật" nhưng ngày viết theo kiểu khác — đây mới là bất
+       thường đáng báo. */
+    canhBao.push(`${ten} ${nhan}: có chữ "cập nhật" nhưng không khớp mẫu DD/MM/YYYY — GIỮ NGUYÊN ngày.`);
+  }
+  /* Description không nhắc tới ngày thì không có gì để đồng bộ — im lặng.
+     14/25 trang đang như vậy, cảnh báo ở đây chỉ làm trôi cảnh báo thật. */
+
+  if (!khop) return { doan, doiRoi: false };
+  if (moi.length > DAI_TOI_DA_DESC) {
+    canhBao.push(`${ten} ${nhan}: dài ${moi.length} ký tự (> ${DAI_TOI_DA_DESC}) — nên rà tay.`);
+  }
+  return { doan: moi, doiRoi: moi !== doan };
+}
+
+/* Ngày hôm nay theo giờ Việt Nam, dạng DD/MM/YYYY. */
+function ngayVietNam() {
+  const gio = new Date(Date.now() + 7 * 60 * 60 * 1000);
+  const hai = (n) => String(n).padStart(2, "0");
+  return `${hai(gio.getUTCDate())}/${hai(gio.getUTCMonth() + 1)}/${gio.getUTCFullYear()}`;
+}
+
 /* Áp một hàm biến đổi lên đúng một vùng khớp regex, chừa nguyên phần bọc ngoài */
 function suaVung(html, re, bienDoi) {
   const m = html.match(re);
@@ -140,8 +198,9 @@ function suaVung(html, re, bienDoi) {
   };
 }
 
-function capNhatTrangDanhMuc(duong, html, soCan, log) {
+function capNhatTrangDanhMuc(duong, html, soCan, log, canhBao) {
   const ten = relative(GOC, duong);
+  const ngay = ngayVietNam();
   let doi = false;
 
   /* Thứ tự: <title>, og:title, rồi <h1>. Trang danh mục hiện không để số căn
@@ -156,6 +215,25 @@ function capNhatTrangDanhMuc(duong, html, soCan, log) {
       html = kq.html;
       doi = true;
       log.push(`  ${ten}  ${nhan} -> ${soCan} căn`);
+    }
+  }
+
+  /* Description: số căn + ngày. Regex nào không khớp thì phần đó giữ nguyên
+     và ghi cảnh báo — không throw, không làm hỏng cả lượt chạy. */
+  for (const [nhan, re] of [
+    ["description", reMeta("name", "description")],
+    ["og:description", reMeta("property", "og:description")],
+  ]) {
+    if (!re.test(html)) {
+      canhBao.push(`${ten}: không có thẻ ${nhan} — bỏ qua.`);
+      continue;
+    }
+    const kq = suaVung(html, re, (d) =>
+      thayTrongDescription(d, soCan, ngay, ten, nhan, canhBao));
+    if (kq.doiRoi) {
+      html = kq.html;
+      doi = true;
+      log.push(`  ${ten}  ${nhan} -> ${soCan} căn, ${ngay}`);
     }
   }
   return { html, doi };
@@ -249,7 +327,7 @@ function main() {
       continue;
     }
 
-    const kq = capNhatTrangDanhMuc(duong, html, soCan, nhatKy);
+    const kq = capNhatTrangDanhMuc(duong, html, soCan, nhatKy, canhBao);
     if (kq.doi) {
       if (!CHI_THU) writeFileSync(duong, kq.html, "utf8");
       daSua.push(ten);
