@@ -605,7 +605,22 @@ details p{font-size:.88rem;color:var(--gray);padding:0 0 14px;margin:0}
 .price-table td strong,.bang td strong,.bang-gia td strong{
   font-family:var(--font-tieu-de);font-weight:800;color:var(--navy-2);
 }
-.bang-cuon{overflow-x:auto;-webkit-overflow-scrolling:touch}
+.bang-cuon{overflow-x:auto;-webkit-overflow-scrolling:touch;margin:0 0 16px}
+/* Bảng giá đủ rộng để đọc được rồi mới cuộn, thay vì bóp cột đến mức dính chữ */
+.bang-cuon .bang-gia{min-width:620px;margin:0}
+/* Ô bảng giá gồm hai phần: khoảng giá và dòng chú thích. Phải tách dòng, nếu
+   không "6 – 7,5 tr" dính liền "Trung vị: 6,5 · n=70". */
+.bang-gia .phu,.bang-gia .thieu-du-lieu,.bang-gia th .phu{
+  display:block;font-size:.75rem;color:var(--gray-lt);font-weight:400;margin-top:2px;
+}
+.bang-gia .thieu-du-lieu{background:none;border:0;padding:0;font-style:italic}
+.bang-gia th{vertical-align:top}
+/* Số căn của phân khu nằm trong <small> ngay sau tên — phải xuống dòng, nếu
+   không hai phần dính liền thành "SAPPHIRE70 CĂN". */
+.bang-gia th small{
+  display:block;text-transform:none;letter-spacing:0;
+  font-size:.72rem;font-weight:400;color:var(--gray-lt);margin-top:2px;
+}
 
 /* Hàng chip liên kết cuối trang */
 .lq,.chips-lq,.cta-buttons,.cta-hang{display:flex;gap:9px;flex-wrap:wrap;margin:12px 0 24px}
@@ -682,10 +697,15 @@ details p{font-size:.88rem;color:var(--gray);padding:0 0 14px;margin:0}
 .article-tag,.cap-nhat,.meta,.soon,.tieu-de{font-size:.8rem;color:var(--gray-lt)}
 .toc ul,.bullets{margin:0;padding-left:20px}
 .toc li,.bullets li{margin-bottom:7px;font-size:.9rem;color:var(--gray)}
+/* height:auto là BẮT BUỘC ở mọi khung dùng aspect-ratio.
+   Ảnh trong bài có sẵn thuộc tính height="600" trên thẻ <img>; đó là một khai
+   báo CSS thật (presentational hint), nên nếu tác giả không ghi đè height thì
+   aspect-ratio bị vô hiệu và ảnh kéo cao 600px. */
 .img-slot,.gallery img,.lead-img{border-radius:var(--r);overflow:hidden;display:block}
 .gallery{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:14px;margin:0 0 22px}
-.gallery img{width:100%;aspect-ratio:4/3;object-fit:cover}
-.lead-img{width:100%;aspect-ratio:16/9;object-fit:cover;margin:0 0 20px}
+.gallery img{width:100%;height:auto;aspect-ratio:4/3;object-fit:cover}
+.lead-img{width:100%;height:auto;aspect-ratio:16/9;object-fit:cover;margin:0 0 20px}
+.img-slot{width:100%;height:auto;aspect-ratio:16/9;object-fit:cover}
 
 /* ==================================================================
    9. FOOTER — nền trắng, viền trên
@@ -860,7 +880,7 @@ footer h3,.site-footer h3{
 }
 .luoi-anh{display:grid;grid-template-columns:repeat(auto-fill,minmax(96px,1fr));gap:9px;margin-top:12px}
 .o-anh{position:relative;border-radius:var(--r-sm);overflow:hidden;background:var(--bg)}
-.o-anh img{width:100%;aspect-ratio:1/1;object-fit:cover;display:block}
+.o-anh img{width:100%;height:auto;aspect-ratio:1/1;object-fit:cover;display:block}
 /* Nhãn định dạng ảnh nằm đè đáy ô xem trước — KHÔNG phải dải hero. */
 .o-anh .bia{
   position:absolute;left:0;right:0;bottom:0;
@@ -942,7 +962,7 @@ details.faq{border-bottom:1px solid var(--line)}
 /* Bài cẩm nang / so sánh phân khu */
 .articles-title{margin:34px 0 4px}
 figure.single{margin:0 0 20px}
-figure.single img{width:100%;aspect-ratio:16/9;object-fit:cover;border-radius:var(--r);display:block}
+figure.single img{width:100%;height:auto;aspect-ratio:16/9;object-fit:cover;border-radius:var(--r);display:block}
 figure figcaption{font-size:.8rem;color:var(--gray-lt);margin-top:7px;text-align:center}
 .highlight{
   background:var(--green-lt);border-left:3px solid var(--green);
@@ -995,8 +1015,10 @@ figure figcaption{font-size:.8rem;color:var(--gray-lt);margin-top:7px;text-align
   body{font-size:15px}
   .topbar .shell,.top .khung{flex-wrap:wrap;padding-top:10px;padding-bottom:10px;gap:10px}
   .brand small,.hieu small{display:none}
-  /* Bảng nhiều cột: cho cuộn ngang trong lòng nó thay vì đẩy tràn cả trang */
-  .price-table,.bang,.bang-gia{display:block;overflow-x:auto;white-space:nowrap}
+  /* Bảng nhiều cột chưa có khung cuộn riêng: cho cuộn ngang trong lòng nó
+     thay vì đẩy tràn cả trang. KHÔNG áp cho .bang-gia — bảng đó đã nằm sẵn
+     trong .bang-cuon, thêm lần nữa sẽ làm hỏng bố cục ô. */
+  .price-table,.bang{display:block;overflow-x:auto;white-space:nowrap}
   .shell,.khung,.wrap{padding:0 14px}
   .grid,.luoi{grid-template-columns:1fr}
   .hero{padding:36px 0 32px}
