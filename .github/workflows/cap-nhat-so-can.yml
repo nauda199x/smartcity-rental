@@ -1,8 +1,9 @@
 name: Cập nhật số căn và tháng trong thẻ SEO
 
-# Số căn nằm trong <title>/og:title và tháng nằm trong thẻ SEO của trang chủ.
-# dong-bo-can.js chạy trong trình duyệt nên không sửa được những chỗ đó, dẫn
-# tới việc Google hiển thị con số cũ. Workflow này sửa thẳng vào file HTML.
+# Số căn nằm trong <title>/og:title/meta description và tháng nằm trong thẻ
+# SEO của trang chủ. dong-bo-can.js chạy trong trình duyệt nên không sửa được
+# những chỗ đó, dẫn tới việc Google hiển thị con số cũ. Workflow này sửa
+# thẳng vào file HTML, rồi cập nhật <lastmod> trong sitemap.xml cho khớp.
 
 on:
   schedule:
@@ -29,6 +30,11 @@ jobs:
     steps:
       - name: Lấy code
         uses: actions/checkout@v4
+        with:
+          # cap-nhat-sitemap.mjs hỏi git ngày commit gần nhất của data.json và
+          # của từng file bài viết. Checkout nông (mặc định fetch-depth: 1) chỉ
+          # có một commit nên mọi file sẽ trả về cùng một ngày.
+          fetch-depth: 0
 
       - name: Chuẩn bị Node
         uses: actions/setup-node@v4
@@ -42,6 +48,12 @@ jobs:
           node scripts/cap-nhat-so-can.mjs ${{ inputs.chi_thu && '--thu' || '' }} \
             2>&1 | tee ket-qua.txt
 
+      - name: Cập nhật lastmod trong sitemap.xml
+        run: |
+          set -o pipefail
+          node scripts/cap-nhat-sitemap.mjs ${{ inputs.chi_thu && '--thu' || '' }} \
+            2>&1 | tee -a ket-qua.txt
+
       - name: Ghi kết quả vào phần tóm tắt của lần chạy
         if: always()
         run: |
@@ -54,11 +66,12 @@ jobs:
             echo
             echo "### Thẻ SEO sau khi sửa"
             echo
-            echo '| Trang | `<title>` |'
-            echo '| --- | --- |'
+            echo '| Trang | `<title>` | `meta description` |'
+            echo '| --- | --- | --- |'
             for f in $(grep -rl 'bo-loc-trang' --include='*.html' . | sort); do
               t=$(sed -n 's:.*<title>\(.*\)</title>.*:\1:p' "$f" | head -1)
-              echo "| ${f#./} | ${t} |"
+              d=$(sed -n 's:.*<meta name="description" content="\([^"]*\)".*:\1:p' "$f" | head -1)
+              echo "| ${f#./} | ${t} | ${d} |"
             done
             echo
             echo '**Trang chủ:** '"$(sed -n 's:.*<title>\(.*\)</title>.*:\1:p' index.html | head -1)"
@@ -82,13 +95,13 @@ jobs:
           # lớp chặn ở đây cho chắc.
           git checkout -- data.json || true
 
-          if git diff --quiet -- '*.html'; then
+          if git diff --quiet -- '*.html' sitemap.xml; then
             echo "Không có gì thay đổi — bỏ qua commit, không tạo commit rác."
             exit 0
           fi
 
-          git add -- '*.html'
-          git commit -m "Tự động cập nhật số căn và tháng trong thẻ SEO"
+          git add -- '*.html' sitemap.xml
+          git commit -m "Tự động cập nhật số căn, tháng trong thẻ SEO và lastmod sitemap"
 
           # Apps Script có thể vừa push data.json lên trong lúc job đang chạy,
           # nên rebase trước khi push. Thử lại vài lần nếu mạng/đụng độ.
