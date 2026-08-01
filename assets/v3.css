@@ -1209,26 +1209,26 @@ figure figcaption{font-size:.8rem;color:var(--gray-lt);margin-top:7px;text-align
      quyết định chiều cao thẻ. Ảnh lấy từ Drive tỉ lệ không đều (cái dọc,
      cái ngang), thả tự do là mỗi thẻ một chiều cao và sinh ra mảng trắng
      bên phần chữ. Đây đúng là điều dòng ghi chú đầu file đã cảnh báo. */
-  .card,.the{height:154px}
+  .card,.the{height:190px}
   .media,.the-anh{
-    width:40%;flex:none;aspect-ratio:auto;align-self:stretch;
+    width:46%;flex:none;aspect-ratio:auto;align-self:stretch;
     height:100%;min-height:0;border-radius:0;
   }
   /* Có chiều cao cha xác định rồi thì height:100% mới phân giải được;
      thiếu dòng này ảnh vẫn rơi về kích thước gốc. */
   .media img,.the-anh img{height:100%;width:100%;object-fit:cover}
-  .card .body,.the .than{padding:10px 11px 11px;gap:5px;min-width:0}
+  .card .body,.the .than{padding:10px 12px;gap:7px;min-width:0;justify-content:center}
 
   /* Bản danh mục có sẵn luật order riêng (.the .ten, .the .gia…) nên các luật
      dưới đây phải viết kèm .card/.the mới đủ sức ghi đè, không được viết trần. */
-  .card .tower,.the .vi-tri{order:1;font-size:.72rem;color:var(--gray-lt)}
-  .card .body h3,.the .ten{order:2;font-size:.85rem;line-height:1.3}
+  .card .tower,.the .vi-tri{order:1;font-size:.7rem;color:var(--gray-lt)}
+  .card .body h3,.the .ten{order:2;font-size:.82rem;line-height:1.3}
   .card .card-chips,.the .card-chips{
     order:3;display:flex;align-items:center;gap:6px;flex-wrap:wrap;min-width:0;
   }
-  .card .price,.the .gia{order:4;font-size:1.16rem}
+  .card .price,.the .gia{order:4;font-size:1.06rem}
   .price small,.gia small{font-size:.72rem}
-  .card .card-foot,.the .zalo{order:5;margin-top:auto}
+  .card .card-foot,.the .zalo{order:5}
   /* Mã căn đã nằm trong hàng chip nên dòng riêng bên dưới là thừa */
   .card .ma-can,.the .ma-can{display:none}
 
@@ -1242,8 +1242,8 @@ figure figcaption{font-size:.8rem;color:var(--gray-lt);margin-top:7px;text-align
   .cc-nt.thuong{background:var(--bg);color:var(--gray)}
   .cc-ma{font-size:.66rem;color:var(--gray-lt);white-space:nowrap}
 
-  .ask,.zalo{padding:0 8px;min-height:34px;height:34px;font-size:.8rem;border-radius:8px}
-  .card-foot{padding-top:4px;gap:6px}
+  .ask,.zalo{padding:0 8px;min-height:30px;height:30px;font-size:.75rem;border-radius:8px}
+  .card-foot{padding-top:0;gap:6px}
 
   /* Ảnh chỉ còn hai huy hiệu, thu nhỏ cho vừa khung hẹp */
   .badge,.tinh-trang{left:7px;top:7px;font-size:.63rem;padding:3px 7px}
@@ -1306,8 +1306,8 @@ figure figcaption{font-size:.8rem;color:var(--gray-lt);margin-top:7px;text-align
 
 /* Màn hình rất hẹp: ảnh nhường thêm chỗ cho chữ, chữ không bị gãy dòng xấu */
 @media (max-width:360px){
-  .card,.the{height:148px}
-  .media,.the-anh{width:38%}
+  .card,.the{height:182px}
+  .media,.the-anh{width:45%}
   .cc-ma{display:none}
   .qt b{font-size:.78rem}
   .qt span{display:none}
