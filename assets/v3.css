@@ -1120,6 +1120,18 @@ figure figcaption{font-size:.8rem;color:var(--gray-lt);margin-top:7px;text-align
   /* ---- 16.0 Khung chung ------------------------------------------ */
   /* Chừa chỗ cho thanh tab, cộng thêm vùng an toàn dưới của iPhone */
   body{padding-bottom:calc(60px + env(safe-area-inset-bottom))}
+
+  /* Hero đang chiếm hơn nửa màn hình đầu tiên, đẩy thẻ căn xuống tận màn
+     hình thứ hai. Thu chữ lại và cắt đoạn mô tả còn 2 dòng — cắt bằng CSS
+     nên Google vẫn đọc đủ nội dung, chỉ người dùng thấy gọn hơn. */
+  .hero{padding:22px 0 20px}
+  .hero h1{font-size:1.32rem;line-height:1.22}
+  .hero p{
+    font-size:.85rem;margin-top:8px;
+    display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;
+  }
+  .stats{margin-top:16px}
+  .stat strong{font-size:1.5rem}
   footer,.site-footer,.chan,.foot-wrap{padding-bottom:24px}
 
   /* Đầu trang thôi dính: nhường trọn chiều cao màn hình cho danh sách căn.
@@ -1143,9 +1155,10 @@ figure figcaption{font-size:.8rem;color:var(--gray-lt);margin-top:7px;text-align
   }
   .chips-quick::-webkit-scrollbar{display:none}
   .chips-quick .chip{scroll-snap-align:start;padding:7px 14px;font-size:.84rem}
-  /* Trong dải này hiện tên ĐẦY ĐỦ, không dùng bản rút gọn */
-  .chips-quick .chip-full{display:inline}
-  .chips-quick .chip-short{display:none}
+  /* Dùng nhãn RÚT GỌN ("2 PN+" thay vì "2 phòng ngủ +"): nhãn dài chỉ nhét
+     được 2 chip trên một màn hình, nhãn ngắn hiện được 5 chip. */
+  .chips-quick .chip-full{display:none}
+  .chips-quick .chip-short{display:inline}
   .chips-quick .chip small{opacity:.6;margin-left:3px;font-size:.72rem}
   .chips-quick .chip[disabled]{opacity:.42}
 

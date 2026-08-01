@@ -1255,11 +1255,22 @@
       ganSuKien("#typeFilters", "type", "type");
       if ($("#quickTypeFilters")) {
         ganSuKien("#quickTypeFilters", "type", "type");
-        // Kéo chip đang chọn vào giữa tầm nhìn — khách lọc "3 Ngủ" (nằm cuối dải)
-        // rồi cuộn xem kết quả, quay lên vẫn thấy ngay mình đang ở chip nào.
-        const dangChon = $("#quickTypeFilters").querySelector(".chip.active");
-        if (dangChon && dangChon.scrollIntoView) {
-          dangChon.scrollIntoView({ block: "nearest", inline: "center" });
+        /* Kéo chip đang chọn vào giữa tầm nhìn.
+           KHÔNG dùng scrollIntoView: lệnh đó cuộn mọi khung cuộn cha, kể cả
+           cả trang, và khi chip đang chọn là "Tất cả" thì nó đẩy dải chip
+           chạy tới tận cuối, giấu mất Studio và 1 phòng ngủ.
+           Chỉ tự tay đặt scrollLeft của đúng dải chip, không đụng gì khác. */
+        const daiChip = $("#quickTypeFilters");
+        if (state.type === "all") {
+          daiChip.scrollLeft = 0;
+        } else {
+          const dangChon = daiChip.querySelector(".chip.active");
+          if (dangChon) {
+            daiChip.scrollLeft = Math.max(
+              0,
+              dangChon.offsetLeft - (daiChip.clientWidth - dangChon.offsetWidth) / 2
+            );
+          }
         }
       }
       const nutLoc = $("#qbFilter");
