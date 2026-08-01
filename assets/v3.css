@@ -1192,12 +1192,18 @@ figure figcaption{font-size:.8rem;color:var(--gray-lt);margin-top:7px;text-align
   .grid,.luoi{gap:12px}
   .card,.the{flex-direction:row;align-items:stretch}
 
-  /* Bỏ aspect-ratio 4/3 của bản cũ: ở dạng ngang, chiều cao do phần chữ
-     quyết định chứ không do ảnh. */
+  /* CHIỀU CAO THẺ LÀ CỐ ĐỊNH — ảnh phải giãn theo thẻ, không được để ảnh
+     quyết định chiều cao thẻ. Ảnh lấy từ Drive tỉ lệ không đều (cái dọc,
+     cái ngang), thả tự do là mỗi thẻ một chiều cao và sinh ra mảng trắng
+     bên phần chữ. Đây đúng là điều dòng ghi chú đầu file đã cảnh báo. */
+  .card,.the{height:154px}
   .media,.the-anh{
     width:40%;flex:none;aspect-ratio:auto;align-self:stretch;
-    min-height:150px;border-radius:0;
+    height:100%;min-height:0;border-radius:0;
   }
+  /* Có chiều cao cha xác định rồi thì height:100% mới phân giải được;
+     thiếu dòng này ảnh vẫn rơi về kích thước gốc. */
+  .media img,.the-anh img{height:100%;width:100%;object-fit:cover}
   .card .body,.the .than{padding:10px 11px 11px;gap:5px;min-width:0}
 
   /* Bản danh mục có sẵn luật order riêng (.the .ten, .the .gia…) nên các luật
@@ -1223,7 +1229,7 @@ figure figcaption{font-size:.8rem;color:var(--gray-lt);margin-top:7px;text-align
   .cc-nt.thuong{background:var(--bg);color:var(--gray)}
   .cc-ma{font-size:.66rem;color:var(--gray-lt);white-space:nowrap}
 
-  .ask,.zalo{padding:8px;min-height:36px;font-size:.8rem;border-radius:8px}
+  .ask,.zalo{padding:0 8px;min-height:34px;height:34px;font-size:.8rem;border-radius:8px}
   .card-foot{padding-top:4px;gap:6px}
 
   /* Ảnh chỉ còn hai huy hiệu, thu nhỏ cho vừa khung hẹp */
@@ -1287,7 +1293,8 @@ figure figcaption{font-size:.8rem;color:var(--gray-lt);margin-top:7px;text-align
 
 /* Màn hình rất hẹp: ảnh nhường thêm chỗ cho chữ, chữ không bị gãy dòng xấu */
 @media (max-width:360px){
-  .media,.the-anh{width:37%;min-height:148px}
+  .card,.the{height:148px}
+  .media,.the-anh{width:38%}
   .cc-ma{display:none}
   .qt b{font-size:.78rem}
   .qt span{display:none}
