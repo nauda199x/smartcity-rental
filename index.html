@@ -202,6 +202,26 @@
     <span class="arrow" aria-hidden="true">→</span>
   </button>
 
+  <!-- DẢI LỌC NHANH (thêm 01/08/2026) — CHỈ hiện trên điện thoại.
+       Trước đây toàn bộ bộ lọc bị giấu sau một nút, khách phải bấm mới lọc được.
+       Dải này dùng CHUNG state và CHUNG hàm đếm với bảng lọc cũ, không có
+       logic lọc riêng — bấm ở đây hay bấm trong bảng lọc đều ra một kết quả. -->
+  <div class="quick-bar" id="quickBar">
+    <div class="shell quick-bar-in">
+      <button class="qb-btn" id="qbSearch" type="button" aria-label="Về ô tìm kiếm">
+        <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+          <path d="m21 21-4.35-4.35M10.5 18a7.5 7.5 0 1 1 0-15 7.5 7.5 0 0 1 0 15Z" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+        </svg>
+      </button>
+      <div class="chips chips-quick" id="quickTypeFilters"></div>
+      <button class="qb-btn qb-filter" id="qbFilter" type="button" aria-label="Mở bộ lọc đầy đủ">
+        <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+          <path d="M4 6h16M7 12h10M10 18h4" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+        </svg>
+      </button>
+    </div>
+  </div>
+
   <section class="hero hero-anh">
     <div class="shell hero-inner">
       <div>
@@ -211,6 +231,10 @@
       <div class="stats" aria-label="Tổng quan căn hộ">
         <div class="stat"><strong id="totalCount">--</strong><span>Tổng căn</span></div>
         <div class="stat"><strong id="readyCount">--</strong><span>Ở ngay</span></div>
+        <!-- Số phân khu ĐANG CÓ CĂN — JS đếm từ data.json, không ghi cứng.
+             Hôm nay là 8 (Sola Park và Victoria chưa có căn nào), nhưng có căn
+             là con số tự nhảy lên 9-10, không phải sửa tay. -->
+        <div class="stat"><strong id="phanKhuCount">--</strong><span>Phân khu</span></div>
       </div>
 
       <!-- ĐÃ CHUYỂN 23/07/2026: khối "Duyệt nhanh" trước đây nằm ngay đây, dưới ô thống kê.
@@ -222,6 +246,38 @@
   </section>
 
   <main class="shell">
+    <!-- BA Ô TRUY CẬP NHANH (thêm 01/08/2026) — chỉ hiện trên điện thoại.
+         Thay cho nút băng "Ấn vào đây để tìm căn hộ phù hợp" bên dưới: cùng mở
+         một bảng lọc, nhưng nhảy thẳng tới đúng nhóm khách muốn chọn.
+         Ô "Tiện ích" trong bản thiết kế đã BỎ theo yêu cầu — dữ liệu căn hộ
+         không có trường tiện ích nên không thể lọc, để lại sẽ gây hụt hẫng. -->
+    <div class="quick-tiles" id="quickTiles">
+      <button class="qt" type="button" data-nhom="phanKhuFilters">
+        <span class="qt-ic" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round">
+            <path d="M4 20V7l6-3v16M14 20V10l6 3v7"/><path d="M3 20h18" stroke-linecap="round"/>
+          </svg>
+        </span>
+        <b>Phân khu</b><span>Chọn tòa, khu</span>
+      </button>
+      <button class="qt" type="button" data-nhom="priceFilters">
+        <span class="qt-ic" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round">
+            <circle cx="12" cy="12" r="8.5"/><path d="M12 7.5v9M14.4 10c-.5-.9-1.4-1.3-2.4-1.3-1.3 0-2.3.7-2.3 1.8 0 2.4 4.8 1.2 4.8 3.6 0 1.1-1 1.9-2.5 1.9-1.1 0-2-.4-2.5-1.3"/>
+          </svg>
+        </span>
+        <b>Khoảng giá</b><span>Chọn mức giá</span>
+      </button>
+      <button class="qt" type="button" data-nhom="interiorFilters">
+        <span class="qt-ic" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round">
+            <path d="M3 18v-7a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2v7M3 14h18M6 9V7.5a1 1 0 0 1 1-1h3a1 1 0 0 1 1 1V9M13 9V7.5a1 1 0 0 1 1-1h3a1 1 0 0 1 1 1V9"/>
+          </svg>
+        </span>
+        <b>Nội thất</b><span>Chọn nội thất</span>
+      </button>
+    </div>
+
     <button class="mobile-filter-toggle" id="mobileFilterToggle" type="button" aria-label="Mở bộ lọc để tìm căn hộ phù hợp">
       <span class="mft-icon" aria-hidden="true">
         <svg width="19" height="19" viewBox="0 0 24 24" fill="none">
@@ -1169,9 +1225,14 @@
         .map(muc => veChip(muc, demTheoBoLoc("phanKhu", muc.key), "data-phankhu", state.phanKhu === muc.key))
         .join("");
 
-      $("#typeFilters").innerHTML = typeFilters
+      const chipLoaiCan = typeFilters
         .map(muc => veChip(muc, demTheoBoLoc("type", muc.key), "data-type", state.type === muc.key))
         .join("");
+      $("#typeFilters").innerHTML = chipLoaiCan;
+      // Dải lọc nhanh trên điện thoại dùng ĐÚNG bộ chip đó, không tự sinh danh sách
+      // riêng — nhãn và số đếm luôn khớp nhau, không có chuyện hai nơi lệch số.
+      const dai = $("#quickTypeFilters");
+      if (dai) dai.innerHTML = chipLoaiCan;
 
       $("#priceFilters").innerHTML = priceFilters
         .map(muc => veChip(muc, demTheoBoLoc("price", muc.key), "data-price", state.price === muc.key))
@@ -1192,6 +1253,17 @@
       };
       ganSuKien("#phanKhuFilters", "phankhu", "phanKhu");
       ganSuKien("#typeFilters", "type", "type");
+      if ($("#quickTypeFilters")) {
+        ganSuKien("#quickTypeFilters", "type", "type");
+        // Kéo chip đang chọn vào giữa tầm nhìn — khách lọc "3 Ngủ" (nằm cuối dải)
+        // rồi cuộn xem kết quả, quay lên vẫn thấy ngay mình đang ở chip nào.
+        const dangChon = $("#quickTypeFilters").querySelector(".chip.active");
+        if (dangChon && dangChon.scrollIntoView) {
+          dangChon.scrollIntoView({ block: "nearest", inline: "center" });
+        }
+      }
+      const nutLoc = $("#qbFilter");
+      if (nutLoc) nutLoc.classList.toggle("dang-loc", dangCoBoLoc());
       ganSuKien("#priceFilters", "price", "price");
       ganSuKien("#interiorFilters", "interior", "interior");
     }
@@ -1308,6 +1380,17 @@
       }
     }
 
+    /** Chip nội thất đặt TRONG thân thẻ — chỉ hiện ở bản điện thoại.
+     *  Bản máy tính vẫn dùng huy hiệu nằm trên ảnh như cũ (.badge-nt), nên
+     *  hai thứ này không bao giờ xuất hiện cùng lúc. Ở khung ảnh hẹp 40% của
+     *  bản điện thoại, chồng hai huy hiệu lên ảnh vừa che mất ảnh vừa rối. */
+    function chipNoiThatHtml(apartment) {
+      const noiThat = apartment.interior || "";
+      if (!noiThat) return "";
+      const la_full = normalizeKey(noiThat) === "full nội thất";
+      return `<span class="cc-nt${la_full ? "" : " thuong"}">${noiThat}</span>`;
+    }
+
     function renderCards(apartments) {
       const grid = $("#listingGrid");
       if (!apartments.length) {
@@ -1343,6 +1426,10 @@
               </svg>
               ${nhanToaHtml(apartment.tower)}
             </span>
+            <div class="card-chips">
+              ${chipNoiThatHtml(apartment)}
+              ${apartment.apartmentId ? `<span class="cc-ma">${apartment.apartmentId}</span>` : ""}
+            </div>
             <div class="card-foot">
               <a class="ask" href="${zaloLink(apartment)}" target="_blank" rel="noopener">
                 <svg width="14" height="14" viewBox="0 0 24 24" fill="none" aria-hidden="true">
@@ -1363,15 +1450,21 @@
 
     function openGallery(apartment) {
       const media = [...apartment.photos, ...apartment.videos];
+      if (!media.length) return;
+      /* Gallery toàn màn hình (assets/gallery.js). Modal cũ giữ nguyên bên dưới
+         làm phương án dự phòng: nếu file gallery không tải được thì khách vẫn
+         xem được ảnh chứ không bấm vào rồi không có gì xảy ra. */
+      if (typeof window.MoGallery === "function") {
+        window.MoGallery(media, 0);
+        return;
+      }
       $("#modalTitle").textContent = `${apartment.type} - ${apartment.tower}`;
-      $("#galleryContent").innerHTML = media.length
-        ? media.map(url => {
+      $("#galleryContent").innerHTML = media.map(url => {
           const isVideo = /\.(mp4|mov|m4v|webm)(\?|$)/i.test(url);
           return isVideo
             ? `<video src="${url}" controls playsinline></video>`
             : `<img src="${url}" alt="Hình ảnh căn hộ ${apartment.tower}" loading="lazy">`;
-        }).join("")
-        : `<div class="empty-state">Căn này chưa có album ảnh chi tiết.</div>`;
+        }).join("");
       $("#galleryModal").classList.add("open");
     }
 
@@ -1380,6 +1473,17 @@
       const ready = publicApartments.filter(item => sanSangONgay(item)).length;
       $("#totalCount").textContent = publicApartments.length;
       $("#readyCount").textContent = ready;
+      // Đếm số phân khu THỰC SỰ đang có căn. Căn nào không nhận diện được phân khu
+      // (mã tòa lạ) sẽ không được tính, tránh thổi phồng con số.
+      const oPhanKhu = $("#phanKhuCount");
+      if (oPhanKhu) {
+        const tapPhanKhu = new Set();
+        publicApartments.forEach(item => {
+          const ten = tenPhanKhu(item.tower);
+          if (ten) tapPhanKhu.add(ten);
+        });
+        oPhanKhu.textContent = tapPhanKhu.size;
+      }
     }
 
     /** Kiểm tra 1 mốc thời gian có rơi đúng vào NGÀY HÔM NAY (theo giờ máy khách) hay không */
@@ -1765,6 +1869,43 @@
       document.body.style.overflow = "";
     }
     $("#mobileFilterToggle").addEventListener("click", moBoLocMobile);
+
+    /* --- Lối vào bộ lọc của giao diện app (thêm 01/08/2026) ---------------
+       Tất cả đều gọi ĐÚNG hàm moBoLocMobile cũ, không mở bảng lọc kiểu khác.
+       Điểm thêm duy nhất: cuộn thẳng tới nhóm khách vừa bấm. */
+    function moBoLocTaiNhom(idNhom) {
+      moBoLocMobile();
+      if (!idNhom) return;
+      const nhom = $("#" + idNhom);
+      if (!nhom) return;
+      // Chờ một nhịp cho bảng lọc hiện xong rồi mới cuộn, nếu không trình duyệt
+      // tính sai vị trí vì lúc đó bảng vẫn đang display:none.
+      requestAnimationFrame(() => {
+        const khung = nhom.closest(".filter-group") || nhom;
+        khung.scrollIntoView({ block: "start", behavior: "smooth" });
+      });
+    }
+    const nutQbFilter = $("#qbFilter");
+    if (nutQbFilter) nutQbFilter.addEventListener("click", () => moBoLocTaiNhom(""));
+
+    const nutQbSearch = $("#qbSearch");
+    if (nutQbSearch) {
+      nutQbSearch.addEventListener("click", () => {
+        // Đầu trang không còn dính trên điện thoại, nên nút này đưa khách
+        // quay lại ô tìm rồi bật bàn phím luôn.
+        window.scrollTo({ top: 0, behavior: "smooth" });
+        const oTim = $("#searchInput");
+        if (oTim) setTimeout(() => oTim.focus(), 320);
+      });
+    }
+
+    const oQuickTiles = $("#quickTiles");
+    if (oQuickTiles) {
+      oQuickTiles.querySelectorAll("button[data-nhom]").forEach(nut => {
+        nut.addEventListener("click", () => moBoLocTaiNhom(nut.dataset.nhom));
+      });
+    }
+
     $("#closeFilters").addEventListener("click", dongBoLocMobile);
     $("#apDungFilters").addEventListener("click", dongBoLocMobile);
     $("#filtersBackdrop").addEventListener("click", dongBoLocMobile);
@@ -1802,7 +1943,9 @@
 
       /** Đoán xem nút vừa bấm nằm ở khu vực nào của trang, để biết chỗ nào hiệu quả nhất */
       function viTriCuaNut(el) {
-        if (el.closest(".card")) return "the_can_ho";
+        if (el.closest(".card") || el.closest(".the")) return "the_can_ho";
+        if (el.closest(".tabbar-sheet")) return "menu_thanh_tab";
+        if (el.closest(".tabbar")) return "thanh_tab_duoi";
         if (el.closest(".sticky-cta")) return "thanh_duoi_dien_thoai";
         if (el.closest(".floating-zalo")) return "nut_noi_goc_phai";
         if (el.closest(".topbar")) return "dau_trang";
@@ -1875,5 +2018,6 @@
       if (tw) tw.setAttribute("content", tieuDe);
     })();
   </script>
+  <script src="/assets/app-shell.js" defer></script>
 </body>
 </html>

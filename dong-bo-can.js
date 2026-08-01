@@ -379,6 +379,12 @@
 
   function dbcMo(media, tieuDe, gia, chiSoBatDau) {
     if (!media || !media.length) return;
+    /* Gallery toàn màn hình dùng chung (assets/gallery.js). Khung xem ảnh cũ
+       của riêng trang danh mục giữ nguyên bên dưới làm phương án dự phòng. */
+    if (typeof window.MoGallery === "function") {
+      window.MoGallery(media, chiSoBatDau || 0);
+      return;
+    }
     var d = dbcTaoKhung();
     dbcTrang.media = media;
     dbcTrang.tieuDe = tieuDe;
@@ -456,6 +462,12 @@
       '<div class="than">' +
         '<h3 class="ten">' + tenHtml + "</h3>" +
         '<p class="vi-tri">' + esc(viTri) + "</p>" +
+        '<div class="card-chips">' +
+          (noiThat
+            ? '<span class="cc-nt' + (khoa(noiThat) === "full nội thất" ? "" : " thuong") + '">' + esc(noiThat) + "</span>"
+            : "") +
+          (ma ? '<span class="cc-ma">' + esc(ma) + "</span>" : "") +
+        "</div>" +
         '<div class="chan-the">' +
           '<div class="gia">' + esc(dinhDangGia(soTien(r["Giá thuê"]))) + "<small>/tháng</small></div>" +
           '<a class="zalo" href="https://zalo.me/' + SDT + '" target="_blank" rel="noopener">Nhắn Zalo</a>' +
