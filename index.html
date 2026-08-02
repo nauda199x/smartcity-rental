@@ -198,9 +198,15 @@
     </div>
   </header>
 
+  <!-- BĂNG CHỮ CHẠY (đổi 02/08/2026) — cùng nội dung và cùng logic cũ, chỉ đổi
+       cách trình bày: nền cam chạy ngang thay cho dải xanh đứng yên.
+       Đoạn chữ THẬT là .ntb-doan đầu tiên (chứa #newTodayCount do JS bơm số vào);
+       các đoạn sau là bản sao aria-hidden do script ở cuối trang nhân ra cho vòng
+       lặp liền mạch — không có đoạn nào ghi cứng số căn. -->
   <button class="new-today-bar" id="newTodayBar" type="button">
-    <span>✨ Hôm nay cập nhật thêm <strong id="newTodayCount">0</strong> căn hộ mới toanh — bấm xem ngay kẻo lỡ</span>
-    <span class="arrow" aria-hidden="true">→</span>
+    <span class="ntb-chay" id="newTodayChay">
+      <span class="ntb-doan">✨ Hôm nay cập nhật thêm <strong id="newTodayCount">0</strong> căn hộ mới toanh — bấm xem ngay kẻo lỡ<span class="arrow" aria-hidden="true">→</span></span>
+    </span>
   </button>
 
   <!-- DẢI LỌC NHANH (thêm 01/08/2026) — CHỈ hiện trên điện thoại.
@@ -300,35 +306,6 @@
         </label>
         <button class="loc-pc-tim" id="locPcTim" type="button">Tìm căn</button>
         <button class="loc-pc-xoa" id="locPcXoa" type="button">Xóa bộ lọc</button>
-      </div>
-    </div>
-
-    <!-- BA TÍN HIỆU TIN CẬY (thêm 02/08/2026) — chữ tĩnh, không đọc dữ liệu,
-         không thêm request mạng: cả 3 icon đều là SVG viết thẳng trong trang. -->
-    <div class="tin-cay">
-      <div class="tin-cay-o">
-        <span class="tin-cay-ic" aria-hidden="true">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-            <rect x="3" y="4.5" width="18" height="16" rx="3"/><path d="M3 9.5h18M8 2.5v4M16 2.5v4M9 14l2 2 4-4"/>
-          </svg>
-        </span>
-        <div><b>Cập nhật mỗi ngày</b><span>Thông tin mới liên tục, chính xác từ thực tế</span></div>
-      </div>
-      <div class="tin-cay-o">
-        <span class="tin-cay-ic" aria-hidden="true">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-            <path d="M12 2.8 4.5 6v6c0 4.4 3.1 7.9 7.5 9.2 4.4-1.3 7.5-4.8 7.5-9.2V6z"/><path d="m8.8 12 2.2 2.2 4.2-4.4"/>
-          </svg>
-        </span>
-        <div><b>Tin thật – Giá thật</b><span>Cam kết thông tin minh bạch, rõ ràng</span></div>
-      </div>
-      <div class="tin-cay-o">
-        <span class="tin-cay-ic" aria-hidden="true">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-            <path d="M20.5 11.5a8.5 8.5 0 1 0-3.4 6.8l3.4.9-.9-3.3a8.4 8.4 0 0 0 .9-4.4z"/><path d="M8.5 11.5h.01M12 11.5h.01M15.5 11.5h.01"/>
-          </svg>
-        </span>
-        <div><b>Hỗ trợ nhanh</b><span>Tư vấn 7 ngày/tuần qua Zalo, nhiệt tình – nhanh chóng</span></div>
       </div>
     </div>
 
@@ -2211,6 +2188,67 @@
       }
 
       dungLaiTatCa();
+    })();
+  </script>
+  <script>
+    /* ================================================================
+       BĂNG CHỮ CHẠY "HÔM NAY THÊM N CĂN" (02/08/2026)
+       ----------------------------------------------------------------
+       KHÔNG đụng gì tới logic đếm căn: renderNewTodayBar() vẫn là nơi duy
+       nhất bơm số vào #newTodayCount và bật/tắt class .show. Khối này chỉ
+       lo phần nhìn — nhân bản đoạn chữ cho vòng lặp không hở khoảng trống.
+
+       Vì sao phải nhân bản bằng JS chứ không chép cứng 2 đoạn trong HTML:
+       ảnh động chạy từ 0 tới -50% bề ngang dải chữ, nên nửa dải phải rộng
+       hơn màn hình thì mới không lộ khoảng trống ở mép phải. Một đoạn chữ
+       rộng ~640px: màn 375px chỉ cần 2 đoạn, màn 1440px cần tới 6. Số đoạn
+       vì vậy phải tính theo bề ngang thật, và luôn là số CHẴN để mốc -50%
+       rơi đúng vào đầu một đoạn.
+       ================================================================ */
+    (function () {
+      var bang = document.getElementById("newTodayBar");
+      var chay = document.getElementById("newTodayChay");
+      if (!bang || !chay) return;
+      var goc = chay.querySelector(".ntb-doan");
+      if (!goc) return;
+
+      function nhanBan() {
+        // Xoá các bản sao cũ, giữ nguyên đoạn thật (đoạn đầu tiên).
+        while (chay.children.length > 1) chay.removeChild(chay.lastElementChild);
+
+        var rongDoan = goc.getBoundingClientRect().width;
+        var rongKhung = bang.getBoundingClientRect().width;
+        if (!rongDoan || !rongKhung) return;
+
+        // Cần: (số đoạn / 2) * rộng đoạn >= rộng khung  ->  số đoạn >= 2 * khung / đoạn
+        var soDoan = Math.ceil((2 * rongKhung) / rongDoan);
+        if (soDoan % 2) soDoan++;          // luôn chẵn
+        if (soDoan < 2) soDoan = 2;
+
+        for (var i = 1; i < soDoan; i++) {
+          var ban = goc.cloneNode(true);
+          // Bỏ mọi id trong bản sao để trang không có id trùng, và giấu khỏi
+          // trình đọc màn hình — chỉ đoạn thật mới được đọc.
+          ban.querySelectorAll("[id]").forEach(function (e) { e.removeAttribute("id"); });
+          ban.setAttribute("aria-hidden", "true");
+          chay.appendChild(ban);
+        }
+      }
+
+      /* Số căn do JS bơm vào sau khi đọc xong data.json -> chữ dài ra, phải
+         đếm lại số đoạn. Theo dõi luôn cả class .show vì lúc băng còn ẩn thì
+         đo bề ngang ra 0. */
+      var doi = new MutationObserver(function () { nhanBan(); });
+      doi.observe(document.getElementById("newTodayCount"), { childList: true, characterData: true, subtree: true });
+      doi.observe(bang, { attributes: true, attributeFilter: ["class"] });
+
+      var hen;
+      window.addEventListener("resize", function () {
+        clearTimeout(hen);
+        hen = setTimeout(nhanBan, 200);
+      });
+
+      nhanBan();
     })();
   </script>
   <script src="/assets/gallery.js" defer></script>
