@@ -1317,3 +1317,110 @@ figure figcaption{font-size:.8rem;color:var(--gray-lt);margin-top:7px;text-align
 @media print{
   .quick-bar,.quick-tiles,.tabbar,.tabbar-sheet,.tabbar-backdrop{display:none!important}
 }
+
+/* ==================================================================
+   17. GIAO DIỆN MÁY TÍNH V3  (bổ sung 02/08/2026)
+   ------------------------------------------------------------------
+   Khối này CHỈ ghi đè, không xoá luật cũ. Gỡ nguyên khối là bố cục máy
+   tính quay lại y như trước ngày 02/08.
+
+   Ba thay đổi:
+     17.1  Đầu trang: menu chữ + nút Nhắn Zalo (thay 2 nút viên cũ)
+     17.2  Hero gọn lại + dòng "đồng bộ 30 phút"
+     17.3  Thanh lọc ngang dạng ô chọn, thay bảng chip 4 cột
+
+   ĐIỆN THOẠI KHÔNG BỊ ĐỘNG: bảng chip cũ vẫn nguyên trong HTML, chỉ bị
+   ẩn từ 1024px trở lên. Dưới 1024px mọi thứ chạy như cũ.
+   ================================================================== */
+
+/* ---- 17.1 Đầu trang ---------------------------------------------- */
+.topbar nav.topnav{gap:22px;flex:none;flex-wrap:nowrap}
+.topbar nav.topnav a{font-weight:500;white-space:nowrap}
+/* Trên điện thoại thanh tab dưới đáy đã có đủ Trang chủ / Cẩm nang / Ký gửi /
+   Nhắn Zalo — để thêm nút Zalo ở đầu trang chỉ làm chật chỗ tên thương hiệu. */
+@media (max-width:640px){
+  .topbar .actions{display:none}
+}
+
+/* ---- 17.2 Hero gọn ----------------------------------------------- */
+.hero p.hero-dong-bo{
+  display:inline-flex;align-items:center;gap:9px;
+  margin-top:16px;max-width:none;
+  background:rgba(14,138,69,.20);border:1px solid rgba(255,255,255,.20);
+  color:#fff;border-radius:99px;padding:7px 16px;
+  font-size:.86rem;font-weight:500;
+}
+.hero p.hero-dong-bo .cham{
+  width:8px;height:8px;border-radius:50%;flex:none;
+  background:#3DDC84;box-shadow:0 0 0 4px rgba(61,220,132,.22);
+}
+/* Màn hình hẹp: hero đã rút gọn ở khối 16, thêm dòng này là thừa một hàng. */
+@media (max-width:640px){
+  .hero p.hero-dong-bo{display:none}
+}
+
+/* ---- 17.3 Thanh lọc ngang cho máy tính ---------------------------- */
+/* Mặc định TẮT — dưới 1024px vẫn dùng bảng chip / bảng trượt như cũ. */
+.loc-pc{display:none}
+
+@media (min-width:1024px){
+  /* Hero thu lại: bớt 18px trên và 32px dưới so với bản cũ, chữ tiêu đề
+     nhỏ đi một bậc để thẻ căn đầu tiên lọt vào màn hình thứ nhất. */
+  .hero{padding:46px 0 76px}
+  .hero h1{font-size:clamp(2rem,3.3vw,2.65rem);max-width:21ch}
+  .hero p{margin-top:12px;font-size:1rem;max-width:58ch}
+  .stats{margin-top:26px}
+  .stat strong{font-size:2rem}
+
+  /* Bảng chip cũ ẩn đi nhưng VẪN nằm trong trang: thanh lọc mới đọc nhãn và
+     số đếm từ chính các chip này, xoá chip đi là thanh lọc rỗng. */
+  .filters{display:none}
+
+  .loc-pc{
+    position:relative;z-index:20;margin:-36px 0 26px;
+    background:var(--surface);border:1px solid var(--line);border-radius:var(--r);
+    box-shadow:var(--sh);padding:9px;
+    display:grid;grid-template-columns:repeat(4,minmax(0,1fr)) auto auto;
+    align-items:center;
+  }
+  .loc-pc-o{
+    display:flex;flex-direction:column;gap:2px;justify-content:center;
+    padding:7px 16px;border-right:1px solid var(--line);min-width:0;cursor:pointer;
+  }
+  .loc-pc-o:nth-of-type(4){border-right:0}
+  .loc-pc-o>span{font-size:.72rem;color:var(--gray-lt);line-height:1.3}
+  .loc-pc-o select{
+    -webkit-appearance:none;appearance:none;
+    border:0;background:transparent;outline:none;width:100%;cursor:pointer;
+    font-family:var(--font-chu);font-size:.95rem;font-weight:600;color:var(--ink);
+    padding:1px 22px 1px 0;
+    text-overflow:ellipsis;white-space:nowrap;overflow:hidden;
+    background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%238A96A3' stroke-width='2.2' stroke-linecap='round' stroke-linejoin='round'><path d='m6 9 6 6 6-6'/></svg>");
+    background-repeat:no-repeat;background-position:right 1px center;background-size:14px;
+  }
+  /* Ô đang lọc đổi sang màu navy để khách nhìn một cái là biết đang lọc gì */
+  .loc-pc-o select.dang-loc{color:var(--navy-2)}
+  .loc-pc-o:focus-within{border-radius:var(--r-sm);box-shadow:inset 0 0 0 2px rgba(27,75,143,.35)}
+  .loc-pc-o select option[disabled]{color:var(--gray-lt)}
+
+  .loc-pc-tim{
+    margin-left:8px;background:var(--navy-2);color:#fff;border:0;
+    border-radius:var(--r-sm);padding:13px 26px;
+    font-family:var(--font-chu);font-weight:600;font-size:.92rem;white-space:nowrap;
+    display:inline-flex;align-items:center;gap:8px;transition:background .2s;
+  }
+  .loc-pc-tim::before{
+    content:"";width:16px;height:16px;background:currentColor;
+    -webkit-mask:var(--ic-tim) center/contain no-repeat;mask:var(--ic-tim) center/contain no-repeat;
+  }
+  .loc-pc-tim:hover{background:var(--navy)}
+  .loc-pc-xoa{
+    background:none;border:0;color:var(--gray);font-size:.86rem;
+    padding:0 14px;white-space:nowrap;cursor:pointer;
+  }
+  .loc-pc-xoa:hover{color:var(--navy-2)}
+
+  /* Nút mở bảng lọc và 3 ô truy cập nhanh là đồ của điện thoại — chặn hẳn
+     ở màn hình rộng để không có chuyện hiện nhầm khi cửa sổ thu nhỏ rồi phóng to. */
+  .mobile-filter-toggle,.filters-backdrop{display:none}
+}
