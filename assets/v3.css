@@ -213,14 +213,12 @@ p:last-child{margin-bottom:0}
   background:var(--navy);
   color:#fff;padding:64px 0 110px;
 }
-/* Ảnh nền chỉ gắn cho trang chủ (.hero-anh) và trang ký gửi (.hero-gui);
-   trang 404 dùng chung tên class .hero nhưng là thẻ trắng, không có ảnh. */
-.hero-anh{background-image:url("/hero-1600.webp");background-size:cover;background-position:center}
-@media (max-width:700px){
-  .hero-anh{background-image:url("/hero-800.webp")}
-}
+/* Ảnh nền ở đây chỉ còn của trang ký gửi (.hero-gui); trang 404 dùng chung tên
+   class .hero nhưng là thẻ trắng, không có ảnh.
+   Hero trang chủ đã chuyển sang thẻ <img> thật (khối 20, 02/08/2026) nên luật
+   .hero-anh cũ đã gỡ khỏi đây cùng hai file hero-1600.webp / hero-800.webp. */
 .hero-gui{background-image:url("hero-smartcity.jpg");background-size:cover;background-position:center 38%}
-.hero-anh::before,.hero-gui::before{
+.hero-gui::before{
   content:"";position:absolute;inset:0;
   background:linear-gradient(95deg,rgba(10,26,48,.95) 0%,rgba(10,26,48,.78) 42%,rgba(10,26,48,.25) 100%);
 }
@@ -1513,32 +1511,207 @@ figure figcaption{font-size:.8rem;color:var(--gray-lt);margin-top:7px;text-align
 }
 
 /* ==================================================================
-   19. ẢNH HERO TRANG CHỦ  (thay ảnh 02/08/2026)
+   20. HERO V4 — ảnh sáng, lớp phủ chỉ tối bên trái, card lọc đè đáy hero
+   (dựng lại 02/08/2026)
    ------------------------------------------------------------------
-   Ảnh mới chụp từ bờ hồ: hai cụm toà tháp + hàng dừa + mặt hồ. Đã cắt
-   bỏ hàng rào và bộ máy tập ở đáy khung hình gốc.
+   Ba việc khối này làm, gỡ nguyên khối là quay về bố cục trước 02/08:
 
-   Hai chỗ phải chỉnh theo ảnh mới — gỡ khối này là quay về y như cũ:
+     20.1  Hero cao cố định + ảnh <img> phủ kín thay cho background-image.
+           Dùng <img> vì chỉ thẻ ảnh thật mới nhận fetchpriority và
+           width/height, nhờ vậy LCP được ưu tiên và không nhảy layout.
+     20.2  Lớp phủ đổi từ tối đều sang gradient ngang: đậm bên trái đỡ
+           chữ, gần như trong suốt bên phải để nhìn rõ hồ, bãi cát,
+           hàng dừa. Dưới 640px đổi sang gradient dọc vì màn hẹp thì chữ
+           chạy hết bề ngang, tối một bên không đủ.
+     20.3  Bộ lọc bọc trong .filter-card, kéo âm lên đè đáy hero; ngay
+           dưới là hàng 3 tín hiệu tin cậy.
 
-   19.1 Neo ảnh xuống ĐÁY thay vì giữa. Khung hero rộng 2,1:1 (1024px)
-        đến 3,8:1 (1920px) trong khi ảnh là 2,29:1, nên màn càng rộng
-        trình duyệt càng cắt bớt trên–dưới. Neo giữa thì ở 1920px hàng
-        dừa và mặt hồ bị cắt mất, chỉ còn thân toà nhà — đúng cái nhàm
-        chán của ảnh cũ. Neo đáy giữ được dải dừa + hồ ở mọi bề rộng.
-
-   19.2 Dưới 1024px đổi hướng lớp phủ tối. Lớp phủ gốc đổ ngang (95deg)
-        vì từ 1024px trở lên chữ bị bó trong nửa trái; màn hẹp hơn thì
-        chữ chạy hết bề ngang, mép phải sáng làm khó đọc dòng mô tả.
-        Đổi sang đổ chéo 168deg, đậm ở trên nơi có chữ, nhạt dần xuống
-        đáy nơi có mặt hồ — vẫn nhìn rõ ảnh mà chữ không bị chìm.
+   Bề ngang khung vẫn dùng .shell (--maxw:1200px) chứ không đổi sang
+   1240px như bản vẽ: .shell là khung dùng chung của mọi trang, sửa nó
+   là lệch cả 37 trang còn lại. Hero, card lọc, hàng tin cậy và lưới căn
+   nhờ vậy thẳng hàng nhau tuyệt đối.
    ================================================================== */
-.hero-anh{background-position:center bottom}
 
-@media (max-width:1023px){
-  .hero-anh::before{
-    background:linear-gradient(168deg,
-      rgba(10,26,48,.94) 0%,
-      rgba(10,26,48,.82) 48%,
-      rgba(10,26,48,.66) 100%);
+/* ---- 20.1 Khung hero + ảnh ---------------------------------------- */
+.hero.hero-v4{
+  padding:0;
+  display:flex;align-items:center;
+  height:clamp(520px,58vh,620px);
+  /* Bỏ khoảng cách dưới của thẻ section: card lọc phải đè lên đáy hero đúng
+     56px, còn 34px trống ở đây thì nó chỉ đè được 22px. */
+  margin-bottom:0;
+}
+.hero-v4__anh{position:absolute;inset:0;z-index:0;display:block}
+.hero-v4__anh img{
+  width:100%;height:100%;display:block;
+  object-fit:cover;object-position:center 55%;
+}
+
+/* ---- 20.2 Lớp phủ ------------------------------------------------- */
+.hero-v4__phu{
+  position:absolute;inset:0;z-index:1;pointer-events:none;
+  /* Bản vẽ ghi .72 ở mốc 30% và .38 ở mốc 55%. Đo thật trên ảnh này thì điểm
+     nền sáng nhất nằm ngay dưới nét chữ H1 chỉ đạt 3,65:1 — dưới ngưỡng 4,5:1
+     của mục nghiệm thu. Nâng hai mốc giữa lên .78 và .50 là đủ. Hai mốc bên
+     phải giữ nguyên (≤ .08) nên phần ảnh sáng vẫn không bị tối đi. */
+  background:linear-gradient(90deg,
+    rgba(11,31,59,.88) 0%,
+    rgba(11,31,59,.78) 30%,
+    rgba(11,31,59,.50) 55%,
+    rgba(11,31,59,.08) 78%,
+    rgba(11,31,59,0)  100%);
+}
+
+/* ---- Khối chữ ----------------------------------------------------- */
+/* Đáy hero bị card lọc đè mất 56px, nên đẩy khối chữ lên chừng ấy để nhìn vẫn
+   cân giữa phần còn nhìn thấy, và hàng số liệu không dính sát mép card. */
+.hero-v4__trong{position:relative;z-index:2;padding-bottom:48px}
+.hero-v4__chu{max-width:620px}
+.hero-v4 h1{
+  font-size:clamp(30px,3.4vw,46px);line-height:1.14;font-weight:800;
+  letter-spacing:-.5px;color:#fff;max-width:none;
+  text-shadow:0 2px 20px rgba(0,0,0,.35);
+}
+.hero-v4 p{
+  margin-top:14px;font-size:16px;line-height:1.65;font-weight:300;
+  color:rgba(255,255,255,.86);max-width:520px;
+}
+.hero-v4 p.hero-dong-bo{
+  margin-top:18px;padding:9px 18px;font-size:14px;font-weight:500;color:#fff;
+  background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.22);
+  border-radius:999px;-webkit-backdrop-filter:blur(8px);backdrop-filter:blur(8px);
+}
+.hero-v4 p.hero-dong-bo .cham{
+  background:#22c55e;box-shadow:0 0 0 4px rgba(34,197,94,.22);
+  animation:cham-tho 2.4s ease-in-out infinite;
+}
+@keyframes cham-tho{
+  0%,100%{box-shadow:0 0 0 3px rgba(34,197,94,.28)}
+  50%    {box-shadow:0 0 0 7px rgba(34,197,94,.06)}
+}
+/* Máy nào bật "giảm chuyển động" thì chấm đứng yên (khối 14 chỉ tắt được
+   những animation khai báo trước nó). */
+@media (prefers-reduced-motion:reduce){
+  .hero-v4 p.hero-dong-bo .cham{animation:none}
+}
+
+.hero-v4 .stats{margin-top:26px}
+.hero-v4 .stat{
+  padding:0 26px;margin:0;border-right:0;border-left:1px solid rgba(255,255,255,.2);
+}
+.hero-v4 .stat:first-child{padding-left:0;border-left:0}
+.hero-v4 .stat strong{font-size:34px;text-shadow:0 2px 14px rgba(0,0,0,.3)}
+.hero-v4 .stat span{font-size:13px;color:rgba(255,255,255,.72)}
+
+/* ---- 20.3 Card bộ lọc đè đáy hero --------------------------------- */
+.filter-card{
+  position:relative;z-index:5;margin-top:-56px;
+  background:#fff;border:1px solid rgba(15,32,60,.06);border-radius:18px;
+  box-shadow:0 18px 44px rgba(15,32,60,.14);
+  padding:22px 24px;
+}
+/* Bên trong card, thanh lọc bỏ hết viền/bóng/kéo âm của bản cũ — card đã lo
+   phần vỏ. Khai báo ĐẦY ĐỦ ở đây chứ không dựa vào khối 17: luật của khối 17
+   nằm trong @media (min-width:1024px), mà card này chạy ở mọi bề ngang. */
+.filter-card .loc-pc{
+  display:grid;grid-template-columns:repeat(4,minmax(0,1fr)) auto auto;
+  gap:14px;align-items:end;
+  margin:0;padding:0;background:none;border:0;border-radius:0;box-shadow:none;
+}
+.filter-card .loc-pc-o{
+  display:flex;flex-direction:column;gap:5px;justify-content:flex-end;
+  min-width:0;border-right:0;padding:0;cursor:pointer;
+}
+.filter-card .loc-pc-o>span{font-size:12.5px;line-height:1.3;color:var(--gray)}
+.filter-card .loc-pc-o select{
+  -webkit-appearance:none;appearance:none;outline:none;
+  width:100%;height:48px;padding:0 34px 0 14px;cursor:pointer;
+  border:1px solid var(--line);border-radius:12px;background-color:#F7F9FC;
+  font-family:var(--font-chu);font-size:15px;font-weight:600;color:var(--ink);
+  text-overflow:ellipsis;white-space:nowrap;overflow:hidden;
+  background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%238A96A3' stroke-width='2.2' stroke-linecap='round' stroke-linejoin='round'><path d='m6 9 6 6 6-6'/></svg>");
+  background-repeat:no-repeat;background-position:right 12px center;background-size:15px;
+}
+.filter-card .loc-pc-o select.dang-loc{color:var(--navy-2)}
+.filter-card .loc-pc-o select option[disabled]{color:var(--gray-lt)}
+.filter-card .loc-pc-o select:hover{border-color:#C6D2E2}
+.filter-card .loc-pc-o:focus-within{box-shadow:none}
+.filter-card .loc-pc-o select:focus-visible{
+  border-color:#1d4ed8;box-shadow:0 0 0 3px rgba(29,78,216,.18);
+}
+.filter-card .loc-pc-tim{
+  margin:0;height:48px;padding:0 26px;border:0;border-radius:12px;
+  background:#1d4ed8;color:#fff;cursor:pointer;
+  font-family:var(--font-chu);font-size:15px;font-weight:600;white-space:nowrap;
+  display:inline-flex;align-items:center;justify-content:center;gap:8px;
+  transition:background .2s;
+}
+.filter-card .loc-pc-tim::before{
+  content:"";width:16px;height:16px;background:currentColor;
+  -webkit-mask:var(--ic-tim) center/contain no-repeat;mask:var(--ic-tim) center/contain no-repeat;
+}
+.filter-card .loc-pc-tim:hover{background:#1e40af}
+.filter-card .loc-pc-xoa{
+  height:48px;padding:0 14px;border:0;background:none;cursor:pointer;
+  font-family:var(--font-chu);font-size:14px;color:var(--gray);white-space:nowrap;
+}
+.filter-card .loc-pc-xoa:hover{color:#1d4ed8}
+
+/* ---- Hàng 3 tín hiệu tin cậy -------------------------------------- */
+.tin-cay{
+  display:grid;grid-template-columns:repeat(3,1fr);gap:20px;
+  margin-top:20px;padding:22px 24px;
+  background:#fff;border-radius:18px;box-shadow:0 8px 24px rgba(15,32,60,.06);
+}
+.tin-cay-o{display:flex;align-items:center;gap:14px;min-width:0}
+.tin-cay-ic{
+  width:44px;height:44px;flex:none;border-radius:50%;
+  display:inline-grid;place-items:center;
+  background:#EAF1FD;color:#1d4ed8;
+}
+.tin-cay-ic svg{width:22px;height:22px}
+.tin-cay-o b{display:block;font-size:15px;font-weight:600;color:var(--ink)}
+.tin-cay-o span{display:block;font-size:13px;line-height:1.5;color:#64748b;margin-top:2px}
+
+/* ---- Điện thoại (≤640px) ------------------------------------------ */
+@media (max-width:640px){
+  .hero.hero-v4{height:auto;min-height:480px;padding:40px 0 90px}
+  .hero-v4__anh img{object-position:center 45%}
+  /* Màn hẹp: chữ chạy hết bề ngang nên tối một bên không đủ, đổi sang đổ dọc. */
+  .hero-v4__phu{
+    background:linear-gradient(180deg,
+      rgba(11,31,59,.70) 0%,
+      rgba(11,31,59,.55) 45%,
+      rgba(11,31,59,.80) 100%);
   }
+  .hero-v4 h1{font-size:clamp(26px,7vw,32px)}
+  .hero-v4 p{font-size:15px;margin-top:12px}
+  /* Dòng "đồng bộ 30 phút" bị khối 17 ẩn ở màn hẹp; hero mới đã cao thoáng
+     hơn nên cho hiện lại — đây chính là tín hiệu dữ liệu sống. */
+  .hero-v4 p.hero-dong-bo{display:inline-flex;margin-top:16px;font-size:13px;padding:8px 15px}
+  .hero-v4 .stats{margin-top:22px}
+  .hero-v4 .stat{padding:0 16px}
+  .hero-v4 .stat strong{font-size:26px}
+
+  .filter-card{margin-top:-32px;padding:18px 16px;border-radius:16px}
+  .filter-card .loc-pc{grid-template-columns:1fr;gap:12px}
+  .filter-card .loc-pc-o select{height:50px}
+  .filter-card .loc-pc-tim{width:100%;height:50px}
+  .filter-card .loc-pc-xoa{width:100%;height:44px}
+
+  .tin-cay{grid-template-columns:1fr;gap:16px;padding:18px 16px;border-radius:16px}
+}
+
+/* ---- Bật thanh lọc ở mọi bề ngang --------------------------------- */
+/* Khối 17 đặt .loc-pc{display:none} rồi chỉ bật lại từ 1024px trở lên. Nay thanh
+   lọc nằm trong card và phải chạy ở cả điện thoại nên bật thẳng ở đây, đồng thời
+   xoá lề âm cũ vì việc kéo lên đè hero đã do .filter-card lo.
+
+   Bảng chip cũ KHÔNG bị đụng tới: từ 1024px trở lên nó vẫn ẩn như khối 17 quy
+   định, dưới 1024px vẫn là bảng trượt mở bằng 3 ô truy cập nhanh. Quan trọng là
+   nó VẪN nằm trong trang, vì thanh lọc này đọc nhãn và số đếm ngược từ chính
+   các chip đó — xoá chip đi là 4 ô chọn rỗng. */
+.loc-pc{display:grid}
+@media (min-width:1024px){
+  .loc-pc{margin:0}
 }
