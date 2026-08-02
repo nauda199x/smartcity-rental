@@ -24,10 +24,14 @@
        (/ và /index.html, hoặc các biến thể có tham số ?loai=studio&gia=... mình vừa thêm)
        -> sức mạnh SEO bị chia nhỏ ra nhiều địa chỉ thay vì dồn hết về một chỗ.
        Các trang danh mục (/studio/, /sapphire/...) đã có canonical riêng từ lúc sinh trang. -->
-  <!-- Báo trước cho trình duyệt tải ảnh nền hero ngay, không phải chờ đọc xong CSS.
-       PageSpeed báo thiếu đúng fetchpriority=high ở mục "Phát hiện yêu cầu LCP". -->
-  <link rel="preload" as="image" href="/hero-800.webp" media="(max-width: 700px)" fetchpriority="high">
-  <link rel="preload" as="image" href="/hero-1600.webp" media="(min-width: 701px)" fetchpriority="high">
+  <!-- Báo trước cho trình duyệt tải ảnh hero ngay, không phải chờ dựng xong cây DOM.
+       Ảnh hero là phần tử LCP nên cần fetchpriority=high.
+       Dùng 2 thẻ preload kèm media thay vì 1 thẻ imagesrcset: ảnh máy tính và ảnh
+       điện thoại là hai khung hình KHÁC NHAU (16:9 và 4:5), chọn bằng media trong
+       <picture> — imagesrcset chỉ đúng khi các bản ảnh cùng khung hình, dùng sai
+       thì trình duyệt preload một file rồi <picture> lại lấy file khác, tải 2 lần. -->
+  <link rel="preload" as="image" href="/images/hero/hero-smart-city-mobile.webp" media="(max-width: 640px)" fetchpriority="high">
+  <link rel="preload" as="image" href="/images/hero/hero-smart-city-desktop.webp" media="(min-width: 641px)" fetchpriority="high">
   <link rel="canonical" href="https://timthuesmartcity.com/">
 
   <!-- Open Graph: hiển thị ảnh/tiêu đề đẹp khi dán link trên Zalo, Facebook, Messenger -->
@@ -219,22 +223,43 @@
     </div>
   </div>
 
-  <section class="hero hero-anh">
-    <div class="shell hero-inner">
-      <div>
+  <!-- HERO V4 (dựng lại 02/08/2026)
+       Ảnh nền đổi từ background-image sang <picture> + <img> thật, vì đây là phần tử
+       LCP: chỉ thẻ <img> mới nhận được fetchpriority và width/height cố định, nhờ vậy
+       trình duyệt biết trước chỗ đặt ảnh nên không nhảy layout (CLS = 0).
+       Ảnh máy tính 16:9 và ảnh điện thoại 4:5 là hai khung hình khác nhau nên chọn
+       bằng media trong <picture>, không phải bằng srcset theo bề rộng.
+       Toàn bộ id/class mà JS đang dùng (#totalCount, #readyCount, #phanKhuCount,
+       .hero-dong-bo) giữ nguyên tại đúng phần tử cũ. -->
+  <section class="hero hero-v4">
+    <picture class="hero-v4__anh">
+      <source media="(max-width:640px)" type="image/webp" srcset="/images/hero/hero-smart-city-mobile.webp">
+      <source media="(max-width:640px)" type="image/jpeg" srcset="/images/hero/hero-smart-city-mobile.jpg">
+      <source type="image/webp" srcset="/images/hero/hero-smart-city-desktop.webp">
+      <img src="/images/hero/hero-smart-city-desktop.jpg" width="1800" height="1013"
+           fetchpriority="high" decoding="async"
+           alt="Toà căn hộ Vinhomes Smart City nhìn từ hồ trung tâm, Tây Mỗ, Nam Từ Liêm, Hà Nội">
+    </picture>
+    <!-- Lớp phủ chỉ tối bên trái để đỡ chữ; nửa phải gần như trong suốt để nhìn rõ
+         hồ nước, bãi cát và hàng dừa. Không dùng filter/nền phủ đều lên cả ảnh. -->
+    <span class="hero-v4__phu" aria-hidden="true"></span>
+
+    <div class="shell hero-v4__trong">
+      <div class="hero-v4__chu">
         <h1>Cho thuê căn hộ chung cư Vinhomes Smart City tháng 08/2026</h1>
         <p>Bộ lọc thông minh — tìm nhanh theo giá thuê, loại căn hộ và tình trạng nội thất. Dữ liệu cập nhật liên tục từ thực tế, giúp anh/chị chọn đúng căn ưng ý chỉ trong vài phút.</p>
         <!-- Dấu hiệu dữ liệu sống (V3). 30 phút là chu kỳ THẬT của Apps Script
              đẩy data.json lên GitHub — không phải con số trang trí. -->
         <p class="hero-dong-bo"><span class="cham" aria-hidden="true"></span>Quỹ căn đồng bộ lại mỗi 30 phút</p>
-      </div>
-      <div class="stats" aria-label="Tổng quan căn hộ">
-        <div class="stat"><strong id="totalCount">--</strong><span>Tổng căn</span></div>
-        <div class="stat"><strong id="readyCount">--</strong><span>Ở ngay</span></div>
-        <!-- Số phân khu ĐANG CÓ CĂN — JS đếm từ data.json, không ghi cứng.
-             Hôm nay là 8 (Sola Park và Victoria chưa có căn nào), nhưng có căn
-             là con số tự nhảy lên 9-10, không phải sửa tay. -->
-        <div class="stat"><strong id="phanKhuCount">--</strong><span>Phân khu</span></div>
+
+        <div class="stats" aria-label="Tổng quan căn hộ">
+          <div class="stat"><strong id="totalCount">--</strong><span>Tổng căn</span></div>
+          <div class="stat"><strong id="readyCount">--</strong><span>Ở ngay</span></div>
+          <!-- Số phân khu ĐANG CÓ CĂN — JS đếm từ data.json, không ghi cứng.
+               Hôm nay là 8 (Sola Park và Victoria chưa có căn nào), nhưng có căn
+               là con số tự nhảy lên 9-10, không phải sửa tay. -->
+          <div class="stat"><strong id="phanKhuCount">--</strong><span>Phân khu</span></div>
+        </div>
       </div>
 
       <!-- ĐÃ CHUYỂN 23/07/2026: khối "Duyệt nhanh" trước đây nằm ngay đây, dưới ô thống kê.
@@ -246,6 +271,67 @@
   </section>
 
   <main class="shell">
+    <!-- CARD BỘ LỌC (chuyển lên đè đáy hero 02/08/2026)
+         Trước đây khối này nằm dưới ba ô truy cập nhanh nên trên điện thoại bị đẩy
+         xuống dưới màn hình đầu tiên. Nay đưa lên làm con đầu của <main> và kéo âm
+         lên đè đáy hero, để khách vừa mở trang là thấy ngay chỗ lọc căn.
+
+         THANH LỌC NGANG (bản V3) giữ nguyên 100% cấu trúc: KHÔNG có logic lọc riêng,
+         mỗi ô chọn chỉ đi tìm đúng cái chip tương ứng trong bảng lọc cũ rồi bấm hộ.
+         Nhãn và số đếm cũng đọc ngược từ chip ra, nên máy tính và điện thoại không
+         bao giờ lệch số; khối này hỏng thì gỡ đi là bảng chip cũ hiện lại nguyên vẹn. -->
+    <div class="filter-card">
+      <div class="loc-pc" id="locPc" aria-label="Bộ lọc căn hộ">
+        <label class="loc-pc-o">
+          <span>Loại căn</span>
+          <select id="locPcType" data-nguon="typeFilters" data-thuoctinh="type"><option value="all">Tất cả loại căn</option></select>
+        </label>
+        <label class="loc-pc-o">
+          <span>Phân khu</span>
+          <select id="locPcPhanKhu" data-nguon="phanKhuFilters" data-thuoctinh="phankhu"><option value="all">Tất cả phân khu</option></select>
+        </label>
+        <label class="loc-pc-o">
+          <span>Khoảng giá</span>
+          <select id="locPcPrice" data-nguon="priceFilters" data-thuoctinh="price"><option value="all">Tất cả mức giá</option></select>
+        </label>
+        <label class="loc-pc-o">
+          <span>Nội thất</span>
+          <select id="locPcInterior" data-nguon="interiorFilters" data-thuoctinh="interior"><option value="all">Tất cả nội thất</option></select>
+        </label>
+        <button class="loc-pc-tim" id="locPcTim" type="button">Tìm căn</button>
+        <button class="loc-pc-xoa" id="locPcXoa" type="button">Xóa bộ lọc</button>
+      </div>
+    </div>
+
+    <!-- BA TÍN HIỆU TIN CẬY (thêm 02/08/2026) — chữ tĩnh, không đọc dữ liệu,
+         không thêm request mạng: cả 3 icon đều là SVG viết thẳng trong trang. -->
+    <div class="tin-cay">
+      <div class="tin-cay-o">
+        <span class="tin-cay-ic" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+            <rect x="3" y="4.5" width="18" height="16" rx="3"/><path d="M3 9.5h18M8 2.5v4M16 2.5v4M9 14l2 2 4-4"/>
+          </svg>
+        </span>
+        <div><b>Cập nhật mỗi ngày</b><span>Thông tin mới liên tục, chính xác từ thực tế</span></div>
+      </div>
+      <div class="tin-cay-o">
+        <span class="tin-cay-ic" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M12 2.8 4.5 6v6c0 4.4 3.1 7.9 7.5 9.2 4.4-1.3 7.5-4.8 7.5-9.2V6z"/><path d="m8.8 12 2.2 2.2 4.2-4.4"/>
+          </svg>
+        </span>
+        <div><b>Tin thật – Giá thật</b><span>Cam kết thông tin minh bạch, rõ ràng</span></div>
+      </div>
+      <div class="tin-cay-o">
+        <span class="tin-cay-ic" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M20.5 11.5a8.5 8.5 0 1 0-3.4 6.8l3.4.9-.9-3.3a8.4 8.4 0 0 0 .9-4.4z"/><path d="M8.5 11.5h.01M12 11.5h.01M15.5 11.5h.01"/>
+          </svg>
+        </span>
+        <div><b>Hỗ trợ nhanh</b><span>Tư vấn 7 ngày/tuần qua Zalo, nhiệt tình – nhanh chóng</span></div>
+      </div>
+    </div>
+
     <!-- BA Ô TRUY CẬP NHANH (thêm 01/08/2026) — chỉ hiện trên điện thoại.
          Thay cho nút băng "Ấn vào đây để tìm căn hộ phù hợp" bên dưới: cùng mở
          một bảng lọc, nhưng nhảy thẳng tới đúng nhóm khách muốn chọn.
@@ -276,32 +362,6 @@
         </span>
         <b>Nội thất</b><span>Chọn nội thất</span>
       </button>
-    </div>
-
-    <!-- THANH LỌC NGANG CHO MÁY TÍNH (thêm 02/08/2026) — bản V3.
-         KHÔNG có logic lọc riêng: mỗi ô chọn chỉ đi tìm đúng cái chip tương ứng
-         trong bảng lọc cũ rồi bấm hộ. Nhãn và số đếm cũng đọc ngược từ chip ra.
-         Nhờ vậy máy tính và điện thoại không bao giờ lệch số, và nếu khối này
-         hỏng thì chỉ cần gỡ đi là bảng chip cũ hiện lại nguyên vẹn. -->
-    <div class="loc-pc" id="locPc" aria-label="Bộ lọc căn hộ">
-      <label class="loc-pc-o">
-        <span>Loại căn</span>
-        <select id="locPcType" data-nguon="typeFilters" data-thuoctinh="type"><option value="all">Tất cả loại căn</option></select>
-      </label>
-      <label class="loc-pc-o">
-        <span>Phân khu</span>
-        <select id="locPcPhanKhu" data-nguon="phanKhuFilters" data-thuoctinh="phankhu"><option value="all">Tất cả phân khu</option></select>
-      </label>
-      <label class="loc-pc-o">
-        <span>Khoảng giá</span>
-        <select id="locPcPrice" data-nguon="priceFilters" data-thuoctinh="price"><option value="all">Tất cả mức giá</option></select>
-      </label>
-      <label class="loc-pc-o">
-        <span>Nội thất</span>
-        <select id="locPcInterior" data-nguon="interiorFilters" data-thuoctinh="interior"><option value="all">Tất cả nội thất</option></select>
-      </label>
-      <button class="loc-pc-tim" id="locPcTim" type="button">Tìm căn</button>
-      <button class="loc-pc-xoa" id="locPcXoa" type="button">Xóa bộ lọc</button>
     </div>
 
     <button class="mobile-filter-toggle" id="mobileFilterToggle" type="button" aria-label="Mở bộ lọc để tìm căn hộ phù hợp">
