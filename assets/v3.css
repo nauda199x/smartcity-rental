@@ -1511,3 +1511,34 @@ figure figcaption{font-size:.8rem;color:var(--gray-lt);margin-top:7px;text-align
   .mxh{width:44px;height:44px}
   .mxh-chu{display:none}
 }
+
+/* ==================================================================
+   19. ẢNH HERO TRANG CHỦ  (thay ảnh 02/08/2026)
+   ------------------------------------------------------------------
+   Ảnh mới chụp từ bờ hồ: hai cụm toà tháp + hàng dừa + mặt hồ. Đã cắt
+   bỏ hàng rào và bộ máy tập ở đáy khung hình gốc.
+
+   Hai chỗ phải chỉnh theo ảnh mới — gỡ khối này là quay về y như cũ:
+
+   19.1 Neo ảnh xuống ĐÁY thay vì giữa. Khung hero rộng 2,1:1 (1024px)
+        đến 3,8:1 (1920px) trong khi ảnh là 2,29:1, nên màn càng rộng
+        trình duyệt càng cắt bớt trên–dưới. Neo giữa thì ở 1920px hàng
+        dừa và mặt hồ bị cắt mất, chỉ còn thân toà nhà — đúng cái nhàm
+        chán của ảnh cũ. Neo đáy giữ được dải dừa + hồ ở mọi bề rộng.
+
+   19.2 Dưới 1024px đổi hướng lớp phủ tối. Lớp phủ gốc đổ ngang (95deg)
+        vì từ 1024px trở lên chữ bị bó trong nửa trái; màn hẹp hơn thì
+        chữ chạy hết bề ngang, mép phải sáng làm khó đọc dòng mô tả.
+        Đổi sang đổ chéo 168deg, đậm ở trên nơi có chữ, nhạt dần xuống
+        đáy nơi có mặt hồ — vẫn nhìn rõ ảnh mà chữ không bị chìm.
+   ================================================================== */
+.hero-anh{background-position:center bottom}
+
+@media (max-width:1023px){
+  .hero-anh::before{
+    background:linear-gradient(168deg,
+      rgba(10,26,48,.94) 0%,
+      rgba(10,26,48,.82) 48%,
+      rgba(10,26,48,.66) 100%);
+  }
+}
