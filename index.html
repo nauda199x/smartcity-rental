@@ -172,26 +172,23 @@
         </div>
       </div>
 
-      <!-- ĐẦU TRANG = ĐIỀU HƯỚNG, KHÔNG PHẢI CHỖ CHỐT ĐƠN (sửa 22/07/2026)
-           Trước đây chỗ này là nút Hotline + Nhắn Zalo. Đã chuyển thành link nội dung vì:
-            - Đường liên hệ vẫn còn đủ ở 4 chỗ khác: nút Zalo tròn góc phải (máy tính),
-              thanh Gọi/Zalo đáy màn hình (điện thoại), nút "Hỏi căn này" trên từng thẻ căn,
-              và form "Nhờ tìm giúp". Khách không hề mất lối liên hệ.
-            - Đây là vùng Google đọc ĐẦU TIÊN. Đặt link tới cẩm nang và mục lục danh mục ở
-              đây giúp Google hiểu website có nhiều trang nội dung ngay từ dòng đầu. -->
+      <!-- MENU CHỮ (sửa 02/08/2026) — dựng theo bản V3.
+           Giữ lại link "Danh mục căn" vì đây là đường dẫn nội bộ Google đọc đầu tiên
+           để hiểu website có 25 trang danh mục bên dưới. Bỏ link này là mất tín hiệu
+           liên kết nội bộ ngay dòng đầu trang. -->
+      <nav class="topnav" aria-label="Điều hướng chính">
+        <a href="/" aria-current="page">Trang chủ</a>
+        <a href="#mucLucKhoDuLieu">Danh mục căn</a>
+        <a href="/cam-nang-thue-nha.html">Cẩm nang thuê nhà</a>
+        <a href="/gui-thue/">Ký gửi cho thuê</a>
+      </nav>
+
       <div class="actions">
-        <a class="pill-btn" href="/cam-nang-thue-nha.html">
-          <svg width="17" height="17" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-            <path d="M4 5.5A1.5 1.5 0 0 1 5.5 4H10a2 2 0 0 1 2 2v13a2 2 0 0 0-2-2H5.5A1.5 1.5 0 0 1 4 15.5v-10Z" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/>
-            <path d="M20 5.5A1.5 1.5 0 0 0 18.5 4H14a2 2 0 0 0-2 2v13a2 2 0 0 1 2-2h4.5a1.5 1.5 0 0 0 1.5-1.5v-10Z" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/>
+        <a class="pill-btn primary" href="https://zalo.me/0977923284" target="_blank" rel="noopener">
+          <svg width="17" height="17" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+            <path d="M12 3C6.9 3 2.8 6.4 2.8 10.6c0 2.4 1.3 4.5 3.4 5.9-.1.6-.5 2-.6 2.3-.1.4.2.4.4.3.2-.1 2.4-1.6 3.4-2.2.8.1 1.7.2 2.6.2 5.1 0 9.2-3.4 9.2-7.5S17.1 3 12 3z"/>
           </svg>
-          <span>Cẩm nang thuê nhà</span>
-        </a>
-        <a class="pill-btn primary" href="#mucLucKhoDuLieu">
-          <svg width="17" height="17" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-            <path d="M4 6h16M4 12h16M4 18h10" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
-          </svg>
-          <span>Danh mục căn hộ</span>
+          <span>Nhắn Zalo</span>
         </a>
       </div>
     </div>
@@ -227,6 +224,9 @@
       <div>
         <h1>Cho thuê căn hộ chung cư Vinhomes Smart City tháng 08/2026</h1>
         <p>Bộ lọc thông minh — tìm nhanh theo giá thuê, loại căn hộ và tình trạng nội thất. Dữ liệu cập nhật liên tục từ thực tế, giúp anh/chị chọn đúng căn ưng ý chỉ trong vài phút.</p>
+        <!-- Dấu hiệu dữ liệu sống (V3). 30 phút là chu kỳ THẬT của Apps Script
+             đẩy data.json lên GitHub — không phải con số trang trí. -->
+        <p class="hero-dong-bo"><span class="cham" aria-hidden="true"></span>Quỹ căn đồng bộ lại mỗi 30 phút</p>
       </div>
       <div class="stats" aria-label="Tổng quan căn hộ">
         <div class="stat"><strong id="totalCount">--</strong><span>Tổng căn</span></div>
@@ -276,6 +276,32 @@
         </span>
         <b>Nội thất</b><span>Chọn nội thất</span>
       </button>
+    </div>
+
+    <!-- THANH LỌC NGANG CHO MÁY TÍNH (thêm 02/08/2026) — bản V3.
+         KHÔNG có logic lọc riêng: mỗi ô chọn chỉ đi tìm đúng cái chip tương ứng
+         trong bảng lọc cũ rồi bấm hộ. Nhãn và số đếm cũng đọc ngược từ chip ra.
+         Nhờ vậy máy tính và điện thoại không bao giờ lệch số, và nếu khối này
+         hỏng thì chỉ cần gỡ đi là bảng chip cũ hiện lại nguyên vẹn. -->
+    <div class="loc-pc" id="locPc" aria-label="Bộ lọc căn hộ">
+      <label class="loc-pc-o">
+        <span>Loại căn</span>
+        <select id="locPcType" data-nguon="typeFilters" data-thuoctinh="type"><option value="all">Tất cả loại căn</option></select>
+      </label>
+      <label class="loc-pc-o">
+        <span>Phân khu</span>
+        <select id="locPcPhanKhu" data-nguon="phanKhuFilters" data-thuoctinh="phankhu"><option value="all">Tất cả phân khu</option></select>
+      </label>
+      <label class="loc-pc-o">
+        <span>Khoảng giá</span>
+        <select id="locPcPrice" data-nguon="priceFilters" data-thuoctinh="price"><option value="all">Tất cả mức giá</option></select>
+      </label>
+      <label class="loc-pc-o">
+        <span>Nội thất</span>
+        <select id="locPcInterior" data-nguon="interiorFilters" data-thuoctinh="interior"><option value="all">Tất cả nội thất</option></select>
+      </label>
+      <button class="loc-pc-tim" id="locPcTim" type="button">Tìm căn</button>
+      <button class="loc-pc-xoa" id="locPcXoa" type="button">Xóa bộ lọc</button>
     </div>
 
     <button class="mobile-filter-toggle" id="mobileFilterToggle" type="button" aria-label="Mở bộ lọc để tìm căn hộ phù hợp">
@@ -2027,6 +2053,90 @@
       if (og) og.setAttribute("content", tieuDe);
       var tw = document.querySelector('meta[name="twitter:title"]');
       if (tw) tw.setAttribute("content", tieuDe);
+    })();
+  </script>
+  <script>
+    /* ================================================================
+       THANH LỌC NGANG CHO MÁY TÍNH (02/08/2026)
+       ----------------------------------------------------------------
+       Nguyên tắc: KHÔNG viết lại logic lọc. Bảng chip cũ vẫn là nơi duy nhất
+       giữ trạng thái. Khối này chỉ làm hai việc:
+         1) Mỗi khi bảng chip vẽ lại  -> dựng lại các ô chọn theo đúng chip đó
+            (lấy cả nhãn, số căn và trạng thái "hết căn" nên không bao giờ lệch).
+         2) Khách đổi ô chọn          -> bấm hộ đúng cái chip tương ứng.
+       Dùng MutationObserver để không phải sửa vào hàm renderFilters() sẵn có.
+       ================================================================ */
+    (function () {
+      var thanh = document.getElementById("locPc");
+      if (!thanh) return;
+      var cacO = thanh.querySelectorAll("select");
+      var dangDungLai = false;
+
+      function dungLaiMotO(o) {
+        var nguon = document.getElementById(o.dataset.nguon);
+        if (!nguon) return;
+        var chips = nguon.querySelectorAll("button.chip");
+        if (!chips.length) return;
+
+        var html = "";
+        var dangChon = "";
+        chips.forEach(function (chip) {
+          var khoa = chip.dataset[o.dataset.thuoctinh];
+          var nhanEl = chip.querySelector(".chip-full");
+          var nhan = (nhanEl ? nhanEl.textContent : chip.textContent).trim();
+          var soEl = chip.querySelector("small");
+          var so = soEl ? soEl.textContent.trim() : "";
+          if (chip.classList.contains("active")) dangChon = khoa;
+          html += '<option value="' + khoa + '"'
+                + (chip.disabled ? " disabled" : "")
+                + ">" + nhan + (so ? " (" + so + ")" : "") + "</option>";
+        });
+        o.innerHTML = html;
+        o.value = dangChon;
+        o.classList.toggle("dang-loc", dangChon !== "all" && dangChon !== "");
+      }
+
+      function dungLaiTatCa() {
+        dangDungLai = true;
+        cacO.forEach(dungLaiMotO);
+        dangDungLai = false;
+      }
+
+      cacO.forEach(function (o) {
+        o.addEventListener("change", function () {
+          if (dangDungLai) return;
+          var nguon = document.getElementById(o.dataset.nguon);
+          if (!nguon) return;
+          var chip = nguon.querySelector(
+            'button.chip[data-' + o.dataset.thuoctinh + '="' + o.value + '"]'
+          );
+          if (chip) chip.click();
+        });
+      });
+
+      /* Bảng chip bị thay innerHTML mỗi lần render() -> theo dõi childList là đủ. */
+      var theoDoi = new MutationObserver(dungLaiTatCa);
+      ["typeFilters", "phanKhuFilters", "priceFilters", "interiorFilters"].forEach(function (id) {
+        var vung = document.getElementById(id);
+        if (vung) theoDoi.observe(vung, { childList: true });
+      });
+
+      var nutTim = document.getElementById("locPcTim");
+      if (nutTim) {
+        nutTim.addEventListener("click", function () {
+          var dsCan = document.querySelector(".list-head") || document.getElementById("listingGrid");
+          if (dsCan) dsCan.scrollIntoView({ behavior: "smooth", block: "start" });
+        });
+      }
+      var nutXoa = document.getElementById("locPcXoa");
+      if (nutXoa) {
+        nutXoa.addEventListener("click", function () {
+          var goc = document.getElementById("xoaBoLoc");
+          if (goc) goc.click();
+        });
+      }
+
+      dungLaiTatCa();
     })();
   </script>
   <script src="/assets/gallery.js" defer></script>
