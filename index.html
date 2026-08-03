@@ -145,6 +145,31 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;600;700;800&family=Be+Vietnam+Pro:wght@300;400;500;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="/assets/v3.css">
+
+  <!-- Dòng nhắc "đã sao chép tin nhắn" khi khách bấm Hỏi căn này (thêm 03/08/2026).
+       Đặt riêng ở trang chủ vì chỉ trang này có danh sách căn; không đụng v3.css dùng chung. -->
+  <style>
+    .nhac-copy{
+      position:fixed; left:50%; bottom:96px; transform:translate(-50%,14px);
+      z-index:9999; max-width:min(92vw,420px); box-sizing:border-box;
+      padding:14px 18px; border-radius:14px;
+      background:#0f2b46; color:#fff; text-align:center;
+      box-shadow:0 12px 34px rgba(8,22,38,.34);
+      opacity:0; pointer-events:none; transition:opacity .25s ease, transform .25s ease;
+      font-size:.94rem; line-height:1.5;
+    }
+    .nhac-copy.hien{opacity:1; transform:translate(-50%,0); pointer-events:auto}
+    .nhac-copy b{display:block; font-size:1rem; margin-bottom:3px}
+    .nhac-copy span{display:block; opacity:.9; font-size:.88rem}
+    .nhac-copy--loi{background:#7a2718}
+    .nhac-copy__o{
+      width:100%; margin-top:10px; padding:9px 11px; box-sizing:border-box;
+      border:0; border-radius:9px; resize:none; min-height:64px;
+      font:inherit; font-size:.86rem; color:#22303d; background:#fff;
+    }
+    @media (max-width:640px){ .nhac-copy{bottom:120px} }
+    @media (prefers-reduced-motion:reduce){ .nhac-copy{transition:none} }
+  </style>
 </head>
 <body>
   <header class="topbar">
@@ -1122,10 +1147,31 @@
       return `Trống từ ${ngayNganGon(apartment.availableDate)}`;
     }
 
-    function zaloLink(apartment) {
-      const idPart = apartment.apartmentId ? `Mã căn ${apartment.apartmentId} - ` : "";
-      const text = `${idPart}Tôi muốn hỏi thuê căn hộ ${apartment.type} tòa ${apartment.tower}, diện tích ${apartment.area || ""}m2, giá ${formatPrice(apartment.price)}/tháng`;
-      return `https://zalo.me/${CONFIG.zaloPhone}?text=${encodeURIComponent(text)}`;
+    /* Zalo KHÔNG hỗ trợ điền sẵn nội dung tin nhắn qua link (khác WhatsApp).
+       Tham số ?text= trước đây bị Zalo bỏ qua hoàn toàn, khách bấm nút xong vẫn thấy
+       khung chat trống rồi phải tự gõ mã căn - gõ sai định dạng, mình phải hỏi lại.
+       Nay link chỉ mở chat, còn nội dung được sao chép sẵn vào bộ nhớ tạm (xem
+       hàm ganCopyTinNhanZalo bên dưới) để khách chỉ cần dán. */
+    function zaloLink() {
+      return `https://zalo.me/${CONFIG.zaloPhone}`;
+    }
+
+    /** Làm an toàn chuỗi trước khi nhét vào thuộc tính HTML (dấu " và & có thể phá vỡ thẻ).
+     *  Code cũ chưa có hàm này vì chưa từng nhét chuỗi tự do vào thuộc tính. */
+    function thoatKyTuThuocTinh(chuoi) {
+      return String(chuoi)
+        .replace(/&/g, "&amp;")
+        .replace(/"/g, "&quot;")
+        .replace(/</g, "&lt;")
+        .replace(/>/g, "&gt;");
+    }
+
+    /** Câu tin nhắn sao chép sẵn cho khách. Ưu tiên mã căn; không có thì mô tả loại + tòa. */
+    function tinNhanHoiCan(apartment) {
+      const moTa = apartment.apartmentId
+        ? `căn ${apartment.apartmentId}`
+        : `căn ${apartment.type}${apartment.tower ? ` tòa ${apartment.tower}` : ""}`;
+      return `Mình hỏi ${moTa} đã cho thuê chưa? Mình muốn đặt lịch xem căn.`;
     }
 
     /** So khớp CHÍNH XÁC (không phải kiểu "chứa chuỗi con"), để "1 ngủ" không bị lẫn với "1 ngủ +" */
@@ -1519,7 +1565,7 @@
               ${apartment.apartmentId ? `<span class="cc-ma">${apartment.apartmentId}</span>` : ""}
             </div>
             <div class="card-foot">
-              <a class="ask" href="${zaloLink(apartment)}" target="_blank" rel="noopener">
+              <a class="ask" href="${zaloLink()}" target="_blank" rel="noopener" data-tin-nhan="${thoatKyTuThuocTinh(tinNhanHoiCan(apartment))}">
                 <svg width="14" height="14" viewBox="0 0 24 24" fill="none" aria-hidden="true">
                   <path d="M21 11.5a8.4 8.4 0 0 1-8.5 8.3 9.5 9.5 0 0 1-3.5-.67L3 21l1.9-5.1a8 8 0 0 1-.9-3.7A8.4 8.4 0 0 1 12.5 4 8.4 8.4 0 0 1 21 11.5Z" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/>
                 </svg>
@@ -2021,6 +2067,104 @@
        Mã gửi đi là "Mã nội bộ" (CT.Stu.681...), KHÔNG phải mã căn thật, nên không lộ
        dữ liệu chủ nhà qua Google Analytics.
        ================================================================ */
+    /* ================================================================
+       SAO CHÉP SẴN TIN NHẮN KHI BẤM "HỎI CĂN NÀY" (thêm 03/08/2026)
+       ----------------------------------------------------------------
+       Vấn đề: Zalo không cho điền sẵn nội dung tin nhắn qua link. Khách bấm nút,
+       khung chat mở ra trống, khách tự gõ mã căn theo cách hiểu của họ ("s101",
+       "s205") - không khớp mã trên web (CT.2N2.348), mình phải hỏi lại, mất thời gian
+       và mất luôn ngữ cảnh căn nào.
+
+       Cách xử lý: bấm nút -> chép sẵn câu hỏi vào bộ nhớ tạm -> hiện dòng nhắc
+       -> sau 1,3 giây mới mở Zalo, đủ để khách kịp đọc. Khách chỉ cần giữ ô chat
+       rồi chọn Dán.
+
+       Trên máy tính giữ nguyên hành vi cũ (mở tab mới ngay), chỉ thêm dòng nhắc.
+       Nếu trình duyệt chặn sao chép thì hiện hẳn câu chữ ra để khách tự bôi đen.
+       ================================================================ */
+    (function ganCopyTinNhanZalo() {
+      const LA_DI_DONG = window.matchMedia("(pointer: coarse)").matches;
+
+      /** Sao chép, trả về true/false. Có đường lui cho trình duyệt cũ hoặc không chạy HTTPS. */
+      function chep(noiDung) {
+        try {
+          if (navigator.clipboard && window.isSecureContext) {
+            navigator.clipboard.writeText(noiDung).catch(() => chepKieuCu(noiDung));
+            return true;
+          }
+        } catch (e) { /* rơi xuống cách cũ */ }
+        return chepKieuCu(noiDung);
+      }
+
+      function chepKieuCu(noiDung) {
+        try {
+          const o = document.createElement("textarea");
+          o.value = noiDung;
+          o.setAttribute("readonly", "");
+          o.style.cssText = "position:fixed;top:-1000px;opacity:0";
+          document.body.appendChild(o);
+          o.select();
+          const xong = document.execCommand("copy");
+          document.body.removeChild(o);
+          return xong;
+        } catch (e) { return false; }
+      }
+
+      let oNhac = null;
+      function hienNhac(thanhCong, noiDung) {
+        if (oNhac) oNhac.remove();
+        oNhac = document.createElement("div");
+        oNhac.className = "nhac-copy" + (thanhCong ? "" : " nhac-copy--loi");
+        oNhac.setAttribute("role", "status");
+        oNhac.innerHTML = thanhCong
+          ? '<b>Đã sao chép sẵn tin nhắn</b><span>Vào Zalo, giữ 1 giây ở ô chat rồi chọn <b>Dán</b> và gửi</span>'
+          : '<b>Máy không cho tự sao chép</b><span>Anh/chị copy giúp câu này rồi dán vào Zalo:</span>';
+        if (!thanhCong) {
+          const o = document.createElement("textarea");
+          o.className = "nhac-copy__o";
+          o.value = noiDung;
+          o.readOnly = true;
+          oNhac.appendChild(o);
+          setTimeout(() => { o.focus(); o.select(); }, 50);
+        }
+        document.body.appendChild(oNhac);
+        requestAnimationFrame(() => oNhac.classList.add("hien"));
+        const giu = thanhCong ? 5200 : 12000;
+        setTimeout(() => {
+          if (!oNhac) return;
+          oNhac.classList.remove("hien");
+          setTimeout(() => { if (oNhac) { oNhac.remove(); oNhac = null; } }, 300);
+        }, giu);
+      }
+
+      document.addEventListener("click", function (e) {
+        const a = e.target.closest("a.ask[data-tin-nhan]");
+        if (!a) return;
+        const noiDung = a.getAttribute("data-tin-nhan") || "";
+        if (!noiDung) return;
+
+        const xong = chep(noiDung);
+
+        // Không chép được: giữ khách lại để tự copy, chưa mở Zalo vội
+        if (!xong) {
+          e.preventDefault();
+          hienNhac(false, noiDung);
+          return;
+        }
+
+        hienNhac(true, noiDung);
+
+        // Điện thoại: hoãn 1,3 giây cho khách kịp đọc rồi mới nhảy sang Zalo.
+        // Đi cùng tab để lúc thoát Zalo quay lại là thấy nguyên danh sách căn.
+        if (LA_DI_DONG) {
+          e.preventDefault();
+          const dich = a.getAttribute("href");
+          setTimeout(() => { window.location.href = dich; }, 1300);
+        }
+        // Máy tính: không chặn, link tự mở tab mới như cũ.
+      });
+    })();
+
     (function ganDoLuongChuyenDoi() {
       // Bọc an toàn: khách chặn quảng cáo thì gtag không tồn tại, không được để văng lỗi
       function guiSuKien(ten, thongTin) {
