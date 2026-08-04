@@ -8,14 +8,9 @@ name: Tải ảnh đại diện căn hộ từ Drive về repo
 # Vì sao phải chạy trên Actions: môi trường Claude Code chặn drive.google.com
 # (CONNECT trả 403), còn runner của GitHub thì ra Internet bình thường.
 
+# Chỉ chạy tay từ tab Actions. Trigger push theo nhánh claude/actions-di-doi-anh
+# đã được gỡ: nhánh đó merge xong rồi nên không bao giờ chạy lại được nữa.
 on:
-  push:
-    branches:
-      - claude/actions-di-doi-anh
-    paths-ignore:
-      # Không chạy lại vì chính commit ảnh của workflow này.
-      - "anh-can-ho/**"
-      - "sitemap-images.xml"
   workflow_dispatch:
     inputs:
       gioi_han:
