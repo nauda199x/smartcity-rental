@@ -21,7 +21,22 @@
   "use strict";
 
   var NGUON = "/data.json";
+  var NGUON_ANH = "/anh-can-ho/anh-map.json";
   var SDT = "0977923284";
+
+  /* Bảng tra ảnh đã di dời về repo: drive_id -> đường dẫn ảnh trong repo.
+     Nạp một lần lúc script khởi động. Nếu nạp lỗi thì để rỗng — site vẫn chạy
+     bình thường với ảnh Drive như trước. */
+  var anhTrongRepo = {};
+
+  /* Luôn resolve, kể cả khi file không tồn tại hoặc hỏng: lưới căn phải được
+     dựng trong mọi trường hợp. */
+  function napBanDoAnh() {
+    return fetch(NGUON_ANH, { cache: "no-cache" })
+      .then(function (r) { return r.ok ? r.json() : null; })
+      .then(function (d) { if (d && typeof d === "object") anhTrongRepo = d; })
+      .catch(function () { /* giữ nguyên map rỗng -> dùng ảnh Drive */ });
+  }
 
   function chuan(v) { return String(v == null ? "" : v).trim(); }
   function khoa(v) { return chuan(v).toLowerCase(); }
@@ -71,12 +86,18 @@
 
   /* Ảnh trên Google Drive không xem trực tiếp được -> đổi sang dạng thumbnail xem được.
      Mọi nơi cần link ảnh PHẢI đi qua hàm này, không được ghép cứng tên miền Drive,
-     để sau này chuyển ảnh về host riêng chỉ cần sửa một chỗ. */
+     để sau này chuyển ảnh về host riêng chỉ cần sửa một chỗ.
+     Ảnh nào đã di dời về repo (có trong anh-map.json) thì trả về đường dẫn repo —
+     Drive chặn crawler nên ảnh host ở đó không bao giờ được Google Images index. */
   function driveUrlToViewUrl(v) {
     var text = chuan(v);
     if (!text) return "";
     var m = text.match(/\/file\/d\/([^/]+)/) || text.match(/[?&]id=([^&]+)/);
-    if (m) return "https://drive.google.com/thumbnail?id=" + m[1] + "&sz=w1000";
+    if (m) {
+      var trongRepo = anhTrongRepo[m[1]];
+      if (trongRepo) return trongRepo;
+      return "https://drive.google.com/thumbnail?id=" + m[1] + "&sz=w1000";
+    }
     return text;
   }
 
@@ -169,11 +190,15 @@
     return "Trống từ " + ngayNganGon(r["Ngày vào ở"]);
   }
 
+  /* Giá trị trong data.json là URL Drive thô, phải đi qua driveUrlToViewUrl thì
+     ảnh bìa mới được áp bảng tra ảnh repo (và mới xem trực tiếp được). */
   function anhBia(r) {
     var a = chuan(r["Ảnh đại diện"]);
-    if (a) return a;
-    var ds = chuan(r["Danh sách ảnh"]).split(/\s*\n\s*/);
-    return ds[0] || "";
+    if (!a) {
+      var ds = chuan(r["Danh sách ảnh"]).split(/\s*\n\s*/);
+      a = ds[0] || "";
+    }
+    return driveUrlToViewUrl(a);
   }
 
   function homNay() {
@@ -609,10 +634,13 @@
   function batDau() {
     var bl = docBoLoc();
     if (!bl || !window.fetch) return;
-    fetch(NGUON, { cache: "no-cache" })
-      .then(function (r) { return r.ok ? r.json() : null; })
-      .then(function (d) { if (d) chay(d, bl); })
-      .catch(function () { /* giữ nguyên nội dung tĩnh */ });
+    /* Nạp bảng tra ảnh trước rồi mới dựng lưới, để thẻ căn hộ không kịp hiện
+       ảnh Drive rồi mới đổi sang ảnh repo. Nạp lỗi cũng vẫn đi tiếp. */
+    napBanDoAnh().then(function () {
+      return fetch(NGUON, { cache: "no-cache" })
+        .then(function (r) { return r.ok ? r.json() : null; })
+        .then(function (d) { if (d) chay(d, bl); });
+    }).catch(function () { /* giữ nguyên nội dung tĩnh */ });
   }
 
   if (document.readyState === "loading") {

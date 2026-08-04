@@ -1,0 +1,99 @@
+name: Tải ảnh đại diện căn hộ từ Drive về repo
+
+# Google Drive chặn crawler nên ảnh căn hộ không được Google Images index.
+# Workflow này chạy scripts/tai-anh-can-ho.py để tải ảnh đại diện về thư mục
+# anh-can-ho/ dưới dạng WebP, sinh anh-map.json + sitemap-images.xml rồi commit
+# thẳng vào nhánh đang chạy.
+#
+# Vì sao phải chạy trên Actions: môi trường Claude Code chặn drive.google.com
+# (CONNECT trả 403), còn runner của GitHub thì ra Internet bình thường.
+
+on:
+  push:
+    branches:
+      - claude/actions-di-doi-anh
+    paths-ignore:
+      # Không chạy lại vì chính commit ảnh của workflow này.
+      - "anh-can-ho/**"
+      - "sitemap-images.xml"
+  workflow_dispatch:
+    inputs:
+      gioi_han:
+        description: "Chỉ tải N ảnh đầu (0 = tải hết)"
+        type: string
+        default: "0"
+
+permissions:
+  contents: write
+
+# Hai lần chạy song song sẽ đá nhau khi push.
+concurrency:
+  group: tai-anh-can-ho-${{ github.ref_name }}
+  cancel-in-progress: false
+
+jobs:
+  tai-anh:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Lấy code
+        uses: actions/checkout@v4
+
+      - name: Chuẩn bị Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Cài Pillow và requests
+        run: pip install --quiet Pillow requests
+
+      - name: Tải ảnh và chuyển sang WebP
+        run: |
+          set -o pipefail
+          python3 scripts/tai-anh-can-ho.py \
+            --gioi-han "${{ inputs.gioi_han || 0 }}" 2>&1 | tee ket-qua.txt
+
+      - name: Ghi kết quả vào phần tóm tắt của lần chạy
+        if: always()
+        run: |
+          {
+            echo "## Kết quả tải ảnh đại diện"
+            echo
+            echo '```'
+            tail -n 60 ket-qua.txt 2>/dev/null || echo "(script không chạy được)"
+            echo '```'
+            echo
+            echo "Dung lượng thư mục \`anh-can-ho/\`: $(du -sh anh-can-ho 2>/dev/null | cut -f1 || echo 'chưa có')"
+          } >> "$GITHUB_STEP_SUMMARY"
+
+      - name: Commit và push ảnh
+        env:
+          NHANH: ${{ github.ref_name }}
+        run: |
+          set -euo pipefail
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+
+          # RÀNG BUỘC: data.json do Apps Script quản lý, workflow này không bao
+          # giờ được ghi đè. Script không sửa file đó, nhưng vẫn chặn thêm ở đây.
+          git checkout -- data.json || true
+
+          if git diff --quiet -- anh-can-ho sitemap-images.xml && \
+             [ -z "$(git ls-files --others --exclude-standard -- anh-can-ho sitemap-images.xml)" ]; then
+            echo "Không có ảnh nào mới — bỏ qua commit."
+            exit 0
+          fi
+
+          git add -- anh-can-ho sitemap-images.xml
+          git commit -m "Tải $(ls anh-can-ho/*.webp | wc -l) ảnh đại diện từ Drive về repo (WebP)"
+
+          for lan in 1 2 3 4; do
+            if git pull --rebase origin "$NHANH" && git push origin "HEAD:$NHANH"; then
+              echo "Đã push thành công."
+              exit 0
+            fi
+            cho=$((2 ** lan))
+            echo "Push thất bại, thử lại sau ${cho}s..."
+            sleep "$cho"
+          done
+          echo "Không push được sau 4 lần thử."
+          exit 1

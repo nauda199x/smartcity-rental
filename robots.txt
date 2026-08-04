@@ -2,3 +2,4 @@ User-agent: *
 Allow: /
 
 Sitemap: https://timthuesmartcity.com/sitemap.xml
+Sitemap: https://timthuesmartcity.com/sitemap-images.xml
