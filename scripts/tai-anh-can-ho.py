@@ -8,7 +8,7 @@ sang WebP và sinh ra:
   - anh-can-ho/anh-map.json  : drive_id -> đường dẫn ảnh trong repo
   - sitemap-images.xml       : Google Image Sitemap cho các ảnh vừa tải
 
-Đầu vào là di-doi-anh/danh-sach-anh.json. Script KHÔNG đụng vào data.json.
+Đầu vào là scripts/danh-sach-anh.json. Script KHÔNG đụng vào data.json.
 
 Chạy:  python3 scripts/tai-anh-can-ho.py [--gioi-han N]
 
@@ -29,7 +29,8 @@ import requests
 from PIL import Image
 
 GOC = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-DANH_SACH = os.path.join(GOC, "di-doi-anh", "danh-sach-anh.json")
+DANH_SACH = os.path.join(os.path.dirname(os.path.abspath(__file__)),
+                         "danh-sach-anh.json")
 THU_MUC_ANH = os.path.join(GOC, "anh-can-ho")
 DUONG_MAP = os.path.join(THU_MUC_ANH, "anh-map.json")
 DUONG_SITEMAP_ANH = os.path.join(GOC, "sitemap-images.xml")
@@ -39,10 +40,10 @@ RONG_TOI_DA = 800
 CHAT_LUONG = 82
 SO_LAN_THU = 3
 
-# Ảnh đại diện của một căn xuất hiện trên trang danh mục theo loại căn và trên
-# trang danh mục theo phân khu — đó là các trang được khai báo trong
-# sitemap-images.xml. Trang chủ dùng bộ dựng thẻ riêng trong index.html, vẫn
-# đang trỏ Drive, nên không liệt kê ở đây.
+# Ảnh đại diện của một căn xuất hiện trên trang chủ (liệt kê mọi căn, không
+# lọc) và trên hai trang danh mục: theo loại căn và theo phân khu. Cả ba đều
+# đã dùng ảnh repo nên đều được khai báo trong sitemap-images.xml.
+TRANG_CHU = "/"
 TRANG_THEO_LOAI = {
     "Studio": "/studio/",
     "1 Ngủ": "/1pn/",
@@ -139,8 +140,11 @@ def tai_mot_anh(ban_ghi):
 
 
 def ghi_sitemap_anh(ban_ghi_ok):
-    """Sinh Google Image Sitemap: nhóm ảnh theo trang danh mục hiển thị nó."""
-    theo_trang = {}
+    """Sinh Google Image Sitemap: nhóm ảnh theo trang hiển thị nó.
+
+    Trang chủ liệt kê mọi căn nên nhận toàn bộ ảnh; các trang danh mục chỉ nhận
+    ảnh của loại căn / phân khu tương ứng."""
+    theo_trang = {TRANG_CHU: list(ban_ghi_ok)}
     for bg in ban_ghi_ok:
         for bang, khoa in ((TRANG_THEO_LOAI, "loai"),
                            (TRANG_THEO_PHAN_KHU, "phan_khu")):

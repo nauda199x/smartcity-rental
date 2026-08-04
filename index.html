@@ -746,8 +746,13 @@
       zaloPhone: "0977923284",
       fallbackSheetId: "1BBnB5PPLR3HZWHqsa5qvvtgWvFMiHNE2ZMIlUSXcKZk",
       fallbackGid: "0",
-      allowUnsafeSheetPreview: false
+      allowUnsafeSheetPreview: false,
+      anhMapUrl: "anh-can-ho/anh-map.json"
     };
+
+    /* Bảng tra ảnh đã di dời về repo: drive_id -> đường dẫn ảnh WebP trong repo.
+       Google Drive chặn crawler nên ảnh host ở đó không được Google Images index. */
+    let anhTrongRepo = {};
 
     const state = {
       apartments: [],
@@ -898,7 +903,11 @@
       const text = normalizeText(url);
       if (!text) return "";
       const fileMatch = text.match(/\/file\/d\/([^/]+)/) || text.match(/[?&]id=([^&]+)/);
-      if (fileMatch) return `https://drive.google.com/thumbnail?id=${fileMatch[1]}&sz=w1000`;
+      if (fileMatch) {
+        const trongRepo = anhTrongRepo[fileMatch[1]];
+        if (typeof trongRepo === "string" && trongRepo) return trongRepo;
+        return `https://drive.google.com/thumbnail?id=${fileMatch[1]}&sz=w1000`;
+      }
       return text;
     }
 
@@ -1014,8 +1023,25 @@
       }
     }
 
+    /** Nạp bảng tra ảnh repo. Thiếu file, lỗi mạng hay JSON hỏng đều im lặng bỏ qua:
+     *  bảng để rỗng và toàn bộ ảnh rơi về Drive như trước, trang vẫn chạy bình thường. */
+    async function loadAnhMap() {
+      if (!CONFIG.anhMapUrl) return;
+      try {
+        const response = await fetch(CONFIG.anhMapUrl);
+        if (!response.ok) return;
+        const data = await response.json();
+        if (data && typeof data === "object" && !Array.isArray(data)) anhTrongRepo = data;
+      } catch (err) {
+        // im lặng — giữ bảng rỗng
+      }
+    }
+
     async function loadData() {
-      const duLieuTinh = await loadStaticData();
+      /* Nạp song song để không cộng thêm một vòng mạng, nhưng PHẢI đợi cả hai xong
+         mới trả dữ liệu: toApartment gọi driveUrlToViewUrl ngay khi dựng thẻ, bảng
+         tra mà chưa có thì mọi ảnh sẽ rơi về Drive. */
+      const [duLieuTinh] = await Promise.all([loadStaticData(), loadAnhMap()]);
       if (duLieuTinh) return duLieuTinh;
 
       if (isConfiguredEndpoint()) {
