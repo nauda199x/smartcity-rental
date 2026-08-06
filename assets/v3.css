@@ -213,15 +213,12 @@ p:last-child{margin-bottom:0}
   background:var(--navy);
   color:#fff;padding:64px 0 110px;
 }
-/* Ảnh nền ở đây chỉ còn của trang ký gửi (.hero-gui); trang 404 dùng chung tên
-   class .hero nhưng là thẻ trắng, không có ảnh.
-   Hero trang chủ đã chuyển sang thẻ <img> thật (khối 20, 02/08/2026) nên luật
-   .hero-anh cũ đã gỡ khỏi đây cùng hai file hero-1600.webp / hero-800.webp. */
-.hero-gui{background-image:url("hero-smartcity.jpg");background-size:cover;background-position:center 38%}
-.hero-gui::before{
-  content:"";position:absolute;inset:0;
-  background:linear-gradient(95deg,rgba(10,26,48,.95) 0%,rgba(10,26,48,.78) 42%,rgba(10,26,48,.25) 100%);
-}
+/* Không còn trang nào dựng ảnh hero bằng background-image ở đây.
+   Trang chủ đã chuyển sang thẻ <img> thật (khối 20, 02/08/2026), và trang ký gửi
+   (.hero-gui) nay cũng dùng đúng cấu trúc .hero-v4 ấy — nên luật .hero-anh cũ
+   (kèm hero-1600.webp / hero-800.webp) và luật nền .hero-gui (kèm ::before phủ
+   tối) đều đã gỡ; việc phủ tối ảnh do .hero-v4__phu lo.
+   Trang 404 dùng chung tên class .hero nhưng là thẻ trắng, không có ảnh. */
 .hero>*{position:relative;z-index:2}
 .hero h1{font-size:clamp(2rem,4.4vw,3.2rem);font-weight:800;line-height:1.12;max-width:23ch;color:#fff}
 .hero p{margin-top:14px;font-size:clamp(1rem,1.6vw,1.15rem);color:rgba(255,255,255,.82);font-weight:300;max-width:62ch}
@@ -813,6 +810,19 @@ footer h3,.site-footer h3{
    12. TRANG KÝ GỬI /gui-thue/  — chỉ áp lớp trình bày, nội dung giữ nguyên
    ================================================================== */
 .hero-gui{padding:56px 0}
+/* Hero trang ký gửi nay dùng chung khung .hero-v4 của trang chủ (khối 20).
+   Ở trang chủ, đáy hero bị card lọc đè lên nên khối 20 chừa sẵn 48px trong
+   .hero-v4__trong và 90px dưới thẻ section ở màn hẹp. Trang này KHÔNG có card
+   lọc, để nguyên hai khoảng ấy thì dưới chữ hụt ra một mảng trống.
+   Selector nhân đôi (.hero.hero-v4.hero-gui) để thắng .hero.hero-v4 của khối 20
+   nằm phía sau trong file — không phải để đổi layout, chỉ trả lại khoảng đệm thường. */
+.hero.hero-v4.hero-gui .hero-v4__trong{padding-bottom:0}
+/* max-width:62ch của .phu bên dưới được đặt hồi hero còn là nền navy trơn — tối
+   đều nên chữ dài bao nhiêu cũng đọc được. Nay sau lưng là ảnh thật, lớp phủ
+   .hero-v4__phu nhạt dần và gần như trong suốt từ mốc 78%; chữ chạy quá rộng sẽ
+   đè lên mảng toà nhà sáng, hụt tương phản ở khổ máy tính bảng.
+   Kéo về đúng 520px như trang chủ để chữ nằm trọn trong phần phủ tối. */
+.hero.hero-v4.hero-gui .phu{max-width:520px}
 .hero-gui .nhan-tin{
   display:inline-flex;align-items:center;gap:8px;font-size:.84rem;font-weight:600;
   background:rgba(255,255,255,.13);border:1px solid rgba(255,255,255,.28);
@@ -1675,6 +1685,9 @@ figure figcaption{font-size:.8rem;color:var(--gray-lt);margin-top:7px;text-align
   .hero-v4 .stats{margin-top:22px}
   .hero-v4 .stat{padding:0 16px}
   .hero-v4 .stat strong{font-size:26px}
+  /* Trang ký gửi không có card lọc đè đáy hero: trả 90px chừa cho card về
+     khoảng đệm bình thường, và hạ chiều cao tối thiểu cho vừa khối chữ. */
+  .hero.hero-v4.hero-gui{min-height:0;padding:40px 0 52px}
 
   .filter-card{margin-top:-32px;padding:18px 16px;border-radius:16px}
   .filter-card .loc-pc{grid-template-columns:1fr;gap:12px}
