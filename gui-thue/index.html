@@ -7,6 +7,13 @@
 <meta name="description" content="Chủ nhà có căn hộ tại Vinhomes Smart City cần cho thuê? Điền thông tin và tải ảnh trực tiếp tại đây, chúng tôi đăng tin và tìm khách miễn phí.">
 <link rel="canonical" href="https://timthuesmartcity.com/gui-thue/">
 <link rel="icon" href="/favicon.ico" sizes="any">
+<!-- Báo trước cho trình duyệt tải ảnh hero ngay, không phải chờ dựng xong cây DOM.
+     Ảnh hero là phần tử LCP nên cần fetchpriority=high.
+     Dùng 2 thẻ preload kèm media thay vì 1 thẻ imagesrcset: ảnh máy tính và ảnh
+     điện thoại là hai khung hình KHÁC NHAU (16:9 và 4:5), chọn bằng media trong
+     <picture> — imagesrcset chỉ đúng khi các bản ảnh cùng khung hình. -->
+<link rel="preload" as="image" href="/images/hero/hero-smart-city-mobile.webp" media="(max-width: 640px)" fetchpriority="high">
+<link rel="preload" as="image" href="/images/hero/hero-smart-city-desktop.webp" media="(min-width: 641px)" fetchpriority="high">
 <meta name="robots" content="index,follow">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://timthuesmartcity.com/gui-thue/">
@@ -37,18 +44,36 @@ gtag('js',new Date());gtag('config','G-VF9KHC5TWD');</script>
   </div>
 </header>
 
-<section class="hero hero-gui">
-  <div class="khung">
-    <span class="nhan-tin"><i></i>Đang có khách hỏi thuê mỗi ngày</span>
-    <h1>Có căn cần cho thuê?<br><span>Chúng em lo tìm khách giúp anh/chị</span></h1>
-    <p class="phu">Gửi thông tin và ảnh căn hộ ngay bên dưới. Chúng em có sẵn khách đang tìm nhà mỗi ngày, đăng tin và dẫn khách xem căn giúp anh/chị — cho thuê nhanh nhất, anh/chị không phải mất công tự đăng nhiều nơi rồi ngóng.</p>
-    <div class="cta-hang">
-      <a class="cta" href="#mauGui">Gửi căn ngay
-        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
-      </a>
-      <a class="cta-phu" href="/">Xem các căn đang cho thuê</a>
+<!-- Hero dùng ảnh <img> thật như trang chủ (khối 20), không còn background-image.
+     Khai báo sẵn width/height nên trình duyệt biết trước chỗ đặt ảnh, không nhảy
+     layout (CLS = 0). Ảnh máy tính 16:9 và ảnh điện thoại 4:5 là hai khung hình
+     khác nhau nên chọn bằng media trong <picture>, không phải srcset theo bề ngang.
+     Toàn bộ chữ và nút bấm giữ nguyên như cũ. -->
+<section class="hero hero-v4 hero-gui">
+  <picture class="hero-v4__anh">
+    <source media="(max-width:640px)" type="image/webp" srcset="/images/hero/hero-smart-city-mobile.webp">
+    <source media="(max-width:640px)" type="image/jpeg" srcset="/images/hero/hero-smart-city-mobile.jpg">
+    <source type="image/webp" srcset="/images/hero/hero-smart-city-desktop.webp">
+    <img src="/images/hero/hero-smart-city-desktop.jpg" width="1800" height="1013"
+         fetchpriority="high" decoding="async"
+         alt="Toà căn hộ Vinhomes Smart City nhìn từ hồ trung tâm, Tây Mỗ, Nam Từ Liêm, Hà Nội">
+  </picture>
+  <!-- Lớp phủ chỉ tối bên trái để đỡ chữ; nửa phải gần như trong suốt để nhìn rõ ảnh. -->
+  <span class="hero-v4__phu" aria-hidden="true"></span>
+
+  <div class="khung hero-v4__trong">
+    <div class="hero-v4__chu">
+      <span class="nhan-tin"><i></i>Đang có khách hỏi thuê mỗi ngày</span>
+      <h1>Có căn cần cho thuê?<br><span>Chúng em lo tìm khách giúp anh/chị</span></h1>
+      <p class="phu">Gửi thông tin và ảnh căn hộ ngay bên dưới. Chúng em có sẵn khách đang tìm nhà mỗi ngày, đăng tin và dẫn khách xem căn giúp anh/chị — cho thuê nhanh nhất, anh/chị không phải mất công tự đăng nhiều nơi rồi ngóng.</p>
+      <div class="cta-hang">
+        <a class="cta" href="#mauGui">Gửi căn ngay
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </a>
+        <a class="cta-phu" href="/">Xem các căn đang cho thuê</a>
+      </div>
+      <span class="duoi-cta">Chỉ mất 2 phút · Miễn phí đăng tin · Số điện thoại không hiển thị công khai</span>
     </div>
-    <span class="duoi-cta">Chỉ mất 2 phút · Miễn phí đăng tin · Số điện thoại không hiển thị công khai</span>
   </div>
 </section>
 
