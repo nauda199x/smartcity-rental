@@ -156,12 +156,8 @@
     a.rel = "noopener";
     a.textContent = "Tìm mua";
 
-    /* Dat NGAY SAU "Danh muc can": khach dang xem danh sach hang thi
-       de nghi xem tiep hang ben kia. De cuoi menu thi it nguoi thay. */
-    var moc = nav.querySelector('a[href*="mucLuc"], a[href*="#danh-muc"]');
-    if (moc && moc.nextSibling) nav.insertBefore(a, moc.nextSibling);
-    else if (moc) nav.appendChild(a);
-    else nav.insertBefore(a, nav.children[1] || null);
+    /* Đặt ngay sau "Trang chủ" — mục "Danh mục căn" (mốc cũ) đã gỡ ngày 08/08/2026. */
+    nav.insertBefore(a, nav.children[1] || null);
   }
 
   function khoiDong() {
