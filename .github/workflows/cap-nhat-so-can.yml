@@ -41,12 +41,21 @@ jobs:
         with:
           node-version: "20"
 
+      # Phải chạy TRƯỚC cap-nhat-so-can.mjs: trang tòa vừa sinh ra cũng nằm
+      # trong phạm vi mà script kia quét, chạy sau thì trang mới phải đợi tới
+      # hôm sau mới được rà số căn và ngày cập nhật.
+      - name: Sinh trang theo tòa
+        run: |
+          set -o pipefail
+          python3 scripts/sinh-trang-toa.py ${{ inputs.chi_thu && '--thu' || '' }} \
+            2>&1 | tee ket-qua.txt
+
       - name: Đếm căn và cập nhật thẻ SEO
         id: chay
         run: |
           set -o pipefail
           node scripts/cap-nhat-so-can.mjs ${{ inputs.chi_thu && '--thu' || '' }} \
-            2>&1 | tee ket-qua.txt
+            2>&1 | tee -a ket-qua.txt
 
       - name: Cập nhật lastmod trong sitemap.xml
         run: |
@@ -95,12 +104,18 @@ jobs:
           # lớp chặn ở đây cho chắc.
           git checkout -- data.json || true
 
-          if git diff --quiet -- '*.html' sitemap.xml; then
+          # Thư mục trang tòa do sinh-trang-toa.py dựng lại mỗi lần chạy nên
+          # phải nằm trong danh sách add. Đưa lên trước phần kiểm tra thay đổi
+          # vì `git diff` không nhìn thấy file chưa được theo dõi: tòa mới sinh
+          # lần đầu sẽ bị coi là "không có gì thay đổi" và không bao giờ được
+          # commit.
+          git add -- '*.html' sitemap.xml s4-01-vinhomes-smart-city
+
+          if git diff --cached --quiet; then
             echo "Không có gì thay đổi — bỏ qua commit, không tạo commit rác."
             exit 0
           fi
 
-          git add -- '*.html' sitemap.xml
           git commit -m "Tự động cập nhật số căn, tháng trong thẻ SEO và lastmod sitemap"
 
           # Apps Script có thể vừa push data.json lên trong lúc job đang chạy,
