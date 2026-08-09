@@ -1535,6 +1535,17 @@
       return soMedia > 0 ? `<span class="pcount">${soMedia} ảnh</span>` : "";
     }
 
+    /* Khung ảnh thẻ: ~170px trên mobile, nửa cột ở tablet, một phần ba ở desktop. */
+    const SIZES_ANH_THE = "(max-width:640px) 170px, (max-width:1080px) 50vw, 33vw";
+
+    /** Ảnh đã về repo có kèm bản rộng 400px (hậu tố -400) cho khung ảnh nhỏ
+     *  trên mobile. Ảnh còn trỏ Drive không có biến thể nào nên chỉ dùng src. */
+    function srcsetAnhThe(url) {
+      if (!url.startsWith("/anh-can-ho/") || !url.endsWith(".webp")) return "";
+      const ban_nho = url.replace(/\.webp$/, "-400.webp");
+      return ` srcset="${ban_nho} 400w, ${url} 800w" sizes="${SIZES_ANH_THE}"`;
+    }
+
     function mediaMarkup(apartment, index) {
       const hangBadge = `<span class="badge">${nhanTinhTrang(apartment)}</span>${badgeNoiThatHtml(apartment)}`;
       if (!apartment.cover || apartment.imgBroken) {
@@ -1549,7 +1560,7 @@
       return `<button class="media" type="button" data-gallery="${index}" aria-label="Xem ảnh căn hộ ${apartment.tower}">
         ${hangBadge}
         ${soAnhHtml(apartment)}
-        <img src="${apartment.cover}" alt="Căn hộ ${apartment.type} tòa ${apartment.tower}" loading="lazy" data-akey="${apartmentKey(apartment)}" onerror="xuLyAnhLoi(this)">
+        <img src="${apartment.cover}"${srcsetAnhThe(apartment.cover)} width="800" height="600" alt="Căn hộ ${apartment.type} tòa ${apartment.tower}" loading="lazy" data-akey="${apartmentKey(apartment)}" onerror="xuLyAnhLoi(this)">
       </button>`;
     }
 

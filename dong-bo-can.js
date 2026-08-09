@@ -101,6 +101,19 @@
     return text;
   }
 
+  /* Khung ảnh thẻ: ~170px trên mobile, nửa cột ở tablet, một phần ba ở desktop. */
+  var SIZES_ANH_THE = "(max-width:640px) 170px, (max-width:1080px) 50vw, 33vw";
+
+  /* Ảnh đã về repo có kèm bản rộng 400px (hậu tố -400 trước phần mở rộng) cho
+     khung ảnh nhỏ trên mobile. Ảnh còn trỏ Drive không có biến thể nào nên
+     giữ nguyên chỉ src, không sinh srcset. */
+  function srcsetAnhThe(url) {
+    if (url.indexOf("/anh-can-ho/") !== 0 || !/\.webp$/.test(url)) return "";
+    var banNho = url.replace(/\.webp$/, "-400.webp");
+    return ' srcset="' + esc(banNho) + " 400w, " + esc(url) + ' 800w"' +
+      ' sizes="' + SIZES_ANH_THE + '"';
+  }
+
   function laVideo(url) {
     return /\.(mp4|mov|m4v|webm)(\?|$)/i.test(chuan(url));
   }
@@ -470,7 +483,8 @@
       var huyHieu = soMedia > 0
         ? '<span class="dbc-huy-hieu">' + soMedia + ' ảnh</span>'
         : "";
-      khungAnh = '<div class="the-anh"><img src="' + esc(anh) + '" alt="' + esc(alt) + '" loading="lazy" ' +
+      khungAnh = '<div class="the-anh"><img src="' + esc(anh) + '"' + srcsetAnhThe(anh) +
+        ' alt="' + esc(alt) + '" loading="lazy" ' +
         'decoding="async" width="400" height="300" ' +
         "onerror=\"this.closest('.the').classList.add('khong-anh');" +
         "var b=this.parentNode.querySelector('.dbc-huy-hieu');if(b)b.parentNode.removeChild(b);" +
