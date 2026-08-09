@@ -41,11 +41,21 @@ jobs:
       - name: Cài Pillow và requests
         run: pip install --quiet Pillow requests
 
+      - name: Sinh lại danh sách ảnh từ data.json
+        run: |
+          set -o pipefail
+          python3 scripts/sinh-danh-sach-anh.py 2>&1 | tee ket-qua.txt
+
       - name: Tải ảnh và chuyển sang WebP
         run: |
           set -o pipefail
           python3 scripts/tai-anh-can-ho.py \
-            --gioi-han "${{ inputs.gioi_han || 0 }}" 2>&1 | tee ket-qua.txt
+            --gioi-han "${{ inputs.gioi_han || 0 }}" 2>&1 | tee -a ket-qua.txt
+
+      - name: Thay URL Drive trong HTML bằng ảnh trong repo
+        run: |
+          set -o pipefail
+          python3 scripts/thay-anh-trong-html.py 2>&1 | tee -a ket-qua.txt
 
       - name: Ghi kết quả vào phần tóm tắt của lần chạy
         if: always()
@@ -72,13 +82,15 @@ jobs:
           # giờ được ghi đè. Script không sửa file đó, nhưng vẫn chặn thêm ở đây.
           git checkout -- data.json || true
 
-          if git diff --quiet -- anh-can-ho sitemap-images.xml && \
-             [ -z "$(git ls-files --others --exclude-standard -- anh-can-ho sitemap-images.xml)" ]; then
+          THEO_DOI="anh-can-ho sitemap-images.xml scripts/danh-sach-anh.json"
+
+          if git diff --quiet -- $THEO_DOI '*.html' && \
+             [ -z "$(git ls-files --others --exclude-standard -- $THEO_DOI)" ]; then
             echo "Không có ảnh nào mới — bỏ qua commit."
             exit 0
           fi
 
-          git add -- anh-can-ho sitemap-images.xml
+          git add -- $THEO_DOI '*.html'
           git commit -m "Tải $(ls anh-can-ho/*.webp | wc -l) ảnh đại diện từ Drive về repo (WebP)"
 
           for lan in 1 2 3 4; do
