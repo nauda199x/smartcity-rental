@@ -1,113 +1,53 @@
 [
  {
-  "ma": "CT.Stu.545",
-  "toa": "MasA",
-  "phan_khu": "Masteri",
-  "loai": "Studio",
-  "dien_tich": 33,
-  "drive_id": "178XfMYrwLGXdzEvUC8NEGVvVTc-yA1_C",
-  "url_goc": "https://drive.google.com/thumbnail?id=178XfMYrwLGXdzEvUC8NEGVvVTc-yA1_C&sz=w1000",
-  "ten_file": "cho-thue-can-ho-studio-masteri-33m2-ct-stu-545.webp"
- },
- {
-  "ma": "CT.Stu.660",
-  "toa": "SA2",
-  "phan_khu": "Sakura",
-  "loai": "Studio",
-  "dien_tich": 30,
-  "drive_id": "1GHHWzHqLQ9XEAdiuDdPXqTxUllsNYq_j",
-  "url_goc": "https://drive.google.com/thumbnail?id=1GHHWzHqLQ9XEAdiuDdPXqTxUllsNYq_j&sz=w1000",
-  "ten_file": "cho-thue-can-ho-studio-sakura-30m2-ct-stu-660.webp"
- },
- {
-  "ma": "CT.Stu.656",
-  "toa": "SA1",
-  "phan_khu": "Sakura",
-  "loai": "Studio",
-  "dien_tich": 28,
-  "drive_id": "1IJap3YKevpeDoLiVaGHILc9CQaKQJQkJ",
-  "url_goc": "https://drive.google.com/thumbnail?id=1IJap3YKevpeDoLiVaGHILc9CQaKQJQkJ&sz=w1000",
-  "ten_file": "cho-thue-can-ho-studio-sakura-28m2-ct-stu-656.webp"
- },
- {
-  "ma": "CT.Stu.663",
-  "toa": "SA5",
-  "phan_khu": "Sakura",
-  "loai": "Studio",
-  "dien_tich": 32,
-  "drive_id": "10tn4jdytXttOhWjKkdJ6dLpMYZGqei3U",
-  "url_goc": "https://drive.google.com/thumbnail?id=10tn4jdytXttOhWjKkdJ6dLpMYZGqei3U&sz=w1000",
-  "ten_file": "cho-thue-can-ho-studio-sakura-32m2-ct-stu-663.webp"
- },
- {
-  "ma": "CT.Stu.657",
-  "toa": "GS1",
-  "phan_khu": "Miami",
-  "loai": "Studio",
-  "dien_tich": 25,
-  "drive_id": "1vP6-YOqWqI4WMm31vH2ry5HBPHbe6ftA",
-  "url_goc": "https://drive.google.com/thumbnail?id=1vP6-YOqWqI4WMm31vH2ry5HBPHbe6ftA&sz=w1000",
-  "ten_file": "cho-thue-can-ho-studio-miami-25m2-ct-stu-657.webp"
- },
- {
-  "ma": "CT.Stu.653",
-  "toa": "S102",
-  "phan_khu": "Sapphire",
-  "loai": "Studio",
-  "dien_tich": 28,
-  "drive_id": "1T5Cp0Gv4uRK9ng4AiVlnZi2IbhjJBHWJ",
-  "url_goc": "https://drive.google.com/thumbnail?id=1T5Cp0Gv4uRK9ng4AiVlnZi2IbhjJBHWJ&sz=w1000",
-  "ten_file": "cho-thue-can-ho-studio-sapphire-28m2-ct-stu-653.webp"
- },
- {
-  "ma": "CT.1N.120",
-  "toa": "SA5",
-  "phan_khu": "Sakura",
+  "ma": "CT.1N.153",
+  "toa": "TC1",
+  "phan_khu": "Canopy",
   "loai": "1 Ngủ",
   "dien_tich": 43,
-  "drive_id": "1kwxPtNbljDV4ghJcLU909JPks14xUwLE",
-  "url_goc": "https://drive.google.com/thumbnail?id=1kwxPtNbljDV4ghJcLU909JPks14xUwLE&sz=w1000",
-  "ten_file": "cho-thue-can-ho-1-ngu-sakura-43m2-ct-1n-120.webp"
+  "drive_id": "10w6_J_cSdE0WfEHwQMrrQBXlLeuMmEl2",
+  "url_goc": "https://drive.google.com/thumbnail?id=10w6_J_cSdE0WfEHwQMrrQBXlLeuMmEl2&sz=w1000",
+  "ten_file": "cho-thue-can-ho-1-ngu-canopy-43m2-ct-1n-153.webp"
  },
  {
-  "ma": "CT.1N.133",
-  "toa": "A3",
-  "phan_khu": "Lumiere",
+  "ma": "CT.1N.146",
+  "toa": "TC1",
+  "phan_khu": "Canopy",
   "loai": "1 Ngủ",
   "dien_tich": 44,
-  "drive_id": "1i75Sn4VQkvdxxUtTTnJk-8JcCtdcKH0P",
-  "url_goc": "https://drive.google.com/thumbnail?id=1i75Sn4VQkvdxxUtTTnJk-8JcCtdcKH0P&sz=w1000",
-  "ten_file": "cho-thue-can-ho-1-ngu-lumiere-44m2-ct-1n-133.webp"
+  "drive_id": "1d1eIoyV41tkBUhWsS7c5tpatRCFx-umw",
+  "url_goc": "https://drive.google.com/thumbnail?id=1d1eIoyV41tkBUhWsS7c5tpatRCFx-umw&sz=w1000",
+  "ten_file": "cho-thue-can-ho-1-ngu-canopy-44m2-ct-1n-146.webp"
  },
  {
-  "ma": "CT.1N.131",
-  "toa": "GS6",
-  "phan_khu": "Miami",
+  "ma": "CT.1N.151",
+  "toa": "TC2",
+  "phan_khu": "Canopy",
   "loai": "1 Ngủ",
-  "dien_tich": 45,
-  "drive_id": "1XEGVIcNxanWRKGUmGneFElXM-q7zELFI",
-  "url_goc": "https://drive.google.com/thumbnail?id=1XEGVIcNxanWRKGUmGneFElXM-q7zELFI&sz=w1000",
-  "ten_file": "cho-thue-can-ho-1-ngu-miami-45m2-ct-1n-131.webp"
+  "dien_tich": 46,
+  "drive_id": "1lyOabXNwUjwW_n20Pzgumu0jghTGewQ2",
+  "url_goc": "https://drive.google.com/thumbnail?id=1lyOabXNwUjwW_n20Pzgumu0jghTGewQ2&sz=w1000",
+  "ten_file": "cho-thue-can-ho-1-ngu-canopy-46m2-ct-1n-151.webp"
  },
  {
-  "ma": "CT.1N.135",
-  "toa": "SA5",
-  "phan_khu": "Sakura",
-  "loai": "1 Ngủ",
-  "dien_tich": 42,
-  "drive_id": "1-5pZPWAsbizcr-jtQDBfdax0UQ-a1F1f",
-  "url_goc": "https://drive.google.com/thumbnail?id=1-5pZPWAsbizcr-jtQDBfdax0UQ-a1F1f&sz=w1000",
-  "ten_file": "cho-thue-can-ho-1-ngu-sakura-42m2-ct-1n-135.webp"
+  "ma": 49,
+  "toa": "TC2",
+  "phan_khu": "Canopy",
+  "loai": "1 Ngủ +",
+  "dien_tich": 50,
+  "drive_id": "14YH3ZNj3B90c_NfYULMFrc2ud2WT6pwO",
+  "url_goc": "https://drive.google.com/thumbnail?id=14YH3ZNj3B90c_NfYULMFrc2ud2WT6pwO&sz=w1000",
+  "ten_file": "cho-thue-can-ho-1-ngu-canopy-50m2-49.webp"
  },
  {
-  "ma": "CT.1N+.382",
-  "toa": "SA3",
-  "phan_khu": "Sakura",
+  "ma": 320,
+  "toa": "I3",
+  "phan_khu": "Imperia",
   "loai": "1 Ngủ +",
   "dien_tich": 43,
-  "drive_id": "1ds2srCFGiD4UYqQD6r4Ser0BO8Id15s1",
-  "url_goc": "https://drive.google.com/thumbnail?id=1ds2srCFGiD4UYqQD6r4Ser0BO8Id15s1&sz=w1000",
-  "ten_file": "cho-thue-can-ho-1-ngu-sakura-43m2-ct-1n-382.webp"
+  "drive_id": "1rUuYt_yRjEFobtYU16BLCrmk6j24NwgP",
+  "url_goc": "https://drive.google.com/thumbnail?id=1rUuYt_yRjEFobtYU16BLCrmk6j24NwgP&sz=w1000",
+  "ten_file": "cho-thue-can-ho-1-ngu-imperia-43m2-320.webp"
  },
  {
   "ma": "CT.1N+.429",
@@ -120,74 +60,54 @@
   "ten_file": "cho-thue-can-ho-1-ngu-imperia-43m2-ct-1n-429.webp"
  },
  {
-  "ma": "CT.1N+.423",
-  "toa": "S401",
-  "phan_khu": "Sapphire",
+  "ma": "CT.1N+.463",
+  "toa": "I1",
+  "phan_khu": "Imperia",
   "loai": "1 Ngủ +",
   "dien_tich": 43,
-  "drive_id": "1J9t1UOQ1nwbELm9IwzOi4aW6dNfCKQdH",
-  "url_goc": "https://drive.google.com/thumbnail?id=1J9t1UOQ1nwbELm9IwzOi4aW6dNfCKQdH&sz=w1000",
-  "ten_file": "cho-thue-can-ho-1-ngu-sapphire-43m2-ct-1n-423.webp"
+  "drive_id": "10ef23F4PyDQRatr8HCrJIA1lBDgH7-AO",
+  "url_goc": "https://drive.google.com/thumbnail?id=10ef23F4PyDQRatr8HCrJIA1lBDgH7-AO&sz=w1000",
+  "ten_file": "cho-thue-can-ho-1-ngu-imperia-43m2-ct-1n-463.webp"
  },
  {
-  "ma": "CT.1N+.393",
-  "toa": "S103",
-  "phan_khu": "Sapphire",
-  "loai": "1 Ngủ +",
-  "dien_tich": 43,
-  "drive_id": "1H9QismzJqsv7t0f0bZi5CrJ9zkguAfhJ",
-  "url_goc": "https://drive.google.com/thumbnail?id=1H9QismzJqsv7t0f0bZi5CrJ9zkguAfhJ&sz=w1000",
-  "ten_file": "cho-thue-can-ho-1-ngu-sapphire-43m2-ct-1n-393.webp"
- },
- {
-  "ma": "CT.1N+.424",
-  "toa": "GS2",
-  "phan_khu": "Miami",
-  "loai": "1 Ngủ +",
-  "dien_tich": 43,
-  "drive_id": "11P835eOM2647YlxYx-y8mfBAx6rp-r8v",
-  "url_goc": "https://drive.google.com/thumbnail?id=11P835eOM2647YlxYx-y8mfBAx6rp-r8v&sz=w1000",
-  "ten_file": "cho-thue-can-ho-1-ngu-miami-43m2-ct-1n-424.webp"
- },
- {
-  "ma": "CT.1N+.344",
-  "toa": "MasD",
-  "phan_khu": "Masteri",
-  "loai": "1 Ngủ +",
-  "dien_tich": 43,
-  "drive_id": "1bHcL9w4urEeR4Y1Og1xH41ESPh_JC-rQ",
-  "url_goc": "https://drive.google.com/thumbnail?id=1bHcL9w4urEeR4Y1Og1xH41ESPh_JC-rQ&sz=w1000",
-  "ten_file": "cho-thue-can-ho-1-ngu-masteri-43m2-ct-1n-344.webp"
- },
- {
-  "ma": "CT.1N+.433",
-  "toa": "MasD",
-  "phan_khu": "Masteri",
+  "ma": "CT.1N+.455",
+  "toa": "A3",
+  "phan_khu": "Lumiere",
   "loai": "1 Ngủ +",
   "dien_tich": 42,
-  "drive_id": "1b9f3FPYpxPL-Rv51hHIw1B0B2ak7Em9y",
-  "url_goc": "https://drive.google.com/thumbnail?id=1b9f3FPYpxPL-Rv51hHIw1B0B2ak7Em9y&sz=w1000",
-  "ten_file": "cho-thue-can-ho-1-ngu-masteri-42m2-ct-1n-433.webp"
+  "drive_id": "1cJcFTwoVibDU8P5_zYwGmyTQDxs8DQvI",
+  "url_goc": "https://drive.google.com/thumbnail?id=1cJcFTwoVibDU8P5_zYwGmyTQDxs8DQvI&sz=w1000",
+  "ten_file": "cho-thue-can-ho-1-ngu-lumiere-42m2-ct-1n-455.webp"
  },
  {
-  "ma": "CT.1N+.418",
-  "toa": "MasB",
-  "phan_khu": "Masteri",
-  "loai": "1 Ngủ +",
-  "dien_tich": 42,
-  "drive_id": "1TFqFwGQmKMPZce4aVbytp1u301Lpv3Py",
-  "url_goc": "https://drive.google.com/thumbnail?id=1TFqFwGQmKMPZce4aVbytp1u301Lpv3Py&sz=w1000",
-  "ten_file": "cho-thue-can-ho-1-ngu-masteri-42m2-ct-1n-418.webp"
+  "ma": "CT.1N.133",
+  "toa": "A3",
+  "phan_khu": "Lumiere",
+  "loai": "1 Ngủ",
+  "dien_tich": 44,
+  "drive_id": "1i75Sn4VQkvdxxUtTTnJk-8JcCtdcKH0P",
+  "url_goc": "https://drive.google.com/thumbnail?id=1i75Sn4VQkvdxxUtTTnJk-8JcCtdcKH0P&sz=w1000",
+  "ten_file": "cho-thue-can-ho-1-ngu-lumiere-44m2-ct-1n-133.webp"
  },
  {
-  "ma": "CT.1N+.427",
-  "toa": "MasB",
+  "ma": "CT.1N+.306",
+  "toa": "A3",
+  "phan_khu": "Lumiere",
+  "loai": "1 Ngủ +",
+  "dien_tich": 47,
+  "drive_id": "1jG8wSWmzHrw1TOb-aU4_UJK7wWXInjZi",
+  "url_goc": "https://drive.google.com/thumbnail?id=1jG8wSWmzHrw1TOb-aU4_UJK7wWXInjZi&sz=w1000",
+  "ten_file": "cho-thue-can-ho-1-ngu-lumiere-47m2-ct-1n-306.webp"
+ },
+ {
+  "ma": "CT.1N+.446",
+  "toa": "MasC",
   "phan_khu": "Masteri",
   "loai": "1 Ngủ +",
-  "dien_tich": 46,
-  "drive_id": "1plnZd6OdBKVDUQAWZG5nLD4E2U4FeIy1",
-  "url_goc": "https://drive.google.com/thumbnail?id=1plnZd6OdBKVDUQAWZG5nLD4E2U4FeIy1&sz=w1000",
-  "ten_file": "cho-thue-can-ho-1-ngu-masteri-46m2-ct-1n-427.webp"
+  "dien_tich": 41,
+  "drive_id": "1G3r35JYmHzVGq0VClBidz8s11sB8FrW6",
+  "url_goc": "https://drive.google.com/thumbnail?id=1G3r35JYmHzVGq0VClBidz8s11sB8FrW6&sz=w1000",
+  "ten_file": "cho-thue-can-ho-1-ngu-masteri-41m2-ct-1n-446.webp"
  },
  {
   "ma": "CT.1N+.340",
@@ -200,24 +120,574 @@
   "ten_file": "cho-thue-can-ho-1-ngu-masteri-42m2-ct-1n-340.webp"
  },
  {
-  "ma": "CT.1N+.306",
-  "toa": "A3",
-  "phan_khu": "Lumiere",
+  "ma": "CT.1N+.418",
+  "toa": "MasB",
+  "phan_khu": "Masteri",
   "loai": "1 Ngủ +",
-  "dien_tich": 47,
-  "drive_id": "1Tiuc2QE567RfJENLBCpg8EPZGw4Ntjkq",
-  "url_goc": "https://drive.google.com/thumbnail?id=1Tiuc2QE567RfJENLBCpg8EPZGw4Ntjkq&sz=w1000",
-  "ten_file": "cho-thue-can-ho-1-ngu-lumiere-47m2-ct-1n-306.webp"
+  "dien_tich": 42,
+  "drive_id": "1TFqFwGQmKMPZce4aVbytp1u301Lpv3Py",
+  "url_goc": "https://drive.google.com/thumbnail?id=1TFqFwGQmKMPZce4aVbytp1u301Lpv3Py&sz=w1000",
+  "ten_file": "cho-thue-can-ho-1-ngu-masteri-42m2-ct-1n-418.webp"
  },
  {
-  "ma": "CT.2N1.150",
+  "ma": "CT.1N+.433",
+  "toa": "MasD",
+  "phan_khu": "Masteri",
+  "loai": "1 Ngủ +",
+  "dien_tich": 42,
+  "drive_id": "1b9f3FPYpxPL-Rv51hHIw1B0B2ak7Em9y",
+  "url_goc": "https://drive.google.com/thumbnail?id=1b9f3FPYpxPL-Rv51hHIw1B0B2ak7Em9y&sz=w1000",
+  "ten_file": "cho-thue-can-ho-1-ngu-masteri-42m2-ct-1n-433.webp"
+ },
+ {
+  "ma": "CT.1N+.472",
+  "toa": "MasA",
+  "phan_khu": "Masteri",
+  "loai": "1 Ngủ +",
+  "dien_tich": 42,
+  "drive_id": "1Egg8YDl_tLKA15qpAj-KpMKX-XV6JVJy",
+  "url_goc": "https://drive.google.com/thumbnail?id=1Egg8YDl_tLKA15qpAj-KpMKX-XV6JVJy&sz=w1000",
+  "ten_file": "cho-thue-can-ho-1-ngu-masteri-42m2-ct-1n-472.webp"
+ },
+ {
+  "ma": "CT.1N+.475",
+  "toa": "MasB",
+  "phan_khu": "Masteri",
+  "loai": "1 Ngủ +",
+  "dien_tich": 42,
+  "drive_id": "1AVHFz-VZ0lGKQx8PB2N7CyxIDE0VM9E4",
+  "url_goc": "https://drive.google.com/thumbnail?id=1AVHFz-VZ0lGKQx8PB2N7CyxIDE0VM9E4&sz=w1000",
+  "ten_file": "cho-thue-can-ho-1-ngu-masteri-42m2-ct-1n-475.webp"
+ },
+ {
+  "ma": "CT.1N+.476",
+  "toa": "MasA",
+  "phan_khu": "Masteri",
+  "loai": "1 Ngủ +",
+  "dien_tich": 42,
+  "drive_id": "1-skoxGNzV2dlurTXsul_JRRSEHG6xxyE",
+  "url_goc": "https://drive.google.com/thumbnail?id=1-skoxGNzV2dlurTXsul_JRRSEHG6xxyE&sz=w1000",
+  "ten_file": "cho-thue-can-ho-1-ngu-masteri-42m2-ct-1n-476.webp"
+ },
+ {
+  "ma": "CT.1N+.478",
+  "toa": "MasB",
+  "phan_khu": "Masteri",
+  "loai": "1 Ngủ +",
+  "dien_tich": 42,
+  "drive_id": "1uaxtKhWRzhsGEWCDRicxLvUmI_jFUU2G",
+  "url_goc": "https://drive.google.com/thumbnail?id=1uaxtKhWRzhsGEWCDRicxLvUmI_jFUU2G&sz=w1000",
+  "ten_file": "cho-thue-can-ho-1-ngu-masteri-42m2-ct-1n-478.webp"
+ },
+ {
+  "ma": "CT.1N+.483",
+  "toa": "MasD",
+  "phan_khu": "Masteri",
+  "loai": "1 Ngủ +",
+  "dien_tich": 42,
+  "drive_id": "1dIqhwbTYj99ihA59GO-_zWrzNc_Z4tIL",
+  "url_goc": "https://drive.google.com/thumbnail?id=1dIqhwbTYj99ihA59GO-_zWrzNc_Z4tIL&sz=w1000",
+  "ten_file": "cho-thue-can-ho-1-ngu-masteri-42m2-ct-1n-483.webp"
+ },
+ {
+  "ma": 327,
+  "toa": "MasB",
+  "phan_khu": "Masteri",
+  "loai": "1 Ngủ +",
+  "dien_tich": 43,
+  "drive_id": "1e0YFLqkWxK0jcuTvNF2GffiZQWCaZT6a",
+  "url_goc": "https://drive.google.com/thumbnail?id=1e0YFLqkWxK0jcuTvNF2GffiZQWCaZT6a&sz=w1000",
+  "ten_file": "cho-thue-can-ho-1-ngu-masteri-43m2-327.webp"
+ },
+ {
+  "ma": "CT.1N+.344",
+  "toa": "MasD",
+  "phan_khu": "Masteri",
+  "loai": "1 Ngủ +",
+  "dien_tich": 43,
+  "drive_id": "1bHcL9w4urEeR4Y1Og1xH41ESPh_JC-rQ",
+  "url_goc": "https://drive.google.com/thumbnail?id=1bHcL9w4urEeR4Y1Og1xH41ESPh_JC-rQ&sz=w1000",
+  "ten_file": "cho-thue-can-ho-1-ngu-masteri-43m2-ct-1n-344.webp"
+ },
+ {
+  "ma": "CT.1N+.427",
+  "toa": "MasB",
+  "phan_khu": "Masteri",
+  "loai": "1 Ngủ +",
+  "dien_tich": 46,
+  "drive_id": "1plnZd6OdBKVDUQAWZG5nLD4E2U4FeIy1",
+  "url_goc": "https://drive.google.com/thumbnail?id=1plnZd6OdBKVDUQAWZG5nLD4E2U4FeIy1&sz=w1000",
+  "ten_file": "cho-thue-can-ho-1-ngu-masteri-46m2-ct-1n-427.webp"
+ },
+ {
+  "ma": "CT.1N+.477",
+  "toa": "MasA",
+  "phan_khu": "Masteri",
+  "loai": "1 Ngủ +",
+  "dien_tich": 47,
+  "drive_id": "1qd544WADicSPGIECD76MN-iUotHb-KAm",
+  "url_goc": "https://drive.google.com/thumbnail?id=1qd544WADicSPGIECD76MN-iUotHb-KAm&sz=w1000",
+  "ten_file": "cho-thue-can-ho-1-ngu-masteri-47m2-ct-1n-477.webp"
+ },
+ {
+  "ma": "CT.1N+.491",
+  "toa": "MasB",
+  "phan_khu": "Masteri",
+  "loai": "1 Ngủ +",
+  "dien_tich": 47,
+  "drive_id": "1NGtLP37Hk5cNrarl05U-NBnEuXg_JcPq",
+  "url_goc": "https://drive.google.com/thumbnail?id=1NGtLP37Hk5cNrarl05U-NBnEuXg_JcPq&sz=w1000",
+  "ten_file": "cho-thue-can-ho-1-ngu-masteri-47m2-ct-1n-491.webp"
+ },
+ {
+  "ma": "CT.1N+.447",
+  "toa": "MasA",
+  "phan_khu": "Masteri",
+  "loai": "1 Ngủ +",
+  "dien_tich": 48,
+  "drive_id": "1ea8FakWlHo0P7V5bCvkQQYMQe7BPozuY",
+  "url_goc": "https://drive.google.com/thumbnail?id=1ea8FakWlHo0P7V5bCvkQQYMQe7BPozuY&sz=w1000",
+  "ten_file": "cho-thue-can-ho-1-ngu-masteri-48m2-ct-1n-447.webp"
+ },
+ {
+  "ma": 48,
+  "toa": "GS6",
+  "phan_khu": "Miami",
+  "loai": "1 Ngủ +",
+  "dien_tich": 43,
+  "drive_id": "1it4r3GG5c4aJI0XRAp1pUIqHbuQpbU3b",
+  "url_goc": "https://drive.google.com/thumbnail?id=1it4r3GG5c4aJI0XRAp1pUIqHbuQpbU3b&sz=w1000",
+  "ten_file": "cho-thue-can-ho-1-ngu-miami-43m2-48.webp"
+ },
+ {
+  "ma": "CT.1N+.424",
+  "toa": "GS2",
+  "phan_khu": "Miami",
+  "loai": "1 Ngủ +",
+  "dien_tich": 43,
+  "drive_id": "11P835eOM2647YlxYx-y8mfBAx6rp-r8v",
+  "url_goc": "https://drive.google.com/thumbnail?id=11P835eOM2647YlxYx-y8mfBAx6rp-r8v&sz=w1000",
+  "ten_file": "cho-thue-can-ho-1-ngu-miami-43m2-ct-1n-424.webp"
+ },
+ {
+  "ma": "CT.1N+.482",
+  "toa": "GS1",
+  "phan_khu": "Miami",
+  "loai": "1 Ngủ +",
+  "dien_tich": 43,
+  "drive_id": "1LhTWLnE0KYsG1d-VQ_WBPMGczA0i-nkU",
+  "url_goc": "https://drive.google.com/thumbnail?id=1LhTWLnE0KYsG1d-VQ_WBPMGczA0i-nkU&sz=w1000",
+  "ten_file": "cho-thue-can-ho-1-ngu-miami-43m2-ct-1n-482.webp"
+ },
+ {
+  "ma": "CT.1N+.492",
+  "toa": "GS2",
+  "phan_khu": "Miami",
+  "loai": "1 Ngủ +",
+  "dien_tich": 43,
+  "drive_id": "1CB2k6Xpo9EjdDCcHYWYcvLBgSXkPiSWH",
+  "url_goc": "https://drive.google.com/thumbnail?id=1CB2k6Xpo9EjdDCcHYWYcvLBgSXkPiSWH&sz=w1000",
+  "ten_file": "cho-thue-can-ho-1-ngu-miami-43m2-ct-1n-492.webp"
+ },
+ {
+  "ma": "CT.1N.131",
+  "toa": "GS6",
+  "phan_khu": "Miami",
+  "loai": "1 Ngủ",
+  "dien_tich": 45,
+  "drive_id": "1XEGVIcNxanWRKGUmGneFElXM-q7zELFI",
+  "url_goc": "https://drive.google.com/thumbnail?id=1XEGVIcNxanWRKGUmGneFElXM-q7zELFI&sz=w1000",
+  "ten_file": "cho-thue-can-ho-1-ngu-miami-45m2-ct-1n-131.webp"
+ },
+ {
+  "ma": "CT.1N.143",
+  "toa": "GS5",
+  "phan_khu": "Miami",
+  "loai": "1 Ngủ",
+  "dien_tich": 45,
+  "drive_id": "1El6pgMfV4fC5v_CF67PdTvrTS4pupTLz",
+  "url_goc": "https://drive.google.com/thumbnail?id=1El6pgMfV4fC5v_CF67PdTvrTS4pupTLz&sz=w1000",
+  "ten_file": "cho-thue-can-ho-1-ngu-miami-45m2-ct-1n-143.webp"
+ },
+ {
+  "ma": "CT.1N.147",
+  "toa": "GS5",
+  "phan_khu": "Miami",
+  "loai": "1 Ngủ",
+  "dien_tich": 45.4,
+  "drive_id": "1ooaX-njTPENuveaf_Yv0PNAMsUMix4ov",
+  "url_goc": "https://drive.google.com/thumbnail?id=1ooaX-njTPENuveaf_Yv0PNAMsUMix4ov&sz=w1000",
+  "ten_file": "cho-thue-can-ho-1-ngu-miami-45m2-ct-1n-147.webp"
+ },
+ {
+  "ma": "CT.1N.135",
+  "toa": "SA5",
+  "phan_khu": "Sakura",
+  "loai": "1 Ngủ",
+  "dien_tich": 42,
+  "drive_id": "1-5pZPWAsbizcr-jtQDBfdax0UQ-a1F1f",
+  "url_goc": "https://drive.google.com/thumbnail?id=1-5pZPWAsbizcr-jtQDBfdax0UQ-a1F1f&sz=w1000",
+  "ten_file": "cho-thue-can-ho-1-ngu-sakura-42m2-ct-1n-135.webp"
+ },
+ {
+  "ma": "CT.1N.152",
+  "toa": "SA5",
+  "phan_khu": "Sakura",
+  "loai": "1 Ngủ",
+  "dien_tich": 42,
+  "drive_id": "1iRPg0ggpvzkYI-cdhVwTFWBk2t31iTi6",
+  "url_goc": "https://drive.google.com/thumbnail?id=1iRPg0ggpvzkYI-cdhVwTFWBk2t31iTi6&sz=w1000",
+  "ten_file": "cho-thue-can-ho-1-ngu-sakura-42m2-ct-1n-152.webp"
+ },
+ {
+  "ma": "CT.1N.120",
+  "toa": "SA5",
+  "phan_khu": "Sakura",
+  "loai": "1 Ngủ",
+  "dien_tich": 43,
+  "drive_id": "1kwxPtNbljDV4ghJcLU909JPks14xUwLE",
+  "url_goc": "https://drive.google.com/thumbnail?id=1kwxPtNbljDV4ghJcLU909JPks14xUwLE&sz=w1000",
+  "ten_file": "cho-thue-can-ho-1-ngu-sakura-43m2-ct-1n-120.webp"
+ },
+ {
+  "ma": "CT.1N+.382",
+  "toa": "SA3",
+  "phan_khu": "Sakura",
+  "loai": "1 Ngủ +",
+  "dien_tich": 43,
+  "drive_id": "1ds2srCFGiD4UYqQD6r4Ser0BO8Id15s1",
+  "url_goc": "https://drive.google.com/thumbnail?id=1ds2srCFGiD4UYqQD6r4Ser0BO8Id15s1&sz=w1000",
+  "ten_file": "cho-thue-can-ho-1-ngu-sakura-43m2-ct-1n-382.webp"
+ },
+ {
+  "ma": "CT.1N.155",
+  "toa": "SA5",
+  "phan_khu": "Sakura",
+  "loai": "1 Ngủ",
+  "dien_tich": 47,
+  "drive_id": "1jV1iJ3PnrJ2BwhiW5EDaZli7unZ1u2q9",
+  "url_goc": "https://drive.google.com/thumbnail?id=1jV1iJ3PnrJ2BwhiW5EDaZli7unZ1u2q9&sz=w1000",
+  "ten_file": "cho-thue-can-ho-1-ngu-sakura-47m2-ct-1n-155.webp"
+ },
+ {
+  "ma": "CT.1N.156",
+  "toa": "SA5",
+  "phan_khu": "Sakura",
+  "loai": "1 Ngủ",
+  "dien_tich": 47,
+  "drive_id": "19rJC-W2ydQL1dvtj8P7zSzrrIl8nyPB8",
+  "url_goc": "https://drive.google.com/thumbnail?id=19rJC-W2ydQL1dvtj8P7zSzrrIl8nyPB8&sz=w1000",
+  "ten_file": "cho-thue-can-ho-1-ngu-sakura-47m2-ct-1n-156.webp"
+ },
+ {
+  "ma": "CT.1N.145",
+  "toa": "S303",
+  "phan_khu": "Sapphire",
+  "loai": "1 Ngủ",
+  "dien_tich": 34,
+  "drive_id": "15Y894G5zs9Z_sqfkObDYnBO6r13aS9PX",
+  "url_goc": "https://drive.google.com/thumbnail?id=15Y894G5zs9Z_sqfkObDYnBO6r13aS9PX&sz=w1000",
+  "ten_file": "cho-thue-can-ho-1-ngu-sapphire-34m2-ct-1n-145.webp"
+ },
+ {
+  "ma": "CT.1N.154",
+  "toa": "S402",
+  "phan_khu": "Sapphire",
+  "loai": "1 Ngủ",
+  "dien_tich": 38,
+  "drive_id": "1Xji8dY-Y3NFnHirrrG2kOV_dJ58aLAnr",
+  "url_goc": "https://drive.google.com/thumbnail?id=1Xji8dY-Y3NFnHirrrG2kOV_dJ58aLAnr&sz=w1000",
+  "ten_file": "cho-thue-can-ho-1-ngu-sapphire-38m2-ct-1n-154.webp"
+ },
+ {
+  "ma": 3,
+  "toa": "S205",
+  "phan_khu": "Sapphire",
+  "loai": "1 Ngủ +",
+  "dien_tich": 43,
+  "drive_id": "18UWYv7VkR8lWGKAlT3bSfwH5MtoYVthi",
+  "url_goc": "https://drive.google.com/thumbnail?id=18UWYv7VkR8lWGKAlT3bSfwH5MtoYVthi&sz=w1000",
+  "ten_file": "cho-thue-can-ho-1-ngu-sapphire-43m2-3.webp"
+ },
+ {
+  "ma": "CT.1N+.423",
+  "toa": "S401",
+  "phan_khu": "Sapphire",
+  "loai": "1 Ngủ +",
+  "dien_tich": 43,
+  "drive_id": "1J9t1UOQ1nwbELm9IwzOi4aW6dNfCKQdH",
+  "url_goc": "https://drive.google.com/thumbnail?id=1J9t1UOQ1nwbELm9IwzOi4aW6dNfCKQdH&sz=w1000",
+  "ten_file": "cho-thue-can-ho-1-ngu-sapphire-43m2-ct-1n-423.webp"
+ },
+ {
+  "ma": "CT.1N+.454",
+  "toa": "S203",
+  "phan_khu": "Sapphire",
+  "loai": "1 Ngủ +",
+  "dien_tich": 43,
+  "drive_id": "1eNoTYEgMj9LReOcKqwbF_4xhH4JEh4VJ",
+  "url_goc": "https://drive.google.com/thumbnail?id=1eNoTYEgMj9LReOcKqwbF_4xhH4JEh4VJ&sz=w1000",
+  "ten_file": "cho-thue-can-ho-1-ngu-sapphire-43m2-ct-1n-454.webp"
+ },
+ {
+  "ma": "CT.1N+.456",
+  "toa": "S103",
+  "phan_khu": "Sapphire",
+  "loai": "1 Ngủ +",
+  "dien_tich": 43,
+  "drive_id": "1F_nML-PBsxyaxFHcF65nyM_5yDYIl41R",
+  "url_goc": "https://drive.google.com/thumbnail?id=1F_nML-PBsxyaxFHcF65nyM_5yDYIl41R&sz=w1000",
+  "ten_file": "cho-thue-can-ho-1-ngu-sapphire-43m2-ct-1n-456.webp"
+ },
+ {
+  "ma": "CT.1N+.471",
+  "toa": "S401",
+  "phan_khu": "Sapphire",
+  "loai": "1 Ngủ +",
+  "dien_tich": 43,
+  "drive_id": "1eTMyhSiveW2_q5U61peRLgD-GZNl92JF",
+  "url_goc": "https://drive.google.com/thumbnail?id=1eTMyhSiveW2_q5U61peRLgD-GZNl92JF&sz=w1000",
+  "ten_file": "cho-thue-can-ho-1-ngu-sapphire-43m2-ct-1n-471.webp"
+ },
+ {
+  "ma": "CT.1N+.480",
+  "toa": "S101",
+  "phan_khu": "Sapphire",
+  "loai": "1 Ngủ +",
+  "dien_tich": 43,
+  "drive_id": "1TcUUuoScDuybKcEIgonmSvEdaYk6Q1zo",
+  "url_goc": "https://drive.google.com/thumbnail?id=1TcUUuoScDuybKcEIgonmSvEdaYk6Q1zo&sz=w1000",
+  "ten_file": "cho-thue-can-ho-1-ngu-sapphire-43m2-ct-1n-480.webp"
+ },
+ {
+  "ma": "CT.1N+.481",
   "toa": "S105",
   "phan_khu": "Sapphire",
+  "loai": "1 Ngủ +",
+  "dien_tich": 43,
+  "drive_id": "1hGPH2XKQeSSjqG6EMGsNc70UxaH5_oWb",
+  "url_goc": "https://drive.google.com/thumbnail?id=1hGPH2XKQeSSjqG6EMGsNc70UxaH5_oWb&sz=w1000",
+  "ten_file": "cho-thue-can-ho-1-ngu-sapphire-43m2-ct-1n-481.webp"
+ },
+ {
+  "ma": "CT.1N+.484",
+  "toa": "S402",
+  "phan_khu": "Sapphire",
+  "loai": "1 Ngủ +",
+  "dien_tich": 43,
+  "drive_id": "1EUJeWFv93JBJ3GqxXkuDEdu-CwpcFBCM",
+  "url_goc": "https://drive.google.com/thumbnail?id=1EUJeWFv93JBJ3GqxXkuDEdu-CwpcFBCM&sz=w1000",
+  "ten_file": "cho-thue-can-ho-1-ngu-sapphire-43m2-ct-1n-484.webp"
+ },
+ {
+  "ma": "CT.1N+.485",
+  "toa": "S102",
+  "phan_khu": "Sapphire",
+  "loai": "1 Ngủ +",
+  "dien_tich": 43,
+  "drive_id": "1DwNSvTZ5V-oOexSW26MuIeFA6DI1PF30",
+  "url_goc": "https://drive.google.com/thumbnail?id=1DwNSvTZ5V-oOexSW26MuIeFA6DI1PF30&sz=w1000",
+  "ten_file": "cho-thue-can-ho-1-ngu-sapphire-43m2-ct-1n-485.webp"
+ },
+ {
+  "ma": "CT.1N+.486",
+  "toa": "S302",
+  "phan_khu": "Sapphire",
+  "loai": "1 Ngủ +",
+  "dien_tich": 43,
+  "drive_id": "1bZSk7uzrMwhto4huH27GcTlETGcgzPzd",
+  "url_goc": "https://drive.google.com/thumbnail?id=1bZSk7uzrMwhto4huH27GcTlETGcgzPzd&sz=w1000",
+  "ten_file": "cho-thue-can-ho-1-ngu-sapphire-43m2-ct-1n-486.webp"
+ },
+ {
+  "ma": "CT.1N+.487",
+  "toa": "S103",
+  "phan_khu": "Sapphire",
+  "loai": "1 Ngủ +",
+  "dien_tich": 43,
+  "drive_id": "1MQJ4G8FcTDis9T69lBaNjJH-jD2yp9A0",
+  "url_goc": "https://drive.google.com/thumbnail?id=1MQJ4G8FcTDis9T69lBaNjJH-jD2yp9A0&sz=w1000",
+  "ten_file": "cho-thue-can-ho-1-ngu-sapphire-43m2-ct-1n-487.webp"
+ },
+ {
+  "ma": "CT.1N+.489",
+  "toa": "S202",
+  "phan_khu": "Sapphire",
+  "loai": "1 Ngủ +",
+  "dien_tich": 43,
+  "drive_id": "1yDCv6GNi1j1fs5nJS_y2dG1mDmGfMOAN",
+  "url_goc": "https://drive.google.com/thumbnail?id=1yDCv6GNi1j1fs5nJS_y2dG1mDmGfMOAN&sz=w1000",
+  "ten_file": "cho-thue-can-ho-1-ngu-sapphire-43m2-ct-1n-489.webp"
+ },
+ {
+  "ma": "CT.1N+.490",
+  "toa": "S201",
+  "phan_khu": "Sapphire",
+  "loai": "1 Ngủ +",
+  "dien_tich": 43,
+  "drive_id": "1NXcqqxErdaNALSyZMP_rq8T42GVP_azv",
+  "url_goc": "https://drive.google.com/thumbnail?id=1NXcqqxErdaNALSyZMP_rq8T42GVP_azv&sz=w1000",
+  "ten_file": "cho-thue-can-ho-1-ngu-sapphire-43m2-ct-1n-490.webp"
+ },
+ {
+  "ma": "CT.1N+.493",
+  "toa": "S301",
+  "phan_khu": "Sapphire",
+  "loai": "1 Ngủ +",
+  "dien_tich": 43,
+  "drive_id": "1WPe-z7FrjnbW0B5CfM_zDLarT3mGzVFy",
+  "url_goc": "https://drive.google.com/thumbnail?id=1WPe-z7FrjnbW0B5CfM_zDLarT3mGzVFy&sz=w1000",
+  "ten_file": "cho-thue-can-ho-1-ngu-sapphire-43m2-ct-1n-493.webp"
+ },
+ {
+  "ma": "CT.1N+.494",
+  "toa": "S201",
+  "phan_khu": "Sapphire",
+  "loai": "1 Ngủ +",
+  "dien_tich": 43,
+  "drive_id": "1Pp0jW8GDOXNOqEQtWhX1IvajmYSy0DTA",
+  "url_goc": "https://drive.google.com/thumbnail?id=1Pp0jW8GDOXNOqEQtWhX1IvajmYSy0DTA&sz=w1000",
+  "ten_file": "cho-thue-can-ho-1-ngu-sapphire-43m2-ct-1n-494.webp"
+ },
+ {
+  "ma": "CT.1N+.451",
+  "toa": "S205",
+  "phan_khu": "Sapphire",
+  "loai": "1 Ngủ +",
+  "dien_tich": 48,
+  "drive_id": "1P6aobUnhGeQY-6Xzr2xJFgA1L1RFHfz5",
+  "url_goc": "https://drive.google.com/thumbnail?id=1P6aobUnhGeQY-6Xzr2xJFgA1L1RFHfz5&sz=w1000",
+  "ten_file": "cho-thue-can-ho-1-ngu-sapphire-48m2-ct-1n-451.webp"
+ },
+ {
+  "ma": "CT.1N.144",
+  "toa": "TK2",
+  "phan_khu": "Tonkin",
+  "loai": "1 Ngủ",
+  "dien_tich": 41.2,
+  "drive_id": "1aGliGL-AiFMLjvYsUagpyjg_W4JcnJ1w",
+  "url_goc": "https://drive.google.com/thumbnail?id=1aGliGL-AiFMLjvYsUagpyjg_W4JcnJ1w&sz=w1000",
+  "ten_file": "cho-thue-can-ho-1-ngu-tonkin-41m2-ct-1n-144.webp"
+ },
+ {
+  "ma": "CT.1N+.459",
+  "toa": "TK1",
+  "phan_khu": "Tonkin",
+  "loai": "1 Ngủ +",
+  "dien_tich": 49,
+  "drive_id": "1fO6ZyBVAqTdqsd0Xqw4FSgZkUALtsRxW",
+  "url_goc": "https://drive.google.com/thumbnail?id=1fO6ZyBVAqTdqsd0Xqw4FSgZkUALtsRxW&sz=w1000",
+  "ten_file": "cho-thue-can-ho-1-ngu-tonkin-49m2-ct-1n-459.webp"
+ },
+ {
+  "ma": "CT.2N2.350",
+  "toa": "TC3",
+  "phan_khu": "Canopy",
   "loai": "2 Ngủ",
-  "dien_tich": 55,
-  "drive_id": "1tXZaAbIfGan7ShILjuVrowXJMHcGUwkr",
-  "url_goc": "https://drive.google.com/thumbnail?id=1tXZaAbIfGan7ShILjuVrowXJMHcGUwkr&sz=w1000",
-  "ten_file": "cho-thue-can-ho-2-ngu-sapphire-55m2-ct-2n1-150.webp"
+  "dien_tich": 60,
+  "drive_id": "1qvuzjaeceGhjO5ic_ohTNO3hum7ZUFTP",
+  "url_goc": "https://drive.google.com/thumbnail?id=1qvuzjaeceGhjO5ic_ohTNO3hum7ZUFTP&sz=w1000",
+  "ten_file": "cho-thue-can-ho-2-ngu-canopy-60m2-ct-2n2-350.webp"
+ },
+ {
+  "ma": "CT.2N2.209",
+  "toa": "TC2",
+  "phan_khu": "Canopy",
+  "loai": "2 Ngủ",
+  "dien_tich": 61,
+  "drive_id": "186t3moymLAywWTmwr7c01mydOS4NGoub",
+  "url_goc": "https://drive.google.com/thumbnail?id=186t3moymLAywWTmwr7c01mydOS4NGoub&sz=w1000",
+  "ten_file": "cho-thue-can-ho-2-ngu-canopy-61m2-ct-2n2-209.webp"
+ },
+ {
+  "ma": "CT.2N2.352",
+  "toa": "TC3",
+  "phan_khu": "Canopy",
+  "loai": "2 Ngủ",
+  "dien_tich": 62.3,
+  "drive_id": "1dxC3eaFUYy1uqQ5qS5KZ97T4j80LsyrC",
+  "url_goc": "https://drive.google.com/thumbnail?id=1dxC3eaFUYy1uqQ5qS5KZ97T4j80LsyrC&sz=w1000",
+  "ten_file": "cho-thue-can-ho-2-ngu-canopy-62m2-ct-2n2-352.webp"
+ },
+ {
+  "ma": "CT.2N2.339",
+  "toa": "TC1",
+  "phan_khu": "Canopy",
+  "loai": "2 Ngủ",
+  "dien_tich": 63.2,
+  "drive_id": "1L40lVDNIsrkxAaSABRWkPSpYDJPACghs",
+  "url_goc": "https://drive.google.com/thumbnail?id=1L40lVDNIsrkxAaSABRWkPSpYDJPACghs&sz=w1000",
+  "ten_file": "cho-thue-can-ho-2-ngu-canopy-63m2-ct-2n2-339.webp"
+ },
+ {
+  "ma": "CT.2N2.342",
+  "toa": "TC1",
+  "phan_khu": "Canopy",
+  "loai": "2 Ngủ",
+  "dien_tich": 63.4,
+  "drive_id": "1QpN7o3e18_g58BcrNOqoS8AFsyHVVdED",
+  "url_goc": "https://drive.google.com/thumbnail?id=1QpN7o3e18_g58BcrNOqoS8AFsyHVVdED&sz=w1000",
+  "ten_file": "cho-thue-can-ho-2-ngu-canopy-63m2-ct-2n2-342.webp"
+ },
+ {
+  "ma": "CT.2N2.343",
+  "toa": "TC1",
+  "phan_khu": "Canopy",
+  "loai": "2 Ngủ",
+  "dien_tich": 63,
+  "drive_id": "1tIRDAFHkCGtMSVA6lNyyCsIUAwlUzhkh",
+  "url_goc": "https://drive.google.com/thumbnail?id=1tIRDAFHkCGtMSVA6lNyyCsIUAwlUzhkh&sz=w1000",
+  "ten_file": "cho-thue-can-ho-2-ngu-canopy-63m2-ct-2n2-343.webp"
+ },
+ {
+  "ma": "CT.2N2.344",
+  "toa": "TC1",
+  "phan_khu": "Canopy",
+  "loai": "2 Ngủ",
+  "dien_tich": 65,
+  "drive_id": "1AdzNJCDZww0WJy7ye0SszjO7L68Vwsq5",
+  "url_goc": "https://drive.google.com/thumbnail?id=1AdzNJCDZww0WJy7ye0SszjO7L68Vwsq5&sz=w1000",
+  "ten_file": "cho-thue-can-ho-2-ngu-canopy-65m2-ct-2n2-344.webp"
+ },
+ {
+  "ma": "CT.2N2.252",
+  "toa": "TC3",
+  "phan_khu": "Canopy",
+  "loai": "2 Ngủ",
+  "dien_tich": 66.8,
+  "drive_id": "11VOF1e9_I3m93-2ARtFI1WU2ST_XEhM_",
+  "url_goc": "https://drive.google.com/thumbnail?id=11VOF1e9_I3m93-2ARtFI1WU2ST_XEhM_&sz=w1000",
+  "ten_file": "cho-thue-can-ho-2-ngu-canopy-67m2-ct-2n2-252.webp"
+ },
+ {
+  "ma": "CT.2N+.193",
+  "toa": "TC2",
+  "phan_khu": "Canopy",
+  "loai": "2 Ngủ +",
+  "dien_tich": 73,
+  "drive_id": "189t4wHd6Jk4lTATjTVCSXarN9Gf2E2tU",
+  "url_goc": "https://drive.google.com/thumbnail?id=189t4wHd6Jk4lTATjTVCSXarN9Gf2E2tU&sz=w1000",
+  "ten_file": "cho-thue-can-ho-2-ngu-canopy-73m2-ct-2n-193.webp"
+ },
+ {
+  "ma": "CT.2N+.218",
+  "toa": "TC2",
+  "phan_khu": "Canopy",
+  "loai": "2 Ngủ +",
+  "dien_tich": 73,
+  "drive_id": "1CN5Shd-__nA54bzmI5q_JQlYckoYJ6QH",
+  "url_goc": "https://drive.google.com/thumbnail?id=1CN5Shd-__nA54bzmI5q_JQlYckoYJ6QH&sz=w1000",
+  "ten_file": "cho-thue-can-ho-2-ngu-canopy-73m2-ct-2n-218.webp"
+ },
+ {
+  "ma": "CT.2N+.236",
+  "toa": "TC1",
+  "phan_khu": "Canopy",
+  "loai": "2 Ngủ +",
+  "dien_tich": 76.2,
+  "drive_id": "1VWCbZTc4twbZhtNBADOO1yrlu3wGWFOo",
+  "url_goc": "https://drive.google.com/thumbnail?id=1VWCbZTc4twbZhtNBADOO1yrlu3wGWFOo&sz=w1000",
+  "ten_file": "cho-thue-can-ho-2-ngu-canopy-76m2-ct-2n-236.webp"
  },
  {
   "ma": "CT.2N1.173",
@@ -228,6 +698,26 @@
   "drive_id": "1dVcUGBExmktskd_tFPKO7amzzKS8fpME",
   "url_goc": "https://drive.google.com/thumbnail?id=1dVcUGBExmktskd_tFPKO7amzzKS8fpME&sz=w1000",
   "ten_file": "cho-thue-can-ho-2-ngu-imperia-54m2-ct-2n1-173.webp"
+ },
+ {
+  "ma": "CT.2N1.206",
+  "toa": "I3",
+  "phan_khu": "Imperia",
+  "loai": "2 Ngủ",
+  "dien_tich": 54,
+  "drive_id": "1SpTPb6D_LuxOCCnLvuld69Km7aOiCl1y",
+  "url_goc": "https://drive.google.com/thumbnail?id=1SpTPb6D_LuxOCCnLvuld69Km7aOiCl1y&sz=w1000",
+  "ten_file": "cho-thue-can-ho-2-ngu-imperia-54m2-ct-2n1-206.webp"
+ },
+ {
+  "ma": 30,
+  "toa": "I3",
+  "phan_khu": "Imperia",
+  "loai": "2 Ngủ",
+  "dien_tich": 55,
+  "drive_id": "1PXHb_Etm2C5fuwBOKhwwwD9Mmbw8DIHK",
+  "url_goc": "https://drive.google.com/thumbnail?id=1PXHb_Etm2C5fuwBOKhwwwD9Mmbw8DIHK&sz=w1000",
+  "ten_file": "cho-thue-can-ho-2-ngu-imperia-55m2-30.webp"
  },
  {
   "ma": "CT.2N1.140",
@@ -248,736 +738,6 @@
   "drive_id": "1i2gB1e4In1ckQHmbyGZyVXU4CMN6Hc4X",
   "url_goc": "https://drive.google.com/thumbnail?id=1i2gB1e4In1ckQHmbyGZyVXU4CMN6Hc4X&sz=w1000",
   "ten_file": "cho-thue-can-ho-2-ngu-imperia-55m2-ct-2n1-167.webp"
- },
- {
-  "ma": "CT.2N1.184",
-  "toa": "S202",
-  "phan_khu": "Sapphire",
-  "loai": "2 Ngủ",
-  "dien_tich": 55,
-  "drive_id": "1xBYFk9uTFpPNN07EQNDxxpwWs0Zca9Ax",
-  "url_goc": "https://drive.google.com/thumbnail?id=1xBYFk9uTFpPNN07EQNDxxpwWs0Zca9Ax&sz=w1000",
-  "ten_file": "cho-thue-can-ho-2-ngu-sapphire-55m2-ct-2n1-184.webp"
- },
- {
-  "ma": "CT.2N2.290",
-  "toa": "GS5",
-  "phan_khu": "Miami",
-  "loai": "2 Ngủ",
-  "dien_tich": 63,
-  "drive_id": "1o5NZ9UU-67TxlpOaGIxujS3DZlU6QfSP",
-  "url_goc": "https://drive.google.com/thumbnail?id=1o5NZ9UU-67TxlpOaGIxujS3DZlU6QfSP&sz=w1000",
-  "ten_file": "cho-thue-can-ho-2-ngu-miami-63m2-ct-2n2-290.webp"
- },
- {
-  "ma": "CT.2N2.292",
-  "toa": "SA1",
-  "phan_khu": "Sakura",
-  "loai": "2 Ngủ",
-  "dien_tich": 54,
-  "drive_id": "18FzpjuZcwuSerMCniomiXBA17bd769Sv",
-  "url_goc": "https://drive.google.com/thumbnail?id=18FzpjuZcwuSerMCniomiXBA17bd769Sv&sz=w1000",
-  "ten_file": "cho-thue-can-ho-2-ngu-sakura-54m2-ct-2n2-292.webp"
- },
- {
-  "ma": "CT.2N2.295",
-  "toa": "SA5",
-  "phan_khu": "Sakura",
-  "loai": "2 Ngủ",
-  "dien_tich": 54,
-  "drive_id": "1MI7zkP7m7VWu3LRQxom2QaVmulqFdKS9",
-  "url_goc": "https://drive.google.com/thumbnail?id=1MI7zkP7m7VWu3LRQxom2QaVmulqFdKS9&sz=w1000",
-  "ten_file": "cho-thue-can-ho-2-ngu-sakura-54m2-ct-2n2-295.webp"
- },
- {
-  "ma": "CT.2N2.259",
-  "toa": "GS1",
-  "phan_khu": "Miami",
-  "loai": "2 Ngủ",
-  "dien_tich": 55,
-  "drive_id": "1_nXM-uu8Csxr6fecE2zt67di8hRdeNo3",
-  "url_goc": "https://drive.google.com/thumbnail?id=1_nXM-uu8Csxr6fecE2zt67di8hRdeNo3&sz=w1000",
-  "ten_file": "cho-thue-can-ho-2-ngu-miami-55m2-ct-2n2-259.webp"
- },
- {
-  "ma": "CT.2N2.209",
-  "toa": "TC2",
-  "phan_khu": "Canopy",
-  "loai": "2 Ngủ",
-  "dien_tich": 61,
-  "drive_id": "186t3moymLAywWTmwr7c01mydOS4NGoub",
-  "url_goc": "https://drive.google.com/thumbnail?id=186t3moymLAywWTmwr7c01mydOS4NGoub&sz=w1000",
-  "ten_file": "cho-thue-can-ho-2-ngu-canopy-61m2-ct-2n2-209.webp"
- },
- {
-  "ma": "CT.2N2.252",
-  "toa": "TC3",
-  "phan_khu": "Canopy",
-  "loai": "2 Ngủ",
-  "dien_tich": 66.8,
-  "drive_id": "11VOF1e9_I3m93-2ARtFI1WU2ST_XEhM_",
-  "url_goc": "https://drive.google.com/thumbnail?id=11VOF1e9_I3m93-2ARtFI1WU2ST_XEhM_&sz=w1000",
-  "ten_file": "cho-thue-can-ho-2-ngu-canopy-67m2-ct-2n2-252.webp"
- },
- {
-  "ma": "CT.2N2.291",
-  "toa": "SA5",
-  "phan_khu": "Sakura",
-  "loai": "2 Ngủ",
-  "dien_tich": 54,
-  "drive_id": "1BcnY8C2KhG0Z8LkNnaHX3FlFa5rA3MD3",
-  "url_goc": "https://drive.google.com/thumbnail?id=1BcnY8C2KhG0Z8LkNnaHX3FlFa5rA3MD3&sz=w1000",
-  "ten_file": "cho-thue-can-ho-2-ngu-sakura-54m2-ct-2n2-291.webp"
- },
- {
-  "ma": "CT.2N2.266",
-  "toa": "S403",
-  "phan_khu": "Sapphire",
-  "loai": "2 Ngủ",
-  "dien_tich": 63,
-  "drive_id": "1i9Axi-PRDGEYP3EON9DI47ij-fajH0EM",
-  "url_goc": "https://drive.google.com/thumbnail?id=1i9Axi-PRDGEYP3EON9DI47ij-fajH0EM&sz=w1000",
-  "ten_file": "cho-thue-can-ho-2-ngu-sapphire-63m2-ct-2n2-266.webp"
- },
- {
-  "ma": "CT.2N2.205",
-  "toa": "SA1",
-  "phan_khu": "Sakura",
-  "loai": "2 Ngủ",
-  "dien_tich": 54,
-  "drive_id": "1Ji_BWlEMBKAsqJjMm3JxezozPdnIiULm",
-  "url_goc": "https://drive.google.com/thumbnail?id=1Ji_BWlEMBKAsqJjMm3JxezozPdnIiULm&sz=w1000",
-  "ten_file": "cho-thue-can-ho-2-ngu-sakura-54m2-ct-2n2-205.webp"
- },
- {
-  "ma": "CT.2N2.303",
-  "toa": "A3",
-  "phan_khu": "Lumiere",
-  "loai": "2 Ngủ",
-  "dien_tich": 61,
-  "drive_id": "1tttJCzdvLeM471Xr7Dv4NwPFbze0k1uy",
-  "url_goc": "https://drive.google.com/thumbnail?id=1tttJCzdvLeM471Xr7Dv4NwPFbze0k1uy&sz=w1000",
-  "ten_file": "cho-thue-can-ho-2-ngu-lumiere-61m2-ct-2n2-303.webp"
- },
- {
-  "ma": "CT.2N2.298",
-  "toa": "A3",
-  "phan_khu": "Lumiere",
-  "loai": "2 Ngủ",
-  "dien_tich": 53,
-  "drive_id": "1xdGT-mCF1eMx_eB9_R_DA7fzFmCA1Llg",
-  "url_goc": "https://drive.google.com/thumbnail?id=1xdGT-mCF1eMx_eB9_R_DA7fzFmCA1Llg&sz=w1000",
-  "ten_file": "cho-thue-can-ho-2-ngu-lumiere-53m2-ct-2n2-298.webp"
- },
- {
-  "ma": "CT.2N2.309",
-  "toa": "S401",
-  "phan_khu": "Sapphire",
-  "loai": "2 Ngủ",
-  "dien_tich": 62,
-  "drive_id": "1wCJgq4uYT2WiqxH2DvJEO72bZ5sFq_DB",
-  "url_goc": "https://drive.google.com/thumbnail?id=1wCJgq4uYT2WiqxH2DvJEO72bZ5sFq_DB&sz=w1000",
-  "ten_file": "cho-thue-can-ho-2-ngu-sapphire-62m2-ct-2n2-309.webp"
- },
- {
-  "ma": "CT.2N2.317",
-  "toa": "GS6",
-  "phan_khu": "Miami",
-  "loai": "2 Ngủ",
-  "dien_tich": 64.2,
-  "drive_id": "1WA7J-_E5XDDlnHPoKiYxcMBMF7-tBSwC",
-  "url_goc": "https://drive.google.com/thumbnail?id=1WA7J-_E5XDDlnHPoKiYxcMBMF7-tBSwC&sz=w1000",
-  "ten_file": "cho-thue-can-ho-2-ngu-miami-64m2-ct-2n2-317.webp"
- },
- {
-  "ma": "CT.2N2.320",
-  "toa": "MasB",
-  "phan_khu": "Masteri",
-  "loai": "2 Ngủ",
-  "dien_tich": 62,
-  "drive_id": "1tukcn3qWg9-KispswKhZAKfWy77j35oF",
-  "url_goc": "https://drive.google.com/thumbnail?id=1tukcn3qWg9-KispswKhZAKfWy77j35oF&sz=w1000",
-  "ten_file": "cho-thue-can-ho-2-ngu-masteri-62m2-ct-2n2-320.webp"
- },
- {
-  "ma": "CT.2N+.188",
-  "toa": "I4",
-  "phan_khu": "Imperia",
-  "loai": "2 Ngủ +",
-  "dien_tich": 64,
-  "drive_id": "1xTX9Qp7rUgAFzLO-jdjaDP8NenTwCrzr",
-  "url_goc": "https://drive.google.com/thumbnail?id=1xTX9Qp7rUgAFzLO-jdjaDP8NenTwCrzr&sz=w1000",
-  "ten_file": "cho-thue-can-ho-2-ngu-imperia-64m2-ct-2n-188.webp"
- },
- {
-  "ma": "CT.2N+.213",
-  "toa": "I4",
-  "phan_khu": "Imperia",
-  "loai": "2 Ngủ +",
-  "dien_tich": 64,
-  "drive_id": "101la5i2BuOlbRpCkJYzOAU0tff0WfMD9",
-  "url_goc": "https://drive.google.com/thumbnail?id=101la5i2BuOlbRpCkJYzOAU0tff0WfMD9&sz=w1000",
-  "ten_file": "cho-thue-can-ho-2-ngu-imperia-64m2-ct-2n-213.webp"
- },
- {
-  "ma": "CT.2N+.210",
-  "toa": "S303",
-  "phan_khu": "Sapphire",
-  "loai": "2 Ngủ +",
-  "dien_tich": 64,
-  "drive_id": "1KgBuUKMUxsSqbshoPPWqeOP0Has2bIVn",
-  "url_goc": "https://drive.google.com/thumbnail?id=1KgBuUKMUxsSqbshoPPWqeOP0Has2bIVn&sz=w1000",
-  "ten_file": "cho-thue-can-ho-2-ngu-sapphire-64m2-ct-2n-210.webp"
- },
- {
-  "ma": "CT.2N+.204",
-  "toa": "I5",
-  "phan_khu": "Imperia",
-  "loai": "2 Ngủ +",
-  "dien_tich": 64,
-  "drive_id": "1LAuH1aDc8-78zvb7wHHtOJC9VbXSP5Sm",
-  "url_goc": "https://drive.google.com/thumbnail?id=1LAuH1aDc8-78zvb7wHHtOJC9VbXSP5Sm&sz=w1000",
-  "ten_file": "cho-thue-can-ho-2-ngu-imperia-64m2-ct-2n-204.webp"
- },
- {
-  "ma": "CT.2N+.193",
-  "toa": "TC2",
-  "phan_khu": "Canopy",
-  "loai": "2 Ngủ +",
-  "dien_tich": 73,
-  "drive_id": "189t4wHd6Jk4lTATjTVCSXarN9Gf2E2tU",
-  "url_goc": "https://drive.google.com/thumbnail?id=189t4wHd6Jk4lTATjTVCSXarN9Gf2E2tU&sz=w1000",
-  "ten_file": "cho-thue-can-ho-2-ngu-canopy-73m2-ct-2n-193.webp"
- },
- {
-  "ma": "CT.2N+.203",
-  "toa": "S401",
-  "phan_khu": "Sapphire",
-  "loai": "2 Ngủ +",
-  "dien_tich": 64,
-  "drive_id": "1m2Edx89zQkXsRNk3lYbb3EupHM03XNQR",
-  "url_goc": "https://drive.google.com/thumbnail?id=1m2Edx89zQkXsRNk3lYbb3EupHM03XNQR&sz=w1000",
-  "ten_file": "cho-thue-can-ho-2-ngu-sapphire-64m2-ct-2n-203.webp"
- },
- {
-  "ma": "CT.2N+.189",
-  "toa": "GS2",
-  "phan_khu": "Miami",
-  "loai": "2 Ngủ +",
-  "dien_tich": 62,
-  "drive_id": "1TVg2yLkAD0shvpgsmbudcUNXhQ5I8VMJ",
-  "url_goc": "https://drive.google.com/thumbnail?id=1TVg2yLkAD0shvpgsmbudcUNXhQ5I8VMJ&sz=w1000",
-  "ten_file": "cho-thue-can-ho-2-ngu-miami-62m2-ct-2n-189.webp"
- },
- {
-  "ma": "CT.2N+.218",
-  "toa": "TC2",
-  "phan_khu": "Canopy",
-  "loai": "2 Ngủ +",
-  "dien_tich": 73,
-  "drive_id": "1CN5Shd-__nA54bzmI5q_JQlYckoYJ6QH",
-  "url_goc": "https://drive.google.com/thumbnail?id=1CN5Shd-__nA54bzmI5q_JQlYckoYJ6QH&sz=w1000",
-  "ten_file": "cho-thue-can-ho-2-ngu-canopy-73m2-ct-2n-218.webp"
- },
- {
-  "ma": "CT.2N+.220",
-  "toa": "I4",
-  "phan_khu": "Imperia",
-  "loai": "2 Ngủ +",
-  "dien_tich": 64,
-  "drive_id": "1fSPXTzvwHcspcNrq1WzJR8K0f4Oz2-y6",
-  "url_goc": "https://drive.google.com/thumbnail?id=1fSPXTzvwHcspcNrq1WzJR8K0f4Oz2-y6&sz=w1000",
-  "ten_file": "cho-thue-can-ho-2-ngu-imperia-64m2-ct-2n-220.webp"
- },
- {
-  "ma": "CT.3N.111",
-  "toa": "S401",
-  "phan_khu": "Sapphire",
-  "loai": "3 Ngủ",
-  "dien_tich": 82,
-  "drive_id": "1YKlH1E2v1_RHvz-VNvu2BMe8LSw0U_iQ",
-  "url_goc": "https://drive.google.com/thumbnail?id=1YKlH1E2v1_RHvz-VNvu2BMe8LSw0U_iQ&sz=w1000",
-  "ten_file": "cho-thue-can-ho-3-ngu-sapphire-82m2-ct-3n-111.webp"
- },
- {
-  "ma": "CT.3N.125",
-  "toa": "MasA",
-  "phan_khu": "Masteri",
-  "loai": "3 Ngủ",
-  "dien_tich": 79,
-  "drive_id": "11V5IO4WHVnwkl5wzqt_l-hrtyWVR-LfP",
-  "url_goc": "https://drive.google.com/thumbnail?id=11V5IO4WHVnwkl5wzqt_l-hrtyWVR-LfP&sz=w1000",
-  "ten_file": "cho-thue-can-ho-3-ngu-masteri-79m2-ct-3n-125.webp"
- },
- {
-  "ma": "CT.3N.108",
-  "toa": "S202",
-  "phan_khu": "Sapphire",
-  "loai": "3 Ngủ",
-  "dien_tich": 75,
-  "drive_id": "1GpRAVOqxT6w5PeWQu7bVkn5rip-ABDvx",
-  "url_goc": "https://drive.google.com/thumbnail?id=1GpRAVOqxT6w5PeWQu7bVkn5rip-ABDvx&sz=w1000",
-  "ten_file": "cho-thue-can-ho-3-ngu-sapphire-75m2-ct-3n-108.webp"
- },
- {
-  "ma": "CT.3N.124",
-  "toa": "GS1",
-  "phan_khu": "Miami",
-  "loai": "3 Ngủ",
-  "dien_tich": 95,
-  "drive_id": "1CLzYv748fGUK51kjZIUo-_oPx5ePo3tJ",
-  "url_goc": "https://drive.google.com/thumbnail?id=1CLzYv748fGUK51kjZIUo-_oPx5ePo3tJ&sz=w1000",
-  "ten_file": "cho-thue-can-ho-3-ngu-miami-95m2-ct-3n-124.webp"
- },
- {
-  "ma": "CT.3N.88",
-  "toa": "SA5",
-  "phan_khu": "Sakura",
-  "loai": "3 Ngủ",
-  "dien_tich": 94,
-  "drive_id": "12vOswhB4Nl8RIU5bptzXL5x7R1sc7Ddk",
-  "url_goc": "https://drive.google.com/thumbnail?id=12vOswhB4Nl8RIU5bptzXL5x7R1sc7Ddk&sz=w1000",
-  "ten_file": "cho-thue-can-ho-3-ngu-sakura-94m2-ct-3n-88.webp"
- },
- {
-  "ma": "CT.3N.86",
-  "toa": "MasB",
-  "phan_khu": "Masteri",
-  "loai": "3 Ngủ",
-  "dien_tich": 79,
-  "drive_id": "1CqY5jxH0HhnmjvQMiyIXPvCJv7XFqquP",
-  "url_goc": "https://drive.google.com/thumbnail?id=1CqY5jxH0HhnmjvQMiyIXPvCJv7XFqquP&sz=w1000",
-  "ten_file": "cho-thue-can-ho-3-ngu-masteri-79m2-ct-3n-86.webp"
- },
- {
-  "ma": "CT.3N.107",
-  "toa": "S402",
-  "phan_khu": "Sapphire",
-  "loai": "3 Ngủ",
-  "dien_tich": 98,
-  "drive_id": "1xify3DohgUFzM1LYjvPDHf1JWURK2Acw",
-  "url_goc": "https://drive.google.com/thumbnail?id=1xify3DohgUFzM1LYjvPDHf1JWURK2Acw&sz=w1000",
-  "ten_file": "cho-thue-can-ho-3-ngu-sapphire-98m2-ct-3n-107.webp"
- },
- {
-  "ma": "CT.3N.122",
-  "toa": "GS6",
-  "phan_khu": "Miami",
-  "loai": "3 Ngủ",
-  "dien_tich": 80.3,
-  "drive_id": "1a4IONqht9fv0m1sbKtE1De4bB1GN74NK",
-  "url_goc": "https://drive.google.com/thumbnail?id=1a4IONqht9fv0m1sbKtE1De4bB1GN74NK&sz=w1000",
-  "ten_file": "cho-thue-can-ho-3-ngu-miami-80m2-ct-3n-122.webp"
- },
- {
-  "ma": "CT.3N.130",
-  "toa": "S403",
-  "phan_khu": "Sapphire",
-  "loai": "3 Ngủ",
-  "dien_tich": 95,
-  "drive_id": "1HjnpCbenbdl4A0VWnlDxUeVZn5icAhH-",
-  "url_goc": "https://drive.google.com/thumbnail?id=1HjnpCbenbdl4A0VWnlDxUeVZn5icAhH-&sz=w1000",
-  "ten_file": "cho-thue-can-ho-3-ngu-sapphire-95m2-ct-3n-130.webp"
- },
- {
-  "ma": "CT.3N.131",
-  "toa": "S201",
-  "phan_khu": "Sapphire",
-  "loai": "3 Ngủ",
-  "dien_tich": 75,
-  "drive_id": "156XyPYZeIafpkICeD5DYKH-mc2l8wVHV",
-  "url_goc": "https://drive.google.com/thumbnail?id=156XyPYZeIafpkICeD5DYKH-mc2l8wVHV&sz=w1000",
-  "ten_file": "cho-thue-can-ho-3-ngu-sapphire-75m2-ct-3n-131.webp"
- },
- {
-  "ma": "CT.3N.133",
-  "toa": "S106",
-  "phan_khu": "Sapphire",
-  "loai": "3 Ngủ",
-  "dien_tich": 76,
-  "drive_id": "1LGTC2v45gywhxddi9DSA5fmMhZrXSlac",
-  "url_goc": "https://drive.google.com/thumbnail?id=1LGTC2v45gywhxddi9DSA5fmMhZrXSlac&sz=w1000",
-  "ten_file": "cho-thue-can-ho-3-ngu-sapphire-76m2-ct-3n-133.webp"
- },
- {
-  "ma": "CT.Stu.637",
-  "toa": "S301",
-  "phan_khu": "Sapphire",
-  "loai": "Studio",
-  "dien_tich": 32,
-  "drive_id": "1SVgq_jLfjTdUtFQPwkpDJ5aKHM33sVrS",
-  "url_goc": "https://drive.google.com/thumbnail?id=1SVgq_jLfjTdUtFQPwkpDJ5aKHM33sVrS&sz=w1000",
-  "ten_file": "cho-thue-can-ho-studio-sapphire-32m2-ct-stu-637.webp"
- },
- {
-  "ma": "CT.1N+.445",
-  "toa": "S401",
-  "phan_khu": "Sapphire",
-  "loai": "1 Ngủ +",
-  "dien_tich": 43,
-  "drive_id": "1Q3VziBUcDQOEJqC0tgm8cV6tSQY1yBbx",
-  "url_goc": "https://drive.google.com/thumbnail?id=1Q3VziBUcDQOEJqC0tgm8cV6tSQY1yBbx&sz=w1000",
-  "ten_file": "cho-thue-can-ho-1-ngu-sapphire-43m2-ct-1n-445.webp"
- },
- {
-  "ma": "CT.1N+.446",
-  "toa": "MasC",
-  "phan_khu": "Masteri",
-  "loai": "1 Ngủ +",
-  "dien_tich": 41,
-  "drive_id": "1G3r35JYmHzVGq0VClBidz8s11sB8FrW6",
-  "url_goc": "https://drive.google.com/thumbnail?id=1G3r35JYmHzVGq0VClBidz8s11sB8FrW6&sz=w1000",
-  "ten_file": "cho-thue-can-ho-1-ngu-masteri-41m2-ct-1n-446.webp"
- },
- {
-  "ma": "CT.1N+.447",
-  "toa": "MasA",
-  "phan_khu": "Masteri",
-  "loai": "1 Ngủ +",
-  "dien_tich": 48,
-  "drive_id": "1ea8FakWlHo0P7V5bCvkQQYMQe7BPozuY",
-  "url_goc": "https://drive.google.com/thumbnail?id=1ea8FakWlHo0P7V5bCvkQQYMQe7BPozuY&sz=w1000",
-  "ten_file": "cho-thue-can-ho-1-ngu-masteri-48m2-ct-1n-447.webp"
- },
- {
-  "ma": "CT.Stu.683",
-  "toa": "TK2",
-  "phan_khu": "Tonkin",
-  "loai": "Studio",
-  "dien_tich": 25,
-  "drive_id": "186MpDjP1iJ4CjUGwKJMbHgUJXjQZkxgU",
-  "url_goc": "https://drive.google.com/thumbnail?id=186MpDjP1iJ4CjUGwKJMbHgUJXjQZkxgU&sz=w1000",
-  "ten_file": "cho-thue-can-ho-studio-tonkin-25m2-ct-stu-683.webp"
- },
- {
-  "ma": "CT.Stu.685",
-  "toa": "MasB",
-  "phan_khu": "Masteri",
-  "loai": "Studio",
-  "dien_tich": 35,
-  "drive_id": "1A7pj5H5LqszzzRQYcaHyEJCF4MisGokM",
-  "url_goc": "https://drive.google.com/thumbnail?id=1A7pj5H5LqszzzRQYcaHyEJCF4MisGokM&sz=w1000",
-  "ten_file": "cho-thue-can-ho-studio-masteri-35m2-ct-stu-685.webp"
- },
- {
-  "ma": "CT.Stu.687",
-  "toa": "MasD",
-  "phan_khu": "Masteri",
-  "loai": "Studio",
-  "dien_tich": 32,
-  "drive_id": "1O-xdQ35_2iqDnAXVbSZA12VA1aHBHsgp",
-  "url_goc": "https://drive.google.com/thumbnail?id=1O-xdQ35_2iqDnAXVbSZA12VA1aHBHsgp&sz=w1000",
-  "ten_file": "cho-thue-can-ho-studio-masteri-32m2-ct-stu-687.webp"
- },
- {
-  "ma": "CT.2N1.187",
-  "toa": "S105",
-  "phan_khu": "Sapphire",
-  "loai": "2 Ngủ",
-  "dien_tich": 55,
-  "drive_id": "1aPBpjB95sp-Q6iRZRkkTVAeEKxp3a-8i",
-  "url_goc": "https://drive.google.com/thumbnail?id=1aPBpjB95sp-Q6iRZRkkTVAeEKxp3a-8i&sz=w1000",
-  "ten_file": "cho-thue-can-ho-2-ngu-sapphire-55m2-ct-2n1-187.webp"
- },
- {
-  "ma": "CT.2N1.188",
-  "toa": "S205",
-  "phan_khu": "Sapphire",
-  "loai": "2 Ngủ",
-  "dien_tich": 55,
-  "drive_id": "1RM-HzjaCGy52AdNUTmyzO-j6OIWmLnVJ",
-  "url_goc": "https://drive.google.com/thumbnail?id=1RM-HzjaCGy52AdNUTmyzO-j6OIWmLnVJ&sz=w1000",
-  "ten_file": "cho-thue-can-ho-2-ngu-sapphire-55m2-ct-2n1-188.webp"
- },
- {
-  "ma": "CT.1N.143",
-  "toa": "GS5",
-  "phan_khu": "Miami",
-  "loai": "1 Ngủ",
-  "dien_tich": 45,
-  "drive_id": "1El6pgMfV4fC5v_CF67PdTvrTS4pupTLz",
-  "url_goc": "https://drive.google.com/thumbnail?id=1El6pgMfV4fC5v_CF67PdTvrTS4pupTLz&sz=w1000",
-  "ten_file": "cho-thue-can-ho-1-ngu-miami-45m2-ct-1n-143.webp"
- },
- {
-  "ma": "CT.1N.144",
-  "toa": "TK2",
-  "phan_khu": "Tonkin",
-  "loai": "1 Ngủ",
-  "dien_tich": 41.2,
-  "drive_id": "1aGliGL-AiFMLjvYsUagpyjg_W4JcnJ1w",
-  "url_goc": "https://drive.google.com/thumbnail?id=1aGliGL-AiFMLjvYsUagpyjg_W4JcnJ1w&sz=w1000",
-  "ten_file": "cho-thue-can-ho-1-ngu-tonkin-41m2-ct-1n-144.webp"
- },
- {
-  "ma": "CT.1N.145",
-  "toa": "S303",
-  "phan_khu": "Sapphire",
-  "loai": "1 Ngủ",
-  "dien_tich": 34,
-  "drive_id": "15Y894G5zs9Z_sqfkObDYnBO6r13aS9PX",
-  "url_goc": "https://drive.google.com/thumbnail?id=15Y894G5zs9Z_sqfkObDYnBO6r13aS9PX&sz=w1000",
-  "ten_file": "cho-thue-can-ho-1-ngu-sapphire-34m2-ct-1n-145.webp"
- },
- {
-  "ma": "CT.1N.146",
-  "toa": "TC1",
-  "phan_khu": "Canopy",
-  "loai": "1 Ngủ",
-  "dien_tich": 44,
-  "drive_id": "1d1eIoyV41tkBUhWsS7c5tpatRCFx-umw",
-  "url_goc": "https://drive.google.com/thumbnail?id=1d1eIoyV41tkBUhWsS7c5tpatRCFx-umw&sz=w1000",
-  "ten_file": "cho-thue-can-ho-1-ngu-canopy-44m2-ct-1n-146.webp"
- },
- {
-  "ma": "CT.1N.147",
-  "toa": "GS5",
-  "phan_khu": "Miami",
-  "loai": "1 Ngủ",
-  "dien_tich": 45.4,
-  "drive_id": "1ooaX-njTPENuveaf_Yv0PNAMsUMix4ov",
-  "url_goc": "https://drive.google.com/thumbnail?id=1ooaX-njTPENuveaf_Yv0PNAMsUMix4ov&sz=w1000",
-  "ten_file": "cho-thue-can-ho-1-ngu-miami-45m2-ct-1n-147.webp"
- },
- {
-  "ma": "CT.2N2.323",
-  "toa": "MasB",
-  "phan_khu": "Masteri",
-  "loai": "2 Ngủ",
-  "dien_tich": 60,
-  "drive_id": "1TEeuxdxrF1Vr388D1KXpYDn5lub2oewa",
-  "url_goc": "https://drive.google.com/thumbnail?id=1TEeuxdxrF1Vr388D1KXpYDn5lub2oewa&sz=w1000",
-  "ten_file": "cho-thue-can-ho-2-ngu-masteri-60m2-ct-2n2-323.webp"
- },
- {
-  "ma": "CT.2N2.324",
-  "toa": "TK2",
-  "phan_khu": "Tonkin",
-  "loai": "2 Ngủ",
-  "dien_tich": 60,
-  "drive_id": "1A0ZpmT6nHtmRRmr3-gRJE1VCT7_WbLEj",
-  "url_goc": "https://drive.google.com/thumbnail?id=1A0ZpmT6nHtmRRmr3-gRJE1VCT7_WbLEj&sz=w1000",
-  "ten_file": "cho-thue-can-ho-2-ngu-tonkin-60m2-ct-2n2-324.webp"
- },
- {
-  "ma": "CT.2N2.326",
-  "toa": "GS5",
-  "phan_khu": "Miami",
-  "loai": "2 Ngủ",
-  "dien_tich": 72,
-  "drive_id": "1UJzPW81_G8xqlOj-tHP-kw_5t3ENWtcr",
-  "url_goc": "https://drive.google.com/thumbnail?id=1UJzPW81_G8xqlOj-tHP-kw_5t3ENWtcr&sz=w1000",
-  "ten_file": "cho-thue-can-ho-2-ngu-miami-72m2-ct-2n2-326.webp"
- },
- {
-  "ma": "CT.2N2.330",
-  "toa": "TK2",
-  "phan_khu": "Tonkin",
-  "loai": "2 Ngủ",
-  "dien_tich": 66,
-  "drive_id": "11pUJiOpM7Et96TonF3iZI9scZqZCnOkd",
-  "url_goc": "https://drive.google.com/thumbnail?id=11pUJiOpM7Et96TonF3iZI9scZqZCnOkd&sz=w1000",
-  "ten_file": "cho-thue-can-ho-2-ngu-tonkin-66m2-ct-2n2-330.webp"
- },
- {
-  "ma": "CT.Stu.695",
-  "toa": "S402",
-  "phan_khu": "Sapphire",
-  "loai": "Studio",
-  "dien_tich": 34,
-  "drive_id": "1TlvOTIy4yybaseaDUAYpNzlNpvfoiCf7",
-  "url_goc": "https://drive.google.com/thumbnail?id=1TlvOTIy4yybaseaDUAYpNzlNpvfoiCf7&sz=w1000",
-  "ten_file": "cho-thue-can-ho-studio-sapphire-34m2-ct-stu-695.webp"
- },
- {
-  "ma": "CT.1N+.464",
-  "toa": "GS2",
-  "phan_khu": "Miami",
-  "loai": "1 Ngủ +",
-  "dien_tich": 43,
-  "drive_id": "1HDJ_hkgBTujQ9JMbxfIbFeFuxUjpf32h",
-  "url_goc": "https://drive.google.com/thumbnail?id=1HDJ_hkgBTujQ9JMbxfIbFeFuxUjpf32h&sz=w1000",
-  "ten_file": "cho-thue-can-ho-1-ngu-miami-43m2-ct-1n-464.webp"
- },
- {
-  "ma": "CT.3N.136",
-  "toa": "SA2",
-  "phan_khu": "Sakura",
-  "loai": "3 Ngủ",
-  "dien_tich": 78,
-  "drive_id": "1mpjM8fVyMyLwQ-9Jp17A40RS_XOVVoqm",
-  "url_goc": "https://drive.google.com/thumbnail?id=1mpjM8fVyMyLwQ-9Jp17A40RS_XOVVoqm&sz=w1000",
-  "ten_file": "cho-thue-can-ho-3-ngu-sakura-78m2-ct-3n-136.webp"
- },
- {
-  "ma": "CT.3N.137",
-  "toa": "S103",
-  "phan_khu": "Sapphire",
-  "loai": "3 Ngủ",
-  "dien_tich": 74,
-  "drive_id": "1ZRXDLZKxSIBhNIS1xgOAgTPFQFICrhaD",
-  "url_goc": "https://drive.google.com/thumbnail?id=1ZRXDLZKxSIBhNIS1xgOAgTPFQFICrhaD&sz=w1000",
-  "ten_file": "cho-thue-can-ho-3-ngu-sapphire-74m2-ct-3n-137.webp"
- },
- {
-  "ma": "CT.3N.140",
-  "toa": "I5",
-  "phan_khu": "Imperia",
-  "loai": "3 Ngủ",
-  "dien_tich": 76,
-  "drive_id": "1BTuwXw6GponCIhZtzJkIXkAZl8uF1EAB",
-  "url_goc": "https://drive.google.com/thumbnail?id=1BTuwXw6GponCIhZtzJkIXkAZl8uF1EAB&sz=w1000",
-  "ten_file": "cho-thue-can-ho-3-ngu-imperia-76m2-ct-3n-140.webp"
- },
- {
-  "ma": "CT.3N.141",
-  "toa": "SA3",
-  "phan_khu": "Sakura",
-  "loai": "3 Ngủ",
-  "dien_tich": 75,
-  "drive_id": "17AfDG8qsDj3mX94E-lNjcZjk8HvqCwbl",
-  "url_goc": "https://drive.google.com/thumbnail?id=17AfDG8qsDj3mX94E-lNjcZjk8HvqCwbl&sz=w1000",
-  "ten_file": "cho-thue-can-ho-3-ngu-sakura-75m2-ct-3n-141.webp"
- },
- {
-  "ma": "CT.2N+.227",
-  "toa": "S301",
-  "phan_khu": "Sapphire",
-  "loai": "2 Ngủ +",
-  "dien_tich": 63,
-  "drive_id": "1HnyLs8sgI5__Kvn31BOwjj6xSicPs9WG",
-  "url_goc": "https://drive.google.com/thumbnail?id=1HnyLs8sgI5__Kvn31BOwjj6xSicPs9WG&sz=w1000",
-  "ten_file": "cho-thue-can-ho-2-ngu-sapphire-63m2-ct-2n-227.webp"
- },
- {
-  "ma": "CT.2N+.228",
-  "toa": "S102",
-  "phan_khu": "Sapphire",
-  "loai": "2 Ngủ +",
-  "dien_tich": 63,
-  "drive_id": "1KkLTIuIlVQ8jVNaqZHSzW_r6HEfFo4xy",
-  "url_goc": "https://drive.google.com/thumbnail?id=1KkLTIuIlVQ8jVNaqZHSzW_r6HEfFo4xy&sz=w1000",
-  "ten_file": "cho-thue-can-ho-2-ngu-sapphire-63m2-ct-2n-228.webp"
- },
- {
-  "ma": "CT.2N+.223",
-  "toa": "TK2",
-  "phan_khu": "Tonkin",
-  "loai": "2 Ngủ +",
-  "dien_tich": 72,
-  "drive_id": "14vuO0o6J8CLDE4rtXcHUhsajVK-qCdNS",
-  "url_goc": "https://drive.google.com/thumbnail?id=14vuO0o6J8CLDE4rtXcHUhsajVK-qCdNS&sz=w1000",
-  "ten_file": "cho-thue-can-ho-2-ngu-tonkin-72m2-ct-2n-223.webp"
- },
- {
-  "ma": "CT.2N+.232",
-  "toa": "GS2",
-  "phan_khu": "Miami",
-  "loai": "2 Ngủ +",
-  "dien_tich": 63,
-  "drive_id": "1I8pP4iUMh5rW8glCDztQcvlZ7hxVNB_s",
-  "url_goc": "https://drive.google.com/thumbnail?id=1I8pP4iUMh5rW8glCDztQcvlZ7hxVNB_s&sz=w1000",
-  "ten_file": "cho-thue-can-ho-2-ngu-miami-63m2-ct-2n-232.webp"
- },
- {
-  "ma": "CT.Stu.700",
-  "toa": "S102",
-  "phan_khu": "Sapphire",
-  "loai": "Studio",
-  "dien_tich": 31,
-  "drive_id": "1GOC5v0dZc7w_rkOZj16qsXAf10ksjPo5",
-  "url_goc": "https://drive.google.com/thumbnail?id=1GOC5v0dZc7w_rkOZj16qsXAf10ksjPo5&sz=w1000",
-  "ten_file": "cho-thue-can-ho-studio-sapphire-31m2-ct-stu-700.webp"
- },
- {
-  "ma": "CT.Stu.694",
-  "toa": "S202",
-  "phan_khu": "Sapphire",
-  "loai": "Studio",
-  "dien_tich": 32,
-  "drive_id": "1dZPSL_5-E5Uw7fZl6XD-2ggExzvCJ1sk",
-  "url_goc": "https://drive.google.com/thumbnail?id=1dZPSL_5-E5Uw7fZl6XD-2ggExzvCJ1sk&sz=w1000",
-  "ten_file": "cho-thue-can-ho-studio-sapphire-32m2-ct-stu-694.webp"
- },
- {
-  "ma": "CT.Stu.698",
-  "toa": "S103",
-  "phan_khu": "Sapphire",
-  "loai": "Studio",
-  "dien_tich": 32,
-  "drive_id": "1cH1HEfc9_WubYkNmKkBL5xDwFPmAhbwI",
-  "url_goc": "https://drive.google.com/thumbnail?id=1cH1HEfc9_WubYkNmKkBL5xDwFPmAhbwI&sz=w1000",
-  "ten_file": "cho-thue-can-ho-studio-sapphire-32m2-ct-stu-698.webp"
- },
- {
-  "ma": "CT.Stu.702",
-  "toa": "SA2",
-  "phan_khu": "Sakura",
-  "loai": "Studio",
-  "dien_tich": 26,
-  "drive_id": "1XtY55gMRjSYOdGJj2yqJ0xuAYIUAeWp4",
-  "url_goc": "https://drive.google.com/thumbnail?id=1XtY55gMRjSYOdGJj2yqJ0xuAYIUAeWp4&sz=w1000",
-  "ten_file": "cho-thue-can-ho-studio-sakura-26m2-ct-stu-702.webp"
- },
- {
-  "ma": "CT.1N+.451",
-  "toa": "S205",
-  "phan_khu": "Sapphire",
-  "loai": "1 Ngủ +",
-  "dien_tich": 48,
-  "drive_id": "1P6aobUnhGeQY-6Xzr2xJFgA1L1RFHfz5",
-  "url_goc": "https://drive.google.com/thumbnail?id=1P6aobUnhGeQY-6Xzr2xJFgA1L1RFHfz5&sz=w1000",
-  "ten_file": "cho-thue-can-ho-1-ngu-sapphire-48m2-ct-1n-451.webp"
- },
- {
-  "ma": "CT.1N+.454",
-  "toa": "S203",
-  "phan_khu": "Sapphire",
-  "loai": "1 Ngủ +",
-  "dien_tich": 43,
-  "drive_id": "1eNoTYEgMj9LReOcKqwbF_4xhH4JEh4VJ",
-  "url_goc": "https://drive.google.com/thumbnail?id=1eNoTYEgMj9LReOcKqwbF_4xhH4JEh4VJ&sz=w1000",
-  "ten_file": "cho-thue-can-ho-1-ngu-sapphire-43m2-ct-1n-454.webp"
- },
- {
-  "ma": "CT.1N+.455",
-  "toa": "A3",
-  "phan_khu": "Lumiere",
-  "loai": "1 Ngủ +",
-  "dien_tich": 42,
-  "drive_id": "1cJcFTwoVibDU8P5_zYwGmyTQDxs8DQvI",
-  "url_goc": "https://drive.google.com/thumbnail?id=1cJcFTwoVibDU8P5_zYwGmyTQDxs8DQvI&sz=w1000",
-  "ten_file": "cho-thue-can-ho-1-ngu-lumiere-42m2-ct-1n-455.webp"
- },
- {
-  "ma": "CT.1N+.456",
-  "toa": "S103",
-  "phan_khu": "Sapphire",
-  "loai": "1 Ngủ +",
-  "dien_tich": 43,
-  "drive_id": "1F_nML-PBsxyaxFHcF65nyM_5yDYIl41R",
-  "url_goc": "https://drive.google.com/thumbnail?id=1F_nML-PBsxyaxFHcF65nyM_5yDYIl41R&sz=w1000",
-  "ten_file": "cho-thue-can-ho-1-ngu-sapphire-43m2-ct-1n-456.webp"
- },
- {
-  "ma": "CT.1N+.459",
-  "toa": "TK1",
-  "phan_khu": "Tonkin",
-  "loai": "1 Ngủ +",
-  "dien_tich": 49,
-  "drive_id": "12DMz4HUF6eoAtxpfRvhR6LI9M0fD0Nwl",
-  "url_goc": "https://drive.google.com/thumbnail?id=12DMz4HUF6eoAtxpfRvhR6LI9M0fD0Nwl&sz=w1000",
-  "ten_file": "cho-thue-can-ho-1-ngu-tonkin-49m2-ct-1n-459.webp"
- },
- {
-  "ma": "CT.1N+.463",
-  "toa": "I1",
-  "phan_khu": "Imperia",
-  "loai": "1 Ngủ +",
-  "dien_tich": 43,
-  "drive_id": "10ef23F4PyDQRatr8HCrJIA1lBDgH7-AO",
-  "url_goc": "https://drive.google.com/thumbnail?id=10ef23F4PyDQRatr8HCrJIA1lBDgH7-AO&sz=w1000",
-  "ten_file": "cho-thue-can-ho-1-ngu-imperia-43m2-ct-1n-463.webp"
  },
  {
   "ma": "CT.2N1.191",
@@ -1010,154 +770,74 @@
   "ten_file": "cho-thue-can-ho-2-ngu-imperia-55m2-ct-2n1-195.webp"
  },
  {
-  "ma": "CT.2N1.197",
-  "toa": "S302",
-  "phan_khu": "Sapphire",
-  "loai": "2 Ngủ",
-  "dien_tich": 54,
-  "drive_id": "1HEj_1YYB-EIR213bFTAO-oZqj-Qy160r",
-  "url_goc": "https://drive.google.com/thumbnail?id=1HEj_1YYB-EIR213bFTAO-oZqj-Qy160r&sz=w1000",
-  "ten_file": "cho-thue-can-ho-2-ngu-sapphire-54m2-ct-2n1-197.webp"
- },
- {
-  "ma": "CT.2N1.198",
-  "toa": "S105",
-  "phan_khu": "Sapphire",
-  "loai": "2 Ngủ",
-  "dien_tich": 54,
-  "drive_id": "1MDVxKrVcgr2Uhzep-DgAA60H-lHIbLYM",
-  "url_goc": "https://drive.google.com/thumbnail?id=1MDVxKrVcgr2Uhzep-DgAA60H-lHIbLYM&sz=w1000",
-  "ten_file": "cho-thue-can-ho-2-ngu-sapphire-54m2-ct-2n1-198.webp"
- },
- {
-  "ma": "CT.2N1.200",
-  "toa": "S101",
-  "phan_khu": "Sapphire",
+  "ma": "CT.2N1.210",
+  "toa": "I1",
+  "phan_khu": "Imperia",
   "loai": "2 Ngủ",
   "dien_tich": 55,
-  "drive_id": "1M3oxPRoj_dtrsHFbyE6bIoqzwEyytdEw",
-  "url_goc": "https://drive.google.com/thumbnail?id=1M3oxPRoj_dtrsHFbyE6bIoqzwEyytdEw&sz=w1000",
-  "ten_file": "cho-thue-can-ho-2-ngu-sapphire-55m2-ct-2n1-200.webp"
+  "drive_id": "1Vvd8Gpv68owR_MMScsVnyUtmDfNcQdJ3",
+  "url_goc": "https://drive.google.com/thumbnail?id=1Vvd8Gpv68owR_MMScsVnyUtmDfNcQdJ3&sz=w1000",
+  "ten_file": "cho-thue-can-ho-2-ngu-imperia-55m2-ct-2n1-210.webp"
  },
  {
-  "ma": "CT.2N1.201",
-  "toa": "S106",
-  "phan_khu": "Sapphire",
-  "loai": "2 Ngủ",
-  "dien_tich": 55,
-  "drive_id": "1uzO7q7rIyCqO3X_yjmXacPQ_Qg6weAwY",
-  "url_goc": "https://drive.google.com/thumbnail?id=1uzO7q7rIyCqO3X_yjmXacPQ_Qg6weAwY&sz=w1000",
-  "ten_file": "cho-thue-can-ho-2-ngu-sapphire-55m2-ct-2n1-201.webp"
+  "ma": 51,
+  "toa": "I1",
+  "phan_khu": "Imperia",
+  "loai": "2 Ngủ +",
+  "dien_tich": 62,
+  "drive_id": "1VWaN_kWybvYuzfpfY-dItsAZDmbOmOhv",
+  "url_goc": "https://drive.google.com/thumbnail?id=1VWaN_kWybvYuzfpfY-dItsAZDmbOmOhv&sz=w1000",
+  "ten_file": "cho-thue-can-ho-2-ngu-imperia-62m2-51.webp"
  },
  {
-  "ma": "CT.2N1.203",
-  "toa": "GS2",
-  "phan_khu": "Miami",
-  "loai": "2 Ngủ",
-  "dien_tich": 54,
-  "drive_id": "1adhsaCMRmG2cbNwl1dHgfQvI7wwBsH9J",
-  "url_goc": "https://drive.google.com/thumbnail?id=1adhsaCMRmG2cbNwl1dHgfQvI7wwBsH9J&sz=w1000",
-  "ten_file": "cho-thue-can-ho-2-ngu-miami-54m2-ct-2n1-203.webp"
- },
- {
-  "ma": "CT.2N1.204",
-  "toa": "GS3",
-  "phan_khu": "Miami",
-  "loai": "2 Ngủ",
-  "dien_tich": 54,
-  "drive_id": "1G1u_fa5KemTsyZyQrpVbWmIPKfzBTZb7",
-  "url_goc": "https://drive.google.com/thumbnail?id=1G1u_fa5KemTsyZyQrpVbWmIPKfzBTZb7&sz=w1000",
-  "ten_file": "cho-thue-can-ho-2-ngu-miami-54m2-ct-2n1-204.webp"
- },
- {
-  "ma": "CT.2N1.205",
-  "toa": "S202",
-  "phan_khu": "Sapphire",
-  "loai": "2 Ngủ",
-  "dien_tich": 54,
-  "drive_id": "1uY1Nt7RdDR6p5alSjGBxnx7yEXxlC2NU",
-  "url_goc": "https://drive.google.com/thumbnail?id=1uY1Nt7RdDR6p5alSjGBxnx7yEXxlC2NU&sz=w1000",
-  "ten_file": "cho-thue-can-ho-2-ngu-sapphire-54m2-ct-2n1-205.webp"
- },
- {
-  "ma": "CT.2N2.332",
-  "toa": "TK1",
-  "phan_khu": "Tonkin",
-  "loai": "2 Ngủ",
-  "dien_tich": 61,
-  "drive_id": "1us9i6UY5f9cfy0xTZtNtY-AuV6j2olUo",
-  "url_goc": "https://drive.google.com/thumbnail?id=1us9i6UY5f9cfy0xTZtNtY-AuV6j2olUo&sz=w1000",
-  "ten_file": "cho-thue-can-ho-2-ngu-tonkin-61m2-ct-2n2-332.webp"
- },
- {
-  "ma": "CT.2N2.333",
-  "toa": "MasA",
-  "phan_khu": "Masteri",
-  "loai": "2 Ngủ",
-  "dien_tich": 60,
-  "drive_id": "1sjC-O9eV1k_tY_rKXMUdcSwUUM0PAPQ-",
-  "url_goc": "https://drive.google.com/thumbnail?id=1sjC-O9eV1k_tY_rKXMUdcSwUUM0PAPQ-&sz=w1000",
-  "ten_file": "cho-thue-can-ho-2-ngu-masteri-60m2-ct-2n2-333.webp"
- },
- {
-  "ma": "CT.2N2.334",
-  "toa": "SA5",
-  "phan_khu": "Sakura",
-  "loai": "2 Ngủ",
-  "dien_tich": 54,
-  "drive_id": "1pJ50wDI1Mm0f_mUTszFso0oWoTpd6HJo",
-  "url_goc": "https://drive.google.com/thumbnail?id=1pJ50wDI1Mm0f_mUTszFso0oWoTpd6HJo&sz=w1000",
-  "ten_file": "cho-thue-can-ho-2-ngu-sakura-54m2-ct-2n2-334.webp"
- },
- {
-  "ma": "CT.2N2.336",
-  "toa": "MasC",
-  "phan_khu": "Masteri",
-  "loai": "2 Ngủ",
-  "dien_tich": 54,
-  "drive_id": "1P7AJT0IzesDIHd07aiuFe127d4e1-xgR",
-  "url_goc": "https://drive.google.com/thumbnail?id=1P7AJT0IzesDIHd07aiuFe127d4e1-xgR&sz=w1000",
-  "ten_file": "cho-thue-can-ho-2-ngu-masteri-54m2-ct-2n2-336.webp"
- },
- {
-  "ma": "CT.2N+.230",
-  "toa": "MasA",
-  "phan_khu": "Masteri",
+  "ma": "CT.2N+.256",
+  "toa": "I3",
+  "phan_khu": "Imperia",
   "loai": "2 Ngủ +",
   "dien_tich": 63,
-  "drive_id": "1PfzM-1WN9_9phhkRheRmxM60AiFhwsyO",
-  "url_goc": "https://drive.google.com/thumbnail?id=1PfzM-1WN9_9phhkRheRmxM60AiFhwsyO&sz=w1000",
-  "ten_file": "cho-thue-can-ho-2-ngu-masteri-63m2-ct-2n-230.webp"
+  "drive_id": "1UR0e5rORTJ_Lsx1SCiODHKfk4cDBFJfA",
+  "url_goc": "https://drive.google.com/thumbnail?id=1UR0e5rORTJ_Lsx1SCiODHKfk4cDBFJfA&sz=w1000",
+  "ten_file": "cho-thue-can-ho-2-ngu-imperia-63m2-ct-2n-256.webp"
  },
  {
-  "ma": "CT.2N+.234",
-  "toa": "MasD",
-  "phan_khu": "Masteri",
+  "ma": 26,
+  "toa": "I2",
+  "phan_khu": "Imperia",
   "loai": "2 Ngủ +",
-  "dien_tich": 62,
-  "drive_id": "1PYN7DEMN4RXhh-ypYXZQBRyzxrRwLeuX",
-  "url_goc": "https://drive.google.com/thumbnail?id=1PYN7DEMN4RXhh-ypYXZQBRyzxrRwLeuX&sz=w1000",
-  "ten_file": "cho-thue-can-ho-2-ngu-masteri-62m2-ct-2n-234.webp"
+  "dien_tich": 64,
+  "drive_id": "1ZdbGcwcSz1yV6JQbomieyfXLwtrUleDu",
+  "url_goc": "https://drive.google.com/thumbnail?id=1ZdbGcwcSz1yV6JQbomieyfXLwtrUleDu&sz=w1000",
+  "ten_file": "cho-thue-can-ho-2-ngu-imperia-64m2-26.webp"
  },
  {
-  "ma": "CT.2N+.235",
-  "toa": "S101",
-  "phan_khu": "Sapphire",
+  "ma": "CT.2N+.188",
+  "toa": "I4",
+  "phan_khu": "Imperia",
   "loai": "2 Ngủ +",
-  "dien_tich": 62,
-  "drive_id": "1S_tuDSU4_tWYyFeHYFVBC_uKVPXTEDk9",
-  "url_goc": "https://drive.google.com/thumbnail?id=1S_tuDSU4_tWYyFeHYFVBC_uKVPXTEDk9&sz=w1000",
-  "ten_file": "cho-thue-can-ho-2-ngu-sapphire-62m2-ct-2n-235.webp"
+  "dien_tich": 64,
+  "drive_id": "1xTX9Qp7rUgAFzLO-jdjaDP8NenTwCrzr",
+  "url_goc": "https://drive.google.com/thumbnail?id=1xTX9Qp7rUgAFzLO-jdjaDP8NenTwCrzr&sz=w1000",
+  "ten_file": "cho-thue-can-ho-2-ngu-imperia-64m2-ct-2n-188.webp"
  },
  {
-  "ma": "CT.2N+.236",
-  "toa": "TC1",
-  "phan_khu": "Canopy",
+  "ma": "CT.2N+.213",
+  "toa": "I4",
+  "phan_khu": "Imperia",
   "loai": "2 Ngủ +",
-  "dien_tich": 76.2,
-  "drive_id": "1VWCbZTc4twbZhtNBADOO1yrlu3wGWFOo",
-  "url_goc": "https://drive.google.com/thumbnail?id=1VWCbZTc4twbZhtNBADOO1yrlu3wGWFOo&sz=w1000",
-  "ten_file": "cho-thue-can-ho-2-ngu-canopy-76m2-ct-2n-236.webp"
+  "dien_tich": 64,
+  "drive_id": "101la5i2BuOlbRpCkJYzOAU0tff0WfMD9",
+  "url_goc": "https://drive.google.com/thumbnail?id=101la5i2BuOlbRpCkJYzOAU0tff0WfMD9&sz=w1000",
+  "ten_file": "cho-thue-can-ho-2-ngu-imperia-64m2-ct-2n-213.webp"
+ },
+ {
+  "ma": "CT.2N+.220",
+  "toa": "I4",
+  "phan_khu": "Imperia",
+  "loai": "2 Ngủ +",
+  "dien_tich": 64,
+  "drive_id": "1fSPXTzvwHcspcNrq1WzJR8K0f4Oz2-y6",
+  "url_goc": "https://drive.google.com/thumbnail?id=1fSPXTzvwHcspcNrq1WzJR8K0f4Oz2-y6&sz=w1000",
+  "ten_file": "cho-thue-can-ho-2-ngu-imperia-64m2-ct-2n-220.webp"
  },
  {
   "ma": "CT.2N+.238",
@@ -1170,434 +850,44 @@
   "ten_file": "cho-thue-can-ho-2-ngu-imperia-64m2-ct-2n-238.webp"
  },
  {
-  "ma": "CT.2N+.239",
-  "toa": "S401",
-  "phan_khu": "Sapphire",
-  "loai": "2 Ngủ +",
-  "dien_tich": 64,
-  "drive_id": "1DmVDSLWVLn4DXNG3Z6VlP_PFtbuNyJ2X",
-  "url_goc": "https://drive.google.com/thumbnail?id=1DmVDSLWVLn4DXNG3Z6VlP_PFtbuNyJ2X&sz=w1000",
-  "ten_file": "cho-thue-can-ho-2-ngu-sapphire-64m2-ct-2n-239.webp"
+  "ma": "CT.2N2.298",
+  "toa": "A3",
+  "phan_khu": "Lumiere",
+  "loai": "2 Ngủ",
+  "dien_tich": 53,
+  "drive_id": "1xdGT-mCF1eMx_eB9_R_DA7fzFmCA1Llg",
+  "url_goc": "https://drive.google.com/thumbnail?id=1xdGT-mCF1eMx_eB9_R_DA7fzFmCA1Llg&sz=w1000",
+  "ten_file": "cho-thue-can-ho-2-ngu-lumiere-53m2-ct-2n2-298.webp"
  },
  {
-  "ma": "CT.Stu.708",
-  "toa": "TK2",
-  "phan_khu": "Tonkin",
-  "loai": "Studio",
-  "dien_tich": 25,
-  "drive_id": "1Bo2_wzwo0zHClsVFpEyJGU0JIIecJlnP",
-  "url_goc": "https://drive.google.com/thumbnail?id=1Bo2_wzwo0zHClsVFpEyJGU0JIIecJlnP&sz=w1000",
-  "ten_file": "cho-thue-can-ho-studio-tonkin-25m2-ct-stu-708.webp"
+  "ma": "CT.2N2.303",
+  "toa": "A3",
+  "phan_khu": "Lumiere",
+  "loai": "2 Ngủ",
+  "dien_tich": 61,
+  "drive_id": "1tttJCzdvLeM471Xr7Dv4NwPFbze0k1uy",
+  "url_goc": "https://drive.google.com/thumbnail?id=1tttJCzdvLeM471Xr7Dv4NwPFbze0k1uy&sz=w1000",
+  "ten_file": "cho-thue-can-ho-2-ngu-lumiere-61m2-ct-2n2-303.webp"
  },
  {
-  "ma": "CT.Stu.709",
+  "ma": 42,
   "toa": "MasA",
   "phan_khu": "Masteri",
-  "loai": "Studio",
-  "dien_tich": 29,
-  "drive_id": "18n0msbxf7WAvfUNobTTVzo0j05X75FEQ",
-  "url_goc": "https://drive.google.com/thumbnail?id=18n0msbxf7WAvfUNobTTVzo0j05X75FEQ&sz=w1000",
-  "ten_file": "cho-thue-can-ho-studio-masteri-29m2-ct-stu-709.webp"
- },
- {
-  "ma": "CT.Stu.713",
-  "toa": "MasC",
-  "phan_khu": "Masteri",
-  "loai": "Studio",
-  "dien_tich": 27,
-  "drive_id": "1LshzFyUgtTjSB-ibQEoKNT0o3-Ot-_Qk",
-  "url_goc": "https://drive.google.com/thumbnail?id=1LshzFyUgtTjSB-ibQEoKNT0o3-Ot-_Qk&sz=w1000",
-  "ten_file": "cho-thue-can-ho-studio-masteri-27m2-ct-stu-713.webp"
- },
- {
-  "ma": "CT.Stu.715",
-  "toa": "TK2",
-  "phan_khu": "Tonkin",
-  "loai": "Studio",
-  "dien_tich": 25,
-  "drive_id": "1Su90rI58a7o3e7VbbAAE-m-z8jYkLPKF",
-  "url_goc": "https://drive.google.com/thumbnail?id=1Su90rI58a7o3e7VbbAAE-m-z8jYkLPKF&sz=w1000",
-  "ten_file": "cho-thue-can-ho-studio-tonkin-25m2-ct-stu-715.webp"
- },
- {
-  "ma": "CT.1N+.471",
-  "toa": "S401",
-  "phan_khu": "Sapphire",
-  "loai": "1 Ngủ +",
-  "dien_tich": 43,
-  "drive_id": "1eTMyhSiveW2_q5U61peRLgD-GZNl92JF",
-  "url_goc": "https://drive.google.com/thumbnail?id=1eTMyhSiveW2_q5U61peRLgD-GZNl92JF&sz=w1000",
-  "ten_file": "cho-thue-can-ho-1-ngu-sapphire-43m2-ct-1n-471.webp"
- },
- {
-  "ma": "CT.1N+.472",
-  "toa": "MasA",
-  "phan_khu": "Masteri",
-  "loai": "1 Ngủ +",
-  "dien_tich": 42,
-  "drive_id": "1Egg8YDl_tLKA15qpAj-KpMKX-XV6JVJy",
-  "url_goc": "https://drive.google.com/thumbnail?id=1Egg8YDl_tLKA15qpAj-KpMKX-XV6JVJy&sz=w1000",
-  "ten_file": "cho-thue-can-ho-1-ngu-masteri-42m2-ct-1n-472.webp"
- },
- {
-  "ma": "CT.Stu.716",
-  "toa": "TK2",
-  "phan_khu": "Tonkin",
-  "loai": "Studio",
-  "dien_tich": 25,
-  "drive_id": "1nTGuBmIUwY1NzhvXYzolvgGxnTfj5bmo",
-  "url_goc": "https://drive.google.com/thumbnail?id=1nTGuBmIUwY1NzhvXYzolvgGxnTfj5bmo&sz=w1000",
-  "ten_file": "cho-thue-can-ho-studio-tonkin-25m2-ct-stu-716.webp"
- },
- {
-  "ma": "CT.Stu.717",
-  "toa": "I2",
-  "phan_khu": "Imperia",
-  "loai": "Studio",
-  "dien_tich": 28,
-  "drive_id": "1YYAAeQ2QrTj2_dlhCjlNYhvkgKBiCvRv",
-  "url_goc": "https://drive.google.com/thumbnail?id=1YYAAeQ2QrTj2_dlhCjlNYhvkgKBiCvRv&sz=w1000",
-  "ten_file": "cho-thue-can-ho-studio-imperia-28m2-ct-stu-717.webp"
- },
- {
-  "ma": "CT.Stu.719",
-  "toa": "TK1",
-  "phan_khu": "Tonkin",
-  "loai": "Studio",
-  "dien_tich": 25,
-  "drive_id": "15cdxq_yf-wC57lJu9AImlHV9lPjOWEJG",
-  "url_goc": "https://drive.google.com/thumbnail?id=15cdxq_yf-wC57lJu9AImlHV9lPjOWEJG&sz=w1000",
-  "ten_file": "cho-thue-can-ho-studio-tonkin-25m2-ct-stu-719.webp"
- },
- {
-  "ma": "CT.Stu.721",
-  "toa": "SA1",
-  "phan_khu": "Sakura",
-  "loai": "Studio",
-  "dien_tich": 25,
-  "drive_id": "1a9FudDvW4q0OcUTH1PvLKQzDd6JGMmXA",
-  "url_goc": "https://drive.google.com/thumbnail?id=1a9FudDvW4q0OcUTH1PvLKQzDd6JGMmXA&sz=w1000",
-  "ten_file": "cho-thue-can-ho-studio-sakura-25m2-ct-stu-721.webp"
- },
- {
-  "ma": "CT.2N2.339",
-  "toa": "TC1",
-  "phan_khu": "Canopy",
-  "loai": "2 Ngủ",
-  "dien_tich": 63.2,
-  "drive_id": "1L40lVDNIsrkxAaSABRWkPSpYDJPACghs",
-  "url_goc": "https://drive.google.com/thumbnail?id=1L40lVDNIsrkxAaSABRWkPSpYDJPACghs&sz=w1000",
-  "ten_file": "cho-thue-can-ho-2-ngu-canopy-63m2-ct-2n2-339.webp"
- },
- {
-  "ma": "CT.2N2.340",
-  "toa": "MasA",
-  "phan_khu": "Masteri",
-  "loai": "2 Ngủ",
-  "dien_tich": 60,
-  "drive_id": "1I_CvM6X4Tzh57y2_tIS7uudo7EHQrvoQ",
-  "url_goc": "https://drive.google.com/thumbnail?id=1I_CvM6X4Tzh57y2_tIS7uudo7EHQrvoQ&sz=w1000",
-  "ten_file": "cho-thue-can-ho-2-ngu-masteri-60m2-ct-2n2-340.webp"
- },
- {
-  "ma": "CT.2N2.341",
-  "toa": "GS1",
-  "phan_khu": "Miami",
-  "loai": "2 Ngủ",
-  "dien_tich": 62,
-  "drive_id": "1IAPzRgBipXmrlB_RUoXudk7N7lOUo_C8",
-  "url_goc": "https://drive.google.com/thumbnail?id=1IAPzRgBipXmrlB_RUoXudk7N7lOUo_C8&sz=w1000",
-  "ten_file": "cho-thue-can-ho-2-ngu-miami-62m2-ct-2n2-341.webp"
- },
- {
-  "ma": "CT.2N2.342",
-  "toa": "TC1",
-  "phan_khu": "Canopy",
-  "loai": "2 Ngủ",
-  "dien_tich": 63.4,
-  "drive_id": "1QpN7o3e18_g58BcrNOqoS8AFsyHVVdED",
-  "url_goc": "https://drive.google.com/thumbnail?id=1QpN7o3e18_g58BcrNOqoS8AFsyHVVdED&sz=w1000",
-  "ten_file": "cho-thue-can-ho-2-ngu-canopy-63m2-ct-2n2-342.webp"
- },
- {
-  "ma": "CT.2N2.343",
-  "toa": "TC1",
-  "phan_khu": "Canopy",
-  "loai": "2 Ngủ",
-  "dien_tich": 63,
-  "drive_id": "1tIRDAFHkCGtMSVA6lNyyCsIUAwlUzhkh",
-  "url_goc": "https://drive.google.com/thumbnail?id=1tIRDAFHkCGtMSVA6lNyyCsIUAwlUzhkh&sz=w1000",
-  "ten_file": "cho-thue-can-ho-2-ngu-canopy-63m2-ct-2n2-343.webp"
- },
- {
-  "ma": "CT.2N+.245",
-  "toa": "S303",
-  "phan_khu": "Sapphire",
-  "loai": "2 Ngủ +",
-  "dien_tich": 64,
-  "drive_id": "1cQROwXdBrBuLfLQOeO9nB0IPCAeaDdp7",
-  "url_goc": "https://drive.google.com/thumbnail?id=1cQROwXdBrBuLfLQOeO9nB0IPCAeaDdp7&sz=w1000",
-  "ten_file": "cho-thue-can-ho-2-ngu-sapphire-64m2-ct-2n-245.webp"
- },
- {
-  "ma": "CT.2N+.246",
-  "toa": "I4",
-  "phan_khu": "Imperia",
-  "loai": "2 Ngủ +",
-  "dien_tich": 63,
-  "drive_id": "1X6t4CjEwSgPeqqsWqHDhzKZw7f7umD1K",
-  "url_goc": "https://drive.google.com/thumbnail?id=1X6t4CjEwSgPeqqsWqHDhzKZw7f7umD1K&sz=w1000",
-  "ten_file": "cho-thue-can-ho-2-ngu-imperia-63m2-ct-2n-246.webp"
- },
- {
-  "ma": "CT.2N+.247",
-  "toa": "MasD",
-  "phan_khu": "Masteri",
-  "loai": "2 Ngủ +",
-  "dien_tich": 62,
-  "drive_id": "1nmniv3jYfb49_SP4Ch_vkqYEU2SWgmJE",
-  "url_goc": "https://drive.google.com/thumbnail?id=1nmniv3jYfb49_SP4Ch_vkqYEU2SWgmJE&sz=w1000",
-  "ten_file": "cho-thue-can-ho-2-ngu-masteri-62m2-ct-2n-247.webp"
- },
- {
-  "ma": "CT.2N+.248",
-  "toa": "S103",
-  "phan_khu": "Sapphire",
-  "loai": "2 Ngủ +",
-  "dien_tich": 63.5,
-  "drive_id": "11XNHn5Ek4639cOIDeWRMrb-L8siijMmQ",
-  "url_goc": "https://drive.google.com/thumbnail?id=11XNHn5Ek4639cOIDeWRMrb-L8siijMmQ&sz=w1000",
-  "ten_file": "cho-thue-can-ho-2-ngu-sapphire-64m2-ct-2n-248.webp"
- },
- {
-  "ma": "CT.2N+.249",
-  "toa": "MasC",
-  "phan_khu": "Masteri",
-  "loai": "2 Ngủ +",
-  "dien_tich": 62,
-  "drive_id": "1xmJKW2HScEcvOJj7CTLzkYANMNtu5KMP",
-  "url_goc": "https://drive.google.com/thumbnail?id=1xmJKW2HScEcvOJj7CTLzkYANMNtu5KMP&sz=w1000",
-  "ten_file": "cho-thue-can-ho-2-ngu-masteri-62m2-ct-2n-249.webp"
- },
- {
-  "ma": "CT.2N+.250",
-  "toa": "MasC",
-  "phan_khu": "Masteri",
-  "loai": "2 Ngủ +",
-  "dien_tich": 62,
-  "drive_id": "1F9GyV3bSgrclzEH03pNsJ1RnJF4jOYpa",
-  "url_goc": "https://drive.google.com/thumbnail?id=1F9GyV3bSgrclzEH03pNsJ1RnJF4jOYpa&sz=w1000",
-  "ten_file": "cho-thue-can-ho-2-ngu-masteri-62m2-ct-2n-250.webp"
- },
- {
-  "ma": "CT.2N+.252",
-  "toa": "MasD",
-  "phan_khu": "Masteri",
-  "loai": "2 Ngủ +",
-  "dien_tich": 62,
-  "drive_id": "1BS_tRumTDCeAAC0jy7bLNIp8Xm5IyrOx",
-  "url_goc": "https://drive.google.com/thumbnail?id=1BS_tRumTDCeAAC0jy7bLNIp8Xm5IyrOx&sz=w1000",
-  "ten_file": "cho-thue-can-ho-2-ngu-masteri-62m2-ct-2n-252.webp"
- },
- {
-  "ma": "CT.1N+.475",
-  "toa": "MasB",
-  "phan_khu": "Masteri",
-  "loai": "1 Ngủ +",
-  "dien_tich": 42,
-  "drive_id": "1AVHFz-VZ0lGKQx8PB2N7CyxIDE0VM9E4",
-  "url_goc": "https://drive.google.com/thumbnail?id=1AVHFz-VZ0lGKQx8PB2N7CyxIDE0VM9E4&sz=w1000",
-  "ten_file": "cho-thue-can-ho-1-ngu-masteri-42m2-ct-1n-475.webp"
- },
- {
-  "ma": "CT.1N+.476",
-  "toa": "MasA",
-  "phan_khu": "Masteri",
-  "loai": "1 Ngủ +",
-  "dien_tich": 42,
-  "drive_id": "1-skoxGNzV2dlurTXsul_JRRSEHG6xxyE",
-  "url_goc": "https://drive.google.com/thumbnail?id=1-skoxGNzV2dlurTXsul_JRRSEHG6xxyE&sz=w1000",
-  "ten_file": "cho-thue-can-ho-1-ngu-masteri-42m2-ct-1n-476.webp"
- },
- {
-  "ma": "CT.1N+.477",
-  "toa": "MasA",
-  "phan_khu": "Masteri",
-  "loai": "1 Ngủ +",
-  "dien_tich": 47,
-  "drive_id": "1qd544WADicSPGIECD76MN-iUotHb-KAm",
-  "url_goc": "https://drive.google.com/thumbnail?id=1qd544WADicSPGIECD76MN-iUotHb-KAm&sz=w1000",
-  "ten_file": "cho-thue-can-ho-1-ngu-masteri-47m2-ct-1n-477.webp"
- },
- {
-  "ma": "CT.1N+.478",
-  "toa": "MasB",
-  "phan_khu": "Masteri",
-  "loai": "1 Ngủ +",
-  "dien_tich": 42,
-  "drive_id": "1uaxtKhWRzhsGEWCDRicxLvUmI_jFUU2G",
-  "url_goc": "https://drive.google.com/thumbnail?id=1uaxtKhWRzhsGEWCDRicxLvUmI_jFUU2G&sz=w1000",
-  "ten_file": "cho-thue-can-ho-1-ngu-masteri-42m2-ct-1n-478.webp"
- },
- {
-  "ma": "CT.1N+.480",
-  "toa": "S101",
-  "phan_khu": "Sapphire",
-  "loai": "1 Ngủ +",
-  "dien_tich": 43,
-  "drive_id": "1TcUUuoScDuybKcEIgonmSvEdaYk6Q1zo",
-  "url_goc": "https://drive.google.com/thumbnail?id=1TcUUuoScDuybKcEIgonmSvEdaYk6Q1zo&sz=w1000",
-  "ten_file": "cho-thue-can-ho-1-ngu-sapphire-43m2-ct-1n-480.webp"
- },
- {
-  "ma": "CT.1N+.481",
-  "toa": "S105",
-  "phan_khu": "Sapphire",
-  "loai": "1 Ngủ +",
-  "dien_tich": 43,
-  "drive_id": "1hGPH2XKQeSSjqG6EMGsNc70UxaH5_oWb",
-  "url_goc": "https://drive.google.com/thumbnail?id=1hGPH2XKQeSSjqG6EMGsNc70UxaH5_oWb&sz=w1000",
-  "ten_file": "cho-thue-can-ho-1-ngu-sapphire-43m2-ct-1n-481.webp"
- },
- {
-  "ma": "CT.1N+.482",
-  "toa": "GS1",
-  "phan_khu": "Miami",
-  "loai": "1 Ngủ +",
-  "dien_tich": 43,
-  "drive_id": "1LhTWLnE0KYsG1d-VQ_WBPMGczA0i-nkU",
-  "url_goc": "https://drive.google.com/thumbnail?id=1LhTWLnE0KYsG1d-VQ_WBPMGczA0i-nkU&sz=w1000",
-  "ten_file": "cho-thue-can-ho-1-ngu-miami-43m2-ct-1n-482.webp"
- },
- {
-  "ma": "CT.Stu.725",
-  "toa": "TC3",
-  "phan_khu": "Canopy",
-  "loai": "Studio",
-  "dien_tich": 26,
-  "drive_id": "1On_aB8KAeLwCuPaR2xMxMjzDEI0DD7mR",
-  "url_goc": "https://drive.google.com/thumbnail?id=1On_aB8KAeLwCuPaR2xMxMjzDEI0DD7mR&sz=w1000",
-  "ten_file": "cho-thue-can-ho-studio-canopy-26m2-ct-stu-725.webp"
- },
- {
-  "ma": "CT.Stu.728",
-  "toa": "TC1",
-  "phan_khu": "Canopy",
-  "loai": "Studio",
-  "dien_tich": 29,
-  "drive_id": "194ypb7YETFBRbRGiZMreTxipyf3N-khQ",
-  "url_goc": "https://drive.google.com/thumbnail?id=194ypb7YETFBRbRGiZMreTxipyf3N-khQ&sz=w1000",
-  "ten_file": "cho-thue-can-ho-studio-canopy-29m2-ct-stu-728.webp"
- },
- {
-  "ma": "CT.Stu.729",
-  "toa": "TK2",
-  "phan_khu": "Tonkin",
-  "loai": "Studio",
-  "dien_tich": 25,
-  "drive_id": "1_ws6BSvqL1r8W-wg0JpF8BsIPcVrvavo",
-  "url_goc": "https://drive.google.com/thumbnail?id=1_ws6BSvqL1r8W-wg0JpF8BsIPcVrvavo&sz=w1000",
-  "ten_file": "cho-thue-can-ho-studio-tonkin-25m2-ct-stu-729.webp"
- },
- {
-  "ma": "CT.Stu.731",
-  "toa": "S102",
-  "phan_khu": "Sapphire",
-  "loai": "Studio",
-  "dien_tich": 28,
-  "drive_id": "1xpqZaWCjFwJHYNMUZh4cCFCExiHVAKa5",
-  "url_goc": "https://drive.google.com/thumbnail?id=1xpqZaWCjFwJHYNMUZh4cCFCExiHVAKa5&sz=w1000",
-  "ten_file": "cho-thue-can-ho-studio-sapphire-28m2-ct-stu-731.webp"
- },
- {
-  "ma": "CT.Stu.732",
-  "toa": "S103",
-  "phan_khu": "Sapphire",
-  "loai": "Studio",
-  "dien_tich": 32,
-  "drive_id": "1DDrkRUpBVSlicJsqjD8tKdhoDA2iC9em",
-  "url_goc": "https://drive.google.com/thumbnail?id=1DDrkRUpBVSlicJsqjD8tKdhoDA2iC9em&sz=w1000",
-  "ten_file": "cho-thue-can-ho-studio-sapphire-32m2-ct-stu-732.webp"
- },
- {
-  "ma": "CT.Stu.733",
-  "toa": "S102",
-  "phan_khu": "Sapphire",
-  "loai": "Studio",
-  "dien_tich": 28,
-  "drive_id": "1OHf_CZG0kphPv2tPRuZv04fQy-2upkAt",
-  "url_goc": "https://drive.google.com/thumbnail?id=1OHf_CZG0kphPv2tPRuZv04fQy-2upkAt&sz=w1000",
-  "ten_file": "cho-thue-can-ho-studio-sapphire-28m2-ct-stu-733.webp"
- },
- {
-  "ma": "CT.Stu.734",
-  "toa": "SA2",
-  "phan_khu": "Sakura",
-  "loai": "Studio",
-  "dien_tich": 28,
-  "drive_id": "1kMZp7xMQr4IM9AJlbNw8XB2cILtzmt60",
-  "url_goc": "https://drive.google.com/thumbnail?id=1kMZp7xMQr4IM9AJlbNw8XB2cILtzmt60&sz=w1000",
-  "ten_file": "cho-thue-can-ho-studio-sakura-28m2-ct-stu-734.webp"
- },
- {
-  "ma": "CT.Stu.735",
-  "toa": "S102",
-  "phan_khu": "Sapphire",
-  "loai": "Studio",
-  "dien_tich": 32,
-  "drive_id": "1sEPNTp0oilzPOnTBqLowXZWdNRZS2yKh",
-  "url_goc": "https://drive.google.com/thumbnail?id=1sEPNTp0oilzPOnTBqLowXZWdNRZS2yKh&sz=w1000",
-  "ten_file": "cho-thue-can-ho-studio-sapphire-32m2-ct-stu-735.webp"
- },
- {
-  "ma": "CT.Stu.737",
-  "toa": "S101",
-  "phan_khu": "Sapphire",
-  "loai": "Studio",
-  "dien_tich": 28,
-  "drive_id": "1vRTQ4jsHNB_cqPDZw3B-YF8RSrqyWrp7",
-  "url_goc": "https://drive.google.com/thumbnail?id=1vRTQ4jsHNB_cqPDZw3B-YF8RSrqyWrp7&sz=w1000",
-  "ten_file": "cho-thue-can-ho-studio-sapphire-28m2-ct-stu-737.webp"
- },
- {
-  "ma": "CT.Stu.738",
-  "toa": "SA1",
-  "phan_khu": "Sakura",
-  "loai": "Studio",
-  "dien_tich": 25,
-  "drive_id": "1E4hxfaXEydPpjtszd7lSkAZ0nwoieYXQ",
-  "url_goc": "https://drive.google.com/thumbnail?id=1E4hxfaXEydPpjtszd7lSkAZ0nwoieYXQ&sz=w1000",
-  "ten_file": "cho-thue-can-ho-studio-sakura-25m2-ct-stu-738.webp"
- },
- {
-  "ma": "CT.Stu.739",
-  "toa": "S105",
-  "phan_khu": "Sapphire",
-  "loai": "Studio",
-  "dien_tich": 28,
-  "drive_id": "1-eiqmMCilqSp6IHKUZUJrisDMY_huZzv",
-  "url_goc": "https://drive.google.com/thumbnail?id=1-eiqmMCilqSp6IHKUZUJrisDMY_huZzv&sz=w1000",
-  "ten_file": "cho-thue-can-ho-studio-sapphire-28m2-ct-stu-739.webp"
- },
- {
-  "ma": "CT.2N2.344",
-  "toa": "TC1",
-  "phan_khu": "Canopy",
-  "loai": "2 Ngủ",
-  "dien_tich": 65,
-  "drive_id": "1AdzNJCDZww0WJy7ye0SszjO7L68Vwsq5",
-  "url_goc": "https://drive.google.com/thumbnail?id=1AdzNJCDZww0WJy7ye0SszjO7L68Vwsq5&sz=w1000",
-  "ten_file": "cho-thue-can-ho-2-ngu-canopy-65m2-ct-2n2-344.webp"
- },
- {
-  "ma": "CT.2N2.345",
-  "toa": "SA1",
-  "phan_khu": "Sakura",
   "loai": "2 Ngủ",
   "dien_tich": 54,
-  "drive_id": "104OoisbhWP4xngNUVsF7PXF4aNCSN7kJ",
-  "url_goc": "https://drive.google.com/thumbnail?id=104OoisbhWP4xngNUVsF7PXF4aNCSN7kJ&sz=w1000",
-  "ten_file": "cho-thue-can-ho-2-ngu-sakura-54m2-ct-2n2-345.webp"
+  "drive_id": "1i71g2p4XIS1VrvrknDGz9tC5fk8jmMaP",
+  "url_goc": "https://drive.google.com/thumbnail?id=1i71g2p4XIS1VrvrknDGz9tC5fk8jmMaP&sz=w1000",
+  "ten_file": "cho-thue-can-ho-2-ngu-masteri-54m2-42.webp"
+ },
+ {
+  "ma": "CT.2N2.336",
+  "toa": "MasC",
+  "phan_khu": "Masteri",
+  "loai": "2 Ngủ",
+  "dien_tich": 54,
+  "drive_id": "1P7AJT0IzesDIHd07aiuFe127d4e1-xgR",
+  "url_goc": "https://drive.google.com/thumbnail?id=1P7AJT0IzesDIHd07aiuFe127d4e1-xgR&sz=w1000",
+  "ten_file": "cho-thue-can-ho-2-ngu-masteri-54m2-ct-2n2-336.webp"
  },
  {
   "ma": "CT.2N2.346",
@@ -1620,256 +910,6 @@
   "ten_file": "cho-thue-can-ho-2-ngu-masteri-54m2-ct-2n2-347.webp"
  },
  {
-  "ma": "CT.2N2.348",
-  "toa": "GS6",
-  "phan_khu": "Miami",
-  "loai": "2 Ngủ",
-  "dien_tich": 63,
-  "drive_id": "1hW7sJ9MhxLrXhSTrjkLpRx87bL_fx-Ts",
-  "url_goc": "https://drive.google.com/thumbnail?id=1hW7sJ9MhxLrXhSTrjkLpRx87bL_fx-Ts&sz=w1000",
-  "ten_file": "cho-thue-can-ho-2-ngu-miami-63m2-ct-2n2-348.webp"
- },
- {
-  "ma": "CT.2N2.350",
-  "toa": "TC3",
-  "phan_khu": "Canopy",
-  "loai": "2 Ngủ",
-  "dien_tich": 60,
-  "drive_id": "1qvuzjaeceGhjO5ic_ohTNO3hum7ZUFTP",
-  "url_goc": "https://drive.google.com/thumbnail?id=1qvuzjaeceGhjO5ic_ohTNO3hum7ZUFTP&sz=w1000",
-  "ten_file": "cho-thue-can-ho-2-ngu-canopy-60m2-ct-2n2-350.webp"
- },
- {
-  "ma": "CT.1N.151",
-  "toa": "TC2",
-  "phan_khu": "Canopy",
-  "loai": "1 Ngủ",
-  "dien_tich": 46,
-  "drive_id": "1lyOabXNwUjwW_n20Pzgumu0jghTGewQ2",
-  "url_goc": "https://drive.google.com/thumbnail?id=1lyOabXNwUjwW_n20Pzgumu0jghTGewQ2&sz=w1000",
-  "ten_file": "cho-thue-can-ho-1-ngu-canopy-46m2-ct-1n-151.webp"
- },
- {
-  "ma": "CT.1N.152",
-  "toa": "SA5",
-  "phan_khu": "Sakura",
-  "loai": "1 Ngủ",
-  "dien_tich": 42,
-  "drive_id": "1iRPg0ggpvzkYI-cdhVwTFWBk2t31iTi6",
-  "url_goc": "https://drive.google.com/thumbnail?id=1iRPg0ggpvzkYI-cdhVwTFWBk2t31iTi6&sz=w1000",
-  "ten_file": "cho-thue-can-ho-1-ngu-sakura-42m2-ct-1n-152.webp"
- },
- {
-  "ma": "CT.1N.153",
-  "toa": "TC1",
-  "phan_khu": "Canopy",
-  "loai": "1 Ngủ",
-  "dien_tich": 43,
-  "drive_id": "10w6_J_cSdE0WfEHwQMrrQBXlLeuMmEl2",
-  "url_goc": "https://drive.google.com/thumbnail?id=10w6_J_cSdE0WfEHwQMrrQBXlLeuMmEl2&sz=w1000",
-  "ten_file": "cho-thue-can-ho-1-ngu-canopy-43m2-ct-1n-153.webp"
- },
- {
-  "ma": "CT.2N+.254",
-  "toa": "S203",
-  "phan_khu": "Sapphire",
-  "loai": "2 Ngủ +",
-  "dien_tich": 63,
-  "drive_id": "1AUh0retiHy4K3XypjeDW7pxd_nsFgIGs",
-  "url_goc": "https://drive.google.com/thumbnail?id=1AUh0retiHy4K3XypjeDW7pxd_nsFgIGs&sz=w1000",
-  "ten_file": "cho-thue-can-ho-2-ngu-sapphire-63m2-ct-2n-254.webp"
- },
- {
-  "ma": "CT.2N+.255",
-  "toa": "S302",
-  "phan_khu": "Sapphire",
-  "loai": "2 Ngủ +",
-  "dien_tich": 63,
-  "drive_id": "1ooHy5iefoSJlcoataLbfXJFWUri8OGWj",
-  "url_goc": "https://drive.google.com/thumbnail?id=1ooHy5iefoSJlcoataLbfXJFWUri8OGWj&sz=w1000",
-  "ten_file": "cho-thue-can-ho-2-ngu-sapphire-63m2-ct-2n-255.webp"
- },
- {
-  "ma": "CT.2N2.352",
-  "toa": "TC3",
-  "phan_khu": "Canopy",
-  "loai": "2 Ngủ",
-  "dien_tich": 62.3,
-  "drive_id": "1dxC3eaFUYy1uqQ5qS5KZ97T4j80LsyrC",
-  "url_goc": "https://drive.google.com/thumbnail?id=1dxC3eaFUYy1uqQ5qS5KZ97T4j80LsyrC&sz=w1000",
-  "ten_file": "cho-thue-can-ho-2-ngu-canopy-62m2-ct-2n2-352.webp"
- },
- {
-  "ma": "CT.Stu.741",
-  "toa": "I5",
-  "phan_khu": "Imperia",
-  "loai": "Studio",
-  "dien_tich": 31,
-  "drive_id": "18Tv1UKIE0tp07gXTCasSYrIfikABulPa",
-  "url_goc": "https://drive.google.com/thumbnail?id=18Tv1UKIE0tp07gXTCasSYrIfikABulPa&sz=w1000",
-  "ten_file": "cho-thue-can-ho-studio-imperia-31m2-ct-stu-741.webp"
- },
- {
-  "ma": "CT.Stu.742",
-  "toa": "I3",
-  "phan_khu": "Imperia",
-  "loai": "Studio",
-  "dien_tich": 32,
-  "drive_id": "1fyJEPj6gQq2C7x1QI_KZnbjiTSyjxMQn",
-  "url_goc": "https://drive.google.com/thumbnail?id=1fyJEPj6gQq2C7x1QI_KZnbjiTSyjxMQn&sz=w1000",
-  "ten_file": "cho-thue-can-ho-studio-imperia-32m2-ct-stu-742.webp"
- },
- {
-  "ma": "CT.Stu.743",
-  "toa": "MasD",
-  "phan_khu": "Masteri",
-  "loai": "Studio",
-  "dien_tich": 30,
-  "drive_id": "1sm1W53nASgl4C6r3Dndv4dsbfWraZbvK",
-  "url_goc": "https://drive.google.com/thumbnail?id=1sm1W53nASgl4C6r3Dndv4dsbfWraZbvK&sz=w1000",
-  "ten_file": "cho-thue-can-ho-studio-masteri-30m2-ct-stu-743.webp"
- },
- {
-  "ma": "CT.Stu.745",
-  "toa": "I5",
-  "phan_khu": "Imperia",
-  "loai": "Studio",
-  "dien_tich": 31,
-  "drive_id": "1PimHX4XydZB4eHK65mQRzilzORydCKXv",
-  "url_goc": "https://drive.google.com/thumbnail?id=1PimHX4XydZB4eHK65mQRzilzORydCKXv&sz=w1000",
-  "ten_file": "cho-thue-can-ho-studio-imperia-31m2-ct-stu-745.webp"
- },
- {
-  "ma": "CT.1N+.483",
-  "toa": "MasD",
-  "phan_khu": "Masteri",
-  "loai": "1 Ngủ +",
-  "dien_tich": 42,
-  "drive_id": "1dIqhwbTYj99ihA59GO-_zWrzNc_Z4tIL",
-  "url_goc": "https://drive.google.com/thumbnail?id=1dIqhwbTYj99ihA59GO-_zWrzNc_Z4tIL&sz=w1000",
-  "ten_file": "cho-thue-can-ho-1-ngu-masteri-42m2-ct-1n-483.webp"
- },
- {
-  "ma": "CT.1N+.484",
-  "toa": "S402",
-  "phan_khu": "Sapphire",
-  "loai": "1 Ngủ +",
-  "dien_tich": 43,
-  "drive_id": "1EUJeWFv93JBJ3GqxXkuDEdu-CwpcFBCM",
-  "url_goc": "https://drive.google.com/thumbnail?id=1EUJeWFv93JBJ3GqxXkuDEdu-CwpcFBCM&sz=w1000",
-  "ten_file": "cho-thue-can-ho-1-ngu-sapphire-43m2-ct-1n-484.webp"
- },
- {
-  "ma": "CT.2N1.206",
-  "toa": "I3",
-  "phan_khu": "Imperia",
-  "loai": "2 Ngủ",
-  "dien_tich": 54,
-  "drive_id": "1SpTPb6D_LuxOCCnLvuld69Km7aOiCl1y",
-  "url_goc": "https://drive.google.com/thumbnail?id=1SpTPb6D_LuxOCCnLvuld69Km7aOiCl1y&sz=w1000",
-  "ten_file": "cho-thue-can-ho-2-ngu-imperia-54m2-ct-2n1-206.webp"
- },
- {
-  "ma": "CT.2N1.207",
-  "toa": "S102",
-  "phan_khu": "Sapphire",
-  "loai": "2 Ngủ",
-  "dien_tich": 55,
-  "drive_id": "17tLGEXhcOzk2UJss0EgCmZHqGVVY3tca",
-  "url_goc": "https://drive.google.com/thumbnail?id=17tLGEXhcOzk2UJss0EgCmZHqGVVY3tca&sz=w1000",
-  "ten_file": "cho-thue-can-ho-2-ngu-sapphire-55m2-ct-2n1-207.webp"
- },
- {
-  "ma": "CT.2N1.208",
-  "toa": "S202",
-  "phan_khu": "Sapphire",
-  "loai": "2 Ngủ",
-  "dien_tich": 54,
-  "drive_id": "13fhv3Eh7NRvNrZ7mssChh5hcU9IsZ56b",
-  "url_goc": "https://drive.google.com/thumbnail?id=13fhv3Eh7NRvNrZ7mssChh5hcU9IsZ56b&sz=w1000",
-  "ten_file": "cho-thue-can-ho-2-ngu-sapphire-54m2-ct-2n1-208.webp"
- },
- {
-  "ma": "CC3",
-  "toa": "S401",
-  "phan_khu": "Sapphire",
-  "loai": "3 Ngủ",
-  "dien_tich": 94,
-  "drive_id": "1d_TO0YeFuhR86ZZmMkuJHcI6kXxMFnDK",
-  "url_goc": "https://drive.google.com/thumbnail?id=1d_TO0YeFuhR86ZZmMkuJHcI6kXxMFnDK&sz=w1000",
-  "ten_file": "cho-thue-can-ho-3-ngu-sapphire-94m2-cc3.webp"
- },
- {
-  "ma": 3,
-  "toa": "S205",
-  "phan_khu": "Sapphire",
-  "loai": "1 Ngủ +",
-  "dien_tich": 43,
-  "drive_id": "18UWYv7VkR8lWGKAlT3bSfwH5MtoYVthi",
-  "url_goc": "https://drive.google.com/thumbnail?id=18UWYv7VkR8lWGKAlT3bSfwH5MtoYVthi&sz=w1000",
-  "ten_file": "cho-thue-can-ho-1-ngu-sapphire-43m2-3.webp"
- },
- {
-  "ma": 320,
-  "toa": "I3",
-  "phan_khu": "Imperia",
-  "loai": "1 Ngủ +",
-  "dien_tich": 43,
-  "drive_id": "1rUuYt_yRjEFobtYU16BLCrmk6j24NwgP",
-  "url_goc": "https://drive.google.com/thumbnail?id=1rUuYt_yRjEFobtYU16BLCrmk6j24NwgP&sz=w1000",
-  "ten_file": "cho-thue-can-ho-1-ngu-imperia-43m2-320.webp"
- },
- {
-  "ma": 326,
-  "toa": "MasC",
-  "phan_khu": "Masteri",
-  "loai": "Studio",
-  "dien_tich": 32,
-  "drive_id": "193uZ5TslF8REDggR6a534CATWjRHqXYm",
-  "url_goc": "https://drive.google.com/thumbnail?id=193uZ5TslF8REDggR6a534CATWjRHqXYm&sz=w1000",
-  "ten_file": "cho-thue-can-ho-studio-masteri-32m2-326.webp"
- },
- {
-  "ma": 327,
-  "toa": "MasB",
-  "phan_khu": "Masteri",
-  "loai": "1 Ngủ +",
-  "dien_tich": 43,
-  "drive_id": "1e0YFLqkWxK0jcuTvNF2GffiZQWCaZT6a",
-  "url_goc": "https://drive.google.com/thumbnail?id=1e0YFLqkWxK0jcuTvNF2GffiZQWCaZT6a&sz=w1000",
-  "ten_file": "cho-thue-can-ho-1-ngu-masteri-43m2-327.webp"
- },
- {
-  "ma": 328,
-  "toa": "MasA",
-  "phan_khu": "Masteri",
-  "loai": "Studio",
-  "dien_tich": 32,
-  "drive_id": "1q9uaCiuEz4ZybMPZiaoEX9-A1dMzMoJR",
-  "url_goc": "https://drive.google.com/thumbnail?id=1q9uaCiuEz4ZybMPZiaoEX9-A1dMzMoJR&sz=w1000",
-  "ten_file": "cho-thue-can-ho-studio-masteri-32m2-328.webp"
- },
- {
-  "ma": 26,
-  "toa": "I2",
-  "phan_khu": "Imperia",
-  "loai": "2 Ngủ +",
-  "dien_tich": 64,
-  "drive_id": "1ZdbGcwcSz1yV6JQbomieyfXLwtrUleDu",
-  "url_goc": "https://drive.google.com/thumbnail?id=1ZdbGcwcSz1yV6JQbomieyfXLwtrUleDu&sz=w1000",
-  "ten_file": "cho-thue-can-ho-2-ngu-imperia-64m2-26.webp"
- },
- {
-  "ma": 28,
-  "toa": "S105",
-  "phan_khu": "Sapphire",
-  "loai": "Studio",
-  "dien_tich": 32,
-  "drive_id": "1lHFBZfp9MTbMlXgKHNhqIy-z8MWWR2s7",
-  "url_goc": "https://drive.google.com/thumbnail?id=1lHFBZfp9MTbMlXgKHNhqIy-z8MWWR2s7&sz=w1000",
-  "ten_file": "cho-thue-can-ho-studio-sapphire-32m2-28.webp"
- },
- {
   "ma": 29,
   "toa": "MasC",
   "phan_khu": "Masteri",
@@ -1880,14 +920,324 @@
   "ten_file": "cho-thue-can-ho-2-ngu-masteri-55m2-29.webp"
  },
  {
-  "ma": 30,
-  "toa": "I3",
-  "phan_khu": "Imperia",
+  "ma": "CT.2N2.323",
+  "toa": "MasB",
+  "phan_khu": "Masteri",
+  "loai": "2 Ngủ",
+  "dien_tich": 60,
+  "drive_id": "1TEeuxdxrF1Vr388D1KXpYDn5lub2oewa",
+  "url_goc": "https://drive.google.com/thumbnail?id=1TEeuxdxrF1Vr388D1KXpYDn5lub2oewa&sz=w1000",
+  "ten_file": "cho-thue-can-ho-2-ngu-masteri-60m2-ct-2n2-323.webp"
+ },
+ {
+  "ma": "CT.2N2.333",
+  "toa": "MasA",
+  "phan_khu": "Masteri",
+  "loai": "2 Ngủ",
+  "dien_tich": 60,
+  "drive_id": "1sjC-O9eV1k_tY_rKXMUdcSwUUM0PAPQ-",
+  "url_goc": "https://drive.google.com/thumbnail?id=1sjC-O9eV1k_tY_rKXMUdcSwUUM0PAPQ-&sz=w1000",
+  "ten_file": "cho-thue-can-ho-2-ngu-masteri-60m2-ct-2n2-333.webp"
+ },
+ {
+  "ma": "CT.2N2.340",
+  "toa": "MasA",
+  "phan_khu": "Masteri",
+  "loai": "2 Ngủ",
+  "dien_tich": 60,
+  "drive_id": "1I_CvM6X4Tzh57y2_tIS7uudo7EHQrvoQ",
+  "url_goc": "https://drive.google.com/thumbnail?id=1I_CvM6X4Tzh57y2_tIS7uudo7EHQrvoQ&sz=w1000",
+  "ten_file": "cho-thue-can-ho-2-ngu-masteri-60m2-ct-2n2-340.webp"
+ },
+ {
+  "ma": "CT.2N2.365",
+  "toa": "MasC",
+  "phan_khu": "Masteri",
+  "loai": "2 Ngủ",
+  "dien_tich": 60,
+  "drive_id": "1yHZXmfJQj0K0d1L2rxAi79LasZORWFiQ",
+  "url_goc": "https://drive.google.com/thumbnail?id=1yHZXmfJQj0K0d1L2rxAi79LasZORWFiQ&sz=w1000",
+  "ten_file": "cho-thue-can-ho-2-ngu-masteri-60m2-ct-2n2-365.webp"
+ },
+ {
+  "ma": "CT.2N+.234",
+  "toa": "MasD",
+  "phan_khu": "Masteri",
+  "loai": "2 Ngủ +",
+  "dien_tich": 62,
+  "drive_id": "1PYN7DEMN4RXhh-ypYXZQBRyzxrRwLeuX",
+  "url_goc": "https://drive.google.com/thumbnail?id=1PYN7DEMN4RXhh-ypYXZQBRyzxrRwLeuX&sz=w1000",
+  "ten_file": "cho-thue-can-ho-2-ngu-masteri-62m2-ct-2n-234.webp"
+ },
+ {
+  "ma": "CT.2N+.247",
+  "toa": "MasD",
+  "phan_khu": "Masteri",
+  "loai": "2 Ngủ +",
+  "dien_tich": 62,
+  "drive_id": "1nmniv3jYfb49_SP4Ch_vkqYEU2SWgmJE",
+  "url_goc": "https://drive.google.com/thumbnail?id=1nmniv3jYfb49_SP4Ch_vkqYEU2SWgmJE&sz=w1000",
+  "ten_file": "cho-thue-can-ho-2-ngu-masteri-62m2-ct-2n-247.webp"
+ },
+ {
+  "ma": "CT.2N+.249",
+  "toa": "MasC",
+  "phan_khu": "Masteri",
+  "loai": "2 Ngủ +",
+  "dien_tich": 62,
+  "drive_id": "1xmJKW2HScEcvOJj7CTLzkYANMNtu5KMP",
+  "url_goc": "https://drive.google.com/thumbnail?id=1xmJKW2HScEcvOJj7CTLzkYANMNtu5KMP&sz=w1000",
+  "ten_file": "cho-thue-can-ho-2-ngu-masteri-62m2-ct-2n-249.webp"
+ },
+ {
+  "ma": "CT.2N+.250",
+  "toa": "MasC",
+  "phan_khu": "Masteri",
+  "loai": "2 Ngủ +",
+  "dien_tich": 62,
+  "drive_id": "1F9GyV3bSgrclzEH03pNsJ1RnJF4jOYpa",
+  "url_goc": "https://drive.google.com/thumbnail?id=1F9GyV3bSgrclzEH03pNsJ1RnJF4jOYpa&sz=w1000",
+  "ten_file": "cho-thue-can-ho-2-ngu-masteri-62m2-ct-2n-250.webp"
+ },
+ {
+  "ma": "CT.2N2.320",
+  "toa": "MasB",
+  "phan_khu": "Masteri",
+  "loai": "2 Ngủ",
+  "dien_tich": 62,
+  "drive_id": "1tukcn3qWg9-KispswKhZAKfWy77j35oF",
+  "url_goc": "https://drive.google.com/thumbnail?id=1tukcn3qWg9-KispswKhZAKfWy77j35oF&sz=w1000",
+  "ten_file": "cho-thue-can-ho-2-ngu-masteri-62m2-ct-2n2-320.webp"
+ },
+ {
+  "ma": "CT.2N+.230",
+  "toa": "MasA",
+  "phan_khu": "Masteri",
+  "loai": "2 Ngủ +",
+  "dien_tich": 63,
+  "drive_id": "1PfzM-1WN9_9phhkRheRmxM60AiFhwsyO",
+  "url_goc": "https://drive.google.com/thumbnail?id=1PfzM-1WN9_9phhkRheRmxM60AiFhwsyO&sz=w1000",
+  "ten_file": "cho-thue-can-ho-2-ngu-masteri-63m2-ct-2n-230.webp"
+ },
+ {
+  "ma": 50,
+  "toa": "GS1",
+  "phan_khu": "Miami",
+  "loai": "2 Ngủ",
+  "dien_tich": 54,
+  "drive_id": "1L4_eLNu_dswcA1XF-7tmS2vyilf0eRHL",
+  "url_goc": "https://drive.google.com/thumbnail?id=1L4_eLNu_dswcA1XF-7tmS2vyilf0eRHL&sz=w1000",
+  "ten_file": "cho-thue-can-ho-2-ngu-miami-54m2-50.webp"
+ },
+ {
+  "ma": "CT.2N1.203",
+  "toa": "GS2",
+  "phan_khu": "Miami",
+  "loai": "2 Ngủ",
+  "dien_tich": 54,
+  "drive_id": "1adhsaCMRmG2cbNwl1dHgfQvI7wwBsH9J",
+  "url_goc": "https://drive.google.com/thumbnail?id=1adhsaCMRmG2cbNwl1dHgfQvI7wwBsH9J&sz=w1000",
+  "ten_file": "cho-thue-can-ho-2-ngu-miami-54m2-ct-2n1-203.webp"
+ },
+ {
+  "ma": "CT.2N1.204",
+  "toa": "GS3",
+  "phan_khu": "Miami",
+  "loai": "2 Ngủ",
+  "dien_tich": 54,
+  "drive_id": "1G1u_fa5KemTsyZyQrpVbWmIPKfzBTZb7",
+  "url_goc": "https://drive.google.com/thumbnail?id=1G1u_fa5KemTsyZyQrpVbWmIPKfzBTZb7&sz=w1000",
+  "ten_file": "cho-thue-can-ho-2-ngu-miami-54m2-ct-2n1-204.webp"
+ },
+ {
+  "ma": "CT.2N2.259",
+  "toa": "GS1",
+  "phan_khu": "Miami",
   "loai": "2 Ngủ",
   "dien_tich": 55,
-  "drive_id": "1PXHb_Etm2C5fuwBOKhwwwD9Mmbw8DIHK",
-  "url_goc": "https://drive.google.com/thumbnail?id=1PXHb_Etm2C5fuwBOKhwwwD9Mmbw8DIHK&sz=w1000",
-  "ten_file": "cho-thue-can-ho-2-ngu-imperia-55m2-30.webp"
+  "drive_id": "1_nXM-uu8Csxr6fecE2zt67di8hRdeNo3",
+  "url_goc": "https://drive.google.com/thumbnail?id=1_nXM-uu8Csxr6fecE2zt67di8hRdeNo3&sz=w1000",
+  "ten_file": "cho-thue-can-ho-2-ngu-miami-55m2-ct-2n2-259.webp"
+ },
+ {
+  "ma": "CT.2N+.189",
+  "toa": "GS2",
+  "phan_khu": "Miami",
+  "loai": "2 Ngủ +",
+  "dien_tich": 62,
+  "drive_id": "1TVg2yLkAD0shvpgsmbudcUNXhQ5I8VMJ",
+  "url_goc": "https://drive.google.com/thumbnail?id=1TVg2yLkAD0shvpgsmbudcUNXhQ5I8VMJ&sz=w1000",
+  "ten_file": "cho-thue-can-ho-2-ngu-miami-62m2-ct-2n-189.webp"
+ },
+ {
+  "ma": "CT.2N+.261",
+  "toa": "GS2",
+  "phan_khu": "Miami",
+  "loai": "2 Ngủ +",
+  "dien_tich": 62,
+  "drive_id": "1zhAuYmMV01029d2uxfZPqkeOg5U_2vQE",
+  "url_goc": "https://drive.google.com/thumbnail?id=1zhAuYmMV01029d2uxfZPqkeOg5U_2vQE&sz=w1000",
+  "ten_file": "cho-thue-can-ho-2-ngu-miami-62m2-ct-2n-261.webp"
+ },
+ {
+  "ma": "CT.2N2.341",
+  "toa": "GS1",
+  "phan_khu": "Miami",
+  "loai": "2 Ngủ",
+  "dien_tich": 62,
+  "drive_id": "1IAPzRgBipXmrlB_RUoXudk7N7lOUo_C8",
+  "url_goc": "https://drive.google.com/thumbnail?id=1IAPzRgBipXmrlB_RUoXudk7N7lOUo_C8&sz=w1000",
+  "ten_file": "cho-thue-can-ho-2-ngu-miami-62m2-ct-2n2-341.webp"
+ },
+ {
+  "ma": "CT.2N+.232",
+  "toa": "GS2",
+  "phan_khu": "Miami",
+  "loai": "2 Ngủ +",
+  "dien_tich": 63,
+  "drive_id": "1I8pP4iUMh5rW8glCDztQcvlZ7hxVNB_s",
+  "url_goc": "https://drive.google.com/thumbnail?id=1I8pP4iUMh5rW8glCDztQcvlZ7hxVNB_s&sz=w1000",
+  "ten_file": "cho-thue-can-ho-2-ngu-miami-63m2-ct-2n-232.webp"
+ },
+ {
+  "ma": "CT.2N2.290",
+  "toa": "GS5",
+  "phan_khu": "Miami",
+  "loai": "2 Ngủ",
+  "dien_tich": 63,
+  "drive_id": "1o5NZ9UU-67TxlpOaGIxujS3DZlU6QfSP",
+  "url_goc": "https://drive.google.com/thumbnail?id=1o5NZ9UU-67TxlpOaGIxujS3DZlU6QfSP&sz=w1000",
+  "ten_file": "cho-thue-can-ho-2-ngu-miami-63m2-ct-2n2-290.webp"
+ },
+ {
+  "ma": "CT.2N2.348",
+  "toa": "GS6",
+  "phan_khu": "Miami",
+  "loai": "2 Ngủ",
+  "dien_tich": 63,
+  "drive_id": "1hW7sJ9MhxLrXhSTrjkLpRx87bL_fx-Ts",
+  "url_goc": "https://drive.google.com/thumbnail?id=1hW7sJ9MhxLrXhSTrjkLpRx87bL_fx-Ts&sz=w1000",
+  "ten_file": "cho-thue-can-ho-2-ngu-miami-63m2-ct-2n2-348.webp"
+ },
+ {
+  "ma": "CT.2N2.360",
+  "toa": "GS5",
+  "phan_khu": "Miami",
+  "loai": "2 Ngủ",
+  "dien_tich": 63,
+  "drive_id": "15I3JRwYAUG-H8Usmbnb6rTAyCDlzhPdi",
+  "url_goc": "https://drive.google.com/thumbnail?id=15I3JRwYAUG-H8Usmbnb6rTAyCDlzhPdi&sz=w1000",
+  "ten_file": "cho-thue-can-ho-2-ngu-miami-63m2-ct-2n2-360.webp"
+ },
+ {
+  "ma": "CT.2N2.361",
+  "toa": "GS5",
+  "phan_khu": "Miami",
+  "loai": "2 Ngủ",
+  "dien_tich": 63,
+  "drive_id": "1CPfrCNFap8sJ8NO5w_5gAcIAlel3h2ZE",
+  "url_goc": "https://drive.google.com/thumbnail?id=1CPfrCNFap8sJ8NO5w_5gAcIAlel3h2ZE&sz=w1000",
+  "ten_file": "cho-thue-can-ho-2-ngu-miami-63m2-ct-2n2-361.webp"
+ },
+ {
+  "ma": "CT.2N2.317",
+  "toa": "GS6",
+  "phan_khu": "Miami",
+  "loai": "2 Ngủ",
+  "dien_tich": 64.2,
+  "drive_id": "1WA7J-_E5XDDlnHPoKiYxcMBMF7-tBSwC",
+  "url_goc": "https://drive.google.com/thumbnail?id=1WA7J-_E5XDDlnHPoKiYxcMBMF7-tBSwC&sz=w1000",
+  "ten_file": "cho-thue-can-ho-2-ngu-miami-64m2-ct-2n2-317.webp"
+ },
+ {
+  "ma": "CT.2N2.363",
+  "toa": "GS6",
+  "phan_khu": "Miami",
+  "loai": "2 Ngủ",
+  "dien_tich": 64,
+  "drive_id": "1zptWi9zZ5o1Gd8Kk2LCkVUUlLH0_e_MV",
+  "url_goc": "https://drive.google.com/thumbnail?id=1zptWi9zZ5o1Gd8Kk2LCkVUUlLH0_e_MV&sz=w1000",
+  "ten_file": "cho-thue-can-ho-2-ngu-miami-64m2-ct-2n2-363.webp"
+ },
+ {
+  "ma": "CT.2N2.326",
+  "toa": "GS5",
+  "phan_khu": "Miami",
+  "loai": "2 Ngủ",
+  "dien_tich": 72,
+  "drive_id": "1UJzPW81_G8xqlOj-tHP-kw_5t3ENWtcr",
+  "url_goc": "https://drive.google.com/thumbnail?id=1UJzPW81_G8xqlOj-tHP-kw_5t3ENWtcr&sz=w1000",
+  "ten_file": "cho-thue-can-ho-2-ngu-miami-72m2-ct-2n2-326.webp"
+ },
+ {
+  "ma": "CT.2N2.205",
+  "toa": "SA1",
+  "phan_khu": "Sakura",
+  "loai": "2 Ngủ",
+  "dien_tich": 54,
+  "drive_id": "1Ji_BWlEMBKAsqJjMm3JxezozPdnIiULm",
+  "url_goc": "https://drive.google.com/thumbnail?id=1Ji_BWlEMBKAsqJjMm3JxezozPdnIiULm&sz=w1000",
+  "ten_file": "cho-thue-can-ho-2-ngu-sakura-54m2-ct-2n2-205.webp"
+ },
+ {
+  "ma": "CT.2N2.291",
+  "toa": "SA5",
+  "phan_khu": "Sakura",
+  "loai": "2 Ngủ",
+  "dien_tich": 54,
+  "drive_id": "1BcnY8C2KhG0Z8LkNnaHX3FlFa5rA3MD3",
+  "url_goc": "https://drive.google.com/thumbnail?id=1BcnY8C2KhG0Z8LkNnaHX3FlFa5rA3MD3&sz=w1000",
+  "ten_file": "cho-thue-can-ho-2-ngu-sakura-54m2-ct-2n2-291.webp"
+ },
+ {
+  "ma": "CT.2N2.292",
+  "toa": "SA1",
+  "phan_khu": "Sakura",
+  "loai": "2 Ngủ",
+  "dien_tich": 54,
+  "drive_id": "18FzpjuZcwuSerMCniomiXBA17bd769Sv",
+  "url_goc": "https://drive.google.com/thumbnail?id=18FzpjuZcwuSerMCniomiXBA17bd769Sv&sz=w1000",
+  "ten_file": "cho-thue-can-ho-2-ngu-sakura-54m2-ct-2n2-292.webp"
+ },
+ {
+  "ma": "CT.2N2.295",
+  "toa": "SA5",
+  "phan_khu": "Sakura",
+  "loai": "2 Ngủ",
+  "dien_tich": 54,
+  "drive_id": "1MI7zkP7m7VWu3LRQxom2QaVmulqFdKS9",
+  "url_goc": "https://drive.google.com/thumbnail?id=1MI7zkP7m7VWu3LRQxom2QaVmulqFdKS9&sz=w1000",
+  "ten_file": "cho-thue-can-ho-2-ngu-sakura-54m2-ct-2n2-295.webp"
+ },
+ {
+  "ma": "CT.2N2.334",
+  "toa": "SA5",
+  "phan_khu": "Sakura",
+  "loai": "2 Ngủ",
+  "dien_tich": 54,
+  "drive_id": "1pJ50wDI1Mm0f_mUTszFso0oWoTpd6HJo",
+  "url_goc": "https://drive.google.com/thumbnail?id=1pJ50wDI1Mm0f_mUTszFso0oWoTpd6HJo&sz=w1000",
+  "ten_file": "cho-thue-can-ho-2-ngu-sakura-54m2-ct-2n2-334.webp"
+ },
+ {
+  "ma": "CT.2N2.345",
+  "toa": "SA1",
+  "phan_khu": "Sakura",
+  "loai": "2 Ngủ",
+  "dien_tich": 54,
+  "drive_id": "104OoisbhWP4xngNUVsF7PXF4aNCSN7kJ",
+  "url_goc": "https://drive.google.com/thumbnail?id=104OoisbhWP4xngNUVsF7PXF4aNCSN7kJ&sz=w1000",
+  "ten_file": "cho-thue-can-ho-2-ngu-sakura-54m2-ct-2n2-345.webp"
+ },
+ {
+  "ma": "CT.2N2.362",
+  "toa": "SA2",
+  "phan_khu": "Sakura",
+  "loai": "2 Ngủ",
+  "dien_tich": 55,
+  "drive_id": "18TqtLQBegt0tpZq5QPcK6n3ebcR61li9",
+  "url_goc": "https://drive.google.com/thumbnail?id=18TqtLQBegt0tpZq5QPcK6n3ebcR61li9&sz=w1000",
+  "ten_file": "cho-thue-can-ho-2-ngu-sakura-55m2-ct-2n2-362.webp"
  },
  {
   "ma": 32,
@@ -1910,54 +1260,264 @@
   "ten_file": "cho-thue-can-ho-2-ngu-sapphire-54m2-34.webp"
  },
  {
-  "ma": 42,
-  "toa": "MasA",
-  "phan_khu": "Masteri",
+  "ma": "CT.2N1.197",
+  "toa": "S302",
+  "phan_khu": "Sapphire",
   "loai": "2 Ngủ",
   "dien_tich": 54,
-  "drive_id": "1i71g2p4XIS1VrvrknDGz9tC5fk8jmMaP",
-  "url_goc": "https://drive.google.com/thumbnail?id=1i71g2p4XIS1VrvrknDGz9tC5fk8jmMaP&sz=w1000",
-  "ten_file": "cho-thue-can-ho-2-ngu-masteri-54m2-42.webp"
+  "drive_id": "1HEj_1YYB-EIR213bFTAO-oZqj-Qy160r",
+  "url_goc": "https://drive.google.com/thumbnail?id=1HEj_1YYB-EIR213bFTAO-oZqj-Qy160r&sz=w1000",
+  "ten_file": "cho-thue-can-ho-2-ngu-sapphire-54m2-ct-2n1-197.webp"
  },
  {
-  "ma": 48,
-  "toa": "GS6",
-  "phan_khu": "Miami",
-  "loai": "1 Ngủ +",
-  "dien_tich": 43,
-  "drive_id": "1it4r3GG5c4aJI0XRAp1pUIqHbuQpbU3b",
-  "url_goc": "https://drive.google.com/thumbnail?id=1it4r3GG5c4aJI0XRAp1pUIqHbuQpbU3b&sz=w1000",
-  "ten_file": "cho-thue-can-ho-1-ngu-miami-43m2-48.webp"
- },
- {
-  "ma": 49,
-  "toa": "TC2",
-  "phan_khu": "Canopy",
-  "loai": "1 Ngủ +",
-  "dien_tich": 50,
-  "drive_id": "14YH3ZNj3B90c_NfYULMFrc2ud2WT6pwO",
-  "url_goc": "https://drive.google.com/thumbnail?id=14YH3ZNj3B90c_NfYULMFrc2ud2WT6pwO&sz=w1000",
-  "ten_file": "cho-thue-can-ho-1-ngu-canopy-50m2-49.webp"
- },
- {
-  "ma": 50,
-  "toa": "GS1",
-  "phan_khu": "Miami",
+  "ma": "CT.2N1.198",
+  "toa": "S105",
+  "phan_khu": "Sapphire",
   "loai": "2 Ngủ",
   "dien_tich": 54,
-  "drive_id": "1L4_eLNu_dswcA1XF-7tmS2vyilf0eRHL",
-  "url_goc": "https://drive.google.com/thumbnail?id=1L4_eLNu_dswcA1XF-7tmS2vyilf0eRHL&sz=w1000",
-  "ten_file": "cho-thue-can-ho-2-ngu-miami-54m2-50.webp"
+  "drive_id": "1MDVxKrVcgr2Uhzep-DgAA60H-lHIbLYM",
+  "url_goc": "https://drive.google.com/thumbnail?id=1MDVxKrVcgr2Uhzep-DgAA60H-lHIbLYM&sz=w1000",
+  "ten_file": "cho-thue-can-ho-2-ngu-sapphire-54m2-ct-2n1-198.webp"
  },
  {
-  "ma": 51,
-  "toa": "I1",
-  "phan_khu": "Imperia",
+  "ma": "CT.2N1.205",
+  "toa": "S202",
+  "phan_khu": "Sapphire",
+  "loai": "2 Ngủ",
+  "dien_tich": 54,
+  "drive_id": "1uY1Nt7RdDR6p5alSjGBxnx7yEXxlC2NU",
+  "url_goc": "https://drive.google.com/thumbnail?id=1uY1Nt7RdDR6p5alSjGBxnx7yEXxlC2NU&sz=w1000",
+  "ten_file": "cho-thue-can-ho-2-ngu-sapphire-54m2-ct-2n1-205.webp"
+ },
+ {
+  "ma": "CT.2N1.150",
+  "toa": "S105",
+  "phan_khu": "Sapphire",
+  "loai": "2 Ngủ",
+  "dien_tich": 55,
+  "drive_id": "1tXZaAbIfGan7ShILjuVrowXJMHcGUwkr",
+  "url_goc": "https://drive.google.com/thumbnail?id=1tXZaAbIfGan7ShILjuVrowXJMHcGUwkr&sz=w1000",
+  "ten_file": "cho-thue-can-ho-2-ngu-sapphire-55m2-ct-2n1-150.webp"
+ },
+ {
+  "ma": "CT.2N1.187",
+  "toa": "S105",
+  "phan_khu": "Sapphire",
+  "loai": "2 Ngủ",
+  "dien_tich": 55,
+  "drive_id": "1aPBpjB95sp-Q6iRZRkkTVAeEKxp3a-8i",
+  "url_goc": "https://drive.google.com/thumbnail?id=1aPBpjB95sp-Q6iRZRkkTVAeEKxp3a-8i&sz=w1000",
+  "ten_file": "cho-thue-can-ho-2-ngu-sapphire-55m2-ct-2n1-187.webp"
+ },
+ {
+  "ma": "CT.2N1.188",
+  "toa": "S205",
+  "phan_khu": "Sapphire",
+  "loai": "2 Ngủ",
+  "dien_tich": 55,
+  "drive_id": "1RM-HzjaCGy52AdNUTmyzO-j6OIWmLnVJ",
+  "url_goc": "https://drive.google.com/thumbnail?id=1RM-HzjaCGy52AdNUTmyzO-j6OIWmLnVJ&sz=w1000",
+  "ten_file": "cho-thue-can-ho-2-ngu-sapphire-55m2-ct-2n1-188.webp"
+ },
+ {
+  "ma": "CT.2N1.200",
+  "toa": "S101",
+  "phan_khu": "Sapphire",
+  "loai": "2 Ngủ",
+  "dien_tich": 55,
+  "drive_id": "1M3oxPRoj_dtrsHFbyE6bIoqzwEyytdEw",
+  "url_goc": "https://drive.google.com/thumbnail?id=1M3oxPRoj_dtrsHFbyE6bIoqzwEyytdEw&sz=w1000",
+  "ten_file": "cho-thue-can-ho-2-ngu-sapphire-55m2-ct-2n1-200.webp"
+ },
+ {
+  "ma": "CT.2N1.201",
+  "toa": "S106",
+  "phan_khu": "Sapphire",
+  "loai": "2 Ngủ",
+  "dien_tich": 55,
+  "drive_id": "1uzO7q7rIyCqO3X_yjmXacPQ_Qg6weAwY",
+  "url_goc": "https://drive.google.com/thumbnail?id=1uzO7q7rIyCqO3X_yjmXacPQ_Qg6weAwY&sz=w1000",
+  "ten_file": "cho-thue-can-ho-2-ngu-sapphire-55m2-ct-2n1-201.webp"
+ },
+ {
+  "ma": "CT.2N1.209",
+  "toa": "S302",
+  "phan_khu": "Sapphire",
+  "loai": "2 Ngủ",
+  "dien_tich": 55,
+  "drive_id": "1Z3t3mzRzzvn0baFy1jGIkpjkXjHvOkUt",
+  "url_goc": "https://drive.google.com/thumbnail?id=1Z3t3mzRzzvn0baFy1jGIkpjkXjHvOkUt&sz=w1000",
+  "ten_file": "cho-thue-can-ho-2-ngu-sapphire-55m2-ct-2n1-209.webp"
+ },
+ {
+  "ma": "CT.2N2.364",
+  "toa": "S401",
+  "phan_khu": "Sapphire",
+  "loai": "2 Ngủ",
+  "dien_tich": 55,
+  "drive_id": "1c9pxfBqSq1fCDw75kVPyRxHMEHPxRR0r",
+  "url_goc": "https://drive.google.com/thumbnail?id=1c9pxfBqSq1fCDw75kVPyRxHMEHPxRR0r&sz=w1000",
+  "ten_file": "cho-thue-can-ho-2-ngu-sapphire-55m2-ct-2n2-364.webp"
+ },
+ {
+  "ma": "CT.2N+.235",
+  "toa": "S101",
+  "phan_khu": "Sapphire",
   "loai": "2 Ngủ +",
   "dien_tich": 62,
-  "drive_id": "1VWaN_kWybvYuzfpfY-dItsAZDmbOmOhv",
-  "url_goc": "https://drive.google.com/thumbnail?id=1VWaN_kWybvYuzfpfY-dItsAZDmbOmOhv&sz=w1000",
-  "ten_file": "cho-thue-can-ho-2-ngu-imperia-62m2-51.webp"
+  "drive_id": "1S_tuDSU4_tWYyFeHYFVBC_uKVPXTEDk9",
+  "url_goc": "https://drive.google.com/thumbnail?id=1S_tuDSU4_tWYyFeHYFVBC_uKVPXTEDk9&sz=w1000",
+  "ten_file": "cho-thue-can-ho-2-ngu-sapphire-62m2-ct-2n-235.webp"
+ },
+ {
+  "ma": "CT.2N2.309",
+  "toa": "S401",
+  "phan_khu": "Sapphire",
+  "loai": "2 Ngủ",
+  "dien_tich": 62,
+  "drive_id": "1wCJgq4uYT2WiqxH2DvJEO72bZ5sFq_DB",
+  "url_goc": "https://drive.google.com/thumbnail?id=1wCJgq4uYT2WiqxH2DvJEO72bZ5sFq_DB&sz=w1000",
+  "ten_file": "cho-thue-can-ho-2-ngu-sapphire-62m2-ct-2n2-309.webp"
+ },
+ {
+  "ma": "CT.2N+.227",
+  "toa": "S301",
+  "phan_khu": "Sapphire",
+  "loai": "2 Ngủ +",
+  "dien_tich": 63,
+  "drive_id": "1HnyLs8sgI5__Kvn31BOwjj6xSicPs9WG",
+  "url_goc": "https://drive.google.com/thumbnail?id=1HnyLs8sgI5__Kvn31BOwjj6xSicPs9WG&sz=w1000",
+  "ten_file": "cho-thue-can-ho-2-ngu-sapphire-63m2-ct-2n-227.webp"
+ },
+ {
+  "ma": "CT.2N+.228",
+  "toa": "S102",
+  "phan_khu": "Sapphire",
+  "loai": "2 Ngủ +",
+  "dien_tich": 63,
+  "drive_id": "1KkLTIuIlVQ8jVNaqZHSzW_r6HEfFo4xy",
+  "url_goc": "https://drive.google.com/thumbnail?id=1KkLTIuIlVQ8jVNaqZHSzW_r6HEfFo4xy&sz=w1000",
+  "ten_file": "cho-thue-can-ho-2-ngu-sapphire-63m2-ct-2n-228.webp"
+ },
+ {
+  "ma": "CT.2N+.254",
+  "toa": "S203",
+  "phan_khu": "Sapphire",
+  "loai": "2 Ngủ +",
+  "dien_tich": 63,
+  "drive_id": "1AUh0retiHy4K3XypjeDW7pxd_nsFgIGs",
+  "url_goc": "https://drive.google.com/thumbnail?id=1AUh0retiHy4K3XypjeDW7pxd_nsFgIGs&sz=w1000",
+  "ten_file": "cho-thue-can-ho-2-ngu-sapphire-63m2-ct-2n-254.webp"
+ },
+ {
+  "ma": "CT.2N+.255",
+  "toa": "S302",
+  "phan_khu": "Sapphire",
+  "loai": "2 Ngủ +",
+  "dien_tich": 63,
+  "drive_id": "1ooHy5iefoSJlcoataLbfXJFWUri8OGWj",
+  "url_goc": "https://drive.google.com/thumbnail?id=1ooHy5iefoSJlcoataLbfXJFWUri8OGWj&sz=w1000",
+  "ten_file": "cho-thue-can-ho-2-ngu-sapphire-63m2-ct-2n-255.webp"
+ },
+ {
+  "ma": "CT.2N+.259",
+  "toa": "S106",
+  "phan_khu": "Sapphire",
+  "loai": "2 Ngủ +",
+  "dien_tich": 63,
+  "drive_id": "1i_ZJGrNRsKgI4ALkvYCIcgUT4TC2r7Xr",
+  "url_goc": "https://drive.google.com/thumbnail?id=1i_ZJGrNRsKgI4ALkvYCIcgUT4TC2r7Xr&sz=w1000",
+  "ten_file": "cho-thue-can-ho-2-ngu-sapphire-63m2-ct-2n-259.webp"
+ },
+ {
+  "ma": "CT.2N2.266",
+  "toa": "S403",
+  "phan_khu": "Sapphire",
+  "loai": "2 Ngủ",
+  "dien_tich": 63,
+  "drive_id": "1i9Axi-PRDGEYP3EON9DI47ij-fajH0EM",
+  "url_goc": "https://drive.google.com/thumbnail?id=1i9Axi-PRDGEYP3EON9DI47ij-fajH0EM&sz=w1000",
+  "ten_file": "cho-thue-can-ho-2-ngu-sapphire-63m2-ct-2n2-266.webp"
+ },
+ {
+  "ma": "CT.2N+.203",
+  "toa": "S401",
+  "phan_khu": "Sapphire",
+  "loai": "2 Ngủ +",
+  "dien_tich": 64,
+  "drive_id": "1m2Edx89zQkXsRNk3lYbb3EupHM03XNQR",
+  "url_goc": "https://drive.google.com/thumbnail?id=1m2Edx89zQkXsRNk3lYbb3EupHM03XNQR&sz=w1000",
+  "ten_file": "cho-thue-can-ho-2-ngu-sapphire-64m2-ct-2n-203.webp"
+ },
+ {
+  "ma": "CT.2N+.210",
+  "toa": "S303",
+  "phan_khu": "Sapphire",
+  "loai": "2 Ngủ +",
+  "dien_tich": 64,
+  "drive_id": "1KgBuUKMUxsSqbshoPPWqeOP0Has2bIVn",
+  "url_goc": "https://drive.google.com/thumbnail?id=1KgBuUKMUxsSqbshoPPWqeOP0Has2bIVn&sz=w1000",
+  "ten_file": "cho-thue-can-ho-2-ngu-sapphire-64m2-ct-2n-210.webp"
+ },
+ {
+  "ma": "CT.2N+.239",
+  "toa": "S401",
+  "phan_khu": "Sapphire",
+  "loai": "2 Ngủ +",
+  "dien_tich": 64,
+  "drive_id": "1DmVDSLWVLn4DXNG3Z6VlP_PFtbuNyJ2X",
+  "url_goc": "https://drive.google.com/thumbnail?id=1DmVDSLWVLn4DXNG3Z6VlP_PFtbuNyJ2X&sz=w1000",
+  "ten_file": "cho-thue-can-ho-2-ngu-sapphire-64m2-ct-2n-239.webp"
+ },
+ {
+  "ma": "CT.2N+.248",
+  "toa": "S103",
+  "phan_khu": "Sapphire",
+  "loai": "2 Ngủ +",
+  "dien_tich": 63.5,
+  "drive_id": "11XNHn5Ek4639cOIDeWRMrb-L8siijMmQ",
+  "url_goc": "https://drive.google.com/thumbnail?id=11XNHn5Ek4639cOIDeWRMrb-L8siijMmQ&sz=w1000",
+  "ten_file": "cho-thue-can-ho-2-ngu-sapphire-64m2-ct-2n-248.webp"
+ },
+ {
+  "ma": "CT.2N+.257",
+  "toa": "S401",
+  "phan_khu": "Sapphire",
+  "loai": "2 Ngủ +",
+  "dien_tich": 64,
+  "drive_id": "1P8AW1PXtWC5-D3yUTt_kCIl1sI46zCKy",
+  "url_goc": "https://drive.google.com/thumbnail?id=1P8AW1PXtWC5-D3yUTt_kCIl1sI46zCKy&sz=w1000",
+  "ten_file": "cho-thue-can-ho-2-ngu-sapphire-64m2-ct-2n-257.webp"
+ },
+ {
+  "ma": "CT.2N+.260",
+  "toa": "S202",
+  "phan_khu": "Sapphire",
+  "loai": "2 Ngủ +",
+  "dien_tich": 64,
+  "drive_id": "1Df-pjHBA15gAuXiX9ufVO2dyvyFL4lUs",
+  "url_goc": "https://drive.google.com/thumbnail?id=1Df-pjHBA15gAuXiX9ufVO2dyvyFL4lUs&sz=w1000",
+  "ten_file": "cho-thue-can-ho-2-ngu-sapphire-64m2-ct-2n-260.webp"
+ },
+ {
+  "ma": "CT.2N2.366",
+  "toa": "S403",
+  "phan_khu": "Sapphire",
+  "loai": "2 Ngủ",
+  "dien_tich": 64,
+  "drive_id": "1pMS8Ef0OkV9ll8aA1ZfX-_OZ8YV76uOa",
+  "url_goc": "https://drive.google.com/thumbnail?id=1pMS8Ef0OkV9ll8aA1ZfX-_OZ8YV76uOa&sz=w1000",
+  "ten_file": "cho-thue-can-ho-2-ngu-sapphire-64m2-ct-2n2-366.webp"
+ },
+ {
+  "ma": "CT.2N2.324",
+  "toa": "TK2",
+  "phan_khu": "Tonkin",
+  "loai": "2 Ngủ",
+  "dien_tich": 60,
+  "drive_id": "1A0ZpmT6nHtmRRmr3-gRJE1VCT7_WbLEj",
+  "url_goc": "https://drive.google.com/thumbnail?id=1A0ZpmT6nHtmRRmr3-gRJE1VCT7_WbLEj&sz=w1000",
+  "ten_file": "cho-thue-can-ho-2-ngu-tonkin-60m2-ct-2n2-324.webp"
  },
  {
   "ma": 53,
@@ -1968,5 +1528,695 @@
   "drive_id": "1Aj0UBZH42jOBV4_TK7mS_ZMjGzkEw4I3",
   "url_goc": "https://drive.google.com/thumbnail?id=1Aj0UBZH42jOBV4_TK7mS_ZMjGzkEw4I3&sz=w1000",
   "ten_file": "cho-thue-can-ho-2-ngu-tonkin-61m2-53.webp"
+ },
+ {
+  "ma": "CT.2N2.332",
+  "toa": "TK1",
+  "phan_khu": "Tonkin",
+  "loai": "2 Ngủ",
+  "dien_tich": 61,
+  "drive_id": "1us9i6UY5f9cfy0xTZtNtY-AuV6j2olUo",
+  "url_goc": "https://drive.google.com/thumbnail?id=1us9i6UY5f9cfy0xTZtNtY-AuV6j2olUo&sz=w1000",
+  "ten_file": "cho-thue-can-ho-2-ngu-tonkin-61m2-ct-2n2-332.webp"
+ },
+ {
+  "ma": "CT.2N2.330",
+  "toa": "TK2",
+  "phan_khu": "Tonkin",
+  "loai": "2 Ngủ",
+  "dien_tich": 66,
+  "drive_id": "11pUJiOpM7Et96TonF3iZI9scZqZCnOkd",
+  "url_goc": "https://drive.google.com/thumbnail?id=11pUJiOpM7Et96TonF3iZI9scZqZCnOkd&sz=w1000",
+  "ten_file": "cho-thue-can-ho-2-ngu-tonkin-66m2-ct-2n2-330.webp"
+ },
+ {
+  "ma": "CT.2N+.223",
+  "toa": "TK2",
+  "phan_khu": "Tonkin",
+  "loai": "2 Ngủ +",
+  "dien_tich": 72,
+  "drive_id": "14vuO0o6J8CLDE4rtXcHUhsajVK-qCdNS",
+  "url_goc": "https://drive.google.com/thumbnail?id=14vuO0o6J8CLDE4rtXcHUhsajVK-qCdNS&sz=w1000",
+  "ten_file": "cho-thue-can-ho-2-ngu-tonkin-72m2-ct-2n-223.webp"
+ },
+ {
+  "ma": "CT.3N.140",
+  "toa": "I5",
+  "phan_khu": "Imperia",
+  "loai": "3 Ngủ",
+  "dien_tich": 76,
+  "drive_id": "1BTuwXw6GponCIhZtzJkIXkAZl8uF1EAB",
+  "url_goc": "https://drive.google.com/thumbnail?id=1BTuwXw6GponCIhZtzJkIXkAZl8uF1EAB&sz=w1000",
+  "ten_file": "cho-thue-can-ho-3-ngu-imperia-76m2-ct-3n-140.webp"
+ },
+ {
+  "ma": "CT.3N.125",
+  "toa": "MasA",
+  "phan_khu": "Masteri",
+  "loai": "3 Ngủ",
+  "dien_tich": 79,
+  "drive_id": "11V5IO4WHVnwkl5wzqt_l-hrtyWVR-LfP",
+  "url_goc": "https://drive.google.com/thumbnail?id=11V5IO4WHVnwkl5wzqt_l-hrtyWVR-LfP&sz=w1000",
+  "ten_file": "cho-thue-can-ho-3-ngu-masteri-79m2-ct-3n-125.webp"
+ },
+ {
+  "ma": "CT.3N.86",
+  "toa": "MasB",
+  "phan_khu": "Masteri",
+  "loai": "3 Ngủ",
+  "dien_tich": 79,
+  "drive_id": "1CqY5jxH0HhnmjvQMiyIXPvCJv7XFqquP",
+  "url_goc": "https://drive.google.com/thumbnail?id=1CqY5jxH0HhnmjvQMiyIXPvCJv7XFqquP&sz=w1000",
+  "ten_file": "cho-thue-can-ho-3-ngu-masteri-79m2-ct-3n-86.webp"
+ },
+ {
+  "ma": "CT.3N.122",
+  "toa": "GS6",
+  "phan_khu": "Miami",
+  "loai": "3 Ngủ",
+  "dien_tich": 80.3,
+  "drive_id": "1a4IONqht9fv0m1sbKtE1De4bB1GN74NK",
+  "url_goc": "https://drive.google.com/thumbnail?id=1a4IONqht9fv0m1sbKtE1De4bB1GN74NK&sz=w1000",
+  "ten_file": "cho-thue-can-ho-3-ngu-miami-80m2-ct-3n-122.webp"
+ },
+ {
+  "ma": "CT.3N.124",
+  "toa": "GS1",
+  "phan_khu": "Miami",
+  "loai": "3 Ngủ",
+  "dien_tich": 95,
+  "drive_id": "1CLzYv748fGUK51kjZIUo-_oPx5ePo3tJ",
+  "url_goc": "https://drive.google.com/thumbnail?id=1CLzYv748fGUK51kjZIUo-_oPx5ePo3tJ&sz=w1000",
+  "ten_file": "cho-thue-can-ho-3-ngu-miami-95m2-ct-3n-124.webp"
+ },
+ {
+  "ma": "CT.3N.141",
+  "toa": "SA3",
+  "phan_khu": "Sakura",
+  "loai": "3 Ngủ",
+  "dien_tich": 75,
+  "drive_id": "17AfDG8qsDj3mX94E-lNjcZjk8HvqCwbl",
+  "url_goc": "https://drive.google.com/thumbnail?id=17AfDG8qsDj3mX94E-lNjcZjk8HvqCwbl&sz=w1000",
+  "ten_file": "cho-thue-can-ho-3-ngu-sakura-75m2-ct-3n-141.webp"
+ },
+ {
+  "ma": "CT.3N.136",
+  "toa": "SA2",
+  "phan_khu": "Sakura",
+  "loai": "3 Ngủ",
+  "dien_tich": 78,
+  "drive_id": "1mpjM8fVyMyLwQ-9Jp17A40RS_XOVVoqm",
+  "url_goc": "https://drive.google.com/thumbnail?id=1mpjM8fVyMyLwQ-9Jp17A40RS_XOVVoqm&sz=w1000",
+  "ten_file": "cho-thue-can-ho-3-ngu-sakura-78m2-ct-3n-136.webp"
+ },
+ {
+  "ma": "CT.3N.88",
+  "toa": "SA5",
+  "phan_khu": "Sakura",
+  "loai": "3 Ngủ",
+  "dien_tich": 94,
+  "drive_id": "12vOswhB4Nl8RIU5bptzXL5x7R1sc7Ddk",
+  "url_goc": "https://drive.google.com/thumbnail?id=12vOswhB4Nl8RIU5bptzXL5x7R1sc7Ddk&sz=w1000",
+  "ten_file": "cho-thue-can-ho-3-ngu-sakura-94m2-ct-3n-88.webp"
+ },
+ {
+  "ma": "CT.3N.137",
+  "toa": "S103",
+  "phan_khu": "Sapphire",
+  "loai": "3 Ngủ",
+  "dien_tich": 74,
+  "drive_id": "1ZRXDLZKxSIBhNIS1xgOAgTPFQFICrhaD",
+  "url_goc": "https://drive.google.com/thumbnail?id=1ZRXDLZKxSIBhNIS1xgOAgTPFQFICrhaD&sz=w1000",
+  "ten_file": "cho-thue-can-ho-3-ngu-sapphire-74m2-ct-3n-137.webp"
+ },
+ {
+  "ma": "CT.3N.108",
+  "toa": "S202",
+  "phan_khu": "Sapphire",
+  "loai": "3 Ngủ",
+  "dien_tich": 75,
+  "drive_id": "1GpRAVOqxT6w5PeWQu7bVkn5rip-ABDvx",
+  "url_goc": "https://drive.google.com/thumbnail?id=1GpRAVOqxT6w5PeWQu7bVkn5rip-ABDvx&sz=w1000",
+  "ten_file": "cho-thue-can-ho-3-ngu-sapphire-75m2-ct-3n-108.webp"
+ },
+ {
+  "ma": "CT.3N.131",
+  "toa": "S201",
+  "phan_khu": "Sapphire",
+  "loai": "3 Ngủ",
+  "dien_tich": 75,
+  "drive_id": "156XyPYZeIafpkICeD5DYKH-mc2l8wVHV",
+  "url_goc": "https://drive.google.com/thumbnail?id=156XyPYZeIafpkICeD5DYKH-mc2l8wVHV&sz=w1000",
+  "ten_file": "cho-thue-can-ho-3-ngu-sapphire-75m2-ct-3n-131.webp"
+ },
+ {
+  "ma": "CT.3N.133",
+  "toa": "S106",
+  "phan_khu": "Sapphire",
+  "loai": "3 Ngủ",
+  "dien_tich": 76,
+  "drive_id": "1LGTC2v45gywhxddi9DSA5fmMhZrXSlac",
+  "url_goc": "https://drive.google.com/thumbnail?id=1LGTC2v45gywhxddi9DSA5fmMhZrXSlac&sz=w1000",
+  "ten_file": "cho-thue-can-ho-3-ngu-sapphire-76m2-ct-3n-133.webp"
+ },
+ {
+  "ma": "CT.3N.111",
+  "toa": "S401",
+  "phan_khu": "Sapphire",
+  "loai": "3 Ngủ",
+  "dien_tich": 82,
+  "drive_id": "1YKlH1E2v1_RHvz-VNvu2BMe8LSw0U_iQ",
+  "url_goc": "https://drive.google.com/thumbnail?id=1YKlH1E2v1_RHvz-VNvu2BMe8LSw0U_iQ&sz=w1000",
+  "ten_file": "cho-thue-can-ho-3-ngu-sapphire-82m2-ct-3n-111.webp"
+ },
+ {
+  "ma": "CC3",
+  "toa": "S401",
+  "phan_khu": "Sapphire",
+  "loai": "3 Ngủ",
+  "dien_tich": 94,
+  "drive_id": "1d_TO0YeFuhR86ZZmMkuJHcI6kXxMFnDK",
+  "url_goc": "https://drive.google.com/thumbnail?id=1d_TO0YeFuhR86ZZmMkuJHcI6kXxMFnDK&sz=w1000",
+  "ten_file": "cho-thue-can-ho-3-ngu-sapphire-94m2-cc3.webp"
+ },
+ {
+  "ma": "CT.3N.130",
+  "toa": "S403",
+  "phan_khu": "Sapphire",
+  "loai": "3 Ngủ",
+  "dien_tich": 95,
+  "drive_id": "1HjnpCbenbdl4A0VWnlDxUeVZn5icAhH-",
+  "url_goc": "https://drive.google.com/thumbnail?id=1HjnpCbenbdl4A0VWnlDxUeVZn5icAhH-&sz=w1000",
+  "ten_file": "cho-thue-can-ho-3-ngu-sapphire-95m2-ct-3n-130.webp"
+ },
+ {
+  "ma": "CT.3N.107",
+  "toa": "S402",
+  "phan_khu": "Sapphire",
+  "loai": "3 Ngủ",
+  "dien_tich": 98,
+  "drive_id": "1xify3DohgUFzM1LYjvPDHf1JWURK2Acw",
+  "url_goc": "https://drive.google.com/thumbnail?id=1xify3DohgUFzM1LYjvPDHf1JWURK2Acw&sz=w1000",
+  "ten_file": "cho-thue-can-ho-3-ngu-sapphire-98m2-ct-3n-107.webp"
+ },
+ {
+  "ma": "CT.Stu.725",
+  "toa": "TC3",
+  "phan_khu": "Canopy",
+  "loai": "Studio",
+  "dien_tich": 26,
+  "drive_id": "1On_aB8KAeLwCuPaR2xMxMjzDEI0DD7mR",
+  "url_goc": "https://drive.google.com/thumbnail?id=1On_aB8KAeLwCuPaR2xMxMjzDEI0DD7mR&sz=w1000",
+  "ten_file": "cho-thue-can-ho-studio-canopy-26m2-ct-stu-725.webp"
+ },
+ {
+  "ma": "CT.Stu.752",
+  "toa": "TC2",
+  "phan_khu": "Canopy",
+  "loai": "Studio",
+  "dien_tich": 26,
+  "drive_id": "1eGbjLNIfjeGQxseMEa5uQsZ_MxapUR6M",
+  "url_goc": "https://drive.google.com/thumbnail?id=1eGbjLNIfjeGQxseMEa5uQsZ_MxapUR6M&sz=w1000",
+  "ten_file": "cho-thue-can-ho-studio-canopy-26m2-ct-stu-752.webp"
+ },
+ {
+  "ma": "CT.Stu.754",
+  "toa": "TC2",
+  "phan_khu": "Canopy",
+  "loai": "Studio",
+  "dien_tich": 26,
+  "drive_id": "1CscPO29wP74YTVg0DJ0jBKUxobtlI1xG",
+  "url_goc": "https://drive.google.com/thumbnail?id=1CscPO29wP74YTVg0DJ0jBKUxobtlI1xG&sz=w1000",
+  "ten_file": "cho-thue-can-ho-studio-canopy-26m2-ct-stu-754.webp"
+ },
+ {
+  "ma": "CT.Stu.728",
+  "toa": "TC1",
+  "phan_khu": "Canopy",
+  "loai": "Studio",
+  "dien_tich": 29,
+  "drive_id": "194ypb7YETFBRbRGiZMreTxipyf3N-khQ",
+  "url_goc": "https://drive.google.com/thumbnail?id=194ypb7YETFBRbRGiZMreTxipyf3N-khQ&sz=w1000",
+  "ten_file": "cho-thue-can-ho-studio-canopy-29m2-ct-stu-728.webp"
+ },
+ {
+  "ma": "CT.Stu.717",
+  "toa": "I2",
+  "phan_khu": "Imperia",
+  "loai": "Studio",
+  "dien_tich": 28,
+  "drive_id": "1YYAAeQ2QrTj2_dlhCjlNYhvkgKBiCvRv",
+  "url_goc": "https://drive.google.com/thumbnail?id=1YYAAeQ2QrTj2_dlhCjlNYhvkgKBiCvRv&sz=w1000",
+  "ten_file": "cho-thue-can-ho-studio-imperia-28m2-ct-stu-717.webp"
+ },
+ {
+  "ma": "CT.Stu.741",
+  "toa": "I5",
+  "phan_khu": "Imperia",
+  "loai": "Studio",
+  "dien_tich": 31,
+  "drive_id": "18Tv1UKIE0tp07gXTCasSYrIfikABulPa",
+  "url_goc": "https://drive.google.com/thumbnail?id=18Tv1UKIE0tp07gXTCasSYrIfikABulPa&sz=w1000",
+  "ten_file": "cho-thue-can-ho-studio-imperia-31m2-ct-stu-741.webp"
+ },
+ {
+  "ma": "CT.Stu.745",
+  "toa": "I5",
+  "phan_khu": "Imperia",
+  "loai": "Studio",
+  "dien_tich": 31,
+  "drive_id": "1PimHX4XydZB4eHK65mQRzilzORydCKXv",
+  "url_goc": "https://drive.google.com/thumbnail?id=1PimHX4XydZB4eHK65mQRzilzORydCKXv&sz=w1000",
+  "ten_file": "cho-thue-can-ho-studio-imperia-31m2-ct-stu-745.webp"
+ },
+ {
+  "ma": "CT.Stu.713",
+  "toa": "MasC",
+  "phan_khu": "Masteri",
+  "loai": "Studio",
+  "dien_tich": 27,
+  "drive_id": "1LshzFyUgtTjSB-ibQEoKNT0o3-Ot-_Qk",
+  "url_goc": "https://drive.google.com/thumbnail?id=1LshzFyUgtTjSB-ibQEoKNT0o3-Ot-_Qk&sz=w1000",
+  "ten_file": "cho-thue-can-ho-studio-masteri-27m2-ct-stu-713.webp"
+ },
+ {
+  "ma": "CT.Stu.709",
+  "toa": "MasA",
+  "phan_khu": "Masteri",
+  "loai": "Studio",
+  "dien_tich": 29,
+  "drive_id": "18n0msbxf7WAvfUNobTTVzo0j05X75FEQ",
+  "url_goc": "https://drive.google.com/thumbnail?id=18n0msbxf7WAvfUNobTTVzo0j05X75FEQ&sz=w1000",
+  "ten_file": "cho-thue-can-ho-studio-masteri-29m2-ct-stu-709.webp"
+ },
+ {
+  "ma": "CT.Stu.743",
+  "toa": "MasD",
+  "phan_khu": "Masteri",
+  "loai": "Studio",
+  "dien_tich": 30,
+  "drive_id": "1sm1W53nASgl4C6r3Dndv4dsbfWraZbvK",
+  "url_goc": "https://drive.google.com/thumbnail?id=1sm1W53nASgl4C6r3Dndv4dsbfWraZbvK&sz=w1000",
+  "ten_file": "cho-thue-can-ho-studio-masteri-30m2-ct-stu-743.webp"
+ },
+ {
+  "ma": "CT.Stu.759",
+  "toa": "MasC",
+  "phan_khu": "Masteri",
+  "loai": "Studio",
+  "dien_tich": 30,
+  "drive_id": "18loAXJScYASfK7cXY2bHmkQK6vXM8GqV",
+  "url_goc": "https://drive.google.com/thumbnail?id=18loAXJScYASfK7cXY2bHmkQK6vXM8GqV&sz=w1000",
+  "ten_file": "cho-thue-can-ho-studio-masteri-30m2-ct-stu-759.webp"
+ },
+ {
+  "ma": "CT.Stu.760",
+  "toa": "MasD",
+  "phan_khu": "Masteri",
+  "loai": "Studio",
+  "dien_tich": 30,
+  "drive_id": "1m1KWauWlZiTlXEsvKnyZU5X60hzfR0sd",
+  "url_goc": "https://drive.google.com/thumbnail?id=1m1KWauWlZiTlXEsvKnyZU5X60hzfR0sd&sz=w1000",
+  "ten_file": "cho-thue-can-ho-studio-masteri-30m2-ct-stu-760.webp"
+ },
+ {
+  "ma": 326,
+  "toa": "MasC",
+  "phan_khu": "Masteri",
+  "loai": "Studio",
+  "dien_tich": 32,
+  "drive_id": "193uZ5TslF8REDggR6a534CATWjRHqXYm",
+  "url_goc": "https://drive.google.com/thumbnail?id=193uZ5TslF8REDggR6a534CATWjRHqXYm&sz=w1000",
+  "ten_file": "cho-thue-can-ho-studio-masteri-32m2-326.webp"
+ },
+ {
+  "ma": 328,
+  "toa": "MasA",
+  "phan_khu": "Masteri",
+  "loai": "Studio",
+  "dien_tich": 32,
+  "drive_id": "1q9uaCiuEz4ZybMPZiaoEX9-A1dMzMoJR",
+  "url_goc": "https://drive.google.com/thumbnail?id=1q9uaCiuEz4ZybMPZiaoEX9-A1dMzMoJR&sz=w1000",
+  "ten_file": "cho-thue-can-ho-studio-masteri-32m2-328.webp"
+ },
+ {
+  "ma": "CT.Stu.687",
+  "toa": "MasD",
+  "phan_khu": "Masteri",
+  "loai": "Studio",
+  "dien_tich": 32,
+  "drive_id": "1O-xdQ35_2iqDnAXVbSZA12VA1aHBHsgp",
+  "url_goc": "https://drive.google.com/thumbnail?id=1O-xdQ35_2iqDnAXVbSZA12VA1aHBHsgp&sz=w1000",
+  "ten_file": "cho-thue-can-ho-studio-masteri-32m2-ct-stu-687.webp"
+ },
+ {
+  "ma": "CT.Stu.545",
+  "toa": "MasA",
+  "phan_khu": "Masteri",
+  "loai": "Studio",
+  "dien_tich": 33,
+  "drive_id": "178XfMYrwLGXdzEvUC8NEGVvVTc-yA1_C",
+  "url_goc": "https://drive.google.com/thumbnail?id=178XfMYrwLGXdzEvUC8NEGVvVTc-yA1_C&sz=w1000",
+  "ten_file": "cho-thue-can-ho-studio-masteri-33m2-ct-stu-545.webp"
+ },
+ {
+  "ma": "CT.Stu.685",
+  "toa": "MasB",
+  "phan_khu": "Masteri",
+  "loai": "Studio",
+  "dien_tich": 35,
+  "drive_id": "1A7pj5H5LqszzzRQYcaHyEJCF4MisGokM",
+  "url_goc": "https://drive.google.com/thumbnail?id=1A7pj5H5LqszzzRQYcaHyEJCF4MisGokM&sz=w1000",
+  "ten_file": "cho-thue-can-ho-studio-masteri-35m2-ct-stu-685.webp"
+ },
+ {
+  "ma": "CT.Stu.657",
+  "toa": "GS1",
+  "phan_khu": "Miami",
+  "loai": "Studio",
+  "dien_tich": 25,
+  "drive_id": "1vP6-YOqWqI4WMm31vH2ry5HBPHbe6ftA",
+  "url_goc": "https://drive.google.com/thumbnail?id=1vP6-YOqWqI4WMm31vH2ry5HBPHbe6ftA&sz=w1000",
+  "ten_file": "cho-thue-can-ho-studio-miami-25m2-ct-stu-657.webp"
+ },
+ {
+  "ma": "CT.Stu.758",
+  "toa": "GS6",
+  "phan_khu": "Miami",
+  "loai": "Studio",
+  "dien_tich": 27,
+  "drive_id": "1xlZu42CqOyZoaeo_fxcTPLWhTGMF6bll",
+  "url_goc": "https://drive.google.com/thumbnail?id=1xlZu42CqOyZoaeo_fxcTPLWhTGMF6bll&sz=w1000",
+  "ten_file": "cho-thue-can-ho-studio-miami-27m2-ct-stu-758.webp"
+ },
+ {
+  "ma": "CT.Stu.721",
+  "toa": "SA1",
+  "phan_khu": "Sakura",
+  "loai": "Studio",
+  "dien_tich": 25,
+  "drive_id": "1a9FudDvW4q0OcUTH1PvLKQzDd6JGMmXA",
+  "url_goc": "https://drive.google.com/thumbnail?id=1a9FudDvW4q0OcUTH1PvLKQzDd6JGMmXA&sz=w1000",
+  "ten_file": "cho-thue-can-ho-studio-sakura-25m2-ct-stu-721.webp"
+ },
+ {
+  "ma": "CT.Stu.738",
+  "toa": "SA1",
+  "phan_khu": "Sakura",
+  "loai": "Studio",
+  "dien_tich": 25,
+  "drive_id": "1E4hxfaXEydPpjtszd7lSkAZ0nwoieYXQ",
+  "url_goc": "https://drive.google.com/thumbnail?id=1E4hxfaXEydPpjtszd7lSkAZ0nwoieYXQ&sz=w1000",
+  "ten_file": "cho-thue-can-ho-studio-sakura-25m2-ct-stu-738.webp"
+ },
+ {
+  "ma": "CT.Stu.762",
+  "toa": "SA2",
+  "phan_khu": "Sakura",
+  "loai": "Studio",
+  "dien_tich": 25,
+  "drive_id": "1Mti6omhp1RXdwlXMCTUcZgNj_VoVJsrX",
+  "url_goc": "https://drive.google.com/thumbnail?id=1Mti6omhp1RXdwlXMCTUcZgNj_VoVJsrX&sz=w1000",
+  "ten_file": "cho-thue-can-ho-studio-sakura-25m2-ct-stu-762.webp"
+ },
+ {
+  "ma": "CT.Stu.656",
+  "toa": "SA1",
+  "phan_khu": "Sakura",
+  "loai": "Studio",
+  "dien_tich": 28,
+  "drive_id": "1IJap3YKevpeDoLiVaGHILc9CQaKQJQkJ",
+  "url_goc": "https://drive.google.com/thumbnail?id=1IJap3YKevpeDoLiVaGHILc9CQaKQJQkJ&sz=w1000",
+  "ten_file": "cho-thue-can-ho-studio-sakura-28m2-ct-stu-656.webp"
+ },
+ {
+  "ma": "CT.Stu.734",
+  "toa": "SA2",
+  "phan_khu": "Sakura",
+  "loai": "Studio",
+  "dien_tich": 28,
+  "drive_id": "1kMZp7xMQr4IM9AJlbNw8XB2cILtzmt60",
+  "url_goc": "https://drive.google.com/thumbnail?id=1kMZp7xMQr4IM9AJlbNw8XB2cILtzmt60&sz=w1000",
+  "ten_file": "cho-thue-can-ho-studio-sakura-28m2-ct-stu-734.webp"
+ },
+ {
+  "ma": "CT.Stu.660",
+  "toa": "SA2",
+  "phan_khu": "Sakura",
+  "loai": "Studio",
+  "dien_tich": 30,
+  "drive_id": "1GHHWzHqLQ9XEAdiuDdPXqTxUllsNYq_j",
+  "url_goc": "https://drive.google.com/thumbnail?id=1GHHWzHqLQ9XEAdiuDdPXqTxUllsNYq_j&sz=w1000",
+  "ten_file": "cho-thue-can-ho-studio-sakura-30m2-ct-stu-660.webp"
+ },
+ {
+  "ma": "CT.Stu.663",
+  "toa": "SA5",
+  "phan_khu": "Sakura",
+  "loai": "Studio",
+  "dien_tich": 32,
+  "drive_id": "10tn4jdytXttOhWjKkdJ6dLpMYZGqei3U",
+  "url_goc": "https://drive.google.com/thumbnail?id=10tn4jdytXttOhWjKkdJ6dLpMYZGqei3U&sz=w1000",
+  "ten_file": "cho-thue-can-ho-studio-sakura-32m2-ct-stu-663.webp"
+ },
+ {
+  "ma": "CT.Stu.749",
+  "toa": "S302",
+  "phan_khu": "Sapphire",
+  "loai": "Studio",
+  "dien_tich": 25,
+  "drive_id": "1XJLSlCUqxq7yZz9L14UZ5mqYwavkYxtR",
+  "url_goc": "https://drive.google.com/thumbnail?id=1XJLSlCUqxq7yZz9L14UZ5mqYwavkYxtR&sz=w1000",
+  "ten_file": "cho-thue-can-ho-studio-sapphire-25m2-ct-stu-749.webp"
+ },
+ {
+  "ma": "CT.Stu.653",
+  "toa": "S102",
+  "phan_khu": "Sapphire",
+  "loai": "Studio",
+  "dien_tich": 28,
+  "drive_id": "1T5Cp0Gv4uRK9ng4AiVlnZi2IbhjJBHWJ",
+  "url_goc": "https://drive.google.com/thumbnail?id=1T5Cp0Gv4uRK9ng4AiVlnZi2IbhjJBHWJ&sz=w1000",
+  "ten_file": "cho-thue-can-ho-studio-sapphire-28m2-ct-stu-653.webp"
+ },
+ {
+  "ma": "CT.Stu.731",
+  "toa": "S102",
+  "phan_khu": "Sapphire",
+  "loai": "Studio",
+  "dien_tich": 28,
+  "drive_id": "1xpqZaWCjFwJHYNMUZh4cCFCExiHVAKa5",
+  "url_goc": "https://drive.google.com/thumbnail?id=1xpqZaWCjFwJHYNMUZh4cCFCExiHVAKa5&sz=w1000",
+  "ten_file": "cho-thue-can-ho-studio-sapphire-28m2-ct-stu-731.webp"
+ },
+ {
+  "ma": "CT.Stu.733",
+  "toa": "S102",
+  "phan_khu": "Sapphire",
+  "loai": "Studio",
+  "dien_tich": 28,
+  "drive_id": "1OHf_CZG0kphPv2tPRuZv04fQy-2upkAt",
+  "url_goc": "https://drive.google.com/thumbnail?id=1OHf_CZG0kphPv2tPRuZv04fQy-2upkAt&sz=w1000",
+  "ten_file": "cho-thue-can-ho-studio-sapphire-28m2-ct-stu-733.webp"
+ },
+ {
+  "ma": "CT.Stu.737",
+  "toa": "S101",
+  "phan_khu": "Sapphire",
+  "loai": "Studio",
+  "dien_tich": 28,
+  "drive_id": "1vRTQ4jsHNB_cqPDZw3B-YF8RSrqyWrp7",
+  "url_goc": "https://drive.google.com/thumbnail?id=1vRTQ4jsHNB_cqPDZw3B-YF8RSrqyWrp7&sz=w1000",
+  "ten_file": "cho-thue-can-ho-studio-sapphire-28m2-ct-stu-737.webp"
+ },
+ {
+  "ma": "CT.Stu.739",
+  "toa": "S105",
+  "phan_khu": "Sapphire",
+  "loai": "Studio",
+  "dien_tich": 28,
+  "drive_id": "1-eiqmMCilqSp6IHKUZUJrisDMY_huZzv",
+  "url_goc": "https://drive.google.com/thumbnail?id=1-eiqmMCilqSp6IHKUZUJrisDMY_huZzv&sz=w1000",
+  "ten_file": "cho-thue-can-ho-studio-sapphire-28m2-ct-stu-739.webp"
+ },
+ {
+  "ma": "CT.Stu.748",
+  "toa": "S203",
+  "phan_khu": "Sapphire",
+  "loai": "Studio",
+  "dien_tich": 28,
+  "drive_id": "18M_5aN3zy3yvHgfrUJ5A92oXiHp-6slQ",
+  "url_goc": "https://drive.google.com/thumbnail?id=18M_5aN3zy3yvHgfrUJ5A92oXiHp-6slQ&sz=w1000",
+  "ten_file": "cho-thue-can-ho-studio-sapphire-28m2-ct-stu-748.webp"
+ },
+ {
+  "ma": "CT.Stu.751",
+  "toa": "S303",
+  "phan_khu": "Sapphire",
+  "loai": "Studio",
+  "dien_tich": 28,
+  "drive_id": "1kpaLPlIO9p_Tw7FNbRy87CZLDXX8qB0p",
+  "url_goc": "https://drive.google.com/thumbnail?id=1kpaLPlIO9p_Tw7FNbRy87CZLDXX8qB0p&sz=w1000",
+  "ten_file": "cho-thue-can-ho-studio-sapphire-28m2-ct-stu-751.webp"
+ },
+ {
+  "ma": "CT.Stu.761",
+  "toa": "S105",
+  "phan_khu": "Sapphire",
+  "loai": "Studio",
+  "dien_tich": 28,
+  "drive_id": "1hSyOCIlTAJvsZsqb4iNjC9SJmpTCoZRn",
+  "url_goc": "https://drive.google.com/thumbnail?id=1hSyOCIlTAJvsZsqb4iNjC9SJmpTCoZRn&sz=w1000",
+  "ten_file": "cho-thue-can-ho-studio-sapphire-28m2-ct-stu-761.webp"
+ },
+ {
+  "ma": "CT.Stu.700",
+  "toa": "S102",
+  "phan_khu": "Sapphire",
+  "loai": "Studio",
+  "dien_tich": 31,
+  "drive_id": "1GOC5v0dZc7w_rkOZj16qsXAf10ksjPo5",
+  "url_goc": "https://drive.google.com/thumbnail?id=1GOC5v0dZc7w_rkOZj16qsXAf10ksjPo5&sz=w1000",
+  "ten_file": "cho-thue-can-ho-studio-sapphire-31m2-ct-stu-700.webp"
+ },
+ {
+  "ma": 28,
+  "toa": "S105",
+  "phan_khu": "Sapphire",
+  "loai": "Studio",
+  "dien_tich": 32,
+  "drive_id": "1lHFBZfp9MTbMlXgKHNhqIy-z8MWWR2s7",
+  "url_goc": "https://drive.google.com/thumbnail?id=1lHFBZfp9MTbMlXgKHNhqIy-z8MWWR2s7&sz=w1000",
+  "ten_file": "cho-thue-can-ho-studio-sapphire-32m2-28.webp"
+ },
+ {
+  "ma": "CT.Stu.637",
+  "toa": "S301",
+  "phan_khu": "Sapphire",
+  "loai": "Studio",
+  "dien_tich": 32,
+  "drive_id": "1SVgq_jLfjTdUtFQPwkpDJ5aKHM33sVrS",
+  "url_goc": "https://drive.google.com/thumbnail?id=1SVgq_jLfjTdUtFQPwkpDJ5aKHM33sVrS&sz=w1000",
+  "ten_file": "cho-thue-can-ho-studio-sapphire-32m2-ct-stu-637.webp"
+ },
+ {
+  "ma": "CT.Stu.694",
+  "toa": "S202",
+  "phan_khu": "Sapphire",
+  "loai": "Studio",
+  "dien_tich": 32,
+  "drive_id": "1dZPSL_5-E5Uw7fZl6XD-2ggExzvCJ1sk",
+  "url_goc": "https://drive.google.com/thumbnail?id=1dZPSL_5-E5Uw7fZl6XD-2ggExzvCJ1sk&sz=w1000",
+  "ten_file": "cho-thue-can-ho-studio-sapphire-32m2-ct-stu-694.webp"
+ },
+ {
+  "ma": "CT.Stu.698",
+  "toa": "S103",
+  "phan_khu": "Sapphire",
+  "loai": "Studio",
+  "dien_tich": 32,
+  "drive_id": "1cH1HEfc9_WubYkNmKkBL5xDwFPmAhbwI",
+  "url_goc": "https://drive.google.com/thumbnail?id=1cH1HEfc9_WubYkNmKkBL5xDwFPmAhbwI&sz=w1000",
+  "ten_file": "cho-thue-can-ho-studio-sapphire-32m2-ct-stu-698.webp"
+ },
+ {
+  "ma": "CT.Stu.732",
+  "toa": "S103",
+  "phan_khu": "Sapphire",
+  "loai": "Studio",
+  "dien_tich": 32,
+  "drive_id": "1DDrkRUpBVSlicJsqjD8tKdhoDA2iC9em",
+  "url_goc": "https://drive.google.com/thumbnail?id=1DDrkRUpBVSlicJsqjD8tKdhoDA2iC9em&sz=w1000",
+  "ten_file": "cho-thue-can-ho-studio-sapphire-32m2-ct-stu-732.webp"
+ },
+ {
+  "ma": "CT.Stu.735",
+  "toa": "S102",
+  "phan_khu": "Sapphire",
+  "loai": "Studio",
+  "dien_tich": 32,
+  "drive_id": "1sEPNTp0oilzPOnTBqLowXZWdNRZS2yKh",
+  "url_goc": "https://drive.google.com/thumbnail?id=1sEPNTp0oilzPOnTBqLowXZWdNRZS2yKh&sz=w1000",
+  "ten_file": "cho-thue-can-ho-studio-sapphire-32m2-ct-stu-735.webp"
+ },
+ {
+  "ma": "CT.Stu.757",
+  "toa": "S301",
+  "phan_khu": "Sapphire",
+  "loai": "Studio",
+  "dien_tich": 32,
+  "drive_id": "1wjbddZjAbND-Sz6gJQit86kYpXGG8JNc",
+  "url_goc": "https://drive.google.com/thumbnail?id=1wjbddZjAbND-Sz6gJQit86kYpXGG8JNc&sz=w1000",
+  "ten_file": "cho-thue-can-ho-studio-sapphire-32m2-ct-stu-757.webp"
+ },
+ {
+  "ma": "CT.Stu.695",
+  "toa": "S402",
+  "phan_khu": "Sapphire",
+  "loai": "Studio",
+  "dien_tich": 34,
+  "drive_id": "1TlvOTIy4yybaseaDUAYpNzlNpvfoiCf7",
+  "url_goc": "https://drive.google.com/thumbnail?id=1TlvOTIy4yybaseaDUAYpNzlNpvfoiCf7&sz=w1000",
+  "ten_file": "cho-thue-can-ho-studio-sapphire-34m2-ct-stu-695.webp"
+ },
+ {
+  "ma": "CT.Stu.683",
+  "toa": "TK2",
+  "phan_khu": "Tonkin",
+  "loai": "Studio",
+  "dien_tich": 25,
+  "drive_id": "186MpDjP1iJ4CjUGwKJMbHgUJXjQZkxgU",
+  "url_goc": "https://drive.google.com/thumbnail?id=186MpDjP1iJ4CjUGwKJMbHgUJXjQZkxgU&sz=w1000",
+  "ten_file": "cho-thue-can-ho-studio-tonkin-25m2-ct-stu-683.webp"
+ },
+ {
+  "ma": "CT.Stu.708",
+  "toa": "TK2",
+  "phan_khu": "Tonkin",
+  "loai": "Studio",
+  "dien_tich": 25,
+  "drive_id": "1Bo2_wzwo0zHClsVFpEyJGU0JIIecJlnP",
+  "url_goc": "https://drive.google.com/thumbnail?id=1Bo2_wzwo0zHClsVFpEyJGU0JIIecJlnP&sz=w1000",
+  "ten_file": "cho-thue-can-ho-studio-tonkin-25m2-ct-stu-708.webp"
+ },
+ {
+  "ma": "CT.Stu.715",
+  "toa": "TK2",
+  "phan_khu": "Tonkin",
+  "loai": "Studio",
+  "dien_tich": 25,
+  "drive_id": "1Su90rI58a7o3e7VbbAAE-m-z8jYkLPKF",
+  "url_goc": "https://drive.google.com/thumbnail?id=1Su90rI58a7o3e7VbbAAE-m-z8jYkLPKF&sz=w1000",
+  "ten_file": "cho-thue-can-ho-studio-tonkin-25m2-ct-stu-715.webp"
+ },
+ {
+  "ma": "CT.Stu.716",
+  "toa": "TK2",
+  "phan_khu": "Tonkin",
+  "loai": "Studio",
+  "dien_tich": 25,
+  "drive_id": "1nTGuBmIUwY1NzhvXYzolvgGxnTfj5bmo",
+  "url_goc": "https://drive.google.com/thumbnail?id=1nTGuBmIUwY1NzhvXYzolvgGxnTfj5bmo&sz=w1000",
+  "ten_file": "cho-thue-can-ho-studio-tonkin-25m2-ct-stu-716.webp"
+ },
+ {
+  "ma": "CT.Stu.719",
+  "toa": "TK1",
+  "phan_khu": "Tonkin",
+  "loai": "Studio",
+  "dien_tich": 25,
+  "drive_id": "15cdxq_yf-wC57lJu9AImlHV9lPjOWEJG",
+  "url_goc": "https://drive.google.com/thumbnail?id=15cdxq_yf-wC57lJu9AImlHV9lPjOWEJG&sz=w1000",
+  "ten_file": "cho-thue-can-ho-studio-tonkin-25m2-ct-stu-719.webp"
+ },
+ {
+  "ma": "CT.Stu.729",
+  "toa": "TK2",
+  "phan_khu": "Tonkin",
+  "loai": "Studio",
+  "dien_tich": 25,
+  "drive_id": "1_ws6BSvqL1r8W-wg0JpF8BsIPcVrvavo",
+  "url_goc": "https://drive.google.com/thumbnail?id=1_ws6BSvqL1r8W-wg0JpF8BsIPcVrvavo&sz=w1000",
+  "ten_file": "cho-thue-can-ho-studio-tonkin-25m2-ct-stu-729.webp"
  }
 ]
