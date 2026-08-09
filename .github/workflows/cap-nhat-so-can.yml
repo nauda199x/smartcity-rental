@@ -7,8 +7,11 @@ name: Cập nhật số căn và tháng trong thẻ SEO
 
 on:
   schedule:
-    # 19:00 UTC = 02:00 giờ Việt Nam (UTC+7) ngày hôm sau.
-    - cron: "0 19 * * *"
+    # Ba lần một ngày. Giờ Việt Nam là UTC+7, nên 01/09/17 giờ UTC tương ứng
+    # 08:00, 16:00 và 00:00 (lần cuối rơi sang ngày hôm sau theo giờ Việt Nam).
+    # Giá sàn và số căn đổi theo từng đợt chủ nhà báo trong ngày; chạy một lần
+    # lúc rạng sáng như trước làm thẻ SEO lệch suốt cả ngày làm việc.
+    - cron: "0 1,9,17 * * *"
   workflow_dispatch:
     inputs:
       chi_thu:
