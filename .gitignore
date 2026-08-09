@@ -13,3 +13,7 @@ tmp/
 
 # Phụ thuộc npm (nếu sau này dùng build tool)
 node_modules/
+
+# Bytecode Python sinh ra khi chạy script trong scripts/
+__pycache__/
+*.pyc
