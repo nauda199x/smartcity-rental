@@ -79,12 +79,39 @@ function khopBoLoc(r, bl) {
 }
 
 /* Đúng ba điều kiện mà dong-bo-can.js dùng để chọn căn đưa lên lưới */
+function canLenLuoi(r, bl) {
+  return laCanHopLe(r) && chuan(r["Mã nội bộ"]) && khopBoLoc(r, bl);
+}
+
 function demCan(duLieu, bl) {
   let n = 0;
   for (const r of duLieu) {
-    if (laCanHopLe(r) && chuan(r["Mã nội bộ"]) && khopBoLoc(r, bl)) n++;
+    if (canLenLuoi(r, bl)) n++;
   }
   return n;
+}
+
+/* Giá sàn = giá nhỏ nhất trong đúng tập căn mà demCan đếm — cùng bộ lọc, cùng
+   điều kiện, không thêm bớt gì. Nếu hai hàm này lệch nhau thì title sẽ hứa
+   "N căn từ X triệu" với X không thuộc N căn đó.
+
+   Căn giá <= 0 bị bỏ qua: đó là căn chưa điền giá hoặc ghi "Liên hệ", lấy làm
+   giá sàn thì title hứa 0 triệu. */
+function giaSan(duLieu, bl) {
+  let min = 0;
+  for (const r of duLieu) {
+    if (!canLenLuoi(r, bl)) continue;
+    const g = soTien(r["Giá thuê"]);
+    if (g <= 0) continue;
+    if (min === 0 || g < min) min = g;
+  }
+  return min;
+}
+
+/* Định dạng theo đúng kiểu đang dùng trên site: dấu phẩy thập phân, bỏ phần
+   thập phân khi bằng 0. 5500000 -> "5,5"; 7000000 -> "7". */
+function dinhDangTrieu(gia) {
+  return String(Math.round(gia / 100000) / 10).replace(".", ",");
 }
 
 /* ===================================================================
@@ -126,6 +153,19 @@ const RE_SO_CAN = /(\d+)(\s+căn)/;
 function thaySoCan(doan, soMoi) {
   if (!RE_SO_CAN.test(doan)) return { doan, doiRoi: false };
   const moi = doan.replace(RE_SO_CAN, (_, __, sau) => soMoi + sau);
+  return { doan: moi, doiRoi: moi !== doan };
+}
+
+/* Thay con số trong "từ 6,8 triệu" -> "từ 5,5 triệu". Neo vào cả chữ "từ" lẫn
+   chữ "triệu" nên chỉ đúng con số giá sàn bị đổi; những chỗ khác cũng có số
+   kèm "triệu" (ví dụ "dưới 10 triệu") không khớp và giữ nguyên.
+   Trang không có cụm này thì không chèn thêm — đây là lý do hàm trả doiRoi
+   false thay vì tự dựng chuỗi mới. */
+const RE_GIA_SAN = /(từ\s+)[\d,.]+(\s+triệu)/;
+
+function thayGiaSan(doan, giaChu) {
+  if (!giaChu || !RE_GIA_SAN.test(doan)) return { doan, doiRoi: false };
+  const moi = doan.replace(RE_GIA_SAN, (_, truoc, sau) => truoc + giaChu + sau);
   return { doan: moi, doiRoi: moi !== doan };
 }
 
@@ -198,23 +238,34 @@ function suaVung(html, re, bienDoi) {
   };
 }
 
-function capNhatTrangDanhMuc(duong, html, soCan, log, canhBao) {
+function capNhatTrangDanhMuc(duong, html, soCan, giaChu, log, canhBao) {
   const ten = relative(GOC, duong);
   const ngay = ngayVietNam();
   let doi = false;
+  let doiGia = false;   // có vùng nào thật sự đổi con số giá sàn không
 
   /* Thứ tự: <title>, og:title, rồi <h1>. Trang danh mục hiện không để số căn
-     trong <h1>, nhưng vẫn xử lý để sau này thêm vào là tự chạy. */
-  for (const [nhan, re] of [
-    ["<title>", RE_TITLE],
-    ["og:title", reMeta("property", "og:title")],
-    ["<h1>", RE_H1],
+     trong <h1>, nhưng vẫn xử lý để sau này thêm vào là tự chạy.
+     Giá sàn chỉ áp cho <title> và og:title theo đúng phạm vi nhiệm vụ. */
+  for (const [nhan, re, coGia] of [
+    ["<title>", RE_TITLE, true],
+    ["og:title", reMeta("property", "og:title"), true],
+    ["<h1>", RE_H1, false],
   ]) {
-    const kq = suaVung(html, re, (d) => thaySoCan(d, soCan));
+    let daDoi = [];
+    const kq = suaVung(html, re, (d) => {
+      const a = thaySoCan(d, soCan);
+      const b = coGia ? thayGiaSan(a.doan, giaChu) : { doan: a.doan, doiRoi: false };
+      daDoi = [];
+      if (a.doiRoi) daDoi.push(`${soCan} căn`);
+      if (b.doiRoi) daDoi.push(`từ ${giaChu} triệu`);
+      return { doan: b.doan, doiRoi: a.doiRoi || b.doiRoi };
+    });
     if (kq.doiRoi) {
       html = kq.html;
       doi = true;
-      log.push(`  ${ten}  ${nhan} -> ${soCan} căn`);
+      if (daDoi.some((x) => x.startsWith("từ "))) doiGia = true;
+      log.push(`  ${ten}  ${nhan} -> ${daDoi.join(", ")}`);
     }
   }
 
@@ -228,15 +279,23 @@ function capNhatTrangDanhMuc(duong, html, soCan, log, canhBao) {
       canhBao.push(`${ten}: không có thẻ ${nhan} — bỏ qua.`);
       continue;
     }
-    const kq = suaVung(html, re, (d) =>
-      thayTrongDescription(d, soCan, ngay, ten, nhan, canhBao));
+    let daDoi = [];
+    const kq = suaVung(html, re, (d) => {
+      const a = thayTrongDescription(d, soCan, ngay, ten, nhan, canhBao);
+      const b = thayGiaSan(a.doan, giaChu);
+      daDoi = [];
+      if (a.doiRoi) daDoi.push(`${soCan} căn, ${ngay}`);
+      if (b.doiRoi) daDoi.push(`từ ${giaChu} triệu`);
+      return { doan: b.doan, doiRoi: a.doiRoi || b.doiRoi };
+    });
     if (kq.doiRoi) {
       html = kq.html;
       doi = true;
-      log.push(`  ${ten}  ${nhan} -> ${soCan} căn, ${ngay}`);
+      if (daDoi.some((x) => x.startsWith("từ "))) doiGia = true;
+      log.push(`  ${ten}  ${nhan} -> ${daDoi.join(", ")}`);
     }
   }
-  return { html, doi };
+  return { html, doi, doiGia };
 }
 
 /* --- Tháng/năm của trang chủ --- */
@@ -307,6 +366,7 @@ function main() {
   const daSua = [];
   const canhBao = [];
   const nhatKy = [];
+  const doiGiaSan = [];   // trang có con số giá sàn thật sự thay đổi
 
   /* --- Trang danh mục: số căn --- */
   let soTrangDanhMuc = 0;
@@ -327,11 +387,23 @@ function main() {
       continue;
     }
 
-    const kq = capNhatTrangDanhMuc(duong, html, soCan, nhatKy, canhBao);
+    /* Giá sàn 0 = không căn nào trong tập có giá dương. Cũng như số căn = 0,
+       đây gần như luôn là lỗi dữ liệu, nên giữ nguyên con số cũ trong title
+       và ghi cảnh báo thay vì viết "từ 0 triệu" lên Google. */
+    const gia = giaSan(duLieu, bl);
+    let giaChu = "";
+    if (gia > 0) {
+      giaChu = dinhDangTrieu(gia);
+    } else if (RE_GIA_SAN.test(html)) {
+      canhBao.push(`${ten}: không tính được giá sàn (không căn nào có giá > 0) — GIỮ NGUYÊN giá cũ trong title.`);
+    }
+
+    const kq = capNhatTrangDanhMuc(duong, html, soCan, giaChu, nhatKy, canhBao);
     if (kq.doi) {
       if (!CHI_THU) writeFileSync(duong, kq.html, "utf8");
       daSua.push(ten);
     }
+    if (kq.doiGia) doiGiaSan.push(`${ten} -> từ ${giaChu} triệu`);
   }
   console.log(`Quét thấy ${soTrangDanhMuc} trang danh mục.`);
 
@@ -348,6 +420,10 @@ function main() {
   if (nhatKy.length) {
     console.log("\nThay đổi:");
     for (const d of nhatKy) console.log(d);
+  }
+  if (doiGiaSan.length) {
+    console.log(`\nGiá sàn thay đổi ở ${doiGiaSan.length} trang:`);
+    for (const d of doiGiaSan) console.log(`  ${d}`);
   }
   if (canhBao.length) {
     console.log("\n⚠️  CẢNH BÁO:");
