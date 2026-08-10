@@ -19,7 +19,13 @@
  *     Google đối chiếu lastmod với nội dung thật và sẽ bỏ qua cả sitemap nếu
  *     thấy ngày không đáng tin.
  *   - Giữ nguyên thứ tự URL, <priority>, <changefreq>, khối <image:image>
- *     và mọi comment. Script chỉ chạm đúng phần trong <lastmod></lastmod>.
+ *     và mọi comment. Ngoài việc gỡ URL noindex (xem dưới), script chỉ chạm
+ *     đúng phần trong <lastmod></lastmod>.
+ *   - Trang khai <meta name="robots" content="...noindex..."> thì GỠ hẳn khối
+ *     <url> của nó khỏi sitemap. Nộp một URL noindex là tự tạo lỗi "Submitted
+ *     URL marked 'noindex'" trong Search Console: sitemap nói "hãy index trang
+ *     này" còn thẻ meta nói "đừng". Gỡ bằng script thay vì xoá tay để lần chạy
+ *     sau không thêm lại, và để trang đặt noindex mới cũng tự rời sitemap.
  *   - Không lấy được ngày từ git -> GIỮ NGUYÊN lastmod cũ và ghi cảnh báo.
  *
  * LƯU Ý HẠ TẦNG: script cần lịch sử git đầy đủ. Trong GitHub Actions phải
@@ -99,11 +105,29 @@ function laTrangDong(duongFile) {
   return html.includes("dong-bo-can.js") || html.includes("data.json");
 }
 
+/* Trang tự khai noindex thì không được nằm trong sitemap. Đọc mọi thẻ
+   <meta name="robots"> của trang (có trang khai nhiều thẻ) và xét cả cụm
+   "none" — theo Google, none tương đương noindex, nofollow. */
+const RE_META_ROBOTS = /<meta[^>]*\bname=["']robots["'][^>]*\bcontent=["']([^"']*)["']/gi;
+
+function laNoIndex(duongFile) {
+  const day = join(GOC, duongFile);
+  if (!existsSync(day)) return false;
+  const html = readFileSync(day, "utf8");
+  for (const m of html.matchAll(RE_META_ROBOTS)) {
+    const noiDung = m[1].toLowerCase();
+    if (noiDung.includes("noindex") || noiDung.includes("none")) return true;
+  }
+  return false;
+}
+
 /* ===================================================================
  * PHẦN 3 — Chạy
  * =================================================================== */
 
-const RE_KHOI_URL = /<url>[\s\S]*?<\/url>/g;
+/* Bắt cả phần thụt lề đầu dòng và dấu xuống dòng cuối, để lúc gỡ một khối
+   <url> không còn sót lại dòng trắng giữa sitemap. */
+const RE_KHOI_URL = /[ \t]*<url>[\s\S]*?<\/url>\r?\n?/g;
 const RE_LOC = /<loc>([^<]+)<\/loc>/;
 const RE_LASTMOD = /(<lastmod>)([^<]*)(<\/lastmod>)/;
 
@@ -135,7 +159,7 @@ function main() {
   const goc = readFileSync(DUONG_SITEMAP, "utf8");
   const nhatKy = [];
   const canhBao = [];
-  let soDong = 0, soTinh = 0, soDoi = 0;
+  let soDong = 0, soTinh = 0, soDoi = 0, soXoa = 0;
 
   const moi = goc.replace(RE_KHOI_URL, (khoi) => {
     const mLoc = khoi.match(RE_LOC);
@@ -152,6 +176,13 @@ function main() {
     if (!existsSync(join(GOC, duongFile))) {
       canhBao.push(`${loc}: không có file ${duongFile} trong repo — GIỮ NGUYÊN lastmod.`);
       return khoi;
+    }
+
+    /* Gỡ trước khi tính lastmod: URL đã rời sitemap thì ngày của nó vô nghĩa. */
+    if (laNoIndex(duongFile)) {
+      soXoa++;
+      nhatKy.push(`  ${duongFile}  GỠ khỏi sitemap (trang khai noindex)`);
+      return "";
     }
 
     const dong = laTrangDong(duongFile);
@@ -185,13 +216,15 @@ function main() {
     for (const c of canhBao) console.log(`  ${c}`);
   }
 
-  if (soDoi === 0) {
+  if (soDoi === 0 && soXoa === 0) {
     console.log("\nsitemap.xml đã đúng — không có gì thay đổi.");
     return;
   }
   if (!CHI_THU) writeFileSync(DUONG_SITEMAP, moi, "utf8");
   console.log(
-    `\nĐã cập nhật ${soDoi} URL trong sitemap.xml.` +
+    `\nĐã cập nhật ${soDoi} URL` +
+    (soXoa ? ` và gỡ ${soXoa} URL noindex` : "") +
+    ` trong sitemap.xml.` +
     (CHI_THU ? " (chế độ --thu: KHÔNG ghi file)" : "")
   );
 }
