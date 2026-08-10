@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 /*!
- * cap-nhat-so-can.mjs — Cập nhật số căn và tháng trong thẻ SEO tĩnh
+ * cap-nhat-so-can.mjs — Cập nhật số căn, tháng và khối ItemList trong thẻ SEO tĩnh
  * timthuesmartcity.com
  *
  * Vì sao cần script này: số căn nằm trong <title> / og:title / meta
@@ -8,6 +8,10 @@
  * dong-bo-can.js chạy trong trình duyệt nên sửa được nội dung trong <body>,
  * nhưng KHÔNG sửa được thẻ mà Google đọc lúc crawl. Hai loại số này vì thế
  * lệch dần theo thời gian.
+ *
+ * Khối application/ld+json cũng vậy: numberOfItems và itemListElement của
+ * ItemList trước đây viết tay nên đóng băng từ lúc viết, mô tả những căn đã
+ * thuê xong từ lâu. Script dựng lại hai khoá đó từ data.json.
  *
  * Script chạy trong GitHub Actions, sửa trực tiếp file HTML trong repo.
  *
@@ -51,6 +55,15 @@ function soTien(v) {
   return Number(chuan(v).replace(/[^\d]/g, "") || 0);
 }
 
+/* SAO CHÉP NGUYÊN VĂN từ hàm dienTich trong dong-bo-can.js.
+   Hai bản PHẢI LUÔN GIỐNG NHAU: diện tích ở đây đi vào chuỗi name của
+   ListItem, còn bản kia đi vào thẻ căn trên lưới. Lệch nhau thì structured
+   data ghi diện tích khác với con số khách đọc trên trang. */
+function dienTich(v) {
+  if (typeof v === "number") return v;
+  return parseFloat(chuan(v).replace(",", ".").replace(/[^\d.]/g, "")) || 0;
+}
+
 /* Ánh xạ mã tòa -> tên phân khu (giống hệt dong-bo-can.js, tiền tố dài đứng trước) */
 function tenPhanKhu(toa) {
   const t = chuan(toa).toUpperCase().replace(/[\s.\-_]/g, "");
@@ -83,17 +96,34 @@ function canLenLuoi(r, bl) {
   return laCanHopLe(r) && chuan(r["Mã nội bộ"]) && khopBoLoc(r, bl);
 }
 
-function demCan(duLieu, bl) {
-  let n = 0;
-  for (const r of duLieu) {
-    if (canLenLuoi(r, bl)) n++;
-  }
-  return n;
+/* Có ảnh bìa hay không — logic hàm anhBia trong dong-bo-can.js, chỉ xét có/không
+   nên không cần driveUrlToViewUrl (hàm đó chỉ đổi dạng URL, không đổi rỗng/không
+   rỗng). Dùng để tách hai nhóm khi sắp xếp, xem dsCanLenLuoi. */
+function coAnhBia(r) {
+  if (chuan(r["Ảnh đại diện"])) return true;
+  return Boolean(chuan(r["Danh sách ảnh"]).split(/\s*\n\s*/)[0]);
 }
 
-/* Giá sàn = giá nhỏ nhất trong đúng tập căn mà demCan đếm — cùng bộ lọc, cùng
-   điều kiện, không thêm bớt gì. Nếu hai hàm này lệch nhau thì title sẽ hứa
-   "N căn từ X triệu" với X không thuộc N căn đó.
+/* Đúng tập căn VÀ đúng thứ tự mà dong-bo-can.js (hàm chay) dựng trên lưới:
+     1. lọc bằng canLenLuoi;
+     2. sắp xếp theo giá tăng dần;
+     3. căn có ảnh bìa đứng trước, căn chưa có ảnh dồn xuống cuối, mỗi nhóm
+        giữ nguyên thứ tự tương đối theo giá.
+   Array.prototype.sort của Node 20 là sort ổn định (ES2019 bắt buộc), nên hai
+   căn cùng giá luôn giữ thứ tự xuất hiện trong data.json — chạy lại script cho
+   ra đúng kết quả cũ, không sinh diff giả. */
+function dsCanLenLuoi(duLieu, bl) {
+  const ds = duLieu.filter((r) => canLenLuoi(r, bl));
+  ds.sort((a, b) => soTien(a["Giá thuê"]) - soTien(b["Giá thuê"]));
+  const coAnh = [];
+  const khongAnh = [];
+  for (const r of ds) (coAnhBia(r) ? coAnh : khongAnh).push(r);
+  return coAnh.concat(khongAnh);
+}
+
+/* Giá sàn = giá nhỏ nhất trong đúng tập căn mà dsCanLenLuoi trả về — cùng bộ
+   lọc, cùng điều kiện, không thêm bớt gì. Nếu hai hàm này lệch nhau thì title
+   sẽ hứa "N căn từ X triệu" với X không thuộc N căn đó.
 
    Căn giá <= 0 bị bỏ qua: đó là căn chưa điền giá hoặc ghi "Liên hệ", lấy làm
    giá sàn thì title hứa 0 triệu. */
@@ -298,6 +328,97 @@ function capNhatTrangDanhMuc(duong, html, soCan, giaChu, log, canhBao) {
   return { html, doi, doiGia };
 }
 
+/* --- Khối ItemList trong application/ld+json ---
+ *
+ * Mỗi trang danh mục có đúng một thẻ <script type="application/ld+json"> chứa
+ * một @graph gồm BreadcrumbList, ItemList, FAQPage. Chỉ hai khoá
+ * numberOfItems và itemListElement của ItemList được ghi đè; name, @type và
+ * mọi khoá khác giữ nguyên, BreadcrumbList/FAQPage không bị đụng tới.
+ *
+ * Không tự tạo ItemList mới khi trang không có: khối JSON-LD là nội dung do
+ * người viết, script chỉ đồng bộ con số, không phát minh structured data.
+ */
+const RE_LD_JSON = /(<script[^>]*type="application\/ld\+json"[^>]*>)([\s\S]*?)(<\/script>)/i;
+
+/* URL chính tắc lấy từ chính thẻ canonical của trang, KHÔNG ghép từ đường dẫn
+   file: thư mục và canonical có thể lệch nhau (dấu / cuối, tên khác), ghép tay
+   là cách chắc chắn tạo ra url sai trong structured data. */
+const RE_CANONICAL = /<link[^>]*rel="canonical"[^>]*href="([^"]*)"/i;
+
+/* Chuỗi name của một ListItem, đúng định dạng đang dùng trong repo:
+     {Loại} {Tòa} {diện tích}m² – {giá} triệu/tháng
+   Diện tích làm tròn 0 thì bỏ hẳn cụm diện tích (không in "0m²"), giá <= 0 thì
+   ghi "Liên hệ" và bỏ chữ "triệu/tháng". Dấu gạch là gạch ngang dài U+2013. */
+function tenListItem(r) {
+  const phan = [chuan(r["Loại"]), chuan(r["Tòa"])].filter(Boolean);
+  const dt = Math.round(dienTich(r["Diện tích"]));
+  if (dt > 0) phan.push(`${dt}m²`);
+  const g = soTien(r["Giá thuê"]);
+  phan.push("–", g > 0 ? `${dinhDangTrieu(g)} triệu/tháng` : "Liên hệ");
+  return phan.join(" ");
+}
+
+function capNhatItemList(duong, html, dsCan, log, canhBao) {
+  const ten = relative(GOC, duong);
+  const m = html.match(RE_LD_JSON);
+  if (!m) {
+    canhBao.push(`${ten}: không có thẻ application/ld+json — BỎ QUA ItemList.`);
+    return { html, doi: false };
+  }
+
+  let goc;
+  try {
+    goc = JSON.parse(m[2]);
+  } catch (e) {
+    canhBao.push(`${ten}: khối ld+json không parse được (${e.message}) — GIỮ NGUYÊN, BỎ QUA ItemList.`);
+    return { html, doi: false };
+  }
+
+  /* Chấp nhận cả dạng @graph và dạng một đối tượng đơn lẻ, để trang viết theo
+     kiểu khác cũng không bị bỏ sót. */
+  const graph = Array.isArray(goc["@graph"]) ? goc["@graph"] : [goc];
+  const dsItemList = graph.filter((x) => x && x["@type"] === "ItemList");
+  if (dsItemList.length === 0) {
+    canhBao.push(`${ten}: khối ld+json không có phần tử ItemList — BỎ QUA, không tự tạo mới.`);
+    return { html, doi: false };
+  }
+  if (dsItemList.length > 1) {
+    canhBao.push(`${ten}: có ${dsItemList.length} phần tử ItemList — BỎ QUA, không đoán khối nào là danh sách căn.`);
+    return { html, doi: false };
+  }
+
+  const mCanonical = html.match(RE_CANONICAL);
+  const url = mCanonical ? chuan(mCanonical[1]) : "";
+  if (!url) {
+    canhBao.push(`${ten}: không đọc được <link rel="canonical"> — BỎ QUA ItemList.`);
+    return { html, doi: false };
+  }
+
+  const itemList = dsItemList[0];
+  const soCu = itemList.numberOfItems;
+
+  /* Gán vào khoá đã tồn tại nên vị trí khoá trong JSON không đổi. */
+  itemList.numberOfItems = dsCan.length;
+  itemList.itemListElement = dsCan.map((r, i) => ({
+    "@type": "ListItem",
+    position: i + 1,
+    name: tenListItem(r),
+    url,
+  }));
+
+  /* Một dòng, không indent — đúng định dạng khối JSON-LD trong repo.
+     "</" được escape thành "<\/" (JSON hợp lệ, JSON.parse trả lại nguyên văn)
+     để một giá trị dữ liệu chứa "</script>" không thể đóng sớm thẻ script. */
+  const moi = JSON.stringify(goc).replace(/<\//g, "<\\/");
+  if (moi === m[2]) return { html, doi: false };
+
+  log.push(`  ${ten}  ItemList: ${soCu} -> ${dsCan.length} căn`);
+  return {
+    html: html.slice(0, m.index) + m[1] + moi + m[3] + html.slice(m.index + m[0].length),
+    doi: true,
+  };
+}
+
 /* --- Tháng/năm của trang chủ --- */
 
 /* Giờ Việt Nam (UTC+7). Runner của GitHub chạy theo UTC nên phải quy đổi,
@@ -376,14 +497,17 @@ function main() {
     if (!bl) continue;
     soTrangDanhMuc++;
 
-    const soCan = demCan(duLieu, bl);
+    /* Một danh sách duy nhất phục vụ cả <title> lẫn ItemList — cùng bộ lọc,
+       cùng thứ tự, nên hai chỗ không thể mô tả hai tập căn khác nhau. */
+    const dsCan = dsCanLenLuoi(duLieu, bl);
+    const soCan = dsCan.length;
     const ten = relative(GOC, duong);
 
     /* Ngưỡng an toàn: 0 căn gần như luôn là lỗi dữ liệu (Apps Script đẩy lên
        file lỗi, đổi tên cột, sai chính tả giá trị lọc...). Viết "0 căn" lên
        tiêu đề sẽ hại hơn là để tạm số cũ. */
     if (soCan === 0) {
-      canhBao.push(`${ten}: đếm được 0 căn với bộ lọc ${JSON.stringify(bl)} — GIỮ NGUYÊN title cũ.`);
+      canhBao.push(`${ten}: đếm được 0 căn với bộ lọc ${JSON.stringify(bl)} — GIỮ NGUYÊN title và khối ItemList cũ.`);
       continue;
     }
 
@@ -399,8 +523,9 @@ function main() {
     }
 
     const kq = capNhatTrangDanhMuc(duong, html, soCan, giaChu, nhatKy, canhBao);
-    if (kq.doi) {
-      if (!CHI_THU) writeFileSync(duong, kq.html, "utf8");
+    const kqLd = capNhatItemList(duong, kq.html, dsCan, nhatKy, canhBao);
+    if (kq.doi || kqLd.doi) {
+      if (!CHI_THU) writeFileSync(duong, kqLd.html, "utf8");
       daSua.push(ten);
     }
     if (kq.doiGia) doiGiaSan.push(`${ten} -> từ ${giaChu} triệu`);
