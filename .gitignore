@@ -17,3 +17,6 @@ node_modules/
 # Bytecode Python sinh ra khi chạy script trong scripts/
 __pycache__/
 *.pyc
+
+# Bản demo giao diện, không thuộc nội dung website
+_design*/
