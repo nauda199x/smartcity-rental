@@ -1,0 +1,63 @@
+/* ==================================================================
+   ngon-ngu.css — Nút đổi ngôn ngữ VI / EN / 한 (thêm 11/08/2026)
+   Chỉ tải trên trang chủ. Không có selector nào trùng với v3.css.
+   ================================================================== */
+
+.doi-tieng{
+  display:flex; align-items:center; gap:2px; flex:none;
+  padding:3px; border-radius:99px;
+  background:rgba(15,23,42,.06); border:1px solid rgba(15,23,42,.10);
+}
+.doi-tieng button{
+  appearance:none; border:0; background:transparent; cursor:pointer;
+  font:inherit; font-size:.78rem; font-weight:600; line-height:1;
+  color:#475569; padding:7px 10px; border-radius:99px;
+  transition:background .15s, color .15s;
+}
+.doi-tieng button:hover{ color:#0f172a; }
+.doi-tieng button[aria-pressed="true"]{
+  background:#fff; color:#0f172a;
+  box-shadow:0 1px 2px rgba(15,23,42,.14);
+}
+.doi-tieng button:focus-visible{ outline:2px solid #1d4ed8; outline-offset:2px; }
+
+/* Điện thoại: .topbar .actions bị ẩn từ 640px trở xuống (v3.css dòng ~1350),
+   .topnav bị ẩn từ 860px. Nút ngôn ngữ KHÔNG nằm trong hai khối đó nên vẫn
+   hiện; đẩy sang phải cho cân với tên thương hiệu. */
+@media (max-width:640px){
+  .doi-tieng{ margin-left:auto; }
+  .doi-tieng button{ padding:6px 9px; font-size:.74rem; }
+}
+
+/* Máy tính: kéo cụm ngôn ngữ về sát nút Zalo, hở đúng 10px.
+   ĐO THỰC TẾ TRƯỚC KHI VIẾT KHỐI NÀY (Chromium, bản 5d84c1e):
+     1440 / 1280 / 1100px -> hai cụm ĐÃ đứng liền nhau, hở 24px.
+   Tức .actions{margin-left:auto} của v3.css không hề tạo khoảng hở ở dải này:
+   .search có flex:1 nên đã nuốt sạch chỗ trống, phần đuôi hàng tự dồn sang
+   phải. 24px chính là gap:24px của .topbar .shell. Muốn hở 10px thì phải TRỪ
+   BỚT gap đó, chứ thêm margin-left cho .actions lại thành 34px — xa hơn.
+
+   KHÔNG đặt margin-left:auto cho .doi-tieng: từ 1080px trở xuống .search có
+   flex-basis:100% nên xuống hàng riêng, hàng đầu còn chỗ trống thật; auto khi
+   đó hút hết chỗ trống và đẩy nút Zalo văng sang hàng khác (đo được: hở
+   -974px ở 1024px, -1010px ở 1060px). Vì vậy khối này chỉ áp từ 1081px —
+   đúng dải mà .actions chắc chắn nằm cùng hàng với .doi-tieng.
+
+   Dải 1024–1080px giữ nguyên như bản 5d84c1e và như main: .actions vốn đã
+   xuống hàng cùng ô tìm kiếm từ trước, không phải việc của lần sửa này.
+
+   -14px = 24px (gap của .topbar .shell trong v3.css) trừ 10px. Đổi gap đó thì
+   phải đổi lại con số này. Bộ chọn .doi-tieng + .actions (0,2,0) thắng
+   .actions (0,1,0), không cần !important và không đụng file v3.css. */
+@media (min-width:1081px){
+  .doi-tieng + .actions{ margin-left:-14px; }
+}
+
+/* Dải nhắc khách nước ngoài — chỉ hiện khi đang ở EN/KO */
+.nhac-tieng{ display:none; }
+html[lang="en"] .nhac-tieng,
+html[lang="ko"] .nhac-tieng{
+  display:block; text-align:center;
+  padding:8px 14px; font-size:.82rem; line-height:1.5;
+  background:#eff6ff; color:#1e3a8a; border-bottom:1px solid #dbeafe;
+}
