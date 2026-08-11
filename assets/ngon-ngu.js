@@ -191,6 +191,35 @@
     "idx.byFurn":     ["By furnishing", "옵션별"],
     "idx.byTower":    ["By tower", "동별"],
     "idx.al":         ["Rental directory index", "임대 매물 목록 색인"],
+
+    /* 24 liên kết trong #mucLucKhoDuLieu. TÁM tên phân khu (The Sapphire,
+       Masteri West Heights, The Miami…) là danh từ riêng nên KHÔNG có khoá ở
+       đây — giữ nguyên ở cả 3 ngôn ngữ. Các trang đích đều là tiếng Việt;
+       idx.desc đã nói rõ điều đó. */
+    "idx.t1":         ["Studio apartments for rent", "스튜디오 임대 매물"],
+    "idx.t2":         ["1-bedroom apartments for rent", "침실 1개 임대 매물"],
+    "idx.t3":         ["1-bedroom + apartments for rent", "침실 1개+ 임대 매물"],
+    "idx.t4":         ["2-bedroom apartments for rent", "침실 2개 임대 매물"],
+    "idx.t5":         ["2-bedroom + apartments for rent", "침실 2개+ 임대 매물"],
+    "idx.t6":         ["3-bedroom apartments for rent", "침실 3개 임대 매물"],
+    "idx.g1":         ["Studios under 7M VND", "스튜디오 700만 동 미만"],
+    "idx.g2":         ["Studios 7M – 10M VND", "스튜디오 700만 – 1,000만 동"],
+    "idx.g3":         ["1BR+ under 10M VND", "침실 1개+ 1,000만 동 미만"],
+    "idx.g4":         ["2BR under 10M VND", "침실 2개 1,000만 동 미만"],
+    "idx.g5":         ["2BR 10M – 12M VND", "침실 2개 1,000만 – 1,200만 동"],
+    "idx.g6":         ["2BR+ 12M – 15M VND", "침실 2개+ 1,200만 – 1,500만 동"],
+    "idx.g7":         ["3BR 12M – 15M VND", "침실 3개 1,200만 – 1,500만 동"],
+    "idx.n1":         ["Fully furnished studios", "풀옵션 스튜디오"],
+    "idx.n2":         ["Fully furnished 1BR+", "풀옵션 침실 1개+"],
+    "idx.n3":         ["Fully furnished 2BR", "풀옵션 침실 2개"],
+    "idx.n4":         ["Fully furnished 3BR", "풀옵션 침실 3개"],
+    "idx.w1":         ["Apartments in tower S4.01", "S4.01동 임대 매물"],
+    "idx.b1":         ["Rent table by zone", "구역별 임대료 표"],
+    "idx.b2":         ["Service fees by zone", "구역별 관리비"],
+    "idx.b3":         ["Studio rents in detail", "스튜디오 임대료 상세"],
+    "idx.b4":         ["On-site amenities", "단지 내 편의시설"],
+    "idx.b5":         ["Renting tips", "임대 노하우"],
+    "idx.b6":         ["Parking, pets and service fees", "주차·반려동물·관리비"],
     "disc.title":     ["Browse by apartment type", "타입별 둘러보기"],
     "disc.desc":      ["Each type has its own page with the full list, real prices by zone and renting tips. (Vietnamese)",
                        "각 타입별로 전체 목록, 구역별 실제 가격, 임대 시 유의사항 페이지가 있습니다. (베트남어)"],
@@ -212,6 +241,23 @@
     "ft.follow":      ["Follow us for daily new listings", "매일 신규 매물 확인"],
     "ft.call":        ["Call", "전화"],
     "ft.allPosts":    ["See all articles →", "전체 글 보기 →"],
+    "ft.fb":          ["Follow on Facebook", "페이스북 팔로우"],
+    "ft.tt":          ["Follow on TikTok", "틱톡 팔로우"],
+    "ft.yt":          ["Follow on YouTube", "유튜브 구독"],
+    "ft.ig":          ["Follow on Instagram", "인스타그램 팔로우"],
+
+    /* ---- Khối giới thiệu cuối trang (.seo-block) ----
+       seo.p1/p2/p3 dùng qua data-i18n-html: bản dịch thay CẢ innerHTML nên
+       PHẢI giữ y nguyên <strong> và thuộc tính href của <a> — đổi hay bỏ href
+       là làm gãy liên kết nội bộ, scripts/kiem-tra-lien-ket.py sẽ báo lỗi. */
+    "seo.h2":         ["Renting at Smart City — apartments for rent at Vinhomes Smart City",
+                       "스마트시티 임대 — 빈홈즈 스마트시티 아파트 임대"],
+    "seo.p1":         ["<strong>Smart City Apartments for Rent</strong> brings together apartments available at Vinhomes Smart City (Tây Mỗ, Nam Từ Liêm, Hanoi), with data synced automatically several times a day so vacancy, rent and real photos stay accurate. Types range from studios and 1-bedroom to 2- and 3-bedroom units across the Sapphire, Miami, Sakura, Masteri West Heights, Imperia, Lumière, Canopy and Tonkin zones.",
+                       "<strong>스마트시티 아파트 임대</strong>는 빈홈즈 스마트시티(떠이모, 남뜨리엠, 하노이)의 임대 매물을 모은 사이트입니다. 하루에 여러 번 자동 동기화되어 공실 현황, 임대료, 실제 사진이 정확하게 반영됩니다. 스튜디오, 침실 1개부터 침실 2개·3개까지 Sapphire, Miami, Sakura, Masteri West Heights, Imperia, Lumière, Canopy, Tonkin 구역에 걸쳐 있습니다."],
+    "seo.p2":         ["Rent for <strong>housing at Smart City</strong> currently starts at around 5.5M VND/month for a studio and rises with floor area, zone and furnishing. See the breakdown in the <a href=\"/bang-gia-thue-vinhomes-smart-city.html\">rent table for each zone</a> (Vietnamese), or use the filters above to narrow by budget and type.",
+                       "<strong>스마트시티 주택</strong>의 임대료는 스튜디오 기준 월 550만 동 정도부터 시작하며 면적·구역·옵션에 따라 올라갑니다. 자세한 내용은 <a href=\"/bang-gia-thue-vinhomes-smart-city.html\">구역별 임대료 표</a>(베트남어)를 참고하시거나, 위의 필터로 예산과 타입을 좁혀 보세요."],
+    "seo.p3":         ["Every <strong>Vinhomes Smart City rental listing</strong> states the rent, floor area, orientation and furnishing (fully furnished / basic / unfurnished). Browse by <a href=\"#mucLucKhoDuLieu\">category</a>, then message us on Zalo and we'll take you to view the apartment in person.",
+                       "모든 <strong>빈홈즈 스마트시티 임대 매물</strong>에는 임대료, 면적, 향, 옵션(풀옵션 / 기본 옵션 / 옵션 없음)이 명시되어 있습니다. <a href=\"#mucLucKhoDuLieu\">카테고리</a>별로 둘러보신 뒤 잘로로 연락 주시면 직접 집을 보여드립니다."],
 
     /* ---- Dải nhắc khách nước ngoài (không có bản tiếng Việt: ở VI thì để rỗng) ---- */
     "notice.vn":      ["This homepage is available in English. Other pages on the site are in Vietnamese — message us on Zalo and we'll assist you in English.",
@@ -415,12 +461,20 @@
   /* ==================================================================
      5. BỘ MÁY DỊCH CHỮ TĨNH
      ------------------------------------------------------------------
-       data-i18n     -> chữ hiển thị
-       data-i18n-ph  -> placeholder
-       data-i18n-al  -> aria-label
-     Bản tiếng Việt gốc được ghi nhớ vào data-vi-goc / data-vi-ph / data-vi-al
-     NGAY LÚC TẢI TRANG (kể cả khi đang ở tiếng Việt), nên bấm VI luôn trả về
-     đúng từng chữ ban đầu.
+       data-i18n      -> chữ hiển thị (CHỈ nút chữ trực tiếp, giữ nguyên thẻ con)
+       data-i18n-html -> thay CẢ innerHTML, cho đoạn văn có thẻ nằm xen giữa chữ
+       data-i18n-ph   -> placeholder
+       data-i18n-al   -> aria-label
+     Bản tiếng Việt gốc được ghi nhớ vào data-vi-goc / data-vi-html / data-vi-ph
+     / data-vi-al NGAY LÚC TẢI TRANG (kể cả khi đang ở tiếng Việt), nên bấm VI
+     luôn trả về đúng từng chữ ban đầu.
+
+     VÌ SAO data-i18n-html LÀ THUỘC TÍNH RIÊNG, KHÔNG SỬA data-i18n SẴN CÓ:
+     đang có đúng 2 phần tử vừa mang data-i18n vừa có thẻ con — <span> trong
+     .brand (giữ <small>) và <p class="hero-dong-bo"> (giữ chấm .cham). Cả hai
+     CỐ Ý chỉ đổi phần chữ trực tiếp; đổi mặc định thành "có thẻ con thì ghi đè
+     innerHTML" là mất <small> và mất chấm xanh. Hành vi mới vì vậy phải CHỌN
+     THAM GIA. Một phần tử KHÔNG được mang đồng thời hai thuộc tính này.
      ================================================================== */
 
   /** Lấy phần CHỮ TRỰC TIẾP của thẻ (bỏ qua thẻ con như <small>, <svg>, <strong>) */
@@ -468,6 +522,12 @@
     if (el.hasAttribute("data-i18n") && el.dataset.viGoc === undefined) {
       el.dataset.viGoc = layChu(el);
     }
+    /* data-i18n-html: bản dịch thay CẢ innerHTML nên phải ghi nhớ nguyên khối,
+       khác data-i18n (chỉ nhớ nút chữ trực tiếp). Nhờ vậy bấm VI trả lại
+       nguyên văn kèm đủ <strong> và <a href> bên trong. */
+    if (el.hasAttribute("data-i18n-html") && el.dataset.viHtml === undefined) {
+      el.dataset.viHtml = el.innerHTML;
+    }
     if (el.hasAttribute("data-i18n-ph") && el.dataset.viPh === undefined) {
       el.dataset.viPh = el.getAttribute("placeholder") || "";
     }
@@ -486,6 +546,9 @@
       if (MA !== "vi" && XU_LY_THEM[khoa] && chu !== goc) chu = XU_LY_THEM[khoa](chu, goc);
       datChu(el, chu);
     }
+    var khoaHtml = el.getAttribute("data-i18n-html");
+    if (khoaHtml) el.innerHTML = tra(khoaHtml, el.dataset.viHtml);
+
     var khoaPh = el.getAttribute("data-i18n-ph");
     if (khoaPh) el.setAttribute("placeholder", tra(khoaPh, el.dataset.viPh));
 
@@ -493,7 +556,7 @@
     if (khoaAl) el.setAttribute("aria-label", tra(khoaAl, el.dataset.viAl));
   }
 
-  var BO_CHON = "[data-i18n],[data-i18n-ph],[data-i18n-al]";
+  var BO_CHON = "[data-i18n],[data-i18n-html],[data-i18n-ph],[data-i18n-al]";
 
   /**
    * Dịch (hoặc trả về tiếng Việt) toàn bộ chữ tĩnh trong một vùng.
