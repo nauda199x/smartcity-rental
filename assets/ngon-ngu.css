@@ -29,28 +29,46 @@
   .doi-tieng button{ padding:6px 9px; font-size:.74rem; }
 }
 
-/* Máy tính: kéo cụm ngôn ngữ về sát nút Zalo, hở đúng 10px.
-   ĐO THỰC TẾ TRƯỚC KHI VIẾT KHỐI NÀY (Chromium, bản 5d84c1e):
-     1440 / 1280 / 1100px -> hai cụm ĐÃ đứng liền nhau, hở 24px.
-   Tức .actions{margin-left:auto} của v3.css không hề tạo khoảng hở ở dải này:
-   .search có flex:1 nên đã nuốt sạch chỗ trống, phần đuôi hàng tự dồn sang
-   phải. 24px chính là gap:24px của .topbar .shell. Muốn hở 10px thì phải TRỪ
-   BỚT gap đó, chứ thêm margin-left cho .actions lại thành 34px — xa hơn.
+/* ==================================================================
+   MÁY TÍNH: ĐƯA Ô TÌM KIẾM XUỐNG HÀNG RIÊNG (thêm 11/08/2026)
+   ------------------------------------------------------------------
+   VÌ SAO: .topbar .shell bị chặn max-width:1200px nên ngân sách bề ngang
+   CỐ ĐỊNH 1160px ở mọi màn hình rộng. Đo thực tế ở 1440px:
 
-   KHÔNG đặt margin-left:auto cho .doi-tieng: từ 1080px trở xuống .search có
-   flex-basis:100% nên xuống hàng riêng, hàng đầu còn chỗ trống thật; auto khi
-   đó hút hết chỗ trống và đẩy nút Zalo văng sang hàng khác (đo được: hở
-   -974px ở 1024px, -1010px ở 1060px). Vì vậy khối này chỉ áp từ 1081px —
-   đúng dải mà .actions chắc chắn nằm cùng hàng với .doi-tieng.
+     bản main   : brand 320 + search 165 + topnav 463 + Zalo 140 + gap 72 = 1160
+     có nút ngôn ngữ: brand 320 + topnav 463 + ngôn ngữ 118 + Zalo 140 + gap 96
+                      -> ô tìm chỉ còn 37px, ô nhập chữ 4px
 
-   Dải 1024–1080px giữ nguyên như bản 5d84c1e và như main: .actions vốn đã
-   xuống hàng cùng ô tìm kiếm từ trước, không phải việc của lần sửa này.
+   .topnav và .actions đều flex:none nên .search là phần tử DUY NHẤT co được;
+   cụm nút ngôn ngữ lấy đúng 128px từ nó. Cho ô tìm chiếm trọn một hàng là trả
+   lại nguyên bề ngang cho nó, đồng thời hàng đầu còn dư chỗ để cụm ngôn ngữ và
+   nút Zalo đứng liền nhau ở góc phải.
 
-   -14px = 24px (gap của .topbar .shell trong v3.css) trừ 10px. Đổi gap đó thì
-   phải đổi lại con số này. Bộ chọn .doi-tieng + .actions (0,2,0) thắng
-   .actions (0,1,0), không cần !important và không đụng file v3.css. */
-@media (min-width:1081px){
-  .doi-tieng + .actions{ margin-left:-14px; }
+   Đây CHÍNH LÀ cơ chế v3.css đã dùng từ 1080px trở xuống (.search{order:3;
+   flex-basis:100%}), chỉ mở rộng lên dải máy tính. Đo được ở 1440px: ô nhập
+   chữ 4px -> 1100px, đổi lại đầu trang dính cao 71px -> 138px.
+
+   MỐC 1200px, không phải 1081px: hàng đầu (đã bỏ ô tìm) cần
+   320+463+118+140+72 = 1113px cộng 10px hở = 1123px. Đo thực tế: 1200px chạy
+   đúng, 1160px đã hụt chỗ và nút Zalo lại bị đẩy xuống hàng khác — đúng lỗi
+   đang thấy ở dải 1024–1080px. 1200px cũng là chỗ .shell chạm max-width nên
+   từ đó trở lên bề ngang không đổi nữa, chạy đúng là đúng ở mọi màn rộng hơn.
+   Dưới 1200px giữ nguyên hành vi của bản 5d84c1e, không đụng tới.
+
+   ngon-ngu.css được nạp TRƯỚC v3.css (ngay sau thẻ canonical) nên mọi luật ở
+   đây phải THẮNG BẰNG ĐỘ ĐẶC HIỆU, không dựa vào thứ tự file:
+   .topbar .shell.nav (0,3,0) > .topbar .shell (0,2,0);
+   .topbar .shell.nav .search (0,4,0) > .search (0,1,0).
+   Không cần !important và không sửa một dòng nào của v3.css.
+   ================================================================== */
+@media (min-width:1200px){
+  .topbar .shell.nav{ flex-wrap:wrap; padding-top:12px; padding-bottom:12px; }
+  .topbar .shell.nav .search{ order:3; flex:1 1 100%; }
+  /* Hàng đầu giờ mới thật sự dư chỗ -> auto hút hết phần dư, đẩy cả hai cụm
+     về sát mép phải. -14px = gap 24px của .topbar .shell trừ đi 10px hở mong
+     muốn; đặt margin-left:10px thì thành 24+10 = 34px, xa hơn. */
+  .topbar .shell.nav .doi-tieng{ margin-left:auto; }
+  .topbar .shell.nav .doi-tieng + .actions{ margin-left:-14px; }
 }
 
 /* Dải nhắc khách nước ngoài — chỉ hiện khi đang ở EN/KO */
