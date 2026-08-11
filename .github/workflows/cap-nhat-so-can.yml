@@ -53,6 +53,16 @@ jobs:
           python3 scripts/sinh-trang-toa.py ${{ inputs.chi_thu && '--thu' || '' }} \
             2>&1 | tee ket-qua.txt
 
+      # Phải chạy TRƯỚC cap-nhat-so-can.mjs: script kia đếm lại từ data.json
+      # rồi ghi numberOfItems/itemListElement của ItemList, nên thân trang phải
+      # đúng trước đã. Chạy sau thì ItemList mô tả cái lưới của lần chạy
+      # trước — đúng kiểu lệch mà bước này sinh ra để dẹp.
+      - name: Dựng lại thân trang danh mục
+        run: |
+          set -o pipefail
+          python3 scripts/dung-lai-trang-danh-muc.py ${{ inputs.chi_thu && '--thu' || '' }} \
+            2>&1 | tee -a ket-qua.txt
+
       - name: Đếm căn và cập nhật thẻ SEO
         id: chay
         run: |
