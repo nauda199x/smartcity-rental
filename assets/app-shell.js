@@ -22,6 +22,20 @@
 
   var SDT = "0977923284";
 
+  /* ---------- Đổi ngôn ngữ (thêm 11/08/2026) -------------------------
+     assets/ngon-ngu.js CHỈ được nạp ở index.html. Trên 41 trang còn lại
+     window.NGON_NGU_APDUNG không tồn tại nên thanh tab và Menu hiện đúng
+     tiếng Việt như hôm nay — đây là hành vi mong muốn, không phải lỗi.
+
+     Dựng bằng CHỮ TIẾNG VIỆT kèm data-i18n rồi mới nhờ bộ máy dịch, thay vì
+     dịch sẵn lúc dựng: có vậy bộ máy mới ghi nhớ được đúng bản gốc và trả
+     lại nguyên văn khi khách bấm VI. */
+  function nhoDich(el) {
+    try {
+      if (typeof window.NGON_NGU_APDUNG === "function") window.NGON_NGU_APDUNG(el);
+    } catch (e) { /* im lặng — hỏng ở đây không được kéo sập cả trang */ }
+  }
+
   /* Chỉ dựng trên màn hình hẹp. Khách xoay ngang máy tính bảng thì CSS tự ẩn,
      không cần dựng lại DOM. */
   function laDienThoai() {
@@ -53,36 +67,42 @@
 
   /* Các mục trong bảng Menu — TOÀN BỘ đều là trang đã có thật trên site,
      không tạo link tới trang chưa tồn tại. */
+  /* "k" là khoá tra bản dịch (assets/ngon-ngu.js). "so" là số điện thoại tách
+     riêng khỏi phần chữ để dịch không nuốt mất số. */
   var MENU = [
-    { nhom: "Liên hệ" },
-    { ten: "Nhắn Zalo " + SDT, href: "https://zalo.me/" + SDT, ngoai: true, zalo: true },
-    { ten: "Gọi " + SDT, href: "tel:" + SDT },
-    { nhom: "Tra cứu giá" },
-    { ten: "Bảng giá thuê Vinhomes Smart City", href: "/bang-gia-thue-vinhomes-smart-city.html" },
-    { ten: "So sánh giá thuê các phân khu", href: "/so-sanh-gia-thue-cac-phan-khu-smart-city.html" },
-    { ten: "Giá thuê căn Studio", href: "/gia-thue-studio-smart-city.html" },
-    { nhom: "Tìm hiểu trước khi thuê" },
-    { ten: "Cẩm nang thuê nhà", href: "/cam-nang-thue-nha.html" },
-    { ten: "Kinh nghiệm thuê chung cư Smart City", href: "/kinh-nghiem-thue-chung-cu-smart-city.html" },
-    { ten: "Tiện ích nội khu", href: "/tien-ich-vinhomes-smart-city.html" },
-    { ten: "Phí dịch vụ, gửi xe, thú cưng", href: "/phi-dich-vu-vinhomes-smart-city.html" },
-    { nhom: "Muốn mua thay vì thuê?" },
-    { ten: "Xem căn đang bán tại Smart City", href: "https://timmuasmartcity.com", ngoai: true },
-    { nhom: "Khác" },
-    { ten: "Danh mục căn hộ theo phân khu", href: "/#mucLucKhoDuLieu" },
-    { ten: "Chính sách quyền riêng tư", href: "/chinh-sach-quyen-rieng-tu.html" }
+    { nhom: "Liên hệ", k: "sh.contact" },
+    { ten: "Nhắn Zalo", so: SDT, k: "nav.zalo", href: "https://zalo.me/" + SDT, ngoai: true, zalo: true },
+    { ten: "Gọi", so: SDT, k: "ft.call", href: "tel:" + SDT },
+    { nhom: "Tra cứu giá", k: "sh.priceLookup" },
+    { ten: "Bảng giá thuê Vinhomes Smart City", k: "sh.priceTable", href: "/bang-gia-thue-vinhomes-smart-city.html" },
+    { ten: "So sánh giá thuê các phân khu", k: "sh.priceCompare", href: "/so-sanh-gia-thue-cac-phan-khu-smart-city.html" },
+    { ten: "Giá thuê căn Studio", k: "sh.priceStudio", href: "/gia-thue-studio-smart-city.html" },
+    { nhom: "Tìm hiểu trước khi thuê", k: "sh.before" },
+    { ten: "Cẩm nang thuê nhà", k: "sh.guideFull", href: "/cam-nang-thue-nha.html" },
+    { ten: "Kinh nghiệm thuê chung cư Smart City", k: "sh.exp", href: "/kinh-nghiem-thue-chung-cu-smart-city.html" },
+    { ten: "Tiện ích nội khu", k: "sh.amen", href: "/tien-ich-vinhomes-smart-city.html" },
+    { ten: "Phí dịch vụ, gửi xe, thú cưng", k: "sh.fees", href: "/phi-dich-vu-vinhomes-smart-city.html" },
+    { nhom: "Muốn mua thay vì thuê?", k: "sh.buyTitle" },
+    { ten: "Xem căn đang bán tại Smart City", k: "sh.buyLink", href: "https://timmuasmartcity.com", ngoai: true },
+    { nhom: "Khác", k: "sh.other" },
+    { ten: "Danh mục căn hộ theo phân khu", k: "sh.cat", href: "/#mucLucKhoDuLieu" },
+    { ten: "Chính sách quyền riêng tư", k: "sh.privacy", href: "/chinh-sach-quyen-rieng-tu.html" }
   ];
 
   function dungMenuHtml() {
-    var h = '<div class="tbs-head"><strong>Menu</strong>'
-          + '<button type="button" id="tbsDong" aria-label="Đóng">&times;</button></div>';
+    var h = '<div class="tbs-head"><strong data-i18n="sh.menu">Menu</strong>'
+          + '<button type="button" id="tbsDong" aria-label="Đóng" data-i18n-al="sh.close">&times;</button></div>';
     for (var i = 0; i < MENU.length; i++) {
       var m = MENU[i];
-      if (m.nhom) { h += '<div class="tbs-nhom">' + m.nhom + '</div>'; continue; }
+      if (m.nhom) {
+        h += '<div class="tbs-nhom" data-i18n="' + m.k + '">' + m.nhom + '</div>';
+        continue;
+      }
       h += '<a href="' + m.href + '"'
          + (m.ngoai ? ' target="_blank" rel="noopener"' : '')
          + (m.zalo ? ' class="tbs-zalo"' : '')
-         + '>' + m.ten + '</a>';
+         + '><span data-i18n="' + m.k + '">' + m.ten + '</span>'
+         + (m.so ? " " + m.so : "") + '</a>';
     }
     return h;
   }
@@ -96,12 +116,13 @@
     var bar = document.createElement("nav");
     bar.className = "tabbar";
     bar.setAttribute("aria-label", "Điều hướng nhanh");
+    bar.setAttribute("data-i18n-al", "sh.navAl");
     bar.innerHTML =
-        '<a href="/"' + lop("trang-chu") + '>' + IC.nha + '<span>Trang chủ</span></a>'
+        '<a href="/"' + lop("trang-chu") + '>' + IC.nha + '<span data-i18n="sh.home">Trang chủ</span></a>'
       + '<a href="https://timmuasmartcity.com" target="_blank" rel="noopener">'
-        + IC.timmua + '<span>Tìm mua</span></a>'
-      + '<a href="/gui-thue/"' + lop("ky-gui") + '>' + IC.kygui + '<span>Ký gửi thuê</span></a>'
-      + '<button type="button" id="tabMenu" aria-haspopup="dialog">' + IC.menu + '<span>Menu</span></button>';
+        + IC.timmua + '<span data-i18n="sh.buy">Tìm mua</span></a>'
+      + '<a href="/gui-thue/"' + lop("ky-gui") + '>' + IC.kygui + '<span data-i18n="sh.consign">Ký gửi thuê</span></a>'
+      + '<button type="button" id="tabMenu" aria-haspopup="dialog">' + IC.menu + '<span data-i18n="sh.menu">Menu</span></button>';
 
     var nen = document.createElement("div");
     nen.className = "tabbar-backdrop";
@@ -115,6 +136,8 @@
     document.body.appendChild(nen);
     document.body.appendChild(sheet);
     document.body.appendChild(bar);
+    nhoDich(sheet);
+    nhoDich(bar);
 
     function moMenu() { sheet.classList.add("open"); nen.classList.add("open"); }
     function dongMenu() { sheet.classList.remove("open"); nen.classList.remove("open"); }
@@ -155,9 +178,11 @@
     a.target = "_blank";
     a.rel = "noopener";
     a.textContent = "Tìm mua";
+    a.setAttribute("data-i18n", "sh.buy");
 
     /* Đặt ngay sau "Trang chủ" — mục "Danh mục căn" (mốc cũ) đã gỡ ngày 08/08/2026. */
     nav.insertBefore(a, nav.children[1] || null);
+    nhoDich(a);
   }
 
   function khoiDong() {

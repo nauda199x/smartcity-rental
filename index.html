@@ -34,6 +34,9 @@
   <link rel="preload" as="image" href="/images/hero/hero-smart-city-desktop.webp" media="(min-width: 641px)" fetchpriority="high">
   <link rel="canonical" href="https://timthuesmartcity.com/">
 
+  <!-- ĐỔI NGÔN NGỮ VI/EN/한 (thêm 11/08/2026) — file CSS riêng, không đụng v3.css -->
+  <link rel="stylesheet" href="/assets/ngon-ngu.css">
+
   <!-- Open Graph: hiển thị ảnh/tiêu đề đẹp khi dán link trên Zalo, Facebook, Messenger -->
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://timthuesmartcity.com/">
@@ -198,7 +201,7 @@
             <path d="M19 19 20.8 20.8" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/>
           </svg>
         </span>
-        <span>Cho thuê chung cư Smart City<small>Bộ lọc thông minh • Cập nhật mỗi ngày</small></span>
+        <span data-i18n="nav.brand">Cho thuê chung cư Smart City<small data-i18n="nav.brandSub">Bộ lọc thông minh • Cập nhật mỗi ngày</small></span>
       </a>
 
       <div class="search">
@@ -207,12 +210,13 @@
         </svg>
         <input id="searchInput" type="search" autocomplete="off"
                placeholder="Tìm phân khu, mã căn, loại căn… (VD: Sapphire, 2PN, 8 triệu)"
-               aria-label="Tìm căn hộ theo phân khu, mã căn, loại căn hoặc giá">
+               aria-label="Tìm căn hộ theo phân khu, mã căn, loại căn hoặc giá"
+               data-i18n-ph="search.ph" data-i18n-al="search.al">
         <!-- Bảng gợi ý chỉ bật lên khi khách bấm vào ô tìm, nên không chiếm chỗ cố định
              trên đầu trang. Mục đích: cho khách BIẾT là gõ tên phân khu được -
              trước đây ô tìm có hỗ trợ nhưng không nói ra nên gần như không ai dùng. -->
         <div class="search-suggest" id="searchSuggest" hidden>
-          <span class="ss-label">Gợi ý nhanh</span>
+          <span class="ss-label" data-i18n="search.suggest">Gợi ý nhanh</span>
           <div class="ss-row" id="searchSuggestRow"></div>
         </div>
       </div>
@@ -222,22 +226,36 @@
            (#mucLucKhoDuLieu), không truyền tín hiệu xếp hạng. Toàn bộ 25 liên kết
            nội bộ tới các trang danh mục vẫn nằm nguyên trong section
            #mucLucKhoDuLieu ở giữa trang — gỡ mục menu này không làm mất liên kết nào. -->
-      <nav class="topnav" aria-label="Điều hướng chính">
-        <a href="/" aria-current="page">Trang chủ</a>
-        <a href="/cam-nang-thue-nha.html">Cẩm nang thuê nhà</a>
-        <a href="/gui-thue/">Ký gửi cho thuê</a>
+      <nav class="topnav" aria-label="Điều hướng chính" data-i18n-al="nav.main">
+        <a href="/" aria-current="page" data-i18n="nav.home">Trang chủ</a>
+        <a href="/cam-nang-thue-nha.html" data-i18n="nav.guide">Cẩm nang thuê nhà</a>
+        <a href="/gui-thue/" data-i18n="nav.consign">Ký gửi cho thuê</a>
       </nav>
+
+      <!-- ĐỔI NGÔN NGỮ (thêm 11/08/2026)
+           Đặt trước .actions nên: máy tính hiện ở góc phải cạnh nút Zalo; điện
+           thoại ≤640px .actions bị ẩn nên khối này tự thành phần tử cuối hàng đầu,
+           CSS đẩy sang phải bằng margin-left:auto. Một khối HTML dùng cho cả hai. -->
+      <div class="doi-tieng" role="group" aria-label="Language / 언어">
+        <button type="button" data-lang="vi" aria-pressed="true">VI</button>
+        <button type="button" data-lang="en" aria-pressed="false">EN</button>
+        <button type="button" data-lang="ko" aria-pressed="false">한</button>
+      </div>
 
       <div class="actions">
         <a class="pill-btn primary" href="https://zalo.me/0977923284" target="_blank" rel="noopener">
           <svg width="17" height="17" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
             <path d="M12 3C6.9 3 2.8 6.4 2.8 10.6c0 2.4 1.3 4.5 3.4 5.9-.1.6-.5 2-.6 2.3-.1.4.2.4.4.3.2-.1 2.4-1.6 3.4-2.2.8.1 1.7.2 2.6.2 5.1 0 9.2-3.4 9.2-7.5S17.1 3 12 3z"/>
           </svg>
-          <span>Nhắn Zalo</span>
+          <span data-i18n="nav.zalo">Nhắn Zalo</span>
         </a>
       </div>
     </div>
   </header>
+
+  <!-- Dải nhắc khách nước ngoài. Rỗng ở chế độ tiếng Việt và bị CSS ẩn hẳn,
+       nên không ảnh hưởng gì tới trang hiện tại. -->
+  <p class="nhac-tieng" data-i18n="notice.vn"></p>
 
   <!-- BĂNG CHỮ CHẠY (đổi 02/08/2026) — cùng nội dung và cùng logic cũ, chỉ đổi
        cách trình bày: nền cam chạy ngang thay cho dải xanh đứng yên.
@@ -246,7 +264,7 @@
        lặp liền mạch — không có đoạn nào ghi cứng số căn. -->
   <button class="new-today-bar" id="newTodayBar" type="button">
     <span class="ntb-chay" id="newTodayChay">
-      <span class="ntb-doan">✨ Hôm nay cập nhật thêm <strong id="newTodayCount">0</strong> căn hộ mới toanh — bấm xem ngay kẻo lỡ<span class="arrow" aria-hidden="true">→</span></span>
+      <span class="ntb-doan"><span data-i18n="bar.new1">✨ Hôm nay cập nhật thêm</span> <strong id="newTodayCount">0</strong> <span data-i18n="bar.new2">căn hộ mới toanh — bấm xem ngay kẻo lỡ</span><span class="arrow" aria-hidden="true">→</span></span>
     </span>
   </button>
 
@@ -256,13 +274,13 @@
        logic lọc riêng — bấm ở đây hay bấm trong bảng lọc đều ra một kết quả. -->
   <div class="quick-bar" id="quickBar">
     <div class="shell quick-bar-in">
-      <button class="qb-btn" id="qbSearch" type="button" aria-label="Về ô tìm kiếm">
+      <button class="qb-btn" id="qbSearch" type="button" aria-label="Về ô tìm kiếm" data-i18n-al="qb.search">
         <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
           <path d="m21 21-4.35-4.35M10.5 18a7.5 7.5 0 1 1 0-15 7.5 7.5 0 0 1 0 15Z" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
         </svg>
       </button>
       <div class="chips chips-quick" id="quickTypeFilters"></div>
-      <button class="qb-btn qb-filter" id="qbFilter" type="button" aria-label="Mở bộ lọc đầy đủ">
+      <button class="qb-btn qb-filter" id="qbFilter" type="button" aria-label="Mở bộ lọc đầy đủ" data-i18n-al="qb.filter">
         <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
           <path d="M4 6h16M7 12h10M10 18h4" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
         </svg>
@@ -293,19 +311,19 @@
 
     <div class="shell hero-v4__trong">
       <div class="hero-v4__chu">
-        <h1>Cho thuê căn hộ chung cư Vinhomes Smart City tháng 08/2026</h1>
-        <p>Bộ lọc thông minh — tìm nhanh theo giá thuê, loại căn hộ và tình trạng nội thất. Dữ liệu cập nhật liên tục từ thực tế, giúp anh/chị chọn đúng căn ưng ý chỉ trong vài phút.</p>
+        <h1 data-i18n="hero.h1">Cho thuê căn hộ chung cư Vinhomes Smart City tháng 08/2026</h1>
+        <p data-i18n="hero.p">Bộ lọc thông minh — tìm nhanh theo giá thuê, loại căn hộ và tình trạng nội thất. Dữ liệu cập nhật liên tục từ thực tế, giúp anh/chị chọn đúng căn ưng ý chỉ trong vài phút.</p>
         <!-- Dấu hiệu dữ liệu sống (V3). 30 phút là chu kỳ THẬT của Apps Script
              đẩy data.json lên GitHub — không phải con số trang trí. -->
-        <p class="hero-dong-bo"><span class="cham" aria-hidden="true"></span>Quỹ căn đồng bộ lại mỗi 30 phút</p>
+        <p class="hero-dong-bo" data-i18n="hero.sync"><span class="cham" aria-hidden="true"></span>Quỹ căn đồng bộ lại mỗi 30 phút</p>
 
-        <div class="stats" aria-label="Tổng quan căn hộ">
-          <div class="stat"><strong id="totalCount">--</strong><span>Tổng căn</span></div>
-          <div class="stat"><strong id="readyCount">--</strong><span>Ở ngay</span></div>
+        <div class="stats" aria-label="Tổng quan căn hộ" data-i18n-al="hero.statsAl">
+          <div class="stat"><strong id="totalCount">--</strong><span data-i18n="hero.total">Tổng căn</span></div>
+          <div class="stat"><strong id="readyCount">--</strong><span data-i18n="hero.ready">Ở ngay</span></div>
           <!-- Số phân khu ĐANG CÓ CĂN — JS đếm từ data.json, không ghi cứng.
                Hôm nay là 8 (Sola Park và Victoria chưa có căn nào), nhưng có căn
                là con số tự nhảy lên 9-10, không phải sửa tay. -->
-          <div class="stat"><strong id="phanKhuCount">--</strong><span>Phân khu</span></div>
+          <div class="stat"><strong id="phanKhuCount">--</strong><span data-i18n="hero.zone">Phân khu</span></div>
         </div>
       </div>
 
@@ -328,25 +346,25 @@
          Nhãn và số đếm cũng đọc ngược từ chip ra, nên máy tính và điện thoại không
          bao giờ lệch số; khối này hỏng thì gỡ đi là bảng chip cũ hiện lại nguyên vẹn. -->
     <div class="filter-card">
-      <div class="loc-pc" id="locPc" aria-label="Bộ lọc căn hộ">
+      <div class="loc-pc" id="locPc" aria-label="Bộ lọc căn hộ" data-i18n-al="f.panelAl">
         <label class="loc-pc-o">
-          <span>Loại căn</span>
-          <select id="locPcType" data-nguon="typeFilters" data-thuoctinh="type"><option value="all">Tất cả loại căn</option></select>
+          <span data-i18n="f.type">Loại căn</span>
+          <select id="locPcType" data-nguon="typeFilters" data-thuoctinh="type"><option value="all" data-i18n="f.typeAll">Tất cả loại căn</option></select>
         </label>
         <label class="loc-pc-o">
-          <span>Phân khu</span>
-          <select id="locPcPhanKhu" data-nguon="phanKhuFilters" data-thuoctinh="phankhu"><option value="all">Tất cả phân khu</option></select>
+          <span data-i18n="f.zone">Phân khu</span>
+          <select id="locPcPhanKhu" data-nguon="phanKhuFilters" data-thuoctinh="phankhu"><option value="all" data-i18n="f.zoneAll">Tất cả phân khu</option></select>
         </label>
         <label class="loc-pc-o">
-          <span>Khoảng giá</span>
-          <select id="locPcPrice" data-nguon="priceFilters" data-thuoctinh="price"><option value="all">Tất cả mức giá</option></select>
+          <span data-i18n="f.price">Khoảng giá</span>
+          <select id="locPcPrice" data-nguon="priceFilters" data-thuoctinh="price"><option value="all" data-i18n="f.priceAll">Tất cả mức giá</option></select>
         </label>
         <label class="loc-pc-o">
-          <span>Nội thất</span>
-          <select id="locPcInterior" data-nguon="interiorFilters" data-thuoctinh="interior"><option value="all">Tất cả nội thất</option></select>
+          <span data-i18n="f.furn">Nội thất</span>
+          <select id="locPcInterior" data-nguon="interiorFilters" data-thuoctinh="interior"><option value="all" data-i18n="f.furnAll">Tất cả nội thất</option></select>
         </label>
-        <button class="loc-pc-tim" id="locPcTim" type="button">Tìm căn</button>
-        <button class="loc-pc-xoa" id="locPcXoa" type="button">Xóa bộ lọc</button>
+        <button class="loc-pc-tim" id="locPcTim" type="button" data-i18n="f.find">Tìm căn</button>
+        <button class="loc-pc-xoa" id="locPcXoa" type="button" data-i18n="f.clear">Xóa bộ lọc</button>
       </div>
     </div>
 
@@ -362,7 +380,7 @@
             <path d="M4 20V7l6-3v16M14 20V10l6 3v7"/><path d="M3 20h18" stroke-linecap="round"/>
           </svg>
         </span>
-        <b>Phân khu</b><span>Chọn tòa, khu</span>
+        <b data-i18n="f.zone">Phân khu</b><span data-i18n="f.zonePick">Chọn tòa, khu</span>
       </button>
       <button class="qt" type="button" data-nhom="priceFilters">
         <span class="qt-ic" aria-hidden="true">
@@ -370,7 +388,7 @@
             <circle cx="12" cy="12" r="8.5"/><path d="M12 7.5v9M14.4 10c-.5-.9-1.4-1.3-2.4-1.3-1.3 0-2.3.7-2.3 1.8 0 2.4 4.8 1.2 4.8 3.6 0 1.1-1 1.9-2.5 1.9-1.1 0-2-.4-2.5-1.3"/>
           </svg>
         </span>
-        <b>Khoảng giá</b><span>Chọn mức giá</span>
+        <b data-i18n="f.price">Khoảng giá</b><span data-i18n="f.pricePick">Chọn mức giá</span>
       </button>
       <button class="qt" type="button" data-nhom="interiorFilters">
         <span class="qt-ic" aria-hidden="true">
@@ -378,11 +396,11 @@
             <path d="M3 18v-7a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2v7M3 14h18M6 9V7.5a1 1 0 0 1 1-1h3a1 1 0 0 1 1 1V9M13 9V7.5a1 1 0 0 1 1-1h3a1 1 0 0 1 1 1V9"/>
           </svg>
         </span>
-        <b>Nội thất</b><span>Chọn nội thất</span>
+        <b data-i18n="f.furn">Nội thất</b><span data-i18n="f.furnPick">Chọn nội thất</span>
       </button>
     </div>
 
-    <button class="mobile-filter-toggle" id="mobileFilterToggle" type="button" aria-label="Mở bộ lọc để tìm căn hộ phù hợp">
+    <button class="mobile-filter-toggle" id="mobileFilterToggle" type="button" aria-label="Mở bộ lọc để tìm căn hộ phù hợp" data-i18n-al="f.openAl">
       <span class="mft-icon" aria-hidden="true">
         <svg width="19" height="19" viewBox="0 0 24 24" fill="none">
           <circle cx="11" cy="11" r="6.5" stroke="currentColor" stroke-width="2"/>
@@ -390,69 +408,69 @@
         </svg>
       </span>
       <span class="mft-text">
-        <b>Ấn vào đây để tìm căn hộ phù hợp</b>
-        <small id="mftTomTat">Lọc theo phân khu, phòng ngủ và giá thuê</small>
+        <b data-i18n="f.tapHere">Ấn vào đây để tìm căn hộ phù hợp</b>
+        <small id="mftTomTat" data-i18n="f.byZoneBed">Lọc theo phân khu, phòng ngủ và giá thuê</small>
       </span>
       <svg class="mft-arrow" width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true">
         <path d="m9 6 6 6-6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
       </svg>
     </button>
     <div class="filters-backdrop" id="filtersBackdrop"></div>
-    <section class="filters" id="filtersSection" aria-label="Bộ lọc căn hộ">
+    <section class="filters" id="filtersSection" aria-label="Bộ lọc căn hộ" data-i18n-al="f.panelAl">
       <div class="filters-sheet-head">
-        <strong>Bộ lọc căn hộ</strong>
-        <button class="close" id="closeFilters" type="button" aria-label="Đóng">×</button>
+        <strong data-i18n="f.panelAl">Bộ lọc căn hộ</strong>
+        <button class="close" id="closeFilters" type="button" aria-label="Đóng" data-i18n-al="f.close">×</button>
       </div>
       <div class="filter-group">
-        <div class="filter-label">Phân khu</div>
+        <div class="filter-label" data-i18n="f.zone">Phân khu</div>
         <div class="chips" id="phanKhuFilters"></div>
       </div>
       <div class="filter-group">
-        <div class="filter-label">Cấu trúc phòng ngủ</div>
+        <div class="filter-label" data-i18n="f.bedStruct">Cấu trúc phòng ngủ</div>
         <div class="chips" id="typeFilters"></div>
       </div>
       <div class="filter-group">
-        <div class="filter-label">Khoảng giá thuê tháng</div>
+        <div class="filter-label" data-i18n="f.monthly">Khoảng giá thuê tháng</div>
         <div class="chips" id="priceFilters"></div>
       </div>
       <div class="filter-group">
-        <div class="filter-label">Nội thất</div>
+        <div class="filter-label" data-i18n="f.furn">Nội thất</div>
         <div class="chips" id="interiorFilters"></div>
       </div>
       <div class="filters-foot-bar">
-        <button class="btn-xoa-loc" id="xoaBoLoc" type="button" hidden>Xóa lọc</button>
-        <button class="filters-sheet-foot" id="apDungFilters" type="button">Xem <span id="soCanKhop">…</span> căn</button>
+        <button class="btn-xoa-loc" id="xoaBoLoc" type="button" hidden data-i18n="f.clearShort">Xóa lọc</button>
+        <button class="filters-sheet-foot" id="apDungFilters" type="button"><span data-i18n="f.view">Xem</span> <span id="soCanKhop">…</span> <span data-i18n="f.unit">căn</span></button>
       </div>
     </section>
 
     <div class="list-head">
-      <div class="result-count" id="resultCount">Đang tải dữ liệu...</div>
-      <select id="sortSelect" aria-label="Sắp xếp căn hộ">
-        <option value="random">Ngẫu nhiên</option>
-        <option value="price-asc">Giá: Thấp đến Cao</option>
-        <option value="price-desc">Giá: Cao đến Thấp</option>
-        <option value="newest">✨ Chỉ xem căn mới/vừa cập nhật</option>
+      <div class="result-count" id="resultCount" data-i18n="l.loading">Đang tải dữ liệu...</div>
+      <select id="sortSelect" aria-label="Sắp xếp căn hộ" data-i18n-al="l.sortAl">
+        <option value="random" data-i18n="l.random">Ngẫu nhiên</option>
+        <option value="price-asc" data-i18n="l.priceAsc">Giá: Thấp đến Cao</option>
+        <option value="price-desc" data-i18n="l.priceDesc">Giá: Cao đến Thấp</option>
+        <option value="newest" data-i18n="l.onlyNew">✨ Chỉ xem căn mới/vừa cập nhật</option>
       </select>
     </div>
 
     <section class="grid" id="listingGrid" aria-live="polite">
       <div class="loading-state">
         <span class="loading-hourglass" aria-hidden="true">⏳</span>
-        <p>Chờ 1 chút bạn nhé...</p>
+        <p data-i18n="l.wait">Chờ 1 chút bạn nhé...</p>
       </div>
     </section>
-    <nav class="pagination" id="pagination" aria-label="Phân trang danh sách căn hộ"></nav>
+    <nav class="pagination" id="pagination" aria-label="Phân trang danh sách căn hộ" data-i18n-al="l.pageAl"></nav>
 
     <div class="lead-prompt">
       <div class="lead-prompt-text">
-        <strong>Chưa thấy căn ưng ý?</strong>
-        <span>Để lại nhu cầu, tụi mình chủ động tìm và liên hệ lại trong hôm nay.</span>
+        <strong data-i18n="lead.title">Chưa thấy căn ưng ý?</strong>
+        <span data-i18n="lead.desc">Để lại nhu cầu, tụi mình chủ động tìm và liên hệ lại trong hôm nay.</span>
       </div>
       <button class="lead-prompt-btn" type="button" id="openLeadModalBtn">
         <svg width="15" height="15" viewBox="0 0 24 24" fill="none" aria-hidden="true">
           <path d="m21 21-4.35-4.35M10.5 18a7.5 7.5 0 1 1 0-15 7.5 7.5 0 0 1 0 15Z" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
         </svg>
-        Nhờ tìm giúp
+        <span data-i18n="lead.btn">Nhờ tìm giúp</span>
       </button>
     </div>
 
@@ -466,13 +484,13 @@
             Smart City, chứ không phải một trang đơn lẻ có bộ lọc chạy bằng JavaScript.
          LƯU Ý: các trang này phải TỒN TẠI THẬT trước khi đưa khối này lên, nếu không sẽ
          tạo hàng loạt link gãy (404) - Google đánh giá rất xấu. -->
-    <section class="muc-luc" id="mucLucKhoDuLieu" aria-label="Mục lục kho dữ liệu căn hộ cho thuê">
-      <h2>Kho dữ liệu cho thuê Vinhomes Smart City</h2>
-      <p class="muc-luc-dan">Toàn bộ căn hộ được sắp xếp sẵn theo loại căn, phân khu, khoảng giá và tình trạng nội thất. Chọn đúng nhóm anh/chị quan tâm để xem danh sách đầy đủ kèm giá thuê thực tế.</p>
+    <section class="muc-luc" id="mucLucKhoDuLieu" aria-label="Mục lục kho dữ liệu căn hộ cho thuê" data-i18n-al="idx.al">
+      <h2 data-i18n="idx.title">Kho dữ liệu cho thuê Vinhomes Smart City</h2>
+      <p class="muc-luc-dan" data-i18n="idx.desc">Toàn bộ căn hộ được sắp xếp sẵn theo loại căn, phân khu, khoảng giá và tình trạng nội thất. Chọn đúng nhóm anh/chị quan tâm để xem danh sách đầy đủ kèm giá thuê thực tế.</p>
 
       <div class="muc-luc-luoi">
         <div class="muc-luc-nhom">
-          <h3>Theo loại căn hộ</h3>
+          <h3 data-i18n="idx.byType">Theo loại căn hộ</h3>
           <ul>
             <li><a href="/studio/">Cho thuê Studio Smart City</a></li>
             <li><a href="/1pn/">Cho thuê căn 1 phòng ngủ</a></li>
@@ -484,7 +502,7 @@
         </div>
 
         <div class="muc-luc-nhom">
-          <h3>Theo phân khu</h3>
+          <h3 data-i18n="idx.byZone">Theo phân khu</h3>
           <ul>
             <li><a href="/sapphire/">The Sapphire</a></li>
             <li><a href="/masteri/">Masteri West Heights</a></li>
@@ -498,7 +516,7 @@
         </div>
 
         <div class="muc-luc-nhom">
-          <h3>Theo khoảng giá</h3>
+          <h3 data-i18n="idx.byPrice">Theo khoảng giá</h3>
           <ul>
             <li><a href="/studio-duoi-7-trieu/">Studio dưới 7 triệu</a></li>
             <li><a href="/studio-7-10-trieu/">Studio 7–10 triệu</a></li>
@@ -511,7 +529,7 @@
         </div>
 
         <div class="muc-luc-nhom">
-          <h3>Theo nội thất</h3>
+          <h3 data-i18n="idx.byFurn">Theo nội thất</h3>
           <ul>
             <li><a href="/studio-full-do/">Studio full nội thất</a></li>
             <li><a href="/1pn-plus-full-do/">1 ngủ + full nội thất</a></li>
@@ -521,7 +539,7 @@
         </div>
 
         <div class="muc-luc-nhom">
-          <h3>Theo tòa nhà</h3>
+          <h3 data-i18n="idx.byTower">Theo tòa nhà</h3>
           <!-- Trang theo tòa do scripts/sinh-trang-toa.py sinh ra. Thêm tòa mới
                vào CAC_TOA trong script đó thì phải thêm một dòng <li> ở đây,
                nếu không trang mới sẽ không có liên kết nội bộ nào trỏ tới. -->
@@ -531,7 +549,7 @@
         </div>
 
         <div class="muc-luc-nhom">
-          <h3>Cẩm nang thuê nhà</h3>
+          <h3 data-i18n="nav.guide">Cẩm nang thuê nhà</h3>
           <ul>
             <li><a href="/bang-gia-thue-vinhomes-smart-city.html">Bảng giá thuê theo phân khu</a></li>
             <li><a href="/phi-dich-vu-vinhomes-smart-city.html">Phí dịch vụ từng phân khu</a></li>
@@ -539,43 +557,43 @@
             <li><a href="/tien-ich-vinhomes-smart-city.html">Tiện ích trong khu đô thị</a></li>
             <li><a href="/kinh-nghiem-thue-chung-cu-smart-city.html">Kinh nghiệm thuê nhà</a></li>
             <li><a href="/luu-y-do-xe-thu-cung-phi-dich-vu-smart-city.html">Đỗ xe, thú cưng, phí dịch vụ</a></li>
-            <li><a href="/cam-nang-thue-nha.html"><strong>Xem tất cả bài viết →</strong></a></li>
+            <li><a href="/cam-nang-thue-nha.html"><strong data-i18n="ft.allPosts">Xem tất cả bài viết →</strong></a></li>
           </ul>
         </div>
       </div>
     </section>
 
-    <section class="faq-block" aria-label="Câu hỏi thường gặp">
-      <h2>Câu hỏi thường gặp</h2>
+    <section class="faq-block" aria-label="Câu hỏi thường gặp" data-i18n-al="faq.title">
+      <h2 data-i18n="faq.title">Câu hỏi thường gặp</h2>
 
       <details class="faq-item">
-        <summary>Giá thuê căn hộ Vinhomes Smart City hiện nay khoảng bao nhiêu?</summary>
-        <p>Giá thuê căn hộ tại Vinhomes Smart City khá đa dạng, dao động phổ biến từ khoảng 6,5 triệu đồng/tháng cho căn Studio đến trên 15 triệu đồng/tháng cho căn 2-3 phòng ngủ, tùy vào diện tích, tòa và tình trạng nội thất. Anh/chị có thể dùng bộ lọc khoảng giá trên trang để xem chính xác các căn phù hợp ngân sách.</p>
+        <summary data-i18n="faq.q1">Giá thuê căn hộ Vinhomes Smart City hiện nay khoảng bao nhiêu?</summary>
+        <p data-i18n="faq.a1">Giá thuê căn hộ tại Vinhomes Smart City khá đa dạng, dao động phổ biến từ khoảng 6,5 triệu đồng/tháng cho căn Studio đến trên 15 triệu đồng/tháng cho căn 2-3 phòng ngủ, tùy vào diện tích, tòa và tình trạng nội thất. Anh/chị có thể dùng bộ lọc khoảng giá trên trang để xem chính xác các căn phù hợp ngân sách.</p>
       </details>
 
       <details class="faq-item">
-        <summary>Vinhomes Smart City nằm ở đâu?</summary>
-        <p>Vinhomes Smart City tọa lạc tại quận Nam Từ Liêm, Hà Nội, là một trong những khu đô thị thông minh quy mô lớn tại khu vực phía Tây thủ đô.</p>
+        <summary data-i18n="faq.q2">Vinhomes Smart City nằm ở đâu?</summary>
+        <p data-i18n="faq.a2">Vinhomes Smart City tọa lạc tại quận Nam Từ Liêm, Hà Nội, là một trong những khu đô thị thông minh quy mô lớn tại khu vực phía Tây thủ đô.</p>
       </details>
 
       <details class="faq-item">
-        <summary>Có những loại căn hộ nào cho thuê tại Vinhomes Smart City?</summary>
-        <p>Đa dạng loại hình từ Studio, 1 phòng ngủ, 1 phòng ngủ+, 2 phòng ngủ, 2 phòng ngủ+ đến 3 phòng ngủ, trải rộng trên nhiều tòa trong khu đô thị, phù hợp với người độc thân, cặp đôi hoặc gia đình.</p>
+        <summary data-i18n="faq.q3">Có những loại căn hộ nào cho thuê tại Vinhomes Smart City?</summary>
+        <p data-i18n="faq.a3">Đa dạng loại hình từ Studio, 1 phòng ngủ, 1 phòng ngủ+, 2 phòng ngủ, 2 phòng ngủ+ đến 3 phòng ngủ, trải rộng trên nhiều tòa trong khu đô thị, phù hợp với người độc thân, cặp đôi hoặc gia đình.</p>
       </details>
 
       <details class="faq-item">
-        <summary>Căn hộ cho thuê có đầy đủ nội thất không?</summary>
-        <p>Tùy từng căn, tình trạng nội thất được phân loại rõ trên từng tin đăng: Full nội thất (đầy đủ đồ dùng sẵn sàng dọn vào ở), Đồ Cơ bản, hoặc Nhà Nguyên Bản (chưa có nội thất). Anh/chị có thể lọc theo nhu cầu ngay trên trang.</p>
+        <summary data-i18n="faq.q4">Căn hộ cho thuê có đầy đủ nội thất không?</summary>
+        <p data-i18n="faq.a4">Tùy từng căn, tình trạng nội thất được phân loại rõ trên từng tin đăng: Full nội thất (đầy đủ đồ dùng sẵn sàng dọn vào ở), Đồ Cơ bản, hoặc Nhà Nguyên Bản (chưa có nội thất). Anh/chị có thể lọc theo nhu cầu ngay trên trang.</p>
       </details>
 
       <details class="faq-item">
-        <summary>Làm sao để xem căn hộ hoặc liên hệ hỏi thuê?</summary>
-        <p>Anh/chị có thể bấm nút "Hỏi căn này" trên từng tin đăng để nhắn Zalo trực tiếp, hoặc liên hệ hotline/Zalo 0977923284 để được tư vấn và sắp xếp lịch xem căn phù hợp.</p>
+        <summary data-i18n="faq.q5">Làm sao để xem căn hộ hoặc liên hệ hỏi thuê?</summary>
+        <p data-i18n="faq.a5">Anh/chị có thể bấm nút "Hỏi căn này" trên từng tin đăng để nhắn Zalo trực tiếp, hoặc liên hệ hotline/Zalo 0977923284 để được tư vấn và sắp xếp lịch xem căn phù hợp.</p>
       </details>
 
       <details class="faq-item">
-        <summary>Thông tin căn hộ trên trang có được cập nhật thường xuyên không?</summary>
-        <p>Dữ liệu được đồng bộ tự động nhiều lần trong ngày để phản ánh đúng tình trạng còn trống, giá thuê và hình ảnh thực tế, giúp anh/chị an tâm về độ chính xác thông tin.</p>
+        <summary data-i18n="faq.q6">Thông tin căn hộ trên trang có được cập nhật thường xuyên không?</summary>
+        <p data-i18n="faq.a6">Dữ liệu được đồng bộ tự động nhiều lần trong ngày để phản ánh đúng tình trạng còn trống, giá thuê và hình ảnh thực tế, giúp anh/chị an tâm về độ chính xác thông tin.</p>
       </details>
     </section>
 
@@ -597,16 +615,16 @@
          Đặt ở cuối trang thì đúng vai trò hơn: khách xem hết danh sách, cuộn tới đây
          là lúc muốn mở rộng tìm kiếm sang nhóm khác. Vẫn là link THẬT tới trang tĩnh
          riêng nên Google vẫn bò sang được bình thường, không mất giá trị SEO. -->
-    <section class="kham-pha" aria-label="Khám phá theo loại căn hộ">
-      <h2>Khám phá theo loại căn hộ</h2>
-      <p class="kham-pha-dan">Mỗi loại căn có một trang riêng với danh sách đầy đủ, bảng giá thực tế theo từng phân khu và những lưu ý khi thuê.</p>
+    <section class="kham-pha" aria-label="Khám phá theo loại căn hộ" data-i18n-al="disc.title">
+      <h2 data-i18n="disc.title">Khám phá theo loại căn hộ</h2>
+      <p class="kham-pha-dan" data-i18n="disc.desc">Mỗi loại căn có một trang riêng với danh sách đầy đủ, bảng giá thực tế theo từng phân khu và những lưu ý khi thuê.</p>
       <div class="kham-pha-luoi">
-        <a href="/studio/"><strong>Studio</strong><span>Không gian mở, hợp 1–2 người</span></a>
-        <a href="/1pn/"><strong>1 phòng ngủ</strong><span>Phòng ngủ tách riêng</span></a>
-        <a href="/1pn-plus/"><strong>1 phòng ngủ +</strong><span>Có phần mở rộng kê thêm giường</span></a>
-        <a href="/2pn/"><strong>2 phòng ngủ</strong><span>Loại có nhiều căn nhất</span></a>
-        <a href="/2pn-plus/"><strong>2 phòng ngủ +</strong><span>Căn góc, rộng và thoáng hơn</span></a>
-        <a href="/3pn/"><strong>3 phòng ngủ</strong><span>Gia đình đông người</span></a>
+        <a href="/studio/"><strong>Studio</strong><span data-i18n="disc.studio">Không gian mở, hợp 1–2 người</span></a>
+        <a href="/1pn/"><strong data-i18n="f.type1pn">1 phòng ngủ</strong><span data-i18n="disc.1pn">Phòng ngủ tách riêng</span></a>
+        <a href="/1pn-plus/"><strong data-i18n="f.type1pnp">1 phòng ngủ +</strong><span data-i18n="disc.1pnp">Có phần mở rộng kê thêm giường</span></a>
+        <a href="/2pn/"><strong data-i18n="f.type2pn">2 phòng ngủ</strong><span data-i18n="disc.2pn">Loại có nhiều căn nhất</span></a>
+        <a href="/2pn-plus/"><strong data-i18n="f.type2pnp">2 phòng ngủ +</strong><span data-i18n="disc.2pnp">Căn góc, rộng và thoáng hơn</span></a>
+        <a href="/3pn/"><strong data-i18n="f.type3pn">3 phòng ngủ</strong><span data-i18n="disc.3pn">Gia đình đông người</span></a>
       </div>
     </section>
 
@@ -621,25 +639,25 @@
   <section class="moi-chu-nha">
     <div class="shell moi-chu-nha-trong">
       <div>
-        <h2>Anh/chị có căn hộ cần cho thuê?</h2>
-        <p>Gửi thông tin và ảnh trực tiếp tại đây, chúng tôi đăng tin và tìm khách giúp. Không mất phí, không cần tài khoản.</p>
+        <h2 data-i18n="own.title">Anh/chị có căn hộ cần cho thuê?</h2>
+        <p data-i18n="own.desc">Gửi thông tin và ảnh trực tiếp tại đây, chúng tôi đăng tin và tìm khách giúp. Không mất phí, không cần tài khoản.</p>
       </div>
-      <a class="moi-chu-nha-nut" href="/gui-thue/">Ký gửi căn – dành cho chủ nhà →</a>
+      <a class="moi-chu-nha-nut" href="/gui-thue/" data-i18n="own.btn">Ký gửi căn – dành cho chủ nhà →</a>
     </div>
   </section>
 
   <footer style="border-top:1px solid var(--line); background:var(--surface); padding:24px 0; margin-top:8px;">
     <div class="shell" style="display:flex; justify-content:space-between; flex-wrap:wrap; gap:12px; align-items:center; color:var(--muted); font-size:13.5px;">
-      <span>© 2026 Cho thuê chung cư Smart City</span>
+      <span data-i18n="ft.copy">© 2026 Cho thuê chung cư Smart City</span>
       <nav style="display:flex; gap:18px; flex-wrap:wrap;">
-        <a href="/cam-nang-thue-nha.html" style="color:var(--muted); font-weight:600;">Cẩm nang thuê nhà</a>
-        <a href="/gui-thue/" style="color:var(--muted); font-weight:600;">Chủ nhà gửi căn</a>
-        <a href="/chinh-sach-quyen-rieng-tu.html" style="color:var(--muted); font-weight:600;">Chính sách quyền riêng tư</a>
+        <a href="/cam-nang-thue-nha.html" style="color:var(--muted); font-weight:600;" data-i18n="nav.guide">Cẩm nang thuê nhà</a>
+        <a href="/gui-thue/" style="color:var(--muted); font-weight:600;" data-i18n="ft.owner">Chủ nhà gửi căn</a>
+        <a href="/chinh-sach-quyen-rieng-tu.html" style="color:var(--muted); font-weight:600;" data-i18n="ft.privacy">Chính sách quyền riêng tư</a>
       </nav>
     </div>
 
     <div class="shell">
-      <p>Phân khu đang cho thuê:
+      <p><span data-i18n="ft.zones">Phân khu đang cho thuê:</span>
       <a href="/sapphire/">Sapphire</a> ·
       <a href="/miami/">The Miami</a> ·
       <a href="/sakura/">The Sakura</a> ·
@@ -655,7 +673,7 @@
          xác nhận website và các kênh là cùng một chủ. Đổi link ở đây thì phải đổi
          cả trên đó, lệch nhau là mất tác dụng. -->
     <div class="shell mxh-hang">
-      <span class="mxh-nhan">Theo dõi căn mới mỗi ngày</span>
+      <span class="mxh-nhan" data-i18n="ft.follow">Theo dõi căn mới mỗi ngày</span>
       <div class="mxh-nut">
         <a class="mxh mxh-facebook" href="https://www.facebook.com/people/T%C3%ACm-thu%C3%AA-Smart-City/61591756688919/" target="_blank" rel="noopener"><span class="mxh-chu">Theo dõi trên Facebook</span></a>
         <a class="mxh mxh-tiktok" href="https://www.tiktok.com/@timthuesmartcity" target="_blank" rel="noopener"><span class="mxh-chu">Theo dõi trên TikTok</span></a>
@@ -665,7 +683,7 @@
     </div>
   </footer>
 
-  <a class="floating-zalo" href="https://zalo.me/0977923284" target="_blank" rel="noopener" aria-label="Chat Zalo">
+  <a class="floating-zalo" href="https://zalo.me/0977923284" target="_blank" rel="noopener" aria-label="Chat Zalo" data-i18n-al="nav.zalo">
     <svg width="26" height="26" viewBox="0 0 24 24" fill="none" aria-hidden="true">
       <path d="M21 11.5a8.4 8.4 0 0 1-8.5 8.3 9.5 9.5 0 0 1-3.5-.67L3 21l1.9-5.1a8 8 0 0 1-.9-3.7A8.4 8.4 0 0 1 12.5 4 8.4 8.4 0 0 1 21 11.5Z" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/>
     </svg>
@@ -676,21 +694,21 @@
       <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true">
         <path d="M6.6 10.8c1.4 2.8 3.8 5.2 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.1.4 2.3.6 3.5.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1C10.6 21 3 13.4 3 4c0-.6.4-1 1-1h3.4c.6 0 1 .4 1 1 0 1.2.2 2.4.6 3.5.1.4 0 .8-.2 1L6.6 10.8Z" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/>
       </svg>
-      Gọi điện
+      <span data-i18n="ft.call">Gọi điện</span>
     </a>
     <a class="sticky-cta-btn zalo" href="https://zalo.me/0977923284" target="_blank" rel="noopener">
       <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true">
         <path d="M21 11.5a8.4 8.4 0 0 1-8.5 8.3 9.5 9.5 0 0 1-3.5-.67L3 21l1.9-5.1a8 8 0 0 1-.9-3.7A8.4 8.4 0 0 1 12.5 4 8.4 8.4 0 0 1 21 11.5Z" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/>
       </svg>
-      Nhắn Zalo
+      <span data-i18n="nav.zalo">Nhắn Zalo</span>
     </a>
   </div>
 
   <div class="modal" id="galleryModal" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
     <div class="modal-panel">
       <div class="modal-head">
-        <strong id="modalTitle">Hình ảnh căn hộ</strong>
-        <button class="close" id="closeModal" type="button" aria-label="Đóng">×</button>
+        <strong id="modalTitle" data-i18n="l.photosTitle">Hình ảnh căn hộ</strong>
+        <button class="close" id="closeModal" type="button" aria-label="Đóng" data-i18n-al="f.close">×</button>
       </div>
       <div class="gallery" id="galleryContent"></div>
     </div>
@@ -699,12 +717,12 @@
   <div class="modal" id="leadModal" role="dialog" aria-modal="true" aria-labelledby="leadModalTitle">
     <div class="modal-panel" style="width: min(560px, 100%);">
       <div class="modal-head">
-        <strong id="leadModalTitle">Bạn cần căn như thế nào?</strong>
-        <button class="close" id="closeLeadModal" type="button" aria-label="Đóng">×</button>
+        <strong id="leadModalTitle" data-i18n="lead.mTitle">Bạn cần căn như thế nào?</strong>
+        <button class="close" id="closeLeadModal" type="button" aria-label="Đóng" data-i18n-al="f.close">×</button>
       </div>
 
       <form class="lead-form" id="leadForm" autocomplete="off">
-        <p class="lead-intro">Để lại thông tin, tụi mình sẽ chủ động tìm căn phù hợp và liên hệ lại trong hôm nay.</p>
+        <p class="lead-intro" data-i18n="lead.mDesc">Để lại thông tin, tụi mình sẽ chủ động tìm căn phù hợp và liên hệ lại trong hôm nay.</p>
 
         <div class="lead-error" id="leadError"></div>
 
@@ -715,64 +733,64 @@
 
         <div class="lead-row">
           <div class="lead-field">
-            <label for="leadHoTen">Họ tên *</label>
-            <input type="text" id="leadHoTen" name="hoTen" placeholder="Nguyễn Văn A" required maxlength="100">
+            <label for="leadHoTen" data-i18n="lead.name">Họ tên *</label>
+            <input type="text" id="leadHoTen" name="hoTen" placeholder="Nguyễn Văn A" required maxlength="100" data-i18n-ph="lead.namePh">
           </div>
           <div class="lead-field">
-            <label for="leadSdt">Số điện thoại *</label>
+            <label for="leadSdt" data-i18n="lead.phone">Số điện thoại *</label>
             <input type="tel" id="leadSdt" name="sdt" placeholder="09xxxxxxxx" required maxlength="20">
           </div>
         </div>
 
         <div class="lead-row">
           <div class="lead-field">
-            <label for="leadLoaiCan">Loại căn cần tìm</label>
+            <label for="leadLoaiCan" data-i18n="lead.type">Loại căn cần tìm</label>
             <select id="leadLoaiCan" name="loaiCan">
-              <option value="">Chưa xác định / tùy anh chị tư vấn</option>
+              <option value="" data-i18n="lead.typeAny">Chưa xác định / tùy anh chị tư vấn</option>
               <option value="Studio">Studio</option>
-              <option value="1 Ngủ">1 phòng ngủ</option>
-              <option value="1 Ngủ +">1 phòng ngủ +</option>
-              <option value="2 Ngủ">2 phòng ngủ</option>
-              <option value="2 Ngủ +">2 phòng ngủ +</option>
-              <option value="3 Ngủ">3 phòng ngủ</option>
+              <option value="1 Ngủ" data-i18n="f.type1pn">1 phòng ngủ</option>
+              <option value="1 Ngủ +" data-i18n="f.type1pnp">1 phòng ngủ +</option>
+              <option value="2 Ngủ" data-i18n="f.type2pn">2 phòng ngủ</option>
+              <option value="2 Ngủ +" data-i18n="f.type2pnp">2 phòng ngủ +</option>
+              <option value="3 Ngủ" data-i18n="f.type3pn">3 phòng ngủ</option>
             </select>
           </div>
           <div class="lead-field">
-            <label for="leadKhoangGia">Khoảng giá mong muốn</label>
+            <label for="leadKhoangGia" data-i18n="lead.budget">Khoảng giá mong muốn</label>
             <select id="leadKhoangGia" name="khoangGia">
-              <option value="">Chưa xác định</option>
-              <option value="6,5 - 7,5 triệu">6,5 - 7,5 triệu</option>
-              <option value="7,5 - 10 triệu">7,5 - 10 triệu</option>
-              <option value="10 - 12 triệu">10 - 12 triệu</option>
-              <option value="12 - 15 triệu">12 - 15 triệu</option>
-              <option value="Trên 15 triệu">Trên 15 triệu</option>
+              <option value="" data-i18n="lead.budgetAny">Chưa xác định</option>
+              <option value="6,5 - 7,5 triệu" data-i18n="lead.b1">6,5 - 7,5 triệu</option>
+              <option value="7,5 - 10 triệu" data-i18n="lead.b2">7,5 - 10 triệu</option>
+              <option value="10 - 12 triệu" data-i18n="lead.b3">10 - 12 triệu</option>
+              <option value="12 - 15 triệu" data-i18n="lead.b4">12 - 15 triệu</option>
+              <option value="Trên 15 triệu" data-i18n="lead.b5">Trên 15 triệu</option>
             </select>
           </div>
         </div>
 
         <div class="lead-row">
           <div class="lead-field">
-            <label for="leadNgayVao">Ngày cần vào ở</label>
+            <label for="leadNgayVao" data-i18n="lead.moveIn">Ngày cần vào ở</label>
             <input type="date" id="leadNgayVao" name="ngayVao">
           </div>
           <div class="lead-field">
-            <label for="leadKhuVuc">Khu vực / Tòa mong muốn</label>
-            <input type="text" id="leadKhuVuc" name="khuVuc" placeholder="VD: Sa2, gần hồ..." maxlength="100">
+            <label for="leadKhuVuc" data-i18n="lead.area">Khu vực / Tòa mong muốn</label>
+            <input type="text" id="leadKhuVuc" name="khuVuc" placeholder="VD: Sa2, gần hồ..." maxlength="100" data-i18n-ph="lead.areaPh">
           </div>
         </div>
 
         <div class="lead-field">
-          <label for="leadGhiChu">Ghi chú thêm</label>
-          <textarea id="leadGhiChu" name="ghiChu" placeholder="Nhu cầu khác (số người ở, có thú cưng, view...)" maxlength="500"></textarea>
+          <label for="leadGhiChu" data-i18n="lead.note">Ghi chú thêm</label>
+          <textarea id="leadGhiChu" name="ghiChu" placeholder="Nhu cầu khác (số người ở, có thú cưng, view...)" maxlength="500" data-i18n-ph="lead.notePh"></textarea>
         </div>
 
-        <button class="lead-submit" type="submit" id="leadSubmitBtn">Gửi yêu cầu, để tụi mình tìm giúp</button>
+        <button class="lead-submit" type="submit" id="leadSubmitBtn" data-i18n="lead.send">Gửi yêu cầu, để tụi mình tìm giúp</button>
       </form>
 
       <div class="lead-success" id="leadSuccess">
         <div class="icon">✅</div>
-        <div class="tieu-de">Đã nhận được yêu cầu của anh/chị</div>
-        <p>Tụi mình sẽ chủ động liên hệ lại trong thời gian sớm nhất. Cảm ơn anh/chị đã tin tưởng!</p>
+        <div class="tieu-de" data-i18n="lead.ok">Đã nhận được yêu cầu của anh/chị</div>
+        <p data-i18n="lead.okDesc">Tụi mình sẽ chủ động liên hệ lại trong thời gian sớm nhất. Cảm ơn anh/chị đã tin tưởng!</p>
       </div>
     </div>
   </div>
@@ -805,36 +823,67 @@
 
     const PAGE_SIZE = 12;
 
+    /* ================================================================
+       CỬA DỊCH (assets/ngon-ngu.js) — thêm 11/08/2026
+       ----------------------------------------------------------------
+       CHỈ dịch chữ IN RA MÀN HÌNH. Mọi khoá dữ liệu ("2 Ngủ", "full nội
+       thất", "Mã nội bộ"…) và mọi vế phải của === / .indexOf() GIỮ NGUYÊN
+       tiếng Việt — dịch nhầm những chỗ đó là hỏng toàn bộ bộ lọc.
+
+       Thiếu file assets/ngon-ngu.js thì mọi hàm dưới đây trả lại đúng chữ
+       tiếng Việt truyền vào, trang chạy y hệt hôm nay, console 0 lỗi.
+       ================================================================ */
+    function T(khoa, macDinh) {
+      return (window.NGON_NGU_T ? window.NGON_NGU_T(khoa, macDinh) : macDinh);
+    }
+    /** Dịch một GIÁ TRỊ enum lúc in ra (Loại căn, Nội thất) - tra bảng, không đoán */
+    function dichDuLieu(giaTri) {
+      return (window.NGON_NGU_DU_LIEU ? window.NGON_NGU_DU_LIEU(giaTri) : giaTri);
+    }
+    /** Giá: VI giữ "6,8 triệu", EN "6.8M VND", KO "680만 동" */
+    function dichGia(soVnd, macDinh) {
+      return (window.NGON_NGU_GIA ? window.NGON_NGU_GIA(soVnd, macDinh) : macDinh);
+    }
+    /** Ngày DD/MM/YYYY: EN "1 Aug 2026", KO "2026년 8월 1일" */
+    function dichNgay(chuoi, macDinh) {
+      return (window.NGON_NGU_NGAY ? window.NGON_NGU_NGAY(chuoi, macDinh) : macDinh);
+    }
+    /** Nhãn hiển thị của một mục bộ lọc. muc.key là DỮ LIỆU, tuyệt đối không dịch. */
+    function nhanMuc(muc) { return T(muc.i18n, muc.label); }
+    function nhanMucNgan(muc) { return T(muc.i18nShort || muc.i18n, muc.short || muc.label); }
+
     /* Moi bo loc co 2 nhan: "label" cho man hinh rong, "short" cho dien thoai.
        Ly do: tren dien thoai chip hep lai thi so hang chip giam gan mot nua,
        nho vay them duoc nhom Phan khu ma bang loc khong dai them bao nhieu. */
+    /* i18n / i18nShort chỉ là khoá tra BẢN DỊCH CỦA NHÃN (thêm 11/08/2026).
+       "key" vẫn là khoá DỮ LIỆU và không bao giờ được dịch. */
     const typeFilters = [
-      { key: "all", label: "Tất cả phòng", short: "Tất cả" },
-      { key: "studio", label: "Studio", short: "Studio" },
-      { key: "1 ngủ", label: "1 phòng ngủ", short: "1 PN" },
-      { key: "1 ngủ +", label: "1 phòng ngủ +", short: "1 PN+" },
-      { key: "2 ngủ", label: "2 phòng ngủ", short: "2 PN" },
-      { key: "2 ngủ +", label: "2 phòng ngủ +", short: "2 PN+" },
-      { key: "3 ngủ", label: "3 phòng ngủ", short: "3 PN" }
+      { key: "all", label: "Tất cả phòng", short: "Tất cả", i18n: "f.allRooms", i18nShort: "f.sAll" },
+      { key: "studio", label: "Studio", short: "Studio", i18n: "f.typeStudio", i18nShort: "f.sStudio" },
+      { key: "1 ngủ", label: "1 phòng ngủ", short: "1 PN", i18n: "f.type1pn", i18nShort: "f.s1pn" },
+      { key: "1 ngủ +", label: "1 phòng ngủ +", short: "1 PN+", i18n: "f.type1pnp", i18nShort: "f.s1pnp" },
+      { key: "2 ngủ", label: "2 phòng ngủ", short: "2 PN", i18n: "f.type2pn", i18nShort: "f.s2pn" },
+      { key: "2 ngủ +", label: "2 phòng ngủ +", short: "2 PN+", i18n: "f.type2pnp", i18nShort: "f.s2pnp" },
+      { key: "3 ngủ", label: "3 phòng ngủ", short: "3 PN", i18n: "f.type3pn", i18nShort: "f.s3pn" }
     ];
 
     /* SUA 28/07/2026 - HO DAY KHOANG GIA: moc thap nhat truoc day la 6,5 trieu,
        nen 5 can gia 6-6,4 trieu KHONG loc ra duoc bang bat ky moc nao (chi hien khi
        de "Tat ca"). Doi moc dau thanh "Duoi 7,5 trieu" de khong con can nao rot ra ngoai. */
     const priceFilters = [
-      { key: "all", label: "Tất cả mức giá", short: "Tất cả", test: () => true },
-      { key: "65to75", label: "Dưới 7,5 triệu", short: "< 7,5tr", test: price => price > 0 && price <= 7500000 },
-      { key: "75to10", label: "7,5 - 10 triệu", short: "7,5-10tr", test: price => price > 7500000 && price <= 10000000 },
-      { key: "10to12", label: "10 - 12 triệu", short: "10-12tr", test: price => price > 10000000 && price <= 12000000 },
-      { key: "12to15", label: "12 - 15 triệu", short: "12-15tr", test: price => price > 12000000 && price <= 15000000 },
-      { key: "over15", label: "Trên 15 triệu", short: "> 15tr", test: price => price > 15000000 }
+      { key: "all", label: "Tất cả mức giá", short: "Tất cả", i18n: "f.priceAll", i18nShort: "f.sAll", test: () => true },
+      { key: "65to75", label: "Dưới 7,5 triệu", short: "< 7,5tr", i18n: "f.under75", i18nShort: "f.sUnder75", test: price => price > 0 && price <= 7500000 },
+      { key: "75to10", label: "7,5 - 10 triệu", short: "7,5-10tr", i18n: "f.75to10", i18nShort: "f.s75to10", test: price => price > 7500000 && price <= 10000000 },
+      { key: "10to12", label: "10 - 12 triệu", short: "10-12tr", i18n: "f.10to12", i18nShort: "f.s10to12", test: price => price > 10000000 && price <= 12000000 },
+      { key: "12to15", label: "12 - 15 triệu", short: "12-15tr", i18n: "f.12to15", i18nShort: "f.s12to15", test: price => price > 12000000 && price <= 15000000 },
+      { key: "over15", label: "Trên 15 triệu", short: "> 15tr", i18n: "f.over15", i18nShort: "f.sOver15", test: price => price > 15000000 }
     ];
 
     const interiorFilters = [
-      { key: "all", label: "Tất cả", short: "Tất cả" },
-      { key: "full nội thất", label: "Full nội thất", short: "Full NT" },
-      { key: "nhà nguyên bản", label: "Nhà Nguyên Bản", short: "Nguyên bản" },
-      { key: "đồ cơ bản", label: "Đồ Cơ bản", short: "Cơ bản" }
+      { key: "all", label: "Tất cả", short: "Tất cả", i18n: "f.all", i18nShort: "f.sAll" },
+      { key: "full nội thất", label: "Full nội thất", short: "Full NT", i18n: "f.furnFull", i18nShort: "f.sFurnFull" },
+      { key: "nhà nguyên bản", label: "Nhà Nguyên Bản", short: "Nguyên bản", i18n: "f.furnNone", i18nShort: "f.sFurnNone" },
+      { key: "đồ cơ bản", label: "Đồ Cơ bản", short: "Cơ bản", i18n: "f.furnBasic", i18nShort: "f.sFurnBasic" }
     ];
 
     /* ================================================================
@@ -1173,9 +1222,11 @@
     }
 
     function formatPrice(price) {
-      if (!price) return "Liên hệ";
-      if (price % 1000000 === 0) return `${price / 1000000} triệu`;
-      return `${(price / 1000000).toFixed(1).replace(".", ",")} triệu`;
+      if (!price) return T("l.contact", "Liên hệ");
+      const vi = price % 1000000 === 0
+        ? `${price / 1000000} triệu`
+        : `${(price / 1000000).toFixed(1).replace(".", ",")} triệu`;
+      return dichGia(price, vi);
     }
 
     /** So sánh theo NGÀY (bỏ qua giờ) - ngày hôm nay không tính là "đã qua" */
@@ -1206,9 +1257,12 @@
      *  căn vừa về ưu tiên nhãn "Mới", còn lại hiện tình trạng trống.
      *  Luôn có nhãn đi kèm - con số ngày đứng trần rất dễ bị hiểu nhầm. */
     function nhanTinhTrang(apartment) {
-      if (apartment.isNew) return "✨ Mới";
-      if (sanSangONgay(apartment)) return "Vào ngay";
-      return `Trống từ ${ngayNganGon(apartment.availableDate)}`;
+      if (apartment.isNew) return T("l.badgeNew", "✨ Mới");
+      if (sanSangONgay(apartment)) return T("l.badgeNow", "Vào ngay");
+      /* VI giữ dạng ngắn "12/8" như cũ; EN/KO ghi rõ ngày tháng năm vì
+         người Mỹ đọc 01/08/2026 thành 8 tháng 1. */
+      const ngay = dichNgay(apartment.availableDate, ngayNganGon(apartment.availableDate));
+      return T("l.badgeFrom", `Trống từ ${ngay}`).replace("{NGAY}", ngay);
     }
 
     /* Zalo KHÔNG hỗ trợ điền sẵn nội dung tin nhắn qua link (khác WhatsApp).
@@ -1361,7 +1415,8 @@
         .filter(item => item.show && item.tower && item.type && item.price && item.phanKhu)
         .forEach(item => dem.set(item.phanKhu, (dem.get(item.phanKhu) || 0) + 1));
       const theoSoCan = [...dem.entries()].sort((a, b) => b[1] - a[1]);
-      return [{ key: "all", label: "Tất cả phân khu", short: "Tất cả" }]
+      // Tên phân khu là DANH TỪ RIÊNG -> không gắn i18n, giữ nguyên ở cả 3 ngôn ngữ.
+      return [{ key: "all", label: "Tất cả phân khu", short: "Tất cả", i18n: "f.zoneAll", i18nShort: "f.sAll" }]
         .concat(theoSoCan.map(([ten]) => ({ key: normalizeKey(ten), label: ten, short: ten })));
     }
 
@@ -1394,10 +1449,11 @@
     }
 
     function veChip(muc, soCan, thuocTinh, dangChon) {
-      const nhan = `<span class="chip-full">${muc.label}</span><span class="chip-short">${muc.short || muc.label}</span>`;
+      const nhanDai = nhanMuc(muc);
+      const nhan = `<span class="chip-full">${nhanDai}</span><span class="chip-short">${nhanMucNgan(muc)}</span>`;
       const khoa = soCan === 0 && !dangChon ? " disabled" : "";
       return `<button class="chip ${dangChon ? "active" : ""}" ${thuocTinh}="${muc.key}" type="button"${khoa}`
-        + ` aria-label="${muc.label} - ${soCan} căn">${nhan} <small>${soCan}</small></button>`;
+        + ` aria-label="${nhanDai} - ${soCan} ${T("f.unit", "căn")}">${nhan} <small>${soCan}</small></button>`;
     }
 
     function renderFilters() {
@@ -1534,15 +1590,17 @@
      *  Chỉ "Full nội thất" mới được tô xanh dương - căn cơ bản/nguyên bản dùng
      *  màu trung tính để huy hiệu không hứa nhiều hơn thực tế. */
     function badgeNoiThatHtml(apartment) {
-      const noiThat = apartment.interior || "Nội thất cập nhật";
+      const noiThat = apartment.interior || "";
+      // So sánh bằng DỮ LIỆU GỐC, chỉ dịch khi in ra màn hình.
       const la_full = normalizeKey(noiThat) === "full nội thất";
-      return `<span class="badge-nt${la_full ? "" : " thuong"}">${noiThat}</span>`;
+      const chu = noiThat ? dichDuLieu(noiThat) : T("l.furnUpd", "Nội thất cập nhật");
+      return `<span class="badge-nt${la_full ? "" : " thuong"}">${chu}</span>`;
     }
 
     /** Số ảnh góc trên phải. Đếm từ chính album của căn, không có thì bỏ hẳn. */
     function soAnhHtml(apartment) {
       const soMedia = apartment.photos.length + apartment.videos.length;
-      return soMedia > 0 ? `<span class="pcount">${soMedia} ảnh</span>` : "";
+      return soMedia > 0 ? `<span class="pcount">${T("l.photos", `${soMedia} ảnh`).replace("{N}", soMedia)}</span>` : "";
     }
 
     /* Khung ảnh thẻ: ~170px trên mobile, nửa cột ở tablet, một phần ba ở desktop. */
@@ -1564,10 +1622,10 @@
           <svg width="42" height="42" viewBox="0 0 24 24" fill="none" aria-hidden="true">
             <path d="M3 9.5 12 3l9 6.5V20a1 1 0 0 1-1 1h-5v-6H9v6H4a1 1 0 0 1-1-1V9.5Z" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/>
           </svg>
-          <span>Hình ảnh đang được cập nhật</span>
+          <span>${T("l.imgUpd", "Hình ảnh đang được cập nhật")}</span>
         </button>`;
       }
-      return `<button class="media" type="button" data-gallery="${index}" aria-label="Xem ảnh căn hộ ${apartment.tower}">
+      return `<button class="media" type="button" data-gallery="${index}" aria-label="${T("l.galleryAl", "Xem ảnh căn hộ")} ${apartment.tower}">
         ${hangBadge}
         ${soAnhHtml(apartment)}
         <img src="${apartment.cover}"${srcsetAnhThe(apartment.cover)} width="800" height="600" alt="Căn hộ ${apartment.type} tòa ${apartment.tower}" loading="lazy" data-akey="${apartmentKey(apartment)}" onerror="xuLyAnhLoi(this)">
@@ -1597,7 +1655,7 @@
       const noiThat = apartment.interior || "";
       if (!noiThat) return "";
       const la_full = normalizeKey(noiThat) === "full nội thất";
-      return `<span class="cc-nt${la_full ? "" : " thuong"}">${noiThat}</span>`;
+      return `<span class="cc-nt${la_full ? "" : " thuong"}">${dichDuLieu(noiThat)}</span>`;
     }
 
     function renderCards(apartments) {
@@ -1605,8 +1663,8 @@
       if (!apartments.length) {
         grid.className = "";
         const thongBao = state.sort === "newest"
-          ? "Hiện chưa có căn nào mới/vừa cập nhật trong 3 ngày qua. Anh/chị đổi sang xem toàn bộ danh sách nhé."
-          : "Chưa có căn hộ phù hợp với bộ lọc hiện tại. Để lại nhu cầu, tụi mình sẽ chủ động tìm căn phù hợp và liên hệ lại.";
+          ? T("l.noneNew", "Hiện chưa có căn nào mới/vừa cập nhật trong 3 ngày qua. Anh/chị đổi sang xem toàn bộ danh sách nhé.")
+          : T("l.noneMatch", "Chưa có căn hộ phù hợp với bộ lọc hiện tại. Để lại nhu cầu, tụi mình sẽ chủ động tìm căn phù hợp và liên hệ lại.");
         grid.innerHTML = `
           <div class="empty-state">
             ${thongBao}
@@ -1614,7 +1672,7 @@
               <svg width="15" height="15" viewBox="0 0 24 24" fill="none" aria-hidden="true">
                 <path d="m21 21-4.35-4.35M10.5 18a7.5 7.5 0 1 1 0-15 7.5 7.5 0 0 1 0 15Z" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
               </svg>
-              Nhờ tìm giúp
+              ${T("lead.btn", "Nhờ tìm giúp")}
             </button>
           </div>`;
         $("#openLeadModalBtnEmpty").addEventListener("click", moLeadModal);
@@ -1626,8 +1684,8 @@
         <article class="card" data-ma-noi-bo="${apartment.apartmentId || ""}">
           ${mediaMarkup(apartment, index)}
           <div class="body">
-            <h3>${apartment.type}${apartment.area ? ` · ${apartment.area} m²` : ""}</h3>
-            <div class="price">${formatPrice(apartment.price)}<small>/tháng</small></div>
+            <h3>${dichDuLieu(apartment.type)}${apartment.area ? ` · ${apartment.area} m²` : ""}</h3>
+            <div class="price">${formatPrice(apartment.price)}<small>${T("l.perMonth", "/tháng")}</small></div>
             <span class="tower">
               <svg width="12" height="12" viewBox="0 0 24 24" fill="none" aria-hidden="true">
                 <path d="M12 21s7-5.5 7-11a7 7 0 1 0-14 0c0 5.5 7 11 7 11Z" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/>
@@ -1644,10 +1702,10 @@
                 <svg width="14" height="14" viewBox="0 0 24 24" fill="none" aria-hidden="true">
                   <path d="M21 11.5a8.4 8.4 0 0 1-8.5 8.3 9.5 9.5 0 0 1-3.5-.67L3 21l1.9-5.1a8 8 0 0 1-.9-3.7A8.4 8.4 0 0 1 12.5 4 8.4 8.4 0 0 1 21 11.5Z" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/>
                 </svg>
-                Hỏi căn này
+                ${T("l.ask", "Hỏi căn này")}
               </a>
             </div>
-            ${apartment.apartmentId ? `<p class="ma-can">Mã căn: <b>${apartment.apartmentId}</b></p>` : ""}
+            ${apartment.apartmentId ? `<p class="ma-can">${T("l.code", "Mã căn:")} <b>${apartment.apartmentId}</b></p>` : ""}
           </div>
         </article>
       `).join("");
@@ -1667,7 +1725,7 @@
         window.MoGallery(media, 0);
         return;
       }
-      $("#modalTitle").textContent = `${apartment.type} - ${apartment.tower}`;
+      $("#modalTitle").textContent = `${dichDuLieu(apartment.type)} - ${apartment.tower}`;
       $("#galleryContent").innerHTML = media.map(url => {
           const isVideo = /\.(mp4|mov|m4v|webm)(\?|$)/i.test(url);
           return isVideo
@@ -1731,7 +1789,7 @@
       const pages = new Set([1, totalPages, current, current - 1, current + 1]);
       const sorted = [...pages].filter(p => p >= 1 && p <= totalPages).sort((a, b) => a - b);
 
-      let html = `<button class="page-btn" type="button" data-page="${current - 1}" ${current === 1 ? "disabled" : ""} aria-label="Trang trước">‹</button>`;
+      let html = `<button class="page-btn" type="button" data-page="${current - 1}" ${current === 1 ? "disabled" : ""} aria-label="${T("l.prev", "Trang trước")}">‹</button>`;
 
       let previous = 0;
       sorted.forEach(page => {
@@ -1742,7 +1800,7 @@
         previous = page;
       });
 
-      html += `<button class="page-btn" type="button" data-page="${current + 1}" ${current === totalPages ? "disabled" : ""} aria-label="Trang sau">›</button>`;
+      html += `<button class="page-btn" type="button" data-page="${current + 1}" ${current === totalPages ? "disabled" : ""} aria-label="${T("l.next", "Trang sau")}">›</button>`;
 
       container.innerHTML = html;
       container.querySelectorAll("[data-page]").forEach(button => {
@@ -1766,7 +1824,7 @@
       const nhan = (danhSach, khoa) => {
         if (khoa === "all") return null;
         const muc = danhSach.find(m => m.key === khoa);
-        return muc ? muc.label : null;
+        return muc ? nhanMuc(muc) : null;
       };
       const phan = [
         nhan(danhSachPhanKhu(), state.phanKhu),
@@ -1776,8 +1834,8 @@
       ].filter(Boolean);
       if (state.query) phan.push(`“${state.query}”`);
       o.textContent = phan.length
-        ? "Đang lọc: " + phan.join(" · ")
-        : "Lọc theo phân khu, phòng ngủ và giá thuê";
+        ? T("l.filtering", "Đang lọc:") + " " + phan.join(" · ")
+        : T("f.byZoneBed", "Lọc theo phân khu, phòng ngủ và giá thuê");
     }
 
     function render() {
@@ -1786,7 +1844,8 @@
       renderFilters();
       capNhatTomTatBoLoc();
       const apartments = getFilteredApartments();
-      $("#resultCount").innerHTML = `<strong>${apartments.length}</strong> căn hộ đang trống phù hợp`;
+      $("#resultCount").innerHTML = T("l.h2", `<strong>${apartments.length}</strong> căn hộ đang trống phù hợp`)
+        .replace("{N}", apartments.length);
 
       /* Nut day bang loc hien SO CAN ngay tren nut. Khach thay ket qua truoc khi dong bang,
          khong phai dong ra dong vao de do xem con bao nhieu can. */
@@ -1882,7 +1941,7 @@
           console.warn("Đang đọc trực tiếp Google Sheet. Để ẩn tuyệt đối cột nội bộ, hãy dùng Apps Script endpoint trong CONFIG.dataEndpoint.");
         }
       } catch (error) {
-        $("#resultCount").textContent = "Không tải được dữ liệu";
+        $("#resultCount").textContent = T("l.loadErr", "Không tải được dữ liệu");
         $("#listingGrid").className = "";
         $("#listingGrid").innerHTML = `<div class="error-state">${error.message}</div>`;
       }
@@ -1949,7 +2008,10 @@
       });
       // Tren dien thoai o tim hep hon nhieu, dong goi y dai bi cat cut -> rut gon lai.
       if (window.matchMedia("(max-width: 640px)").matches) {
-        oTimKiem.placeholder = "Sapphire, 2PN, 8 triệu, mã căn…";
+        // Đổi luôn khoá dịch sang bản ngắn để bộ máy đổi ngôn ngữ không ghi đè
+        // bằng câu gợi ý dài của bản máy tính.
+        oTimKiem.setAttribute("data-i18n-ph", "search.phShort");
+        oTimKiem.placeholder = T("search.phShort", "Sapphire, 2PN, 8 triệu, mã căn…");
       }
     }
 
@@ -2011,12 +2073,12 @@
       const sdt = $("#leadSdt").value.trim();
 
       if (!hoTen || !sdt) {
-        errorBox.textContent = "Anh/chị vui lòng nhập họ tên và số điện thoại.";
+        errorBox.textContent = T("lead.errName", "Anh/chị vui lòng nhập họ tên và số điện thoại.");
         errorBox.classList.add("show");
         return;
       }
       if (!sdtHopLe(sdt)) {
-        errorBox.textContent = "Số điện thoại chưa đúng định dạng, anh/chị kiểm tra lại giúp em.";
+        errorBox.textContent = T("lead.errPhone", "Số điện thoại chưa đúng định dạng, anh/chị kiểm tra lại giúp em.");
         errorBox.classList.add("show");
         return;
       }
@@ -2028,7 +2090,7 @@
 
       const submitBtn = $("#leadSubmitBtn");
       submitBtn.disabled = true;
-      submitBtn.textContent = "Đang gửi...";
+      submitBtn.textContent = T("lead.sending", "Đang gửi...");
 
       try {
         const ketQua = await jsonpGuiThamSo(CONFIG.dataEndpoint, {
@@ -2052,15 +2114,15 @@
           // khỏi phần xử lý form - đo lường hỏng cũng không ảnh hưởng việc nhận yêu cầu.
           document.dispatchEvent(new CustomEvent("guiYeuCauThanhCong"));
         } else {
-          errorBox.textContent = (ketQua && ketQua.loi) || "Có lỗi xảy ra, vui lòng thử lại hoặc liên hệ trực tiếp qua Zalo.";
+          errorBox.textContent = (ketQua && ketQua.loi) || T("lead.errSend", "Có lỗi xảy ra, vui lòng thử lại hoặc liên hệ trực tiếp qua Zalo.");
           errorBox.classList.add("show");
         }
       } catch (err) {
-        errorBox.textContent = "Không gửi được yêu cầu, vui lòng thử lại hoặc liên hệ trực tiếp qua Zalo.";
+        errorBox.textContent = T("lead.errNet", "Không gửi được yêu cầu, vui lòng thử lại hoặc liên hệ trực tiếp qua Zalo.");
         errorBox.classList.add("show");
       } finally {
         submitBtn.disabled = false;
-        submitBtn.textContent = "Gửi yêu cầu, để tụi mình tìm giúp";
+        submitBtn.textContent = T("lead.send", "Gửi yêu cầu, để tụi mình tìm giúp");
       }
     });
 
@@ -2191,9 +2253,13 @@
         oNhac = document.createElement("div");
         oNhac.className = "nhac-copy" + (thanhCong ? "" : " nhac-copy--loi");
         oNhac.setAttribute("role", "status");
+        /* Tên nút "Dán" GIỮ NGUYÊN TIẾNG VIỆT ở cả 3 ngôn ngữ — đó là chữ in
+           trên app Zalo bản tiếng Việt mà khách đang nhìn thấy. */
         oNhac.innerHTML = thanhCong
-          ? '<b>Đã sao chép sẵn tin nhắn</b><span>Vào Zalo, giữ 1 giây ở ô chat rồi chọn <b>Dán</b> và gửi</span>'
-          : '<b>Máy không cho tự sao chép</b><span>Anh/chị copy giúp câu này rồi dán vào Zalo:</span>';
+          ? '<b>' + T("zl.copied", "Đã sao chép sẵn tin nhắn") + '</b><span>'
+            + T("zl.copiedHow", "Vào Zalo, giữ 1 giây ở ô chat rồi chọn <b>Dán</b> và gửi") + '</span>'
+          : '<b>' + T("zl.copyFail", "Máy không cho tự sao chép") + '</b><span>'
+            + T("zl.copyFailHow", "Anh/chị copy giúp câu này rồi dán vào Zalo:") + '</span>';
         if (!thanhCong) {
           const o = document.createElement("textarea");
           o.className = "nhac-copy__o";
@@ -2306,6 +2372,13 @@
         guiSuKien("gui_yeu_cau_tim_nha", { vi_tri: "form_nho_tim_giup" });
       });
     })();
+
+    /* Đổi ngôn ngữ -> vẽ lại lưới bằng CHÍNH hàm render() đang có.
+       Không viết hàm render mới, không sao chép logic lọc.
+       Bỏ qua khi chưa nạp xong dữ liệu để không nháy màn hình "không có căn". */
+    document.addEventListener("ngonngu:doi", function () {
+      if (state.apartments.length) render();
+    });
 
     init();
   </script>
@@ -2470,6 +2543,7 @@
       nhanBan();
     })();
   </script>
+  <script src="/assets/ngon-ngu.js" defer></script>
   <script src="/assets/gallery.js" defer></script>
   <script src="/assets/app-shell.js" defer></script>
 </body>

@@ -1,0 +1,39 @@
+/* ==================================================================
+   ngon-ngu.css — Nút đổi ngôn ngữ VI / EN / 한 (thêm 11/08/2026)
+   Chỉ tải trên trang chủ. Không có selector nào trùng với v3.css.
+   ================================================================== */
+
+.doi-tieng{
+  display:flex; align-items:center; gap:2px; flex:none;
+  padding:3px; border-radius:99px;
+  background:rgba(15,23,42,.06); border:1px solid rgba(15,23,42,.10);
+}
+.doi-tieng button{
+  appearance:none; border:0; background:transparent; cursor:pointer;
+  font:inherit; font-size:.78rem; font-weight:600; line-height:1;
+  color:#475569; padding:7px 10px; border-radius:99px;
+  transition:background .15s, color .15s;
+}
+.doi-tieng button:hover{ color:#0f172a; }
+.doi-tieng button[aria-pressed="true"]{
+  background:#fff; color:#0f172a;
+  box-shadow:0 1px 2px rgba(15,23,42,.14);
+}
+.doi-tieng button:focus-visible{ outline:2px solid #1d4ed8; outline-offset:2px; }
+
+/* Điện thoại: .topbar .actions bị ẩn từ 640px trở xuống (v3.css dòng ~1350),
+   .topnav bị ẩn từ 860px. Nút ngôn ngữ KHÔNG nằm trong hai khối đó nên vẫn
+   hiện; đẩy sang phải cho cân với tên thương hiệu. */
+@media (max-width:640px){
+  .doi-tieng{ margin-left:auto; }
+  .doi-tieng button{ padding:6px 9px; font-size:.74rem; }
+}
+
+/* Dải nhắc khách nước ngoài — chỉ hiện khi đang ở EN/KO */
+.nhac-tieng{ display:none; }
+html[lang="en"] .nhac-tieng,
+html[lang="ko"] .nhac-tieng{
+  display:block; text-align:center;
+  padding:8px 14px; font-size:.82rem; line-height:1.5;
+  background:#eff6ff; color:#1e3a8a; border-bottom:1px solid #dbeafe;
+}

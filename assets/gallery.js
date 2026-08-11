@@ -25,6 +25,20 @@
 
   var ID = "gallery-toan-man-hinh";
   var CSS_ID = "gallery-css";
+
+  /* ---------- 0. Đổi ngôn ngữ (thêm 11/08/2026) ----------------------
+     assets/ngon-ngu.js CHỈ được nạp ở index.html. Trên 41 trang còn lại
+     window.NGON_NGU_APDUNG không tồn tại nên file này hiện đúng tiếng Việt
+     như hôm nay — đây là hành vi mong muốn, không phải lỗi.
+
+     Khung gallery được dựng bằng CHỮ TIẾNG VIỆT kèm data-i18n-al rồi mới
+     nhờ bộ máy dịch, thay vì dịch sẵn lúc dựng: có vậy bộ máy mới ghi nhớ
+     được đúng bản gốc và trả lại nguyên văn khi khách bấm VI. */
+  function nhoDich(el) {
+    try {
+      if (typeof window.NGON_NGU_APDUNG === "function") window.NGON_NGU_APDUNG(el);
+    } catch (e) { /* im lặng — hỏng ở đây không được kéo sập gallery */ }
+  }
   var khung = null, track = null, oDem = null;
   var danhSach = [], viTri = 0, doCuonCu = 0, dangMo = false, daDayLichSu = false;
 
@@ -86,13 +100,15 @@
     khung.setAttribute("role", "dialog");
     khung.setAttribute("aria-modal", "true");
     khung.setAttribute("aria-label", "Xem ảnh căn hộ");
+    khung.setAttribute("data-i18n-al", "g.open");
     khung.innerHTML =
         '<div class="gl-track"></div>'
-      + '<div class="gl-top"><button class="gl-x" type="button" aria-label="Đóng">&times;</button>'
+      + '<div class="gl-top"><button class="gl-x" type="button" aria-label="Đóng" data-i18n-al="g.close">&times;</button>'
       + '<span class="gl-dem" aria-live="polite"></span></div>'
-      + '<button class="gl-nut gl-truoc" type="button" aria-label="Ảnh trước">&#8249;</button>'
-      + '<button class="gl-nut gl-sau" type="button" aria-label="Ảnh sau">&#8250;</button>';
+      + '<button class="gl-nut gl-truoc" type="button" aria-label="Ảnh trước" data-i18n-al="g.prev">&#8249;</button>'
+      + '<button class="gl-nut gl-sau" type="button" aria-label="Ảnh sau" data-i18n-al="g.next">&#8250;</button>';
     document.body.appendChild(khung);
+    nhoDich(khung);
 
     track = khung.querySelector(".gl-track");
     oDem = khung.querySelector(".gl-dem");
