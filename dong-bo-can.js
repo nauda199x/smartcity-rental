@@ -24,12 +24,6 @@
   var NGUON_ANH = "/anh-can-ho/anh-map.json";
   var SDT = "0977923284";
 
-  /* Bao nhiêu thẻ ĐẦU danh sách buộc phải là thẻ có ảnh. Phần còn lại xếp
-     thuần theo tiêu chí đang chọn, căn chưa có ảnh không bị dồn xuống cuối
-     nữa. Đổi số ở đây là đổi cho cả lưới. Bản Python
-     (scripts/dung-lai-trang-danh-muc.py) có hằng cùng tên, phải đổi kèm. */
-  var SO_THE_ANH_DAU = 6;
-
   /* Bảng tra ảnh đã di dời về repo: drive_id -> đường dẫn ảnh trong repo.
      Nạp một lần lúc script khởi động. Nếu nạp lỗi thì để rỗng — site vẫn chạy
      bình thường với ảnh Drive như trước. */
@@ -575,21 +569,20 @@
   }
 
   /* ---------- Thứ tự thẻ trên lưới ----------
-     Luật cũ: dồn TOÀN BỘ căn chưa có ảnh xuống cuối. Hệ quả là /lumiere/ có
-     22/28 căn không ảnh thì 22 căn đó nằm sau trang 1, gần như không ai thấy.
-     Luật mới: chỉ bảo đảm SO_THE_ANH_DAU thẻ mở đầu là thẻ có ảnh (nếu đủ),
-     phần còn lại giữ nguyên thứ tự của tiêu chí đang sắp — ở đây là giá tăng
-     dần. Khách vẫn gặp một mở đầu có hình, còn căn chưa có ảnh trở lại đúng
-     vị trí theo giá của nó. */
-  function uuTienAnhDau(ds) {
-    var dau = [], con = [];
+     Căn CHƯA có ảnh luôn xếp sau toàn bộ căn có ảnh. Đây là luật SẮP XẾP,
+     không phải luật lọc: căn chưa ảnh vẫn nằm trong kết quả của bộ lọc trang,
+     chỉ đứng cuối lưới. Trong từng nhóm, thứ tự theo giá tăng dần được giữ
+     nguyên vì cả hai nhánh đều push theo chiều duyệt.
+     index.html và scripts/dung-lai-trang-danh-muc.py có bản cùng nghĩa —
+     sửa đây thì phải sửa cả hai, lệch nhau là bản tĩnh và lưới sau khi JS
+     chạy sẽ xếp khác nhau. */
+  function dayCanChuaAnhXuongCuoi(ds) {
+    var coAnh = [], chuaAnh = [];
     for (var i = 0; i < ds.length; i++) {
-      /* Đủ 6 thẻ đầu rồi thì mọi căn còn lại xuống nhóm sau, giữ nguyên thứ
-         tự tương đối — cả hai nhánh đều push theo chiều duyệt nên ổn định. */
-      if (dau.length < SO_THE_ANH_DAU && anhBia(ds[i])) dau.push(ds[i]);
-      else con.push(ds[i]);
+      if (anhBia(ds[i])) coAnh.push(ds[i]);
+      else chuaAnh.push(ds[i]);
     }
-    return dau.concat(con);
+    return coAnh.concat(chuaAnh);
   }
 
   /* ---------- Bộ lọc riêng của từng trang ---------- */
@@ -640,7 +633,7 @@
 
     dsCan.sort(function (a, b) { return soTien(a["Giá thuê"]) - soTien(b["Giá thuê"]); });
 
-    dsCan = uuTienAnhDau(dsCan);
+    dsCan = dayCanChuaAnhXuongCuoi(dsCan);
 
     var moi = document.createDocumentFragment();
     for (var j = 0; j < dsCan.length; j++) moi.appendChild(dungThe(dsCan[j]));
