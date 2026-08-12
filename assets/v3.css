@@ -353,14 +353,67 @@ p:last-child{margin-bottom:0}
   transition:transform .35s ease;
 }
 .card:hover .media img,.the:hover .the-anh img{transform:scale(1.04)}
-/* Chưa có ảnh: nền xám nhạt + dòng chữ sẵn có, không dùng ảnh giả. */
-.media.empty{display:grid;place-items:center;gap:8px;color:var(--gray-lt);
-  background:linear-gradient(150deg,#EEF2F7,#DCE4EE);font-size:.8rem}
-.media.empty svg{width:38px;height:38px;opacity:.55}
-.the.khong-anh .the-anh::after{
-  content:"Đang cập nhật ảnh";position:absolute;inset:0;display:flex;
-  align-items:center;justify-content:center;color:var(--gray-lt);font-size:.8rem;
-  background:linear-gradient(150deg,#EEF2F7,#DCE4EE);
+/* Chưa có ảnh: nền trung tính + lời mời nhắn Zalo, không dùng ảnh giả và
+   không mượn ảnh của căn khác. Ô này trước đây chỉ có một dòng chữ báo ảnh
+   đang được bổ sung — chữ chết, không cho khách đường nào đi tiếp.
+   MỘT gradient duy nhất cho mọi phân khu: khác biệt giữa các thẻ do watermark
+   mã tòa đảm nhiệm, không phải do 9 bảng màu riêng. */
+.media.empty,.the.khong-anh .the-anh{
+  background:linear-gradient(150deg,#E9EEF5,#D3DDEA);
+}
+/* Lớp nội dung phủ kín khung ảnh. Đặt absolute (không phải flex trong dòng
+   chảy) vì hai khung ảnh cha có kích thước rất khác nhau — 4/3 ở lưới máy
+   tính, cao 100% và rộng 46% ở bản điện thoại. */
+.ka-trong{
+  position:absolute;inset:0;display:flex;flex-direction:column;
+  align-items:center;justify-content:center;gap:7px;
+  padding:34px 10px 12px;text-align:center;
+}
+/* Watermark mã tòa làm nền. aria-hidden ở HTML nên máy đọc màn hình bỏ qua —
+   mã tòa đã có trong dòng .vi-tri của thân thẻ rồi. */
+.ka-toa{
+  position:absolute;inset:0;display:flex;align-items:center;justify-content:center;
+  font-family:var(--font-tieu-de);font-weight:800;font-size:3.4rem;
+  line-height:1;letter-spacing:.02em;color:var(--navy);opacity:.09;
+  pointer-events:none;user-select:none;overflow:hidden;
+}
+.ka-icon{
+  position:relative;width:30px;height:30px;flex:none;
+  color:var(--gray-lt);opacity:.85;
+}
+.ka-chu{
+  position:relative;color:var(--gray);font-size:.8rem;font-weight:600;
+  line-height:1.25;max-width:100%;
+}
+.ka-cta{
+  position:relative;display:inline-flex;align-items:center;gap:5px;
+  max-width:100%;background:var(--zalo);color:#fff;
+  font-size:.7rem;font-weight:600;line-height:1.25;
+  border-radius:var(--r-sm);padding:6px 9px;
+  transition:background .2s;
+}
+.ka-cta::before{
+  content:"";width:13px;height:13px;flex:none;background:currentColor;
+  -webkit-mask:var(--ic-zalo) center/contain no-repeat;
+  mask:var(--ic-zalo) center/contain no-repeat;
+}
+.ka-cta:hover{background:var(--zalo-dam)}
+/* Hai bản chữ của cùng một nút: bản dài cho khung rộng, bản ngắn cho khung
+   ~166px của bản điện thoại. Nút KHÔNG bao giờ bị ẩn, chỉ đổi chữ. */
+.ka-ngan{display:none}
+
+/* Căn CÓ link ảnh nhưng ảnh tải hỏng: thuộc tính onerror trong HTML chỉ gắn
+   class .khong-anh rồi xoá thẻ <img>, nó không chèn được ruột thẻ — nên khung
+   đó có .khong-anh mà không có .ka-trong. Trước đây khung này vẫn còn một
+   dòng chữ do ::after vẽ; bỏ ::after mà không thay gì là để lại ô trống trơn.
+   Không dùng lời mời Zalo ở đây: căn này có thể vẫn còn nguyên album ảnh, chỉ
+   riêng ảnh bìa hỏng, nói "chưa có ảnh" là nói sai.
+   Trình duyệt không hiểu :has() sẽ bỏ qua cả luật -> quay về ô nền trơn, đúng
+   bằng mức xấu nhất chứ không gây lỗi. */
+.the.khong-anh .the-anh:not(:has(.ka-trong))::after{
+  content:"Ảnh của căn này đang được bổ sung";
+  position:absolute;inset:0;display:flex;align-items:center;justify-content:center;
+  padding:0 10px;text-align:center;color:var(--gray-lt);font-size:.8rem;
 }
 
 /* Badge góc trên trái — trạng thái căn (xanh lá) */
@@ -1258,8 +1311,17 @@ figure figcaption{font-size:.8rem;color:var(--gray-lt);margin-top:7px;text-align
   .badge-nt{display:none}
   .pcount,.dbc-huy-hieu{right:7px;top:7px;font-size:.63rem;padding:3px 7px;gap:4px}
   .pcount::before,.dbc-huy-hieu::before{width:10px;height:10px}
-  .media.empty{font-size:.7rem;padding:0 8px;text-align:center}
-  .media.empty svg{width:26px;height:26px}
+  /* Thẻ chưa có ảnh trong khung hẹp ~152–166px: thu mọi thứ lại và đổi nút
+     sang chữ ngắn. Nút vẫn phải bấm được, không được ẩn. */
+  .ka-trong{padding:28px 6px 8px;gap:5px}
+  .ka-toa{font-size:2.3rem}
+  .ka-icon{width:22px;height:22px}
+  .ka-chu{font-size:.7rem}
+  .ka-cta{font-size:.65rem;padding:5px 8px;gap:4px}
+  .ka-cta::before{width:11px;height:11px}
+  .ka-dai{display:none}
+  .ka-ngan{display:inline}
+  .the.khong-anh .the-anh:not(:has(.ka-trong))::after{font-size:.68rem;padding:0 6px}
   /* Ảnh không phóng to khi chạm — trên điện thoại hiệu ứng này chỉ gây giật */
   .card:hover,.the:hover{transform:none}
   .card:hover .media img,.the:hover .the-anh img{transform:none}

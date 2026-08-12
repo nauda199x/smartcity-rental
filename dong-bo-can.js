@@ -24,6 +24,12 @@
   var NGUON_ANH = "/anh-can-ho/anh-map.json";
   var SDT = "0977923284";
 
+  /* Bao nhiêu thẻ ĐẦU danh sách buộc phải là thẻ có ảnh. Phần còn lại xếp
+     thuần theo tiêu chí đang chọn, căn chưa có ảnh không bị dồn xuống cuối
+     nữa. Đổi số ở đây là đổi cho cả lưới. Bản Python
+     (scripts/dung-lai-trang-danh-muc.py) có hằng cùng tên, phải đổi kèm. */
+  var SO_THE_ANH_DAU = 6;
+
   /* Bảng tra ảnh đã di dời về repo: drive_id -> đường dẫn ảnh trong repo.
      Nạp một lần lúc script khởi động. Nếu nạp lỗi thì để rỗng — site vẫn chạy
      bình thường với ảnh Drive như trước. */
@@ -447,6 +453,30 @@
     }
   }
 
+  /* ---------- Ruột khung ảnh của căn CHƯA có ảnh ----------
+     Trước đây ô này chỉ có một dòng chữ do CSS vẽ báo ảnh đang bổ sung: khách
+     không biết làm gì tiếp, và 57/262 căn coi như vô hình. Nay ô đó nói thật
+     là chưa có ảnh, rồi mời nhắn Zalo để nhận ảnh/video thực tế.
+
+     CẢNH BÁO: chuỗi trả về phải TRÙNG TỪNG KÝ TỰ với khoi_khong_anh() của
+     scripts/dung-lai-trang-danh-muc.py. Script đó dựng bản HTML tĩnh mà
+     Googlebot đọc, còn hàm này dựng lại đúng thẻ ấy trong trình duyệt; lệch
+     một ký tự là trang nhảy layout ngay khi JS chạy xong. */
+  function khoiKhongAnh(toa) {
+    return '<div class="ka-trong">' +
+      /* Mã tòa rỗng thì bỏ hẳn watermark, không in thẻ span rỗng. */
+      (toa ? '<span class="ka-toa" aria-hidden="true">' + esc(toa) + "</span>" : "") +
+      '<svg class="ka-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" ' +
+      'stroke-width="1.7" stroke-linejoin="round" aria-hidden="true">' +
+      '<path d="M5.6 7.6h1.9l1.2-2h6.6l1.2 2h1.9A1.7 1.7 0 0 1 20 9.3v8A1.7 1.7 0 0 1 18.3 19H5.7A1.7 1.7 0 0 1 4 17.3v-8a1.7 1.7 0 0 1 1.6-1.7Z"/>' +
+      '<circle cx="12" cy="13.1" r="3.1"/>' +
+      '<path d="M3.6 3.6 20.4 20.4" stroke-linecap="round"/></svg>' +
+      '<span class="ka-chu">Căn này chưa có ảnh</span>' +
+      '<a class="ka-cta" href="https://zalo.me/' + SDT + '" target="_blank" rel="noopener">' +
+      '<span class="ka-dai">Nhắn Zalo để nhận ảnh &amp; video thực tế</span>' +
+      '<span class="ka-ngan">Nhắn Zalo xem ảnh</span></a></div>';
+  }
+
   /* ---------- Dựng thẻ căn hộ, đúng markup sẵn có của trang tĩnh ---------- */
   function dungThe(r) {
     var ma = chuan(r["Mã nội bộ"]);
@@ -490,7 +520,10 @@
         "var b=this.parentNode.querySelector('.dbc-huy-hieu');if(b)b.parentNode.removeChild(b);" +
         "this.remove()\">" + huyHieu + huyHieuTinhTrang + huyHieuNoiThat + "</div>";
     } else {
-      khungAnh = '<div class="the-anh">' + huyHieuTinhTrang + huyHieuNoiThat + "</div>";
+      /* Ruột đứng TRƯỚC hai huy hiệu, đúng chỗ thẻ <img> vẫn nằm ở nhánh có
+         ảnh — để bản Python chỉ cần thay <img> tại chỗ là ra markup y hệt. */
+      khungAnh = '<div class="the-anh">' + khoiKhongAnh(toa) +
+        huyHieuTinhTrang + huyHieuNoiThat + "</div>";
     }
 
     var el = document.createElement("article");
@@ -541,6 +574,24 @@
     return el;
   }
 
+  /* ---------- Thứ tự thẻ trên lưới ----------
+     Luật cũ: dồn TOÀN BỘ căn chưa có ảnh xuống cuối. Hệ quả là /lumiere/ có
+     22/28 căn không ảnh thì 22 căn đó nằm sau trang 1, gần như không ai thấy.
+     Luật mới: chỉ bảo đảm SO_THE_ANH_DAU thẻ mở đầu là thẻ có ảnh (nếu đủ),
+     phần còn lại giữ nguyên thứ tự của tiêu chí đang sắp — ở đây là giá tăng
+     dần. Khách vẫn gặp một mở đầu có hình, còn căn chưa có ảnh trở lại đúng
+     vị trí theo giá của nó. */
+  function uuTienAnhDau(ds) {
+    var dau = [], con = [];
+    for (var i = 0; i < ds.length; i++) {
+      /* Đủ 6 thẻ đầu rồi thì mọi căn còn lại xuống nhóm sau, giữ nguyên thứ
+         tự tương đối — cả hai nhánh đều push theo chiều duyệt nên ổn định. */
+      if (dau.length < SO_THE_ANH_DAU && anhBia(ds[i])) dau.push(ds[i]);
+      else con.push(ds[i]);
+    }
+    return dau.concat(con);
+  }
+
   /* ---------- Bộ lọc riêng của từng trang ---------- */
   function docBoLoc() {
     var el = document.getElementById("bo-loc-trang");
@@ -589,13 +640,7 @@
 
     dsCan.sort(function (a, b) { return soTien(a["Giá thuê"]) - soTien(b["Giá thuê"]); });
 
-    /* Căn có ảnh xếp trước (vẫn theo giá tăng dần), căn chưa có ảnh dồn xuống cuối,
-       để khách không gặp ô "Đang cập nhật ảnh" xen giữa danh sách. */
-    var coAnh = [], khongAnh = [];
-    for (var n = 0; n < dsCan.length; n++) {
-      if (anhBia(dsCan[n])) coAnh.push(dsCan[n]); else khongAnh.push(dsCan[n]);
-    }
-    dsCan = coAnh.concat(khongAnh);
+    dsCan = uuTienAnhDau(dsCan);
 
     var moi = document.createDocumentFragment();
     for (var j = 0; j < dsCan.length; j++) moi.appendChild(dungThe(dsCan[j]));
