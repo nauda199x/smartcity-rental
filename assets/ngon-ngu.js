@@ -340,6 +340,10 @@
     /* Thẻ căn hộ & gallery dự phòng */
     "l.ask":          ["Ask about this unit", "이 매물 문의"],
     "l.imgUpd":       ["Photos are being updated", "사진 업데이트 중"],
+    /* Thẻ căn chưa có ảnh: nói thật là chưa có ảnh + mời nhắn Zalo. Thay chỗ
+       l.imgUpd trong mediaMarkup(); l.imgUpd giữ lại phòng nơi khác còn dùng. */
+    "l.noPhoto":      ["No photos for this unit yet", "이 매물은 아직 사진이 없습니다"],
+    "l.noPhotoCta":   ["Message us on Zalo for real photos", "실제 사진은 잘로로 문의"],
     "l.photosTitle":  ["Apartment photos", "매물 사진"],
     "l.photoAlt":     ["Apartment photo", "매물 사진"],
 

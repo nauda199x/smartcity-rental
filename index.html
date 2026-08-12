@@ -1384,8 +1384,27 @@
       return bamChuoi(hatGiongTheoKhungGio() + "|" + phanRieng);
     }
 
+    /** Bao nhiêu thẻ ĐẦU danh sách buộc phải là thẻ có ảnh. dong-bo-can.js có
+     *  hằng cùng tên cho 25 trang danh mục — đổi thì đổi cả hai. */
+    const SO_THE_ANH_DAU = 6;
+
+    /** Luật cũ đẩy TOÀN BỘ căn chưa có ảnh (hoặc ảnh lỗi) xuống cuối, nên 57 căn
+     *  không ảnh gần như không bao giờ lọt vào trang 1. Luật mới chỉ giữ lấy
+     *  phần mở đầu: SO_THE_ANH_DAU thẻ đầu tiên là thẻ có ảnh (nếu có đủ), phần
+     *  còn lại giữ đúng thứ tự của tiêu chí đang chọn, không phân biệt có ảnh.
+     *  Điều kiện "có ảnh" đọc y hệt luật cũ — (cover && !imgBroken) — để căn có
+     *  ảnh tải lỗi vẫn được xử lý như căn không ảnh sau khi xuLyAnhLoi() chạy. */
+    function uuTienAnhDau(danhSach) {
+      const dau = [], con = [];
+      for (const apartment of danhSach) {
+        if (dau.length < SO_THE_ANH_DAU && apartment.cover && !apartment.imgBroken) dau.push(apartment);
+        else con.push(apartment);
+      }
+      return dau.concat(con);
+    }
+
     function getFilteredApartments() {
-      return state.apartments
+      return uuTienAnhDau(state.apartments
         .filter(apartment => apartment.show)
         .filter(apartment => apartment.tower && apartment.type && apartment.price)
         .filter(apartmentMatchesPhanKhu)
@@ -1394,16 +1413,14 @@
         .filter(apartmentMatchesInterior)
         .filter(apartmentMatchesQuery)
         .filter(apartment => state.sort !== "newest" || apartment.isNew)
+        // Sắp THUẦN theo tiêu chí đang chọn. Khoá "căn có ảnh lên trước" đã gỡ
+        // khỏi đây và chuyển thành luật 6 thẻ đầu ở uuTienAnhDau().
         .sort((a, b) => {
-          // Ưu tiên căn đã có ẢNH TẢI ĐƯỢC lên trước - căn chưa có ảnh hoặc ảnh lỗi (link Drive hỏng/không xem được) luôn xếp xuống cuối
-          const chuaCoAnhA = (a.cover && !a.imgBroken) ? 0 : 1;
-          const chuaCoAnhB = (b.cover && !b.imgBroken) ? 0 : 1;
-          if (chuaCoAnhA !== chuaCoAnhB) return chuaCoAnhA - chuaCoAnhB;
           if (state.sort === "price-desc") return b.price - a.price;
           if (state.sort === "newest") return b.addedAt - a.addedAt;
           if (state.sort === "price-asc") return a.price - b.price;
           return khoaSapXepNgauNhien(a) - khoaSapXepNgauNhien(b);
-        });
+        }));
     }
 
     /** Danh sach phan khu dung tu DU LIEU THAT, xep theo so can nhieu -> it.
@@ -1617,13 +1634,25 @@
     function mediaMarkup(apartment, index) {
       const hangBadge = `<span class="badge">${nhanTinhTrang(apartment)}</span>${badgeNoiThatHtml(apartment)}`;
       if (!apartment.cover || apartment.imgBroken) {
-        return `<button class="media empty" type="button" data-gallery="${index}">
+        /* Căn chưa có ảnh (hoặc ảnh Drive tải lỗi): nói thẳng là chưa có ảnh
+           rồi mời nhắn Zalo, thay cho ô xám "Hình ảnh đang được cập nhật" cũ
+           — ô đó không cho khách đường nào đi tiếp.
+           <div> chứ không <button>: nút Zalo bên trong là thẻ <a>, mà lồng
+           <a> trong <button> là HTML không hợp lệ. Bỏ luôn data-gallery vì
+           không có ảnh nào để mở. */
+        return `<div class="media empty">
           ${hangBadge}
-          <svg width="42" height="42" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-            <path d="M3 9.5 12 3l9 6.5V20a1 1 0 0 1-1 1h-5v-6H9v6H4a1 1 0 0 1-1-1V9.5Z" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/>
-          </svg>
-          <span>${T("l.imgUpd", "Hình ảnh đang được cập nhật")}</span>
-        </button>`;
+          <div class="ka-trong">
+            ${apartment.tower ? `<span class="ka-toa" aria-hidden="true">${apartment.tower}</span>` : ""}
+            <svg class="ka-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round" aria-hidden="true">
+              <path d="M5.6 7.6h1.9l1.2-2h6.6l1.2 2h1.9A1.7 1.7 0 0 1 20 9.3v8A1.7 1.7 0 0 1 18.3 19H5.7A1.7 1.7 0 0 1 4 17.3v-8a1.7 1.7 0 0 1 1.6-1.7Z"/>
+              <circle cx="12" cy="13.1" r="3.1"/>
+              <path d="M3.6 3.6 20.4 20.4" stroke-linecap="round"/>
+            </svg>
+            <span class="ka-chu">${T("l.noPhoto", "Căn này chưa có ảnh")}</span>
+            <a class="ka-cta" href="${zaloLink()}" target="_blank" rel="noopener">${T("l.noPhotoCta", "Nhắn Zalo nhận ảnh thực tế")}</a>
+          </div>
+        </div>`;
       }
       return `<button class="media" type="button" data-gallery="${index}" aria-label="${T("l.galleryAl", "Xem ảnh căn hộ")} ${apartment.tower}">
         ${hangBadge}

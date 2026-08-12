@@ -108,6 +108,12 @@ ngay_hom_nay = STT.ngay_hom_nay          # hôm nay theo giờ Việt Nam
 phan_khu_tu_toa = STT.phan_khu_tu_toa    # ánh xạ mã tòa -> phân khu
 khoang_gia = STT.khoang_gia              # "8 triệu – 12,5 triệu"
 esc = STT.esc                            # dòng 110 — escape HTML
+SDT = STT.SDT                            # dòng 41 — số Zalo, KHÔNG chép lại
+
+# Bao nhiêu thẻ ĐẦU danh sách buộc phải là thẻ có ảnh. Hằng cùng tên nằm ở
+# dong-bo-can.js (dòng 26); hai bản phải luôn bằng nhau, lệch là bản tĩnh và
+# lưới sau khi JS chạy xếp khác nhau.
+SO_THE_ANH_DAU = 6
 
 
 # ===========================================================================
@@ -186,20 +192,27 @@ def anh_bia(can, map_anh):
 
 
 def ds_can_len_luoi(du_lieu, bl, map_anh):
-    """Đúng tập căn VÀ đúng thứ tự mà dong-bo-can.js dựng (dòng 589):
+    """Đúng tập căn VÀ đúng thứ tự mà dong-bo-can.js dựng (hàm uuTienAnhDau):
         1. lọc bằng can_len_luoi;
         2. sắp theo giá tăng dần;
-        3. căn có ảnh bìa đứng trước, căn chưa có ảnh dồn xuống cuối, mỗi
-           nhóm giữ nguyên thứ tự tương đối theo giá.
+        3. rút tối đa SO_THE_ANH_DAU căn CÓ ẢNH đầu tiên lên trước, phần còn
+           lại giữ nguyên thứ tự theo giá — có ảnh hay không đều như nhau.
+
+    Luật cũ dồn TOÀN BỘ căn chưa có ảnh xuống cuối. Trên /lumiere/ (22/28 căn
+    không ảnh) nghĩa là 22 thẻ đó nằm sau đuôi trang, gần như không ai đọc tới.
 
     sorted() của Python là sort ổn định nên hai căn cùng giá luôn giữ thứ tự
     xuất hiện trong data.json — chạy lại script cho ra đúng kết quả cũ, không
     sinh diff giả (nghiệm thu B-5)."""
     ds = [r for r in du_lieu if can_len_luoi(r, bl)]
     ds.sort(key=lambda r: so_tien(r.get("Giá thuê")))
-    co_anh = [r for r in ds if anh_bia(r, map_anh)]
-    khong_anh = [r for r in ds if not anh_bia(r, map_anh)]
-    return co_anh + khong_anh
+    dau, con = [], []
+    for r in ds:
+        if len(dau) < SO_THE_ANH_DAU and anh_bia(r, map_anh):
+            dau.append(r)
+        else:
+            con.append(r)
+    return dau + con
 
 
 def thong_ke_trang(cac_can):
@@ -255,6 +268,30 @@ def thong_ke_trang(cac_can):
 RE_IMG_RONG = re.compile(r'<img src=""[^>]*>')
 
 
+def khoi_khong_anh(toa):
+    """Ruột khung ảnh của thẻ chưa có ảnh: watermark mã tòa + icon + một dòng
+    nói thật + nút Zalo.
+
+    CẢNH BÁO: phải TRÙNG TỪNG KÝ TỰ với khoiKhongAnh() của dong-bo-can.js
+    (dòng 462). Hàm này dựng bản tĩnh Googlebot đọc, hàm kia dựng lại đúng thẻ
+    ấy trong trình duyệt — lệch một ký tự là trang nhảy layout khi JS chạy
+    xong. Nghiệm thu mục 6.4 đòi dán cạnh nhau hai đoạn để đối chiếu."""
+    return (
+        '<div class="ka-trong">'
+        # Mã tòa rỗng thì bỏ hẳn watermark, không in thẻ span rỗng.
+        + ('<span class="ka-toa" aria-hidden="true">%s</span>' % esc(toa) if toa else "")
+        + '<svg class="ka-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" '
+          'stroke-width="1.7" stroke-linejoin="round" aria-hidden="true">'
+          '<path d="M5.6 7.6h1.9l1.2-2h6.6l1.2 2h1.9A1.7 1.7 0 0 1 20 9.3v8A1.7 1.7 0 0 1 18.3 19H5.7A1.7 1.7 0 0 1 4 17.3v-8a1.7 1.7 0 0 1 1.6-1.7Z"/>'
+          '<circle cx="12" cy="13.1" r="3.1"/>'
+          '<path d="M3.6 3.6 20.4 20.4" stroke-linecap="round"/></svg>'
+          '<span class="ka-chu">Căn này chưa có ảnh</span>'
+          '<a class="ka-cta" href="https://zalo.me/%s" target="_blank" rel="noopener">'
+          '<span class="ka-dai">Nhắn Zalo để nhận ảnh &amp; video thực tế</span>'
+          '<span class="ka-ngan">Nhắn Zalo xem ảnh</span></a></div>' % SDT
+    )
+
+
 def dung_the(can, map_anh, hom_nay):
     """Một thẻ căn của trang danh mục.
 
@@ -276,10 +313,14 @@ def dung_the(can, map_anh, hom_nay):
     if anh:
         return the
 
-    # Không có ảnh -> đưa về đúng dạng dong-bo-can.js dựng.
+    # Không có ảnh -> đưa về đúng dạng dong-bo-can.js dựng: đổi class rồi THAY
+    # <img src=""> tại chỗ bằng ruột thẻ không ảnh. Thay tại chỗ (chứ không xoá
+    # rồi chèn nơi khác) giữ nguyên phép neo cũ, và cho ra đúng thứ tự
+    # ruột -> .tinh-trang -> .badge-nt mà khoiKhongAnh() bên JS dựng.
     the_moi = the.replace('<article class="the"',
                           '<article class="the khong-anh"', 1)
-    the_moi, so_lan = RE_IMG_RONG.subn("", the_moi, count=1)
+    ruot = khoi_khong_anh(toa)
+    the_moi, so_lan = RE_IMG_RONG.subn(lambda _: ruot, the_moi, count=1)
     if the_moi == the or so_lan != 1:
         # Markup của sinh-trang-toa.py đã đổi -> dừng hẳn còn hơn ghi ra thẻ
         # hỏng trên 25 trang.
