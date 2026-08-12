@@ -1384,27 +1384,26 @@
       return bamChuoi(hatGiongTheoKhungGio() + "|" + phanRieng);
     }
 
-    /** Bao nhiêu thẻ ĐẦU danh sách buộc phải là thẻ có ảnh. dong-bo-can.js có
-     *  hằng cùng tên cho 25 trang danh mục — đổi thì đổi cả hai. */
-    const SO_THE_ANH_DAU = 6;
-
-    /** Luật cũ đẩy TOÀN BỘ căn chưa có ảnh (hoặc ảnh lỗi) xuống cuối, nên 57 căn
-     *  không ảnh gần như không bao giờ lọt vào trang 1. Luật mới chỉ giữ lấy
-     *  phần mở đầu: SO_THE_ANH_DAU thẻ đầu tiên là thẻ có ảnh (nếu có đủ), phần
-     *  còn lại giữ đúng thứ tự của tiêu chí đang chọn, không phân biệt có ảnh.
-     *  Điều kiện "có ảnh" đọc y hệt luật cũ — (cover && !imgBroken) — để căn có
-     *  ảnh tải lỗi vẫn được xử lý như căn không ảnh sau khi xuLyAnhLoi() chạy. */
-    function uuTienAnhDau(danhSach) {
-      const dau = [], con = [];
+    /** Căn CHƯA có ảnh (hoặc ảnh tải lỗi) luôn xếp sau toàn bộ căn có ảnh.
+     *  Đây chỉ là luật SẮP XẾP, không phải luật lọc: căn chưa ảnh vẫn nằm
+     *  trong kết quả của mọi bộ lọc, chỉ đứng ở cuối lưới.
+     *  Trong từng nhóm, thứ tự của tiêu chí đang chọn (giá / mới / ngẫu nhiên)
+     *  được giữ nguyên vì cả hai nhánh đều push theo chiều duyệt.
+     *  Điều kiện "có ảnh" là (cover && !imgBroken) — căn có ảnh tải lỗi được
+     *  xử lý như căn chưa ảnh ngay sau khi xuLyAnhLoi() chạy.
+     *  dong-bo-can.js và scripts/dung-lai-trang-danh-muc.py có bản cùng nghĩa,
+     *  sửa đây thì phải sửa cả hai. */
+    function dayCanChuaAnhXuongCuoi(danhSach) {
+      const coAnh = [], chuaAnh = [];
       for (const apartment of danhSach) {
-        if (dau.length < SO_THE_ANH_DAU && apartment.cover && !apartment.imgBroken) dau.push(apartment);
-        else con.push(apartment);
+        if (apartment.cover && !apartment.imgBroken) coAnh.push(apartment);
+        else chuaAnh.push(apartment);
       }
-      return dau.concat(con);
+      return coAnh.concat(chuaAnh);
     }
 
     function getFilteredApartments() {
-      return uuTienAnhDau(state.apartments
+      return dayCanChuaAnhXuongCuoi(state.apartments
         .filter(apartment => apartment.show)
         .filter(apartment => apartment.tower && apartment.type && apartment.price)
         .filter(apartmentMatchesPhanKhu)
@@ -1413,8 +1412,8 @@
         .filter(apartmentMatchesInterior)
         .filter(apartmentMatchesQuery)
         .filter(apartment => state.sort !== "newest" || apartment.isNew)
-        // Sắp THUẦN theo tiêu chí đang chọn. Khoá "căn có ảnh lên trước" đã gỡ
-        // khỏi đây và chuyển thành luật 6 thẻ đầu ở uuTienAnhDau().
+        // Sắp thuần theo tiêu chí đang chọn; việc đẩy căn chưa ảnh xuống cuối
+        // do dayCanChuaAnhXuongCuoi() làm sau, nên không lẫn vào đây.
         .sort((a, b) => {
           if (state.sort === "price-desc") return b.price - a.price;
           if (state.sort === "newest") return b.addedAt - a.addedAt;

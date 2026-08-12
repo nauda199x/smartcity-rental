@@ -110,11 +110,6 @@ khoang_gia = STT.khoang_gia              # "8 triệu – 12,5 triệu"
 esc = STT.esc                            # dòng 110 — escape HTML
 SDT = STT.SDT                            # dòng 41 — số Zalo, KHÔNG chép lại
 
-# Bao nhiêu thẻ ĐẦU danh sách buộc phải là thẻ có ảnh. Hằng cùng tên nằm ở
-# dong-bo-can.js (dòng 26); hai bản phải luôn bằng nhau, lệch là bản tĩnh và
-# lưới sau khi JS chạy xếp khác nhau.
-SO_THE_ANH_DAU = 6
-
 
 # ===========================================================================
 # PHẦN 1 — Lọc và sắp xếp. Chép nguyên ngữ nghĩa từ dong-bo-can.js.
@@ -192,27 +187,27 @@ def anh_bia(can, map_anh):
 
 
 def ds_can_len_luoi(du_lieu, bl, map_anh):
-    """Đúng tập căn VÀ đúng thứ tự mà dong-bo-can.js dựng (hàm uuTienAnhDau):
+    """Đúng tập căn VÀ đúng thứ tự mà dong-bo-can.js dựng
+    (hàm dayCanChuaAnhXuongCuoi):
         1. lọc bằng can_len_luoi;
         2. sắp theo giá tăng dần;
-        3. rút tối đa SO_THE_ANH_DAU căn CÓ ẢNH đầu tiên lên trước, phần còn
-           lại giữ nguyên thứ tự theo giá — có ảnh hay không đều như nhau.
+        3. đẩy toàn bộ căn CHƯA có ảnh xuống sau các căn có ảnh.
 
-    Luật cũ dồn TOÀN BỘ căn chưa có ảnh xuống cuối. Trên /lumiere/ (22/28 căn
-    không ảnh) nghĩa là 22 thẻ đó nằm sau đuôi trang, gần như không ai đọc tới.
+    Bước 3 là SẮP XẾP, không phải lọc — căn chưa ảnh vẫn nằm trong danh sách,
+    chỉ đứng cuối. Trong từng nhóm, thứ tự theo giá được giữ nguyên.
 
     sorted() của Python là sort ổn định nên hai căn cùng giá luôn giữ thứ tự
     xuất hiện trong data.json — chạy lại script cho ra đúng kết quả cũ, không
     sinh diff giả (nghiệm thu B-5)."""
     ds = [r for r in du_lieu if can_len_luoi(r, bl)]
     ds.sort(key=lambda r: so_tien(r.get("Giá thuê")))
-    dau, con = [], []
+    co_anh, chua_anh = [], []
     for r in ds:
-        if len(dau) < SO_THE_ANH_DAU and anh_bia(r, map_anh):
-            dau.append(r)
+        if anh_bia(r, map_anh):
+            co_anh.append(r)
         else:
-            con.append(r)
-    return dau + con
+            chua_anh.append(r)
+    return co_anh + chua_anh
 
 
 def thong_ke_trang(cac_can):
