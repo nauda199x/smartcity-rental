@@ -146,6 +146,12 @@
     "l.h2":           ["<strong>{N}</strong> apartments currently available",
                        "현재 임대 가능 매물 <strong>{N}</strong>개"],
 
+    /* ---- Khối CTA giữa danh sách căn (thêm 14/08/2026) ---- */
+    "cta.mid.h":      ["No need to scroll through every listing", "매물을 하나하나 보실 필요 없습니다"],
+    "cta.mid.p":      ["Send us your requirements and we'll pick the 3–5 units closest to your budget and move-in date, then send them back to you.",
+                       "원하시는 조건을 보내 주시면 예산과 입주 시기에 가장 가까운 매물 3~5개를 골라 보내 드립니다."],
+    "cta.mid.btn":    ["Ask us to find the right unit", "맞는 매물 찾아 주세요"],
+
     /* ---- Khối "Chưa thấy căn ưng ý" & form để lại nhu cầu ---- */
     "lead.title":     ["Haven't found the right one?", "원하는 매물이 없나요?"],
     "lead.desc":      ["Leave your requirements — we'll search for you and get back to you today.",
