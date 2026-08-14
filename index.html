@@ -1708,7 +1708,7 @@
       }
 
       grid.className = "grid";
-      grid.innerHTML = apartments.map((apartment, index) => `
+      const theHtml = apartments.map((apartment, index) => `
         <article class="card" data-ma-noi-bo="${apartment.apartmentId || ""}">
           ${mediaMarkup(apartment, index)}
           <div class="body">
@@ -1736,7 +1736,48 @@
             ${apartment.apartmentId ? `<p class="ma-can">${T("l.code", "Mã căn:")} <b>${apartment.apartmentId}</b></p>` : ""}
           </div>
         </article>
-      `).join("");
+      `);
+
+      /* ================================================================
+         KHỐI CTA GIỮA DANH SÁCH (thêm 14/08/2026)
+         ----------------------------------------------------------------
+         Chèn THẲNG vào chuỗi HTML của lưới, ngay sau card thứ 6, chứ không
+         dùng MutationObserver: chèn sau khi lưới đã vẽ xong sẽ thấy khối
+         nhảy vào giữa danh sách (nháy hình).
+
+         Chỉ chèn khi trang hiện có TỪ 7 CARD trở lên. Dưới ngưỡng đó khối
+         sẽ rơi xuống cuối lưới, chỗ đó đã có sẵn dải "Chưa thấy căn ưng ý"
+         nên thành hai lời mời giống nhau nằm sát nhau.
+
+         Trạng thái rỗng thoát ở nhánh trên nên không bao giờ chạy tới đây —
+         ở đó đã có nút #openLeadModalBtnEmpty.
+
+         KHÔNG đặt class "card" hay "the" cho khối này: hai class đó đang bị
+         mục 16.3 của v3.css ép flex-direction:row và height:190px.
+         ================================================================ */
+      if (theHtml.length >= 7) {
+        theHtml.splice(6, 0, `
+          <div class="cta-giua">
+            <div class="cta-giua-chu">
+              <strong>${T("cta.mid.h", "Không cần tự lướt hết quỹ căn")}</strong>
+              <span>${T("cta.mid.p", "Gửi nhu cầu, chúng tôi sẽ chọn 3–5 căn sát ngân sách và thời gian vào ở nhất để gửi lại cho anh/chị.")}</span>
+            </div>
+            <button class="cta-giua-nut" type="button" id="ctaGiuaDanhSach">
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                <path d="m21 21-4.35-4.35M10.5 18a7.5 7.5 0 1 1 0-15 7.5 7.5 0 0 1 0 15Z" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+              </svg>
+              ${T("cta.mid.btn", "Nhờ tìm căn phù hợp")}
+            </button>
+          </div>`);
+      }
+
+      grid.innerHTML = theHtml.join("");
+
+      /* Lưới được vẽ lại mỗi lần lọc / sắp xếp / đổi trang / đổi ngôn ngữ,
+         nên listener phải gắn lại ở đây. Dùng ĐÚNG hàm moLeadModal() sẵn có,
+         không dựng form hay modal thứ hai. */
+      const nutCtaGiua = grid.querySelector("#ctaGiuaDanhSach");
+      if (nutCtaGiua) nutCtaGiua.addEventListener("click", moLeadModal);
 
       grid.querySelectorAll("[data-gallery]").forEach(button => {
         button.addEventListener("click", () => openGallery(apartments[Number(button.dataset.gallery)]));

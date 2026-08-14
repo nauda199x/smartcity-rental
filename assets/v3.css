@@ -1836,3 +1836,51 @@ figure figcaption{font-size:.8rem;color:var(--gray-lt);margin-top:7px;text-align
      âm kéo lên đè hero cũng mất theo — trả lại khoảng thở dưới hero. */
   .quick-tiles{margin-top:18px}
 }
+
+/* ==================================================================
+   22. KHỐI CTA GIỮA DANH SÁCH CĂN  (thêm 14/08/2026)
+   ------------------------------------------------------------------
+   Một thẻ mời để lại nhu cầu, nằm ngay trong #listingGrid sau card thứ 6.
+   Ba điều bắt buộc:
+     1) grid-column:1/-1 — nếu thiếu, trên máy tính khối sẽ chiếm đúng một
+        ô của lưới 4 cột và đẩy lệch cả hàng.
+     2) CHIỀU CAO CỐ ĐỊNH — khối nằm giữa những thẻ căn có ảnh tải sau; để
+        chiều cao tự do thì ảnh tải xong là cả lưới nhảy (CLS).
+     3) Không mang class .card/.the — hai class đó đang bị mục 16.3 ép
+        flex-direction:row;height:190px.
+   Dùng lại biến màu và bo góc sẵn có, không thêm ảnh, không thêm phông chữ.
+   ================================================================== */
+.cta-giua{
+  grid-column:1/-1;
+  display:flex;align-items:center;justify-content:space-between;gap:18px;
+  height:104px;padding:0 22px;box-sizing:border-box;
+  background:linear-gradient(170deg,#F7FAFF,var(--surface));
+  border:1px solid #D8E4F5;border-radius:var(--r);
+}
+.cta-giua-chu{display:flex;flex-direction:column;gap:3px;min-width:0}
+.cta-giua-chu strong{
+  font-family:var(--font-tieu-de);font-size:1.05rem;font-weight:800;color:var(--navy);
+  line-height:1.3;
+}
+.cta-giua-chu span{font-size:.88rem;color:var(--gray);line-height:1.45}
+.cta-giua-nut{
+  display:inline-flex;align-items:center;justify-content:center;gap:8px;flex:none;
+  background:var(--navy-2);color:#fff;border:0;border-radius:var(--r-sm);
+  padding:12px 22px;font-weight:600;font-size:.9rem;min-height:44px;
+  cursor:pointer;transition:background .2s;
+}
+.cta-giua-nut:hover{background:var(--navy)}
+.cta-giua-nut svg{width:15px;height:15px;flex:none}
+
+/* Điện thoại: dùng ĐÚNG mốc 640px của mục 16, không thêm mốc mới vào file.
+   Lưới còn 1 cột và thẻ căn chỉ cao 190px, nên khối xếp dọc và cũng phải
+   có chiều cao cố định để không gây nhảy layout. */
+@media (max-width:640px){
+  .cta-giua{
+    flex-direction:column;align-items:stretch;justify-content:center;
+    height:172px;padding:0 14px;gap:12px;
+  }
+  .cta-giua-chu strong{font-size:.95rem}
+  .cta-giua-chu span{font-size:.8rem;line-height:1.4}
+  .cta-giua-nut{width:100%;padding:10px 16px;font-size:.85rem}
+}
