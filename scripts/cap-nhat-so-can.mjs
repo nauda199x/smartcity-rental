@@ -144,6 +144,23 @@ function dinhDangTrieu(gia) {
   return String(Math.round(gia / 100000) / 10).replace(".", ",");
 }
 
+/* Khoảng giá (min/max) lấy trực tiếp từ đúng tập dsCan đã lọc — không quét
+   lại duLieu bằng một bộ lọc riêng như giaSan(): dsCan là chính tập căn
+   script đang dùng để đếm số căn và dựng ItemList, nên khoảng giá trong
+   description phải tính thẳng từ đó, không có đường tính thứ hai để lệch
+   nhau (Việc C, ràng buộc C.3). Căn giá <= 0 bị bỏ qua như giaSan(). */
+function khoangGiaTuDsCan(dsCan) {
+  let min = 0;
+  let max = 0;
+  for (const r of dsCan) {
+    const g = soTien(r["Giá thuê"]);
+    if (g <= 0) continue;
+    if (min === 0 || g < min) min = g;
+    if (g > max) max = g;
+  }
+  return { min, max };
+}
+
 /* ===================================================================
  * PHẦN 2 — Quét repo tìm trang danh mục
  * =================================================================== */
@@ -248,6 +265,42 @@ function thayTrongDescription(doan, soMoi, ngayMoi, ten, nhan, canhBao) {
   return { doan: moi, doiRoi: moi !== doan };
 }
 
+/* --- Khoảng giá trong description (Việc C) ---
+ * Một số trang có câu "giá <N> triệu–<M> triệu" trong description/
+ * og:description (dấu – U+2013), nhưng trước đây script chỉ ghi lại số căn,
+ * không ghi lại khoảng giá — sai ở 13/25 trang (đo 16/08/2026, ví dụ
+ * /tonkin/: description ghi "8 triệu–16 triệu" trong khi bảng giá/lưới thật
+ * là 8–14 triệu).
+ *
+ * Chỉ thay khi khớp ĐÚNG MỘT lần mẫu; 0 lần hoặc từ 2 lần trở lên thì giữ
+ * nguyên + cảnh báo, không đoán (Việc C, ràng buộc C.1). Mẫu neo cả hai chữ
+ * "triệu" nên không khớp nhầm dạng rút gọn "10–12 triệu" (một chữ "triệu"
+ * duy nhất) — đó là ngưỡng giá trong TÊN danh mục, không phải khoảng giá
+ * thật của tập căn đang trống, và không thuộc phạm vi Việc C.
+ *
+ * Bốn nhóm bắt giữ nguyên phần chữ quanh hai con số ("triệu–", " triệu")
+ * đúng như đã có trong file, chỉ hai con số bị thay (ràng buộc C.2). */
+const RE_KHOANG_GIA = /([\d,]+)(\s*triệu–)([\d,]+)(\s*triệu)/g;
+
+function thayKhoangGiaTrongDescription(doan, giaKhoang, ten, nhan, canhBao) {
+  const soLan = (doan.match(RE_KHOANG_GIA) || []).length;
+  if (soLan !== 1) {
+    const lyDo = soLan === 0 ? "không khớp mẫu" : `khớp mẫu ${soLan} lần`;
+    canhBao.push(`${ten} ${nhan}: ${lyDo} "N triệu–M triệu" — GIỮ NGUYÊN khoảng giá, không đoán.`);
+    return { doan, doiRoi: false };
+  }
+  /* Không căn nào trong dsCan có giá > 0 — cũng như giá sàn, gần như luôn là
+     lỗi dữ liệu, giữ nguyên khoảng giá cũ thay vì viết "0 triệu". */
+  if (giaKhoang.min <= 0 || giaKhoang.max <= 0) {
+    canhBao.push(`${ten} ${nhan}: không tính được khoảng giá (không căn nào có giá > 0) — GIỮ NGUYÊN.`);
+    return { doan, doiRoi: false };
+  }
+  const minChu = dinhDangTrieu(giaKhoang.min);
+  const maxChu = dinhDangTrieu(giaKhoang.max);
+  const moi = doan.replace(RE_KHOANG_GIA, (_, g1, g2, g3, g4) => minChu + g2 + maxChu + g4);
+  return { doan: moi, doiRoi: moi !== doan };
+}
+
 /* Ngày hôm nay theo giờ Việt Nam, dạng DD/MM/YYYY. */
 function ngayVietNam() {
   const gio = new Date(Date.now() + 7 * 60 * 60 * 1000);
@@ -268,7 +321,7 @@ function suaVung(html, re, bienDoi) {
   };
 }
 
-function capNhatTrangDanhMuc(duong, html, soCan, giaChu, log, canhBao) {
+function capNhatTrangDanhMuc(duong, html, soCan, giaChu, giaKhoang, log, canhBao) {
   const ten = relative(GOC, duong);
   const ngay = ngayVietNam();
   let doi = false;
@@ -313,10 +366,12 @@ function capNhatTrangDanhMuc(duong, html, soCan, giaChu, log, canhBao) {
     const kq = suaVung(html, re, (d) => {
       const a = thayTrongDescription(d, soCan, ngay, ten, nhan, canhBao);
       const b = thayGiaSan(a.doan, giaChu);
+      const c = thayKhoangGiaTrongDescription(b.doan, giaKhoang, ten, nhan, canhBao);
       daDoi = [];
       if (a.doiRoi) daDoi.push(`${soCan} căn, ${ngay}`);
       if (b.doiRoi) daDoi.push(`từ ${giaChu} triệu`);
-      return { doan: b.doan, doiRoi: a.doiRoi || b.doiRoi };
+      if (c.doiRoi) daDoi.push(`khoảng giá ${dinhDangTrieu(giaKhoang.min)}–${dinhDangTrieu(giaKhoang.max)} triệu`);
+      return { doan: c.doan, doiRoi: a.doiRoi || b.doiRoi || c.doiRoi };
     });
     if (kq.doiRoi) {
       html = kq.html;
@@ -522,7 +577,9 @@ function main() {
       canhBao.push(`${ten}: không tính được giá sàn (không căn nào có giá > 0) — GIỮ NGUYÊN giá cũ trong title.`);
     }
 
-    const kq = capNhatTrangDanhMuc(duong, html, soCan, giaChu, nhatKy, canhBao);
+    const giaKhoang = khoangGiaTuDsCan(dsCan);
+
+    const kq = capNhatTrangDanhMuc(duong, html, soCan, giaChu, giaKhoang, nhatKy, canhBao);
     const kqLd = capNhatItemList(duong, kq.html, dsCan, nhatKy, canhBao);
     if (kq.doi || kqLd.doi) {
       if (!CHI_THU) writeFileSync(duong, kqLd.html, "utf8");
