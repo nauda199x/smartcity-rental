@@ -18,7 +18,7 @@ có 0/10 căn cũ, chứng minh cách làm đúng đã có sẵn trong repo.
 
 Script này áp đúng cách làm đó cho 25 trang danh mục còn lại.
 
-PHẠM VI — NĂM KHỐI ĐƯỢC GHI ĐÈ
+PHẠM VI — SÁU KHỐI ĐƯỢC GHI ĐÈ
 ------------------------------
     section.luoi          toàn bộ article.the
     h2.tieu-de-luoi       "Danh sách {N} căn đang cho thuê"
@@ -26,6 +26,8 @@ PHẠM VI — NĂM KHỐI ĐƯỢC GHI ĐÈ
     div.sl                bốn ô thống kê
     table.bang            bảng giá theo phân khu / theo loại căn + ngày ở
                           dòng chú thích ngay dưới bảng
+    span[data-so]         span mốc chèn tay trong a.cta-loc và section.bai
+                          (can, gia-min, gia-max, dt-min, dt-max)
 
 Bốn khối đầu là phạm vi giao việc. Khối thứ năm là phần PHẢI thêm sau khi đo:
 bảng giá tự nhận "Số liệu tính trực tiếp từ danh sách căn đang trống ở trên,
@@ -33,6 +35,13 @@ cập nhật 24/07/2026." nhưng lại đóng băng từ 24/07 — 25/25 trang �
 Dựng lại lưới mà để nguyên bảng thì bảng nói khác hẳn danh sách nó vừa viện
 dẫn, và chuỗi ngày 24/07/2026 vẫn còn nguyên trên cả 25 trang (nghiệm thu B-3
 đòi 0). Chi tiết cách dựng xem RE_BANG bên dưới.
+
+Khối thứ sáu là phần thêm ở Việc B (HUONG-DAN mục B): a.cta-loc và
+section.bai cũng nói số căn/khoảng giá nhưng trước đây không nằm trong phạm
+vi ghi đè của script nào — đóng băng từ lúc viết tay (sai số căn 25/25 trang
+ở a.cta-loc). Việc A đã chèn sẵn span[data-so] quanh các con số đó; script
+này chỉ ghi vào đúng nội dung span có sẵn, không tự tạo span mới và không
+regex lên văn xuôi tự do. Chi tiết xem ghi_de_span_moc() bên dưới.
 
 Không đụng khối .lq ("Đọc thêm trước khi thuê"), không đụng JSON-LD (đó là
 việc của cap-nhat-so-can.mjs), không đụng data.json.
@@ -211,8 +220,12 @@ def ds_can_len_luoi(du_lieu, bl, map_anh):
 
 
 def thong_ke_trang(cac_can):
-    """Bốn con số của khối .sl, tính đúng như dong-bo-can.js dòng 604-618."""
+    """Bốn con số của khối .sl (dong-bo-can.js dòng 604-618), cộng thêm
+    gia_max cho span mốc data-so="gia-max" (Việc B — HUONG-DAN mục B).
+    gia_max tính đúng kiểu vòng lặp đang có cho gia_min: bỏ qua giá <= 0,
+    không viết hàm tính mới."""
     gia_min = 0
+    gia_max = 0
     dt_min = 0
     dt_max = 0
     phan_khu = set()
@@ -220,6 +233,8 @@ def thong_ke_trang(cac_can):
         g = so_tien(c.get("Giá thuê"))
         if g > 0 and (gia_min == 0 or g < gia_min):
             gia_min = g
+        if g > 0 and g > gia_max:
+            gia_max = g
         dt = dien_tich(c.get("Diện tích"))
         if dt > 0:
             if dt_min == 0 or dt < dt_min:
@@ -239,6 +254,9 @@ def thong_ke_trang(cac_can):
     return {
         "so_can": len(cac_can),
         "gia_min": gia_min,
+        "gia_max": gia_max,
+        "dt_min": dt_min,
+        "dt_max": dt_max,
         "chuoi_dt": chuoi_dt,
         "so_phan_khu": len(phan_khu),
     }
@@ -545,6 +563,69 @@ def ghi_de_bang(html, cac_can, ten, canh_bao):
             + html[khop.end():]), True
 
 
+# --- Span mốc data-so (chèn tay ở Việc A, ghi đè số liệu ở Việc B) --------
+# Việc A chèn <span data-so="...">...</span> quanh số căn / khoảng giá /
+# khoảng diện tích trong a.cta-loc và section.bai — hai khối trước đây không
+# nằm trong phạm vi ghi đè nào. Hàm dưới đây chỉ ghi vào đúng phần nội dung
+# của những span đã có sẵn, không regex lên văn xuôi tự do quanh nó và không
+# tự tạo span mới (HUONG-DAN mục B, ràng buộc B.1/B.2).
+RE_SPAN_MOC = re.compile(r'<span data-so="([a-z-]+)">([^<]*)</span>')
+KHOA_SPAN_MOC = ("can", "gia-min", "gia-max", "dt-min", "dt-max")
+
+
+def ghi_de_span_moc(html, tk, cac_can, ten, canh_bao):
+    """Ghi đè nội dung các span[data-so] bằng đúng số liệu hiện có, dùng lại
+    nguyên các hàm/số liệu đã tính (HUONG-DAN mục B — bảng nguồn số liệu),
+    không viết hàm tính mới:
+        can      len(cac_can)
+        gia-min  dinh_dang_gia(tk["gia_min"]), bỏ hậu tố " triệu"
+        gia-max  dinh_dang_gia(tk["gia_max"]), bỏ hậu tố " triệu"
+        dt-min   round(tk["dt_min"])
+        dt-max   round(tk["dt_max"])
+    Giá trị nào không tính được (== 0, tức không căn nào có giá/diện tích
+    hợp lệ) thì giữ nguyên span cũ và ghi cảnh báo, đúng kiểu ghi_de_sl chỉ
+    ghi ô thống kê khi giá trị > 0."""
+    if not RE_SPAN_MOC.search(html):
+        canh_bao.append("%s: không có span[data-so] nào — BỎ QUA." % ten)
+        return html, False
+
+    hau_to = " triệu"
+    gia_tri = {"can": str(len(cac_can))}
+    if tk["gia_min"] > 0:
+        gia_tri["gia-min"] = dinh_dang_gia(tk["gia_min"])[:-len(hau_to)]
+    if tk["gia_max"] > 0:
+        gia_tri["gia-max"] = dinh_dang_gia(tk["gia_max"])[:-len(hau_to)]
+    if tk["dt_min"] > 0:
+        gia_tri["dt-min"] = str(round(tk["dt_min"]))
+    if tk["dt_max"] > 0:
+        gia_tri["dt-max"] = str(round(tk["dt_max"]))
+
+    da_doi = []
+
+    def mot_span(m):
+        khoa_span, cu = m.group(1), m.group(2)
+        if khoa_span not in KHOA_SPAN_MOC:
+            canh_bao.append(
+                "%s: span[data-so=%r] mang khoá lạ — BỎ QUA, không đoán."
+                % (ten, khoa_span))
+            return m.group(0)
+        moi = gia_tri.get(khoa_span)
+        if moi is None:
+            canh_bao.append(
+                "%s: không tính được giá trị cho span[data-so=%r] — GIỮ NGUYÊN."
+                % (ten, khoa_span))
+            return m.group(0)
+        if moi == cu:
+            return m.group(0)
+        da_doi.append(khoa_span)
+        return '<span data-so="%s">%s</span>' % (khoa_span, moi)
+
+    html_moi = RE_SPAN_MOC.sub(mot_span, html)
+    if not da_doi:
+        return html, False
+    return html_moi, True
+
+
 def xu_ly_mot_trang(duong, du_lieu, map_anh, hom_nay, ngay_chu, chi_thu,
                     canh_bao):
     """Trả về một dòng cho bảng nghiệm thu, hoặc None nếu trang bị bỏ qua."""
@@ -581,6 +662,7 @@ def xu_ly_mot_trang(duong, du_lieu, map_anh, hom_nay, ngay_chu, chi_thu,
     html, _ = ghi_de_sl(html, tk, ten, canh_bao)
     html, _ = ghi_de_h2(html, tk["so_can"], ten, canh_bao)
     html, _ = ghi_de_bang(html, cac_can, ten, canh_bao)
+    html, _ = ghi_de_span_moc(html, tk, cac_can, ten, canh_bao)
     html, _ = ghi_de_luoi(
         html, [dung_the(c, map_anh, hom_nay) for c in cac_can], ten, canh_bao)
 
