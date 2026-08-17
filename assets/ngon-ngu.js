@@ -261,7 +261,7 @@
        là làm gãy liên kết nội bộ, scripts/kiem-tra-lien-ket.py sẽ báo lỗi. */
     "seo.h2":         ["Renting at Smart City — apartments for rent at Vinhomes Smart City",
                        "스마트시티 임대 — 빈홈즈 스마트시티 아파트 임대"],
-    "seo.p1":         ["<strong>Smart City Apartments for Rent</strong> brings together apartments available at Vinhomes Smart City (Tây Mỗ, Nam Từ Liêm, Hanoi), with data synced automatically several times a day so vacancy, rent and real photos stay accurate. Types range from studios and 1-bedroom to 2- and 3-bedroom units across the Sapphire, Miami, Sakura, Masteri West Heights, Imperia, Lumière, Canopy and Tonkin zones.",
+    "seo.p1":         ["<strong>Smart City Apartments for Rent</strong> brings together apartments available at Vinhomes Smart City (Tây Mỗ Ward, Hanoi), with data synced automatically several times a day so vacancy, rent and real photos stay accurate. Types range from studios and 1-bedroom to 2- and 3-bedroom units across the Sapphire, Miami, Sakura, Masteri West Heights, Imperia, Lumière, Canopy and Tonkin zones.",
                        "<strong>스마트시티 아파트 임대</strong>는 빈홈즈 스마트시티(떠이모, 남뜨리엠, 하노이)의 임대 매물을 모은 사이트입니다. 하루에 여러 번 자동 동기화되어 공실 현황, 임대료, 실제 사진이 정확하게 반영됩니다. 스튜디오, 침실 1개부터 침실 2개·3개까지 Sapphire, Miami, Sakura, Masteri West Heights, Imperia, Lumière, Canopy, Tonkin 구역에 걸쳐 있습니다."],
     "seo.p2":         ["Rent for <strong>housing at Smart City</strong> currently starts at around 5.5M VND/month for a studio and rises with floor area, zone and furnishing. See the breakdown in the <a href=\"/bang-gia-thue-vinhomes-smart-city.html\">rent table for each zone</a> (Vietnamese), or use the filters above to narrow by budget and type.",
                        "<strong>스마트시티 주택</strong>의 임대료는 스튜디오 기준 월 550만 동 정도부터 시작하며 면적·구역·옵션에 따라 올라갑니다. 자세한 내용은 <a href=\"/bang-gia-thue-vinhomes-smart-city.html\">구역별 임대료 표</a>(베트남어)를 참고하시거나, 위의 필터로 예산과 타입을 좁혀 보세요."],
@@ -377,7 +377,7 @@
     "faq.a1": ["Rents vary widely, commonly from about 6.5M VND/month for a studio up to over 15M VND/month for a 2–3 bedroom unit, depending on size, tower and furnishing. Use the price filter above to see exactly which units fit your budget.",
                "임대료는 매물에 따라 다양하며, 스튜디오는 월 약 650만 동부터, 침실 2~3개는 월 1,500만 동 이상까지입니다. 면적·동·옵션에 따라 달라집니다. 위의 가격 필터로 예산에 맞는 매물을 확인해 보세요."],
     "faq.q2": ["Where is Vinhomes Smart City?", "빈홈즈 스마트시티는 어디에 있나요?"],
-    "faq.a2": ["Vinhomes Smart City is in Nam Tu Liem district, Hanoi — one of the largest smart township developments in the western part of the city.",
+    "faq.a2": ["Vinhomes Smart City is in Tây Mỗ Ward, Hanoi — one of the largest smart township developments in the western part of the city.",
                "빈홈즈 스마트시티는 하노이 남뜨리엠구에 위치한, 하노이 서부 최대 규모의 스마트 신도시 중 하나입니다."],
     "faq.q3": ["What apartment types are available for rent at Vinhomes Smart City?",
                "빈홈즈 스마트시티에는 어떤 타입의 임대 매물이 있나요?"],
