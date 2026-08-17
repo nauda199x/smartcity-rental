@@ -1059,6 +1059,22 @@ figure figcaption{font-size:.8rem;color:var(--gray-lt);margin-top:7px;text-align
   .topbar .shell{flex-wrap:wrap;padding-top:12px;padding-bottom:12px}
   .chip-full{display:none}
   .chip-short{display:inline}
+
+  /* Số căn tách hẳn khỏi nhãn thành huy hiệu riêng: khách quét mắt là thấy ngay
+     mỗi nhóm còn bao nhiêu căn, không phải đọc lẫn trong chữ.
+     Chỉ áp dụng cho chip BỘ LỌC (.chips / .chips-quick), không đụng .chip
+     dùng ở phân trang. */
+  .chips .chip>small,
+  .chips-quick .chip>small{
+    display:inline-block;margin-left:5px;padding:1px 7px;border-radius:99px;
+    background:#EAF1FB;color:var(--navy-2);
+    font-size:.72rem;font-weight:700;line-height:1.45;
+  }
+  /* Chip đang chọn có nền xanh đậm -> huy hiệu đổi sang nền trắng mờ cho đủ tương phản. */
+  .chips .chip.active>small,
+  .chips-quick .chip.active>small{
+    background:rgba(255,255,255,.24);color:#fff;
+  }
 }
 
 @media (max-width:860px){
@@ -1220,7 +1236,7 @@ figure figcaption{font-size:.8rem;color:var(--gray-lt);margin-top:7px;text-align
      được 2 chip trên một màn hình, nhãn ngắn hiện được 5 chip. */
   .chips-quick .chip-full{display:none}
   .chips-quick .chip-short{display:inline}
-  .chips-quick .chip small{opacity:.6;margin-left:3px;font-size:.72rem}
+  .chips-quick .chip small{opacity:1;margin-left:3px;font-size:.72rem}
   .chips-quick .chip[disabled]{opacity:.42}
 
   .qb-btn{
