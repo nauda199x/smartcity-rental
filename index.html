@@ -824,7 +824,35 @@
       page: 1
     };
 
-    const PAGE_SIZE = 12;
+    /* ================================================================
+       SỐ CARD MỖI TRANG — desktop 16, màn hẹp hơn 12
+       ----------------------------------------------------------------
+       Mốc 1081px khớp ĐÚNG breakpoint lưới của v3.css (dòng 1054):
+       trên mốc này lưới 4 cột nên 16 card = 4 hàng đầy; dưới mốc lưới
+       2 cột hoặc 1 cột, để 16 sẽ thành trang cuộn quá dài trên điện thoại.
+       Sửa mốc ở đây mà không sửa v3.css sẽ làm hàng cuối lẻ card.
+
+       Đọc bằng hàm (không phải hằng số) để người dùng thu/phóng cửa sổ
+       hay xoay máy tính bảng thì lần render kế tiếp lấy đúng số mới.
+       ================================================================ */
+    const SO_CARD_DESKTOP = 16;
+    const SO_CARD_HEP = 12;
+
+    function soCardMoiTrang() {
+      return window.matchMedia("(min-width:1081px)").matches
+        ? SO_CARD_DESKTOP
+        : SO_CARD_HEP;
+    }
+
+    /* Chỉ vẽ lại khi VƯỢT QUA mốc 1081px, không vẽ lại theo từng pixel kéo
+       chuột. matchMedia bắn sự kiện đúng một lần mỗi lần đổi trạng thái nên
+       không cần debounce. */
+    (function theoDoiBreakpoint() {
+      const mq = window.matchMedia("(min-width:1081px)");
+      const xuLy = () => { if (typeof render === "function") render(); };
+      if (typeof mq.addEventListener === "function") mq.addEventListener("change", xuLy);
+      else if (typeof mq.addListener === "function") mq.addListener(xuLy);
+    })();
 
     /* ================================================================
        CỬA DỊCH (assets/ngon-ngu.js) — thêm 11/08/2026
@@ -1758,8 +1786,11 @@
          KHÔNG đặt class "card" hay "the" cho khối này: hai class đó đang bị
          mục 16.3 của v3.css ép flex-direction:row và height:190px.
          ================================================================ */
-      if (theHtml.length >= 7) {
-        theHtml.splice(6, 0, `
+      /* Desktop 4 cột: chèn sau card thứ 8 để CTA nằm trọn giữa hàng 2 và
+         hàng 3, không cắt ngang hàng. Màn hẹp giữ nguyên vị trí 6 như cũ. */
+      const viTriCta = window.matchMedia("(min-width:1081px)").matches ? 8 : 6;
+      if (theHtml.length > viTriCta) {
+        theHtml.splice(viTriCta, 0, `
           <div class="cta-giua">
             <div class="cta-giua-chu">
               <strong>${T("cta.mid.h", "Không cần tự lướt hết quỹ căn")}</strong>
@@ -1849,7 +1880,7 @@
 
     function renderPagination(totalItems) {
       const container = $("#pagination");
-      const totalPages = Math.max(1, Math.ceil(totalItems / PAGE_SIZE));
+      const totalPages = Math.max(1, Math.ceil(totalItems / soCardMoiTrang()));
 
       if (state.page > totalPages) state.page = totalPages;
       if (totalPages <= 1) {
@@ -1928,8 +1959,17 @@
       if (nutXoa) nutXoa.hidden = !dangCoBoLoc();
       if (thanhDay) thanhDay.classList.toggle("trong", !dangCoBoLoc());
 
-      const start = (state.page - 1) * PAGE_SIZE;
-      renderCards(apartments.slice(start, start + PAGE_SIZE));
+      /* Kẹp state.page TRƯỚC khi cắt mảng. Trước đây việc kẹp nằm trong
+         renderPagination() — chạy sau slice — nên khi số trang co lại
+         (đổi bộ lọc lúc đang ở trang cuối, hoặc thu cửa sổ desktop → mobile
+         làm 16 trang thành 21 trang) thì slice trả mảng rỗng và lưới trắng
+         một nhịp trước khi nhảy về trang hợp lệ. */
+      const soCard = soCardMoiTrang();
+      const tongTrang = Math.max(1, Math.ceil(apartments.length / soCard));
+      if (state.page > tongTrang) state.page = tongTrang;
+
+      const start = (state.page - 1) * soCard;
+      renderCards(apartments.slice(start, start + soCard));
       renderPagination(apartments.length);
     }
 
