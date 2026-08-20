@@ -391,7 +391,7 @@ def dung_trang(toa, cau_hinh, cac_can, tk, map_anh, hom_nay):
 <meta property="og:image" content="https://timthuesmartcity.com/og-smartcity.jpg">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
-<meta property="og:site_name" content="Thuê Chung Cư Smart City">
+<meta property="og:site_name" content="Cho thuê chung cư Smart City">
 <meta name="twitter:image" content="https://timthuesmartcity.com/og-smartcity.jpg">
 <meta property="og:locale" content="vi_VN">
 <meta name="twitter:card" content="summary_large_image">
