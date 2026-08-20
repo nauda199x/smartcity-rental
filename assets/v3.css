@@ -1900,3 +1900,8 @@ figure figcaption{font-size:.8rem;color:var(--gray-lt);margin-top:7px;text-align
   .cta-giua-chu span{font-size:.8rem;line-height:1.4}
   .cta-giua-nut{width:100%;padding:10px 16px;font-size:.85rem}
 }
+
+/* Ảnh minh hoạ trong bài viết */
+.anh-bai{margin:24px 0}
+.anh-bai img{width:100%;height:auto;display:block;border-radius:8px}
+.anh-bai figcaption{margin-top:8px;font-size:14px;line-height:1.5;color:#64748b;text-align:center}
