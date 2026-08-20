@@ -71,6 +71,23 @@ TRANG_THEO_PHAN_KHU = {
     "Lumiere": "/lumiere/",
 }
 
+# Ảnh minh hoạ cho các trang nội dung tĩnh (không phải ảnh căn hộ tải từ
+# Drive). ghi_sitemap_anh() ghi đè toàn bộ sitemap-images.xml mỗi lần chạy,
+# nên khai báo thủ công tại đây thay vì sửa tay file XML — sửa tay sẽ mất
+# ngay lần workflow tai-anh-can-ho chạy lại.
+TRANG_TINH = [
+    ("/mau-hop-dong-thue-nha-vinhomes-smart-city.html", [
+        ("/images/hop-dong/mau-hop-dong-thue-can-ho-vinhomes-smart-city.webp",
+         "Mẫu hợp đồng thuê căn hộ Vinhomes Smart City gồm hợp đồng chính và phụ lục bàn giao nội thất"),
+        ("/images/hop-dong/hop-dong-thue-nha-dieu-khoan-gia-va-dat-coc.webp",
+         "Điều khoản giá thuê, phương thức thanh toán và đặt cọc trong hợp đồng thuê căn hộ chung cư"),
+        ("/images/hop-dong/phu-luc-ban-giao-noi-that-va-chi-so-cong-to.webp",
+         "Phụ lục bàn giao căn hộ cho thuê với bảng danh sách nội thất và chỉ số công tơ điện nước"),
+        ("/images/hop-dong/ghi-chi-so-cong-to-dien-nuoc-khi-nhan-nha.webp",
+         "Khối ghi chỉ số công tơ điện và đồng hồ nước tại thời điểm bàn giao căn hộ"),
+    ]),
+]
+
 PHIEN = requests.Session()
 PHIEN.headers.update({
     "User-Agent": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 "
@@ -204,6 +221,14 @@ def ghi_sitemap_anh(ban_ghi_ok):
                 "    <image:image><image:loc>%s/anh-can-ho/%s</image:loc>"
                 "<image:title>%s</image:title></image:image>"
                 % (TEN_MIEN, bg["ten_file"], escape(tieu_de)))
+        dong.append("  </url>")
+    for trang, anh in TRANG_TINH:
+        dong.append("  <url><loc>%s%s</loc>" % (TEN_MIEN, trang))
+        for duong, tieu_de in anh:
+            dong.append(
+                "    <image:image><image:loc>%s%s</image:loc>"
+                "<image:title>%s</image:title></image:image>"
+                % (TEN_MIEN, duong, escape(tieu_de)))
         dong.append("  </url>")
     dong.append("</urlset>")
     dong.append("")
