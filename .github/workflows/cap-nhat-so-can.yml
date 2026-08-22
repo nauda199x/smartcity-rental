@@ -63,6 +63,15 @@ jobs:
           python3 scripts/dung-lai-trang-danh-muc.py ${{ inputs.chi_thu && '--thu' || '' }} \
             2>&1 | tee -a ket-qua.txt
 
+      # Chạy TRƯỚC cap-nhat-so-can.mjs vì script kia đọc index.html để cập nhật
+      # tháng trong thẻ SEO. Chạy sau sẽ khiến thẻ SEO mô tả bản trang chủ của
+      # lần chạy trước.
+      - name: Dựng lại khối tĩnh trang chủ
+        run: |
+          set -o pipefail
+          python3 scripts/dung-lai-trang-chu.py ${{ inputs.chi_thu && '--thu' || '' }} \
+            2>&1 | tee -a ket-qua.txt
+
       - name: Đếm căn và cập nhật thẻ SEO
         id: chay
         run: |
