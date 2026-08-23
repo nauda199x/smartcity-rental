@@ -3,3 +3,4 @@ Allow: /
 
 Sitemap: https://timthuesmartcity.com/sitemap.xml
 Sitemap: https://timthuesmartcity.com/sitemap-images.xml
+Sitemap: https://timthuesmartcity.com/sitemap-can-ho.xml
