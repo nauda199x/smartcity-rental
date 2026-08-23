@@ -8,9 +8,14 @@ name: Tải ảnh đại diện căn hộ từ Drive về repo
 # Vì sao phải chạy trên Actions: môi trường Claude Code chặn drive.google.com
 # (CONNECT trả 403), còn runner của GitHub thì ra Internet bình thường.
 
-# Chỉ chạy tay từ tab Actions. Trigger push theo nhánh claude/actions-di-doi-anh
-# đã được gỡ: nhánh đó merge xong rồi nên không bao giờ chạy lại được nữa.
+# Trigger push theo nhánh claude/actions-di-doi-anh đã được gỡ: nhánh đó merge
+# xong rồi nên không bao giờ chạy lại được nữa.
 on:
+  schedule:
+    # 03:00 UTC Chủ nhật = 10:00 sáng Chủ nhật giờ Việt Nam. Ảnh đại diện và
+    # ảnh gallery mới chỉ tải phần còn thiếu (§5.2 tai-anh-can-ho.py) nên chạy
+    # đều đặn gần như không tốn gì, tránh lặp lại tình trạng tồn đọng.
+    - cron: "0 3 * * 0"
   workflow_dispatch:
     inputs:
       gioi_han:
