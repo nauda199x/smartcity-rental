@@ -5,6 +5,7 @@
 
 ## Danh sách căn hộ theo loại
 - [Tất cả căn đang trống](https://timthuesmartcity.com/)
+- [Từng căn hộ, có ảnh chi tiết](https://timthuesmartcity.com/can-ho/)
 - [Studio](https://timthuesmartcity.com/studio/)
 - [1 phòng ngủ +](https://timthuesmartcity.com/1pn-plus/)
 - [2 phòng ngủ](https://timthuesmartcity.com/2pn/)

@@ -72,6 +72,15 @@ jobs:
           python3 scripts/dung-lai-trang-chu.py ${{ inputs.chi_thu && '--thu' || '' }} \
             2>&1 | tee -a ket-qua.txt
 
+      # Chạy SAU dung-lai-trang-chu.py và TRƯỚC cap-nhat-so-can.mjs, đúng thứ
+      # tự đã chốt: trang căn mới sinh trong lần chạy này cũng được rà ngày
+      # cập nhật ngay, không phải đợi tới lần chạy sau.
+      - name: Sinh trang riêng cho từng căn hộ
+        run: |
+          set -o pipefail
+          python3 scripts/sinh-trang-can.py ${{ inputs.chi_thu && '--thu' || '' }} \
+            2>&1 | tee -a ket-qua.txt
+
       - name: Đếm căn và cập nhật thẻ SEO
         id: chay
         run: |
@@ -131,7 +140,8 @@ jobs:
           # vì `git diff` không nhìn thấy file chưa được theo dõi: tòa mới sinh
           # lần đầu sẽ bị coi là "không có gì thay đổi" và không bao giờ được
           # commit.
-          git add -- '*.html' sitemap.xml s4-01-vinhomes-smart-city
+          git add -- '*.html' sitemap.xml s4-01-vinhomes-smart-city \
+            can-ho sitemap-can-ho.xml
 
           if git diff --cached --quiet; then
             echo "Không có gì thay đổi — bỏ qua commit, không tạo commit rác."
