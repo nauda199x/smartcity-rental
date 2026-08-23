@@ -1,26 +1,35 @@
 #!/usr/bin/env python3
-"""Tải ảnh đại diện căn hộ từ Google Drive về repo dưới dạng WebP.
+"""Tải ảnh căn hộ từ Google Drive về repo dưới dạng WebP.
 
 Google Drive chặn crawler nên không ảnh nào được Google Images index. Script
-này tải ảnh đại diện của các căn đang hiển thị về thư mục anh-can-ho/, chuyển
-sang WebP ở hai bề rộng (800px cho desktop, 400px cho khung ảnh nhỏ trên
-mobile — hậu tố -400 trước phần mở rộng) và sinh ra:
+này tải ảnh đại diện lẫn ảnh gallery của scripts/danh-sach-anh.json về thư
+mục anh-can-ho/, chuyển sang WebP rồi sinh ra:
 
-  - anh-can-ho/anh-map.json  : drive_id -> đường dẫn ảnh 800px trong repo
-  - sitemap-images.xml       : Google Image Sitemap, chỉ liệt kê bản 800px
+  - anh-can-ho/anh-map.json  : drive_id -> đường dẫn ảnh 800px trong repo,
+                                gộp chung cả ảnh bìa lẫn ảnh gallery.
+  - sitemap-images.xml       : Google Image Sitemap.
 
-Ảnh nào đã có đủ cả hai bản thì được bỏ qua, nên chạy lại script chỉ tải phần
-còn thiếu.
+Ảnh bìa (loai_anh="bia") tải hai bề rộng — 800px cho desktop, 400px cho khung
+ảnh nhỏ trên mobile (hậu tố -400 trước phần mở rộng). Ảnh gallery
+(loai_anh="gallery") chỉ tải bản 800px: gallery trên trang căn hiển thị khổ
+lớn, bản nhỏ chỉ phình repo mà không dùng tới.
+
+Ảnh nào đã có đủ file cần thiết thì được bỏ qua, nên chạy lại script chỉ tải
+phần còn thiếu.
 
 Đầu vào là scripts/danh-sach-anh.json. Script KHÔNG đụng vào data.json.
 
-Chạy:  python3 scripts/tai-anh-can-ho.py [--gioi-han N]
+Chạy:  python3 scripts/tai-anh-can-ho.py [--gioi-han N] [--gia-lap]
 
 Môi trường phát triển của Claude Code chặn drive.google.com, nên script này
 được thiết kế để chạy trong GitHub Actions (.github/workflows/tai-anh-can-ho.yml).
+Chế độ --gia-lap sinh ảnh WebP một màu đúng kích thước thay vì gọi Drive, để
+kiểm chứng được toàn bộ pipeline khi không có mạng — TỪ CHỐI chạy nếu
+GITHUB_ACTIONS=true, không bao giờ để ảnh giả lọt lên production.
 """
 
 import argparse
+import hashlib
 import io
 import json
 import os
@@ -38,6 +47,11 @@ DANH_SACH = os.path.join(os.path.dirname(os.path.abspath(__file__)),
 THU_MUC_ANH = os.path.join(GOC, "anh-can-ho")
 DUONG_MAP = os.path.join(THU_MUC_ANH, "anh-map.json")
 DUONG_SITEMAP_ANH = os.path.join(GOC, "sitemap-images.xml")
+
+# danh-sach-anh.json rỗng hoặc gần rỗng gần như luôn là lỗi sinh dữ liệu chứ
+# không phải hết ảnh. Dưới ngưỡng này thì dừng, không ghi đè anh-map.json hay
+# sitemap-images.xml.
+NGUONG_TOI_THIEU = 150
 
 TEN_MIEN = "https://timthuesmartcity.com"
 RONG_TOI_DA = 800
@@ -134,6 +148,21 @@ def da_du_hai_ban(duong_ra):
     return os.path.exists(duong_ra) and os.path.exists(duong_ban_nho(duong_ra))
 
 
+def da_du_mot_ban(duong_ra):
+    """Ảnh gallery chỉ cần đúng một bản 800px."""
+    return os.path.exists(duong_ra)
+
+
+def anh_gia_lap(drive_id):
+    """Ảnh WebP một màu, kích thước hợp lý, KHÔNG gọi mạng — dùng cho --gia-lap
+    để kiểm chứng toàn bộ pipeline khi không truy cập được Drive."""
+    mau = tuple(hashlib.md5(drive_id.encode()).digest()[:3])
+    im = Image.new("RGB", (1200, 900), mau)
+    buf = io.BytesIO()
+    im.save(buf, "JPEG", quality=80)
+    return buf.getvalue()
+
+
 def thu_nho(im, rong_dich):
     """Thu ảnh về đúng rong_dich px chiều rộng, giữ nguyên tỉ lệ.
 
@@ -146,8 +175,9 @@ def thu_nho(im, rong_dich):
     return im.resize((rong_dich, cao_moi), Image.LANCZOS)
 
 
-def chuyen_webp(noi_dung, duong_ra):
-    """Ghi bytes ảnh ra hai bản WebP: RONG_TOI_DA và RONG_NHO, giữ nguyên tỉ lệ."""
+def chuyen_webp(noi_dung, duong_ra, ca_hai_ban=True):
+    """Ghi bytes ảnh ra WebP: luôn có RONG_TOI_DA, thêm RONG_NHO nếu
+    `ca_hai_ban` (ảnh bìa). Ảnh gallery chỉ cần bản RONG_TOI_DA."""
     with Image.open(io.BytesIO(noi_dung)) as im:
         im.load()
         # WebP không lưu được ảnh chỉ mục/CMYK — chuyển hết về RGB. Ảnh đại
@@ -156,6 +186,8 @@ def chuyen_webp(noi_dung, duong_ra):
             im = im.convert("RGB")
         lon = thu_nho(im, RONG_TOI_DA)
         lon.save(duong_ra, "WEBP", quality=CHAT_LUONG, method=6)
+        if not ca_hai_ban:
+            return lon.size, None
         # Bản nhỏ thu thẳng từ ảnh gốc chứ không thu lại từ bản 800px, để
         # không chồng thêm nhiễu của một lần nén nữa.
         nho = thu_nho(im, RONG_NHO)
@@ -163,10 +195,26 @@ def chuyen_webp(noi_dung, duong_ra):
         return lon.size, nho.size
 
 
-def tai_mot_anh(ban_ghi):
+def tai_mot_anh(ban_ghi, ca_hai_ban=True, gia_lap=False):
     """Tải + chuyển đổi một bản ghi. Trả về (thành công, mô tả)."""
     duong_ra = os.path.join(THU_MUC_ANH, ban_ghi["ten_file"])
+    duong_phu = [duong_ban_nho(duong_ra)] if ca_hai_ban else []
     loi = []
+
+    if gia_lap:
+        try:
+            co_lon, co_nho = chuyen_webp(
+                anh_gia_lap(ban_ghi["drive_id"]), duong_ra, ca_hai_ban)
+        except Exception as e:
+            for duong in [duong_ra] + duong_phu:
+                if os.path.exists(duong):
+                    os.remove(duong)
+            return False, "%s: %s" % (type(e).__name__, e)
+        if ca_hai_ban:
+            return True, "%dx%d (giả lập) + %dx%d (giả lập)" % (
+                co_lon[0], co_lon[1], co_nho[0], co_nho[1])
+        return True, "%dx%d (giả lập)" % (co_lon[0], co_lon[1])
+
     for url in cac_url(ban_ghi):
         for lan in range(1, SO_LAN_THU + 1):
             try:
@@ -174,13 +222,16 @@ def tai_mot_anh(ban_ghi):
                 if noi_dung is None:
                     loi.append(ly_do)
                     break  # lỗi từ phía Drive, đổi URL chứ thử lại vô ích
-                co_lon, co_nho = chuyen_webp(noi_dung, duong_ra)
-                return True, "%dx%d %.0f KB + %dx%d %.0f KB" % (
-                    co_lon[0], co_lon[1],
-                    os.path.getsize(duong_ra) / 1024,
-                    co_nho[0], co_nho[1],
-                    os.path.getsize(duong_ban_nho(duong_ra)) / 1024,
-                )
+                co_lon, co_nho = chuyen_webp(noi_dung, duong_ra, ca_hai_ban)
+                if ca_hai_ban:
+                    return True, "%dx%d %.0f KB + %dx%d %.0f KB" % (
+                        co_lon[0], co_lon[1],
+                        os.path.getsize(duong_ra) / 1024,
+                        co_nho[0], co_nho[1],
+                        os.path.getsize(duong_ban_nho(duong_ra)) / 1024,
+                    )
+                return True, "%dx%d %.0f KB" % (
+                    co_lon[0], co_lon[1], os.path.getsize(duong_ra) / 1024)
             except requests.RequestException as e:
                 loi.append("%s (lần %d)" % (type(e).__name__, lan))
                 if lan < SO_LAN_THU:
@@ -188,9 +239,9 @@ def tai_mot_anh(ban_ghi):
             except Exception as e:  # ảnh hỏng, Pillow không mở được
                 loi.append("%s: %s" % (type(e).__name__, e))
                 break
-    # Không để lại file dở dang: xoá cả hai bản, nếu không lần chạy sau sẽ
-    # thấy bản 800px còn sót và tưởng ảnh này đã xong.
-    for duong in (duong_ra, duong_ban_nho(duong_ra)):
+    # Không để lại file dở dang: xoá mọi bản, nếu không lần chạy sau sẽ thấy
+    # file còn sót và tưởng ảnh này đã xong.
+    for duong in [duong_ra] + duong_phu:
         if os.path.exists(duong):
             os.remove(duong)
     return False, "; ".join(loi[:3]) or "không rõ nguyên nhân"
@@ -199,10 +250,19 @@ def tai_mot_anh(ban_ghi):
 def ghi_sitemap_anh(ban_ghi_ok):
     """Sinh Google Image Sitemap: nhóm ảnh theo trang hiển thị nó.
 
-    Trang chủ liệt kê mọi căn nên nhận toàn bộ ảnh; các trang danh mục chỉ nhận
-    ảnh của loại căn / phân khu tương ứng."""
-    theo_trang = {TRANG_CHU: list(ban_ghi_ok)}
+    Ảnh bìa (loai_anh="bia") giữ nguyên cách khai cũ: trang chủ liệt kê mọi
+    căn, hai trang danh mục chỉ nhận ảnh của loại căn / phân khu tương ứng.
+    Ảnh gallery (loai_anh="gallery") CHỈ khai dưới đúng trang căn của nó
+    (bg["trang"]) — không lên trang chủ, không lên trang danh mục, vì ảnh đó
+    chỉ thực sự xuất hiện trên một trang duy nhất."""
+    theo_trang = {TRANG_CHU: []}
     for bg in ban_ghi_ok:
+        if bg.get("loai_anh", "bia") == "gallery":
+            trang = bg.get("trang")
+            if trang:
+                theo_trang.setdefault(trang, []).append(bg)
+            continue
+        theo_trang[TRANG_CHU].append(bg)
         for bang, khoa in ((TRANG_THEO_LOAI, "loai"),
                            (TRANG_THEO_PHAN_KHU, "phan_khu")):
             trang = bang.get(bg[khoa])
@@ -242,31 +302,50 @@ def main():
     bo_phan_tich = argparse.ArgumentParser()
     bo_phan_tich.add_argument("--gioi-han", type=int, default=0,
                               help="chỉ tải N ảnh đầu (để thử nhanh)")
+    bo_phan_tich.add_argument("--gia-lap", action="store_true",
+                              help="sinh ảnh WebP một màu thay vì gọi Drive, "
+                                   "để kiểm chứng pipeline khi không có mạng")
     tham_so = bo_phan_tich.parse_args()
+
+    if tham_so.gia_lap and os.environ.get("GITHUB_ACTIONS") == "true":
+        print("DỪNG: --gia-lap không được phép chạy khi GITHUB_ACTIONS=true "
+              "— không bao giờ để ảnh giả lọt lên production.")
+        return 1
 
     with open(DANH_SACH, encoding="utf-8") as f:
         danh_sach = json.load(f)
+
+    if len(danh_sach) < NGUONG_TOI_THIEU:
+        print("DỪNG: scripts/danh-sach-anh.json chỉ có %d bản ghi, dưới "
+              "ngưỡng %d — nhiều khả năng đang lỗi. Không ghi đè "
+              "anh-map.json, không ghi đè sitemap-images.xml."
+              % (len(danh_sach), NGUONG_TOI_THIEU))
+        return 1
+
     if tham_so.gioi_han:
         danh_sach = danh_sach[:tham_so.gioi_han]
 
     os.makedirs(THU_MUC_ANH, exist_ok=True)
-    print("Bắt đầu tải %d ảnh đại diện về %s\n" % (len(danh_sach), "anh-can-ho/"))
+    print("Bắt đầu tải %d ảnh về %s%s\n" % (
+        len(danh_sach), "anh-can-ho/", " (--gia-lap: không gọi Drive)"
+        if tham_so.gia_lap else ""))
 
     ok, that_bai, bo_qua = [], [], []
     for i, bg in enumerate(danh_sach, 1):
+        ca_hai_ban = bg.get("loai_anh", "bia") == "bia"
         duong_ra = os.path.join(THU_MUC_ANH, bg["ten_file"])
-        # Đã có đủ cả hai bản thì không gọi Drive nữa: chạy lại script nhiều
-        # lần chỉ tải phần còn thiếu. Ảnh vẫn vào anh-map.json và sitemap.
-        if da_du_hai_ban(duong_ra):
+        # Đã có đủ file cần thiết thì không gọi Drive nữa: chạy lại script
+        # nhiều lần chỉ tải phần còn thiếu. Ảnh vẫn vào anh-map.json và sitemap.
+        da_du = da_du_hai_ban(duong_ra) if ca_hai_ban else da_du_mot_ban(duong_ra)
+        if da_du:
             ok.append(bg)
             bo_qua.append(bg)
-            print("[%3d/%d] BỎ QUA %-12s %s (đã có cả bản %d và %d)"
-                  % (i, len(danh_sach), bg["ma"], bg["ten_file"],
-                     RONG_TOI_DA, RONG_NHO))
+            print("[%3d/%d] BỎ QUA %-12s %s (đã có sẵn)"
+                  % (i, len(danh_sach), bg["ma"], bg["ten_file"]))
             sys.stdout.flush()
             continue
 
-        thanh_cong, mo_ta = tai_mot_anh(bg)
+        thanh_cong, mo_ta = tai_mot_anh(bg, ca_hai_ban, tham_so.gia_lap)
         if thanh_cong:
             ok.append(bg)
             print("[%3d/%d] OK   %-12s %s (%s)" % (i, len(danh_sach), bg["ma"],
@@ -275,21 +354,25 @@ def main():
             that_bai.append((bg, mo_ta))
             print("[%3d/%d] LỖI  %-12s %s" % (i, len(danh_sach), bg["ma"], mo_ta))
         sys.stdout.flush()
-        # Chỉ nghỉ giữa hai lần thật sự gọi Drive; ảnh bỏ qua không chạm mạng.
-        if i < len(danh_sach):
+        # Chỉ nghỉ giữa hai lần thật sự gọi Drive; ảnh bỏ qua/giả lập không
+        # chạm mạng.
+        if i < len(danh_sach) and not tham_so.gia_lap:
             time.sleep(random.uniform(0.3, 0.5))
 
     tong_byte = 0
     for bg in ok:
         duong_ra = os.path.join(THU_MUC_ANH, bg["ten_file"])
-        for duong in (duong_ra, duong_ban_nho(duong_ra)):
+        cac_duong = [duong_ra]
+        if bg.get("loai_anh", "bia") == "bia":
+            cac_duong.append(duong_ban_nho(duong_ra))
+        for duong in cac_duong:
             if os.path.exists(duong):
                 tong_byte += os.path.getsize(duong)
     print("\n=== KẾT QUẢ ===")
     print("Thành công : %d/%d (trong đó bỏ qua vì đã có sẵn: %d)"
           % (len(ok), len(danh_sach), len(bo_qua)))
     print("Thất bại   : %d" % len(that_bai))
-    print("Dung lượng : %.1f MB (gộp cả hai bản)" % (tong_byte / 1024 / 1024))
+    print("Dung lượng : %.1f MB" % (tong_byte / 1024 / 1024))
     if that_bai:
         print("\nMã nội bộ lỗi:")
         for bg, ly_do in that_bai:
