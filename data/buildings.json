@@ -1,0 +1,1242 @@
+[
+  {
+    "ma_toa": "A2",
+    "ma_toa_du_lieu": "A2",
+    "slug": "a2",
+    "phan_khu": "Lumiere",
+    "mapping": "inferred",
+    "dat_nguong_sinh_trang": true,
+    "so_can_trong": 29,
+    "breakdown": {
+      "studio": 2,
+      "1pn": 4,
+      "1pn_plus": 0,
+      "2pn": 21,
+      "2pn_plus": 0,
+      "3pn": 2
+    },
+    "gia": {
+      "min": 8000000,
+      "median": 14000000,
+      "max": 16000000
+    },
+    "dien_tich": {
+      "min": 30,
+      "max": 87
+    },
+    "noi_that": {
+      "full": 4,
+      "co_ban": 25
+    },
+    "cap_nhat": "2026-08-24"
+  },
+  {
+    "ma_toa": "A3",
+    "ma_toa_du_lieu": "A3",
+    "slug": "a3",
+    "phan_khu": "Lumiere",
+    "mapping": "inferred",
+    "dat_nguong_sinh_trang": true,
+    "so_can_trong": 9,
+    "breakdown": {
+      "studio": 0,
+      "1pn": 2,
+      "1pn_plus": 1,
+      "2pn": 3,
+      "2pn_plus": 3,
+      "3pn": 0
+    },
+    "gia": {
+      "min": 9000000,
+      "median": 12000000,
+      "max": 16500000
+    },
+    "dien_tich": {
+      "min": 40,
+      "max": 64
+    },
+    "noi_that": {
+      "full": 3,
+      "co_ban": 6
+    },
+    "cap_nhat": "2026-08-24"
+  },
+  {
+    "ma_toa": "GS1",
+    "ma_toa_du_lieu": "GS1",
+    "slug": "gs1",
+    "phan_khu": "Miami",
+    "mapping": "inferred",
+    "dat_nguong_sinh_trang": true,
+    "so_can_trong": 8,
+    "breakdown": {
+      "studio": 2,
+      "1pn": 0,
+      "1pn_plus": 0,
+      "2pn": 5,
+      "2pn_plus": 0,
+      "3pn": 1
+    },
+    "gia": {
+      "min": 6500000,
+      "median": 10250000,
+      "max": 16000000
+    },
+    "dien_tich": {
+      "min": 32,
+      "max": 95
+    },
+    "noi_that": {
+      "full": 6,
+      "co_ban": 2
+    },
+    "cap_nhat": "2026-08-24"
+  },
+  {
+    "ma_toa": "GS2",
+    "ma_toa_du_lieu": "GS2",
+    "slug": "gs2",
+    "phan_khu": "Miami",
+    "mapping": "inferred",
+    "dat_nguong_sinh_trang": false,
+    "so_can_trong": 2,
+    "breakdown": {
+      "studio": 0,
+      "1pn": 0,
+      "1pn_plus": 0,
+      "2pn": 0,
+      "2pn_plus": 2,
+      "3pn": 0
+    },
+    "gia": {
+      "min": 12000000,
+      "median": 12250000,
+      "max": 12500000
+    },
+    "dien_tich": {
+      "min": 62,
+      "max": 64
+    },
+    "noi_that": {
+      "full": 2,
+      "co_ban": 0
+    },
+    "cap_nhat": "2026-08-24"
+  },
+  {
+    "ma_toa": "GS3",
+    "ma_toa_du_lieu": "GS3",
+    "slug": "gs3",
+    "phan_khu": "Miami",
+    "mapping": "inferred",
+    "dat_nguong_sinh_trang": false,
+    "so_can_trong": 2,
+    "breakdown": {
+      "studio": 0,
+      "1pn": 0,
+      "1pn_plus": 0,
+      "2pn": 1,
+      "2pn_plus": 1,
+      "3pn": 0
+    },
+    "gia": {
+      "min": 8500000,
+      "median": 8750000,
+      "max": 9000000
+    },
+    "dien_tich": {
+      "min": 54,
+      "max": 63
+    },
+    "noi_that": {
+      "full": 0,
+      "co_ban": 2
+    },
+    "cap_nhat": "2026-08-24"
+  },
+  {
+    "ma_toa": "GS5",
+    "ma_toa_du_lieu": "GS5",
+    "slug": "gs5",
+    "phan_khu": "Miami",
+    "mapping": "inferred",
+    "dat_nguong_sinh_trang": true,
+    "so_can_trong": 9,
+    "breakdown": {
+      "studio": 0,
+      "1pn": 1,
+      "1pn_plus": 0,
+      "2pn": 5,
+      "2pn_plus": 0,
+      "3pn": 3
+    },
+    "gia": {
+      "min": 7000000,
+      "median": 12000000,
+      "max": 13500000
+    },
+    "dien_tich": {
+      "min": 45,
+      "max": 82
+    },
+    "noi_that": {
+      "full": 4,
+      "co_ban": 5
+    },
+    "cap_nhat": "2026-08-24"
+  },
+  {
+    "ma_toa": "GS6",
+    "ma_toa_du_lieu": "GS6",
+    "slug": "gs6",
+    "phan_khu": "Miami",
+    "mapping": "inferred",
+    "dat_nguong_sinh_trang": true,
+    "so_can_trong": 7,
+    "breakdown": {
+      "studio": 0,
+      "1pn": 0,
+      "1pn_plus": 2,
+      "2pn": 2,
+      "2pn_plus": 0,
+      "3pn": 3
+    },
+    "gia": {
+      "min": 7500000,
+      "median": 12000000,
+      "max": 18000000
+    },
+    "dien_tich": {
+      "min": 43,
+      "max": 80
+    },
+    "noi_that": {
+      "full": 5,
+      "co_ban": 2
+    },
+    "cap_nhat": "2026-08-24"
+  },
+  {
+    "ma_toa": "I1",
+    "ma_toa_du_lieu": "I1",
+    "slug": "i1",
+    "phan_khu": "Imperia",
+    "mapping": "inferred",
+    "dat_nguong_sinh_trang": true,
+    "so_can_trong": 6,
+    "breakdown": {
+      "studio": 0,
+      "1pn": 0,
+      "1pn_plus": 2,
+      "2pn": 1,
+      "2pn_plus": 1,
+      "3pn": 2
+    },
+    "gia": {
+      "min": 9500000,
+      "median": 12500000,
+      "max": 17500000
+    },
+    "dien_tich": {
+      "min": 43,
+      "max": 76
+    },
+    "noi_that": {
+      "full": 6,
+      "co_ban": 0
+    },
+    "cap_nhat": "2026-08-24"
+  },
+  {
+    "ma_toa": "I2",
+    "ma_toa_du_lieu": "I2",
+    "slug": "i2",
+    "phan_khu": "Imperia",
+    "mapping": "inferred",
+    "dat_nguong_sinh_trang": false,
+    "so_can_trong": 2,
+    "breakdown": {
+      "studio": 0,
+      "1pn": 0,
+      "1pn_plus": 0,
+      "2pn": 1,
+      "2pn_plus": 1,
+      "3pn": 0
+    },
+    "gia": {
+      "min": 12000000,
+      "median": 12500000,
+      "max": 13000000
+    },
+    "dien_tich": {
+      "min": 55,
+      "max": 64
+    },
+    "noi_that": {
+      "full": 2,
+      "co_ban": 0
+    },
+    "cap_nhat": "2026-08-24"
+  },
+  {
+    "ma_toa": "I3",
+    "ma_toa_du_lieu": "I3",
+    "slug": "i3",
+    "phan_khu": "Imperia",
+    "mapping": "inferred",
+    "dat_nguong_sinh_trang": true,
+    "so_can_trong": 6,
+    "breakdown": {
+      "studio": 1,
+      "1pn": 0,
+      "1pn_plus": 2,
+      "2pn": 2,
+      "2pn_plus": 1,
+      "3pn": 0
+    },
+    "gia": {
+      "min": 6000000,
+      "median": 10750000,
+      "max": 14000000
+    },
+    "dien_tich": {
+      "min": 32,
+      "max": 64
+    },
+    "noi_that": {
+      "full": 5,
+      "co_ban": 1
+    },
+    "cap_nhat": "2026-08-24"
+  },
+  {
+    "ma_toa": "I4",
+    "ma_toa_du_lieu": "I4",
+    "slug": "i4",
+    "phan_khu": "Imperia",
+    "mapping": "inferred",
+    "dat_nguong_sinh_trang": false,
+    "so_can_trong": 2,
+    "breakdown": {
+      "studio": 1,
+      "1pn": 0,
+      "1pn_plus": 0,
+      "2pn": 0,
+      "2pn_plus": 1,
+      "3pn": 0
+    },
+    "gia": {
+      "min": 6000000,
+      "median": 8000000,
+      "max": 10000000
+    },
+    "dien_tich": {
+      "min": 31,
+      "max": 64
+    },
+    "noi_that": {
+      "full": 0,
+      "co_ban": 2
+    },
+    "cap_nhat": "2026-08-24"
+  },
+  {
+    "ma_toa": "I5",
+    "ma_toa_du_lieu": "I5",
+    "slug": "i5",
+    "phan_khu": "Imperia",
+    "mapping": "inferred",
+    "dat_nguong_sinh_trang": true,
+    "so_can_trong": 4,
+    "breakdown": {
+      "studio": 1,
+      "1pn": 0,
+      "1pn_plus": 1,
+      "2pn": 1,
+      "2pn_plus": 1,
+      "3pn": 0
+    },
+    "gia": {
+      "min": 7500000,
+      "median": 9750000,
+      "max": 14000000
+    },
+    "dien_tich": {
+      "min": 28,
+      "max": 63
+    },
+    "noi_that": {
+      "full": 3,
+      "co_ban": 1
+    },
+    "cap_nhat": "2026-08-24"
+  },
+  {
+    "ma_toa": "MASA",
+    "ma_toa_du_lieu": "MASA",
+    "slug": "masa",
+    "phan_khu": "Masteri",
+    "mapping": "inferred",
+    "dat_nguong_sinh_trang": true,
+    "so_can_trong": 9,
+    "breakdown": {
+      "studio": 3,
+      "1pn": 0,
+      "1pn_plus": 3,
+      "2pn": 2,
+      "2pn_plus": 0,
+      "3pn": 1
+    },
+    "gia": {
+      "min": 7500000,
+      "median": 11500000,
+      "max": 15000000
+    },
+    "dien_tich": {
+      "min": 29,
+      "max": 79
+    },
+    "noi_that": {
+      "full": 7,
+      "co_ban": 2
+    },
+    "cap_nhat": "2026-08-24"
+  },
+  {
+    "ma_toa": "MASB",
+    "ma_toa_du_lieu": "MASB",
+    "slug": "masb",
+    "phan_khu": "Masteri",
+    "mapping": "inferred",
+    "dat_nguong_sinh_trang": true,
+    "so_can_trong": 19,
+    "breakdown": {
+      "studio": 6,
+      "1pn": 0,
+      "1pn_plus": 7,
+      "2pn": 2,
+      "2pn_plus": 3,
+      "3pn": 1
+    },
+    "gia": {
+      "min": 8000000,
+      "median": 12000000,
+      "max": 18000000
+    },
+    "dien_tich": {
+      "min": 31,
+      "max": 79
+    },
+    "noi_that": {
+      "full": 15,
+      "co_ban": 4
+    },
+    "cap_nhat": "2026-08-24"
+  },
+  {
+    "ma_toa": "MASC",
+    "ma_toa_du_lieu": "MASC",
+    "slug": "masc",
+    "phan_khu": "Masteri",
+    "mapping": "inferred",
+    "dat_nguong_sinh_trang": true,
+    "so_can_trong": 8,
+    "breakdown": {
+      "studio": 4,
+      "1pn": 0,
+      "1pn_plus": 2,
+      "2pn": 0,
+      "2pn_plus": 2,
+      "3pn": 0
+    },
+    "gia": {
+      "min": 8500000,
+      "median": 9250000,
+      "max": 12500000
+    },
+    "dien_tich": {
+      "min": 27,
+      "max": 62
+    },
+    "noi_that": {
+      "full": 5,
+      "co_ban": 3
+    },
+    "cap_nhat": "2026-08-24"
+  },
+  {
+    "ma_toa": "MASD",
+    "ma_toa_du_lieu": "MASD",
+    "slug": "masd",
+    "phan_khu": "Masteri",
+    "mapping": "inferred",
+    "dat_nguong_sinh_trang": true,
+    "so_can_trong": 10,
+    "breakdown": {
+      "studio": 5,
+      "1pn": 0,
+      "1pn_plus": 2,
+      "2pn": 0,
+      "2pn_plus": 3,
+      "3pn": 0
+    },
+    "gia": {
+      "min": 7500000,
+      "median": 10000000,
+      "max": 16000000
+    },
+    "dien_tich": {
+      "min": 27,
+      "max": 62
+    },
+    "noi_that": {
+      "full": 9,
+      "co_ban": 1
+    },
+    "cap_nhat": "2026-08-24"
+  },
+  {
+    "ma_toa": "S1.01",
+    "ma_toa_du_lieu": "S101",
+    "slug": "s1-01",
+    "phan_khu": "Sapphire",
+    "mapping": "inferred",
+    "dat_nguong_sinh_trang": true,
+    "so_can_trong": 10,
+    "breakdown": {
+      "studio": 2,
+      "1pn": 0,
+      "1pn_plus": 2,
+      "2pn": 2,
+      "2pn_plus": 4,
+      "3pn": 0
+    },
+    "gia": {
+      "min": 6500000,
+      "median": 9750000,
+      "max": 13000000
+    },
+    "dien_tich": {
+      "min": 28,
+      "max": 64
+    },
+    "noi_that": {
+      "full": 10,
+      "co_ban": 0
+    },
+    "cap_nhat": "2026-08-24"
+  },
+  {
+    "ma_toa": "S1.02",
+    "ma_toa_du_lieu": "S102",
+    "slug": "s1-02",
+    "phan_khu": "Sapphire",
+    "mapping": "inferred",
+    "dat_nguong_sinh_trang": true,
+    "so_can_trong": 6,
+    "breakdown": {
+      "studio": 3,
+      "1pn": 0,
+      "1pn_plus": 2,
+      "2pn": 1,
+      "2pn_plus": 0,
+      "3pn": 0
+    },
+    "gia": {
+      "min": 6000000,
+      "median": 7400000,
+      "max": 10000000
+    },
+    "dien_tich": {
+      "min": 28,
+      "max": 55
+    },
+    "noi_that": {
+      "full": 5,
+      "co_ban": 1
+    },
+    "cap_nhat": "2026-08-24"
+  },
+  {
+    "ma_toa": "S1.03",
+    "ma_toa_du_lieu": "S103",
+    "slug": "s1-03",
+    "phan_khu": "Sapphire",
+    "mapping": "inferred",
+    "dat_nguong_sinh_trang": true,
+    "so_can_trong": 6,
+    "breakdown": {
+      "studio": 1,
+      "1pn": 0,
+      "1pn_plus": 2,
+      "2pn": 2,
+      "2pn_plus": 0,
+      "3pn": 1
+    },
+    "gia": {
+      "min": 6500000,
+      "median": 9000000,
+      "max": 13000000
+    },
+    "dien_tich": {
+      "min": 32,
+      "max": 74
+    },
+    "noi_that": {
+      "full": 4,
+      "co_ban": 2
+    },
+    "cap_nhat": "2026-08-24"
+  },
+  {
+    "ma_toa": "S1.05",
+    "ma_toa_du_lieu": "S105",
+    "slug": "s1-05",
+    "phan_khu": "Sapphire",
+    "mapping": "inferred",
+    "dat_nguong_sinh_trang": true,
+    "so_can_trong": 3,
+    "breakdown": {
+      "studio": 0,
+      "1pn": 0,
+      "1pn_plus": 1,
+      "2pn": 2,
+      "2pn_plus": 0,
+      "3pn": 0
+    },
+    "gia": {
+      "min": 9500000,
+      "median": 9500000,
+      "max": 10000000
+    },
+    "dien_tich": {
+      "min": 43,
+      "max": 55
+    },
+    "noi_that": {
+      "full": 3,
+      "co_ban": 0
+    },
+    "cap_nhat": "2026-08-24"
+  },
+  {
+    "ma_toa": "S1.06",
+    "ma_toa_du_lieu": "S106",
+    "slug": "s1-06",
+    "phan_khu": "Sapphire",
+    "mapping": "inferred",
+    "dat_nguong_sinh_trang": false,
+    "so_can_trong": 2,
+    "breakdown": {
+      "studio": 0,
+      "1pn": 0,
+      "1pn_plus": 0,
+      "2pn": 0,
+      "2pn_plus": 1,
+      "3pn": 1
+    },
+    "gia": {
+      "min": 10500000,
+      "median": 12250000,
+      "max": 14000000
+    },
+    "dien_tich": {
+      "min": 54,
+      "max": 76
+    },
+    "noi_that": {
+      "full": 2,
+      "co_ban": 0
+    },
+    "cap_nhat": "2026-08-24"
+  },
+  {
+    "ma_toa": "S2.01",
+    "ma_toa_du_lieu": "S201",
+    "slug": "s2-01",
+    "phan_khu": "Sapphire",
+    "mapping": "inferred",
+    "dat_nguong_sinh_trang": true,
+    "so_can_trong": 4,
+    "breakdown": {
+      "studio": 1,
+      "1pn": 0,
+      "1pn_plus": 0,
+      "2pn": 2,
+      "2pn_plus": 0,
+      "3pn": 1
+    },
+    "gia": {
+      "min": 7500000,
+      "median": 8500000,
+      "max": 13000000
+    },
+    "dien_tich": {
+      "min": 36,
+      "max": 75
+    },
+    "noi_that": {
+      "full": 2,
+      "co_ban": 2
+    },
+    "cap_nhat": "2026-08-24"
+  },
+  {
+    "ma_toa": "S2.02",
+    "ma_toa_du_lieu": "S202",
+    "slug": "s2-02",
+    "phan_khu": "Sapphire",
+    "mapping": "inferred",
+    "dat_nguong_sinh_trang": true,
+    "so_can_trong": 7,
+    "breakdown": {
+      "studio": 0,
+      "1pn": 0,
+      "1pn_plus": 2,
+      "2pn": 2,
+      "2pn_plus": 2,
+      "3pn": 1
+    },
+    "gia": {
+      "min": 8000000,
+      "median": 10000000,
+      "max": 12500000
+    },
+    "dien_tich": {
+      "min": 43,
+      "max": 75
+    },
+    "noi_that": {
+      "full": 7,
+      "co_ban": 0
+    },
+    "cap_nhat": "2026-08-24"
+  },
+  {
+    "ma_toa": "S2.03",
+    "ma_toa_du_lieu": "S203",
+    "slug": "s2-03",
+    "phan_khu": "Sapphire",
+    "mapping": "inferred",
+    "dat_nguong_sinh_trang": false,
+    "so_can_trong": 2,
+    "breakdown": {
+      "studio": 0,
+      "1pn": 0,
+      "1pn_plus": 1,
+      "2pn": 0,
+      "2pn_plus": 1,
+      "3pn": 0
+    },
+    "gia": {
+      "min": 9000000,
+      "median": 10750000,
+      "max": 12500000
+    },
+    "dien_tich": {
+      "min": 43,
+      "max": 63
+    },
+    "noi_that": {
+      "full": 2,
+      "co_ban": 0
+    },
+    "cap_nhat": "2026-08-24"
+  },
+  {
+    "ma_toa": "S2.05",
+    "ma_toa_du_lieu": "S205",
+    "slug": "s2-05",
+    "phan_khu": "Sapphire",
+    "mapping": "inferred",
+    "dat_nguong_sinh_trang": false,
+    "so_can_trong": 2,
+    "breakdown": {
+      "studio": 0,
+      "1pn": 0,
+      "1pn_plus": 0,
+      "2pn": 2,
+      "2pn_plus": 0,
+      "3pn": 0
+    },
+    "gia": {
+      "min": 9500000,
+      "median": 9500000,
+      "max": 9500000
+    },
+    "dien_tich": {
+      "min": 54,
+      "max": 55
+    },
+    "noi_that": {
+      "full": 2,
+      "co_ban": 0
+    },
+    "cap_nhat": "2026-08-24"
+  },
+  {
+    "ma_toa": "S3.01",
+    "ma_toa_du_lieu": "S301",
+    "slug": "s3-01",
+    "phan_khu": "Sapphire",
+    "mapping": "inferred",
+    "dat_nguong_sinh_trang": true,
+    "so_can_trong": 4,
+    "breakdown": {
+      "studio": 0,
+      "1pn": 0,
+      "1pn_plus": 0,
+      "2pn": 2,
+      "2pn_plus": 2,
+      "3pn": 0
+    },
+    "gia": {
+      "min": 10000000,
+      "median": 10750000,
+      "max": 11000000
+    },
+    "dien_tich": {
+      "min": 54,
+      "max": 63
+    },
+    "noi_that": {
+      "full": 4,
+      "co_ban": 0
+    },
+    "cap_nhat": "2026-08-24"
+  },
+  {
+    "ma_toa": "S3.02",
+    "ma_toa_du_lieu": "S302",
+    "slug": "s3-02",
+    "phan_khu": "Sapphire",
+    "mapping": "inferred",
+    "dat_nguong_sinh_trang": true,
+    "so_can_trong": 5,
+    "breakdown": {
+      "studio": 0,
+      "1pn": 0,
+      "1pn_plus": 1,
+      "2pn": 2,
+      "2pn_plus": 2,
+      "3pn": 0
+    },
+    "gia": {
+      "min": 8000000,
+      "median": 10500000,
+      "max": 12000000
+    },
+    "dien_tich": {
+      "min": 43,
+      "max": 64
+    },
+    "noi_that": {
+      "full": 4,
+      "co_ban": 1
+    },
+    "cap_nhat": "2026-08-24"
+  },
+  {
+    "ma_toa": "S3.03",
+    "ma_toa_du_lieu": "S303",
+    "slug": "s3-03",
+    "phan_khu": "Sapphire",
+    "mapping": "inferred",
+    "dat_nguong_sinh_trang": true,
+    "so_can_trong": 4,
+    "breakdown": {
+      "studio": 1,
+      "1pn": 0,
+      "1pn_plus": 0,
+      "2pn": 1,
+      "2pn_plus": 1,
+      "3pn": 1
+    },
+    "gia": {
+      "min": 7500000,
+      "median": 11500000,
+      "max": 16000000
+    },
+    "dien_tich": {
+      "min": 32,
+      "max": 94
+    },
+    "noi_that": {
+      "full": 4,
+      "co_ban": 0
+    },
+    "cap_nhat": "2026-08-24"
+  },
+  {
+    "ma_toa": "S4.01",
+    "ma_toa_du_lieu": "S401",
+    "slug": "s4-01",
+    "phan_khu": "Sapphire",
+    "mapping": "inferred",
+    "dat_nguong_sinh_trang": true,
+    "so_can_trong": 6,
+    "breakdown": {
+      "studio": 0,
+      "1pn": 0,
+      "1pn_plus": 0,
+      "2pn": 2,
+      "2pn_plus": 2,
+      "3pn": 2
+    },
+    "gia": {
+      "min": 10000000,
+      "median": 11250000,
+      "max": 18000000
+    },
+    "dien_tich": {
+      "min": 55,
+      "max": 94
+    },
+    "noi_that": {
+      "full": 5,
+      "co_ban": 1
+    },
+    "cap_nhat": "2026-08-24"
+  },
+  {
+    "ma_toa": "S4.02",
+    "ma_toa_du_lieu": "S402",
+    "slug": "s4-02",
+    "phan_khu": "Sapphire",
+    "mapping": "inferred",
+    "dat_nguong_sinh_trang": true,
+    "so_can_trong": 5,
+    "breakdown": {
+      "studio": 1,
+      "1pn": 0,
+      "1pn_plus": 2,
+      "2pn": 1,
+      "2pn_plus": 0,
+      "3pn": 1
+    },
+    "gia": {
+      "min": 5500000,
+      "median": 9000000,
+      "max": 18000000
+    },
+    "dien_tich": {
+      "min": 34,
+      "max": 98
+    },
+    "noi_that": {
+      "full": 4,
+      "co_ban": 1
+    },
+    "cap_nhat": "2026-08-24"
+  },
+  {
+    "ma_toa": "S4.03",
+    "ma_toa_du_lieu": "S403",
+    "slug": "s4-03",
+    "phan_khu": "Sapphire",
+    "mapping": "inferred",
+    "dat_nguong_sinh_trang": true,
+    "so_can_trong": 3,
+    "breakdown": {
+      "studio": 0,
+      "1pn": 0,
+      "1pn_plus": 0,
+      "2pn": 1,
+      "2pn_plus": 1,
+      "3pn": 1
+    },
+    "gia": {
+      "min": 10500000,
+      "median": 12500000,
+      "max": 17000000
+    },
+    "dien_tich": {
+      "min": 63,
+      "max": 95
+    },
+    "noi_that": {
+      "full": 3,
+      "co_ban": 0
+    },
+    "cap_nhat": "2026-08-24"
+  },
+  {
+    "ma_toa": "SA1",
+    "ma_toa_du_lieu": "SA1",
+    "slug": "sa1",
+    "phan_khu": "Sakura",
+    "mapping": "inferred",
+    "dat_nguong_sinh_trang": true,
+    "so_can_trong": 10,
+    "breakdown": {
+      "studio": 2,
+      "1pn": 0,
+      "1pn_plus": 1,
+      "2pn": 5,
+      "2pn_plus": 1,
+      "3pn": 1
+    },
+    "gia": {
+      "min": 6000000,
+      "median": 10000000,
+      "max": 14000000
+    },
+    "dien_tich": {
+      "min": 34,
+      "max": 75
+    },
+    "noi_that": {
+      "full": 5,
+      "co_ban": 5
+    },
+    "cap_nhat": "2026-08-24"
+  },
+  {
+    "ma_toa": "SA2",
+    "ma_toa_du_lieu": "SA2",
+    "slug": "sa2",
+    "phan_khu": "Sakura",
+    "mapping": "inferred",
+    "dat_nguong_sinh_trang": true,
+    "so_can_trong": 4,
+    "breakdown": {
+      "studio": 3,
+      "1pn": 0,
+      "1pn_plus": 0,
+      "2pn": 0,
+      "2pn_plus": 0,
+      "3pn": 1
+    },
+    "gia": {
+      "min": 7500000,
+      "median": 8000000,
+      "max": 14000000
+    },
+    "dien_tich": {
+      "min": 30,
+      "max": 78
+    },
+    "noi_that": {
+      "full": 4,
+      "co_ban": 0
+    },
+    "cap_nhat": "2026-08-24"
+  },
+  {
+    "ma_toa": "SA3",
+    "ma_toa_du_lieu": "SA3",
+    "slug": "sa3",
+    "phan_khu": "Sakura",
+    "mapping": "inferred",
+    "dat_nguong_sinh_trang": true,
+    "so_can_trong": 9,
+    "breakdown": {
+      "studio": 1,
+      "1pn": 0,
+      "1pn_plus": 2,
+      "2pn": 5,
+      "2pn_plus": 0,
+      "3pn": 1
+    },
+    "gia": {
+      "min": 6000000,
+      "median": 10000000,
+      "max": 15000000
+    },
+    "dien_tich": {
+      "min": 32,
+      "max": 75
+    },
+    "noi_that": {
+      "full": 5,
+      "co_ban": 4
+    },
+    "cap_nhat": "2026-08-24"
+  },
+  {
+    "ma_toa": "SA5",
+    "ma_toa_du_lieu": "SA5",
+    "slug": "sa5",
+    "phan_khu": "Sakura",
+    "mapping": "inferred",
+    "dat_nguong_sinh_trang": true,
+    "so_can_trong": 7,
+    "breakdown": {
+      "studio": 1,
+      "1pn": 3,
+      "1pn_plus": 0,
+      "2pn": 2,
+      "2pn_plus": 1,
+      "3pn": 0
+    },
+    "gia": {
+      "min": 8500000,
+      "median": 10000000,
+      "max": 13000000
+    },
+    "dien_tich": {
+      "min": 34,
+      "max": 64
+    },
+    "noi_that": {
+      "full": 7,
+      "co_ban": 0
+    },
+    "cap_nhat": "2026-08-24"
+  },
+  {
+    "ma_toa": "TC1",
+    "ma_toa_du_lieu": "TC1",
+    "slug": "tc1",
+    "phan_khu": "Canopy",
+    "mapping": "inferred",
+    "dat_nguong_sinh_trang": true,
+    "so_can_trong": 7,
+    "breakdown": {
+      "studio": 1,
+      "1pn": 2,
+      "1pn_plus": 0,
+      "2pn": 3,
+      "2pn_plus": 1,
+      "3pn": 0
+    },
+    "gia": {
+      "min": 7000000,
+      "median": 9000000,
+      "max": 11000000
+    },
+    "dien_tich": {
+      "min": 29,
+      "max": 69
+    },
+    "noi_that": {
+      "full": 1,
+      "co_ban": 6
+    },
+    "cap_nhat": "2026-08-24"
+  },
+  {
+    "ma_toa": "TC2",
+    "ma_toa_du_lieu": "TC2",
+    "slug": "tc2",
+    "phan_khu": "Canopy",
+    "mapping": "inferred",
+    "dat_nguong_sinh_trang": true,
+    "so_can_trong": 4,
+    "breakdown": {
+      "studio": 3,
+      "1pn": 0,
+      "1pn_plus": 0,
+      "2pn": 1,
+      "2pn_plus": 0,
+      "3pn": 0
+    },
+    "gia": {
+      "min": 7000000,
+      "median": 7500000,
+      "max": 9000000
+    },
+    "dien_tich": {
+      "min": 26,
+      "max": 61
+    },
+    "noi_that": {
+      "full": 3,
+      "co_ban": 1
+    },
+    "cap_nhat": "2026-08-24"
+  },
+  {
+    "ma_toa": "TC3",
+    "ma_toa_du_lieu": "TC3",
+    "slug": "tc3",
+    "phan_khu": "Canopy",
+    "mapping": "inferred",
+    "dat_nguong_sinh_trang": true,
+    "so_can_trong": 4,
+    "breakdown": {
+      "studio": 0,
+      "1pn": 0,
+      "1pn_plus": 1,
+      "2pn": 2,
+      "2pn_plus": 1,
+      "3pn": 0
+    },
+    "gia": {
+      "min": 10000000,
+      "median": 12000000,
+      "max": 15000000
+    },
+    "dien_tich": {
+      "min": 50,
+      "max": 75
+    },
+    "noi_that": {
+      "full": 3,
+      "co_ban": 1
+    },
+    "cap_nhat": "2026-08-24"
+  },
+  {
+    "ma_toa": "TK1",
+    "ma_toa_du_lieu": "TK1",
+    "slug": "tk1",
+    "phan_khu": "Tonkin",
+    "mapping": "inferred",
+    "dat_nguong_sinh_trang": true,
+    "so_can_trong": 5,
+    "breakdown": {
+      "studio": 2,
+      "1pn": 0,
+      "1pn_plus": 1,
+      "2pn": 2,
+      "2pn_plus": 0,
+      "3pn": 0
+    },
+    "gia": {
+      "min": 7800000,
+      "median": 9500000,
+      "max": 14000000
+    },
+    "dien_tich": {
+      "min": 25,
+      "max": 61
+    },
+    "noi_that": {
+      "full": 5,
+      "co_ban": 0
+    },
+    "cap_nhat": "2026-08-24"
+  },
+  {
+    "ma_toa": "TK2",
+    "ma_toa_du_lieu": "TK2",
+    "slug": "tk2",
+    "phan_khu": "Tonkin",
+    "mapping": "inferred",
+    "dat_nguong_sinh_trang": true,
+    "so_can_trong": 4,
+    "breakdown": {
+      "studio": 2,
+      "1pn": 0,
+      "1pn_plus": 0,
+      "2pn": 1,
+      "2pn_plus": 1,
+      "3pn": 0
+    },
+    "gia": {
+      "min": 8000000,
+      "median": 9750000,
+      "max": 12000000
+    },
+    "dien_tich": {
+      "min": 25,
+      "max": 72
+    },
+    "noi_that": {
+      "full": 3,
+      "co_ban": 1
+    },
+    "cap_nhat": "2026-08-24"
+  }
+]
