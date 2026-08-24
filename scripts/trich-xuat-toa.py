@@ -66,39 +66,18 @@ def nap_module(ten_file, ten_module):
     return mo_dun
 
 
-# Dùng lại nguyên hàm chuẩn hoá mã tòa / lọc hiển thị / suy luận phân khu /
-# đổi tiền / đổi diện tích từ hai script đã có, không viết lại.
+# Dùng lại nguyên hàm chuẩn hoá mã tòa / định dạng hiển thị / lọc hiển thị /
+# suy luận phân khu / đổi tiền / đổi diện tích từ sinh-trang-toa.py (nguồn
+# gốc duy nhất từ Phase 2) và sinh-danh-sach-anh.py — không viết lại.
 TOA = nap_module("sinh-trang-toa.py", "sinh_trang_toa")
 chuan_ma_toa = TOA.chuan_ma_toa
+ma_toa_dep = TOA.ma_toa_dep
+slug_tu_ma = TOA.slug_tu_ma
 so_tien = TOA.so_tien
 dien_tich = TOA.dien_tich
 dang_hien_thi = TOA.dang_hien_thi
 phan_khu_tu_toa = TOA.phan_khu_tu_toa
 ngay_hom_nay = TOA.ngay_hom_nay
-
-
-def slug_tu_ma(ma_pretty):
-    """'S4.01' -> 's4-01'; 'GS2' -> 'gs2'. Không đổi gì khác ngoài hạ chữ
-    thường và đổi dấu chấm thành gạch ngang — đúng quy tắc URL Phase 2:
-    /{slug}-vinhomes-smart-city/."""
-    return ma_pretty.lower().replace(".", "-")
-
-
-def ma_toa_dep(ma_chuan):
-    """Định dạng hiển thị cho mã tòa chuẩn hoá.
-
-    CHỈ áp dụng quy tắc chèn dấu chấm cho tòa Sapphire dạng S+1 số khối+2 số
-    tòa (vd S401 -> S4.01) — đây KHÔNG phải suy đoán tự ý: chính trang
-    sapphire/index.html (dòng ~877-878, đã publish) mô tả quy ước này bằng
-    lời ("Sapphire 1 (S1.01–S1.06...)"), và trang S4.01 hiện có đã dùng đúng
-    định dạng này. Với mọi tòa khác (Masteri, Sakura, Miami, Canopy, Tonkin,
-    Imperia, Lumiere), giữ NGUYÊN mã chuẩn hoá không chèn thêm ký tự nào —
-    đối chiếu Phase 0 cho thấy các trang phân khu tương ứng cũng nhắc tên
-    tòa bằng đúng dạng thô này trong nội dung đã publish (vd "tòa TC1",
-    "tòa SA1", "tòa I1", "tòa TK1" — không có dấu chấm/khoảng trắng)."""
-    if len(ma_chuan) == 4 and ma_chuan[0] == "S" and ma_chuan[1:].isdigit():
-        return "%s.%s" % (ma_chuan[:2], ma_chuan[2:])
-    return ma_chuan
 
 
 def thong_ke_day_du(cac_can):

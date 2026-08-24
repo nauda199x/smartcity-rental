@@ -1,0 +1,30 @@
+{
+  "S101": {
+    "duong_dan": "/s1-01-vinhomes-smart-city/",
+    "ma_toa": "S1.01",
+    "ngay_publish_lan_dau": "2026-08-24",
+    "phan_khu": "Sapphire",
+    "slug": "s1-01"
+  },
+  "S401": {
+    "duong_dan": "/s4-01-vinhomes-smart-city/",
+    "ma_toa": "S4.01",
+    "ngay_publish_lan_dau": "2026-08-23",
+    "phan_khu": "Sapphire",
+    "slug": "s4-01"
+  },
+  "SA2": {
+    "duong_dan": "/sa2-vinhomes-smart-city/",
+    "ma_toa": "SA2",
+    "ngay_publish_lan_dau": "2026-08-24",
+    "phan_khu": "Sakura",
+    "slug": "sa2"
+  },
+  "TK2": {
+    "duong_dan": "/tk2-vinhomes-smart-city/",
+    "ma_toa": "TK2",
+    "ngay_publish_lan_dau": "2026-08-24",
+    "phan_khu": "Tonkin",
+    "slug": "tk2"
+  }
+}
