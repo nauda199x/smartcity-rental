@@ -148,6 +148,14 @@ lên nhánh mặc định thì GitHub Pages tự phục vụ ngay.
   "tương thích cơ chế hiện tại" mà tài liệu gốc giả định — cần hỏi lại khi
   tới Phase 2 nếu muốn mở rộng.
 
+  **✅ ĐÃ DUYỆT (phản hồi Phase 0, 24/08/2026)**: không dùng `hreflang` cho
+  trang tòa. Lý do được xác nhận: `hreflang` chỉ có ý nghĩa khi mỗi ngôn ngữ
+  có một URL riêng để trỏ chéo sang nhau; ở đây bản dịch VI/EN/KO là dịch
+  bằng JS ngay trên cùng một URL (`ngon-ngu.js`), không có URL riêng cho
+  từng ngôn ngữ, nên không có gì để `hreflang` trỏ tới — thêm thẻ này vào
+  sẽ là khai báo sai, không phải khai báo thiếu. Kết luận này áp dụng cho
+  toàn bộ 33 trang tòa ở Phase 2, không cần hỏi lại.
+
 ## 5. Sitemap
 
 - **`sitemap.xml`**: viết/cập nhật một phần bằng tay, một phần bằng
@@ -277,3 +285,10 @@ phân khu) đã tính sẵn, sẽ đưa chính thức vào `data/buildings.json`
 
 Đã dừng đúng theo yêu cầu Phase 0. Chờ duyệt các điểm mục 8 (nhánh làm
 việc) và mục 9.2–9.3 (ItemList, hreflang) trước khi sang Phase 1.
+
+**✅ PHASE 0 ĐÃ DUYỆT (24/08/2026)** — xác nhận cả 4 điểm: (1) không dùng
+hreflang cho trang tòa, xem mục 4; (2) giữ nhánh `claude/new-session-uiz59k`,
+mọi thay đổi qua PR, không push thẳng `main`; (3) sẽ bổ sung `ItemList`
+JSON-LD + UI "tòa hết căn" ở Phase 2; (4) mở rộng
+`scripts/sinh-trang-toa.py` thay vì viết script mới. Xem tiếp
+`docs/phase1-bao-cao.md` cho Phase 1.
