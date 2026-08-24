@@ -1,6 +1,11 @@
 /*!
  * app-shell.js — Thanh tab dưới đáy cho bản điện thoại
  *
+ * SỬA 24/08/2026 — bổ sung thông tin minh bạch ở footer và đường dẫn
+ * "Giới thiệu & Liên hệ" trên toàn site để làm rõ TimThueSmartCity.com
+ * là nền tảng/môi giới độc lập, không phải website chính thức của
+ * Vinhomes/Vingroup.
+ *
  * SỬA 03/08/2026 — tab thứ 2 đổi từ "Cẩm nang" thành "Tìm mua",
  * trỏ sang timmuasmartcity.com. Khách đang xem thuê mà muốn mua thì
  * sang thẳng, không phải rời site tìm lại. Cẩm nang chuyển vào Menu
@@ -86,6 +91,7 @@
     { ten: "Xem căn đang bán tại Smart City", k: "sh.buyLink", href: "https://timmuasmartcity.com", ngoai: true },
     { nhom: "Khác", k: "sh.other" },
     { ten: "Danh mục căn hộ theo phân khu", k: "sh.cat", href: "/#mucLucKhoDuLieu" },
+    { ten: "Giới thiệu & Liên hệ", k: "sh.about", href: "/gioi-thieu-lien-he.html" },
     { ten: "Chính sách quyền riêng tư", k: "sh.privacy", href: "/chinh-sach-quyen-rieng-tu.html" }
   ];
 
@@ -153,7 +159,6 @@
     });
   }
 
-
   /* ================================================================
      CHEN LINK "TIM MUA" VAO MENU DESKTOP  (them 03/08/2026)
      ----------------------------------------------------------------
@@ -185,9 +190,34 @@
     nhoDich(a);
   }
 
+  /* ================================================================
+     THONG TIN MINH BACH / DISCLAIMER  (them 24/08/2026)
+     ----------------------------------------------------------------
+     Dùng chung cho tất cả trang đang nạp app-shell.js. Nội dung được đặt
+     ngay trong footer, rõ ràng nhưng không làm cản trở luồng tìm căn.
+     Trang /gioi-thieu-lien-he.html chứa bản đầy đủ và tĩnh trong HTML.
+     ================================================================ */
+  function boSungDanhTinhWebsite() {
+    var footer = document.querySelector("footer");
+    if (!footer) return;
+    if (footer.querySelector('[data-site-identity="true"]')) return;
+
+    var box = document.createElement("div");
+    box.className = "shell";
+    box.setAttribute("data-site-identity", "true");
+    box.style.cssText = "padding-top:14px;padding-bottom:8px;color:var(--muted,#667085);font-size:13px;line-height:1.65";
+    box.innerHTML = '<p style="margin:0"><strong style="color:inherit">Thông tin minh bạch:</strong> '
+      + '<strong>TimThueSmartCity.com</strong> là nền tảng/môi giới cho thuê căn hộ độc lập, '
+      + 'không phải website chính thức và không đại diện cho Vinhomes/Vingroup. '
+      + '<a href="/gioi-thieu-lien-he.html" style="font-weight:700">Giới thiệu &amp; Liên hệ</a>.</p>';
+
+    footer.insertBefore(box, footer.firstChild);
+  }
+
   function khoiDong() {
     try {
       chenLinkTimMua();                 // chay o MOI kich thuoc man hinh
+      boSungDanhTinhWebsite();          // disclaimer + link gioi thieu tren toan site
       if (laDienThoai()) dung();        // thanh tab duoi CHI tren dien thoai
     } catch (e) { /* im lặng — hỏng ở đây không được kéo sập cả trang */ }
   }
