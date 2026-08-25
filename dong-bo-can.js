@@ -22,12 +22,19 @@
 
   var NGUON = "/data.json";
   var NGUON_ANH = "/anh-can-ho/anh-map.json";
+  var NGUON_TRANG_CT = "/can-ho/danh-sach-trang.json";
   var SDT = "0977923284";
 
   /* Bảng tra ảnh đã di dời về repo: drive_id -> đường dẫn ảnh trong repo.
      Nạp một lần lúc script khởi động. Nếu nạp lỗi thì để rỗng — site vẫn chạy
      bình thường với ảnh Drive như trước. */
   var anhTrongRepo = {};
+
+  /* Bảng tra ngược mã nội bộ -> slug trang chi tiết, dựng từ
+     can-ho/danh-sach-trang.json. Nạp một lần lúc script khởi động. Nếu nạp
+     lỗi thì để rỗng — lưới căn vẫn dựng bình thường, chỉ là không có liên
+     kết sang trang chi tiết. */
+  var trangChiTiet = {};
 
   /* Luôn resolve, kể cả khi file không tồn tại hoặc hỏng: lưới căn phải được
      dựng trong mọi trường hợp. */
@@ -36,6 +43,24 @@
       .then(function (r) { return r.ok ? r.json() : null; })
       .then(function (d) { if (d && typeof d === "object") anhTrongRepo = d; })
       .catch(function () { /* giữ nguyên map rỗng -> dùng ảnh Drive */ });
+  }
+
+  /* Luôn resolve, kể cả khi file không tồn tại hoặc hỏng — cùng khuôn mẫu
+     napBanDoAnh(): một file phụ không được phép làm hỏng lưới căn. */
+  function napTrangChiTiet() {
+    return fetch(NGUON_TRANG_CT, { cache: "no-cache" })
+      .then(function (r) { return r.ok ? r.json() : null; })
+      .then(function (d) {
+        if (!d || typeof d !== "object") return;
+        var bang = {};
+        for (var slug in d) {
+          if (!d.hasOwnProperty(slug)) continue;
+          var ma = d[slug] && d[slug].ma;
+          if (ma) bang[ma] = slug;
+        }
+        trangChiTiet = bang;
+      })
+      .catch(function () { /* giữ nguyên bảng rỗng -> không có liên kết */ });
   }
 
   function chuan(v) { return String(v == null ? "" : v).trim(); }
@@ -520,13 +545,18 @@
         huyHieuTinhTrang + huyHieuNoiThat + "</div>";
     }
 
+    var slugCT = ma ? trangChiTiet[ma] : undefined;
+    var noiDungTen = slugCT
+      ? '<a href="/can-ho/' + esc(slugCT) + '/">' + tenHtml + "</a>"
+      : tenHtml;
+
     var el = document.createElement("article");
     el.className = anh ? "the" : "the khong-anh";
     el.setAttribute("data-ma-noi-bo", ma);
     el.innerHTML =
       khungAnh +
       '<div class="than">' +
-        '<h3 class="ten">' + tenHtml + "</h3>" +
+        '<h3 class="ten">' + noiDungTen + "</h3>" +
         '<p class="vi-tri">' + esc(viTri) + "</p>" +
         '<div class="card-chips">' +
           (noiThat
@@ -686,9 +716,10 @@
   function batDau() {
     var bl = docBoLoc();
     if (!bl || !window.fetch) return;
-    /* Nạp bảng tra ảnh trước rồi mới dựng lưới, để thẻ căn hộ không kịp hiện
-       ảnh Drive rồi mới đổi sang ảnh repo. Nạp lỗi cũng vẫn đi tiếp. */
-    napBanDoAnh().then(function () {
+    /* Nạp bảng tra ảnh và bảng tra trang chi tiết trước rồi mới dựng lưới, để
+       thẻ căn hộ không kịp hiện ảnh Drive/thiếu liên kết rồi mới đổi lại.
+       Nạp lỗi ở bảng nào cũng vẫn đi tiếp. */
+    Promise.all([napBanDoAnh(), napTrangChiTiet()]).then(function () {
       return fetch(NGUON, { cache: "no-cache" })
         .then(function (r) { return r.ok ? r.json() : null; })
         .then(function (d) { if (d) chay(d, bl); });

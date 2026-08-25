@@ -81,6 +81,16 @@ jobs:
           python3 scripts/sinh-trang-can.py ${{ inputs.chi_thu && '--thu' || '' }} \
             2>&1 | tee -a ket-qua.txt
 
+      # Chạy SAU sinh-trang-toa.py, dung-lai-trang-danh-muc.py (hai script dựng
+      # lại section.luoi, ghi đè liên kết vừa chèn nếu chạy trước) và SAU
+      # sinh-trang-can.py (script sinh can-ho/danh-sach-trang.json, bảng tra mà
+      # bước này cần để nối tiêu đề thẻ sang đúng trang chi tiết).
+      - name: Nối liên kết trang chi tiết vào lưới căn
+        run: |
+          set -o pipefail
+          python3 scripts/noi-lien-ket-chi-tiet.py ${{ inputs.chi_thu && '--thu' || '' }} \
+            2>&1 | tee -a ket-qua.txt
+
       - name: Đếm căn và cập nhật thẻ SEO
         id: chay
         run: |
