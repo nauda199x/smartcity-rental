@@ -2250,6 +2250,9 @@
         const rows = await loadData();
         state.apartments = rows.map(toApartment);
         render();
+        document.dispatchEvent(new CustomEvent("quy-can-san-sang", {
+          detail: { apartments: state.apartments }
+        }));
         if (!isConfiguredEndpoint() && CONFIG.allowUnsafeSheetPreview) {
           console.warn("Đang đọc trực tiếp Google Sheet. Để ẩn tuyệt đối cột nội bộ, hãy dùng Apps Script endpoint trong CONFIG.dataEndpoint.");
         }
@@ -2859,5 +2862,7 @@
   <script src="/assets/ngon-ngu.js" defer></script>
   <script src="/assets/gallery.js" defer></script>
   <script src="/assets/app-shell.js" defer></script>
+  <link rel="stylesheet" href="/assets/tro-ly.css">
+  <script src="/assets/tro-ly.js" defer></script>
 </body>
 </html>
