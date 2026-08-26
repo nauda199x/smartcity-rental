@@ -81,9 +81,13 @@ body.tro-ly-lock{overflow:hidden}
 .tro-ly-ic:hover{opacity:1;background:rgba(255,255,255,.12)}
 .tro-ly-ic svg{width:17px;height:17px}
 
-.tro-ly-body{flex:1;overflow-y:auto;-webkit-overflow-scrolling:touch;padding:16px 14px;background:var(--bg,#F4F6F9);display:flex;flex-direction:column;justify-content:flex-end;gap:11px}
+.tro-ly-body{flex:1;overflow-y:auto;-webkit-overflow-scrolling:touch;padding:16px 14px;background:var(--bg,#F4F6F9);display:flex;flex-direction:column;gap:11px}
 .tro-ly-body::-webkit-scrollbar{width:6px}
 .tro-ly-body::-webkit-scrollbar-thumb{background:#CBD5E1;border-radius:3px}
+/* Dồn tin nhắn xuống đáy khi hội thoại còn ngắn, không dùng justify-content:
+   flex-end vì kết hợp với overflow-y:auto sẽ đẩy phần tràn lên trên vùng
+   cuộn, khiến scrollTop âm không tới được — tin nhắn cũ mất luôn. */
+.tro-ly-body::before{content:"";margin-top:auto}
 
 .tro-ly-msg{max-width:88%;font-size:14px;line-height:1.62;padding:10px 13px;border-radius:14px;animation:tro-ly-pop .22s ease-out}
 @keyframes tro-ly-pop{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:none}}
@@ -234,4 +238,16 @@ body.tro-ly-lock{overflow:hidden}
 }
 @media(prefers-reduced-motion:reduce){
   .tro-ly-wrap,.tro-ly-wrap *,.tro-ly-restore,.tro-ly-toast{animation:none!important;transition:none!important}
+}
+
+/* Phân biệt nút Zalo nổi với bong bóng trợ lý — hai nút đang cùng
+   hình bong bóng thoại nên khách không biết bấm cái nào.
+   Ghi đè từ tro-ly.css để không phải đụng v3.css. */
+@media(min-width:641px){
+  .floating-zalo::after{
+    content:"Zalo";
+    font-family:var(--font-chu,'Be Vietnam Pro',system-ui,sans-serif);
+    font-size:14px;font-weight:700;letter-spacing:.01em;color:#fff;
+  }
+  .floating-zalo svg{display:none}
 }
