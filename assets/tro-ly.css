@@ -21,13 +21,19 @@ body.tro-ly-lock{overflow:hidden}
 
 /* ---- Vị trí nổi. Đặt CAO HƠN bong bóng Zalo sẵn có (right:20px;bottom:22px;
    56x56;z-index:70) một khoảng, để hai bong bóng không đè lên nhau.
-   z-index cố tình để THẤP hơn menu điện thoại (.tabbar-backdrop 85,
-   .tabbar-sheet 88) và hộp thoại (.modal 90) của trang — mở menu/hộp thoại
-   ra là widget này phải chìm xuống dưới, không được che mất. ---- */
+   Bong bóng ĐÓNG giữ z-index:60 — thấp hơn .quick-bar (65) và .tabbar (70)
+   của trang, cố tình để không tranh chỗ với các lớp đó khi chưa mở.
+   Khi panel MỞ thì nâng lên 72: cao hơn .quick-bar (65) và .tabbar (70) —
+   hai thứ hay đè lên chat khi đang mở — nhưng vẫn THẤP hơn .filters (80),
+   .tabbar-backdrop (85), .tabbar-sheet (88) và .modal (90) của trang, để
+   khách mở bộ lọc hoặc menu thì hai thứ đó vẫn nổi lên trên chat, đúng thứ
+   tự ưu tiên. Không dùng số cao hơn (kiểu 9999) — số đó thuộc về .nhac-copy
+   (thông báo "đã sao chép") của trang, đè lên sẽ hỏng thông báo copy. ---- */
 .tro-ly-wrap{
   position:fixed;right:20px;bottom:90px;z-index:60;
   transition:opacity .2s;
 }
+.tro-ly-wrap.tro-ly-open{z-index:72}
 .tro-ly-wrap.tro-ly-gone{opacity:0;pointer-events:none;visibility:hidden}
 
 .tro-ly-toggle{
@@ -54,20 +60,28 @@ body.tro-ly-lock{overflow:hidden}
 .tro-ly-wrap.tro-ly-open .tro-ly-panel{opacity:1;pointer-events:auto;transform:none}
 .tro-ly-wrap.tro-ly-open .tro-ly-toggle{opacity:0;pointer-events:none}
 
+/* Nền mờ phía sau panel — chỉ có tác dụng thấy được ở mobile (xem @media
+   bên dưới), nhưng khai báo base ở đây để phần tử luôn tồn tại trong DOM. */
+.tro-ly-backdrop{display:none}
+
+/* Thanh nắm để vuốt đóng — chỉ hiện ở mobile, xem @media bên dưới. */
+.tro-ly-grabber{display:none}
+
 .tro-ly-head{
   background:var(--ink,#16202B);color:#fff;padding:13px 12px 13px 16px;
   display:flex;align-items:center;gap:11px;flex:0 0 auto;
+  position:sticky;top:0;z-index:2;
 }
 .tro-ly-av{width:36px;height:36px;border-radius:50%;background:var(--navy-2,#1B4B8F);display:flex;align-items:center;justify-content:center;font-weight:700;font-size:14px;flex:0 0 auto}
 .tro-ly-head h3{margin:0;font-size:14.5px;font-weight:600}
 .tro-ly-head p{margin:1px 0 0;font-size:11.5px;opacity:.72;display:flex;align-items:center;gap:5px}
 .tro-ly-dot{width:6px;height:6px;border-radius:50%;background:#4ADE80;display:inline-block;flex:0 0 auto}
 .tro-ly-acts{margin-left:auto;display:flex;gap:2px}
-.tro-ly-ic{background:none;border:none;color:#fff;opacity:.68;cursor:pointer;width:36px;height:36px;border-radius:8px;display:flex;align-items:center;justify-content:center;padding:0}
+.tro-ly-ic{background:none;border:none;color:#fff;opacity:.9;cursor:pointer;width:36px;height:36px;border-radius:8px;display:flex;align-items:center;justify-content:center;padding:0}
 .tro-ly-ic:hover{opacity:1;background:rgba(255,255,255,.12)}
 .tro-ly-ic svg{width:17px;height:17px}
 
-.tro-ly-body{flex:1;overflow-y:auto;-webkit-overflow-scrolling:touch;padding:16px 14px;background:var(--bg,#F4F6F9);display:flex;flex-direction:column;gap:11px}
+.tro-ly-body{flex:1;overflow-y:auto;-webkit-overflow-scrolling:touch;padding:16px 14px;background:var(--bg,#F4F6F9);display:flex;flex-direction:column;justify-content:flex-end;gap:11px}
 .tro-ly-body::-webkit-scrollbar{width:6px}
 .tro-ly-body::-webkit-scrollbar-thumb{background:#CBD5E1;border-radius:3px}
 
@@ -130,6 +144,12 @@ body.tro-ly-lock{overflow:hidden}
 .tro-ly-send:hover{background:var(--navy,#12325C)}
 .tro-ly-send svg{width:18px;height:18px}
 .tro-ly-hint{font-size:10.5px;color:var(--gray-lt,#8A96A3);text-align:center;margin-top:7px}
+.tro-ly-hide-link{
+  display:block;width:100%;text-align:center;margin-top:6px;padding:2px;
+  background:none;border:none;cursor:pointer;font-family:inherit;
+  font-size:11.5px;color:var(--gray-lt,#8A96A3);text-decoration:underline;
+}
+.tro-ly-hide-link:hover{color:var(--gray,#5B6875)}
 
 .tro-ly-restore{
   position:fixed;right:0;bottom:90px;z-index:60;background:var(--surface,#fff);
@@ -145,8 +165,12 @@ body.tro-ly-lock{overflow:hidden}
 .tro-ly-toast{
   position:fixed;left:50%;bottom:28px;transform:translateX(-50%) translateY(14px);
   background:var(--ink,#16202B);color:#fff;padding:11px 18px;border-radius:10px;font-size:13px;
-  opacity:0;pointer-events:none;transition:.24s;z-index:60;box-shadow:var(--tl-shadow);
+  opacity:0;pointer-events:none;transition:.24s;box-shadow:var(--tl-shadow);
   max-width:calc(100vw - 40px);text-align:center;
+  /* Toast riêng của widget (vd "đã sao chép") phải nổi trên panel đang mở
+     (z-index:72), nên đặt cao hơn panel một chút — nhưng vẫn thấp hơn
+     .filters (80) của trang, không đụng .modal (90) hay .nhac-copy (9999). */
+  z-index:73;
 }
 .tro-ly-toast.tro-ly-on{opacity:1;transform:translateX(-50%)}
 
@@ -160,13 +184,38 @@ body.tro-ly-lock{overflow:hidden}
   .tro-ly-toast{bottom:calc(66px + var(--tl-sab))}
   .tro-ly-toggle{width:56px;height:56px}
   .tro-ly-wrap.tro-ly-open{position:fixed;inset:0;right:0;bottom:0}
+
+  /* Nền mờ phía trên panel: khách chạm vào đó là đóng chat, đồng thời vẫn
+     thấy mờ mờ trang phía sau nên hiểu đây là lớp phủ tạm.
+     z-index ở đây CHỈ so với các con khác của .tro-ly-wrap (phần tử
+     position:fixed luôn tự lập ngữ cảnh xếp lớp riêng) — không liên quan
+     tới thang z-index của trang. Panel PHẢI cao hơn backdrop trong ngữ
+     cảnh này, nếu không backdrop (phủ inset:0) sẽ đè lên cả header/ô nhập
+     của panel và nuốt mất mọi thao tác chạm trên đó. */
+  .tro-ly-backdrop{
+    display:block;position:fixed;inset:0;background:rgba(18,32,58,.42);
+    opacity:0;pointer-events:none;transition:opacity .24s;z-index:1;
+  }
+  .tro-ly-wrap.tro-ly-open .tro-ly-backdrop{opacity:1;pointer-events:auto}
+
+  /* Bottom sheet 88dvh thay vì chiếm toàn màn hình — chừa 12dvh phía trên
+     làm vùng chạm để đóng, đồng thời tránh panel cao kín màn hình mà nội
+     dung chỉ có vài dòng, trông như trang bị lỗi. */
   .tro-ly-panel{
-    position:fixed;inset:0;width:100%;height:100%;height:100dvh;max-height:none;border-radius:0;
+    position:fixed;left:0;right:0;bottom:0;top:auto;z-index:2;
+    width:100%;height:88dvh;max-height:88dvh;
+    border-radius:18px 18px 0 0;
     transform:translateY(100%);transition:transform .26s ease-out,opacity .2s;
-    padding-top:var(--tl-sat);padding-bottom:var(--tl-sab);
+    padding-top:0;padding-bottom:var(--tl-sab);
   }
   .tro-ly-wrap.tro-ly-open .tro-ly-panel{transform:none}
-  .tro-ly-head{padding-top:15px;padding-bottom:15px}
+
+  .tro-ly-grabber{
+    display:block;width:38px;height:4px;border-radius:99px;
+    background:rgba(255,255,255,.32);margin:8px auto 0;flex:0 0 auto;
+  }
+
+  .tro-ly-head{padding-top:9px;padding-bottom:15px}
   .tro-ly-body{padding:14px 12px}
   .tro-ly-msg{max-width:90%;font-size:14.5px}
   .tro-ly-unit{width:100%}
@@ -174,6 +223,14 @@ body.tro-ly-lock{overflow:hidden}
   .tro-ly-unit-acts button,.tro-ly-unit-acts a{min-height:44px;font-size:13px}
   .tro-ly-zalo-cta{min-height:46px;font-size:14px}
   .tro-ly-hint{display:none}
+
+  /* Chỉ giữ MỘT nút đóng (×) trên điện thoại — nút "–" thu nhỏ bỏ đi vì
+     trên điện thoại thu nhỏ và đóng gần như không khác nhau, hai nút cạnh
+     nhau chỉ làm khách phân vân. Nút × lúc này gọi thuNho(), không phải
+     ẩn hẳn (xem tro-ly.js) — muốn ẩn hẳn thì dùng dòng chữ nhỏ cuối khung. */
+  #troLyMin{display:none}
+  .tro-ly-ic{width:44px;height:44px;opacity:1}
+  .tro-ly-ic svg{width:20px;height:20px;stroke-width:3}
 }
 @media(prefers-reduced-motion:reduce){
   .tro-ly-wrap,.tro-ly-wrap *,.tro-ly-restore,.tro-ly-toast{animation:none!important;transition:none!important}
