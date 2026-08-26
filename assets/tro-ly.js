@@ -156,7 +156,9 @@
   wrap.className = "tro-ly-wrap";
   wrap.id = "troLyWrap";
   wrap.innerHTML =
+    '<div class="tro-ly-backdrop" id="troLyBackdrop"></div>' +
     '<div class="tro-ly-panel" role="dialog" aria-label="Trợ lý tìm căn">' +
+      '<div class="tro-ly-grabber" id="troLyGrabber" aria-hidden="true"></div>' +
       '<div class="tro-ly-head">' +
         '<div class="tro-ly-av">TS</div>' +
         "<div><h3>Trợ lý tìm căn</h3><p><span class=\"tro-ly-dot\"></span> <span id=\"troLyHdSub\">Đang tải quỹ căn…</span></p></div>" +
@@ -175,6 +177,7 @@
             '<svg viewBox="0 0 24 24" fill="currentColor"><path d="M2 21l21-9L2 3v7l15 2-15 2v7z"/></svg></button>' +
         "</div>" +
         '<div class="tro-ly-hint">Muốn đi xem nhà, anh/chị chat Zalo trực tiếp nhé</div>' +
+        '<button class="tro-ly-hide-link" id="troLyHideLink" type="button">Không cần trợ lý? Ẩn đi</button>' +
       "</div>" +
     "</div>" +
     '<button class="tro-ly-toggle" id="troLyToggle" type="button" aria-label="Mở trợ lý tìm căn">' +
@@ -397,8 +400,55 @@
   });
   document.getElementById("troLyToggle").addEventListener("click", moChat);
   document.getElementById("troLyMin").addEventListener("click", minimizeChat);
-  document.getElementById("troLyHide").addEventListener("click", anHan);
+  /* Ở mobile nút × chỉ còn một, nên nó đóng vai "thu nhỏ" (nút "–" bị ẩn đi
+     bằng CSS) — ẩn hẳn (nhớ qua sessionStorage) chuyển sang dòng chữ nhỏ
+     "Không cần trợ lý? Ẩn đi" cuối khung. Ở máy tính × vẫn ẩn hẳn như cũ. */
+  document.getElementById("troLyHide").addEventListener("click", function () {
+    if (isMobile()) minimizeChat(); else anHan();
+  });
+  document.getElementById("troLyHideLink").addEventListener("click", anHan);
+  document.getElementById("troLyBackdrop").addEventListener("click", minimizeChat);
   restoreBtn.addEventListener("click", hienLai);
+
+  /* ---------------- Vuốt header xuống để đóng (chỉ có tác dụng ở mobile,
+     nơi panel là bottom sheet) ---------------- */
+  (function ganVuotDeDong() {
+    var headEl = wrap.querySelector(".tro-ly-head");
+    var panelEl = wrap.querySelector(".tro-ly-panel");
+    var NGUONG_DONG = 90;
+    var startY = null, dy = 0, dragging = false;
+
+    function onStart(e) {
+      if (!isMobile() || !wrap.classList.contains("tro-ly-open")) return;
+      startY = e.touches[0].clientY;
+      dy = 0;
+      dragging = true;
+      panelEl.style.transition = "none";
+    }
+    function onMove(e) {
+      if (!dragging) return;
+      var raw = e.touches[0].clientY - startY;
+      dy = raw > 0 ? raw : 0; // kéo lên không làm gì
+      panelEl.style.transform = "translateY(" + dy + "px)";
+    }
+    function onEnd() {
+      if (!dragging) return;
+      dragging = false;
+      panelEl.style.transition = "";
+      if (dy > NGUONG_DONG) {
+        panelEl.style.transform = "";
+        minimizeChat();
+      } else {
+        // Chưa kéo đủ ngưỡng — bật lại về vị trí cũ, không đóng.
+        panelEl.style.transform = "";
+      }
+      dy = 0;
+    }
+    headEl.addEventListener("touchstart", onStart, { passive: true });
+    headEl.addEventListener("touchmove", onMove, { passive: true });
+    headEl.addEventListener("touchend", onEnd);
+    headEl.addEventListener("touchcancel", onEnd);
+  })();
 
   /* ================================================================
      LUỒNG HỘI THOẠI
