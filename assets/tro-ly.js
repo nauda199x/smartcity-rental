@@ -484,22 +484,22 @@
     });
   }
   function q2() {
-    return bot("Ngân sách của anh/chị khoảng bao nhiêu một tháng?").then(function () {
-      var ds = GIA
-        .map(function (g) { return { g: g, n: dem({ loai: state.loai, gia: g }) }; })
-        .filter(function (x) { return x.n > 0; });
-      var list = ds.map(function (x) { return { label: x.g.t, n: x.n, run: function () { state.gia = x.g; return q3(); } }; });
-      if (ds.length > 1) list.push({ label: "Mức nào cũng được", ghost: true, run: function () { state.gia = null; return q3(); } });
+    return bot("Anh/chị cần mức nội thất nào ạ?").then(function () {
+      var ds = NOITHAT
+        .map(function (n) { return { n: n, c: dem({ loai: state.loai, nt: n.v }) }; })
+        .filter(function (x) { return x.c > 0; });
+      var list = ds.map(function (x) { return { label: x.n.t, n: x.c, run: function () { state.nt = x.n.v; return q3(); } }; });
+      if (ds.length > 1) list.push({ label: "Loại nào cũng được", ghost: true, run: function () { state.nt = null; return q3(); } });
       hienNut(list);
     });
   }
   function q3() {
-    return bot("Anh/chị cần mức nội thất nào ạ?").then(function () {
-      var ds = NOITHAT
-        .map(function (n) { return { n: n, c: dem({ loai: state.loai, gia: state.gia, nt: n.v }) }; })
-        .filter(function (x) { return x.c > 0; });
-      var list = ds.map(function (x) { return { label: x.n.t, n: x.c, run: function () { state.nt = x.n.v; return q4(); } }; });
-      list.push({ label: "Loại nào cũng được", ghost: true, run: function () { state.nt = null; return q4(); } });
+    return bot("Ngân sách của anh/chị khoảng bao nhiêu một tháng?").then(function () {
+      var ds = GIA
+        .map(function (g) { return { g: g, n: dem({ loai: state.loai, nt: state.nt, gia: g }) }; })
+        .filter(function (x) { return x.n > 0; });
+      var list = ds.map(function (x) { return { label: x.g.t, n: x.n, run: function () { state.gia = x.g; return q4(); } }; });
+      if (ds.length > 1) list.push({ label: "Mức nào cũng được", ghost: true, run: function () { state.gia = null; return q4(); } });
       hienNut(list);
     });
   }
