@@ -78,8 +78,14 @@ jobs:
       - name: Sinh trang riêng cho từng căn hộ
         run: |
           set -o pipefail
+          ma=0
           python3 scripts/sinh-trang-can.py ${{ inputs.chi_thu && '--thu' || '' }} \
-            2>&1 | tee -a ket-qua.txt
+            2>&1 | tee -a ket-qua.txt || ma=$?
+          if [ "$ma" = "2" ]; then
+            echo "::warning::sinh-trang-can.py dừng an toàn (mã 2) — các bước sau vẫn chạy."
+            exit 0
+          fi
+          exit "$ma"
 
       # Chạy SAU sinh-trang-toa.py, dung-lai-trang-danh-muc.py (hai script dựng
       # lại section.luoi, ghi đè liên kết vừa chèn nếu chạy trước) và SAU
