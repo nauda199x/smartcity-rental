@@ -3,8 +3,8 @@
 
 Phạm vi đợt 1: căn đang "Hiển thị trên Web" = có, "Mã nội bộ" khớp ^CT\\.
 (mã dạng số hoặc CC3 không đảm bảo duy nhất trên toàn sheet) và có ít nhất 8
-ảnh trong cột "Danh sách ảnh". Trần cứng TOI_DA để một lần data.json lỗi
-không sinh ra hàng trăm trang rác.
+ảnh trong cột "Danh sách ảnh". Trần cứng TOI_DA (hiện 120) để một lần
+data.json lỗi không sinh ra hàng trăm trang rác.
 
 URL không bao giờ bị xoá: khi một căn hết hạn hiển thị, trang vẫn trả 200,
 đổi sang bản "đã có khách" và trỏ khách sang các căn còn trống tương tự.
@@ -48,7 +48,12 @@ NGUONG_TOI_THIEU = 150
 # Trần cứng số căn đủ điều kiện được sinh trang trong MỘT lần chạy. Vượt trần
 # gần như chắc chắn là data.json đang lỗi (cột "Hiển thị trên Web" bị đẩy sai
 # hàng loạt chẳng hạn) chứ không phải đột nhiên có thêm mấy trăm căn đủ ảnh.
-TOI_DA = 60
+TOI_DA = 120
+
+# Từ ngưỡng này (tỷ lệ trên TOI_DA) trở lên script vẫn sinh trang bình
+# thường (exit 0) nhưng in thêm một dòng CẢNH BÁO, để thấy trước lúc còn dư
+# dả thay vì đợi tới lần chạy vượt hẳn TOI_DA rồi mới biết.
+NGUONG_CANH_BAO = 0.8
 
 # Ánh xạ loại căn -> trang loại căn tương ứng. Chép từ TRANG_LOAI_CAN trong
 # sinh-trang-toa.py — file đó không phải module để import (chạy code ở mức
@@ -788,20 +793,28 @@ def main():
         du_lieu = json.load(f)
 
     if not isinstance(du_lieu, list) or len(du_lieu) < NGUONG_TOI_THIEU:
-        print("DỪNG: data.json có %d bản ghi, dưới ngưỡng %d — nhiều khả năng "
-              "đang lỗi. Không ghi đè, không xoá gì."
+        print("DỪNG AN TOÀN (mã 2): data.json có %d bản ghi, dưới ngưỡng %d "
+              "— nhiều khả năng đang lỗi. Không sinh, không ghi đè, không xoá "
+              "gì. Các bước còn lại của workflow vẫn chạy bình thường. Kiểm "
+              "tra lại data.json rồi chạy lại."
               % (len(du_lieu) if isinstance(du_lieu, list) else 0, NGUONG_TOI_THIEU))
-        return 1
+        return 2
 
     qualifying = [c for c in du_lieu if du_dieu_kien(c)]
     print("data.json               : %d bản ghi" % len(du_lieu))
     print("Đủ điều kiện sinh trang  : %d" % len(qualifying))
 
     if len(qualifying) > TOI_DA:
-        print("\nDỪNG: %d căn đủ điều kiện, vượt trần cứng %d. Không tự sinh "
-              "thêm — kiểm tra lại data.json trước khi nâng trần."
+        print("\nDỪNG AN TOÀN (mã 2): %d căn đủ điều kiện, vượt trần %d.\n"
+              "Không sinh, không ghi đè, không xoá gì. Các bước còn lại của\n"
+              "workflow vẫn chạy bình thường. Kiểm tra data.json rồi nâng trần\n"
+              "nếu con số này là thật."
               % (len(qualifying), TOI_DA))
-        return 1
+        return 2
+
+    if len(qualifying) >= TOI_DA * NGUONG_CANH_BAO:
+        print("\nCẢNH BÁO: %d/%d căn đủ điều kiện (%d%% trần). Cân nhắc nâng TOI_DA."
+              % (len(qualifying), TOI_DA, round(100 * len(qualifying) / TOI_DA)))
 
     qualifying.sort(key=tinh_slug)
 
