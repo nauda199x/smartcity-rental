@@ -6,6 +6,10 @@
   </url>
   <url><loc>https://timthuesmartcity.com/gui-thue/</loc><lastmod>2026-08-17</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
   <url><loc>https://timthuesmartcity.com/cam-nang-thue-nha.html</loc><lastmod>2026-08-22</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
+  <!-- Trang Giới thiệu & Liên hệ (thêm vào sitemap 29/08/2026). Trang đã tồn tại
+       từ trước nhưng chưa từng được khai báo nên gần như không có cơ hội được
+       index. monthly vì nội dung gần như không đổi — không đặt daily. -->
+  <url><loc>https://timthuesmartcity.com/gioi-thieu-lien-he.html</loc><lastmod>2026-08-29</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
   <!-- Đã gỡ bang-gia-thue-smart-city-thang-7-2026.html khỏi sitemap (07/2026):
        trang đó giờ là trang chuyển hướng, noindex, không nên khai báo cho Google. -->
   <url><loc>https://timthuesmartcity.com/bang-gia-thue-vinhomes-smart-city.html</loc><lastmod>2026-08-23</lastmod><changefreq>weekly</changefreq><priority>0.9</priority>
