@@ -6,23 +6,40 @@ Phase 3 **chưa áp**, chờ duyệt — xem `docs/phase3-de-xuat-gop-schema-tra
 
 ## 🔙 KỊCH BẢN ROLLBACK
 
-**Commit an toàn (trước mọi thay đổi của việc này): `5900bad`**
+**Đã merge vào `main` và deploy ngày 29/08/2026.**
 
+| | Commit |
+|---|---|
+| Commit an toàn trên `main` — ngay TRƯỚC khi deploy | **`9549fc5`** |
+| Commit merge đưa việc này lên production | **`b67091b`** |
+
+### Cách lùi (dùng cái này)
 ```bash
-git revert --no-commit 5900bad..HEAD && git commit -m "Rollback khối NAP và trang Giới thiệu & Liên hệ"
+git checkout main && git pull
+git revert -m 1 b67091b
+git push origin main
 ```
-Hoặc deploy lại nguyên trạng: `git checkout 5900bad -- .`
+`-m 1` là bắt buộc vì `b67091b` là commit merge — nó nói "giữ lại nhánh
+main, gỡ phần nhánh tính năng". Lệnh này **chỉ gỡ đúng phần việc này**,
+không đụng các commit CI tự đẩy sau đó.
 
-Các commit của việc này, theo thứ tự:
+### Chỉ lùi một phần
+```bash
+git revert <hash>          # xem bảng dưới, chọn đúng phase cần gỡ
+```
 
-| Commit | Nội dung | Ảnh hưởng production |
+| Commit | Nội dung | Có ảnh hưởng production |
 |---|---|---|
 | `04e5bcf` | Phase 0 — báo cáo khảo sát | không, chỉ thêm `docs/` |
 | `29cc083` | Phase 1 — nâng cấp trang Giới thiệu & Liên hệ, sitemap | có |
-| *(Phase 3)* | đề xuất gộp schema | không, chỉ thêm `docs/` |
+| `24d8f9e` | Phase 3 — đề xuất gộp schema (chưa áp) | không, chỉ thêm `docs/` |
 | `e62dd09` | Phase 2 — khối NAP vào footer toàn site | có |
+| `8a765d1` | Báo cáo triển khai | không, chỉ thêm `docs/` |
+| `3cea01e` | Gỡ chặn A1/A2/A3 — người vận hành, giờ làm việc | có |
+| `a6bbcda` | Merge `main` vào nhánh, đắp lại NAP sau khi CI dựng lại | có |
 
----
+> ⚠️ Đừng dùng `git checkout <hash> -- .` để lùi: dữ liệu quỹ căn do CI đẩy
+> 3 lần/ngày sẽ bị kéo về ngày cũ theo. `git revert -m 1` không có vấn đề đó.
 
 ## PHASE 1 — TRANG GIỚI THIỆU & LIÊN HỆ
 
