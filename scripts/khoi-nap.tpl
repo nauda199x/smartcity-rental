@@ -5,13 +5,13 @@
          cả trên hồ sơ Google.
 
          VIẾT THẲNG VÀO HTML, KHÔNG DỰNG BẰNG JS. Công cụ thu thập của Google
-         và của các bên thứ ba đều bỏ thẻ <script>; NAP dựng bằng JS coi như
+         và của các bên thứ ba đều bỏ các thẻ script; NAP dựng bằng JS coi như
          không tồn tại với chúng.
 
          data-site-identity="true" là mốc để assets/app-shell.js nhận ra khối
          tĩnh đã có sẵn và KHÔNG chèn thêm bản dựng bằng JS (tránh lặp hai lần).
 
-         Nguồn duy nhất của khối này: scripts/khoi-nap.html
+         Nguồn duy nhất của khối này: scripts/khoi-nap.tpl
          Chèn vào các trang tĩnh bằng: python3 scripts/chen-khoi-nap.py
          ═══════════════════════════════════════════════════════════════════ -->
     <div class="shell site-nap" data-site-identity="true">
