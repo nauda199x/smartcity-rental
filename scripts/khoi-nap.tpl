@@ -14,6 +14,7 @@
          Nguồn duy nhất của khối này: scripts/khoi-nap.tpl
          Chèn vào các trang tĩnh bằng: python3 scripts/chen-khoi-nap.py
          ═══════════════════════════════════════════════════════════════════ -->
+    <!-- KHOI-NAP:BAT-DAU -->
     <div class="shell site-nap" data-site-identity="true">
       <p class="nap-ten">Cho thuê chung cư Smart City</p>
       <p class="nap-diachi">Vinhomes Smart City, phường Tây Mỗ, thành phố Hà Nội</p>
@@ -21,6 +22,7 @@
         <a href="tel:+84977923284">0977 923 284</a> ·
         <a href="https://zalo.me/0977923284" target="_blank" rel="noopener nofollow">Nhắn Zalo</a>
       </p>
+      <p class="nap-gio">Giờ làm việc: 07:00 – 22:00, tất cả các ngày trong tuần</p>
       <p class="nap-minhbach"><strong>Thông tin minh bạch:</strong> TimThueSmartCity.com
         là nền tảng/môi giới cho thuê căn hộ độc lập, không phải website chính thức
         và không đại diện cho Vinhomes/Vingroup.</p>
@@ -31,3 +33,4 @@
         <a href="/chinh-sach-quyen-rieng-tu.html">Chính sách quyền riêng tư</a>
       </p>
     </div>
+    <!-- KHOI-NAP:KET-THUC -->

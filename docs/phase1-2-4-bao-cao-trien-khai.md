@@ -45,8 +45,8 @@ Giữ nguyên URL `gioi-thieu-lien-he.html`. **Không tạo `/gioi-thieu/`, khô
 
 | Khối | Chặn bởi |
 |---|---|
-| Mục "Người phụ trách" — xoá cả section | **A1 + A2** |
-| Dòng "Giờ làm việc" trong bảng liên hệ | **A3** |
+| ~~Mục "Người phụ trách"~~ | ✅ **đã chèn lại** — A1/A2 gỡ chặn 29/08/2026 |
+| ~~Dòng "Giờ làm việc"~~ | ✅ **đã chèn lại** — A3 gỡ chặn, 07:00–22:00 |
 | Dòng "Email" trong bảng liên hệ | B1 |
 | Mức cọc ở bước 4 quy trình | B6 |
 | Nguyên tắc thứ 4 "Giá hiển thị là giá chủ nhà đưa ra" | B5 (phần giải thích bị chặn) |
@@ -54,7 +54,7 @@ Giữ nguyên URL `gioi-thieu-lien-he.html`. **Không tạo `/gioi-thieu/`, khô
 | FAQ "Có hỗ trợ khách nước ngoài không" | chưa xác nhận nhân sự; và câu "website hỗ trợ EN/KO" **chỉ đúng với trang chủ** |
 | FAQ "Bao lâu thì vào ở được" | chưa xác nhận |
 | Mục "Hướng dẫn đường đi" (4 mục) | B8 |
-| Ô số liệu: số căn trống + số năm kinh nghiệm | B7 lấy động được, nhưng **A2 chặn** nên bỏ cả cụm |
+| Ô số liệu: số căn trống + số năm kinh nghiệm | B7 lấy động được; **anh Đức không cung cấp số năm** nên vẫn bỏ cả cụm — nội dung dùng chữ "nhiều năm", không có con số |
 
 Vị trí từng khối bị bỏ đều có chú thích trong mã nguồn, có dữ liệu là thêm lại được ngay.
 
@@ -73,7 +73,7 @@ Hotline & Zalo: 0977 923 284 · Nhắn Zalo
 Thông tin minh bạch: … không đại diện cho Vinhomes/Vingroup.
 Giới thiệu & Liên hệ · Cẩm nang thuê nhà · Chủ nhà gửi căn · Chính sách quyền riêng tư
 ```
-Không có dòng "Giờ làm việc" — **chặn bởi A3**, có dữ liệu là thêm vào `khoi-nap.tpl`, một chỗ duy nhất.
+Dòng "Giờ làm việc: 07:00 – 22:00, tất cả các ngày trong tuần" đã có (A3 gỡ chặn 29/08/2026), thêm ở đúng một chỗ là `khoi-nap.tpl` rồi đồng bộ ra 45 trang bằng một lệnh.
 
 ### Độ phủ
 
@@ -118,7 +118,7 @@ Khối NAP nằm trong HTML thô, có thể kiểm bằng `curl` hoặc Ctrl+U. 
 |---|---|---|
 | 1 | Không còn placeholder | ✅ grep `CẦN BỔ SUNG` và `[SỐ]` → **0 kết quả** |
 | 2 | Schema hợp lệ | ✅ 186 khối JSON-LD toàn site parse sạch, 0 lỗi · ⏳ Rich Results Test cần chạy trên URL thật sau deploy |
-| 3 | JSON-LD trang chủ | ⏳ **Phase 3 chưa áp** — `index.html` chưa sửa dòng schema nào, `FAQPage` còn nguyên |
+| 3 | JSON-LD trang chủ | ⏳ **Phase 3 chưa áp** — `index.html` chưa sửa dòng schema nào, `FAQPage` còn nguyên. Bảng đề xuất đã cập nhật theo A1/A3 |
 | 4 | NAP nhất quán | ✅ trên website chỉ còn **một** cách viết duy nhất · 🔴 **cần anh sửa hồ sơ Google** (xem dưới) |
 | 5 | Bản đồ | ⏳ chờ iframe chính thức |
 | 6 | GA4 | ✅ 107 trang có tag, không đổi · ⏳ Realtime kiểm sau deploy |
@@ -140,12 +140,12 @@ Khối NAP nằm trong HTML thô, có thể kiểm bằng `curl` hoặc Ctrl+U. 
    *(đang là `vinhome Smart City, Tây Mỗ, Hà Nội 100000` — sai chính tả "vinhome")*
 2. Chốt giờ làm việc — hồ sơ đang "Mở cả ngày", website **hiện chưa ghi giờ nào**
 
-### Dữ liệu chặn deploy
-| # | Cần | Thiếu thì sao |
+### ✅ Dữ liệu chặn deploy — ĐÃ GỠ HẾT (29/08/2026)
+| # | Đã nhận | Đã dùng ở đâu |
 |---|---|---|
-| **A1** | Họ tên người phụ trách | Mục "Người phụ trách" đang bị xoá hẳn; node `Person` trong schema cũng chưa thêm được |
-| **A2** | Số năm kinh nghiệm + 2–3 câu mô tả thực tế | như trên |
-| **A3** | Chốt giờ làm việc | Khối NAP chưa có dòng giờ; `openingHoursSpecification` chưa thêm |
+| **A1** | Trần Trung Đức · Người trực tiếp vận hành và dẫn xem căn | Mục "Người trực tiếp vận hành", dòng "Người phụ trách" trong bảng liên hệ, `Person.name` trong JSON-LD |
+| **A2** | Sống ngay trong khu đô thị, dẫn xem căn linh hoạt · "nhiều năm", **không có con số** | 3 đoạn trong mục "Người trực tiếp vận hành" |
+| **A3** | 07:00 – 22:00, tất cả các ngày | Khối NAP (45 trang), bảng liên hệ, `openingHoursSpecification` |
 
 ### Duyệt Phase 3
 Bảng so sánh trước–sau ở `docs/phase3-de-xuat-gop-schema-trang-chu.md`. Cần 2 câu trả lời: duyệt bảng chưa, và `postalCode` gỡ hay giữ.

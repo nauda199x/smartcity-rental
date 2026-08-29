@@ -41,10 +41,20 @@
   <meta name="twitter:image" content="https://timthuesmartcity.com/og-smartcity.jpg">
 
   <!-- JSON-LD (thêm 29/08/2026)
-       Trang này KHÔNG định nghĩa lại thực thể doanh nghiệp. Nó chỉ trỏ tới
-       node #organization được định nghĩa một lần duy nhất ở trang chủ, bằng
-       @id. Lặp lại định nghĩa ở nhiều trang với giá trị lệch nhau là cách
-       nhanh nhất để Google bỏ qua cả hai. -->
+       Trang này KHÔNG định nghĩa lại thực thể doanh nghiệp. Thực thể được
+       định nghĩa đầy đủ một lần duy nhất ở trang chủ; ở đây chỉ trỏ tới nó
+       bằng @id. Lặp lại định nghĩa ở nhiều trang với giá trị lệch nhau là
+       cách nhanh nhất để Google bỏ qua cả hai.
+
+       Riêng node #organization dưới đây là MÔ TẢ BỔ SUNG, không phải bản
+       định nghĩa thứ hai: cùng @id nên bộ đọc JSON-LD gộp nó vào đúng thực
+       thể ở trang chủ. Nó chỉ mang hai thứ mà trang này là nơi công bố —
+       giờ làm việc và liên kết tới người trực tiếp vận hành. Mọi giá trị
+       kèm theo (name, url) giữ y hệt trang chủ, không có trường nào lệch.
+
+       ⚠️ Khi Phase 3 (gộp schema trang chủ) được áp: dùng đúng 07:00/22:00
+       ở trang chủ, KHÔNG dùng lại 08:00/20:00 trong file nháp cũ — giá trị
+       đó đã hết hiệu lực. -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -61,11 +71,36 @@
         "breadcrumb": { "@id": "https://timthuesmartcity.com/gioi-thieu-lien-he.html#breadcrumb" }
       },
       {
+        "@type": "RealEstateAgent",
+        "@id": "https://timthuesmartcity.com/#organization",
+        "name": "Cho thuê chung cư Smart City",
+        "url": "https://timthuesmartcity.com/",
+        "employee": { "@id": "https://timthuesmartcity.com/#agent" },
+        "openingHoursSpecification": [{
+          "@type": "OpeningHoursSpecification",
+          "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"],
+          "opens": "07:00",
+          "closes": "22:00"
+        }]
+      },
+      {
         "@type": "BreadcrumbList",
         "@id": "https://timthuesmartcity.com/gioi-thieu-lien-he.html#breadcrumb",
         "itemListElement": [
           { "@type": "ListItem", "position": 1, "name": "Trang chủ", "item": "https://timthuesmartcity.com/" },
           { "@type": "ListItem", "position": 2, "name": "Giới thiệu & Liên hệ" }
+        ]
+      },
+      {
+        "@type": "Person",
+        "@id": "https://timthuesmartcity.com/#agent",
+        "name": "Trần Trung Đức",
+        "jobTitle": "Người trực tiếp vận hành và dẫn xem căn",
+        "telephone": "+84977923284",
+        "worksFor": { "@id": "https://timthuesmartcity.com/#organization" },
+        "knowsAbout": [
+          "Cho thuê căn hộ Vinhomes Smart City",
+          "Thị trường thuê nhà Tây Mỗ, Hà Nội"
         ]
       },
       {
@@ -143,6 +178,15 @@
     <p><strong>Cho thuê chung cư Smart City</strong> là đơn vị môi giới cho thuê căn hộ hoạt động độc lập, chuyên trách quỹ căn hộ cho thuê tại Vinhomes Smart City, phường Tây Mỗ, thành phố Hà Nội. Website <strong>TimThueSmartCity.com</strong> là nơi đăng tải quỹ căn đó.</p>
     <p>Website tổng hợp thông tin căn hộ, giá thuê, diện tích, tình trạng nội thất và hình ảnh để người dùng chủ động tham khảo, lọc và so sánh trước khi liên hệ tư vấn hoặc sắp xếp lịch xem nhà.</p>
 
+    <h2>Người trực tiếp vận hành</h2>
+    <p><strong>Trần Trung Đức</strong><br>
+      Người trực tiếp vận hành và dẫn xem căn</p>
+    <p>Tôi sống ngay trong Vinhomes Smart City, nên có thể dẫn khách xem căn gần như bất kỳ lúc nào — kể cả ngoài giờ hành chính, buổi tối hoặc cuối tuần. Đây là điều các đơn vị môi giới ở xa khó sắp xếp được.</p>
+    <p>Toàn bộ căn đăng trên website do tôi trực tiếp khảo sát, chụp ảnh và cập nhật, không lấy lại từ nguồn trung gian. Nhiều năm làm riêng thị trường cho thuê tại Vinhomes Smart City nên nắm rõ đặc điểm từng phân khu, từng loại căn và mặt bằng giá thực tế.</p>
+    <p>Đây là hoạt động cá nhân, không phải công ty môi giới.</p>
+    <p><a href="tel:+84977923284">Gọi 0977 923 284</a> ·
+      <a href="https://zalo.me/0977923284" target="_blank" rel="noopener nofollow">Nhắn Zalo</a></p>
+
     <h2 id="lien-he">Thông tin liên hệ</h2>
 
     <div class="gtlh-cot">
@@ -163,13 +207,20 @@
         <dt>Zalo</dt>
         <dd><a href="https://zalo.me/0977923284" target="_blank" rel="noopener nofollow">zalo.me/0977923284</a></dd>
 
+        <dt>Giờ làm việc</dt>
+        <dd>07:00 – 22:00
+          <span class="ghi-chu">Tất cả các ngày trong tuần</span>
+        </dd>
+
+        <dt>Người phụ trách</dt>
+        <dd>Trần Trung Đức
+          <span class="ghi-chu">Người trực tiếp vận hành và dẫn xem căn</span>
+        </dd>
+
         <!-- CHỜ DỮ LIỆU (không tự điền — nguyên tắc số 7 của phiếu giao việc):
-             · Email liên hệ                       (mục B1)
-             · Họ tên người phụ trách              (mục A1 — chặn deploy)
-             · Giờ làm việc                        (mục A3 — chặn deploy;
-               hồ sơ Google đang để "Mở cả ngày", chưa chốt với website)
-             Có dữ liệu thì thêm <dt>/<dd> vào đây và cập nhật JSON-LD ở
-             trang chủ cho khớp. -->
+             · Email liên hệ (mục B1)
+             Có email thì thêm <dt>/<dd> vào đây và thêm "email" vào JSON-LD
+             #organization cho khớp. -->
       </dl>
 
       <div>
@@ -192,6 +243,8 @@
         </div>
       </div>
     </div>
+
+    <p>Nhận tin nhắn Zalo ngoài khung giờ trên, phản hồi vào sáng hôm sau.</p>
 
     <h2>Cách chúng tôi làm việc</h2>
     <ul>
@@ -271,6 +324,7 @@
          Nguồn duy nhất của khối này: scripts/khoi-nap.tpl
          Chèn vào các trang tĩnh bằng: python3 scripts/chen-khoi-nap.py
          ═══════════════════════════════════════════════════════════════════ -->
+    <!-- KHOI-NAP:BAT-DAU -->
     <div class="shell site-nap" data-site-identity="true">
       <p class="nap-ten">Cho thuê chung cư Smart City</p>
       <p class="nap-diachi">Vinhomes Smart City, phường Tây Mỗ, thành phố Hà Nội</p>
@@ -278,6 +332,7 @@
         <a href="tel:+84977923284">0977 923 284</a> ·
         <a href="https://zalo.me/0977923284" target="_blank" rel="noopener nofollow">Nhắn Zalo</a>
       </p>
+      <p class="nap-gio">Giờ làm việc: 07:00 – 22:00, tất cả các ngày trong tuần</p>
       <p class="nap-minhbach"><strong>Thông tin minh bạch:</strong> TimThueSmartCity.com
         là nền tảng/môi giới cho thuê căn hộ độc lập, không phải website chính thức
         và không đại diện cho Vinhomes/Vingroup.</p>
@@ -288,6 +343,7 @@
         <a href="/chinh-sach-quyen-rieng-tu.html">Chính sách quyền riêng tư</a>
       </p>
     </div>
+    <!-- KHOI-NAP:KET-THUC -->
     <div class="shell">
       <span>© 2026 Cho thuê chung cư Smart City</span>
       <a href="/">← Về trang chủ</a>

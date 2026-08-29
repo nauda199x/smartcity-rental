@@ -71,6 +71,16 @@ RE_SPAN_CU = re.compile(
 
 RE_MO_FOOTER = re.compile(r'<footer\b[^>]*>')
 
+# Khối NAP đã chèn từ lần chạy trước. Bắt được cả bản cũ (chưa có mốc bao ngoài)
+# lẫn bản mới, để mỗi lần khoi-nap.tpl đổi là chạy lại một phát đồng bộ hết —
+# script này vừa là chèn lần đầu, vừa là đồng bộ về sau.
+# Trong .site-nap chỉ có các thẻ <p>, không có <div> lồng, nên </div> đầu tiên
+# sau thẻ mở chính là thẻ đóng của khối.
+RE_KHOI_DA_CO = re.compile(
+    r'[ \t]*<!-- ══ KHỐI NAP.*?<div class="shell site-nap".*?</div>\n'
+    r'(?:[ \t]*<!-- KHOI-NAP:KET-THUC -->\n)?',
+    re.S)
+
 
 def doc_khoi_nap():
     with open(DUONG_NAP, encoding="utf-8") as f:
@@ -101,7 +111,12 @@ def liet_ke_trang_tinh():
 def chen(noi_dung, khoi_nap):
     """Trả về (nội dung mới, cách chèn) hoặc (None, lý do) nếu không chèn được."""
     if MOC_DA_CO in noi_dung:
-        return None, "da-co"
+        moi, so_lan = RE_KHOI_DA_CO.subn(lambda _: khoi_nap + "\n", noi_dung, count=1)
+        if not so_lan:
+            return None, "co-moc-nhung-khong-doc-duoc-khoi"
+        if moi == noi_dung:
+            return None, "khong-doi"
+        return moi, "dong-bo-lai"
 
     moi, so_lan = RE_DONG_CU.subn(khoi_nap + "\n", noi_dung, count=1)
     if so_lan:
@@ -135,7 +150,7 @@ def main():
             continue
         moi, cach = chen(noi_dung, khoi_nap)
         if moi is None:
-            (bo_qua if cach == "da-co" else khong_moc).append((duong, cach))
+            (bo_qua if cach == "khong-doi" else khong_moc).append((duong, cach))
             continue
         da_sua.append((duong, cach))
         if not tham_so.thu:
@@ -144,7 +159,7 @@ def main():
 
     print("Trang tĩnh quét được : %d" % len(trang_tinh))
     print("Đã chèn NAP          : %d" % len(da_sua))
-    print("Bỏ qua (đã có sẵn)   : %d" % len(bo_qua))
+    print("Đã đúng, không đổi   : %d" % len(bo_qua))
     print("Bỏ qua có chủ đích   : %d" % len(co_chu_dich))
     print("KHÔNG tìm thấy mốc   : %d" % len(khong_moc))
 
@@ -153,7 +168,7 @@ def main():
         for duong, cach in da_sua:
             print("  [%s] %s" % (cach, duong))
     if bo_qua:
-        print("\n--- BỎ QUA (đã có khối NAP) ---")
+        print("\n--- ĐÃ ĐÚNG, KHÔNG ĐỔI ---")
         for duong, _ in bo_qua:
             print("  %s" % duong)
     if co_chu_dich:

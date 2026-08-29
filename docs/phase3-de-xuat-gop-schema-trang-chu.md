@@ -1,7 +1,7 @@
 # PHASE 3 — ĐỀ XUẤT GỘP SCHEMA TRANG CHỦ
 🛑 **CHƯA ÁP DỤNG.** File này chỉ để anh Đức duyệt. `index.html` chưa bị sửa dòng nào.
 
-Ngày lập: 29/08/2026 · Áp cho: `index.html`
+Ngày lập: 29/08/2026 · Cập nhật sau phiếu bổ sung A1/A2/A3 · Áp cho: `index.html`
 
 ---
 
@@ -41,8 +41,8 @@ Nguyên tắc áp dụng theo duyệt: **giá trị thật đang chạy là gố
 | `address.addressRegion` | `Hà Nội` | *không đổi* | = giữ |
 | `address.postalCode` | `100000` | *(gỡ bỏ)* | ➖ **GỠ** — ❓ **XIN ANH XÁC NHẬN RIÊNG MỤC NÀY** (xem cảnh báo bên dưới) |
 | `address.addressCountry` | `VN` | *không đổi* | = giữ |
-| `openingHoursSpecification` | *(không có)* | ⏸ **CHƯA THÊM** | 🔒 chặn bởi **A3** — chưa chốt giờ làm việc |
-| `employee` → node `Person` | *(không có)* | ⏸ **CHƯA THÊM** | 🔒 chặn bởi **A1** — `Person.name` là người thật, không được bịa |
+| `openingHoursSpecification` | *(không có)* | `07:00` – `22:00`, cả 7 ngày | ➕ **THÊM** — đã gỡ chặn A3. ⚠️ **KHÔNG dùng `08:00`/`20:00` của file nháp**, giá trị đó đã hết hiệu lực |
+| `employee` → node `Person` | *(không có)* | `{ "@id": ".../#agent" }` + node `Person` tên **Trần Trung Đức** | ➕ **THÊM** — đã gỡ chặn A1 |
 | `hasMap` | *(không có)* | ⏸ **CHƯA THÊM** | 🔒 chặn bởi **B3** |
 | `email` | *(không có)* | ⏸ **CHƯA THÊM** | 🔒 chặn bởi **B1** |
 
@@ -82,9 +82,10 @@ Như vậy nghiệm thu mục 3 ("schema cũ còn nguyên") kiểm chứng đư�
 
 - **Không mất trường nào** đang có giá trị thật, trừ 2 trường địa chỉ gỡ theo đúng câu 5 (`streetAddress`, `postalCode`).
 - **Không có giá trị nào của file nháp ghi đè giá trị thật.** `priceRange` và `sameAs` giữ nguyên bản đang chạy.
-- **4 trường bị hoãn** vì thiếu dữ liệu thật: `openingHoursSpecification` (A3), node `Person` (A1), `hasMap` (B3), `email` (B1).
+- **2 trường bị hoãn** vì thiếu dữ liệu thật: `hasMap` (B3), `email` (B1).
+- **Đã gỡ chặn** sau phiếu bổ sung: `openingHoursSpecification` (A3 → 07:00–22:00) và node `Person` (A1 → Trần Trung Đức).
 
-> ⚠️ Node `Person` là phần phiếu giao việc đánh giá quan trọng nhất về E-E-A-T, và nó **đang bị hoãn hoàn toàn** vì thiếu A1. Có tên là em thêm được ngay trong một commit nhỏ.
+> Node `Person` và `openingHoursSpecification` hiện **đã có trên `gioi-thieu-lien-he.html`** dưới dạng mô tả bổ sung cùng `@id`. Khi áp Phase 3, trang chủ mang bản định nghĩa đầy đủ; hai nơi cùng `@id` và cùng giá trị nên bộ đọc JSON-LD gộp lại, không xung đột.
 
 ---
 
@@ -122,7 +123,26 @@ Như vậy nghiệm thu mục 3 ("schema cũ còn nguyên") kiểm chứng đư�
         "addressLocality": "Phường Tây Mỗ",
         "addressRegion": "Hà Nội",
         "addressCountry": "VN"
-      }
+      },
+      "openingHoursSpecification": [{
+        "@type": "OpeningHoursSpecification",
+        "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"],
+        "opens": "07:00",
+        "closes": "22:00"
+      }],
+      "employee": { "@id": "https://timthuesmartcity.com/#agent" }
+    },
+    {
+      "@type": "Person",
+      "@id": "https://timthuesmartcity.com/#agent",
+      "name": "Trần Trung Đức",
+      "jobTitle": "Người trực tiếp vận hành và dẫn xem căn",
+      "telephone": "+84977923284",
+      "worksFor": { "@id": "https://timthuesmartcity.com/#organization" },
+      "knowsAbout": [
+        "Cho thuê căn hộ Vinhomes Smart City",
+        "Thị trường thuê nhà Tây Mỗ, Hà Nội"
+      ]
     },
     {
       "@type": "WebSite",
@@ -141,25 +161,8 @@ Như vậy nghiệm thu mục 3 ("schema cũ còn nguyên") kiểm chứng đư�
 ## Sẽ thêm ngay khi có dữ liệu
 
 ```json
-"employee": { "@id": "https://timthuesmartcity.com/#agent" },
-"email": "…",                                    // B1
-"hasMap": "…",                                   // B3
-"openingHoursSpecification": [{                  // A3
-  "@type": "OpeningHoursSpecification",
-  "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"],
-  "opens": "…", "closes": "…"
-}]
-```
-```json
-{
-  "@type": "Person",
-  "@id": "https://timthuesmartcity.com/#agent",
-  "name": "…",                                   // A1 — bắt buộc
-  "jobTitle": "Chuyên viên cho thuê căn hộ",
-  "telephone": "+84977923284",
-  "worksFor": { "@id": "https://timthuesmartcity.com/#organization" },
-  "knowsAbout": ["Cho thuê căn hộ Vinhomes Smart City", "Thị trường thuê nhà Tây Mỗ, Hà Nội"]
-}
+"email": "…",     // B1
+"hasMap": "…"     // B3 — URL hồ sơ Google Maps
 ```
 
 ---
