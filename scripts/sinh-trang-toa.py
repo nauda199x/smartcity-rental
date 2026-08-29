@@ -41,6 +41,26 @@ TEN_MIEN = "https://timthuesmartcity.com"
 SDT = "0977923284"
 
 # ---------------------------------------------------------------------------
+# KHỐI NAP DÙNG CHUNG (thêm 29/08/2026)
+# Nguồn duy nhất: scripts/khoi-nap.tpl. Đọc từ file thay vì chép nội dung vào
+# đây, vì NAP lệch một ký tự giữa các trang là mất sạch tác dụng của việc này —
+# có hai bản trong hai script là sớm muộn cũng lệch.
+# Chèn SAU khi đã format %(...)s để nội dung NAP không phải lo escape dấu %.
+# ---------------------------------------------------------------------------
+MOC_NAP = "<!--KHOI-NAP-->"
+_khoi_nap_da_doc = None
+
+
+def doc_khoi_nap():
+    global _khoi_nap_da_doc
+    if _khoi_nap_da_doc is None:
+        duong = os.path.join(GOC, "scripts", "khoi-nap.tpl")
+        with open(duong, encoding="utf-8") as f:
+            _khoi_nap_da_doc = f.read().rstrip("\n")
+    return _khoi_nap_da_doc
+
+
+# ---------------------------------------------------------------------------
 # Tòa cần sinh trang. Thêm tòa mới = thêm một dòng ở đây, không phải sửa code.
 # Hiện CHỈ có S4.01 - đây là thử nghiệm một trang, chưa mở rộng.
 # ---------------------------------------------------------------------------
@@ -373,7 +393,7 @@ def dung_trang(toa, cau_hinh, cac_can, tk, map_anh, hom_nay):
         ],
     }, ensure_ascii=False)
 
-    return """<!doctype html>
+    return ("""<!doctype html>
 <html lang="vi">
 <head>
 <meta charset="utf-8">
@@ -477,9 +497,13 @@ hỏi. Lần cập nhật gần nhất là %(ngay)s.</p>
 </main>
 
 <footer class="chan">
+<!--KHOI-NAP-->
   <div class="khung">
-    <p><strong>Cho thuê chung cư Smart City</strong> — môi giới cá nhân, không phải đại diện
-    chính thức của Vinhomes hay Vingroup. Hotline &amp; Zalo: %(sdt)s.</p>
+    <!-- Dòng "môi giới cá nhân … Hotline &amp; Zalo: 0977923284" cũ đã gỡ ngày
+         29/08/2026: khối NAP ngay phía trên đã nói đủ tên đơn vị, tuyên bố độc
+         lập và số điện thoại — mà nói bằng ĐÚNG một cách viết số duy nhất
+         "0977 923 284". Để cả hai thì mỗi trang có hai cách viết số điện thoại
+         khác nhau, đúng kiểu lệch NAP mà việc này sinh ra để dẹp. -->
     <p>Cập nhật %(ngay)s · <a href="/">Tìm căn hộ</a> ·
     <a href="/cam-nang-thue-nha.html">Cẩm nang thuê nhà</a> ·
     <a href="/gui-thue/">Chủ nhà gửi căn</a> ·
@@ -511,7 +535,7 @@ hỏi. Lần cập nhật gần nhất là %(ngay)s.</p>
         "lien_ket_loai": lien_ket_loai,
         "ngay": ngay,
         "sdt": SDT,
-    }
+    }).replace(MOC_NAP, doc_khoi_nap())
 
 
 def xu_ly_mot_toa(toa, cau_hinh, du_lieu, map_anh, hom_nay, chi_thu):
