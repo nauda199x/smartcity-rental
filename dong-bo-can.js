@@ -566,7 +566,10 @@
         "</div>" +
         '<div class="chan-the">' +
           '<div class="gia">' + esc(dinhDangGia(soTien(r["Giá thuê"]))) + "<small>/tháng</small></div>" +
-          '<a class="zalo" href="https://zalo.me/' + SDT + '" target="_blank" rel="noopener">Nhắn Zalo</a>' +
+          '<div class="the-actions' + (slugCT ? ' co-chi-tiet' : '') + '">' +
+            (slugCT ? '<a class="detail-card-link" href="/can-ho/' + esc(slugCT) + '/">Xem chi tiết</a>' : '') +
+            '<a class="zalo" href="https://zalo.me/' + SDT + '" target="_blank" rel="noopener">Nhắn Zalo</a>' +
+          "</div>" +
         "</div>" +
         /* Căn chưa có mã nội bộ thì ẩn hẳn dòng này, không hiện nhãn rỗng. */
         (ma ? '<p class="ma-can">Mã căn: <b>' + esc(ma) + "</b></p>" : "") +
