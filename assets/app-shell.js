@@ -144,8 +144,8 @@
     bar.setAttribute("data-i18n-al", "sh.navAl");
     bar.innerHTML =
         '<a href="/"' + lop("trang-chu") + '>' + IC.nha + '<span data-i18n="sh.rent">Căn thuê</span></a>'
-      + '<a href="/bang-gia-thue-vinhomes-smart-city.html"' + lop("bang-gia") + '>'
-        + IC.gia + '<span data-i18n="sh.price">Bảng giá</span></a>'
+      + '<a href="https://timmuasmartcity.com" target="_blank" rel="noopener">'
+        + IC.timmua + '<span data-i18n="sh.buy">Tìm mua</span></a>'
       + '<a href="/gui-thue/"' + lop("ky-gui") + '>' + IC.kygui + '<span data-i18n="sh.consign">Ký gửi</span></a>'
       + '<button type="button" id="tabMenu" aria-haspopup="dialog">' + IC.menu + '<span data-i18n="sh.menu">Menu</span></button>';
 
@@ -183,7 +183,7 @@
      ------------------------------------------------------------------
      HTML tĩnh cũ vẫn giữ link để crawler đọc. Sau DOMContentLoaded, khối này
      chuẩn hóa phần nhìn thành menu theo ý định thuê: Thuê căn hộ / Phân khu /
-     Loại căn / Bảng giá / Cẩm nang / Ký gửi.
+     Loại căn / Bảng giá / Cẩm nang / Tìm mua / Ký gửi.
      ================================================================ */
   var NHOM_PHAN_KHU = [
     ["Sapphire", "/sapphire/"],
@@ -279,6 +279,7 @@
       + navNhom("Loại căn", NHOM_LOAI_CAN, active.type, "nav.type")
       + navLink("Bảng giá", "/bang-gia-thue-vinhomes-smart-city.html", active.price ? "active" : "", "nav.price")
       + navLink("Cẩm nang", "/cam-nang-thue-nha.html", active.guide ? "active" : "", "nav.guideShort")
+      + '<a class="nav-v4-link nav-v4-buy" href="https://timmuasmartcity.com" target="_blank" rel="noopener" data-i18n="sh.buy">Tìm mua</a>'
       + navLink("Ký gửi", "/gui-thue/", active.consign ? "active" : "", "nav.consignShort");
 
     var shell = header.querySelector(".shell, .khung");
