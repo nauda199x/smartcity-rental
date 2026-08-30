@@ -12,13 +12,13 @@
 
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Thuê căn hộ Vinhomes Smart City Tây Mỗ | Tìm Thuê Smart City</title>
+  <title>Cho thuê chung cư Vinhomes Smart City Tây Mỗ | Tìm Thuê Smart City</title>
   <link rel="icon" href="/favicon.ico" sizes="any">
   <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">
   <link rel="icon" type="image/png" sizes="192x192" href="/favicon-192.png">
   <link rel="apple-touch-icon" href="/favicon-192.png">
 
-  <meta name="description" content="Cho thuê căn hộ Vinhomes Smart City Tây Mỗ giá tốt, cập nhật mỗi ngày. Danh sách Studio, 1PN, 2PN, 3PN đầy đủ theo từng tòa, hình ảnh và giá thực tế.">
+  <meta name="description" content="Cho thuê chung cư Vinhomes Smart City Tây Mỗ, quỹ căn cập nhật mỗi 30 phút. Xem giá Studio, 1PN, 2PN, 3PN theo từng tòa, ảnh thật và lọc theo ngân sách.">
   <!-- CANONICAL (thêm 23/07/2026): báo cho Google biết địa chỉ CHÍNH THỨC của trang này.
        Thiếu thẻ này thì cùng một nội dung dễ bị Google coi là nhiều trang khác nhau
        (/ và /index.html, hoặc các biến thể có tham số ?loai=studio&gia=... mình vừa thêm)
@@ -40,8 +40,8 @@
   <!-- Open Graph: hiển thị ảnh/tiêu đề đẹp khi dán link trên Zalo, Facebook, Messenger -->
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://timthuesmartcity.com/">
-  <meta property="og:title" content="Thuê căn hộ Vinhomes Smart City Tây Mỗ | Tìm Thuê Smart City">
-  <meta property="og:description" content="Cho thuê căn hộ Vinhomes Smart City Tây Mỗ giá tốt, cập nhật mỗi ngày. Danh sách Studio, 1PN, 2PN, 3PN đầy đủ theo từng tòa, hình ảnh và giá thực tế.">
+  <meta property="og:title" content="Cho thuê chung cư Vinhomes Smart City Tây Mỗ | Tìm Thuê Smart City">
+  <meta property="og:description" content="Cho thuê chung cư Vinhomes Smart City Tây Mỗ, quỹ căn cập nhật mỗi 30 phút. Xem giá Studio, 1PN, 2PN, 3PN theo từng tòa, ảnh thật và lọc theo ngân sách.">
   <meta property="og:image" content="https://timthuesmartcity.com/og-smartcity.jpg">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
@@ -50,8 +50,8 @@
 
   <!-- Twitter Card (một số app dùng chung chuẩn này để xem trước link) -->
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Thuê căn hộ Vinhomes Smart City Tây Mỗ | Tìm Thuê Smart City">
-  <meta name="twitter:description" content="Cho thuê căn hộ Vinhomes Smart City Tây Mỗ giá tốt, cập nhật mỗi ngày. Danh sách Studio, 1PN, 2PN, 3PN đầy đủ theo từng tòa.">
+  <meta name="twitter:title" content="Cho thuê chung cư Vinhomes Smart City Tây Mỗ | Tìm Thuê Smart City">
+  <meta name="twitter:description" content="Cho thuê chung cư Vinhomes Smart City Tây Mỗ, quỹ căn cập nhật mỗi 30 phút. Xem giá Studio, 1PN, 2PN, 3PN theo từng tòa và ngân sách.">
   <meta name="twitter:image" content="https://timthuesmartcity.com/og-smartcity.jpg">
 
   <script type="application/ld+json">
@@ -164,7 +164,7 @@
   <noscript>
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@700;800&family=Be+Vietnam+Pro:wght@300;400;500;600&display=swap">
   </noscript>
-  <link rel="stylesheet" href="/assets/v3.css?v=20260830-13">
+  <link rel="stylesheet" href="/assets/v3.css?v=20260830-14">
 
   <!-- Dòng nhắc "đã sao chép tin nhắn" khi khách bấm Hỏi căn này (thêm 03/08/2026).
        Đặt riêng ở trang chủ vì chỉ trang này có danh sách căn; không đụng v3.css dùng chung. -->
@@ -312,7 +312,7 @@
 
     <div class="shell hero-v4__trong">
       <div class="hero-v4__chu">
-        <h1 data-i18n="hero.h1">Cho thuê căn hộ Vinhomes Smart City Tây Mỗ</h1>
+        <h1 data-i18n="hero.h1">Cho thuê chung cư Vinhomes Smart City Tây Mỗ</h1>
         <p data-i18n="hero.p">Bộ lọc thông minh — tìm nhanh theo giá thuê, loại căn hộ và tình trạng nội thất. Dữ liệu cập nhật liên tục từ thực tế, giúp anh/chị chọn đúng căn ưng ý chỉ trong vài phút.</p>
         <!-- Dấu hiệu dữ liệu sống (V3). 30 phút là chu kỳ THẬT của Apps Script
              đẩy data.json lên GitHub — không phải con số trang trí. -->
@@ -682,7 +682,85 @@
       </button>
     </div>
 
-    
+
+    <!-- DỮ LIỆU THỊ TRƯỜNG (P0 SEO 30/08/2026)
+         HTML tĩnh được scripts/dung-lai-trang-chu.py dựng lại 3 lần/ngày để
+         crawler đọc được ngay; JS bên dưới cập nhật tiếp từ data.json mỗi lần
+         khách mở trang. Chỉ tính căn đang bật hiển thị, có tòa/loại/giá hợp lệ. -->
+    <section class="thi-truong" id="giaThueHomNay" aria-labelledby="giaThueHomNayTitle">
+      <div class="thi-truong-head">
+        <div>
+          <span class="thi-truong-eyebrow" data-i18n="market.eyebrow">Dữ liệu quỹ căn thực tế</span>
+          <h2 id="giaThueHomNayTitle" data-i18n="market.title">Giá thuê Vinhomes Smart City hôm nay</h2>
+          <p data-i18n="market.desc">Thống kê trực tiếp từ các căn đang hiển thị trên website. Số lượng và khoảng giá tự cập nhật theo quỹ căn thực tế, không phải bảng giá quảng cáo cố định.</p>
+        </div>
+        <a class="thi-truong-link" href="/bang-gia-thue-vinhomes-smart-city.html" data-i18n="market.full">Xem bảng giá chi tiết →</a>
+      </div>
+
+      <div class="thi-truong-grid">
+        <div class="thi-truong-panel">
+          <h3 data-i18n="market.byType">Theo loại căn</h3>
+          <div class="thi-truong-table-wrap">
+            <table class="thi-truong-table">
+              <thead>
+                <tr>
+                  <th scope="col" data-i18n="market.colType">Loại căn</th>
+                  <th scope="col" data-i18n="market.colCount">Đang có</th>
+                  <th scope="col" data-i18n="market.colPrice">Khoảng giá</th>
+                </tr>
+              </thead>
+              <tbody id="marketTypeBody">
+                <!-- THI-TRUONG-LOAI:BAT-DAU -->
+                <tr><th scope="row"><a href="/studio/">Studio</a></th><td><strong>45</strong> căn</td><td>6–10,5 triệu/tháng</td></tr>
+                <tr><th scope="row"><a href="/1pn/">1 phòng ngủ</a></th><td><strong>12</strong> căn</td><td>7–14,5 triệu/tháng</td></tr>
+                <tr><th scope="row"><a href="/1pn-plus/">1 phòng ngủ +</a></th><td><strong>37</strong> căn</td><td>7,5–12,5 triệu/tháng</td></tr>
+                <tr><th scope="row"><a href="/2pn/">2 phòng ngủ</a></th><td><strong>89</strong> căn</td><td>8–16,5 triệu/tháng</td></tr>
+                <tr><th scope="row"><a href="/2pn-plus/">2 phòng ngủ +</a></th><td><strong>44</strong> căn</td><td>9–19,5 triệu/tháng</td></tr>
+                <tr><th scope="row"><a href="/3pn/">3 phòng ngủ</a></th><td><strong>28</strong> căn</td><td>12–18 triệu/tháng</td></tr>
+                <!-- THI-TRUONG-LOAI:KET-THUC -->
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <div class="thi-truong-panel">
+          <h3 data-i18n="market.byZone">Theo phân khu</h3>
+          <div class="thi-truong-table-wrap">
+            <table class="thi-truong-table">
+              <thead>
+                <tr>
+                  <th scope="col" data-i18n="market.colZone">Phân khu</th>
+                  <th scope="col" data-i18n="market.colCount">Đang có</th>
+                  <th scope="col" data-i18n="market.colPrice">Khoảng giá</th>
+                </tr>
+              </thead>
+              <tbody id="marketZoneBody">
+                <!-- THI-TRUONG-KHU:BAT-DAU -->
+                <tr><th scope="row"><a href="/sapphire/">Sapphire</a></th><td><strong>69</strong> căn</td><td>6–18 triệu/tháng</td></tr>
+                <tr><th scope="row"><a href="/masteri/">Masteri West Heights</a></th><td><strong>44</strong> căn</td><td>7,5–19,5 triệu/tháng</td></tr>
+                <tr><th scope="row"><a href="/lumiere/">Lumière Evergreen</a></th><td><strong>43</strong> căn</td><td>9–17 triệu/tháng</td></tr>
+                <tr><th scope="row"><a href="/miami/">The Miami</a></th><td><strong>32</strong> căn</td><td>6,5–18 triệu/tháng</td></tr>
+                <tr><th scope="row"><a href="/sakura/">The Sakura</a></th><td><strong>26</strong> căn</td><td>6–15 triệu/tháng</td></tr>
+                <tr><th scope="row"><a href="/imperia/">Imperia Smart City</a></th><td><strong>21</strong> căn</td><td>6–17,5 triệu/tháng</td></tr>
+                <tr><th scope="row"><a href="/canopy/">The Canopy</a></th><td><strong>14</strong> căn</td><td>7–15 triệu/tháng</td></tr>
+                <tr><th scope="row"><a href="/tonkin/">The Tonkin</a></th><td><strong>6</strong> căn</td><td>7,8–14 triệu/tháng</td></tr>
+                <!-- THI-TRUONG-KHU:KET-THUC -->
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+
+      <nav class="thi-truong-boost" aria-label="Nội dung được quan tâm" data-i18n-al="market.hotAl">
+        <span data-i18n="market.hot">Đang được quan tâm:</span>
+        <a href="/3pn/">Thuê 3 phòng ngủ Smart City</a>
+        <a href="/lumiere/">Thuê Lumière Evergreen</a>
+        <a href="/cho-thue-can-ho-masteri-west-heights-smart-city.html">Giá thuê Masteri West Heights</a>
+        <a href="/phi-dich-vu-vinhomes-smart-city.html">Phí dịch vụ Smart City</a>
+        <a href="/dang-ky-tam-tru-thue-nha-vinhomes-smart-city.html">Đăng ký tạm trú khi thuê nhà</a>
+        <a href="/kinh-nghiem-thue-chung-cu-smart-city.html">Kinh nghiệm thuê Smart City</a>
+      </nav>
+    </section>
 
     <!-- MỤC LỤC KHO DỮ LIỆU (thêm 22/07/2026)
          Mục đích kép:
@@ -2341,8 +2419,101 @@
         : T("f.byZoneBed", "Lọc theo phân khu, phòng ngủ và giá thuê");
     }
 
+
+    /* ================================================================
+       THỐNG KÊ THỊ TRƯỜNG TRÊN HOMEPAGE — P0 SEO 30/08/2026
+       ----------------------------------------------------------------
+       Cùng một tập publicApartments với renderStats(): chỉ căn bật hiển thị,
+       có tòa, loại và giá. HTML tĩnh là fallback cho crawler; hàm này làm mới
+       số liệu theo data.json khi khách mở trang và khi đổi ngôn ngữ.
+       ================================================================ */
+    const MARKET_TYPE = [
+      { key: "studio", label: "Studio", href: "/studio/" },
+      { key: "1 ngủ", label: "1 phòng ngủ", href: "/1pn/" },
+      { key: "1 ngủ +", label: "1 phòng ngủ +", href: "/1pn-plus/" },
+      { key: "2 ngủ", label: "2 phòng ngủ", href: "/2pn/" },
+      { key: "2 ngủ +", label: "2 phòng ngủ +", href: "/2pn-plus/" },
+      { key: "3 ngủ", label: "3 phòng ngủ", href: "/3pn/" }
+    ];
+    const MARKET_ZONE = [
+      { key: "Sapphire", label: "Sapphire", href: "/sapphire/" },
+      { key: "Masteri", label: "Masteri West Heights", href: "/masteri/" },
+      { key: "Lumiere", label: "Lumière Evergreen", href: "/lumiere/" },
+      { key: "Miami", label: "The Miami", href: "/miami/" },
+      { key: "Sakura", label: "The Sakura", href: "/sakura/" },
+      { key: "Imperia", label: "Imperia Smart City", href: "/imperia/" },
+      { key: "Canopy", label: "The Canopy", href: "/canopy/" },
+      { key: "Tonkin", label: "The Tonkin", href: "/tonkin/" }
+    ];
+
+    function marketGiaTrieu(v) {
+      const n = Number(v || 0) / 1000000;
+      if (!Number.isFinite(n)) return "0";
+      return Number.isInteger(n) ? String(n) : n.toFixed(1).replace(".", ",");
+    }
+
+    function marketKhoangGia(min, max) {
+      const ma = window.NGON_NGU_MA ? window.NGON_NGU_MA() : "vi";
+      if (ma === "en") {
+        const a = (min / 1000000).toLocaleString("en-US", { maximumFractionDigits: 1 });
+        const b = (max / 1000000).toLocaleString("en-US", { maximumFractionDigits: 1 });
+        return a + "–" + b + "M VND/month";
+      }
+      if (ma === "ko") {
+        const a = Math.round(min / 10000).toLocaleString("ko-KR");
+        const b = Math.round(max / 10000).toLocaleString("ko-KR");
+        return a + "만–" + b + "만 동/월";
+      }
+      return marketGiaTrieu(min) + "–" + marketGiaTrieu(max) + " triệu/tháng";
+    }
+
+    function renderMarketData() {
+      const bodyType = $("#marketTypeBody");
+      const bodyZone = $("#marketZoneBody");
+      if (!bodyType || !bodyZone || !state.apartments.length) return;
+
+      const pub = state.apartments.filter(item => item.show && item.tower && item.type && item.price);
+      const gom = (keyFn) => {
+        const m = new Map();
+        pub.forEach(item => {
+          const k = keyFn(item);
+          if (!k) return;
+          if (!m.has(k)) m.set(k, []);
+          m.get(k).push(item.price);
+        });
+        return m;
+      };
+      const theoLoai = gom(item => normalizeKey(item.type));
+      const theoKhu = gom(item => item.phanKhu || tenPhanKhu(item.tower));
+      const donVi = T("market.unit", "căn");
+
+      const dungDong = (muc, prices, label) => {
+        if (!prices || !prices.length) return "";
+        const min = Math.min(...prices), max = Math.max(...prices);
+        return '<tr><th scope="row"><a href="' + muc.href + '">' + label + '</a></th>' +
+          '<td><strong>' + prices.length + '</strong> ' + donVi + '</td>' +
+          '<td>' + marketKhoangGia(min, max) + '</td></tr>';
+      };
+
+      bodyType.innerHTML = MARKET_TYPE.map(muc => {
+        const prices = theoLoai.get(muc.key);
+        const nhan = muc.key === "studio" ? "Studio" : dichDuLieu(
+          muc.key === "1 ngủ" ? "1 Ngủ" :
+          muc.key === "1 ngủ +" ? "1 Ngủ +" :
+          muc.key === "2 ngủ" ? "2 Ngủ" :
+          muc.key === "2 ngủ +" ? "2 Ngủ +" : "3 Ngủ"
+        );
+        return dungDong(muc, prices, nhan);
+      }).filter(Boolean).join("");
+
+      bodyZone.innerHTML = MARKET_ZONE.map(muc =>
+        dungDong(muc, theoKhu.get(muc.key), muc.label)
+      ).filter(Boolean).join("");
+    }
+
     function render() {
       renderStats();
+      renderMarketData();
       renderNewTodayBar();
       renderFilters();
       capNhatTomTatBoLoc();

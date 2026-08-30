@@ -3899,3 +3899,150 @@ textarea:disabled{
   .mft-text b{font-size:.9rem}
   .mft-text small{font-size:.69rem}
 }
+
+
+/* ================================================================
+   P0 SEO — DỮ LIỆU THỊ TRƯỜNG HOMEPAGE (30/08/2026)
+   ================================================================ */
+.thi-truong{
+  margin:34px 0 28px;
+  padding:26px;
+  border:1px solid var(--line);
+  border-radius:22px;
+  background:var(--surface);
+}
+.thi-truong-head{
+  display:flex;
+  align-items:flex-end;
+  justify-content:space-between;
+  gap:24px;
+  margin-bottom:20px;
+}
+.thi-truong-head > div{max-width:820px}
+.thi-truong-eyebrow{
+  display:block;
+  margin-bottom:7px;
+  color:var(--brand);
+  font-size:.78rem;
+  font-weight:800;
+  letter-spacing:.08em;
+  text-transform:uppercase;
+}
+.thi-truong h2{
+  margin:0;
+  font-family:"Plus Jakarta Sans","Be Vietnam Pro",sans-serif;
+  font-size:clamp(1.35rem,2vw,1.9rem);
+  line-height:1.25;
+}
+.thi-truong-head p{
+  margin:9px 0 0;
+  color:var(--muted);
+  line-height:1.7;
+}
+.thi-truong-link{
+  flex:0 0 auto;
+  font-weight:800;
+  color:var(--brand);
+  white-space:nowrap;
+}
+.thi-truong-grid{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:16px;
+}
+.thi-truong-panel{
+  min-width:0;
+  border:1px solid var(--line);
+  border-radius:16px;
+  overflow:hidden;
+}
+.thi-truong-panel h3{
+  margin:0;
+  padding:15px 16px;
+  border-bottom:1px solid var(--line);
+  font-size:1rem;
+}
+.thi-truong-table-wrap{overflow-x:auto}
+.thi-truong-table{
+  width:100%;
+  border-collapse:collapse;
+  font-size:.9rem;
+}
+.thi-truong-table th,
+.thi-truong-table td{
+  padding:11px 14px;
+  border-bottom:1px solid var(--line);
+  text-align:left;
+  vertical-align:middle;
+  white-space:nowrap;
+}
+.thi-truong-table tbody tr:last-child th,
+.thi-truong-table tbody tr:last-child td{border-bottom:0}
+.thi-truong-table thead th{
+  color:var(--muted);
+  font-size:.76rem;
+  font-weight:700;
+  text-transform:uppercase;
+  letter-spacing:.04em;
+}
+.thi-truong-table tbody th{font-weight:700}
+.thi-truong-table a{
+  color:var(--text);
+  text-decoration:none;
+}
+.thi-truong-table a:hover{color:var(--brand)}
+.thi-truong-table td:nth-child(2){width:88px}
+.thi-truong-table td:last-child{font-weight:650}
+.thi-truong-boost{
+  display:flex;
+  align-items:center;
+  flex-wrap:wrap;
+  gap:8px;
+  margin-top:16px;
+}
+.thi-truong-boost > span{
+  color:var(--muted);
+  font-size:.84rem;
+  font-weight:700;
+}
+.thi-truong-boost a{
+  display:inline-flex;
+  align-items:center;
+  min-height:34px;
+  padding:7px 11px;
+  border:1px solid var(--line);
+  border-radius:999px;
+  color:var(--text);
+  font-size:.82rem;
+  font-weight:700;
+  text-decoration:none;
+}
+.thi-truong-boost a:hover{
+  border-color:var(--brand);
+  color:var(--brand);
+}
+@media (max-width:900px){
+  .thi-truong-grid{grid-template-columns:1fr}
+}
+@media (max-width:640px){
+  .thi-truong{
+    margin:24px 0 22px;
+    padding:18px 14px;
+    border-radius:18px;
+  }
+  .thi-truong-head{
+    display:block;
+    margin-bottom:16px;
+  }
+  .thi-truong-link{
+    display:inline-block;
+    margin-top:10px;
+  }
+  .thi-truong-table th,
+  .thi-truong-table td{
+    padding:10px 11px;
+    font-size:.82rem;
+  }
+  .thi-truong-table thead th{font-size:.7rem}
+  .thi-truong-boost{align-items:flex-start}
+}
