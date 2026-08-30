@@ -356,7 +356,7 @@ gtag('js',new Date());gtag('config','G-VF9KHC5TWD');</script>
 <noscript>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@700;800&family=Be+Vietnam+Pro:wght@300;400;500;600&display=swap">
 </noscript>
-<link rel="stylesheet" href="/assets/v3.css?v=20260830-3">
+<link rel="stylesheet" href="/assets/v3.css?v=20260830-4">
 </head>
 <body>
 <header class="top">
@@ -391,9 +391,9 @@ CHAN_TRANG = """</main>
   </div>
 </footer>
 <a class="zalo-noi" href="https://zalo.me/%(sdt)s" target="_blank" rel="noopener">Nhắn Zalo tư vấn</a>
-  <script id="ct-gallery-js" src="/assets/gallery.js?v=20260830-3" defer></script>
-  <script id="ct-detail-js" src="/assets/can-ho-detail.js?v=20260830-3" defer></script>
-  <script src="/assets/app-shell.js?v=20260830-3" defer></script>
+  <script id="ct-gallery-js" src="/assets/gallery.js?v=20260830-4" defer></script>
+  <script id="ct-detail-js" src="/assets/can-ho-detail.js?v=20260830-4" defer></script>
+  <script src="/assets/app-shell.js?v=20260830-4" defer></script>
 </body>
 </html>
 """
@@ -898,44 +898,3 @@ def main():
 
     print("Đang có trang (đã thuê) : %d" % len(occupied_list))
     print("Tổng trang căn (sổ đăng ký) sau lần chạy này: %d" % len(so_dang_ky))
-
-    if tham_so.thu:
-        print("\n(--thu) Không ghi file. Sẽ ghi %d trang căn (%d hoạt động + %d đã thuê), "
-              "1 trang hub, sitemap-can-ho.xml (%d URL) và danh-sach-trang.json (%d mục)."
-              % (len(so_dang_ky), len(ban_do_active), len(occupied_list),
-                 len(ban_do_active) + 1, len(so_dang_ky)))
-        return 0
-
-    os.makedirs(THU_MUC_CAN_HO, exist_ok=True)
-
-    for c in qualifying:
-        s = tinh_slug(c)
-        trang = dung_trang_can(c, s, active, hom_nay)
-        thu_muc = os.path.join(THU_MUC_CAN_HO, s)
-        os.makedirs(thu_muc, exist_ok=True)
-        with open(os.path.join(thu_muc, "index.html"), "w", encoding="utf-8", newline="") as f:
-            f.write(trang)
-
-    for s, ho_so in occupied_list:
-        trang = dung_trang_da_thue(s, ho_so, active, hom_nay)
-        thu_muc = os.path.join(THU_MUC_CAN_HO, s)
-        os.makedirs(thu_muc, exist_ok=True)
-        with open(os.path.join(thu_muc, "index.html"), "w", encoding="utf-8", newline="") as f:
-            f.write(trang)
-
-    with open(os.path.join(THU_MUC_CAN_HO, "index.html"), "w", encoding="utf-8", newline="") as f:
-        f.write(dung_trang_hub(active, occupied_list, hom_nay))
-
-    with open(DUONG_SITEMAP, "w", encoding="utf-8", newline="") as f:
-        f.write(dung_sitemap(active, hom_nay))
-
-    ghi_so_dang_ky(so_dang_ky)
-
-    print("\nĐã ghi %d trang căn hoạt động, %d trang đã thuê, 1 trang hub, "
-          "sitemap-can-ho.xml và danh-sach-trang.json." % (
-              len(ban_do_active), len(occupied_list)))
-    return 0
-
-
-if __name__ == "__main__":
-    sys.exit(main())
