@@ -3710,3 +3710,113 @@ textarea:disabled{
     animation-iteration-count:1!important;
   }
 }
+
+/* ==================================================================
+   28. SEO INTERNAL LINK GRAPH V12 — 30/08/2026
+   ------------------------------------------------------------------
+   Khối link tĩnh theo cụm chủ đề. Mục tiêu là crawl path + UX, không phải
+   cloud tag: tối đa 3 nhóm, mỗi link có nhãn và mô tả ngắn.
+   ================================================================== */
+.seo-graph{
+  margin:28px 0 30px;
+  padding:22px;
+  border:1px solid var(--ds-line);
+  border-radius:var(--ds-r-lg);
+  background:
+    radial-gradient(circle at 90% 8%,rgba(67,126,194,.09),transparent 25%),
+    var(--ds-surface);
+  box-shadow:var(--ds-shadow-xs);
+}
+.seo-graph-head{
+  max-width:760px;
+  margin-bottom:16px;
+}
+.seo-graph-head>span{
+  display:block;
+  margin-bottom:4px;
+  color:var(--ds-brand-600);
+  font-size:.69rem;
+  font-weight:800;
+  letter-spacing:.09em;
+  text-transform:uppercase;
+}
+.seo-graph-head h2{
+  margin:0 0 5px;
+  font-size:1.18rem;
+  color:var(--ds-brand-950);
+}
+.seo-graph-head p{
+  margin:0;
+  color:var(--ds-text-2);
+  font-size:.82rem;
+  line-height:1.6;
+}
+.seo-graph-grid{
+  display:grid;
+  grid-template-columns:repeat(3,minmax(0,1fr));
+  gap:12px;
+}
+.seo-graph-group{
+  min-width:0;
+}
+.seo-graph-group h3{
+  margin:0 0 8px;
+  color:#69798A;
+  font-family:var(--font-chu);
+  font-size:.72rem;
+  font-weight:700;
+}
+.seo-graph-links{
+  display:grid;
+  gap:7px;
+}
+.seo-graph-links>a{
+  display:flex;
+  flex-direction:column;
+  gap:2px;
+  min-width:0;
+  padding:10px 11px;
+  border:1px solid #E2E8EF;
+  border-radius:var(--ds-r-sm);
+  background:#FBFCFE;
+  color:var(--ds-text);
+  transition:border-color .18s,background .18s,transform .18s;
+}
+.seo-graph-links>a:hover{
+  border-color:#ACC3DE;
+  background:#F5F9FE;
+  transform:translateY(-1px);
+}
+.seo-graph-links strong{
+  color:var(--ds-brand-800);
+  font-size:.79rem;
+  font-weight:700;
+  line-height:1.35;
+}
+.seo-graph-links span{
+  color:var(--ds-text-3);
+  font-size:.69rem;
+  line-height:1.45;
+}
+
+/* Hub /can-ho/: đường tắt lên các cụm cha trước danh sách hàng trăm URL căn. */
+.can-ho-hub-nav{
+  margin:18px 0 26px;
+}
+.can-ho-hub-nav .seo-graph{
+  margin:0;
+}
+
+@media(max-width:900px){
+  .seo-graph-grid{grid-template-columns:1fr 1fr}
+}
+@media(max-width:640px){
+  .seo-graph{
+    margin:20px 0 24px;
+    padding:16px;
+    border-radius:var(--ds-r-md);
+  }
+  .seo-graph-grid{grid-template-columns:1fr}
+  .seo-graph-head h2{font-size:1.06rem}
+  .seo-graph-links>a{padding:10px}
+}
