@@ -6,6 +6,16 @@ name: Cập nhật số căn và tháng trong thẻ SEO
 # thẳng vào file HTML, rồi cập nhật <lastmod> trong sitemap.xml cho khớp.
 
 on:
+  push:
+    branches:
+      - main
+    paths:
+      - "data.json"
+      - "scripts/sinh-trang-can.py"
+      - "scripts/dung-lai-trang-chu.py"
+      - "scripts/dung-lai-trang-danh-muc.py"
+      - "scripts/noi-lien-ket-chi-tiet.py"
+      - ".github/workflows/cap-nhat-so-can.yml"
   schedule:
     # Ba lần một ngày. Giờ Việt Nam là UTC+7, nên 01/09/17 giờ UTC tương ứng
     # 08:00, 16:00 và 00:00 (lần cuối rơi sang ngày hôm sau theo giờ Việt Nam).
