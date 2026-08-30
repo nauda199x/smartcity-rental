@@ -1057,6 +1057,26 @@
        Google Drive chặn crawler nên ảnh host ở đó không được Google Images index. */
     let anhTrongRepo = {};
 
+    /* Bảng mã căn -> slug trang chi tiết. File này do sinh-trang-can.py tạo.
+       Nạp lỗi thì card vẫn hoạt động bình thường, chỉ ẩn liên kết chi tiết. */
+    let trangChiTietTheoMa = {};
+
+    async function napTrangChiTietCan() {
+      try {
+        const response = await fetch("/can-ho/danh-sach-trang.json", { cache: "no-cache" });
+        if (!response.ok) return;
+        const raw = await response.json();
+        const bang = {};
+        Object.keys(raw || {}).forEach(slug => {
+          const ma = raw[slug] && raw[slug].ma;
+          if (ma) bang[String(ma).trim()] = slug;
+        });
+        trangChiTietTheoMa = bang;
+      } catch (e) {
+        trangChiTietTheoMa = {};
+      }
+    }
+
     const state = {
       apartments: [],
       phanKhu: "all",
@@ -1990,11 +2010,14 @@
       }
 
       grid.className = "grid";
-      const theHtml = apartments.map((apartment, index) => `
+      const theHtml = apartments.map((apartment, index) => {
+        const slugChiTiet = apartment.apartmentId ? trangChiTietTheoMa[apartment.apartmentId] : "";
+        const tenCan = `${dichDuLieu(apartment.type)}${apartment.area ? ` · ${apartment.area} m²` : ""}`;
+        return `
         <article class="card" data-ma-noi-bo="${apartment.apartmentId || ""}">
           ${mediaMarkup(apartment, index)}
           <div class="body">
-            <h3>${dichDuLieu(apartment.type)}${apartment.area ? ` · ${apartment.area} m²` : ""}</h3>
+            <h3>${slugChiTiet ? `<a class="card-detail-title" href="/can-ho/${slugChiTiet}/">${tenCan}</a>` : tenCan}</h3>
             <div class="price">${formatPrice(apartment.price)}<small>${T("l.perMonth", "/tháng")}</small></div>
             <span class="tower">
               <svg width="12" height="12" viewBox="0 0 24 24" fill="none" aria-hidden="true">
@@ -2007,7 +2030,8 @@
               ${chipNoiThatHtml(apartment)}
               ${apartment.apartmentId ? `<span class="cc-ma">${apartment.apartmentId}</span>` : ""}
             </div>
-            <div class="card-foot">
+            <div class="card-foot${slugChiTiet ? " co-chi-tiet" : ""}">
+              ${slugChiTiet ? `<a class="detail-card-link" href="/can-ho/${slugChiTiet}/">${T("l.detail", "Xem chi tiết")}</a>` : ""}
               <a class="ask" href="${zaloLink()}" target="_blank" rel="noopener" data-tin-nhan="${thoatKyTuThuocTinh(tinNhanHoiCan(apartment))}">
                 <svg width="14" height="14" viewBox="0 0 24 24" fill="none" aria-hidden="true">
                   <path d="M21 11.5a8.4 8.4 0 0 1-8.5 8.3 9.5 9.5 0 0 1-3.5-.67L3 21l1.9-5.1a8 8 0 0 1-.9-3.7A8.4 8.4 0 0 1 12.5 4 8.4 8.4 0 0 1 21 11.5Z" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/>
@@ -2018,7 +2042,8 @@
             ${apartment.apartmentId ? `<p class="ma-can">${T("l.code", "Mã căn:")} <b>${apartment.apartmentId}</b></p>` : ""}
           </div>
         </article>
-      `);
+      `;
+      });
 
       /* ================================================================
          KHỐI CTA GIỮA DANH SÁCH (thêm 14/08/2026)
@@ -2422,7 +2447,8 @@
           const oTim = $("#searchInput");
           if (oTim) oTim.value = tuKhoa;
         }
-        const rows = await loadData();
+        const ketQuaNap = await Promise.all([loadData(), napTrangChiTietCan()]);
+        const rows = ketQuaNap[0];
         state.apartments = rows.map(toApartment);
         render();
         document.dispatchEvent(new CustomEvent("quy-can-san-sang", {
