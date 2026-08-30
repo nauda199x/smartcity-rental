@@ -111,6 +111,13 @@
   "phan_khu": "Lumiere",
   "toa": "A1"
  },
+ "cho-thue-can-ho-1-ngu-lumiere-47m2-cc10": {
+  "dien_tich": 47,
+  "loai": "1 Ngủ +",
+  "ma": "CC10",
+  "phan_khu": "Lumiere",
+  "toa": "A3"
+ },
  "cho-thue-can-ho-1-ngu-lumiere-47m2-ct-1n-162": {
   "dien_tich": 47,
   "loai": "1 Ngủ",
@@ -129,6 +136,13 @@
   "dien_tich": 41,
   "loai": "1 Ngủ +",
   "ma": "CT.1N+.446",
+  "phan_khu": "Masteri",
+  "toa": "MasC"
+ },
+ "cho-thue-can-ho-1-ngu-masteri-42m2-cc7": {
+  "dien_tich": 42,
+  "loai": "1 Ngủ +",
+  "ma": "CC7",
   "phan_khu": "Masteri",
   "toa": "MasC"
  },
@@ -174,6 +188,20 @@
   "phan_khu": "Masteri",
   "toa": "MasA"
  },
+ "cho-thue-can-ho-1-ngu-masteri-43m2-327": {
+  "dien_tich": 43,
+  "loai": "1 Ngủ +",
+  "ma": "327",
+  "phan_khu": "Masteri",
+  "toa": "MasB"
+ },
+ "cho-thue-can-ho-1-ngu-masteri-43m2-cc9": {
+  "dien_tich": 43,
+  "loai": "1 Ngủ +",
+  "ma": "CC9",
+  "phan_khu": "Masteri",
+  "toa": "MasB"
+ },
  "cho-thue-can-ho-1-ngu-masteri-46m2-ct-1n-427": {
   "dien_tich": 46,
   "loai": "1 Ngủ +",
@@ -201,6 +229,13 @@
   "ma": "CT.1N+.447",
   "phan_khu": "Masteri",
   "toa": "MasA"
+ },
+ "cho-thue-can-ho-1-ngu-miami-43m2-48": {
+  "dien_tich": 43,
+  "loai": "1 Ngủ +",
+  "ma": "48",
+  "phan_khu": "Miami",
+  "toa": "GS6"
  },
  "cho-thue-can-ho-1-ngu-miami-45m2-ct-1n-157": {
   "dien_tich": 45,
@@ -264,6 +299,13 @@
   "ma": "CT.1N.164",
   "phan_khu": "Sapphire",
   "toa": "S303"
+ },
+ "cho-thue-can-ho-1-ngu-sapphire-43m2-57": {
+  "dien_tich": 43,
+  "loai": "1 Ngủ +",
+  "ma": "57",
+  "phan_khu": "Sapphire",
+  "toa": "S202"
  },
  "cho-thue-can-ho-1-ngu-sapphire-43m2-ct-1n-480": {
   "dien_tich": 43,
@@ -405,6 +447,13 @@
   "phan_khu": "Imperia",
   "toa": "I4"
  },
+ "cho-thue-can-ho-2-ngu-imperia-55m2-30": {
+  "dien_tich": 55,
+  "loai": "2 Ngủ",
+  "ma": "30",
+  "phan_khu": "Imperia",
+  "toa": "I3"
+ },
  "cho-thue-can-ho-2-ngu-imperia-55m2-ct-2n1-140": {
   "dien_tich": 55,
   "loai": "2 Ngủ",
@@ -433,6 +482,13 @@
   "phan_khu": "Imperia",
   "toa": "I1"
  },
+ "cho-thue-can-ho-2-ngu-imperia-62m2-51": {
+  "dien_tich": 62,
+  "loai": "2 Ngủ +",
+  "ma": "51",
+  "phan_khu": "Imperia",
+  "toa": "I1"
+ },
  "cho-thue-can-ho-2-ngu-imperia-63m2-ct-2n-271": {
   "dien_tich": 63,
   "loai": "2 Ngủ +",
@@ -446,6 +502,13 @@
   "ma": "CT.2N+.285",
   "phan_khu": "Imperia",
   "toa": "I1"
+ },
+ "cho-thue-can-ho-2-ngu-imperia-64m2-26": {
+  "dien_tich": 64,
+  "loai": "2 Ngủ +",
+  "ma": "26",
+  "phan_khu": "Imperia",
+  "toa": "I2"
  },
  "cho-thue-can-ho-2-ngu-imperia-64m2-ct-2n-220": {
   "dien_tich": 64,
@@ -664,12 +727,26 @@
   "phan_khu": "Lumiere",
   "toa": "A2"
  },
+ "cho-thue-can-ho-2-ngu-masteri-54m2-42": {
+  "dien_tich": 54,
+  "loai": "2 Ngủ",
+  "ma": "42",
+  "phan_khu": "Masteri",
+  "toa": "MasA"
+ },
  "cho-thue-can-ho-2-ngu-masteri-54m2-ct-2n2-346": {
   "dien_tich": 54,
   "loai": "2 Ngủ",
   "ma": "CT.2N2.346",
   "phan_khu": "Masteri",
   "toa": "MasB"
+ },
+ "cho-thue-can-ho-2-ngu-masteri-55m2-29": {
+  "dien_tich": 55,
+  "loai": "2 Ngủ +",
+  "ma": "29",
+  "phan_khu": "Masteri",
+  "toa": "MasC"
  },
  "cho-thue-can-ho-2-ngu-masteri-60m2-ct-2n2-333": {
   "dien_tich": 60,
@@ -740,6 +817,13 @@
   "ma": "CT.2N+.280",
   "phan_khu": "Masteri",
   "toa": "MasB"
+ },
+ "cho-thue-can-ho-2-ngu-miami-54m2-50": {
+  "dien_tich": 54,
+  "loai": "2 Ngủ",
+  "ma": "50",
+  "phan_khu": "Miami",
+  "toa": "GS1"
  },
  "cho-thue-can-ho-2-ngu-miami-54m2-ct-2n1-204": {
   "dien_tich": 54,
@@ -957,6 +1041,27 @@
   "ma": "CT.2N+.267",
   "phan_khu": "Sakura",
   "toa": "SA5"
+ },
+ "cho-thue-can-ho-2-ngu-sapphire-54m2-32": {
+  "dien_tich": 54,
+  "loai": "2 Ngủ",
+  "ma": "32",
+  "phan_khu": "Sapphire",
+  "toa": "S101"
+ },
+ "cho-thue-can-ho-2-ngu-sapphire-54m2-34": {
+  "dien_tich": 54,
+  "loai": "2 Ngủ",
+  "ma": "34",
+  "phan_khu": "Sapphire",
+  "toa": "S205"
+ },
+ "cho-thue-can-ho-2-ngu-sapphire-54m2-cc4": {
+  "dien_tich": 54,
+  "loai": "2 Ngủ +",
+  "ma": "CC4",
+  "phan_khu": "Sapphire",
+  "toa": "S106"
  },
  "cho-thue-can-ho-2-ngu-sapphire-54m2-ct-2n1-197": {
   "dien_tich": 54,
@@ -1203,6 +1308,13 @@
   "phan_khu": "Sapphire",
   "toa": "S403"
  },
+ "cho-thue-can-ho-2-ngu-tonkin-61m2-53": {
+  "dien_tich": 61,
+  "loai": "2 Ngủ",
+  "ma": "53",
+  "phan_khu": "Tonkin",
+  "toa": "TK1"
+ },
  "cho-thue-can-ho-2-ngu-tonkin-61m2-ct-2n2-332": {
   "dien_tich": 61,
   "loai": "2 Ngủ",
@@ -1392,6 +1504,13 @@
   "phan_khu": "Sapphire",
   "toa": "S401"
  },
+ "cho-thue-can-ho-3-ngu-sapphire-94m2-cc3": {
+  "dien_tich": 94,
+  "loai": "3 Ngủ",
+  "ma": "CC3",
+  "phan_khu": "Sapphire",
+  "toa": "S401"
+ },
  "cho-thue-can-ho-3-ngu-sapphire-94m2-ct-3n-101": {
   "dien_tich": 94,
   "loai": "3 Ngủ",
@@ -1538,6 +1657,13 @@
   "ma": "CT.Stu.811",
   "phan_khu": "Masteri",
   "toa": "MasB"
+ },
+ "cho-thue-can-ho-studio-masteri-32m2-328": {
+  "dien_tich": 32,
+  "loai": "Studio",
+  "ma": "328",
+  "phan_khu": "Masteri",
+  "toa": "MasA"
  },
  "cho-thue-can-ho-studio-masteri-32m2-ct-stu-780": {
   "dien_tich": 32,
