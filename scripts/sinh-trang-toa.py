@@ -378,6 +378,32 @@ def dung_trang(toa, cau_hinh, cac_can, tk, map_anh, hom_nay):
         '<a href="%s">%s</a>' % TRANG_LOAI_CAN[l.lower()]
         for l, _ in tk["theo_loai"] if l.lower() in TRANG_LOAI_CAN)
 
+    seo_loai = "".join(
+        '<a href="%s"><strong>%s</strong><span>%d căn loại này đang có tại tòa %s.</span></a>'
+        % (esc(TRANG_LOAI_CAN[l.lower()][0]), esc(TRANG_LOAI_CAN[l.lower()][1]),
+           m["so_can"], esc(ten))
+        for l, m in tk["theo_loai"] if l.lower() in TRANG_LOAI_CAN)
+    seo_graph = (
+        '<section class="seo-graph" aria-label="Liên kết nội bộ theo tòa">'
+        '<div class="seo-graph-head"><span>Khám phá tiếp</span>'
+        '<h2>Đi từ tòa %s sang các cụm liên quan</h2>'
+        '<p>Xem rộng hơn theo loại căn, phân khu hoặc thông tin giá thuê.</p></div>'
+        '<div class="seo-graph-grid">'
+        '<div class="seo-graph-group"><h3>Loại căn trong tòa</h3>'
+        '<div class="seo-graph-links">%s</div></div>'
+        '<div class="seo-graph-group"><h3>Cụm cha</h3>'
+        '<div class="seo-graph-links">'
+        '<a href="%s"><strong>Phân khu %s</strong><span>Xem toàn bộ căn trong phân khu.</span></a>'
+        '<a href="/can-ho/"><strong>Trang chi tiết từng căn</strong><span>Mở danh sách URL căn hộ riêng.</span></a>'
+        '</div></div>'
+        '<div class="seo-graph-group"><h3>Thông tin trước khi thuê</h3>'
+        '<div class="seo-graph-links">'
+        '<a href="/bang-gia-thue-vinhomes-smart-city.html"><strong>Bảng giá thuê Smart City</strong><span>So sánh giá giữa loại căn và phân khu.</span></a>'
+        '<a href="/phi-dich-vu-vinhomes-smart-city.html"><strong>Phí dịch vụ & gửi xe</strong><span>Tính chi phí ngoài tiền thuê.</span></a>'
+        '<a href="/kinh-nghiem-thue-chung-cu-smart-city.html"><strong>Kinh nghiệm thuê nhà</strong><span>Checklist trước khi cọc.</span></a>'
+        '</div></div></div></section>'
+    ) % (esc(ten), seo_loai, esc(trang_phan_khu), esc(phan_khu))
+
     duong_dan_bua = json.dumps({
         "@context": "https://schema.org",
         "@type": "BreadcrumbList",
@@ -429,7 +455,7 @@ gtag('js',new Date());gtag('config','G-VF9KHC5TWD');</script>
 <noscript>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@700;800&family=Be+Vietnam+Pro:wght@300;400;500;600&display=swap">
 </noscript>
-<link rel="stylesheet" href="/assets/v3.css">
+<link rel="stylesheet" href="/assets/v3.css?v=20260830-6">
 </head>
 <body>
 <header class="top">
@@ -485,11 +511,7 @@ hỏi. Lần cập nhật gần nhất là %(ngay)s.</p>
       Số liệu tính trực tiếp từ danh sách căn ở trên, cập nhật %(ngay)s.</p>
   </section>
 
-  <h2 style="font-size:19px;margin-bottom:2px">Loại căn có ở tòa %(ten)s</h2>
-  <div class="lq">%(lien_ket_loai)s</div>
-
-  <h2 style="font-size:19px;margin-bottom:2px">Xem rộng hơn</h2>
-  <div class="lq"><a href="%(trang_phan_khu)s">Cả phân khu %(phan_khu)s</a><a href="/">Tất cả căn đang trống</a><a href="/bang-gia-thue-vinhomes-smart-city.html">Bảng giá thuê Vinhomes Smart City</a></div>
+  %(seo_graph)s
 
   <a class="cta-home duoi" href="/">Quay lại trang tìm căn của cả khu đô thị
     <small>Hàng trăm căn đang trống ở mọi phân khu, kèm ảnh thật từng căn</small></a>
@@ -511,7 +533,7 @@ hỏi. Lần cập nhật gần nhất là %(ngay)s.</p>
   </div>
 </footer>
 <a class="zalo-noi" href="https://zalo.me/%(sdt)s" target="_blank" rel="noopener">Nhắn Zalo tư vấn</a>
-  <script src="/assets/app-shell.js" defer></script>
+  <script src="/assets/app-shell.js?v=20260830-6" defer></script>
 </body>
 """ % {
         "tieu_de": esc(tieu_de),
@@ -533,6 +555,7 @@ hỏi. Lần cập nhật gần nhất là %(ngay)s.</p>
         "the_can": the_can,
         "bang_gia": dung_bang_gia(tk),
         "lien_ket_loai": lien_ket_loai,
+        "seo_graph": seo_graph,
         "ngay": ngay,
         "sdt": SDT,
     }).replace(MOC_NAP, doc_khoi_nap())
