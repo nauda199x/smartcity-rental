@@ -280,7 +280,7 @@
         </svg>
       </button>
       <div class="chips chips-quick" id="quickTypeFilters"></div>
-      <button class="qb-btn qb-filter" id="qbFilter" type="button" aria-label="Mở bộ lọc đầy đủ" data-i18n-al="qb.filter">
+      <button class="qb-btn qb-filter" id="qbFilter" type="button" aria-label="Mở bộ lọc đầy đủ" aria-expanded="false" aria-controls="filtersSection" data-count="0" data-i18n-al="qb.filter">
         <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
           <path d="M4 6h16M7 12h10M10 18h4" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
         </svg>
@@ -400,7 +400,7 @@
       </button>
     </div>
 
-    <button class="mobile-filter-toggle" id="mobileFilterToggle" type="button" aria-label="Mở bộ lọc để tìm căn hộ phù hợp" data-i18n-al="f.openAl">
+    <button class="mobile-filter-toggle" id="mobileFilterToggle" type="button" aria-label="Mở bộ lọc để tìm căn hộ phù hợp" aria-expanded="false" aria-controls="filtersSection" data-i18n-al="f.openAl">
       <span class="mft-icon" aria-hidden="true">
         <svg width="19" height="19" viewBox="0 0 24 24" fill="none">
           <circle cx="11" cy="11" r="6.5" stroke="currentColor" stroke-width="2"/>
@@ -408,15 +408,16 @@
         </svg>
       </span>
       <span class="mft-text">
-        <b data-i18n="f.tapHere">Ấn vào đây để tìm căn hộ phù hợp</b>
+        <b data-i18n="f.panelAl">Bộ lọc căn hộ</b>
         <small id="mftTomTat" data-i18n="f.byZoneBed">Lọc theo phân khu, phòng ngủ và giá thuê</small>
       </span>
+      <span class="mft-count" id="mftCount" hidden>0</span>
       <svg class="mft-arrow" width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true">
         <path d="m9 6 6 6-6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
       </svg>
     </button>
     <div class="filters-backdrop" id="filtersBackdrop"></div>
-    <section class="filters" id="filtersSection" aria-label="Bộ lọc căn hộ" data-i18n-al="f.panelAl">
+    <section class="filters" id="filtersSection" aria-label="Bộ lọc căn hộ" aria-hidden="true" data-i18n-al="f.panelAl">
       <div class="filters-sheet-head">
         <strong data-i18n="f.panelAl">Bộ lọc căn hộ</strong>
         <button class="close" id="closeFilters" type="button" aria-label="Đóng" data-i18n-al="f.close">×</button>
@@ -442,6 +443,12 @@
         <button class="filters-sheet-foot" id="apDungFilters" type="button"><span data-i18n="f.view">Xem</span> <span id="soCanKhop">…</span> <span data-i18n="f.unit">căn</span></button>
       </div>
     </section>
+
+    <div class="active-filter-strip" id="activeFilterStrip" hidden>
+      <span class="afs-label" data-i18n="l.filtering">Đang lọc:</span>
+      <div class="afs-chips" id="activeFilterChips"></div>
+      <button class="afs-clear" id="activeFilterClear" type="button" data-i18n="f.clear">Xóa bộ lọc</button>
+    </div>
 
     <div class="list-head">
       <div class="result-count" id="resultCount" data-i18n="l.loading"><strong>258</strong> căn hộ đang trống phù hợp</div>
@@ -2206,6 +2213,84 @@
       });
     }
 
+    /** Số điều kiện lọc đang bật, không tính sắp xếp. */
+    function soBoLocDangBat() {
+      let n = 0;
+      if (state.phanKhu !== "all") n++;
+      if (state.type !== "all") n++;
+      if (state.price !== "all") n++;
+      if (state.interior !== "all") n++;
+      if (state.query) n++;
+      return n;
+    }
+
+    function nhanTheoDanhSach(danhSach, khoa) {
+      const muc = danhSach.find(item => item.key === khoa);
+      return muc ? nhanMuc(muc) : khoa;
+    }
+
+    /** Dải chip "Đang lọc" cho phép bỏ từng điều kiện mà không mở lại bảng lọc. */
+    function renderActiveFilterStrip() {
+      const strip = $("#activeFilterStrip");
+      const vung = $("#activeFilterChips");
+      if (!strip || !vung) return;
+
+      const ds = [];
+      if (state.phanKhu !== "all") {
+        const muc = danhSachPhanKhu().find(item => item.key === state.phanKhu);
+        ds.push({ key: "phanKhu", label: muc ? nhanMuc(muc) : state.phanKhu });
+      }
+      if (state.type !== "all") ds.push({ key: "type", label: nhanTheoDanhSach(typeFilters, state.type) });
+      if (state.price !== "all") ds.push({ key: "price", label: nhanTheoDanhSach(priceFilters, state.price) });
+      if (state.interior !== "all") ds.push({ key: "interior", label: nhanTheoDanhSach(interiorFilters, state.interior) });
+      if (state.query) ds.push({ key: "query", label: "“" + state.query + "”" });
+
+      strip.hidden = ds.length === 0;
+      vung.innerHTML = ds.map(item =>
+        '<button class="afs-chip" type="button" data-bo-loc="' + item.key + '" aria-label="' +
+        thoatKyTuThuocTinh(T("f.remove", "Bỏ lọc") + " " + item.label) + '"><span>' +
+        thoatKyTuThuocTinh(item.label) + '</span><b aria-hidden="true">×</b></button>'
+      ).join("");
+
+      vung.querySelectorAll("[data-bo-loc]").forEach(button => {
+        button.addEventListener("click", () => {
+          const key = button.dataset.boLoc;
+          if (key === "query") {
+            state.query = "";
+            const oTim = $("#searchInput");
+            if (oTim) oTim.value = "";
+          } else {
+            state[key] = "all";
+          }
+          state.page = 1;
+          render();
+        });
+      });
+    }
+
+    /** Đồng bộ các tín hiệu UI: số filter đang bật, nút desktop và icon mobile. */
+    function capNhatTrangThaiBoLoc(soCan) {
+      const n = soBoLocDangBat();
+
+      const demMobile = $("#mftCount");
+      if (demMobile) {
+        demMobile.textContent = n;
+        demMobile.hidden = n === 0;
+      }
+
+      const nutNhanh = $("#qbFilter");
+      if (nutNhanh) {
+        nutNhanh.classList.toggle("dang-loc", n > 0);
+        nutNhanh.dataset.count = String(n);
+      }
+
+      const nutTim = $("#locPcTim");
+      if (nutTim) nutTim.textContent = T("f.view", "Xem") + " " + soCan + " " + T("f.unit", "căn");
+
+      const nutXoaPc = $("#locPcXoa");
+      if (nutXoaPc) nutXoaPc.hidden = n === 0;
+    }
+
     /* Hiện tóm tắt bộ lọc đang áp dụng ngay trên nút mở bộ lọc (thêm 23/07/2026).
        Trên điện thoại bộ lọc bị thu gọn, nếu không có dòng này thì khách lọc xong, đóng bảng
        lại là không còn thấy mình đang lọc gì - dễ tưởng web hiển thị thiếu căn. Hàm chỉ ĐỌC
@@ -2238,6 +2323,8 @@
       const apartments = getFilteredApartments();
       $("#resultCount").innerHTML = T("l.h2", `<strong>${apartments.length}</strong> căn hộ đang trống phù hợp`)
         .replace("{N}", apartments.length);
+      renderActiveFilterStrip();
+      capNhatTrangThaiBoLoc(apartments.length);
 
       /* Nut day bang loc hien SO CAN ngay tren nut. Khach thay ket qua truoc khi dong bang,
          khong phai dong ra dong vao de do xem con bao nhieu can. */
@@ -2532,7 +2619,12 @@
 
     function moBoLocMobile() {
       $("#filtersSection").classList.add("open");
+      $("#filtersSection").setAttribute("aria-hidden", "false");
       $("#filtersBackdrop").classList.add("open");
+      const mft = $("#mobileFilterToggle");
+      const qbf = $("#qbFilter");
+      if (mft) mft.setAttribute("aria-expanded", "true");
+      if (qbf) qbf.setAttribute("aria-expanded", "true");
       // Khoa cuon trang nen: truoc day khach vuot trong bang loc den cuoi la trang phia sau
       // cuon theo, dong bang lai thi mat vi tri cu - kha kho chiu tren dien thoai.
       document.body.style.overflow = "hidden";
@@ -2540,7 +2632,12 @@
     }
     function dongBoLocMobile() {
       $("#filtersSection").classList.remove("open");
+      $("#filtersSection").setAttribute("aria-hidden", "true");
       $("#filtersBackdrop").classList.remove("open");
+      const mft = $("#mobileFilterToggle");
+      const qbf = $("#qbFilter");
+      if (mft) mft.setAttribute("aria-expanded", "false");
+      if (qbf) qbf.setAttribute("aria-expanded", "false");
       document.body.style.overflow = "";
     }
     $("#mobileFilterToggle").addEventListener("click", moBoLocMobile);
@@ -2557,7 +2654,14 @@
       // tính sai vị trí vì lúc đó bảng vẫn đang display:none.
       requestAnimationFrame(() => {
         const khung = nhom.closest(".filter-group") || nhom;
-        khung.scrollIntoView({ block: "start", behavior: "smooth" });
+        const sheet = $("#filtersSection");
+        const dau = sheet ? sheet.querySelector(".filters-sheet-head") : null;
+        if (sheet) {
+          sheet.scrollTo({
+            top: Math.max(0, khung.offsetTop - (dau ? dau.offsetHeight : 0) - 8),
+            behavior: "smooth"
+          });
+        }
       });
     }
     const nutQbFilter = $("#qbFilter");
@@ -2582,9 +2686,15 @@
     }
 
     $("#closeFilters").addEventListener("click", dongBoLocMobile);
-    $("#apDungFilters").addEventListener("click", dongBoLocMobile);
+    $("#apDungFilters").addEventListener("click", () => {
+      dongBoLocMobile();
+      const dsCan = document.querySelector(".list-head") || document.getElementById("listingGrid");
+      if (dsCan) window.setTimeout(() => dsCan.scrollIntoView({ behavior: "smooth", block: "start" }), 80);
+    });
     $("#filtersBackdrop").addEventListener("click", dongBoLocMobile);
     $("#xoaBoLoc").addEventListener("click", xoaToanBoBoLoc);
+    const activeFilterClear = $("#activeFilterClear");
+    if (activeFilterClear) activeFilterClear.addEventListener("click", xoaToanBoBoLoc);
     document.addEventListener("keydown", event => {
       if (event.key === "Escape" && $("#filtersSection").classList.contains("open")) dongBoLocMobile();
     });
@@ -2883,7 +2993,34 @@
         });
       }
 
+      /* Thanh lọc desktop dính ngay dưới header khi cuộn tới danh sách. */
+      var filterCard = thanh.closest(".filter-card");
+      var mqDesktop = window.matchMedia("(min-width:1024px)");
+      var henSticky = 0;
+      function capNhatSticky() {
+        if (!filterCard || !mqDesktop.matches) {
+          if (filterCard) filterCard.classList.remove("is-stuck", "sticky-done");
+          return;
+        }
+        var luoi = document.getElementById("listingGrid");
+        var daQuaDanhSach = luoi && luoi.getBoundingClientRect().bottom <= 170;
+        filterCard.classList.toggle("sticky-done", !!daQuaDanhSach);
+        filterCard.classList.toggle(
+          "is-stuck",
+          !daQuaDanhSach && filterCard.getBoundingClientRect().top <= 83
+        );
+      }
+      window.addEventListener("scroll", function () {
+        if (henSticky) return;
+        henSticky = requestAnimationFrame(function () {
+          henSticky = 0;
+          capNhatSticky();
+        });
+      }, { passive: true });
+      if (typeof mqDesktop.addEventListener === "function") mqDesktop.addEventListener("change", capNhatSticky);
+
       dungLaiTatCa();
+      capNhatSticky();
     })();
   </script>
   <script>

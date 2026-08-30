@@ -97,6 +97,7 @@
     "f.find":         ["Search", "검색"],
     "f.clear":        ["Clear filters", "필터 초기화"],
     "f.clearShort":   ["Clear", "초기화"],
+    "f.remove":       ["Remove filter", "필터 해제"],
     "f.view":         ["View", "보기"],
     "f.unit":         ["units", "개"],
     "f.tapHere":      ["Tap here to find your apartment", "여기를 눌러 매물 찾기"],
