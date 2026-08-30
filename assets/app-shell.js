@@ -126,7 +126,7 @@
       h += '<a href="' + m.href + '"'
          + (m.ngoai ? ' target="_blank" rel="noopener"' : '')
          + (m.zalo ? ' class="tbs-zalo"' : '')
-         + '><span data-i18n="' + m.k + '">' + m.ten + '</span>'
+         + '><span' + (m.k ? ' data-i18n="' + m.k + '"' : '') + '>' + m.ten + '</span>'
          + (m.so ? " " + m.so : "") + '</a>';
     }
     return h;
@@ -232,6 +232,16 @@
     var p = duongDan();
     var zone = /\/(sapphire|masteri|miami|sakura|imperia|canopy|lumiere|tonkin)\/?/.test(p);
     var type = /\/(studio|1pn|1pn-plus|2pn|2pn-plus|3pn)\/?/.test(p);
+
+    /* Trang chi tiết dùng slug căn chứ không dùng slug danh mục, nên đọc thêm
+       breadcrumb để vẫn tô đúng nhóm Phân khu / Loại căn. */
+    var bcLinks = document.querySelectorAll(".bc a");
+    for (var i = 0; i < bcLinks.length; i++) {
+      var href = bcLinks[i].getAttribute("href") || "";
+      if (/^\/(sapphire|masteri|miami|sakura|imperia|canopy|lumiere|tonkin)\/?$/.test(href)) zone = true;
+      if (/^\/(studio|1pn|1pn-plus|2pn|2pn-plus|3pn)\/?$/.test(href)) type = true;
+    }
+
     return {
       zone: zone,
       type: type,
@@ -258,6 +268,8 @@
     if (!nav || nav.classList.contains("site-nav-v4")) return;
 
     var active = nhomNavDangMo();
+    var brand = header.querySelector("a.brand, a.hieu");
+    if (brand && (!brand.getAttribute("href") || brand.getAttribute("href") === "#")) brand.href = "/";
     nav.className = "topnav site-nav-v4";
     nav.setAttribute("aria-label", "Điều hướng chính");
     nav.setAttribute("data-i18n-al", "nav.main");
