@@ -17,6 +17,7 @@ import sys
 
 GOC = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 DUONG_DATA = os.path.join(GOC, "data.json")
+DUONG_COMBO = os.path.join(GOC, "seo-phan-khu-loai-can.json")
 MOC_DAU = "<!-- SEO-LINKS:BAT-DAU -->"
 MOC_CUOI = "<!-- SEO-LINKS:KET-THUC -->"
 
@@ -147,6 +148,34 @@ def khop(r, bo_loc):
         return False
     return True
 
+def doc_combo_registry():
+    """Chỉ trả các trang giao thoa đang indexable."""
+    if not os.path.exists(DUONG_COMBO):
+        return {}
+    try:
+        with open(DUONG_COMBO, encoding="utf-8") as f:
+            raw = json.load(f)
+    except Exception:
+        return {}
+    ra = {}
+    for slug, rec in (raw or {}).items():
+        if not isinstance(rec, dict) or not rec.get("indexable"):
+            continue
+        pk = chuan(rec.get("phanKhu"))
+        lk = khoa(rec.get("loai"))
+        if pk in PHAN_KHU and lk in LOAI:
+            ra[(pk, lk)] = {
+                "href": "/" + slug.strip("/") + "/",
+                "count": int(rec.get("count") or 0),
+            }
+    return ra
+
+
+def combo_href(combo, pk, loai_key):
+    rec = combo.get((pk, loai_key))
+    return rec["href"] if rec else ""
+
+
 def tim_trang_danh_muc():
     ra = []
     bo_qua = {".git", ".github", "node_modules", "can-ho",
@@ -212,14 +241,16 @@ def tim_loai_theo_slug(slug):
             return key, info
     return None
 
-def dung_khoi(slug, bo_loc, data):
+def dung_khoi(slug, bo_loc, data, combo):
     loai_key = khoa(bo_loc.get("loai"))
     pk = chuan(bo_loc.get("phanKhu"))
     co_loc_sau = bool(bo_loc.get("giaMax") or bo_loc.get("giaTren")
                       or bo_loc.get("noiThat"))
     is_zone = bool(pk in PHAN_KHU and not loai_key and not co_loc_sau)
     is_type = bool(loai_key in LOAI and not pk and not co_loc_sau)
-    is_long = slug in LONGTAIL or (loai_key in LOAI and not is_type)
+    is_combo = bool(pk in PHAN_KHU and loai_key in LOAI and not co_loc_sau
+                    and (pk, loai_key) in combo)
+    is_long = (not is_combo) and (slug in LONGTAIL or (loai_key in LOAI and not is_type))
 
     groups = []
     title = "Khám phá căn hộ liên quan"
@@ -231,7 +262,9 @@ def dung_khoi(slug, bo_loc, data):
         dem_loai = dem_theo_loai(data, bo_loc)
         top_loai = top_keys(dem_loai, LOAI_THU_TU, 4)
         groups.append(group("Loại căn đang có", [
-            link_card(LOAI[t][2], "Căn %s" % LOAI[t][1],
+            link_card(combo_href(combo, pk, t) or LOAI[t][2],
+                      ("%s tại %s" % (LOAI[t][1], PHAN_KHU[pk][1]))
+                      if combo_href(combo, pk, t) else "Căn %s" % LOAI[t][1],
                       "%d căn loại này đang có tại %s." % (
                           dem_loai[t], PHAN_KHU[pk][1]))
             for t in top_loai
@@ -269,11 +302,44 @@ def dung_khoi(slug, bo_loc, data):
         dem_pk = dem_theo_phan_khu(data, bo_loc)
         top_pk = top_keys(dem_pk, PHAN_KHU_THU_TU, 4)
         groups.append(group("Phân khu có nhiều lựa chọn", [
-            link_card(PHAN_KHU[z][0], PHAN_KHU[z][1],
+            link_card(combo_href(combo, z, loai_key) or PHAN_KHU[z][0],
+                      ("%s tại %s" % (type_label, PHAN_KHU[z][1]))
+                      if combo_href(combo, z, loai_key) else PHAN_KHU[z][1],
                       "%d căn %s đang xuất hiện trong quỹ." % (
                           dem_pk[z], type_label))
             for z in top_pk
         ]))
+
+    elif is_combo:
+        _, type_label, type_parent = LOAI[loai_key]
+        title = "%s tại %s" % (type_label, PHAN_KHU[pk][1])
+        groups.append(group("Cụm cha", [
+            link_card(PHAN_KHU[pk][0], "Tất cả căn tại %s" % PHAN_KHU[pk][1],
+                      "Mở rộng sang các loại căn khác trong cùng phân khu."),
+            link_card(type_parent, "Tất cả căn %s" % type_label,
+                      "So sánh cùng loại căn ở các phân khu khác."),
+            link_card("/can-ho/", "Trang chi tiết từng căn",
+                      "Mở các URL căn hộ có ảnh và thông số riêng."),
+        ]))
+
+        gan = []
+        # Tối đa 2 loại khác trong cùng phân khu.
+        cung_pk = [((z, lk), rec) for (z, lk), rec in combo.items()
+                   if z == pk and lk != loai_key]
+        cung_pk.sort(key=lambda x: (-x[1]["count"], x[0][1]))
+        for (z, lk), rec in cung_pk[:2]:
+            gan.append(link_card(rec["href"],
+                                 "%s tại %s" % (LOAI[lk][1], PHAN_KHU[z][1]),
+                                 "%d căn đang index." % rec["count"]))
+        # Tối đa 2 phân khu khác cùng loại.
+        cung_loai = [((z, lk), rec) for (z, lk), rec in combo.items()
+                     if lk == loai_key and z != pk]
+        cung_loai.sort(key=lambda x: (-x[1]["count"], x[0][0]))
+        for (z, lk), rec in cung_loai[:2]:
+            gan.append(link_card(rec["href"],
+                                 "%s tại %s" % (LOAI[lk][1], PHAN_KHU[z][1]),
+                                 "%d căn đang index." % rec["count"]))
+        groups.append(group("So sánh gần nhất", gan[:4]))
 
     elif is_long:
         parent_slug = LONGTAIL.get(slug, ("", ""))[0]
@@ -297,7 +363,10 @@ def dung_khoi(slug, bo_loc, data):
         dem_pk = dem_theo_phan_khu(data, bo_loc)
         top_pk = top_keys(dem_pk, PHAN_KHU_THU_TU, 4)
         groups.append(group("Phân khu đang có lựa chọn", [
-            link_card(PHAN_KHU[z][0], PHAN_KHU[z][1],
+            link_card(combo_href(combo, z, loai_key) or PHAN_KHU[z][0],
+                      ("%s tại %s" % (LOAI[loai_key][1], PHAN_KHU[z][1]))
+                      if combo_href(combo, z, loai_key) and loai_key in LOAI
+                      else PHAN_KHU[z][1],
                       "%d căn khớp bộ lọc hiện tại." % dem_pk[z])
             for z in top_pk
         ]))
@@ -342,14 +411,16 @@ def main():
         print("LỖI: data.json rỗng hoặc không phải mảng.")
         return 1
 
+    combo = doc_combo_registry()
+    print("Trang giao thoa indexable:", len(combo))
     pages = tim_trang_danh_muc()
     print("Trang danh mục tìm thấy:", len(pages))
     changed = 0
     for slug, path, raw, bo_loc in pages:
-        moi = chen(raw, dung_khoi(slug, bo_loc, data))
+        moi = chen(raw, dung_khoi(slug, bo_loc, data, combo))
         # Khối mới dùng CSS V12; bump query để browser/CDN không giữ bản cũ.
         moi = re.sub(r'/assets/v3\.css(?:\?v=[^"]+)?',
-                     '/assets/v3.css?v=20260830-6', moi)
+                     '/assets/v3.css?v=20260830-7', moi)
         rel = os.path.relpath(path, GOC)
         if moi == raw:
             print("= ", rel)

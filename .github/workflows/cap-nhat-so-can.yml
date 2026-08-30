@@ -13,6 +13,7 @@ on:
       - "data.json"
       - "scripts/sinh-trang-can.py"
       - "scripts/sinh-trang-toa.py"
+      - "scripts/sinh-trang-giao-thoa.py"
       - "scripts/cap-nhat-lien-ket-noi-bo.py"
       - "scripts/dung-lai-trang-chu.py"
       - "scripts/dung-lai-trang-danh-muc.py"
@@ -64,6 +65,20 @@ jobs:
           set -o pipefail
           python3 scripts/sinh-trang-toa.py ${{ inputs.chi_thu && '--thu' || '' }} \
             2>&1 | tee ket-qua.txt
+
+      # Sinh URL giao thoa trước khi quét trang danh mục: trang mới vừa tạo
+      # sẽ được dung-lai-trang-danh-muc.py đồng bộ lưới ngay trong cùng job.
+      - name: Sinh trang Phân khu × Loại căn
+        run: |
+          set -o pipefail
+          ma=0
+          python3 scripts/sinh-trang-giao-thoa.py ${{ inputs.chi_thu && '--thu' || '' }} \
+            2>&1 | tee -a ket-qua.txt || ma=$?
+          if [ "$ma" = "2" ]; then
+            echo "::warning::sinh-trang-giao-thoa.py dừng an toàn (mã 2) — giữ nguyên trang hiện có."
+            exit 0
+          fi
+          exit "$ma"
 
       # Phải chạy TRƯỚC cap-nhat-so-can.mjs: script kia đếm lại từ data.json
       # rồi ghi numberOfItems/itemListElement của ItemList, nên thân trang phải
@@ -183,7 +198,11 @@ jobs:
           # lần đầu sẽ bị coi là "không có gì thay đổi" và không bao giờ được
           # commit.
           git add -- '*.html' sitemap.xml s4-01-vinhomes-smart-city \
-            can-ho sitemap-can-ho.xml
+            can-ho sitemap-can-ho.xml sitemap-phan-khu-loai-can.xml \
+            seo-phan-khu-loai-can.json
+          # Các thư mục giao thoa là untracked ở lần sinh đầu; shell glob này
+          # chỉ stage thư mục, không chạm data.json.
+          git add -- cho-thue-*-smart-city 2>/dev/null || true
 
           if git diff --cached --quiet; then
             echo "Không có gì thay đổi — bỏ qua commit, không tạo commit rác."
