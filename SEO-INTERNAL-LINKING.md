@@ -9,16 +9,20 @@ Kiến trúc nội bộ của timthuesmartcity.com sau bước 6.
    - Loại căn: Studio, 1PN, 1PN+, 2PN, 2PN+, 3PN
    - Phân khu: Sapphire, Masteri, Miami, Sakura, Imperia, Lumiere, Canopy, Tonkin
    - Hub URL căn: `/can-ho/`
-3. **Long-tail hiện có**
+3. **Phân khu × Loại căn**
+   - Chỉ sinh URL mới khi tổ hợp có ít nhất 4 căn public.
+   - URL: `/cho-thue-{loai}-{phan-khu}-smart-city/`.
+   - Tụt dưới ngưỡng: giữ 200, chuyển `noindex,follow`, rời sitemap; không xóa URL.
+4. **Long-tail hiện có**
    - Theo khoảng giá
    - Theo full nội thất
-4. **Trang căn chi tiết**
+5. **Trang căn chi tiết**
    - Parent phân khu
    - Parent loại căn
    - Long-tail phù hợp giá/nội thất
    - Trang tòa nếu có
    - Bảng giá / phí / kinh nghiệm
-5. **Cẩm nang hỗ trợ**
+6. **Cẩm nang hỗ trợ**
    - Bảng giá
    - So sánh phân khu
    - Kinh nghiệm thuê
@@ -31,8 +35,9 @@ Kiến trúc nội bộ của timthuesmartcity.com sau bước 6.
 - Không biến block SEO thành tag cloud toàn site.
 - Anchor mô tả đúng trang đích; tránh lặp một anchor keyword ở hàng chục vị trí vô nghĩa.
 - Trang long-tail luôn có đường về parent loại căn.
-- Trang phân khu ưu tiên link sang các loại căn thực sự có inventory.
-- Trang loại căn ưu tiên link sang các phân khu đang có nhiều inventory cho chính loại đó.
+- Trang phân khu ưu tiên link xuống URL Phân khu × Loại căn nếu URL đó đang indexable.
+- Trang loại căn ưu tiên link xuống URL Phân khu × Loại căn ở những phân khu có inventory mạnh.
+- Trang giao thoa luôn link ngược lên cả parent phân khu và parent loại căn.
 - Trang chi tiết ưu tiên parent + intent gần (giá/nội thất) + cẩm nang.
 - URL căn đã thuê vẫn 200 và tiếp tục truyền đường link sang cụm active.
 - Không link internal tới query parameter để làm SEO; query chỉ phục vụ UX.
@@ -53,6 +58,11 @@ Kiến trúc nội bộ của timthuesmartcity.com sau bước 6.
 `scripts/sinh-trang-toa.py`
 - trang tòa nối lên phân khu, loại căn đang có và nhóm cẩm nang.
 
-## Không làm ở bước 6
+## Bước 7 — Phân khu × Loại căn
 
-Không tạo trang **Phân khu × Loại căn** mới. Đây là bước 7 để tránh tạo hàng loạt URL mỏng trước khi có template/content đúng.
+`scripts/sinh-trang-giao-thoa.py` quản lý vòng đời URL:
+- ngưỡng cấp URL lần đầu: 4 căn public;
+- registry: `seo-phan-khu-loai-can.json`;
+- sitemap riêng: `sitemap-phan-khu-loai-can.xml`;
+- URL lịch sử không bị xóa khi quỹ căn giảm;
+- parent pages và combo pages được nối hai chiều qua internal-link generator.
