@@ -2643,3 +2643,25 @@ figure figcaption{font-size:.8rem;color:var(--gray-lt);margin-top:7px;text-align
 @media (prefers-reduced-motion:reduce){
   .ct-gallery-all,.ct-action,.ct-detail-toast{transition:none!important}
 }
+
+/* Card có trang chi tiết: hai CTA ngang nhau, card không có trang vẫn giữ Zalo full-width */
+.card-detail-title{color:inherit;text-decoration:none}
+.card-detail-title:hover{color:var(--navy-2)}
+.card-foot.co-chi-tiet{
+  display:grid;grid-template-columns:1fr 1fr;gap:8px;
+}
+.detail-card-link{
+  min-height:42px;padding:10px 11px;
+  display:inline-flex;align-items:center;justify-content:center;
+  border:1px solid #B9C9DC;border-radius:10px;
+  background:#fff;color:var(--navy-2);
+  font-size:.82rem;font-weight:700;text-align:center;
+}
+.detail-card-link:hover{border-color:var(--navy-2);background:#F5F9FE}
+.card-foot.co-chi-tiet .ask{min-height:42px;padding:10px 11px}
+@media(max-width:640px){
+  .card-foot.co-chi-tiet{grid-template-columns:1fr 1fr}
+  .detail-card-link,.card-foot.co-chi-tiet .ask{
+    min-height:42px;height:auto;padding:9px 8px;font-size:.78rem;
+  }
+}
