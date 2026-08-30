@@ -2166,6 +2166,10 @@ figure figcaption{font-size:.8rem;color:var(--gray-lt);margin-top:7px;text-align
     border-color:#D5DFEB;
     box-shadow:0 16px 34px -18px rgba(15,32,60,.42);
   }
+  .filter-card.sticky-done{
+    position:relative;
+    top:auto;
+  }
   .filter-card .loc-pc{
     grid-template-columns:repeat(4,minmax(0,1fr)) minmax(132px,auto) auto;
   }
