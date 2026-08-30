@@ -2306,3 +2306,340 @@ figure figcaption{font-size:.8rem;color:var(--gray-lt);margin-top:7px;text-align
 @media (prefers-reduced-motion:reduce){
   .filters,.filters-backdrop,.filter-card{transition:none!important}
 }
+
+/* ==================================================================
+   23. APARTMENT DETAIL MARKETPLACE V6 — 30/08/2026
+   ------------------------------------------------------------------
+   Chỉ kích hoạt khi assets/can-ho-detail.js gắn class lên <body>.
+   HTML tĩnh, canonical, JSON-LD và dữ liệu gốc giữ nguyên.
+   ================================================================== */
+
+.trang-chi-tiet-can .ct-detail-page{
+  max-width:1200px;
+  padding-bottom:42px;
+}
+.trang-chi-tiet-can .ct-detail-page>.bc{
+  margin-bottom:16px;
+}
+.trang-chi-tiet-can .ct-detail-page>h1{
+  max-width:860px;
+  font-size:clamp(1.65rem,3vw,2.35rem);
+  line-height:1.22;
+  letter-spacing:-.035em;
+  margin:0;
+}
+.ct-title-meta{
+  display:flex;align-items:center;gap:12px;flex-wrap:wrap;
+  margin:12px 0 8px;
+}
+.ct-title-price{
+  font-family:var(--font-tieu-de);font-size:1.55rem;font-weight:800;
+  color:var(--navy-2);line-height:1.2;
+}
+.ct-title-status,.ct-live-badge{
+  display:inline-flex;align-items:center;gap:6px;
+  border-radius:999px;padding:6px 10px;
+  background:var(--green-lt);color:var(--green);
+  font-size:.78rem;font-weight:700;line-height:1.2;
+}
+.ct-title-status::before,.ct-live-badge::before{
+  content:"";width:7px;height:7px;border-radius:50%;background:currentColor;
+}
+.trang-chi-tiet-can .ct-detail-lead{
+  max-width:850px;color:var(--gray);font-size:.94rem;line-height:1.65;
+  margin:0 0 18px;
+}
+
+/* Gallery desktop: 1 ảnh lớn + 2 ảnh phụ, các ảnh còn lại mở trong fullscreen */
+.trang-chi-tiet-can .ct-gallery{
+  position:relative;
+  display:grid;
+  grid-template-columns:minmax(0,2fr) minmax(260px,1fr);
+  grid-template-rows:repeat(2,minmax(0,1fr));
+  gap:8px;
+  width:100%;
+  height:clamp(360px,42vw,520px);
+  padding:0;
+  margin:0 0 24px;
+  overflow:hidden;
+  border-radius:18px;
+  background:#E8EDF4;
+}
+.trang-chi-tiet-can .ct-gallery>img{
+  width:100%;height:100%;
+  aspect-ratio:auto;
+  object-fit:cover;
+  border-radius:0;
+  display:block;
+  margin:0;
+  cursor:zoom-in;
+  transition:transform .25s ease,filter .25s ease;
+}
+.trang-chi-tiet-can .ct-gallery>img:hover{filter:brightness(.95)}
+.trang-chi-tiet-can .ct-gallery>img:nth-of-type(1){grid-column:1;grid-row:1/3}
+.trang-chi-tiet-can .ct-gallery>img:nth-of-type(2){grid-column:2;grid-row:1}
+.trang-chi-tiet-can .ct-gallery>img:nth-of-type(3){grid-column:2;grid-row:2}
+.trang-chi-tiet-can .ct-gallery>img:nth-of-type(n+4){display:none}
+.ct-gallery-all{
+  position:absolute;right:16px;bottom:16px;z-index:3;
+  min-height:42px;padding:0 14px;
+  border:1px solid rgba(17,31,48,.16);border-radius:10px;
+  background:rgba(255,255,255,.94);color:var(--ink);
+  font-size:.82rem;font-weight:700;
+  box-shadow:0 8px 24px -15px rgba(15,32,60,.5);
+  -webkit-backdrop-filter:blur(8px);backdrop-filter:blur(8px);
+}
+.ct-gallery-all:hover{background:#fff;border-color:#AFC0D3}
+
+.ct-detail-layout{
+  display:grid;
+  grid-template-columns:minmax(0,1fr) 330px;
+  gap:30px;
+  align-items:start;
+}
+.ct-detail-content{min-width:0}
+.ct-detail-aside{
+  position:sticky;top:92px;align-self:start;
+}
+.ct-aside-card{
+  background:var(--surface);
+  border:1px solid var(--line);
+  border-radius:16px;
+  box-shadow:0 16px 34px -26px rgba(15,32,60,.48);
+  padding:20px;
+}
+.ct-aside-price{
+  display:block;margin-top:13px;
+  font-family:var(--font-tieu-de);
+  font-size:1.7rem;font-weight:800;line-height:1.15;
+  color:var(--navy-2);
+}
+.ct-aside-sub{display:block;margin-top:3px;font-size:.76rem;color:var(--gray-lt)}
+.ct-aside-facts{
+  margin:17px 0;padding:12px 0;
+  border-top:1px solid var(--line);border-bottom:1px solid var(--line);
+}
+.ct-aside-fact{
+  display:flex;align-items:flex-start;justify-content:space-between;gap:12px;
+  padding:6px 0;font-size:.8rem;
+}
+.ct-aside-fact span{color:var(--gray-lt)}
+.ct-aside-fact b{
+  max-width:62%;text-align:right;font-weight:600;color:var(--ink);
+}
+.ct-aside-actions{display:grid;gap:9px}
+.ct-action{
+  display:flex;align-items:center;justify-content:center;
+  min-height:45px;padding:10px 13px;border-radius:10px;
+  font-size:.86rem;font-weight:700;text-align:center;
+  transition:background .18s,border-color .18s,color .18s;
+}
+.ct-action-primary{background:var(--navy-2);color:#fff}
+.ct-action-primary:hover{background:var(--navy);color:#fff}
+.ct-action-zalo{background:var(--zalo);color:#fff}
+.ct-action-zalo:hover{background:var(--zalo-dam);color:#fff}
+.ct-action-call{
+  background:var(--surface);border:1px solid var(--line);color:var(--navy-2);
+}
+.ct-action-call:hover{border-color:var(--navy-2);background:#F7FAFF}
+.ct-aside-code{
+  display:block;margin-top:13px;
+  font-size:.73rem;color:var(--gray-lt);text-align:center;
+}
+.ct-aside-note{
+  margin:9px 0 0;padding-top:9px;border-top:1px dashed var(--line);
+  font-size:.72rem;line-height:1.55;color:var(--gray-lt);text-align:center;
+}
+
+/* Khối thông số phía dưới gallery */
+.trang-chi-tiet-can .ct-facts{
+  display:grid;grid-template-columns:repeat(4,minmax(0,1fr));
+  gap:10px;margin:0 0 18px;
+}
+.trang-chi-tiet-can .ct-facts .o{
+  min-width:0;margin:0;padding:13px 14px;
+  background:#F8FAFC;border:1px solid var(--line);border-radius:12px;
+}
+.trang-chi-tiet-can .ct-facts .o b{
+  font-size:1rem;line-height:1.3;color:var(--ink);
+  overflow-wrap:anywhere;
+}
+.trang-chi-tiet-can .ct-facts .o span{margin-top:3px;display:block}
+
+.trang-chi-tiet-can .ct-detail-table{
+  width:100%;display:table;
+  margin:0 0 24px;
+  background:var(--surface);
+  border:1px solid var(--line);
+  border-radius:14px;
+  border-collapse:separate;
+  border-spacing:0;
+  overflow:hidden;
+}
+.trang-chi-tiet-can .ct-detail-table td{
+  padding:12px 14px;border-bottom:1px solid var(--line);
+  font-size:.86rem;white-space:normal;
+}
+.trang-chi-tiet-can .ct-detail-table tr:last-child td{border-bottom:0}
+.trang-chi-tiet-can .ct-detail-table td:first-child{
+  width:34%;color:var(--gray-lt);font-weight:500;background:#FAFBFD;
+}
+.trang-chi-tiet-can .ct-detail-table td:last-child{
+  color:var(--ink);font-weight:600;
+}
+.ct-original-actions{display:none!important}
+
+/* Internal links & căn tương tự */
+.trang-chi-tiet-can .ct-detail-content>h2{
+  margin:24px 0 10px!important;
+  font-size:1.12rem!important;
+}
+.trang-chi-tiet-can .ct-more-links{
+  display:flex;gap:8px;flex-wrap:wrap;margin:0 0 20px;
+}
+.trang-chi-tiet-can .ct-more-links>a{
+  background:#fff;border:1px solid var(--line);border-radius:999px;
+  padding:8px 12px;font-size:.79rem;color:var(--gray);
+}
+.trang-chi-tiet-can .ct-more-links>a:hover{border-color:var(--navy-2);color:var(--navy-2)}
+.trang-chi-tiet-can .ct-related{
+  display:grid;grid-template-columns:repeat(2,minmax(0,1fr));
+  gap:10px;margin:0 0 26px;
+}
+.trang-chi-tiet-can .ct-related .the-nho{
+  display:flex;flex-direction:column;gap:4px;
+  min-width:0;padding:14px;
+  border:1px solid var(--line);border-radius:12px;
+  background:#fff;
+}
+.trang-chi-tiet-can .ct-related .the-nho:hover{border-color:#AFC3DC;box-shadow:var(--sh)}
+.trang-chi-tiet-can .ct-related .the-nho b{font-size:.9rem;color:var(--ink)}
+.trang-chi-tiet-can .ct-related .the-nho span{font-size:.78rem;color:var(--gray)}
+
+/* Trang đã có khách: giữ URL 200 và làm trạng thái rõ ràng */
+.trang-chi-tiet-da-thue .ct-rented-note{
+  margin-top:16px;border-color:#F0D9B3;background:#FFF9EF;
+}
+.trang-chi-tiet-da-thue .ct-rented-note strong{color:#8A5A10}
+.trang-chi-tiet-da-thue main.khung>h2{margin:24px 0 10px!important}
+
+/* Toast khi bấm Đặt lịch xem */
+.ct-detail-toast{
+  position:fixed;left:50%;bottom:26px;z-index:120;
+  max-width:min(440px,calc(100vw - 28px));
+  transform:translate(-50%,18px);
+  padding:10px 14px;border-radius:10px;
+  background:rgba(22,32,43,.94);color:#fff;
+  font-size:.78rem;line-height:1.45;text-align:center;
+  opacity:0;visibility:hidden;pointer-events:none;
+  transition:opacity .18s,transform .18s,visibility .18s;
+}
+.ct-detail-toast.show{opacity:1;visibility:visible;transform:translate(-50%,0)}
+
+/* Mobile action bar mặc định ẩn */
+.ct-mobile-actions{display:none}
+
+@media (max-width:900px){
+  .ct-detail-layout{grid-template-columns:minmax(0,1fr) 290px;gap:20px}
+  .ct-aside-card{padding:16px}
+  .trang-chi-tiet-can .ct-facts{grid-template-columns:repeat(2,minmax(0,1fr))}
+}
+
+@media (max-width:640px){
+  .trang-chi-tiet-can{
+    padding-bottom:calc(68px + env(safe-area-inset-bottom));
+  }
+  .trang-chi-tiet-can .top{position:static}
+  .trang-chi-tiet-can .ct-detail-page{padding:0 14px 24px}
+  .trang-chi-tiet-can .ct-detail-page>.bc{
+    padding-top:12px;margin-bottom:11px;
+    white-space:nowrap;overflow:hidden;text-overflow:ellipsis;
+  }
+  .trang-chi-tiet-can .ct-detail-page>h1{
+    font-size:1.38rem;line-height:1.28;
+  }
+  .ct-title-meta{margin:9px 0 7px}
+  .ct-title-price{font-size:1.28rem}
+  .ct-title-status{font-size:.72rem;padding:5px 9px}
+  .trang-chi-tiet-can .ct-detail-lead{
+    font-size:.82rem;line-height:1.55;margin-bottom:14px;
+    display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden;
+  }
+
+  /* Mobile: toàn bộ ảnh thành carousel native, vuốt trái/phải */
+  .trang-chi-tiet-can .ct-gallery{
+    display:flex;
+    gap:0;
+    height:auto;
+    aspect-ratio:4/3;
+    overflow-x:auto;overflow-y:hidden;
+    scroll-snap-type:x mandatory;
+    -webkit-overflow-scrolling:touch;
+    scrollbar-width:none;
+    border-radius:14px;
+    margin-bottom:16px;
+  }
+  .trang-chi-tiet-can .ct-gallery::-webkit-scrollbar{display:none}
+  .trang-chi-tiet-can .ct-gallery>img,
+  .trang-chi-tiet-can .ct-gallery>img:nth-of-type(n+4){
+    display:block;
+    flex:0 0 100%;
+    width:100%;height:100%;
+    object-fit:cover;
+    scroll-snap-align:center;
+    scroll-snap-stop:always;
+  }
+  .ct-gallery-all{
+    right:9px;bottom:9px;
+    min-height:34px;padding:0 10px;border-radius:9px;
+    font-size:.72rem;
+  }
+
+  .ct-detail-layout{display:block;margin-top:0}
+  .ct-detail-aside{display:none}
+  .trang-chi-tiet-can .ct-facts{gap:8px;margin-bottom:14px}
+  .trang-chi-tiet-can .ct-facts .o{padding:11px 12px}
+  .trang-chi-tiet-can .ct-facts .o b{font-size:.9rem}
+  .trang-chi-tiet-can .ct-facts .o span{font-size:.69rem}
+  .trang-chi-tiet-can .ct-detail-table{margin-bottom:18px}
+  .trang-chi-tiet-can .ct-detail-table td{padding:10px 11px;font-size:.8rem}
+  .trang-chi-tiet-can .ct-related{grid-template-columns:1fr;gap:8px}
+  .trang-chi-tiet-can .ct-more-links{
+    flex-wrap:nowrap;overflow-x:auto;scrollbar-width:none;
+    -webkit-overflow-scrolling:touch;
+  }
+  .trang-chi-tiet-can .ct-more-links::-webkit-scrollbar{display:none}
+  .trang-chi-tiet-can .ct-more-links>a{flex:none}
+
+  /* Trang chi tiết ưu tiên CTA liên hệ, thay thanh tab site-wide */
+  .trang-chi-tiet-can .tabbar,
+  .trang-chi-tiet-can .floating-zalo,
+  .trang-chi-tiet-can .zalo-noi{display:none!important}
+  .ct-mobile-actions{
+    display:grid;
+    grid-template-columns:.72fr .8fr 1.48fr;
+    position:fixed;left:0;right:0;bottom:0;z-index:78;
+    min-height:60px;
+    padding:7px 8px calc(7px + env(safe-area-inset-bottom));
+    gap:7px;
+    background:rgba(255,255,255,.98);
+    border-top:1px solid var(--line);
+    box-shadow:0 -8px 22px -18px rgba(15,32,60,.8);
+    -webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px);
+  }
+  .ct-mobile-actions>a{
+    display:flex;align-items:center;justify-content:center;
+    min-height:44px;border-radius:10px;
+    font-size:.78rem;font-weight:700;text-align:center;
+  }
+  .ct-ma-call{border:1px solid var(--line);color:var(--navy-2);background:#fff}
+  .ct-ma-zalo{background:var(--zalo);color:#fff}
+  .ct-ma-primary{background:var(--navy-2);color:#fff}
+  .ct-mobile-occupied{grid-template-columns:1fr 1fr}
+  .ct-ma-secondary{border:1px solid var(--line);background:#fff;color:var(--navy-2)}
+  .ct-detail-toast{bottom:calc(76px + env(safe-area-inset-bottom));font-size:.72rem}
+}
+
+@media (prefers-reduced-motion:reduce){
+  .ct-gallery-all,.ct-action,.ct-detail-toast{transition:none!important}
+}
