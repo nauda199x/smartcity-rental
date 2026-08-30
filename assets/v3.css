@@ -3090,3 +3090,623 @@ figure figcaption{font-size:.8rem;color:var(--gray-lt);margin-top:7px;text-align
     padding:10px 2px;
   }
 }
+
+/* ==================================================================
+   27. SMART CITY DESIGN SYSTEM V11 — 30/08/2026
+   ------------------------------------------------------------------
+   Lớp thiết kế chung cho toàn site.
+   Không thay engine dữ liệu / URL / schema. Các component đặc thù như
+   listing card, detail gallery và filter giữ layout riêng nhưng dùng chung
+   token màu, radius, shadow và nhịp tương tác ở đây.
+   ================================================================== */
+
+:root{
+  /* Brand */
+  --ds-brand-950:#0B203B;
+  --ds-brand-900:#102C4F;
+  --ds-brand-800:#153B6C;
+  --ds-brand-700:#1B4B8F;
+  --ds-brand-600:#2563B8;
+  --ds-accent:#0872F9;
+  --ds-zalo:#0068FF;
+
+  /* Neutral */
+  --ds-text:#16202B;
+  --ds-text-2:#5F6D7A;
+  --ds-text-3:#8A96A3;
+  --ds-bg:#F4F7FA;
+  --ds-surface:#FFFFFF;
+  --ds-surface-2:#F8FAFC;
+  --ds-surface-3:#EEF3F8;
+  --ds-line:#DFE6EE;
+  --ds-line-strong:#CDD8E4;
+
+  /* Status */
+  --ds-success:#0E8A45;
+  --ds-success-bg:#EAF7F0;
+  --ds-warning:#A86610;
+  --ds-warning-bg:#FFF7E8;
+  --ds-danger:#B42318;
+  --ds-danger-bg:#FEF3F2;
+
+  /* Radius */
+  --ds-r-xs:8px;
+  --ds-r-sm:10px;
+  --ds-r-md:14px;
+  --ds-r-lg:18px;
+  --ds-r-xl:22px;
+  --ds-r-pill:999px;
+
+  /* Shadow */
+  --ds-shadow-xs:0 1px 2px rgba(15,32,60,.05);
+  --ds-shadow-sm:0 8px 24px -20px rgba(15,32,60,.32);
+  --ds-shadow-md:0 16px 36px -24px rgba(15,32,60,.42);
+  --ds-shadow-lg:0 24px 56px -30px rgba(15,32,60,.48);
+
+  /* Spacing scale */
+  --ds-s1:4px;
+  --ds-s2:8px;
+  --ds-s3:12px;
+  --ds-s4:16px;
+  --ds-s5:20px;
+  --ds-s6:24px;
+  --ds-s7:32px;
+  --ds-s8:40px;
+  --ds-s9:48px;
+  --ds-s10:64px;
+
+  /* Map token cũ sang hệ mới để component lịch sử tự đồng bộ. */
+  --navy:var(--ds-brand-900);
+  --navy-2:var(--ds-brand-700);
+  --blue:var(--ds-brand-600);
+  --zalo:var(--ds-zalo);
+  --green:var(--ds-success);
+  --green-lt:var(--ds-success-bg);
+  --ink:var(--ds-text);
+  --gray:var(--ds-text-2);
+  --gray-lt:var(--ds-text-3);
+  --bg:var(--ds-bg);
+  --line:var(--ds-line);
+  --surface:var(--ds-surface);
+  --r:var(--ds-r-md);
+  --r-sm:var(--ds-r-sm);
+  --sh:var(--ds-shadow-sm);
+}
+
+::selection{background:#D8E9FF;color:var(--ds-brand-950)}
+
+body{
+  background:var(--ds-bg);
+  color:var(--ds-text);
+  font-size:15.5px;
+  line-height:1.65;
+}
+
+.shell,.khung,.wrap{
+  max-width:1220px;
+  padding-left:clamp(14px,2vw,22px);
+  padding-right:clamp(14px,2vw,22px);
+}
+
+h1,h2,h3,h4{
+  color:var(--ds-text);
+  text-wrap:balance;
+}
+h1{
+  font-size:clamp(1.8rem,3.2vw,2.55rem);
+  line-height:1.16;
+  letter-spacing:-.035em;
+}
+h2{
+  font-size:clamp(1.35rem,2.2vw,1.62rem);
+  line-height:1.24;
+}
+h3{line-height:1.32}
+p,li{color:inherit}
+
+/* ---------- Surface / card language ---------- */
+.muc-luc,.faq-block,.seo-block,.kham-pha,.bai,.pillar,
+.note-box,.cta-box,.toc,.thieu-du-lieu,.disclaimer,.note,
+.trang-ky-gui .loi-ich,.trang-ky-gui form,
+.gtlh-nap{
+  border-color:var(--ds-line);
+  border-radius:var(--ds-r-lg);
+  box-shadow:var(--ds-shadow-xs);
+}
+
+.muc-luc,.faq-block,.seo-block,.kham-pha,.bai,
+.note-box,.cta-box,.thieu-du-lieu,.disclaimer{
+  padding:clamp(20px,2.4vw,28px);
+}
+
+.muc-luc:hover,.kham-pha:hover,.post-card:hover{
+  border-color:var(--ds-line-strong);
+}
+
+/* ---------- Header / navigation / search ---------- */
+.topbar,.top{
+  background:rgba(255,255,255,.97);
+  border-bottom-color:var(--ds-line);
+  box-shadow:0 1px 0 rgba(15,32,60,.02);
+  -webkit-backdrop-filter:saturate(140%) blur(12px);
+  backdrop-filter:saturate(140%) blur(12px);
+}
+.brand-mark,.hieu::before{
+  border-radius:var(--ds-r-sm);
+  box-shadow:0 8px 18px -11px rgba(27,75,143,.65);
+}
+.search{
+  height:46px;
+  border-color:var(--ds-line);
+  background:#F7F9FC;
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.8);
+}
+.search:focus-within{
+  border-color:#9CB8DC;
+  box-shadow:0 0 0 3px rgba(37,99,184,.10);
+}
+.search-suggest{
+  border-radius:var(--ds-r-md);
+  box-shadow:var(--ds-shadow-lg);
+}
+.pill-btn{
+  min-height:42px;
+  border-radius:var(--ds-r-pill);
+}
+.pill-btn.primary{
+  box-shadow:0 8px 18px -10px rgba(0,104,255,.65);
+}
+
+/* ---------- Hub hero / content hero ---------- */
+.hub-hero{
+  background:
+    radial-gradient(circle at 78% 20%,rgba(62,124,210,.22),transparent 30%),
+    linear-gradient(118deg,var(--ds-brand-950),var(--ds-brand-700));
+  padding:52px 0 58px;
+}
+.hub-hero-inner{
+  max-width:980px;
+}
+.hub-hero p{
+  max-width:72ch;
+  line-height:1.7;
+}
+.eyebrow{
+  font-weight:700;
+  letter-spacing:.11em;
+}
+
+/* ---------- Breadcrumb / page intro ---------- */
+.bc,.breadcrumb{
+  padding-top:18px;
+  margin-bottom:10px;
+  font-size:.78rem;
+  color:var(--ds-text-3);
+}
+.bc a,.breadcrumb a{
+  color:#748397;
+  font-weight:500;
+}
+.bc a:hover,.breadcrumb a:hover{
+  color:var(--ds-brand-700);
+}
+.bc + h1,.breadcrumb + h1{
+  margin-top:0;
+}
+main.khung>h1,
+main.wrap>h1{
+  max-width:900px;
+}
+main.khung>.tt,
+main.wrap>.tt{
+  max-width:78ch;
+  color:var(--ds-text-2);
+  line-height:1.72;
+}
+
+/* ---------- Category stats ---------- */
+.sl{
+  display:grid;
+  grid-template-columns:repeat(4,minmax(0,1fr));
+  gap:10px;
+  margin:18px 0 24px;
+}
+.sl .o{
+  min-width:0;
+  padding:14px 16px;
+  border:1px solid var(--ds-line);
+  border-radius:var(--ds-r-md);
+  background:var(--ds-surface);
+  box-shadow:var(--ds-shadow-xs);
+}
+.sl .o b{
+  font-size:1.24rem;
+  color:var(--ds-brand-700);
+  letter-spacing:-.02em;
+}
+.sl .o span{
+  margin-top:3px;
+  color:var(--ds-text-3);
+  font-size:.73rem;
+}
+
+/* ---------- Primary / secondary CTA language ---------- */
+.cta-loc,.cta-home,.cta-chinh,.moi-chu-nha-nut,
+.back-link,.detail-link,.read-more,.lead-prompt-btn,.nho-tim-nut{
+  border-radius:var(--ds-r-sm);
+}
+.cta-loc,.cta-home.duoi,.moi-chu-nha-nut,.cta-chinh,.nho-tim-nut{
+  background:var(--ds-brand-700);
+  box-shadow:0 8px 20px -14px rgba(27,75,143,.55);
+}
+.cta-loc:hover,.cta-home.duoi:hover,
+.moi-chu-nha-nut:hover,.cta-chinh:hover,.nho-tim-nut:hover{
+  background:var(--ds-brand-900);
+}
+.cta-home.tren{
+  border:1px solid #B8CAE1;
+  background:var(--ds-surface);
+  color:var(--ds-brand-700);
+  box-shadow:var(--ds-shadow-xs);
+}
+.cta-home.tren:hover{
+  border-color:#8FAED2;
+  background:#F5F8FC;
+}
+.detail-link,.read-more{
+  color:var(--ds-brand-700);
+  font-weight:700;
+  text-underline-offset:4px;
+}
+.detail-link:hover,.read-more:hover{
+  color:var(--ds-brand-900);
+}
+
+/* ---------- Cẩm nang / bài viết ---------- */
+article.pillar{
+  max-width:960px;
+  margin:32px auto 48px;
+  padding:clamp(24px,4vw,48px);
+  background:var(--ds-surface);
+  border:1px solid var(--ds-line);
+  border-radius:var(--ds-r-xl);
+  box-shadow:var(--ds-shadow-sm);
+}
+.pillar-lead{
+  max-width:74ch;
+  font-size:1.02rem;
+  line-height:1.82;
+  color:#435364;
+}
+.pillar>p:not(.pillar-lead),
+.pillar>ul,
+.pillar>ol{
+  max-width:78ch;
+}
+.pillar p,.pillar li,
+.bai p,.bai li{
+  line-height:1.8;
+}
+.pillar .sec,
+.bai .sec{
+  display:block;
+  background:none;
+  border:0;
+  border-radius:0;
+  box-shadow:none;
+  padding:0;
+  margin:38px 0 14px;
+  color:var(--ds-brand-950);
+  font-size:clamp(1.25rem,2vw,1.48rem);
+}
+.pillar .sec::before,
+.bai .sec::before{
+  content:"";
+  display:block;
+  width:34px;
+  height:3px;
+  margin-bottom:10px;
+  border-radius:999px;
+  background:linear-gradient(90deg,var(--ds-brand-600),#7FA8D9);
+}
+.pillar .toc,
+.bai .toc{
+  margin:24px 0 30px;
+  padding:18px 20px;
+  border:1px solid #D8E3EF;
+  border-radius:var(--ds-r-md);
+  background:#F7FAFE;
+  box-shadow:none;
+}
+.toc h2{
+  margin:0 0 10px!important;
+  font-size:1rem!important;
+  color:var(--ds-brand-900);
+}
+.toc ul{
+  display:grid;
+  grid-template-columns:repeat(2,minmax(0,1fr));
+  gap:7px 20px;
+  margin:0;
+  padding-left:20px;
+}
+.toc li{
+  margin:0;
+  font-size:.86rem;
+  line-height:1.55;
+}
+.toc a{color:#526477}
+.toc a:hover{color:var(--ds-brand-700)}
+
+.pillar .note,.bai .note,
+.note-box{
+  padding:16px 18px;
+  border:1px solid #D7E5F4;
+  border-left:4px solid #5B8DC8;
+  border-radius:var(--ds-r-md);
+  background:#F6FAFE;
+  box-shadow:none;
+  color:#405267;
+}
+.pillar .note strong,.bai .note strong{color:var(--ds-brand-900)}
+
+.bullets{
+  padding-left:22px;
+}
+.bullets li{
+  margin-bottom:8px;
+}
+.bullets li::marker{
+  color:#5E88B9;
+}
+
+/* ---------- Tables ---------- */
+.bang-cuon{
+  border:1px solid var(--ds-line);
+  border-radius:var(--ds-r-md);
+  background:var(--ds-surface);
+  overflow:auto;
+}
+.price-table,.bang,.bang-gia{
+  border-collapse:separate;
+  border-spacing:0;
+  background:var(--ds-surface);
+}
+.price-table th,.bang th,.bang-gia th{
+  background:#F7F9FC;
+  color:#667689;
+}
+.price-table th,.price-table td,
+.bang th,.bang td,.bang-gia th,.bang-gia td{
+  padding:12px 13px;
+  border-bottom:1px solid #E7ECF2;
+}
+.price-table tr:last-child td,
+.bang tr:last-child td,
+.bang-gia tr:last-child td{
+  border-bottom:0;
+}
+.price-table tbody tr:hover td,
+.bang-gia tbody tr:hover td{
+  background:#FAFCFE;
+}
+
+/* Bảng đứng độc lập (không có .bang-cuon) vẫn mang ngôn ngữ card. */
+main>.bang,.bai>.bang,.pillar>.bang{
+  border:1px solid var(--ds-line);
+  border-radius:var(--ds-r-md);
+  overflow:hidden;
+}
+
+/* ---------- Internal-link cards / FAQ ---------- */
+.kham-pha-luoi,.post-grid,.lien-ket-nhom{
+  gap:14px;
+}
+.kham-pha-luoi a,.post-card{
+  border-radius:var(--ds-r-md);
+  box-shadow:var(--ds-shadow-xs);
+}
+.kham-pha-luoi a:hover,.post-card:hover{
+  border-color:#AFC3DB;
+  box-shadow:var(--ds-shadow-sm);
+}
+.kham-pha-luoi a::before{
+  border-radius:var(--ds-r-sm);
+  background-color:#EFF5FC;
+}
+details{
+  border-color:#E7ECF2;
+}
+summary{
+  padding-top:15px;
+  padding-bottom:15px;
+  font-weight:600;
+}
+summary:hover{color:var(--ds-brand-700)}
+details[open]>summary{color:var(--ds-brand-900)}
+
+/* ---------- Listing-adjacent prompts ---------- */
+.lead-prompt,.cta-giua{
+  border-color:#D8E4F2;
+  border-radius:var(--ds-r-lg);
+  background:
+    radial-gradient(circle at 92% 20%,rgba(93,145,204,.10),transparent 28%),
+    linear-gradient(165deg,#F7FAFE,#FFFFFF);
+  box-shadow:var(--ds-shadow-xs);
+}
+
+/* ---------- Consignment form ---------- */
+.trang-ky-gui .tieu-de-gui{
+  margin-top:34px;
+  color:var(--ds-brand-950);
+}
+.trang-ky-gui .dan{
+  max-width:72ch;
+  color:var(--ds-text-2);
+}
+.trang-ky-gui form{
+  padding:clamp(20px,3vw,30px);
+  border-radius:var(--ds-r-xl);
+  box-shadow:var(--ds-shadow-sm);
+}
+.trang-ky-gui fieldset{
+  padding-bottom:20px;
+  margin-bottom:22px;
+  border-bottom:1px solid #E8EDF3;
+}
+.trang-ky-gui fieldset:last-of-type{
+  border-bottom:0;
+}
+.trang-ky-gui legend{
+  margin-bottom:15px;
+  color:var(--ds-brand-950);
+  font-size:1.08rem;
+}
+.trang-ky-gui form label{
+  margin-bottom:6px;
+  color:#526274;
+  font-weight:600;
+}
+.trang-ky-gui form input,
+.trang-ky-gui form select,
+.trang-ky-gui form textarea{
+  border-color:#D7E0E9;
+  border-radius:var(--ds-r-sm);
+  background:#FBFCFE;
+  min-height:46px;
+  transition:border-color .18s,box-shadow .18s,background .18s;
+}
+.trang-ky-gui form input:hover,
+.trang-ky-gui form select:hover,
+.trang-ky-gui form textarea:hover{
+  border-color:#BBCADA;
+}
+.trang-ky-gui form input:focus,
+.trang-ky-gui form select:focus,
+.trang-ky-gui form textarea:focus{
+  border-color:#8CAED4;
+  background:#fff;
+  box-shadow:0 0 0 3px rgba(37,99,184,.10);
+}
+.nut-anh{
+  border-color:#BFD0E2;
+  border-radius:var(--ds-r-md);
+  background:#F7FAFE;
+}
+.nut-anh:hover{
+  border-color:#83A6CE;
+  background:#F2F7FD;
+}
+.gui,.trang-ky-gui .cta{
+  border-radius:var(--ds-r-sm);
+  box-shadow:0 10px 24px -16px rgba(27,75,143,.55);
+}
+
+/* ---------- Footer / NAP ---------- */
+footer,.site-footer,.chan,.foot-wrap{
+  margin-top:24px;
+  border-top:1px solid var(--ds-line);
+  background:#FBFCFE;
+}
+.site-nap{
+  color:#667586;
+}
+.site-nap .nap-ten{
+  color:var(--ds-brand-950);
+  font-family:var(--font-tieu-de);
+  font-weight:800;
+}
+.site-nap .nap-lienket a{
+  color:var(--ds-brand-700);
+  font-weight:600;
+}
+.site-nap .nap-lienket a:hover{
+  color:var(--ds-brand-900);
+}
+
+/* ---------- Accessibility / interaction ---------- */
+:focus-visible{
+  outline:0;
+  box-shadow:0 0 0 3px rgba(37,99,184,.18);
+  border-radius:6px;
+}
+button:disabled,
+input:disabled,
+select:disabled,
+textarea:disabled{
+  opacity:.58;
+  cursor:not-allowed;
+}
+
+/* ---------- Responsive design system ---------- */
+@media (max-width:900px){
+  .sl{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .toc ul{grid-template-columns:1fr}
+  article.pillar{
+    margin-top:24px;
+    padding:28px;
+  }
+}
+
+@media (max-width:640px){
+  body{font-size:15px}
+  h1{font-size:1.65rem}
+  h2{font-size:1.32rem}
+
+  section{margin-bottom:26px}
+
+  .muc-luc,.faq-block,.seo-block,.kham-pha,.bai,
+  .note-box,.cta-box,.thieu-du-lieu,.disclaimer{
+    padding:18px;
+    border-radius:var(--ds-r-md);
+  }
+
+  article.pillar{
+    margin:18px 0 30px;
+    padding:20px 18px;
+    border-radius:var(--ds-r-lg);
+    box-shadow:none;
+  }
+  .pillar-lead{font-size:.94rem}
+  .pillar .sec,.bai .sec{
+    margin-top:30px;
+    font-size:1.22rem;
+  }
+  .pillar .toc,.bai .toc{
+    padding:15px 16px;
+  }
+
+  .sl{
+    gap:8px;
+    margin:14px 0 20px;
+  }
+  .sl .o{
+    padding:12px 13px;
+  }
+  .sl .o b{font-size:1.08rem}
+
+  .price-table th,.price-table td,
+  .bang th,.bang td,.bang-gia th,.bang-gia td{
+    padding:10px 11px;
+    font-size:.8rem;
+  }
+
+  .trang-ky-gui form{
+    padding:18px 16px;
+    border-radius:var(--ds-r-lg);
+    box-shadow:none;
+  }
+
+  footer,.site-footer,.chan,.foot-wrap{
+    margin-top:12px;
+  }
+}
+
+@media (prefers-reduced-motion:reduce){
+  *,*::before,*::after{
+    scroll-behavior:auto!important;
+    transition-duration:.01ms!important;
+    animation-duration:.01ms!important;
+    animation-iteration-count:1!important;
+  }
+}
