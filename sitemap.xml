@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
         xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
-  <url><loc>https://timthuesmartcity.com/</loc><lastmod>2026-08-29</lastmod><changefreq>daily</changefreq><priority>1.0</priority>
+  <url><loc>https://timthuesmartcity.com/</loc><lastmod>2026-08-30</lastmod><changefreq>daily</changefreq><priority>1.0</priority>
     <image:image><image:loc>https://timthuesmartcity.com/images/hero/hero-smart-city-desktop.jpg</image:loc></image:image>
   </url>
   <url><loc>https://timthuesmartcity.com/gui-thue/</loc><lastmod>2026-08-30</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
@@ -12,7 +12,7 @@
   <url><loc>https://timthuesmartcity.com/gioi-thieu-lien-he.html</loc><lastmod>2026-08-30</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
   <!-- Đã gỡ bang-gia-thue-smart-city-thang-7-2026.html khỏi sitemap (07/2026):
        trang đó giờ là trang chuyển hướng, noindex, không nên khai báo cho Google. -->
-  <url><loc>https://timthuesmartcity.com/bang-gia-thue-vinhomes-smart-city.html</loc><lastmod>2026-08-29</lastmod><changefreq>weekly</changefreq><priority>0.9</priority>
+  <url><loc>https://timthuesmartcity.com/bang-gia-thue-vinhomes-smart-city.html</loc><lastmod>2026-08-30</lastmod><changefreq>weekly</changefreq><priority>0.9</priority>
     <image:image><image:loc>https://timthuesmartcity.com/images/bang-gia-thue-can-ho-vinhomes-smart-city.jpg</image:loc></image:image>
   </url>
   <url><loc>https://timthuesmartcity.com/gia-thue-studio-smart-city.html</loc><lastmod>2026-08-29</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
@@ -94,30 +94,30 @@
     <image:image><image:loc>https://timthuesmartcity.com/images/masteri-images/masteri-west-heights-phong-sinh-hoat-chung.webp</image:loc></image:image>
     <image:image><image:loc>https://timthuesmartcity.com/images/masteri-images/masteri-west-heights-vuon-tang-thuong.webp</image:loc></image:image>
   </url>
-  <url><loc>https://timthuesmartcity.com/studio/</loc><lastmod>2026-08-29</lastmod><changefreq>daily</changefreq><priority>0.9</priority></url>
-  <url><loc>https://timthuesmartcity.com/1pn/</loc><lastmod>2026-08-29</lastmod><changefreq>daily</changefreq><priority>0.9</priority></url>
-  <url><loc>https://timthuesmartcity.com/1pn-plus/</loc><lastmod>2026-08-29</lastmod><changefreq>daily</changefreq><priority>0.9</priority></url>
-  <url><loc>https://timthuesmartcity.com/2pn/</loc><lastmod>2026-08-29</lastmod><changefreq>daily</changefreq><priority>0.9</priority></url>
-  <url><loc>https://timthuesmartcity.com/2pn-plus/</loc><lastmod>2026-08-29</lastmod><changefreq>daily</changefreq><priority>0.9</priority></url>
-  <url><loc>https://timthuesmartcity.com/3pn/</loc><lastmod>2026-08-29</lastmod><changefreq>daily</changefreq><priority>0.9</priority></url>
-  <url><loc>https://timthuesmartcity.com/sapphire/</loc><lastmod>2026-08-29</lastmod><changefreq>daily</changefreq><priority>0.9</priority></url>
-  <url><loc>https://timthuesmartcity.com/s4-01-vinhomes-smart-city/</loc><lastmod>2026-08-29</lastmod><changefreq>daily</changefreq><priority>0.9</priority></url>
-  <url><loc>https://timthuesmartcity.com/masteri/</loc><lastmod>2026-08-29</lastmod><changefreq>daily</changefreq><priority>0.9</priority></url>
-  <url><loc>https://timthuesmartcity.com/miami/</loc><lastmod>2026-08-29</lastmod><changefreq>daily</changefreq><priority>0.9</priority></url>
-  <url><loc>https://timthuesmartcity.com/sakura/</loc><lastmod>2026-08-29</lastmod><changefreq>daily</changefreq><priority>0.9</priority></url>
-  <url><loc>https://timthuesmartcity.com/imperia/</loc><lastmod>2026-08-29</lastmod><changefreq>daily</changefreq><priority>0.9</priority></url>
-  <url><loc>https://timthuesmartcity.com/lumiere/</loc><lastmod>2026-08-29</lastmod><changefreq>daily</changefreq><priority>0.9</priority></url>
-  <url><loc>https://timthuesmartcity.com/canopy/</loc><lastmod>2026-08-29</lastmod><changefreq>daily</changefreq><priority>0.9</priority></url>
-  <url><loc>https://timthuesmartcity.com/tonkin/</loc><lastmod>2026-08-29</lastmod><changefreq>daily</changefreq><priority>0.9</priority></url>
-  <url><loc>https://timthuesmartcity.com/studio-duoi-7-trieu/</loc><lastmod>2026-08-29</lastmod><changefreq>daily</changefreq><priority>0.9</priority></url>
-  <url><loc>https://timthuesmartcity.com/studio-7-10-trieu/</loc><lastmod>2026-08-29</lastmod><changefreq>daily</changefreq><priority>0.9</priority></url>
-  <url><loc>https://timthuesmartcity.com/1pn-plus-duoi-10-trieu/</loc><lastmod>2026-08-29</lastmod><changefreq>daily</changefreq><priority>0.9</priority></url>
-  <url><loc>https://timthuesmartcity.com/2pn-duoi-10-trieu/</loc><lastmod>2026-08-29</lastmod><changefreq>daily</changefreq><priority>0.9</priority></url>
-  <url><loc>https://timthuesmartcity.com/2pn-10-12-trieu/</loc><lastmod>2026-08-29</lastmod><changefreq>daily</changefreq><priority>0.9</priority></url>
-  <url><loc>https://timthuesmartcity.com/2pn-plus-12-15-trieu/</loc><lastmod>2026-08-29</lastmod><changefreq>daily</changefreq><priority>0.9</priority></url>
-  <url><loc>https://timthuesmartcity.com/3pn-12-15-trieu/</loc><lastmod>2026-08-29</lastmod><changefreq>daily</changefreq><priority>0.9</priority></url>
-  <url><loc>https://timthuesmartcity.com/studio-full-do/</loc><lastmod>2026-08-29</lastmod><changefreq>daily</changefreq><priority>0.9</priority></url>
-  <url><loc>https://timthuesmartcity.com/1pn-plus-full-do/</loc><lastmod>2026-08-29</lastmod><changefreq>daily</changefreq><priority>0.9</priority></url>
-  <url><loc>https://timthuesmartcity.com/2pn-full-do/</loc><lastmod>2026-08-29</lastmod><changefreq>daily</changefreq><priority>0.9</priority></url>
-  <url><loc>https://timthuesmartcity.com/3pn-full-do/</loc><lastmod>2026-08-29</lastmod><changefreq>daily</changefreq><priority>0.9</priority></url>
+  <url><loc>https://timthuesmartcity.com/studio/</loc><lastmod>2026-08-30</lastmod><changefreq>daily</changefreq><priority>0.9</priority></url>
+  <url><loc>https://timthuesmartcity.com/1pn/</loc><lastmod>2026-08-30</lastmod><changefreq>daily</changefreq><priority>0.9</priority></url>
+  <url><loc>https://timthuesmartcity.com/1pn-plus/</loc><lastmod>2026-08-30</lastmod><changefreq>daily</changefreq><priority>0.9</priority></url>
+  <url><loc>https://timthuesmartcity.com/2pn/</loc><lastmod>2026-08-30</lastmod><changefreq>daily</changefreq><priority>0.9</priority></url>
+  <url><loc>https://timthuesmartcity.com/2pn-plus/</loc><lastmod>2026-08-30</lastmod><changefreq>daily</changefreq><priority>0.9</priority></url>
+  <url><loc>https://timthuesmartcity.com/3pn/</loc><lastmod>2026-08-30</lastmod><changefreq>daily</changefreq><priority>0.9</priority></url>
+  <url><loc>https://timthuesmartcity.com/sapphire/</loc><lastmod>2026-08-30</lastmod><changefreq>daily</changefreq><priority>0.9</priority></url>
+  <url><loc>https://timthuesmartcity.com/s4-01-vinhomes-smart-city/</loc><lastmod>2026-08-30</lastmod><changefreq>daily</changefreq><priority>0.9</priority></url>
+  <url><loc>https://timthuesmartcity.com/masteri/</loc><lastmod>2026-08-30</lastmod><changefreq>daily</changefreq><priority>0.9</priority></url>
+  <url><loc>https://timthuesmartcity.com/miami/</loc><lastmod>2026-08-30</lastmod><changefreq>daily</changefreq><priority>0.9</priority></url>
+  <url><loc>https://timthuesmartcity.com/sakura/</loc><lastmod>2026-08-30</lastmod><changefreq>daily</changefreq><priority>0.9</priority></url>
+  <url><loc>https://timthuesmartcity.com/imperia/</loc><lastmod>2026-08-30</lastmod><changefreq>daily</changefreq><priority>0.9</priority></url>
+  <url><loc>https://timthuesmartcity.com/lumiere/</loc><lastmod>2026-08-30</lastmod><changefreq>daily</changefreq><priority>0.9</priority></url>
+  <url><loc>https://timthuesmartcity.com/canopy/</loc><lastmod>2026-08-30</lastmod><changefreq>daily</changefreq><priority>0.9</priority></url>
+  <url><loc>https://timthuesmartcity.com/tonkin/</loc><lastmod>2026-08-30</lastmod><changefreq>daily</changefreq><priority>0.9</priority></url>
+  <url><loc>https://timthuesmartcity.com/studio-duoi-7-trieu/</loc><lastmod>2026-08-30</lastmod><changefreq>daily</changefreq><priority>0.9</priority></url>
+  <url><loc>https://timthuesmartcity.com/studio-7-10-trieu/</loc><lastmod>2026-08-30</lastmod><changefreq>daily</changefreq><priority>0.9</priority></url>
+  <url><loc>https://timthuesmartcity.com/1pn-plus-duoi-10-trieu/</loc><lastmod>2026-08-30</lastmod><changefreq>daily</changefreq><priority>0.9</priority></url>
+  <url><loc>https://timthuesmartcity.com/2pn-duoi-10-trieu/</loc><lastmod>2026-08-30</lastmod><changefreq>daily</changefreq><priority>0.9</priority></url>
+  <url><loc>https://timthuesmartcity.com/2pn-10-12-trieu/</loc><lastmod>2026-08-30</lastmod><changefreq>daily</changefreq><priority>0.9</priority></url>
+  <url><loc>https://timthuesmartcity.com/2pn-plus-12-15-trieu/</loc><lastmod>2026-08-30</lastmod><changefreq>daily</changefreq><priority>0.9</priority></url>
+  <url><loc>https://timthuesmartcity.com/3pn-12-15-trieu/</loc><lastmod>2026-08-30</lastmod><changefreq>daily</changefreq><priority>0.9</priority></url>
+  <url><loc>https://timthuesmartcity.com/studio-full-do/</loc><lastmod>2026-08-30</lastmod><changefreq>daily</changefreq><priority>0.9</priority></url>
+  <url><loc>https://timthuesmartcity.com/1pn-plus-full-do/</loc><lastmod>2026-08-30</lastmod><changefreq>daily</changefreq><priority>0.9</priority></url>
+  <url><loc>https://timthuesmartcity.com/2pn-full-do/</loc><lastmod>2026-08-30</lastmod><changefreq>daily</changefreq><priority>0.9</priority></url>
+  <url><loc>https://timthuesmartcity.com/3pn-full-do/</loc><lastmod>2026-08-30</lastmod><changefreq>daily</changefreq><priority>0.9</priority></url>
 </urlset>

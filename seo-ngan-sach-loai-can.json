@@ -47,6 +47,14 @@
     "nganSach": "tren-15-trieu",
     "updated": "2026-08-30"
   },
+  "3pn-10-12-trieu": {
+    "count": 4,
+    "created": "2026-08-30",
+    "indexable": true,
+    "loai": "3 Ngủ",
+    "nganSach": "10-12-trieu",
+    "updated": "2026-08-30"
+  },
   "3pn-tren-15-trieu": {
     "count": 13,
     "created": "2026-08-30",
