@@ -2892,3 +2892,179 @@ figure figcaption{font-size:.8rem;color:var(--gray-lt);margin-top:7px;text-align
     border-radius:5px;
   }
 }
+
+/* ==================================================================
+   26. NAVIGATION HEADER V10 — 30/08/2026
+   ------------------------------------------------------------------
+   Desktop: menu theo ý định thuê, dropdown Phân khu / Loại căn.
+   Mobile: nav desktop ẩn như cũ; app-shell dựng tabbar + menu thuê riêng.
+   ================================================================== */
+.site-nav-v4{
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  gap:4px!important;
+  flex-wrap:nowrap!important;
+  min-width:0;
+}
+.site-nav-v4>.nav-v4-link,
+.site-nav-v4 .nav-v4-trigger{
+  position:relative;
+  display:inline-flex;
+  align-items:center;
+  gap:6px;
+  min-height:38px;
+  padding:7px 9px!important;
+  border:0!important;
+  border-radius:9px;
+  background:transparent;
+  color:var(--gray);
+  font-family:var(--font-chu);
+  font-size:.82rem!important;
+  font-weight:500;
+  line-height:1.2;
+  white-space:nowrap;
+  transition:background .18s,color .18s;
+}
+.site-nav-v4>.nav-v4-link:hover,
+.site-nav-v4 .nav-v4-trigger:hover{
+  background:#F4F7FB;
+  color:var(--navy-2);
+}
+.site-nav-v4>.nav-v4-link.active,
+.site-nav-v4>.nav-v4-link[aria-current="page"],
+.site-nav-v4 .nav-v4-group.active>.nav-v4-trigger{
+  background:#EEF4FC;
+  color:var(--navy-2);
+  font-weight:700;
+}
+.nav-v4-group{
+  position:relative;
+  display:flex;
+  align-items:center;
+}
+.nav-v4-chevron{
+  width:7px;height:7px;
+  border-right:1.5px solid currentColor;
+  border-bottom:1.5px solid currentColor;
+  transform:rotate(45deg) translateY(-2px);
+  transition:transform .16s;
+}
+.nav-v4-group.open .nav-v4-chevron{
+  transform:rotate(225deg) translate(-1px,-1px);
+}
+.nav-v4-panel{
+  position:absolute;
+  left:0;
+  top:calc(100% + 8px);
+  z-index:90;
+  display:none;
+  width:240px;
+  padding:8px;
+  border:1px solid var(--line);
+  border-radius:13px;
+  background:rgba(255,255,255,.98);
+  box-shadow:0 20px 45px -24px rgba(15,32,60,.5);
+  -webkit-backdrop-filter:blur(12px);
+  backdrop-filter:blur(12px);
+}
+.nav-v4-group.open>.nav-v4-panel{display:block}
+.site-nav-v4 .nav-v4-panel a{
+  display:block;
+  width:100%;
+  padding:9px 10px!important;
+  border:0!important;
+  border-radius:8px;
+  color:var(--gray)!important;
+  font-size:.8rem!important;
+  font-weight:500;
+  line-height:1.35;
+}
+.site-nav-v4 .nav-v4-panel a:hover{
+  background:#F2F6FB;
+  color:var(--navy-2)!important;
+}
+
+/* Trang chủ: hàng 1 là brand + nav + ngôn ngữ + Zalo; hàng 2 là search. */
+@media (min-width:1081px){
+  .site-nav-shell.has-site-search{
+    display:grid!important;
+    grid-template-columns:minmax(225px,auto) minmax(0,1fr) auto auto;
+    grid-template-areas:
+      "brand nav lang action"
+      "search search search search";
+    column-gap:14px;
+    row-gap:9px;
+    min-height:0!important;
+    padding-top:10px;
+    padding-bottom:10px;
+  }
+  .site-nav-shell.has-site-search>.brand{grid-area:brand}
+  .site-nav-shell.has-site-search>.search{
+    grid-area:search;
+    width:100%;
+    height:42px;
+  }
+  .site-nav-shell.has-site-search>.site-nav-v4{
+    grid-area:nav;
+    justify-self:center;
+  }
+  .site-nav-shell.has-site-search>.doi-tieng{
+    grid-area:lang;
+    margin-left:0;
+  }
+  .site-nav-shell.has-site-search>.actions{
+    grid-area:action;
+    margin-left:0;
+  }
+
+  .topbar .site-nav-shell:not(.has-site-search),
+  .top .site-nav-shell{
+    gap:14px;
+  }
+}
+
+/* Laptop/tablet ngang: giữ menu một hàng nhưng nén chữ, tránh header vỡ. */
+@media (min-width:861px) and (max-width:1080px){
+  .site-nav-v4{gap:1px!important}
+  .site-nav-v4>.nav-v4-link,
+  .site-nav-v4 .nav-v4-trigger{
+    padding:6px 6px!important;
+    font-size:.73rem!important;
+  }
+  .site-nav-shell .brand small,
+  .site-nav-shell .hieu small{display:none}
+  .site-nav-shell{gap:10px!important}
+  .nav-v4-panel{width:218px}
+}
+
+/* Mobile dùng bottom nav/menu của app-shell. */
+@media (max-width:860px){
+  .site-nav-v4{display:none!important}
+}
+
+/* Bottom sheet mobile: nhóm rõ ràng hơn vì menu nay chứa loại căn + phân khu. */
+@media (max-width:640px){
+  .tabbar-sheet{
+    max-height:86dvh;
+    padding-top:4px;
+  }
+  .tbs-nhom{
+    margin:15px 0 5px;
+    padding-top:8px;
+    border-top:1px solid var(--line);
+    color:var(--navy-2);
+    font-size:.7rem;
+    font-weight:700;
+    letter-spacing:.06em;
+    text-transform:uppercase;
+  }
+  .tbs-head + .tbs-nhom{
+    border-top:0;
+    padding-top:0;
+  }
+  .tabbar-sheet a{
+    min-height:43px;
+    padding:10px 2px;
+  }
+}
