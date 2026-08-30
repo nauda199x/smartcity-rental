@@ -14,6 +14,7 @@ on:
       - "scripts/sinh-trang-can.py"
       - "scripts/sinh-trang-toa.py"
       - "scripts/sinh-trang-giao-thoa.py"
+      - "scripts/sinh-trang-ngan-sach-loai-can.py"
       - "scripts/cap-nhat-lien-ket-noi-bo.py"
       - "scripts/dung-lai-trang-chu.py"
       - "scripts/dung-lai-trang-danh-muc.py"
@@ -76,6 +77,20 @@ jobs:
             2>&1 | tee -a ket-qua.txt || ma=$?
           if [ "$ma" = "2" ]; then
             echo "::warning::sinh-trang-giao-thoa.py dừng an toàn (mã 2) — giữ nguyên trang hiện có."
+            exit 0
+          fi
+          exit "$ma"
+
+      # Sinh landing ngân sách sau trang Phân khu × Loại căn và trước bước
+      # dựng lại danh mục để lưới, schema và số liệu của URL mới khớp ngay.
+      - name: Sinh trang Ngân sách × Loại căn
+        run: |
+          set -o pipefail
+          ma=0
+          python3 scripts/sinh-trang-ngan-sach-loai-can.py ${{ inputs.chi_thu && '--thu' || '' }} \
+            2>&1 | tee -a ket-qua.txt || ma=$?
+          if [ "$ma" = "2" ]; then
+            echo "::warning::sinh-trang-ngan-sach-loai-can.py dừng an toàn (mã 2) — giữ nguyên trang hiện có."
             exit 0
           fi
           exit "$ma"
@@ -199,10 +214,14 @@ jobs:
           # commit.
           git add -- '*.html' sitemap.xml s4-01-vinhomes-smart-city \
             can-ho sitemap-can-ho.xml sitemap-phan-khu-loai-can.xml \
-            seo-phan-khu-loai-can.json
+            seo-phan-khu-loai-can.json sitemap-ngan-sach-loai-can.xml \
+            seo-ngan-sach-loai-can.json
           # Các thư mục giao thoa là untracked ở lần sinh đầu; shell glob này
           # chỉ stage thư mục, không chạm data.json.
           git add -- cho-thue-*-smart-city 2>/dev/null || true
+          # Landing Ngân sách × Loại căn có dạng *-trieu. Các folder cũ đã
+          # tracked vẫn được stage bình thường; data.json không khớp glob này.
+          git add -- *-trieu 2>/dev/null || true
 
           if git diff --cached --quiet; then
             echo "Không có gì thay đổi — bỏ qua commit, không tạo commit rác."
