@@ -1,10 +1,10 @@
 #!/usr/bin/env python3
 """Sinh trang tĩnh riêng cho từng căn hộ đủ điều kiện, mỗi căn một URL vĩnh viễn.
 
-Phạm vi đợt 1: căn đang "Hiển thị trên Web" = có, "Mã nội bộ" khớp ^CT\\.
-(mã dạng số hoặc CC3 không đảm bảo duy nhất trên toàn sheet) và có ít nhất 8
-ảnh trong cột "Danh sách ảnh". Trần cứng TOI_DA (hiện 120) để một lần
-data.json lỗi không sinh ra hàng trăm trang rác.
+Phạm vi hiện tại: mọi căn đang "Hiển thị trên Web" = có và "Mã nội bộ"
+khớp ^CT\\. đều có một URL chi tiết riêng, KHÔNG phụ thuộc số lượng ảnh.
+(mã dạng số hoặc CC3 không đảm bảo duy nhất trên toàn sheet nên chưa sinh URL).
+Trần cứng TOI_DA vẫn giữ để một lần data.json lỗi không sinh hàng loạt trang rác.
 
 URL không bao giờ bị xoá: khi một căn hết hạn hiển thị, trang vẫn trả 200,
 đổi sang bản "đã có khách" và trỏ khách sang các căn còn trống tương tự.
@@ -65,10 +65,10 @@ ANH_MAC_DINH = "https://timthuesmartcity.com/og-smartcity.jpg"
 # trong sinh-danh-sach-anh.py.
 NGUONG_TOI_THIEU = 150
 
-# Trần cứng số căn đủ điều kiện được sinh trang trong MỘT lần chạy. Vượt trần
-# gần như chắc chắn là data.json đang lỗi (cột "Hiển thị trên Web" bị đẩy sai
-# hàng loạt chẳng hạn) chứ không phải đột nhiên có thêm mấy trăm căn đủ ảnh.
-TOI_DA = 120
+# Trần cứng số căn đủ điều kiện được sinh trang trong MỘT lần chạy. Tổng quỹ
+# hiện nhỏ hơn nhiều mốc này; vượt trần gần như chắc chắn là data.json đang lỗi
+# hoặc cột "Hiển thị trên Web" bị đẩy sai hàng loạt.
+TOI_DA = 400
 
 # Từ ngưỡng này (tỷ lệ trên TOI_DA) trở lên script vẫn sinh trang bình
 # thường (exit 0) nhưng in thêm một dòng CẢNH BÁO, để thấy trước lúc còn dư
@@ -213,13 +213,25 @@ def ma_hop_le(can):
 
 
 def danh_sach_anh(can):
-    return [x.strip() for x in str(can.get("Danh sách ảnh", "") or "").split("\n")
-            if x.strip()]
+    """Ảnh đại diện đứng đầu, sau đó tới Danh sách ảnh; loại trùng URL.
+
+    Trang chi tiết phải tồn tại kể cả căn mới chỉ có 0–1 ảnh. Ảnh là nội dung
+    bổ sung, KHÔNG còn là điều kiện để một căn được cấp URL."""
+    ra = []
+    da_co = set()
+    nguon = [str(can.get("Ảnh đại diện", "") or "").strip()]
+    nguon.extend(x.strip() for x in str(can.get("Danh sách ảnh", "") or "").split("\n"))
+    for url in nguon:
+        if not url or url in da_co:
+            continue
+        da_co.add(url)
+        ra.append(url)
+    return ra
 
 
 def du_dieu_kien(can):
-    return (dang_hien_thi(can) and ma_hop_le(can)
-            and len(danh_sach_anh(can)) >= 8)
+    """Mọi căn đang public có mã CT.* đều phải có URL chi tiết riêng."""
+    return dang_hien_thi(can) and ma_hop_le(can)
 
 
 def doc_map_anh():
@@ -344,7 +356,7 @@ gtag('js',new Date());gtag('config','G-VF9KHC5TWD');</script>
 <noscript>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@700;800&family=Be+Vietnam+Pro:wght@300;400;500;600&display=swap">
 </noscript>
-<link rel="stylesheet" href="/assets/v3.css">
+<link rel="stylesheet" href="/assets/v3.css?v=20260830-3">
 </head>
 <body>
 <header class="top">
@@ -379,7 +391,9 @@ CHAN_TRANG = """</main>
   </div>
 </footer>
 <a class="zalo-noi" href="https://zalo.me/%(sdt)s" target="_blank" rel="noopener">Nhắn Zalo tư vấn</a>
-  <script src="/assets/app-shell.js" defer></script>
+  <script id="ct-gallery-js" src="/assets/gallery.js?v=20260830-3" defer></script>
+  <script id="ct-detail-js" src="/assets/can-ho-detail.js?v=20260830-3" defer></script>
+  <script src="/assets/app-shell.js?v=20260830-3" defer></script>
 </body>
 </html>
 """
@@ -501,7 +515,13 @@ def dung_trang_can(can, s, active, hom_nay):
         anh_html.append(
             '<img src="%s" alt="%s" loading="%s" decoding="async" width="800" height="600">'
             % (esc(src), esc(alt), tai))
-    gallery = '  <section class="gallery">\n    %s\n  </section>\n' % "\n    ".join(anh_html)
+    if anh_html:
+        gallery = '  <section class="gallery">\n    %s\n  </section>\n' % "\n    ".join(anh_html)
+    else:
+        gallery = ('  <section class="gallery ct-gallery-empty-source">\n'
+                   '    <div class="ct-no-photo"><b>Căn này đang cập nhật ảnh</b>'
+                   '<span>Nhắn Zalo để nhận ảnh và video thực tế.</span></div>\n'
+                   '  </section>\n')
 
     bang = ("<table class=\"bang\"><tbody>"
             "<tr><td>Mã căn</td><td>%s</td></tr>"
