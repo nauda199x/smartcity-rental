@@ -18,6 +18,7 @@ import sys
 GOC = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 DUONG_DATA = os.path.join(GOC, "data.json")
 DUONG_COMBO = os.path.join(GOC, "seo-phan-khu-loai-can.json")
+DUONG_NGAN_SACH = os.path.join(GOC, "seo-ngan-sach-loai-can.json")
 MOC_DAU = "<!-- SEO-LINKS:BAT-DAU -->"
 MOC_CUOI = "<!-- SEO-LINKS:KET-THUC -->"
 
@@ -78,6 +79,15 @@ LONGTAIL = {
 LONGTAIL_THEO_LOAI = collections.defaultdict(list)
 for _slug, (_parent, _label) in LONGTAIL.items():
     LONGTAIL_THEO_LOAI[_parent].append((_slug, _label))
+
+NGAN_SACH_LABEL = {
+    "duoi-7-trieu": "dưới 7 triệu",
+    "7-10-trieu": "7–10 triệu",
+    "duoi-10-trieu": "dưới 10 triệu",
+    "10-12-trieu": "10–12 triệu",
+    "12-15-trieu": "12–15 triệu",
+    "tren-15-trieu": "trên 15 triệu",
+}
 
 GUIDE_LINKS = [
     ("/bang-gia-thue-vinhomes-smart-city.html",
@@ -169,6 +179,40 @@ def doc_combo_registry():
                 "count": int(rec.get("count") or 0),
             }
     return ra
+
+
+def nap_longtail_ngan_sach():
+    """Nạp các landing Ngân sách × Loại căn đang indexable vào graph.
+
+    Không ghi đè LONGTAIL tĩnh đã tồn tại từ trước. Nhờ vậy các landing cũ
+    giữ nguyên URL/nhãn, còn landing sinh tự động được link hai chiều ngay
+    trong cùng workflow sau khi generator ngân sách chạy.
+    """
+    if not os.path.exists(DUONG_NGAN_SACH):
+        return 0
+    try:
+        with open(DUONG_NGAN_SACH, encoding="utf-8") as f:
+            raw = json.load(f)
+    except Exception:
+        return 0
+
+    them = 0
+    for slug, rec in (raw or {}).items():
+        if not isinstance(rec, dict) or not rec.get("indexable"):
+            continue
+        lk = khoa(rec.get("loai"))
+        budget = chuan(rec.get("nganSach"))
+        if lk not in LOAI or budget not in NGAN_SACH_LABEL:
+            continue
+        parent_slug, type_label, _ = LOAI[lk]
+        if slug in LONGTAIL:
+            continue
+        label = "%s %s" % (type_label, NGAN_SACH_LABEL[budget])
+        LONGTAIL[slug] = (parent_slug, label)
+        if (slug, label) not in LONGTAIL_THEO_LOAI[parent_slug]:
+            LONGTAIL_THEO_LOAI[parent_slug].append((slug, label))
+        them += 1
+    return them
 
 
 def combo_href(combo, pk, loai_key):
@@ -413,6 +457,8 @@ def main():
 
     combo = doc_combo_registry()
     print("Trang giao thoa indexable:", len(combo))
+    budget_count = nap_longtail_ngan_sach()
+    print("Trang ngân sách indexable:", budget_count)
     pages = tim_trang_danh_muc()
     print("Trang danh mục tìm thấy:", len(pages))
     changed = 0
@@ -420,7 +466,7 @@ def main():
         moi = chen(raw, dung_khoi(slug, bo_loc, data, combo))
         # Khối mới dùng CSS V12; bump query để browser/CDN không giữ bản cũ.
         moi = re.sub(r'/assets/v3\.css(?:\?v=[^"]+)?',
-                     '/assets/v3.css?v=20260830-7', moi)
+                     '/assets/v3.css?v=20260830-8', moi)
         rel = os.path.relpath(path, GOC)
         if moi == raw:
             print("= ", rel)

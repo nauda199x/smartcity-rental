@@ -5,3 +5,4 @@ Sitemap: https://timthuesmartcity.com/sitemap.xml
 Sitemap: https://timthuesmartcity.com/sitemap-images.xml
 Sitemap: https://timthuesmartcity.com/sitemap-can-ho.xml
 Sitemap: https://timthuesmartcity.com/sitemap-phan-khu-loai-can.xml
+Sitemap: https://timthuesmartcity.com/sitemap-ngan-sach-loai-can.xml
