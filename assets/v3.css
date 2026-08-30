@@ -2779,3 +2779,116 @@ figure figcaption{font-size:.8rem;color:var(--gray-lt);margin-top:7px;text-align
     grid-template-columns:1fr 1fr;
   }
 }
+
+/* ==================================================================
+   25. DESKTOP CARD POLISH V9 — 30/08/2026
+   ------------------------------------------------------------------
+   Mục tiêu: desktop compact hơn, hết khoảng trắng lớn trong phần thông tin.
+   Mobile giữ nguyên V4/V8.
+   ================================================================== */
+@media (min-width:1081px){
+  .grid,.luoi{
+    gap:14px 16px;
+  }
+
+  .card,.the{
+    height:220px;
+    min-height:220px;
+    border-radius:14px;
+    border-color:#DDE5EE;
+    box-shadow:0 8px 22px -20px rgba(15,32,60,.42);
+  }
+  .card:hover,.the:hover{
+    transform:translateY(-1px);
+    box-shadow:0 12px 28px -20px rgba(15,32,60,.46);
+  }
+
+  /* Ảnh đủ lớn để card có cảm giác "listing", nhưng không lấn phần thông tin. */
+  .media,.the-anh{
+    width:43%;
+    height:220px;
+    min-height:220px;
+    border-right:1px solid #E4EAF1;
+  }
+
+  /* Nén nhịp dọc để nội dung nằm thành một cụm thay vì bị kéo giãn. */
+  .card .body,.the .than{
+    padding:14px 15px 12px;
+    gap:5px;
+    justify-content:flex-start;
+    overflow:hidden;
+  }
+
+  .card .price,.the .gia{
+    font-size:1.34rem;
+    line-height:1.12;
+    margin:0 0 1px;
+  }
+  .price small,.gia small{
+    font-size:.7rem;
+  }
+
+  .card .body h3,.the .ten{
+    font-size:.92rem;
+    line-height:1.3;
+  }
+  .card .tower,.the .vi-tri{
+    font-size:.76rem;
+    line-height:1.3;
+  }
+
+  /* Không giữ chỗ cho chip khi desktop không hiển thị chip. */
+  .card .card-chips,.the .card-chips{
+    min-height:0;
+    margin:0;
+  }
+
+  /* CTA nằm sát phần thông tin hơn; vẫn neo gần đáy nhưng không tạo mảng trắng lớn. */
+  .card .card-foot,
+  .the .the-actions{
+    margin-top:auto;
+    padding-top:4px;
+    gap:7px;
+  }
+
+  .detail-card-link,
+  .card-foot.co-chi-tiet .ask,
+  .the .the-actions .zalo{
+    min-height:36px;
+    height:36px;
+    padding:7px 10px;
+    border-radius:9px;
+    font-size:.76rem;
+  }
+
+  .card .ma-can,.the .ma-can{
+    margin-top:1px;
+    font-size:.66rem;
+    line-height:1.15;
+    color:#8C98A6;
+  }
+  .card .ma-can b,.the .ma-can b{
+    font-size:.68rem;
+    color:#657283;
+  }
+
+  /* Badge gọn hơn để ảnh nhìn sạch. */
+  .badge,.tinh-trang{
+    left:9px;top:9px;
+    font-size:.62rem;
+    padding:4px 7px;
+    border-radius:5px;
+  }
+  .badge-nt{
+    left:9px;top:36px;
+    font-size:.62rem;
+    padding:4px 7px;
+    border-radius:5px;
+  }
+  .pcount,.dbc-huy-hieu{
+    right:9px;top:9px;
+    font-size:.62rem;
+    padding:4px 7px;
+    border-radius:5px;
+  }
+}
