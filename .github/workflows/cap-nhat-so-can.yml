@@ -214,8 +214,11 @@ jobs:
           # commit.
           git add -- '*.html' sitemap.xml s4-01-vinhomes-smart-city \
             can-ho sitemap-can-ho.xml sitemap-phan-khu-loai-can.xml \
-            seo-phan-khu-loai-can.json sitemap-ngan-sach-loai-can.xml \
-            seo-ngan-sach-loai-can.json
+            seo-phan-khu-loai-can.json
+          # Hai file bước 8 chưa tồn tại ở lần chạy đầu nếu generator chủ động
+          # dừng an toàn; không để pathspec thiếu làm hỏng cả workflow.
+          git add -- sitemap-ngan-sach-loai-can.xml seo-ngan-sach-loai-can.json \
+            2>/dev/null || true
           # Các thư mục giao thoa là untracked ở lần sinh đầu; shell glob này
           # chỉ stage thư mục, không chạm data.json.
           git add -- cho-thue-*-smart-city 2>/dev/null || true
