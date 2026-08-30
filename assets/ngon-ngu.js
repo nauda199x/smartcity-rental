@@ -195,6 +195,22 @@
     "lead.errSend":   ["Something went wrong. Please try again or contact us on Zalo.",
                        "오류가 발생했습니다. 다시 시도하거나 잘로로 문의해 주세요."],
 
+    /* ---- Dữ liệu thị trường homepage (P0 SEO 30/08/2026) ---- */
+    "market.eyebrow":  ["Live inventory data", "실시간 매물 데이터"],
+    "market.title":    ["Vinhomes Smart City rents today", "오늘의 빈홈즈 스마트시티 임대료"],
+    "market.desc":     ["Calculated directly from listings currently shown on the website. Counts and price ranges update with the live inventory rather than a fixed advertising price table.",
+                        "웹사이트에 현재 표시 중인 실제 매물에서 직접 집계합니다. 매물 수와 가격 범위는 고정 광고표가 아니라 실제 재고에 따라 업데이트됩니다."],
+    "market.full":     ["View detailed rent table →", "상세 임대료 보기 →"],
+    "market.byType":   ["By apartment type", "타입별"],
+    "market.byZone":   ["By zone", "구역별"],
+    "market.colType":  ["Apartment type", "타입"],
+    "market.colZone":  ["Zone", "구역"],
+    "market.colCount": ["Available", "매물 수"],
+    "market.colPrice": ["Rent range", "가격 범위"],
+    "market.unit":     ["units", "개"],
+    "market.hot":      ["Popular now:", "많이 찾는 항목:"],
+    "market.hotAl":    ["Popular rental topics", "인기 임대 주제"],
+
     /* ---- Mục lục kho dữ liệu, khám phá, chân trang ---- */
     "idx.title":      ["Vinhomes Smart City rental directory", "빈홈즈 스마트시티 임대 매물 목록"],
     "idx.desc":       ["All apartments are grouped by type, zone, price range and furnishing. Pick the group you're interested in to see the full list with real rents. These pages are in Vietnamese.",
