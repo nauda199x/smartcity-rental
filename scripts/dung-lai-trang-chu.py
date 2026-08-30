@@ -90,6 +90,28 @@ ngay_hom_nay = DLTDM.ngay_hom_nay
 so_tien = DLTDM.so_tien
 chuan_ma_toa = DLTDM.STT.chuan_ma_toa    # sinh-trang-toa.py, nạp lại qua STT
 nhan_tinh_trang = DLTDM.STT.nhan_tinh_trang
+phan_khu_tu_toa = DLTDM.phan_khu_tu_toa
+dinh_dang_gia = DLTDM.dinh_dang_gia
+
+# Thứ tự cố định để bảng thị trường không nhảy vị trí giữa các lần cập nhật.
+THI_TRUONG_LOAI = [
+    ("studio", "Studio", "/studio/"),
+    ("1 ngủ", "1 phòng ngủ", "/1pn/"),
+    ("1 ngủ +", "1 phòng ngủ +", "/1pn-plus/"),
+    ("2 ngủ", "2 phòng ngủ", "/2pn/"),
+    ("2 ngủ +", "2 phòng ngủ +", "/2pn-plus/"),
+    ("3 ngủ", "3 phòng ngủ", "/3pn/"),
+]
+THI_TRUONG_KHU = [
+    ("Sapphire", "Sapphire", "/sapphire/"),
+    ("Masteri", "Masteri West Heights", "/masteri/"),
+    ("Lumiere", "Lumière Evergreen", "/lumiere/"),
+    ("Miami", "The Miami", "/miami/"),
+    ("Sakura", "The Sakura", "/sakura/"),
+    ("Imperia", "Imperia Smart City", "/imperia/"),
+    ("Canopy", "The Canopy", "/canopy/"),
+    ("Tonkin", "The Tonkin", "/tonkin/"),
+]
 
 
 # ===========================================================================
@@ -154,6 +176,12 @@ RE_ZONE = re.compile(r'(<strong id="phanKhuCount">)([^<]*)(</strong>)')
 RE_RESULT = re.compile(
     r'(<div class="result-count" id="resultCount" data-i18n="l\.loading">)'
     r'(.*?)(</div>)', re.S)
+RE_THI_TRUONG_LOAI = re.compile(
+    r'(<!-- THI-TRUONG-LOAI:BAT-DAU -->)(.*?)(<!-- THI-TRUONG-LOAI:KET-THUC -->)',
+    re.S)
+RE_THI_TRUONG_KHU = re.compile(
+    r'(<!-- THI-TRUONG-KHU:BAT-DAU -->)(.*?)(<!-- THI-TRUONG-KHU:KET-THUC -->)',
+    re.S)
 
 
 def ghi_de_khoi_tinh(html, cac_the):
@@ -175,6 +203,59 @@ def ghi_de_o(html, mau, gia_tri):
         return html, False
     return (html[:khop.start()] + khop.group(1) + gia_tri + khop.group(3)
             + html[khop.end():]), True
+
+
+def ghi_de_dong_thi_truong(html, mau, cac_dong):
+    """Ghi phần giữa hai marker, giữ nguyên marker để lần sau cập nhật idempotent."""
+    khop = mau.search(html)
+    if not khop:
+        return html, False
+    moi = "\n                " + "\n                ".join(cac_dong) + "\n                "
+    if moi == khop.group(2):
+        return html, False
+    return (html[:khop.start()] + khop.group(1) + moi + khop.group(3)
+            + html[khop.end():]), True
+
+
+def gia_trieu_ngan(v):
+    """8_500_000 -> '8,5', dùng lại formatter chung để không lệch quy tắc."""
+    return dinh_dang_gia(v).replace(" triệu", "").strip()
+
+
+def dong_thi_truong(cac_can):
+    """Trả hai danh sách <tr>: theo loại căn và theo phân khu."""
+    theo_loai = {}
+    theo_khu = {}
+    for r in cac_can:
+        gia = so_tien(r.get("Giá thuê"))
+        if gia <= 0:
+            continue
+        loai = khoa = chuan(r.get("Loại")).lower()
+        khu = phan_khu_tu_toa(r.get("Tòa", ""))
+        if loai:
+            theo_loai.setdefault(loai, []).append(gia)
+        if khu:
+            theo_khu.setdefault(khu, []).append(gia)
+
+    def dung_dong(label, href, ds_gia):
+        if not ds_gia:
+            return ""
+        lo = min(ds_gia)
+        hi = max(ds_gia)
+        khoang = "%s–%s triệu/tháng" % (gia_trieu_ngan(lo), gia_trieu_ngan(hi))
+        return ('<tr><th scope="row"><a href="%s">%s</a></th>'
+                '<td><strong>%d</strong> căn</td><td>%s</td></tr>') % (
+                    href, label, len(ds_gia), khoang)
+
+    dong_loai = [
+        dung_dong(label, href, theo_loai.get(key, []))
+        for key, label, href in THI_TRUONG_LOAI
+    ]
+    dong_khu = [
+        dung_dong(label, href, theo_khu.get(key, []))
+        for key, label, href in THI_TRUONG_KHU
+    ]
+    return [x for x in dong_loai if x], [x for x in dong_khu if x]
 
 
 def main():
@@ -235,9 +316,14 @@ def main():
         len(set(chuan_ma_toa(c.get("Tòa", "")) for c in cac_can_16))))
 
     cac_the = [dung_the(c, map_anh, hom_nay) for c in cac_can_16]
+    dong_loai, dong_khu = dong_thi_truong(cac_can_cong_khai)
+    print("Bảng thị trường: %d loại căn, %d phân khu." % (
+        len(dong_loai), len(dong_khu)))
 
     goc = html
     html, _ = ghi_de_khoi_tinh(html, cac_the)
+    html, _ = ghi_de_dong_thi_truong(html, RE_THI_TRUONG_LOAI, dong_loai)
+    html, _ = ghi_de_dong_thi_truong(html, RE_THI_TRUONG_KHU, dong_khu)
     html, _ = ghi_de_o(html, RE_TOTAL, str(tk["so_can"]))
     html, _ = ghi_de_o(html, RE_READY, str(so_can_ready))
     html, _ = ghi_de_o(html, RE_ZONE, str(tk["so_phan_khu"]))
