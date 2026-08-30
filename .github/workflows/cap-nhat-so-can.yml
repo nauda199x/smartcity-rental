@@ -9,6 +9,7 @@ on:
   push:
     branches:
       - main
+      - fix/itemlist-detail-urls
     paths:
       - "data.json"
       - "scripts/sinh-trang-can.py"
@@ -16,6 +17,7 @@ on:
       - "scripts/sinh-trang-giao-thoa.py"
       - "scripts/sinh-trang-ngan-sach-loai-can.py"
       - "scripts/cap-nhat-lien-ket-noi-bo.py"
+      - "scripts/cap-nhat-so-can.mjs"
       - "scripts/dung-lai-trang-chu.py"
       - "scripts/dung-lai-trang-danh-muc.py"
       - "scripts/noi-lien-ket-chi-tiet.py"
