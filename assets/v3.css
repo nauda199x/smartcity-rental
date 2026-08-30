@@ -3038,8 +3038,30 @@ figure figcaption{font-size:.8rem;color:var(--gray-lt);margin-top:7px;text-align
   .nav-v4-panel{width:218px}
 }
 
-/* Mobile dùng bottom nav/menu của app-shell. */
-@media (max-width:860px){
+/* Tablet: vẫn giữ menu trên header, cho phép co lại thay vì biến mất hoàn toàn. */
+@media (min-width:641px) and (max-width:860px){
+  .site-nav-shell{
+    flex-wrap:wrap!important;
+    gap:8px 10px!important;
+  }
+  .site-nav-v4{
+    display:flex!important;
+    flex:1 0 100%;
+    order:4;
+    justify-content:flex-start;
+    gap:2px!important;
+    overflow:visible;
+  }
+  .site-nav-v4>.nav-v4-link,
+  .site-nav-v4 .nav-v4-trigger{
+    padding:6px 7px!important;
+    font-size:.72rem!important;
+  }
+  .nav-v4-panel{width:210px}
+}
+
+/* Điện thoại dùng bottom nav/menu của app-shell. */
+@media (max-width:640px){
   .site-nav-v4{display:none!important}
 }
 
