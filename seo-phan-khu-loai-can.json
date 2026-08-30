@@ -8,9 +8,9 @@
     "updated": "2026-08-30"
   },
   "cho-thue-1pn-plus-imperia-smart-city": {
-    "count": 4,
+    "count": 3,
     "created": "2026-08-30",
-    "indexable": true,
+    "indexable": false,
     "loai": "1 Ngủ +",
     "phanKhu": "Imperia",
     "updated": "2026-08-30"
