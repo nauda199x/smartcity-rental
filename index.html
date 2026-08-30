@@ -1880,9 +1880,17 @@
       return `<span class="badge-nt${la_full ? "" : " thuong"}">${chu}</span>`;
     }
 
-    /** Số ảnh góc trên phải. Đếm từ chính album của căn, không có thì bỏ hẳn. */
+    /** Danh sách ảnh đầy đủ của card: ảnh đại diện đứng đầu, sau đó tới
+     *  "Danh sách ảnh", loại trùng URL. Nhờ vậy ảnh đang thấy trên card chính
+     *  là ảnh số 1 khi vuốt hoặc mở gallery. */
+    function anhDayDu(apartment) {
+      const ds = [apartment.cover, ...apartment.photos].filter(Boolean);
+      return ds.filter((url, index) => ds.indexOf(url) === index);
+    }
+
+    /** Số media góc trên phải. Đếm cả ảnh đại diện + album + video. */
     function soAnhHtml(apartment) {
-      const soMedia = apartment.photos.length + apartment.videos.length;
+      const soMedia = anhDayDu(apartment).length + apartment.videos.length;
       return soMedia > 0 ? `<span class="pcount">${T("l.photos", `${soMedia} ảnh`).replace("{N}", soMedia)}</span>` : "";
     }
 
@@ -2051,7 +2059,7 @@
 
       grid.querySelectorAll("[data-gallery]").forEach(button => {
         const apartment = apartments[Number(button.dataset.gallery)];
-        const anhVuot = apartment.photos.filter(Boolean);
+        const anhVuot = anhDayDu(apartment);
         let chiSoAnh = 0;
         let chamX = 0, chamY = 0;
 
@@ -2100,7 +2108,7 @@
     }
 
     function openGallery(apartment, chiSoBatDau = 0) {
-      const media = [...apartment.photos, ...apartment.videos];
+      const media = [...anhDayDu(apartment), ...apartment.videos];
       if (!media.length) return;
       /* Gallery toàn màn hình (assets/gallery.js). Modal cũ giữ nguyên bên dưới
          làm phương án dự phòng: nếu file gallery không tải được thì khách vẫn
