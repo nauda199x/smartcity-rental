@@ -58,7 +58,8 @@
     var p = duongDan();
     if (p === "/" || p === "") return "trang-chu";
     if (p.indexOf("/gui-thue") === 0) return "ky-gui";
-    if (/cam-nang|kinh-nghiem|luu-y|phi-dich-vu|tien-ich|bang-gia|so-sanh|gia-thue-studio/.test(p)) return "cam-nang";
+    if (/bang-gia|so-sanh-gia|gia-thue-studio/.test(p)) return "bang-gia";
+    if (/cam-nang|kinh-nghiem|luu-y|phi-dich-vu|tien-ich/.test(p)) return "cam-nang";
     return "";
   }
 
@@ -67,6 +68,7 @@
     sach: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"><path d="M4 5.5A1.5 1.5 0 0 1 5.5 4H10a2 2 0 0 1 2 2v13a2 2 0 0 0-2-2H5.5A1.5 1.5 0 0 1 4 15.5Z"/><path d="M20 5.5A1.5 1.5 0 0 0 18.5 4H14a2 2 0 0 0-2 2v13a2 2 0 0 1 2-2h4.5a1.5 1.5 0 0 0 1.5-1.5Z"/></svg>',
     kygui: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"><path d="M3.5 10.5 12 4l8.5 6.5V19a1 1 0 0 1-1 1h-15a1 1 0 0 1-1-1Z"/><path d="M12 16v-5M9.6 13.2 12 10.8l2.4 2.4" stroke-linecap="round"/></svg>',
     timmua: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"><path d="M3.5 10.5 12 4l8.5 6.5V19a1 1 0 0 1-1 1h-15a1 1 0 0 1-1-1Z"/><path d="M12 10.5v6M10.2 12.2h2.6a1.3 1.3 0 0 1 0 2.6h-1.6a1.3 1.3 0 0 0 0 2.6h2.6" stroke-linecap="round"/></svg>',
+    gia: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"><path d="M4 7.5A2.5 2.5 0 0 1 6.5 5h11A2.5 2.5 0 0 1 20 7.5v9a2.5 2.5 0 0 1-2.5 2.5h-11A2.5 2.5 0 0 1 4 16.5Z"/><path d="M8 9.5h8M8 13h5M8 16.5h3"/></svg>',
     menu: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="5" cy="12" r="1.4" fill="currentColor" stroke="none"/><circle cx="12" cy="12" r="1.4" fill="currentColor" stroke="none"/><circle cx="19" cy="12" r="1.4" fill="currentColor" stroke="none"/></svg>'
   };
 
@@ -75,22 +77,39 @@
   /* "k" là khoá tra bản dịch (assets/ngon-ngu.js). "so" là số điện thoại tách
      riêng khỏi phần chữ để dịch không nuốt mất số. */
   var MENU = [
-    { nhom: "Liên hệ", k: "sh.contact" },
-    { ten: "Nhắn Zalo", so: SDT, k: "nav.zalo", href: "https://zalo.me/" + SDT, ngoai: true, zalo: true },
-    { ten: "Gọi", so: SDT, k: "ft.call", href: "tel:" + SDT },
-    { nhom: "Tra cứu giá", k: "sh.priceLookup" },
+    { nhom: "Tìm căn hộ", k: "sh.findRent" },
+    { ten: "Tất cả căn đang thuê", k: "sh.allRent", href: "/" },
+    { ten: "Studio", href: "/studio/" },
+    { ten: "1 phòng ngủ", href: "/1pn/" },
+    { ten: "1 phòng ngủ +", href: "/1pn-plus/" },
+    { ten: "2 phòng ngủ", href: "/2pn/" },
+    { ten: "2 phòng ngủ +", href: "/2pn-plus/" },
+    { ten: "3 phòng ngủ", href: "/3pn/" },
+
+    { nhom: "Phân khu", k: "sh.zones" },
+    { ten: "Sapphire", href: "/sapphire/" },
+    { ten: "Masteri West Heights", href: "/masteri/" },
+    { ten: "The Miami", href: "/miami/" },
+    { ten: "Sakura", href: "/sakura/" },
+    { ten: "Imperia Smart City", href: "/imperia/" },
+    { ten: "The Canopy Residences", href: "/canopy/" },
+    { ten: "Lumiere Evergreen", href: "/lumiere/" },
+    { ten: "The Tonkin", href: "/tonkin/" },
+
+    { nhom: "Giá thuê & cẩm nang", k: "sh.priceGuide" },
     { ten: "Bảng giá thuê Vinhomes Smart City", k: "sh.priceTable", href: "/bang-gia-thue-vinhomes-smart-city.html" },
     { ten: "So sánh giá thuê các phân khu", k: "sh.priceCompare", href: "/so-sanh-gia-thue-cac-phan-khu-smart-city.html" },
-    { ten: "Giá thuê căn Studio", k: "sh.priceStudio", href: "/gia-thue-studio-smart-city.html" },
-    { nhom: "Tìm hiểu trước khi thuê", k: "sh.before" },
     { ten: "Cẩm nang thuê nhà", k: "sh.guideFull", href: "/cam-nang-thue-nha.html" },
     { ten: "Kinh nghiệm thuê chung cư Smart City", k: "sh.exp", href: "/kinh-nghiem-thue-chung-cu-smart-city.html" },
-    { ten: "Tiện ích nội khu", k: "sh.amen", href: "/tien-ich-vinhomes-smart-city.html" },
     { ten: "Phí dịch vụ, gửi xe, thú cưng", k: "sh.fees", href: "/phi-dich-vu-vinhomes-smart-city.html" },
-    { nhom: "Muốn mua thay vì thuê?", k: "sh.buyTitle" },
-    { ten: "Xem căn đang bán tại Smart City", k: "sh.buyLink", href: "https://timmuasmartcity.com", ngoai: true },
+
+    { nhom: "Liên hệ", k: "sh.contact" },
+    { ten: "Ký gửi căn cho thuê", k: "nav.consign", href: "/gui-thue/" },
+    { ten: "Nhắn Zalo", so: SDT, k: "nav.zalo", href: "https://zalo.me/" + SDT, ngoai: true, zalo: true },
+    { ten: "Gọi", so: SDT, k: "ft.call", href: "tel:" + SDT },
+
     { nhom: "Khác", k: "sh.other" },
-    { ten: "Danh mục căn hộ theo phân khu", k: "sh.cat", href: "/#mucLucKhoDuLieu" },
+    { ten: "Tìm mua căn hộ Smart City", k: "sh.buyLink", href: "https://timmuasmartcity.com", ngoai: true },
     { ten: "Giới thiệu & Liên hệ", k: "sh.about", href: "/gioi-thieu-lien-he.html" },
     { ten: "Chính sách quyền riêng tư", k: "sh.privacy", href: "/chinh-sach-quyen-rieng-tu.html" }
   ];
@@ -107,7 +126,7 @@
       h += '<a href="' + m.href + '"'
          + (m.ngoai ? ' target="_blank" rel="noopener"' : '')
          + (m.zalo ? ' class="tbs-zalo"' : '')
-         + '><span data-i18n="' + m.k + '">' + m.ten + '</span>'
+         + '><span' + (m.k ? ' data-i18n="' + m.k + '"' : '') + '>' + m.ten + '</span>'
          + (m.so ? " " + m.so : "") + '</a>';
     }
     return h;
@@ -124,10 +143,10 @@
     bar.setAttribute("aria-label", "Điều hướng nhanh");
     bar.setAttribute("data-i18n-al", "sh.navAl");
     bar.innerHTML =
-        '<a href="/"' + lop("trang-chu") + '>' + IC.nha + '<span data-i18n="sh.home">Trang chủ</span></a>'
-      + '<a href="https://timmuasmartcity.com" target="_blank" rel="noopener">'
-        + IC.timmua + '<span data-i18n="sh.buy">Tìm mua</span></a>'
-      + '<a href="/gui-thue/"' + lop("ky-gui") + '>' + IC.kygui + '<span data-i18n="sh.consign">Ký gửi thuê</span></a>'
+        '<a href="/"' + lop("trang-chu") + '>' + IC.nha + '<span data-i18n="sh.rent">Căn thuê</span></a>'
+      + '<a href="/bang-gia-thue-vinhomes-smart-city.html"' + lop("bang-gia") + '>'
+        + IC.gia + '<span data-i18n="sh.price">Bảng giá</span></a>'
+      + '<a href="/gui-thue/"' + lop("ky-gui") + '>' + IC.kygui + '<span data-i18n="sh.consign">Ký gửi</span></a>'
       + '<button type="button" id="tabMenu" aria-haspopup="dialog">' + IC.menu + '<span data-i18n="sh.menu">Menu</span></button>';
 
     var nen = document.createElement("div");
@@ -160,34 +179,134 @@
   }
 
   /* ================================================================
-     CHEN LINK "TIM MUA" VAO MENU DESKTOP  (them 03/08/2026)
-     ----------------------------------------------------------------
-     VI SAO LAM BANG JS:
-       Menu desktop nam trong <nav class="topnav"> cua TUNG file HTML —
-       ben nay co 39 trang. Sua tay 39 file cho mot lien ket la khong
-       thuc te, va lan sau doi chu lai phai sua lai tu dau.
-       File nay da duoc nap tren moi trang nen chen o day la ca site co.
-
-     KHAC voi thanh tab duoi: thanh tab CHI dung tren dien thoai, con
-     ham nay chay o MOI kich thuoc man hinh.
-
-     An toan: khong tim thay <nav class="topnav"> thi lang le bo qua.
+     NAVIGATION V4 — một kiến trúc điều hướng cho toàn site
+     ------------------------------------------------------------------
+     HTML tĩnh cũ vẫn giữ link để crawler đọc. Sau DOMContentLoaded, khối này
+     chuẩn hóa phần nhìn thành menu theo ý định thuê: Thuê căn hộ / Phân khu /
+     Loại căn / Bảng giá / Cẩm nang / Ký gửi.
      ================================================================ */
-  function chenLinkTimMua() {
-    var nav = document.querySelector("nav.topnav");
-    if (!nav) return;
-    if (nav.querySelector('a[href*="timmuasmartcity.com"]')) return;  // da co roi
+  var NHOM_PHAN_KHU = [
+    ["Sapphire", "/sapphire/"],
+    ["Masteri West Heights", "/masteri/"],
+    ["The Miami", "/miami/"],
+    ["Sakura", "/sakura/"],
+    ["Imperia Smart City", "/imperia/"],
+    ["The Canopy Residences", "/canopy/"],
+    ["Lumiere Evergreen", "/lumiere/"],
+    ["The Tonkin", "/tonkin/"]
+  ];
 
-    var a = document.createElement("a");
-    a.href = "https://timmuasmartcity.com";
-    a.target = "_blank";
-    a.rel = "noopener";
-    a.textContent = "Tìm mua";
-    a.setAttribute("data-i18n", "sh.buy");
+  var NHOM_LOAI_CAN = [
+    ["Studio", "/studio/"],
+    ["1 phòng ngủ", "/1pn/"],
+    ["1 phòng ngủ +", "/1pn-plus/"],
+    ["2 phòng ngủ", "/2pn/"],
+    ["2 phòng ngủ +", "/2pn-plus/"],
+    ["3 phòng ngủ", "/3pn/"]
+  ];
 
-    /* Đặt ngay sau "Trang chủ" — mục "Danh mục căn" (mốc cũ) đã gỡ ngày 08/08/2026. */
-    nav.insertBefore(a, nav.children[1] || null);
-    nhoDich(a);
+  function navLink(label, href, cls, key) {
+    var current = duongDan();
+    var active = href === "/"
+      ? (current === "/" || current === "")
+      : current.indexOf(href.replace(/\/$/, "")) === 0;
+    return '<a class="nav-v4-link' + (cls ? " " + cls : "") + (active ? " active" : "") + '" href="' + href + '"'
+      + (active ? ' aria-current="page"' : "")
+      + (key ? ' data-i18n="' + key + '"' : "") + '>' + label + '</a>';
+  }
+
+  function navNhom(label, items, active, key) {
+    var html = '<div class="nav-v4-group' + (active ? " active" : "") + '">'
+      + '<button class="nav-v4-trigger" type="button" aria-expanded="false"'
+      + (key ? ' data-i18n="' + key + '"' : "") + '>' + label
+      + '<span class="nav-v4-chevron" aria-hidden="true"></span></button>'
+      + '<div class="nav-v4-panel">';
+    for (var i = 0; i < items.length; i++) {
+      html += '<a href="' + items[i][1] + '">' + items[i][0] + '</a>';
+    }
+    html += '</div></div>';
+    return html;
+  }
+
+  function nhomNavDangMo() {
+    var p = duongDan();
+    var zone = /\/(sapphire|masteri|miami|sakura|imperia|canopy|lumiere|tonkin)\/?/.test(p);
+    var type = /\/(studio|1pn|1pn-plus|2pn|2pn-plus|3pn)\/?/.test(p);
+
+    /* Trang chi tiết dùng slug căn chứ không dùng slug danh mục, nên đọc thêm
+       breadcrumb để vẫn tô đúng nhóm Phân khu / Loại căn. */
+    var bcLinks = document.querySelectorAll(".bc a");
+    for (var i = 0; i < bcLinks.length; i++) {
+      var href = bcLinks[i].getAttribute("href") || "";
+      if (/^\/(sapphire|masteri|miami|sakura|imperia|canopy|lumiere|tonkin)\/?$/.test(href)) zone = true;
+      if (/^\/(studio|1pn|1pn-plus|2pn|2pn-plus|3pn)\/?$/.test(href)) type = true;
+    }
+
+    return {
+      zone: zone,
+      type: type,
+      price: /bang-gia|so-sanh-gia|gia-thue-studio/.test(p),
+      guide: /cam-nang|kinh-nghiem|luu-y|phi-dich-vu|tien-ich/.test(p),
+      consign: p.indexOf("/gui-thue") === 0
+    };
+  }
+
+  function dongTatCaDropdown(ngoaiTru) {
+    var ds = document.querySelectorAll(".nav-v4-group.open");
+    for (var i = 0; i < ds.length; i++) {
+      if (ngoaiTru && ds[i] === ngoaiTru) continue;
+      ds[i].classList.remove("open");
+      var b = ds[i].querySelector(".nav-v4-trigger");
+      if (b) b.setAttribute("aria-expanded", "false");
+    }
+  }
+
+  function nangCapNavigation() {
+    var header = document.querySelector("header.topbar, header.top");
+    if (!header) return;
+    var nav = header.querySelector("nav.topnav") || header.querySelector("nav");
+    if (!nav || nav.classList.contains("site-nav-v4")) return;
+
+    var active = nhomNavDangMo();
+    var brand = header.querySelector("a.brand, a.hieu");
+    if (brand && (!brand.getAttribute("href") || brand.getAttribute("href") === "#")) brand.href = "/";
+    nav.className = "topnav site-nav-v4";
+    nav.setAttribute("aria-label", "Điều hướng chính");
+    nav.setAttribute("data-i18n-al", "nav.main");
+    nav.innerHTML =
+        navLink("Thuê căn hộ", "/", "nav-v4-rent", "nav.rent")
+      + navNhom("Phân khu", NHOM_PHAN_KHU, active.zone, "nav.zone")
+      + navNhom("Loại căn", NHOM_LOAI_CAN, active.type, "nav.type")
+      + navLink("Bảng giá", "/bang-gia-thue-vinhomes-smart-city.html", active.price ? "active" : "", "nav.price")
+      + navLink("Cẩm nang", "/cam-nang-thue-nha.html", active.guide ? "active" : "", "nav.guideShort")
+      + navLink("Ký gửi", "/gui-thue/", active.consign ? "active" : "", "nav.consignShort");
+
+    var shell = header.querySelector(".shell, .khung");
+    if (shell) {
+      shell.classList.add("site-nav-shell");
+      if (shell.querySelector(".search")) shell.classList.add("has-site-search");
+    }
+
+    var triggers = nav.querySelectorAll(".nav-v4-trigger");
+    for (var i = 0; i < triggers.length; i++) {
+      triggers[i].addEventListener("click", function (e) {
+        e.stopPropagation();
+        var group = this.closest(".nav-v4-group");
+        var mo = !group.classList.contains("open");
+        dongTatCaDropdown(group);
+        group.classList.toggle("open", mo);
+        this.setAttribute("aria-expanded", mo ? "true" : "false");
+      });
+    }
+
+    document.addEventListener("click", function (e) {
+      if (!e.target.closest(".site-nav-v4")) dongTatCaDropdown();
+    });
+    document.addEventListener("keydown", function (e) {
+      if (e.key === "Escape") dongTatCaDropdown();
+    });
+
+    nhoDich(nav);
   }
 
   /* ================================================================
@@ -254,7 +373,7 @@
 
   function khoiDong() {
     try {
-      chenLinkTimMua();                 // chay o MOI kich thuoc man hinh
+      nangCapNavigation();              // header/menu desktop dong bo toan site
       boSungDanhTinhWebsite();          // disclaimer + link gioi thieu tren toan site
       napUxChiTietCan();                // gallery + UX rieng cho trang can
       if (laDienThoai() && !laTrangChiTietCan()) dung(); // trang can dung CTA lien he rieng
