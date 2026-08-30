@@ -311,6 +311,12 @@
     "sh.home":         ["Home", "홈"],
     "sh.consign":      ["List for rent", "임대 등록"],
     "sh.menu":         ["Menu", "메뉴"],
+    "sh.rent":         ["Rentals", "임대"],
+    "sh.price":        ["Rent prices", "임대료"],
+    "sh.findRent":     ["Find an apartment", "매물 찾기"],
+    "sh.allRent":      ["All available apartments", "전체 임대 매물"],
+    "sh.zones":        ["Zones", "구역"],
+    "sh.priceGuide":   ["Rent prices & guides", "임대료·가이드"],
     "sh.navAl":        ["Quick navigation", "빠른 이동"],
 
     /* ==================================================================
