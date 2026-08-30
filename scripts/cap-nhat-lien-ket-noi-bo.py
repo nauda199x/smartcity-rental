@@ -347,6 +347,9 @@ def main():
     changed = 0
     for slug, path, raw, bo_loc in pages:
         moi = chen(raw, dung_khoi(slug, bo_loc, data))
+        # Khối mới dùng CSS V12; bump query để browser/CDN không giữ bản cũ.
+        moi = re.sub(r'/assets/v3\\.css(?:\\?v=[^"\\']+)?',
+                     '/assets/v3.css?v=20260830-6', moi)
         rel = os.path.relpath(path, GOC)
         if moi == raw:
             print("= ", rel)
