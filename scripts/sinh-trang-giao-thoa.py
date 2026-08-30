@@ -152,9 +152,14 @@ def render_page(pk, loai, ds, indexable, detail_map, ngay):
     gia_txt = khoang_gia(st["gia_min"], st["gia_max"]) if st["gia_min"] else "Liên hệ"
     dt_txt = ("%d–%d m²" % (st["dt_min"], st["dt_max"])) if st["dt_min"] and st["dt_min"] != st["dt_max"] else ("%d m²" % st["dt_min"] if st["dt_min"] else "Đang cập nhật")
     title = "Cho thuê %s %s Smart City – %d căn" % (t["short"], z["label"], st["n"])
+    if st["gia_min"] and st["gia_max"]:
+        gia_desc = ("%s–%s" % (dinh_dang_gia(st["gia_min"]), dinh_dang_gia(st["gia_max"]))
+                    if st["gia_min"] != st["gia_max"] else dinh_dang_gia(st["gia_min"]))
+    else:
+        gia_desc = "Liên hệ"
     desc = ("Danh sách %d căn %s cho thuê tại %s, Vinhomes Smart City, giá %s/tháng, "
             "diện tích %s. Ảnh và thông số từng căn, cập nhật %s."
-            % (st["n"], t["label"], z["label"], gia_txt, dt_txt, ngay.strftime("%d/%m/%Y")))
+            % (st["n"], t["label"], z["label"], gia_desc, dt_txt, ngay.strftime("%d/%m/%Y")))
     robots = "index,follow" if indexable else "noindex,follow"
     notice = ""
     if not indexable:
@@ -171,13 +176,13 @@ def render_page(pk, loai, ds, indexable, detail_map, ngay):
         ],
     }
     listing = {
-        "@context": "https://schema.org",
         "@type": "ItemList",
         "name": "Căn %s cho thuê tại %s" % (t["label"], z["label"]),
         "numberOfItems": st["n"],
         "itemListElement": item_list(ds, detail_map),
     }
-    cards = "\n".join(DM.dung_the(r, doc_map_anh.cache if hasattr(doc_map_anh, "cache") else MAP_ANH, HOM_NAY) for r in ds)
+    graph = {"@context": "https://schema.org", "@graph": [breadcrumb, listing]}
+    cards = "\n".join(DM.dung_the(r, MAP_ANH, HOM_NAY) for r in ds)
     # Bảng một dòng cố định theo loại căn để dung-lai-trang-danh-muc.py tiếp tục cập nhật an toàn.
     table = ('<table class="bang"><thead><tr><th>Loại căn</th><th>Số căn trống</th><th>Khoảng giá/tháng</th></tr></thead>'
              '<tbody><tr><td>%s</td><td>%d</td><td>%s</td></tr></tbody></table>'
@@ -206,8 +211,7 @@ def render_page(pk, loai, ds, indexable, detail_map, ngay):
 <meta name="twitter:description" content="%(desc)s">
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-VF9KHC5TWD"></script>
 <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-VF9KHC5TWD');</script>
-<script type="application/ld+json">%(breadcrumb)s</script>
-<script type="application/ld+json">%(listing)s</script>
+<script type="application/ld+json">%(graph)s</script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@700;800&family=Be+Vietnam+Pro:wght@300;400;500;600&display=swap" media="print" onload="this.media='all'">
@@ -244,7 +248,7 @@ def render_page(pk, loai, ds, indexable, detail_map, ngay):
 
 <section class="bai">
   <h2>Giá thuê %(type_label)s tại %(zone)s hiện nay</h2>
-  <p>Dữ liệu đang hiển thị có <strong>%(n)d căn</strong>, giá từ <strong>%(gia)s/tháng</strong> và diện tích %(dt)s. Đây là số liệu lấy trực tiếp từ quỹ căn public trên website tại thời điểm %(ngay)s.</p>
+  <p>Dữ liệu đang hiển thị có <strong><span data-so="can">%(n)d</span> căn</strong>, giá từ <strong><span data-so="gia-min">%(gia_min_num)s</span> triệu–<span data-so="gia-max">%(gia_max_num)s</span> triệu/tháng</strong> và diện tích <span data-so="dt-min">%(dt_min)d</span>–<span data-so="dt-max">%(dt_max)d</span>m². Đây là số liệu lấy trực tiếp từ quỹ căn public trên website tại thời điểm %(ngay)s.</p>
   <p>Các tòa đang có căn: %(tower_text)s. Tình trạng nội thất trong quỹ hiện tại: %(interior_text)s.</p>
   <h3>Cách mở rộng tìm kiếm</h3>
   <p>Nếu chưa thấy căn phù hợp, anh/chị có thể xem toàn bộ <a href="%(zone_parent)s">căn đang cho thuê tại %(zone)s</a> hoặc mở trang <a href="%(type_parent)s">%(type_label)s toàn Vinhomes Smart City</a> để so sánh thêm các phân khu khác.</p>
@@ -269,17 +273,19 @@ def render_page(pk, loai, ds, indexable, detail_map, ngay):
 </html>
 """ % {
         "title": esc(title), "desc": esc(desc), "robots": robots, "url": esc(url),
-        "breadcrumb": json.dumps(breadcrumb, ensure_ascii=False).replace("</", "<\\/"),
-        "listing": json.dumps(listing, ensure_ascii=False).replace("</", "<\\/"),
+        "graph": json.dumps(graph, ensure_ascii=False).replace("</", "<\\/"),
         "css_version": CSS_VERSION,
         "zone_parent": esc(z["parent"]), "zone": esc(z["label"]), "zone_slug": esc(z["slug"]),
         "type_label": esc(t["label"]), "type_parent": esc(t["parent"]), "type_slug": esc(t["slug"]),
         "n": st["n"], "gia": esc(gia_txt), "gia_min": esc(dinh_dang_gia(st["gia_min"]) if st["gia_min"] else "Liên hệ"),
+        "gia_min_num": esc(dinh_dang_gia(st["gia_min"]).replace(" triệu", "") if st["gia_min"] else "0"),
+        "gia_max_num": esc(dinh_dang_gia(st["gia_max"]).replace(" triệu", "") if st["gia_max"] else "0"),
+        "dt_min": st["dt_min"], "dt_max": st["dt_max"],
         "dt": esc(dt_txt), "tower_count": len(st["towers"]), "notice": notice,
         "cards": cards, "ngay": ngay.strftime("%d/%m/%Y"),
         "tower_text": esc(tower_text(st["towers"])), "interior_text": esc(interior_text(st["interiors"])),
         "table": table, "nap": doc_khoi_nap(), "sdt": STT.SDT,
-        "filter_json": esc(json.dumps({"phanKhu": pk, "loai": loai}, ensure_ascii=False)),
+        "filter_json": json.dumps({"phanKhu": pk, "loai": loai}, ensure_ascii=False).replace("</", "<\\/"),
     }
     return html
 
