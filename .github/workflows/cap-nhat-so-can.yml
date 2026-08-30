@@ -9,7 +9,6 @@ on:
   push:
     branches:
       - main
-      - seo/budget-type-pages-v14
     paths:
       - "data.json"
       - "scripts/sinh-trang-can.py"
