@@ -395,10 +395,33 @@ function capNhatTrangDanhMuc(duong, html, soCan, giaChu, giaKhoang, log, canhBao
  */
 const RE_LD_JSON = /(<script[^>]*type="application\/ld\+json"[^>]*>)([\s\S]*?)(<\/script>)/i;
 
-/* URL chính tắc lấy từ chính thẻ canonical của trang, KHÔNG ghép từ đường dẫn
-   file: thư mục và canonical có thể lệch nhau (dấu / cuối, tên khác), ghép tay
-   là cách chắc chắn tạo ra url sai trong structured data. */
-const RE_CANONICAL = /<link[^>]*rel="canonical"[^>]*href="([^"]*)"/i;
+/* URL từng ListItem phải trỏ vào trang chi tiết căn, không trỏ ngược về
+   canonical của landing. Sổ đăng ký được sinh ngay trước bước này trong
+   workflow nên là nguồn duy nhất ánh xạ Mã nội bộ -> slug trang căn. */
+const TEN_MIEN = "https://timthuesmartcity.com";
+
+function docUrlChiTietTheoMa(canhBao) {
+  const duong = join(GOC, "can-ho", "danh-sach-trang.json");
+  let raw;
+  try {
+    raw = JSON.parse(readFileSync(duong, "utf8"));
+  } catch (e) {
+    canhBao.push(`Không đọc được can-ho/danh-sach-trang.json (${e.message}) — ItemList sẽ giữ nguyên.`);
+    return null;
+  }
+  if (!raw || typeof raw !== "object" || Array.isArray(raw)) {
+    canhBao.push("can-ho/danh-sach-trang.json không phải object — ItemList sẽ giữ nguyên.");
+    return null;
+  }
+
+  const ra = new Map();
+  for (const [slug, rec] of Object.entries(raw)) {
+    const ma = chuan(rec && rec.ma);
+    if (!ma || !/^[a-z0-9-]+$/.test(slug)) continue;
+    ra.set(ma, `${TEN_MIEN}/can-ho/${slug}/`);
+  }
+  return ra;
+}
 
 /* Chuỗi name của một ListItem, đúng định dạng đang dùng trong repo:
      {Loại} {Tòa} {diện tích}m² – {giá} triệu/tháng
@@ -413,7 +436,7 @@ function tenListItem(r) {
   return phan.join(" ");
 }
 
-function capNhatItemList(duong, html, dsCan, log, canhBao) {
+function capNhatItemList(duong, html, dsCan, urlChiTietTheoMa, log, canhBao) {
   const ten = relative(GOC, duong);
   const m = html.match(RE_LD_JSON);
   if (!m) {
@@ -442,10 +465,8 @@ function capNhatItemList(duong, html, dsCan, log, canhBao) {
     return { html, doi: false };
   }
 
-  const mCanonical = html.match(RE_CANONICAL);
-  const url = mCanonical ? chuan(mCanonical[1]) : "";
-  if (!url) {
-    canhBao.push(`${ten}: không đọc được <link rel="canonical"> — BỎ QUA ItemList.`);
+  if (!urlChiTietTheoMa) {
+    canhBao.push(`${ten}: chưa có bản đồ URL chi tiết — GIỮ NGUYÊN ItemList.`);
     return { html, doi: false };
   }
 
@@ -454,12 +475,24 @@ function capNhatItemList(duong, html, dsCan, log, canhBao) {
 
   /* Gán vào khoá đã tồn tại nên vị trí khoá trong JSON không đổi. */
   itemList.numberOfItems = dsCan.length;
-  itemList.itemListElement = dsCan.map((r, i) => ({
-    "@type": "ListItem",
-    position: i + 1,
-    name: tenListItem(r),
-    url,
-  }));
+  const thieuUrl = [];
+  itemList.itemListElement = dsCan.map((r, i) => {
+    const ma = chuan(r["Mã nội bộ"]);
+    const url = ma ? urlChiTietTheoMa.get(ma) : "";
+    const item = {
+      "@type": "ListItem",
+      position: i + 1,
+      name: tenListItem(r),
+    };
+    if (url) item.url = url;
+    else thieuUrl.push(ma || "(không có Mã nội bộ)");
+    return item;
+  });
+  if (thieuUrl.length) {
+    canhBao.push(
+      `${ten}: ${thieuUrl.length}/${dsCan.length} căn chưa có URL chi tiết trong sổ đăng ký (${thieuUrl.slice(0, 5).join(", ")}${thieuUrl.length > 5 ? ", …" : ""}).`
+    );
+  }
 
   /* Một dòng, không indent — đúng định dạng khối JSON-LD trong repo.
      "</" được escape thành "<\/" (JSON hợp lệ, JSON.parse trả lại nguyên văn)
@@ -543,6 +576,8 @@ function main() {
   const canhBao = [];
   const nhatKy = [];
   const doiGiaSan = [];   // trang có con số giá sàn thật sự thay đổi
+  const urlChiTietTheoMa = docUrlChiTietTheoMa(canhBao);
+  if (urlChiTietTheoMa) console.log(`Sổ URL chi tiết: ${urlChiTietTheoMa.size} căn.`);
 
   /* --- Trang danh mục: số căn --- */
   let soTrangDanhMuc = 0;
@@ -580,7 +615,7 @@ function main() {
     const giaKhoang = khoangGiaTuDsCan(dsCan);
 
     const kq = capNhatTrangDanhMuc(duong, html, soCan, giaChu, giaKhoang, nhatKy, canhBao);
-    const kqLd = capNhatItemList(duong, kq.html, dsCan, nhatKy, canhBao);
+    const kqLd = capNhatItemList(duong, kq.html, dsCan, urlChiTietTheoMa, nhatKy, canhBao);
     if (kq.doi || kqLd.doi) {
       if (!CHI_THU) writeFileSync(duong, kqLd.html, "utf8");
       daSua.push(ten);
