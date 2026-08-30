@@ -209,7 +209,11 @@ def dang_hien_thi(can):
 
 
 def ma_hop_le(can):
-    return bool(re.match(r'^CT\.', str(can.get("Mã nội bộ", "")).strip()))
+    """Mã nội bộ chỉ cần không rỗng.
+
+    Quỹ cũ còn một số mã legacy dạng số/CC*, nhưng vẫn là mã duy nhất và ổn
+    định. Khóa cứng CT.* làm các căn đó không bao giờ có URL chi tiết."""
+    return bool(str(can.get("Mã nội bộ", "")).strip())
 
 
 def danh_sach_anh(can):
@@ -230,7 +234,7 @@ def danh_sach_anh(can):
 
 
 def du_dieu_kien(can):
-    """Mọi căn đang public có mã CT.* đều phải có URL chi tiết riêng."""
+    """Mọi căn đang public có Mã nội bộ đều phải có URL chi tiết riêng."""
     return dang_hien_thi(can) and ma_hop_le(can)
 
 
@@ -956,8 +960,11 @@ def main():
         return 2
 
     qualifying = [c for c in du_lieu if du_dieu_kien(c)]
+    thieu_ma = [c for c in du_lieu if dang_hien_thi(c) and not ma_hop_le(c)]
     print("data.json               : %d bản ghi" % len(du_lieu))
     print("Đủ điều kiện sinh trang  : %d" % len(qualifying))
+    if thieu_ma:
+        print("CẢNH BÁO: %d căn public đang thiếu Mã nội bộ — không thể cấp URL ổn định; giữ căn trên danh sách nhưng không tự bịa URL." % len(thieu_ma))
 
     if len(qualifying) > TOI_DA:
         print("\nDỪNG AN TOÀN (mã 2): %d căn đủ điều kiện, vượt trần %d.\n"
