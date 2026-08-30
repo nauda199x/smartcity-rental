@@ -572,6 +572,48 @@
         (ma ? '<p class="ma-can">Mã căn: <b>' + esc(ma) + "</b></p>" : "") +
       "</div>";
 
+    /* Vuốt ảnh trực tiếp trên card ở điện thoại. Không thay đổi dữ liệu và
+       không tải cả album cùng lúc; chỉ đổi src khi người dùng chủ động vuốt. */
+    var chiSoAnhThe = 0;
+    var vuaVuotAnh = false;
+    if (media.anh.length > 1) {
+      var khungVuot = el.querySelector(".the-anh");
+      var anhVuotEl = khungVuot ? khungVuot.querySelector("img") : null;
+      var demVuot = khungVuot ? khungVuot.querySelector(".dbc-huy-hieu") : null;
+      var batDauX = 0, batDauY = 0;
+
+      if (demVuot && window.matchMedia && window.matchMedia("(max-width:640px)").matches) {
+        demVuot.textContent = "1/" + media.anh.length;
+      }
+
+      if (khungVuot && anhVuotEl) {
+        khungVuot.addEventListener("touchstart", function (ev) {
+          if (!ev.touches || !ev.touches.length) return;
+          batDauX = ev.touches[0].clientX;
+          batDauY = ev.touches[0].clientY;
+        }, { passive: true });
+
+        khungVuot.addEventListener("touchend", function (ev) {
+          if (!ev.changedTouches || !ev.changedTouches.length) return;
+          var dx = ev.changedTouches[0].clientX - batDauX;
+          var dy = ev.changedTouches[0].clientY - batDauY;
+          if (Math.abs(dx) < 38 || Math.abs(dx) <= Math.abs(dy)) return;
+
+          chiSoAnhThe = dx < 0
+            ? (chiSoAnhThe + 1) % media.anh.length
+            : (chiSoAnhThe - 1 + media.anh.length) % media.anh.length;
+
+          anhVuotEl.src = media.anh[chiSoAnhThe];
+          anhVuotEl.removeAttribute("srcset");
+          anhVuotEl.removeAttribute("sizes");
+          if (demVuot) demVuot.textContent = (chiSoAnhThe + 1) + "/" + media.anh.length;
+
+          vuaVuotAnh = true;
+          window.setTimeout(function () { vuaVuotAnh = false; }, 350);
+        }, { passive: true });
+      }
+    }
+
     /* Thẻ bấm được để mở album — chỉ khi có ít nhất 1 ảnh/video.
        Bỏ qua khi bấm vào nút Zalo để nút đó vẫn hoạt động bình thường. */
     if (soMedia > 0) {
@@ -584,13 +626,14 @@
       var tieuDeAlbum = (loai + " · " + toa);
       el.addEventListener("click", function (ev) {
         if (ev.target.closest("a")) return;
-        dbcMo(toanBoMedia, tieuDeAlbum, giaHienThi, 0);
+        if (vuaVuotAnh) return;
+        dbcMo(toanBoMedia, tieuDeAlbum, giaHienThi, chiSoAnhThe);
       });
       el.addEventListener("keydown", function (ev) {
         if (ev.target.closest("a")) return;
         if (ev.key === "Enter" || ev.key === " " || ev.key === "Spacebar") {
           ev.preventDefault();
-          dbcMo(toanBoMedia, tieuDeAlbum, giaHienThi, 0);
+          dbcMo(toanBoMedia, tieuDeAlbum, giaHienThi, chiSoAnhThe);
         }
       });
     }
