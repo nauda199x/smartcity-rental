@@ -12,6 +12,8 @@ on:
     paths:
       - "data.json"
       - "scripts/sinh-trang-can.py"
+      - "scripts/sinh-trang-toa.py"
+      - "scripts/cap-nhat-lien-ket-noi-bo.py"
       - "scripts/dung-lai-trang-chu.py"
       - "scripts/dung-lai-trang-danh-muc.py"
       - "scripts/noi-lien-ket-chi-tiet.py"
@@ -107,6 +109,14 @@ jobs:
           python3 scripts/noi-lien-ket-chi-tiet.py ${{ inputs.chi_thu && '--thu' || '' }} \
             2>&1 | tee -a ket-qua.txt
 
+      # Chạy sau khi lưới + URL chi tiết đã hoàn tất để khối liên kết tĩnh
+      # không bị generator phía trước ghi đè. Không tạo URL mới.
+      - name: Dựng internal-link graph
+        run: |
+          set -o pipefail
+          python3 scripts/cap-nhat-lien-ket-noi-bo.py ${{ inputs.chi_thu && '--thu' || '' }} \
+            2>&1 | tee -a ket-qua.txt
+
       - name: Đếm căn và cập nhật thẻ SEO
         id: chay
         run: |
@@ -119,6 +129,12 @@ jobs:
           set -o pipefail
           node scripts/cap-nhat-sitemap.mjs ${{ inputs.chi_thu && '--thu' || '' }} \
             2>&1 | tee -a ket-qua.txt
+
+      - name: Audit internal links
+        run: |
+          set -o pipefail
+          python3 scripts/kiem-tra-lien-ket.py 2>&1 | tee -a ket-qua.txt || \
+            echo "::warning::Audit internal link còn cảnh báo/lỗi; xem ket-qua.txt."
 
       - name: Ghi kết quả vào phần tóm tắt của lần chạy
         if: always()

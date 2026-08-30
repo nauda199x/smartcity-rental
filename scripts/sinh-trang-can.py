@@ -356,7 +356,7 @@ gtag('js',new Date());gtag('config','G-VF9KHC5TWD');</script>
 <noscript>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@700;800&family=Be+Vietnam+Pro:wght@300;400;500;600&display=swap">
 </noscript>
-<link rel="stylesheet" href="/assets/v3.css?v=20260830-5">
+<link rel="stylesheet" href="/assets/v3.css?v=20260830-6">
 </head>
 <body>
 <header class="top">
@@ -391,9 +391,9 @@ CHAN_TRANG = """</main>
   </div>
 </footer>
 <a class="zalo-noi" href="https://zalo.me/%(sdt)s" target="_blank" rel="noopener">Nhắn Zalo tư vấn</a>
-  <script id="ct-gallery-js" src="/assets/gallery.js?v=20260830-5" defer></script>
-  <script id="ct-detail-js" src="/assets/can-ho-detail.js?v=20260830-5" defer></script>
-  <script src="/assets/app-shell.js?v=20260830-5" defer></script>
+  <script id="ct-gallery-js" src="/assets/gallery.js?v=20260830-6" defer></script>
+  <script id="ct-detail-js" src="/assets/can-ho-detail.js?v=20260830-6" defer></script>
+  <script src="/assets/app-shell.js?v=20260830-6" defer></script>
 </body>
 </html>
 """
@@ -404,20 +404,76 @@ def dung_footer(ngay_str):
         MOC_NAP, doc_khoi_nap())
 
 
-def lien_ket_noi_bo(phan_khu, loai, ma_toa):
-    """Trang phân khu · trang loại căn tương ứng · trang tòa (nếu có)."""
+def longtail_cho_can(loai, gia, noi_that):
+    """Các trang nhu cầu sâu đã tồn tại phù hợp với chính căn đang xem."""
+    l = str(loai).strip().lower()
+    nt = str(noi_that).strip().lower()
     o = []
+
+    if l == "studio":
+        if gia > 0 and gia <= 7000000:
+            o.append(("/studio-duoi-7-trieu/", "Studio dưới 7 triệu"))
+        elif gia > 7000000 and gia <= 10000000:
+            o.append(("/studio-7-10-trieu/", "Studio 7–10 triệu"))
+        if nt == "full nội thất":
+            o.append(("/studio-full-do/", "Studio full nội thất"))
+
+    elif l == "1 ngủ +":
+        if gia > 0 and gia <= 10000000:
+            o.append(("/1pn-plus-duoi-10-trieu/", "1 phòng ngủ + dưới 10 triệu"))
+        if nt == "full nội thất":
+            o.append(("/1pn-plus-full-do/", "1 phòng ngủ + full nội thất"))
+
+    elif l == "2 ngủ":
+        if gia > 0 and gia <= 10000000:
+            o.append(("/2pn-duoi-10-trieu/", "2 phòng ngủ dưới 10 triệu"))
+        elif gia > 10000000 and gia <= 12000000:
+            o.append(("/2pn-10-12-trieu/", "2 phòng ngủ 10–12 triệu"))
+        if nt == "full nội thất":
+            o.append(("/2pn-full-do/", "2 phòng ngủ full nội thất"))
+
+    elif l == "2 ngủ +" and gia > 12000000 and gia <= 15000000:
+        o.append(("/2pn-plus-12-15-trieu/", "2 phòng ngủ + 12–15 triệu"))
+
+    elif l == "3 ngủ":
+        if gia > 12000000 and gia <= 15000000:
+            o.append(("/3pn-12-15-trieu/", "3 phòng ngủ 12–15 triệu"))
+        if nt == "full nội thất":
+            o.append(("/3pn-full-do/", "3 phòng ngủ full nội thất"))
+
+    # Giữ thứ tự nhưng không lặp href.
+    ra, da_co = [], set()
+    for href, ten in o:
+        if href not in da_co:
+            da_co.add(href)
+            ra.append((href, ten))
+    return ra
+
+
+def lien_ket_noi_bo(phan_khu, loai, ma_toa, gia=0, noi_that=""):
+    """Đi từ căn chi tiết lên parent, sang intent gần và sang cẩm nang."""
+    o = []
+
     tp = TRANG_PHAN_KHU.get(phan_khu)
     if tp:
-        o.append('<a href="%s">Phân khu %s</a>' % (esc(tp), esc(phan_khu)))
+        o.append('<a href="%s">Căn hộ %s đang cho thuê</a>' % (
+            esc(tp), esc(phan_khu)))
+
     tl = TRANG_LOAI_CAN.get(str(loai).strip().lower())
     if tl:
         o.append('<a href="%s">%s</a>' % (esc(tl[0]), esc(tl[1])))
+
+    for href, ten in longtail_cho_can(loai, gia, noi_that):
+        o.append('<a href="%s">%s</a>' % (esc(href), esc(ten)))
+
     tt = TRANG_TOA.get(chuan_ma_toa(ma_toa))
     if tt:
         o.append('<a href="%s">Tòa %s</a>' % (esc(tt[0]), esc(tt[1])))
-    o.append('<a href="/bang-gia-thue-vinhomes-smart-city.html">Bảng giá thuê Vinhomes Smart City</a>')
-    o.append('<a href="/can-ho/">Toàn bộ trang căn hộ</a>')
+
+    o.append('<a href="/bang-gia-thue-vinhomes-smart-city.html">Bảng giá thuê Smart City</a>')
+    o.append('<a href="/phi-dich-vu-vinhomes-smart-city.html">Phí dịch vụ & gửi xe</a>')
+    o.append('<a href="/kinh-nghiem-thue-chung-cu-smart-city.html">Kinh nghiệm thuê nhà</a>')
+    o.append('<a href="/can-ho/">Danh sách trang căn chi tiết</a>')
     return "".join(o)
 
 
@@ -537,7 +593,7 @@ def dung_trang_can(can, s, active, hom_nay):
         esc(ma), esc(loai), dt, esc(toa), esc(phan_khu or toa), esc(noi_that or "Liên hệ"),
         esc(gia), esc(ngay_vao_o_hien_thi(can, hom_nay)), ngay_str)
 
-    lien_ket = lien_ket_noi_bo(phan_khu, loai, toa)
+    lien_ket = lien_ket_noi_bo(phan_khu, loai, toa, gia_so, noi_that)
 
     tuong_tu = can_tuong_tu(s, toa, phan_khu, loai, active["ban_do"])
     tuong_tu_html = ""
@@ -566,7 +622,7 @@ Vinhomes Smart City. %(noi_that_cau)s Giá thuê %(gia)s/tháng. Cập nhật %(
     <a class="cta-home tren" href="tel:%(sdt)s">Gọi %(sdt)s</a>
   </p>
 
-  <h2 style="font-size:19px;margin-bottom:2px">Xem thêm</h2>
+  <h2 style="font-size:19px;margin-bottom:2px">Xem thêm theo nhu cầu</h2>
   <div class="lq">%(lien_ket)s</div>
 
 %(tuong_tu)s
@@ -651,7 +707,7 @@ def dung_trang_da_thue(s, ho_so, active, hom_nay):
             "<tr><td>Phân khu</td><td>%s</td></tr>"
             "</tbody></table>") % (esc(ma), esc(loai), dt, esc(toa), esc(phan_khu or toa))
 
-    lien_ket = lien_ket_noi_bo(phan_khu, loai, toa)
+    lien_ket = lien_ket_noi_bo(phan_khu, loai, toa, 0, "")
 
     tuong_tu = can_tuong_tu(s, toa, phan_khu, loai, active["ban_do"])
     tuong_tu_html = "<p>Hiện chưa có căn trống tương tự, mời xem <a href=\"/can-ho/\">toàn bộ căn hộ đang cho thuê</a>.</p>"
@@ -669,7 +725,7 @@ def dung_trang_da_thue(s, ho_so, active, hom_nay):
   <h2 style="font-size:19px;margin-bottom:2px">Căn còn trống tương tự</h2>
   %(tuong_tu)s
 
-  <h2 style="font-size:19px;margin-bottom:2px">Xem thêm</h2>
+  <h2 style="font-size:19px;margin-bottom:2px">Xem thêm theo nhu cầu</h2>
   <div class="lq">%(lien_ket)s</div>
 """ % {
         "tieu_de": esc(the_can_ten), "bang": bang,
@@ -677,6 +733,57 @@ def dung_trang_da_thue(s, ho_so, active, hom_nay):
     }
 
     return dau + than + dung_footer(ngay_str)
+
+
+def dung_hub_internal_links(active):
+    """Đường tắt từ /can-ho/ lên các cụm cha có nhiều căn nhất."""
+    dem_pk = {}
+    dem_loai = {}
+    for c in active["ban_do"].values():
+        pk = c.get("phan_khu") or ""
+        loai = str(c.get("loai", "")).strip().lower()
+        if pk in TRANG_PHAN_KHU:
+            dem_pk[pk] = dem_pk.get(pk, 0) + 1
+        if loai in TRANG_LOAI_CAN:
+            dem_loai[loai] = dem_loai.get(loai, 0) + 1
+
+    top_pk = sorted(dem_pk, key=lambda x: (-dem_pk[x], x))[:4]
+    top_loai = sorted(dem_loai, key=lambda x: (-dem_loai[x], x))[:4]
+
+    loai_html = "".join(
+        '<a href="%s"><strong>%s</strong><span>%d căn đang có URL chi tiết.</span></a>'
+        % (esc(TRANG_LOAI_CAN[l][0]), esc(TRANG_LOAI_CAN[l][1]), dem_loai[l])
+        for l in top_loai)
+
+    pk_html = "".join(
+        '<a href="%s"><strong>%s</strong><span>%d căn đang có URL chi tiết.</span></a>'
+        % (esc(TRANG_PHAN_KHU[pk]), esc(pk), dem_pk[pk])
+        for pk in top_pk)
+
+    guide_html = (
+        '<a href="/bang-gia-thue-vinhomes-smart-city.html"><strong>Bảng giá thuê</strong>'
+        '<span>So sánh giá theo loại căn và phân khu.</span></a>'
+        '<a href="/so-sanh-gia-thue-cac-phan-khu-smart-city.html"><strong>So sánh phân khu</strong>'
+        '<span>Đối chiếu mặt bằng giá giữa các khu.</span></a>'
+        '<a href="/cam-nang-thue-nha.html"><strong>Cẩm nang thuê nhà</strong>'
+        '<span>Quy trình, chi phí và lưu ý trước khi thuê.</span></a>'
+    )
+
+    return (
+        '<div class="can-ho-hub-nav"><section class="seo-graph" '
+        'aria-label="Điều hướng theo cụm căn hộ">'
+        '<div class="seo-graph-head"><span>Đi theo cụm</span>'
+        '<h2>Tìm nhanh trước khi mở từng căn</h2>'
+        '<p>Đi từ danh sách URL căn hộ lên loại căn, phân khu hoặc cẩm nang phù hợp.</p></div>'
+        '<div class="seo-graph-grid">'
+        '<div class="seo-graph-group"><h3>Loại căn nhiều lựa chọn</h3>'
+        '<div class="seo-graph-links">%s</div></div>'
+        '<div class="seo-graph-group"><h3>Phân khu nhiều lựa chọn</h3>'
+        '<div class="seo-graph-links">%s</div></div>'
+        '<div class="seo-graph-group"><h3>Thông tin trước khi thuê</h3>'
+        '<div class="seo-graph-links">%s</div></div>'
+        '</div></section></div>'
+    ) % (loai_html, pk_html, guide_html)
 
 
 def dung_trang_hub(active, occupied_list, hom_nay):
@@ -775,7 +882,7 @@ gtag('js',new Date());gtag('config','G-VF9KHC5TWD');</script>
 <noscript>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@700;800&family=Be+Vietnam+Pro:wght@300;400;500;600&display=swap">
 </noscript>
-<link rel="stylesheet" href="/assets/v3.css">
+<link rel="stylesheet" href="/assets/v3.css?v=20260830-6">
 </head>
 <body>
 <header class="top">
@@ -799,6 +906,8 @@ gtag('js',new Date());gtag('config','G-VF9KHC5TWD');</script>
     <div class="o"><b>%(so_tong)d</b><span>trang căn hộ</span></div>
   </div>
 
+  %(hub_nav)s
+
   %(khoi)s
 
 </main>
@@ -807,6 +916,7 @@ gtag('js',new Date());gtag('config','G-VF9KHC5TWD');</script>
         "tieu_de": esc(tieu_de), "mo_ta": esc(mo_ta), "url": esc(url),
         "og_image": ANH_MAC_DINH, "bua": bua, "danh_sach": danh_sach,
         "so_active": so_active, "so_tong": so_tong,
+        "hub_nav": dung_hub_internal_links(active),
         "khoi": "\n\n  ".join(khoi_html),
         "chan": dung_footer(ngay_str).replace("</main>\n\n", "", 1),
     }
