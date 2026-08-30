@@ -230,7 +230,7 @@ def dong_thi_truong(cac_can):
         gia = so_tien(r.get("Giá thuê"))
         if gia <= 0:
             continue
-        loai = khoa = chuan(r.get("Loại")).lower()
+        loai = chuan(r.get("Loại")).lower()
         khu = phan_khu_tu_toa(r.get("Tòa", ""))
         if loai:
             theo_loai.setdefault(loai, []).append(gia)
