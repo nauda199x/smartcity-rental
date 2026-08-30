@@ -2692,3 +2692,90 @@ figure figcaption{font-size:.8rem;color:var(--gray-lt);margin-top:7px;text-align
     height:auto;min-height:0;aspect-ratio:4/3;
   }
 }
+
+/* ==================================================================
+   24. CARD COMPACT V8 — 30/08/2026
+   ------------------------------------------------------------------
+   Fix card desktop bị cao theo tỉ lệ ảnh dọc. Card marketplace phải có
+   chiều cao ổn định; ảnh chỉ crop bằng object-fit, không được quyết định
+   chiều cao cả hàng.
+   ================================================================== */
+@media (min-width:1081px){
+  .card,.the{
+    height:256px;
+    min-height:256px;
+  }
+  .media,.the-anh{
+    width:40%;
+    height:100%;
+    min-height:0;
+    align-self:stretch;
+    aspect-ratio:auto;
+  }
+  .media img,.the-anh img{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+  }
+  .card .body,.the .than{
+    padding:16px 17px 14px;
+    gap:6px;
+    overflow:hidden;
+  }
+  .card .price,.the .gia{font-size:1.4rem}
+  .card .body h3,.the .ten{font-size:.96rem}
+  .card .tower,.the .vi-tri{font-size:.8rem}
+  .card .card-chips,.the .card-chips{min-height:24px}
+  .card .ma-can,.the .ma-can{
+    font-size:.7rem;
+    line-height:1.2;
+  }
+  .card-foot.co-chi-tiet,
+  .the-actions.co-chi-tiet{
+    grid-template-columns:minmax(0,1fr) minmax(0,1fr);
+  }
+}
+
+/* Trang danh mục dùng cùng cặp CTA với trang chủ sau khi JS dựng lại card. */
+.the .the-actions{
+  order:5;
+  display:grid;
+  grid-template-columns:1fr;
+  gap:8px;
+  margin-top:auto;
+}
+.the .the-actions.co-chi-tiet{
+  grid-template-columns:1fr 1fr;
+}
+.the .the-actions .zalo{
+  order:initial;
+  margin:0;
+  width:100%;
+}
+.the .the-actions .detail-card-link{
+  width:100%;
+}
+.the .the-actions + .ma-can{order:6}
+
+@media (min-width:641px) and (max-width:1080px){
+  .card,.the{
+    height:228px;
+    min-height:228px;
+  }
+  .media,.the-anh{
+    height:100%;
+    min-height:0;
+  }
+  .card .body,.the .than{
+    overflow:hidden;
+  }
+}
+
+@media (max-width:640px){
+  .the .the-actions{
+    margin-top:2px;
+  }
+  .the .the-actions.co-chi-tiet{
+    grid-template-columns:1fr 1fr;
+  }
+}
