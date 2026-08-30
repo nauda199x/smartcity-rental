@@ -2665,3 +2665,30 @@ figure figcaption{font-size:.8rem;color:var(--gray-lt);margin-top:7px;text-align
     min-height:42px;height:auto;padding:9px 8px;font-size:.78rem;
   }
 }
+
+/* Trang căn mới chưa có ảnh vẫn có URL riêng, không để khung gallery trắng */
+.trang-chi-tiet-can .ct-gallery.ct-gallery-empty-source{
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  height:280px;
+  min-height:220px;
+  background:linear-gradient(145deg,#EEF3F8,#F8FAFC);
+}
+.ct-no-photo{
+  display:flex;flex-direction:column;align-items:center;justify-content:center;
+  gap:7px;text-align:center;padding:28px;color:var(--gray);
+}
+.ct-no-photo::before{
+  content:"";width:42px;height:42px;background:var(--gray-lt);
+  -webkit-mask:var(--ic-anh) center/contain no-repeat;
+  mask:var(--ic-anh) center/contain no-repeat;
+  opacity:.7;
+}
+.ct-no-photo b{font-family:var(--font-tieu-de);font-size:1rem;color:var(--ink)}
+.ct-no-photo span{font-size:.8rem;color:var(--gray-lt)}
+@media(max-width:640px){
+  .trang-chi-tiet-can .ct-gallery.ct-gallery-empty-source{
+    height:auto;min-height:0;aspect-ratio:4/3;
+  }
+}
