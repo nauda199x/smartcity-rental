@@ -445,9 +445,9 @@
     </section>
 
     <div class="active-filter-strip" id="activeFilterStrip" hidden>
-      <span class="afs-label">Đang lọc</span>
+      <span class="afs-label" data-i18n="l.filtering">Đang lọc:</span>
       <div class="afs-chips" id="activeFilterChips"></div>
-      <button class="afs-clear" id="activeFilterClear" type="button">Xóa tất cả</button>
+      <button class="afs-clear" id="activeFilterClear" type="button" data-i18n="f.clear">Xóa bộ lọc</button>
     </div>
 
     <div class="list-head">
@@ -2247,8 +2247,9 @@
 
       strip.hidden = ds.length === 0;
       vung.innerHTML = ds.map(item =>
-        '<button class="afs-chip" type="button" data-bo-loc="' + item.key + '" aria-label="Bỏ lọc ' +
-        thoatKyTuThuocTinh(item.label) + '"><span>' + thoatKyTuThuocTinh(item.label) + '</span><b aria-hidden="true">×</b></button>'
+        '<button class="afs-chip" type="button" data-bo-loc="' + item.key + '" aria-label="' +
+        thoatKyTuThuocTinh(T("f.remove", "Bỏ lọc") + " " + item.label) + '"><span>' +
+        thoatKyTuThuocTinh(item.label) + '</span><b aria-hidden="true">×</b></button>'
       ).join("");
 
       vung.querySelectorAll("[data-bo-loc]").forEach(button => {
@@ -2998,10 +2999,16 @@
       var henSticky = 0;
       function capNhatSticky() {
         if (!filterCard || !mqDesktop.matches) {
-          if (filterCard) filterCard.classList.remove("is-stuck");
+          if (filterCard) filterCard.classList.remove("is-stuck", "sticky-done");
           return;
         }
-        filterCard.classList.toggle("is-stuck", filterCard.getBoundingClientRect().top <= 83);
+        var luoi = document.getElementById("listingGrid");
+        var daQuaDanhSach = luoi && luoi.getBoundingClientRect().bottom <= 170;
+        filterCard.classList.toggle("sticky-done", !!daQuaDanhSach);
+        filterCard.classList.toggle(
+          "is-stuck",
+          !daQuaDanhSach && filterCard.getBoundingClientRect().top <= 83
+        );
       }
       window.addEventListener("scroll", function () {
         if (henSticky) return;
