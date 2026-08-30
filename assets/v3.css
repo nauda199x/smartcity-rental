@@ -2117,3 +2117,188 @@ figure figcaption{font-size:.8rem;color:var(--gray-lt);margin-top:7px;text-align
   .card,.the{height:auto!important}
   .media,.the-anh{width:100%;aspect-ratio:16/10}
 }
+
+/* ==================================================================
+   22. MARKETPLACE FILTER V5 — 30/08/2026
+   ------------------------------------------------------------------
+   Giữ nguyên engine chip/state cũ, chỉ thay trải nghiệm:
+   - Desktop: card lọc sticky dưới header, nút hiện số căn.
+   - Mobile: bỏ cụm select + 3 ô trùng lặp; dùng 1 trigger + bottom sheet.
+   - Có dải chip điều kiện đang lọc để bỏ từng điều kiện ngay.
+   ================================================================== */
+
+/* Dải điều kiện đang lọc */
+.active-filter-strip{
+  display:flex;align-items:center;gap:9px;min-width:0;
+  margin:2px 0 16px;padding:0 2px;
+}
+.active-filter-strip[hidden]{display:none}
+.afs-label{
+  flex:none;font-size:.76rem;font-weight:600;color:var(--gray-lt);
+}
+.afs-chips{
+  display:flex;align-items:center;gap:7px;flex-wrap:wrap;min-width:0;
+}
+.afs-chip{
+  display:inline-flex;align-items:center;gap:7px;
+  min-height:34px;padding:6px 10px 6px 12px;
+  border:1px solid #C9D7E8;border-radius:999px;
+  background:#F7FAFF;color:var(--navy-2);
+  font-size:.79rem;font-weight:600;
+}
+.afs-chip:hover{border-color:var(--navy-2);background:#EEF4FC}
+.afs-chip b{font-size:1rem;line-height:1;font-weight:500;color:var(--gray-lt)}
+.afs-clear{
+  flex:none;margin-left:auto;border:0;background:none;
+  color:var(--gray);font-size:.78rem;text-decoration:underline;text-underline-offset:3px;
+}
+.afs-clear:hover{color:var(--navy-2)}
+
+/* Desktop: sticky dưới header 70px */
+@media (min-width:1024px){
+  .filter-card{
+    position:sticky;
+    top:82px;
+    z-index:55;
+    transition:box-shadow .2s,border-color .2s,transform .2s;
+  }
+  .filter-card.is-stuck{
+    border-color:#D5DFEB;
+    box-shadow:0 16px 34px -18px rgba(15,32,60,.42);
+  }
+  .filter-card .loc-pc{
+    grid-template-columns:repeat(4,minmax(0,1fr)) minmax(132px,auto) auto;
+  }
+  .filter-card .loc-pc-o:has(select.dang-loc) select{
+    border-color:#9DB5D4;
+    background-color:#F2F7FD;
+    color:var(--navy-2);
+  }
+  .filter-card .loc-pc-tim{
+    min-width:132px;padding-inline:18px;
+  }
+  .filter-card .loc-pc-xoa[hidden]{display:none}
+}
+
+/* Mobile: một đường vào filter duy nhất ngoài dải loại căn nhanh */
+@media (max-width:640px){
+  /* Card select desktop quá nặng trên mobile: bottom sheet đảm nhiệm toàn bộ. */
+  .filter-card{display:none}
+  .quick-tiles{display:none!important}
+
+  .mobile-filter-toggle{
+    display:flex!important;
+    align-items:center;gap:11px;
+    width:100%;margin:14px 0 12px;padding:11px 12px;
+    background:var(--surface);border:1px solid var(--line);
+    border-radius:14px;box-shadow:none;
+  }
+  .mft-icon{
+    width:36px;height:36px;border-radius:10px;
+    background:#EEF4FC;color:var(--navy-2);
+  }
+  .mft-text{gap:1px}
+  .mft-text b{font-size:.88rem}
+  .mft-text small{font-size:.72rem}
+  .mft-count{
+    flex:none;display:grid;place-items:center;
+    min-width:24px;height:24px;padding:0 6px;border-radius:999px;
+    background:var(--navy-2);color:#fff;font-size:.72rem;font-weight:700;
+  }
+  .mft-count[hidden]{display:none}
+  .mft-arrow{width:17px;height:17px}
+
+  /* Nút filter dính đầu: chấm đổi thành số điều kiện đang bật. */
+  .qb-filter.dang-loc::after{
+    content:attr(data-count);
+    top:-7px;right:-7px;width:auto;min-width:20px;height:20px;
+    padding:0 5px;display:grid;place-items:center;
+    background:#F97316;color:#fff;border:2px solid var(--surface);
+    font-size:.62rem;font-weight:800;line-height:1;
+  }
+
+  /* Bottom sheet luôn tồn tại để có animation; visibility chặn tab/focus khi đóng. */
+  .filters{
+    display:block!important;
+    position:fixed;left:0;right:0;bottom:0;top:auto;z-index:80;
+    margin:0;padding:0 16px calc(14px + env(safe-area-inset-bottom));
+    max-height:88dvh;overflow-y:auto;overscroll-behavior:contain;
+    border-radius:20px 20px 0 0;border:1px solid var(--line);border-bottom:0;
+    background:var(--surface);box-shadow:0 -22px 52px rgba(15,32,60,.18);
+    transform:translateY(104%);visibility:hidden;pointer-events:none;
+    transition:transform .24s ease,visibility .24s;
+  }
+  .filters.open{
+    transform:translateY(0);visibility:visible;pointer-events:auto;
+  }
+  .filters-sheet-head{
+    display:flex;position:sticky;top:0;z-index:3;
+    margin:0 -16px 0;padding:15px 16px 13px;
+    background:rgba(255,255,255,.97);
+    border-bottom:1px solid var(--line);
+    -webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px);
+  }
+  .filters-sheet-head strong{font-size:1rem}
+  .filters-sheet-head .close{
+    width:38px;height:38px;background:var(--bg);
+  }
+  .filter-group{
+    padding:16px 0;border-right:0;border-bottom:1px solid var(--line);
+  }
+  .filter-group:last-of-type{border-bottom:0}
+  .filter-label{
+    margin-bottom:10px;font-size:.78rem;font-weight:600;color:var(--ink);
+  }
+  .filters .chips{gap:8px}
+  .filters .chip{
+    min-height:39px;padding:7px 12px;font-size:.8rem;
+    border-radius:10px;background:#fff;
+  }
+  .filters .chip.active{
+    background:#EEF4FC;border-color:#7EA3D3;color:var(--navy-2);
+    box-shadow:inset 0 0 0 1px #7EA3D3;
+  }
+  .filters .chip.active>small{
+    background:var(--navy-2);color:#fff;
+  }
+  .filters-foot-bar{
+    position:sticky;bottom:calc(-14px - env(safe-area-inset-bottom));z-index:4;
+    display:flex;align-items:center;gap:10px;
+    margin:0 -16px;padding:12px 16px calc(12px + env(safe-area-inset-bottom));
+    background:rgba(255,255,255,.98);border-top:1px solid var(--line);
+    box-shadow:0 -12px 24px -20px rgba(15,32,60,.65);
+  }
+  .filters-sheet-foot{
+    flex:1;min-height:50px;justify-content:center;
+    border-radius:12px;font-size:.9rem;
+  }
+  .btn-xoa-loc{
+    min-height:44px;padding:0 8px;font-size:.8rem;
+  }
+
+  .filters-backdrop{
+    display:block!important;position:fixed;inset:0;z-index:75;
+    background:rgba(10,22,38,.52);
+    opacity:0;visibility:hidden;pointer-events:none;
+    transition:opacity .22s ease,visibility .22s;
+  }
+  .filters-backdrop.open{
+    opacity:1;visibility:visible;pointer-events:auto;
+  }
+
+  .active-filter-strip{
+    margin:2px 0 12px;gap:7px;overflow:hidden;
+  }
+  .afs-label{display:none}
+  .afs-chips{
+    flex:1;flex-wrap:nowrap;overflow-x:auto;scrollbar-width:none;
+    -webkit-overflow-scrolling:touch;
+  }
+  .afs-chips::-webkit-scrollbar{display:none}
+  .afs-chip{flex:none;min-height:32px;padding:5px 9px 5px 11px;font-size:.75rem}
+  .afs-clear{font-size:.72rem}
+}
+
+@media (prefers-reduced-motion:reduce){
+  .filters,.filters-backdrop,.filter-card{transition:none!important}
+}
