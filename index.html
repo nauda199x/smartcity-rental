@@ -1062,18 +1062,17 @@
     };
 
     /* ================================================================
-       SỐ CARD MỖI TRANG — desktop 16, màn hẹp hơn 12
+       SỐ CARD MỖI TRANG — desktop 10, màn hẹp hơn 8
        ----------------------------------------------------------------
-       Mốc 1081px khớp ĐÚNG breakpoint lưới của v3.css (dòng 1054):
-       trên mốc này lưới 4 cột nên 16 card = 4 hàng đầy; dưới mốc lưới
-       2 cột hoặc 1 cột, để 16 sẽ thành trang cuộn quá dài trên điện thoại.
-       Sửa mốc ở đây mà không sửa v3.css sẽ làm hàng cuối lẻ card.
+       Giao diện marketplace V4 dùng 2 card ngang/hàng trên desktop,
+       1 card/hàng ở tablet và mobile. 10 card desktop = 5 hàng; 8 card
+       ở màn hẹp giữ trang đủ ngắn để khách lọc/đổi trang nhanh.
 
        Đọc bằng hàm (không phải hằng số) để người dùng thu/phóng cửa sổ
        hay xoay máy tính bảng thì lần render kế tiếp lấy đúng số mới.
        ================================================================ */
-    const SO_CARD_DESKTOP = 16;
-    const SO_CARD_HEP = 12;
+    const SO_CARD_DESKTOP = 10;
+    const SO_CARD_HEP = 8;
 
     function soCardMoiTrang() {
       return window.matchMedia("(min-width:1081px)").matches
@@ -2023,9 +2022,9 @@
          KHÔNG đặt class "card" hay "the" cho khối này: hai class đó đang bị
          mục 16.3 của v3.css ép flex-direction:row và height:190px.
          ================================================================ */
-      /* Desktop 4 cột: chèn sau card thứ 8 để CTA nằm trọn giữa hàng 2 và
-         hàng 3, không cắt ngang hàng. Màn hẹp giữ nguyên vị trí 6 như cũ. */
-      const viTriCta = window.matchMedia("(min-width:1081px)").matches ? 8 : 6;
+      /* Marketplace V4: desktop 2 cột nên chèn CTA sau 4 card = sau 2 hàng.
+         Màn hẹp cũng chèn sau 4 card để lời mời không bị đẩy quá sâu. */
+      const viTriCta = 4;
       if (theHtml.length > viTriCta) {
         theHtml.splice(viTriCta, 0, `
           <div class="cta-giua">
@@ -2051,18 +2050,63 @@
       if (nutCtaGiua) nutCtaGiua.addEventListener("click", moLeadModal);
 
       grid.querySelectorAll("[data-gallery]").forEach(button => {
-        button.addEventListener("click", () => openGallery(apartments[Number(button.dataset.gallery)]));
+        const apartment = apartments[Number(button.dataset.gallery)];
+        const anhVuot = apartment.photos.filter(Boolean);
+        let chiSoAnh = 0;
+        let chamX = 0, chamY = 0;
+
+        /* Mobile: vuốt ngay trên card để xem ảnh kế/ảnh trước mà không cần
+           mở lightbox. Chỉ đổi ảnh bìa đang hiển thị, không preload cả album. */
+        if (anhVuot.length > 1) {
+          const dem = button.querySelector(".pcount");
+          if (window.matchMedia("(max-width:640px)").matches && dem) {
+            dem.textContent = "1/" + anhVuot.length;
+          }
+          button.addEventListener("touchstart", ev => {
+            if (!ev.touches || !ev.touches.length) return;
+            chamX = ev.touches[0].clientX;
+            chamY = ev.touches[0].clientY;
+          }, { passive: true });
+          button.addEventListener("touchend", ev => {
+            if (!ev.changedTouches || !ev.changedTouches.length) return;
+            const dx = ev.changedTouches[0].clientX - chamX;
+            const dy = ev.changedTouches[0].clientY - chamY;
+            if (Math.abs(dx) < 38 || Math.abs(dx) <= Math.abs(dy)) return;
+
+            chiSoAnh = dx < 0
+              ? (chiSoAnh + 1) % anhVuot.length
+              : (chiSoAnh - 1 + anhVuot.length) % anhVuot.length;
+
+            const img = button.querySelector("img");
+            if (img) {
+              img.src = anhVuot[chiSoAnh];
+              img.removeAttribute("srcset");
+              img.removeAttribute("sizes");
+            }
+            if (dem) dem.textContent = (chiSoAnh + 1) + "/" + anhVuot.length;
+
+            /* Trình duyệt thường phát thêm click sau touchend; đánh dấu để click
+               đó không mở gallery ngay sau khi khách vừa vuốt ảnh. */
+            button.dataset.vuaVuot = "1";
+            window.setTimeout(() => { delete button.dataset.vuaVuot; }, 350);
+          }, { passive: true });
+        }
+
+        button.addEventListener("click", () => {
+          if (button.dataset.vuaVuot === "1") return;
+          openGallery(apartment, chiSoAnh);
+        });
       });
     }
 
-    function openGallery(apartment) {
+    function openGallery(apartment, chiSoBatDau = 0) {
       const media = [...apartment.photos, ...apartment.videos];
       if (!media.length) return;
       /* Gallery toàn màn hình (assets/gallery.js). Modal cũ giữ nguyên bên dưới
          làm phương án dự phòng: nếu file gallery không tải được thì khách vẫn
          xem được ảnh chứ không bấm vào rồi không có gì xảy ra. */
       if (typeof window.MoGallery === "function") {
-        window.MoGallery(media, 0);
+        window.MoGallery(media, chiSoBatDau);
         return;
       }
       $("#modalTitle").textContent = `${dichDuLieu(apartment.type)} - ${apartment.tower}`;
