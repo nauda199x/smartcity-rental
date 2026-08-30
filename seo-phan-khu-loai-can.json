@@ -1,0 +1,178 @@
+{
+  "cho-thue-1pn-lumiere-smart-city": {
+    "count": 6,
+    "created": "2026-08-30",
+    "indexable": true,
+    "loai": "1 Ngủ",
+    "phanKhu": "Lumiere",
+    "updated": "2026-08-30"
+  },
+  "cho-thue-1pn-plus-imperia-smart-city": {
+    "count": 4,
+    "created": "2026-08-30",
+    "indexable": true,
+    "loai": "1 Ngủ +",
+    "phanKhu": "Imperia",
+    "updated": "2026-08-30"
+  },
+  "cho-thue-1pn-plus-masteri-smart-city": {
+    "count": 12,
+    "created": "2026-08-30",
+    "indexable": true,
+    "loai": "1 Ngủ +",
+    "phanKhu": "Masteri",
+    "updated": "2026-08-30"
+  },
+  "cho-thue-1pn-plus-sapphire-smart-city": {
+    "count": 10,
+    "created": "2026-08-30",
+    "indexable": true,
+    "loai": "1 Ngủ +",
+    "phanKhu": "Sapphire",
+    "updated": "2026-08-30"
+  },
+  "cho-thue-2pn-canopy-smart-city": {
+    "count": 6,
+    "created": "2026-08-30",
+    "indexable": true,
+    "loai": "2 Ngủ",
+    "phanKhu": "Canopy",
+    "updated": "2026-08-30"
+  },
+  "cho-thue-2pn-imperia-smart-city": {
+    "count": 6,
+    "created": "2026-08-30",
+    "indexable": true,
+    "loai": "2 Ngủ",
+    "phanKhu": "Imperia",
+    "updated": "2026-08-30"
+  },
+  "cho-thue-2pn-lumiere-smart-city": {
+    "count": 24,
+    "created": "2026-08-30",
+    "indexable": true,
+    "loai": "2 Ngủ",
+    "phanKhu": "Lumiere",
+    "updated": "2026-08-30"
+  },
+  "cho-thue-2pn-masteri-smart-city": {
+    "count": 4,
+    "created": "2026-08-30",
+    "indexable": true,
+    "loai": "2 Ngủ",
+    "phanKhu": "Masteri",
+    "updated": "2026-08-30"
+  },
+  "cho-thue-2pn-miami-smart-city": {
+    "count": 14,
+    "created": "2026-08-30",
+    "indexable": true,
+    "loai": "2 Ngủ",
+    "phanKhu": "Miami",
+    "updated": "2026-08-30"
+  },
+  "cho-thue-2pn-plus-imperia-smart-city": {
+    "count": 7,
+    "created": "2026-08-30",
+    "indexable": true,
+    "loai": "2 Ngủ +",
+    "phanKhu": "Imperia",
+    "updated": "2026-08-30"
+  },
+  "cho-thue-2pn-plus-lumiere-smart-city": {
+    "count": 4,
+    "created": "2026-08-30",
+    "indexable": true,
+    "loai": "2 Ngủ +",
+    "phanKhu": "Lumiere",
+    "updated": "2026-08-30"
+  },
+  "cho-thue-2pn-plus-masteri-smart-city": {
+    "count": 8,
+    "created": "2026-08-30",
+    "indexable": true,
+    "loai": "2 Ngủ +",
+    "phanKhu": "Masteri",
+    "updated": "2026-08-30"
+  },
+  "cho-thue-2pn-plus-miami-smart-city": {
+    "count": 5,
+    "created": "2026-08-30",
+    "indexable": true,
+    "loai": "2 Ngủ +",
+    "phanKhu": "Miami",
+    "updated": "2026-08-30"
+  },
+  "cho-thue-2pn-plus-sapphire-smart-city": {
+    "count": 15,
+    "created": "2026-08-30",
+    "indexable": true,
+    "loai": "2 Ngủ +",
+    "phanKhu": "Sapphire",
+    "updated": "2026-08-30"
+  },
+  "cho-thue-2pn-sakura-smart-city": {
+    "count": 11,
+    "created": "2026-08-30",
+    "indexable": true,
+    "loai": "2 Ngủ",
+    "phanKhu": "Sakura",
+    "updated": "2026-08-30"
+  },
+  "cho-thue-2pn-sapphire-smart-city": {
+    "count": 22,
+    "created": "2026-08-30",
+    "indexable": true,
+    "loai": "2 Ngủ",
+    "phanKhu": "Sapphire",
+    "updated": "2026-08-30"
+  },
+  "cho-thue-3pn-lumiere-smart-city": {
+    "count": 4,
+    "created": "2026-08-30",
+    "indexable": true,
+    "loai": "3 Ngủ",
+    "phanKhu": "Lumiere",
+    "updated": "2026-08-30"
+  },
+  "cho-thue-3pn-miami-smart-city": {
+    "count": 9,
+    "created": "2026-08-30",
+    "indexable": true,
+    "loai": "3 Ngủ",
+    "phanKhu": "Miami",
+    "updated": "2026-08-30"
+  },
+  "cho-thue-3pn-sapphire-smart-city": {
+    "count": 9,
+    "created": "2026-08-30",
+    "indexable": true,
+    "loai": "3 Ngủ",
+    "phanKhu": "Sapphire",
+    "updated": "2026-08-30"
+  },
+  "cho-thue-studio-masteri-smart-city": {
+    "count": 18,
+    "created": "2026-08-30",
+    "indexable": true,
+    "loai": "Studio",
+    "phanKhu": "Masteri",
+    "updated": "2026-08-30"
+  },
+  "cho-thue-studio-sakura-smart-city": {
+    "count": 5,
+    "created": "2026-08-30",
+    "indexable": true,
+    "loai": "Studio",
+    "phanKhu": "Sakura",
+    "updated": "2026-08-30"
+  },
+  "cho-thue-studio-sapphire-smart-city": {
+    "count": 12,
+    "created": "2026-08-30",
+    "indexable": true,
+    "loai": "Studio",
+    "phanKhu": "Sapphire",
+    "updated": "2026-08-30"
+  }
+}
