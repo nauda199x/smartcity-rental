@@ -131,7 +131,7 @@
     "l.badgeFrom":    ["Available from {NGAY}", "{NGAY}부터 입주 가능"],
     "l.furnUpd":      ["Furnishing being updated", "옵션 정보 업데이트 중"],
     "l.photos":       ["{N} photos", "사진 {N}장"],
-    "l.code":         ["Unit code:", "매물 번호:"],
+    "l.code":         ["Unit code:", "매물 번호:"],\n    "l.detail":       ["View details", "상세 보기"],
     "l.perMonth":     ["/month", "/월"],
     "l.contact":      ["Contact us", "가격 문의"],
     "l.galleryAl":    ["View apartment photos", "매물 사진 보기"],
