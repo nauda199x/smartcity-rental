@@ -214,11 +214,50 @@
     footer.insertBefore(box, footer.firstChild);
   }
 
+  /* ================================================================
+     TRANG CHI TIẾT CĂN HỘ — nạp gallery + UX riêng chỉ ở /can-ho/<slug>/
+     ------------------------------------------------------------------
+     Trang căn được generator sinh lại nhiều lần trong ngày. Nạp từ app-shell
+     giúp cả trang cũ lẫn trang mới nhận UX mới mà không cần sửa tay 60+ file.
+     ================================================================ */
+  function laTrangChiTietCan() {
+    var p = duongDan();
+    return /^\/can-ho\/[^/]+\/?$/.test(p);
+  }
+
+  function napScriptMotLan(id, src, xong) {
+    var cu = document.getElementById(id);
+    if (cu) {
+      if (cu.dataset.daTai === "1") { if (xong) xong(); }
+      else if (xong) cu.addEventListener("load", xong, { once: true });
+      return;
+    }
+    var s = document.createElement("script");
+    s.id = id;
+    s.src = src;
+    s.defer = true;
+    s.addEventListener("load", function () {
+      s.dataset.daTai = "1";
+      if (xong) xong();
+    }, { once: true });
+    document.head.appendChild(s);
+  }
+
+  function napUxChiTietCan() {
+    if (!laTrangChiTietCan()) return;
+    function napDetail() {
+      napScriptMotLan("ct-detail-js", "/assets/can-ho-detail.js");
+    }
+    if (typeof window.MoGallery === "function") napDetail();
+    else napScriptMotLan("ct-gallery-js", "/assets/gallery.js", napDetail);
+  }
+
   function khoiDong() {
     try {
       chenLinkTimMua();                 // chay o MOI kich thuoc man hinh
       boSungDanhTinhWebsite();          // disclaimer + link gioi thieu tren toan site
-      if (laDienThoai()) dung();        // thanh tab duoi CHI tren dien thoai
+      napUxChiTietCan();                // gallery + UX rieng cho trang can
+      if (laDienThoai() && !laTrangChiTietCan()) dung(); // trang can dung CTA lien he rieng
     } catch (e) { /* im lặng — hỏng ở đây không được kéo sập cả trang */ }
   }
 
