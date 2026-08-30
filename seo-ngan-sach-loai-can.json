@@ -1,0 +1,58 @@
+{
+  "1pn-7-10-trieu": {
+    "count": 6,
+    "created": "2026-08-30",
+    "indexable": true,
+    "loai": "1 Ngủ",
+    "nganSach": "7-10-trieu",
+    "updated": "2026-08-30"
+  },
+  "1pn-plus-10-12-trieu": {
+    "count": 11,
+    "created": "2026-08-30",
+    "indexable": true,
+    "loai": "1 Ngủ +",
+    "nganSach": "10-12-trieu",
+    "updated": "2026-08-30"
+  },
+  "2pn-12-15-trieu": {
+    "count": 26,
+    "created": "2026-08-30",
+    "indexable": true,
+    "loai": "2 Ngủ",
+    "nganSach": "12-15-trieu",
+    "updated": "2026-08-30"
+  },
+  "2pn-plus-10-12-trieu": {
+    "count": 16,
+    "created": "2026-08-30",
+    "indexable": true,
+    "loai": "2 Ngủ +",
+    "nganSach": "10-12-trieu",
+    "updated": "2026-08-30"
+  },
+  "2pn-plus-tren-15-trieu": {
+    "count": 4,
+    "created": "2026-08-30",
+    "indexable": true,
+    "loai": "2 Ngủ +",
+    "nganSach": "tren-15-trieu",
+    "updated": "2026-08-30"
+  },
+  "2pn-tren-15-trieu": {
+    "count": 4,
+    "created": "2026-08-30",
+    "indexable": true,
+    "loai": "2 Ngủ",
+    "nganSach": "tren-15-trieu",
+    "updated": "2026-08-30"
+  },
+  "3pn-tren-15-trieu": {
+    "count": 13,
+    "created": "2026-08-30",
+    "indexable": true,
+    "loai": "3 Ngủ",
+    "nganSach": "tren-15-trieu",
+    "updated": "2026-08-30"
+  }
+}
