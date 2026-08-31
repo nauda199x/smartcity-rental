@@ -1,0 +1,824 @@
+{
+  "updated": "2026-08-31",
+  "source": "data.json",
+  "active_count": 255,
+  "min_sample": 3,
+  "overall": {
+    "n": 255,
+    "min": 6000000,
+    "max": 19500000,
+    "median": 11000000
+  },
+  "by_type": {
+    "1 Ngủ": {
+      "n": 12,
+      "min": 7000000,
+      "max": 14500000,
+      "median": 9750000
+    },
+    "1 Ngủ +": {
+      "n": 37,
+      "min": 7500000,
+      "max": 12500000,
+      "median": 9500000
+    },
+    "2 Ngủ": {
+      "n": 89,
+      "min": 8000000,
+      "max": 16500000,
+      "median": 11500000
+    },
+    "2 Ngủ +": {
+      "n": 44,
+      "min": 9000000,
+      "max": 19500000,
+      "median": 12500000
+    },
+    "3 Ngủ": {
+      "n": 28,
+      "min": 12000000,
+      "max": 18000000,
+      "median": 15000000
+    },
+    "Studio": {
+      "n": 45,
+      "min": 6000000,
+      "max": 10500000,
+      "median": 8000000
+    }
+  },
+  "by_zone": {
+    "Canopy": {
+      "n": 14,
+      "min": 7000000,
+      "max": 15000000,
+      "median": 9250000
+    },
+    "Imperia": {
+      "n": 21,
+      "min": 6000000,
+      "max": 17500000,
+      "median": 11500000
+    },
+    "Lumiere": {
+      "n": 43,
+      "min": 9000000,
+      "max": 17000000,
+      "median": 14000000
+    },
+    "Masteri": {
+      "n": 44,
+      "min": 7500000,
+      "max": 19500000,
+      "median": 11000000
+    },
+    "Miami": {
+      "n": 32,
+      "min": 6500000,
+      "max": 18000000,
+      "median": 12000000
+    },
+    "Sakura": {
+      "n": 26,
+      "min": 6000000,
+      "max": 15000000,
+      "median": 10000000
+    },
+    "Sapphire": {
+      "n": 69,
+      "min": 6000000,
+      "max": 18000000,
+      "median": 10000000
+    },
+    "Tonkin": {
+      "n": 6,
+      "min": 7800000,
+      "max": 14000000,
+      "median": 10250000
+    }
+  },
+  "by_interior": {
+    "Full nội thất": {
+      "n": 168,
+      "min": 6500000,
+      "max": 19500000,
+      "median": 11000000
+    },
+    "Nhà Nguyên Bản": {
+      "n": 40,
+      "min": 6000000,
+      "max": 15000000,
+      "median": 9000000
+    },
+    "Đồ Cơ bản": {
+      "n": 47,
+      "min": 6500000,
+      "max": 17000000,
+      "median": 12000000
+    }
+  },
+  "zone_type_interior": [
+    {
+      "zone": "Canopy",
+      "type": "1 Ngủ",
+      "interior": "Nhà Nguyên Bản",
+      "n": 2,
+      "min": 7000000,
+      "max": 8000000,
+      "median": 7500000
+    },
+    {
+      "zone": "Canopy",
+      "type": "1 Ngủ +",
+      "interior": "Full nội thất",
+      "n": 2,
+      "min": 11000000,
+      "max": 12000000,
+      "median": 11500000
+    },
+    {
+      "zone": "Canopy",
+      "type": "2 Ngủ",
+      "interior": "Đồ Cơ bản",
+      "n": 3,
+      "min": 9500000,
+      "max": 10500000,
+      "median": 10000000
+    },
+    {
+      "zone": "Canopy",
+      "type": "2 Ngủ",
+      "interior": "Full nội thất",
+      "n": 1,
+      "min": 15000000,
+      "max": 15000000,
+      "median": 15000000
+    },
+    {
+      "zone": "Canopy",
+      "type": "2 Ngủ",
+      "interior": "Nhà Nguyên Bản",
+      "n": 2,
+      "min": 9000000,
+      "max": 9000000,
+      "median": 9000000
+    },
+    {
+      "zone": "Canopy",
+      "type": "2 Ngủ +",
+      "interior": "Nhà Nguyên Bản",
+      "n": 1,
+      "min": 11000000,
+      "max": 11000000,
+      "median": 11000000
+    },
+    {
+      "zone": "Canopy",
+      "type": "Studio",
+      "interior": "Full nội thất",
+      "n": 3,
+      "min": 7000000,
+      "max": 8000000,
+      "median": 8000000
+    },
+    {
+      "zone": "Imperia",
+      "type": "1 Ngủ +",
+      "interior": "Đồ Cơ bản",
+      "n": 1,
+      "min": 8500000,
+      "max": 8500000,
+      "median": 8500000
+    },
+    {
+      "zone": "Imperia",
+      "type": "1 Ngủ +",
+      "interior": "Full nội thất",
+      "n": 1,
+      "min": 11500000,
+      "max": 11500000,
+      "median": 11500000
+    },
+    {
+      "zone": "Imperia",
+      "type": "1 Ngủ +",
+      "interior": "Nhà Nguyên Bản",
+      "n": 1,
+      "min": 8500000,
+      "max": 8500000,
+      "median": 8500000
+    },
+    {
+      "zone": "Imperia",
+      "type": "2 Ngủ",
+      "interior": "Full nội thất",
+      "n": 6,
+      "min": 10000000,
+      "max": 14000000,
+      "median": 11000000
+    },
+    {
+      "zone": "Imperia",
+      "type": "2 Ngủ",
+      "interior": "Nhà Nguyên Bản",
+      "n": 1,
+      "min": 10500000,
+      "max": 10500000,
+      "median": 10500000
+    },
+    {
+      "zone": "Imperia",
+      "type": "2 Ngủ +",
+      "interior": "Đồ Cơ bản",
+      "n": 1,
+      "min": 10000000,
+      "max": 10000000,
+      "median": 10000000
+    },
+    {
+      "zone": "Imperia",
+      "type": "2 Ngủ +",
+      "interior": "Full nội thất",
+      "n": 6,
+      "min": 12000000,
+      "max": 15000000,
+      "median": 13000000
+    },
+    {
+      "zone": "Imperia",
+      "type": "3 Ngủ",
+      "interior": "Full nội thất",
+      "n": 2,
+      "min": 16000000,
+      "max": 17500000,
+      "median": 16750000
+    },
+    {
+      "zone": "Imperia",
+      "type": "Studio",
+      "interior": "Full nội thất",
+      "n": 1,
+      "min": 7500000,
+      "max": 7500000,
+      "median": 7500000
+    },
+    {
+      "zone": "Imperia",
+      "type": "Studio",
+      "interior": "Nhà Nguyên Bản",
+      "n": 1,
+      "min": 6000000,
+      "max": 6000000,
+      "median": 6000000
+    },
+    {
+      "zone": "Lumiere",
+      "type": "1 Ngủ",
+      "interior": "Đồ Cơ bản",
+      "n": 1,
+      "min": 10000000,
+      "max": 10000000,
+      "median": 10000000
+    },
+    {
+      "zone": "Lumiere",
+      "type": "1 Ngủ",
+      "interior": "Full nội thất",
+      "n": 2,
+      "min": 12000000,
+      "max": 14500000,
+      "median": 13250000
+    },
+    {
+      "zone": "Lumiere",
+      "type": "1 Ngủ",
+      "interior": "Nhà Nguyên Bản",
+      "n": 3,
+      "min": 9500000,
+      "max": 12000000,
+      "median": 10000000
+    },
+    {
+      "zone": "Lumiere",
+      "type": "1 Ngủ +",
+      "interior": "Đồ Cơ bản",
+      "n": 3,
+      "min": 9000000,
+      "max": 9500000,
+      "median": 9500000
+    },
+    {
+      "zone": "Lumiere",
+      "type": "2 Ngủ",
+      "interior": "Đồ Cơ bản",
+      "n": 13,
+      "min": 12000000,
+      "max": 15000000,
+      "median": 14000000
+    },
+    {
+      "zone": "Lumiere",
+      "type": "2 Ngủ",
+      "interior": "Full nội thất",
+      "n": 5,
+      "min": 15000000,
+      "max": 16500000,
+      "median": 15500000
+    },
+    {
+      "zone": "Lumiere",
+      "type": "2 Ngủ",
+      "interior": "Nhà Nguyên Bản",
+      "n": 6,
+      "min": 12000000,
+      "max": 15000000,
+      "median": 13500000
+    },
+    {
+      "zone": "Lumiere",
+      "type": "2 Ngủ +",
+      "interior": "Đồ Cơ bản",
+      "n": 2,
+      "min": 13000000,
+      "max": 13000000,
+      "median": 13000000
+    },
+    {
+      "zone": "Lumiere",
+      "type": "2 Ngủ +",
+      "interior": "Full nội thất",
+      "n": 1,
+      "min": 16000000,
+      "max": 16000000,
+      "median": 16000000
+    },
+    {
+      "zone": "Lumiere",
+      "type": "2 Ngủ +",
+      "interior": "Nhà Nguyên Bản",
+      "n": 1,
+      "min": 14500000,
+      "max": 14500000,
+      "median": 14500000
+    },
+    {
+      "zone": "Lumiere",
+      "type": "3 Ngủ",
+      "interior": "Đồ Cơ bản",
+      "n": 4,
+      "min": 15000000,
+      "max": 17000000,
+      "median": 16000000
+    },
+    {
+      "zone": "Lumiere",
+      "type": "Studio",
+      "interior": "Full nội thất",
+      "n": 1,
+      "min": 9000000,
+      "max": 9000000,
+      "median": 9000000
+    },
+    {
+      "zone": "Lumiere",
+      "type": "Studio",
+      "interior": "Nhà Nguyên Bản",
+      "n": 1,
+      "min": 9000000,
+      "max": 9000000,
+      "median": 9000000
+    },
+    {
+      "zone": "Masteri",
+      "type": "1 Ngủ +",
+      "interior": "Đồ Cơ bản",
+      "n": 2,
+      "min": 9500000,
+      "max": 9500000,
+      "median": 9500000
+    },
+    {
+      "zone": "Masteri",
+      "type": "1 Ngủ +",
+      "interior": "Full nội thất",
+      "n": 10,
+      "min": 10500000,
+      "max": 12500000,
+      "median": 11500000
+    },
+    {
+      "zone": "Masteri",
+      "type": "1 Ngủ +",
+      "interior": "Nhà Nguyên Bản",
+      "n": 1,
+      "min": 8500000,
+      "max": 8500000,
+      "median": 8500000
+    },
+    {
+      "zone": "Masteri",
+      "type": "2 Ngủ",
+      "interior": "Full nội thất",
+      "n": 3,
+      "min": 12000000,
+      "max": 16000000,
+      "median": 15000000
+    },
+    {
+      "zone": "Masteri",
+      "type": "2 Ngủ +",
+      "interior": "Đồ Cơ bản",
+      "n": 2,
+      "min": 12000000,
+      "max": 12500000,
+      "median": 12250000
+    },
+    {
+      "zone": "Masteri",
+      "type": "2 Ngủ +",
+      "interior": "Full nội thất",
+      "n": 7,
+      "min": 14000000,
+      "max": 19500000,
+      "median": 16000000
+    },
+    {
+      "zone": "Masteri",
+      "type": "3 Ngủ",
+      "interior": "Đồ Cơ bản",
+      "n": 1,
+      "min": 16000000,
+      "max": 16000000,
+      "median": 16000000
+    },
+    {
+      "zone": "Masteri",
+      "type": "3 Ngủ",
+      "interior": "Full nội thất",
+      "n": 1,
+      "min": 12500000,
+      "max": 12500000,
+      "median": 12500000
+    },
+    {
+      "zone": "Masteri",
+      "type": "Studio",
+      "interior": "Đồ Cơ bản",
+      "n": 2,
+      "min": 7500000,
+      "max": 8000000,
+      "median": 7750000
+    },
+    {
+      "zone": "Masteri",
+      "type": "Studio",
+      "interior": "Full nội thất",
+      "n": 14,
+      "min": 8500000,
+      "max": 10500000,
+      "median": 9000000
+    },
+    {
+      "zone": "Masteri",
+      "type": "Studio",
+      "interior": "Nhà Nguyên Bản",
+      "n": 1,
+      "min": 7500000,
+      "max": 7500000,
+      "median": 7500000
+    },
+    {
+      "zone": "Miami",
+      "type": "1 Ngủ",
+      "interior": "Nhà Nguyên Bản",
+      "n": 1,
+      "min": 7000000,
+      "max": 7000000,
+      "median": 7000000
+    },
+    {
+      "zone": "Miami",
+      "type": "1 Ngủ +",
+      "interior": "Full nội thất",
+      "n": 2,
+      "min": 9500000,
+      "max": 10500000,
+      "median": 10000000
+    },
+    {
+      "zone": "Miami",
+      "type": "1 Ngủ +",
+      "interior": "Nhà Nguyên Bản",
+      "n": 1,
+      "min": 7500000,
+      "max": 7500000,
+      "median": 7500000
+    },
+    {
+      "zone": "Miami",
+      "type": "2 Ngủ",
+      "interior": "Đồ Cơ bản",
+      "n": 4,
+      "min": 8500000,
+      "max": 10000000,
+      "median": 9250000
+    },
+    {
+      "zone": "Miami",
+      "type": "2 Ngủ",
+      "interior": "Full nội thất",
+      "n": 6,
+      "min": 12000000,
+      "max": 13500000,
+      "median": 12250000
+    },
+    {
+      "zone": "Miami",
+      "type": "2 Ngủ",
+      "interior": "Nhà Nguyên Bản",
+      "n": 4,
+      "min": 8500000,
+      "max": 11000000,
+      "median": 8900000
+    },
+    {
+      "zone": "Miami",
+      "type": "2 Ngủ +",
+      "interior": "Full nội thất",
+      "n": 4,
+      "min": 11000000,
+      "max": 13000000,
+      "median": 12250000
+    },
+    {
+      "zone": "Miami",
+      "type": "2 Ngủ +",
+      "interior": "Nhà Nguyên Bản",
+      "n": 1,
+      "min": 9000000,
+      "max": 9000000,
+      "median": 9000000
+    },
+    {
+      "zone": "Miami",
+      "type": "3 Ngủ",
+      "interior": "Full nội thất",
+      "n": 7,
+      "min": 12000000,
+      "max": 18000000,
+      "median": 15000000
+    },
+    {
+      "zone": "Miami",
+      "type": "3 Ngủ",
+      "interior": "Nhà Nguyên Bản",
+      "n": 1,
+      "min": 12000000,
+      "max": 12000000,
+      "median": 12000000
+    },
+    {
+      "zone": "Miami",
+      "type": "Studio",
+      "interior": "Đồ Cơ bản",
+      "n": 1,
+      "min": 6500000,
+      "max": 6500000,
+      "median": 6500000
+    },
+    {
+      "zone": "Sakura",
+      "type": "1 Ngủ",
+      "interior": "Full nội thất",
+      "n": 2,
+      "min": 9000000,
+      "max": 10000000,
+      "median": 9500000
+    },
+    {
+      "zone": "Sakura",
+      "type": "1 Ngủ +",
+      "interior": "Đồ Cơ bản",
+      "n": 1,
+      "min": 8000000,
+      "max": 8000000,
+      "median": 8000000
+    },
+    {
+      "zone": "Sakura",
+      "type": "1 Ngủ +",
+      "interior": "Full nội thất",
+      "n": 1,
+      "min": 10000000,
+      "max": 10000000,
+      "median": 10000000
+    },
+    {
+      "zone": "Sakura",
+      "type": "1 Ngủ +",
+      "interior": "Nhà Nguyên Bản",
+      "n": 1,
+      "min": 7500000,
+      "max": 7500000,
+      "median": 7500000
+    },
+    {
+      "zone": "Sakura",
+      "type": "2 Ngủ",
+      "interior": "Đồ Cơ bản",
+      "n": 1,
+      "min": 10000000,
+      "max": 10000000,
+      "median": 10000000
+    },
+    {
+      "zone": "Sakura",
+      "type": "2 Ngủ",
+      "interior": "Full nội thất",
+      "n": 7,
+      "min": 11000000,
+      "max": 12000000,
+      "median": 12000000
+    },
+    {
+      "zone": "Sakura",
+      "type": "2 Ngủ",
+      "interior": "Nhà Nguyên Bản",
+      "n": 3,
+      "min": 9000000,
+      "max": 9000000,
+      "median": 9000000
+    },
+    {
+      "zone": "Sakura",
+      "type": "2 Ngủ +",
+      "interior": "Full nội thất",
+      "n": 2,
+      "min": 13000000,
+      "max": 14000000,
+      "median": 13500000
+    },
+    {
+      "zone": "Sakura",
+      "type": "3 Ngủ",
+      "interior": "Đồ Cơ bản",
+      "n": 1,
+      "min": 12000000,
+      "max": 12000000,
+      "median": 12000000
+    },
+    {
+      "zone": "Sakura",
+      "type": "3 Ngủ",
+      "interior": "Full nội thất",
+      "n": 2,
+      "min": 14000000,
+      "max": 15000000,
+      "median": 14500000
+    },
+    {
+      "zone": "Sakura",
+      "type": "Studio",
+      "interior": "Full nội thất",
+      "n": 3,
+      "min": 7500000,
+      "max": 8500000,
+      "median": 8500000
+    },
+    {
+      "zone": "Sakura",
+      "type": "Studio",
+      "interior": "Nhà Nguyên Bản",
+      "n": 2,
+      "min": 6000000,
+      "max": 6000000,
+      "median": 6000000
+    },
+    {
+      "zone": "Sapphire",
+      "type": "1 Ngủ",
+      "interior": "Đồ Cơ bản",
+      "n": 1,
+      "min": 7000000,
+      "max": 7000000,
+      "median": 7000000
+    },
+    {
+      "zone": "Sapphire",
+      "type": "1 Ngủ +",
+      "interior": "Full nội thất",
+      "n": 10,
+      "min": 8500000,
+      "max": 10000000,
+      "median": 9000000
+    },
+    {
+      "zone": "Sapphire",
+      "type": "2 Ngủ",
+      "interior": "Đồ Cơ bản",
+      "n": 1,
+      "min": 8500000,
+      "max": 8500000,
+      "median": 8500000
+    },
+    {
+      "zone": "Sapphire",
+      "type": "2 Ngủ",
+      "interior": "Full nội thất",
+      "n": 19,
+      "min": 9500000,
+      "max": 12000000,
+      "median": 10000000
+    },
+    {
+      "zone": "Sapphire",
+      "type": "2 Ngủ",
+      "interior": "Nhà Nguyên Bản",
+      "n": 2,
+      "min": 8000000,
+      "max": 8000000,
+      "median": 8000000
+    },
+    {
+      "zone": "Sapphire",
+      "type": "2 Ngủ +",
+      "interior": "Full nội thất",
+      "n": 15,
+      "min": 10000000,
+      "max": 13000000,
+      "median": 11000000
+    },
+    {
+      "zone": "Sapphire",
+      "type": "3 Ngủ",
+      "interior": "Full nội thất",
+      "n": 8,
+      "min": 12500000,
+      "max": 18000000,
+      "median": 15000000
+    },
+    {
+      "zone": "Sapphire",
+      "type": "3 Ngủ",
+      "interior": "Nhà Nguyên Bản",
+      "n": 1,
+      "min": 12000000,
+      "max": 12000000,
+      "median": 12000000
+    },
+    {
+      "zone": "Sapphire",
+      "type": "Studio",
+      "interior": "Đồ Cơ bản",
+      "n": 1,
+      "min": 6500000,
+      "max": 6500000,
+      "median": 6500000
+    },
+    {
+      "zone": "Sapphire",
+      "type": "Studio",
+      "interior": "Full nội thất",
+      "n": 9,
+      "min": 6500000,
+      "max": 8000000,
+      "median": 7000000
+    },
+    {
+      "zone": "Sapphire",
+      "type": "Studio",
+      "interior": "Nhà Nguyên Bản",
+      "n": 2,
+      "min": 6000000,
+      "max": 6500000,
+      "median": 6250000
+    },
+    {
+      "zone": "Tonkin",
+      "type": "2 Ngủ",
+      "interior": "Full nội thất",
+      "n": 2,
+      "min": 14000000,
+      "max": 14000000,
+      "median": 14000000
+    },
+    {
+      "zone": "Tonkin",
+      "type": "2 Ngủ +",
+      "interior": "Đồ Cơ bản",
+      "n": 1,
+      "min": 12000000,
+      "max": 12000000,
+      "median": 12000000
+    },
+    {
+      "zone": "Tonkin",
+      "type": "Studio",
+      "interior": "Full nội thất",
+      "n": 3,
+      "min": 7800000,
+      "max": 8500000,
+      "median": 8000000
+    }
+  ]
+}
