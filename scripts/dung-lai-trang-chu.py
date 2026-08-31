@@ -53,6 +53,7 @@ GOC = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 THU_MUC_SCRIPT = os.path.dirname(os.path.abspath(__file__))
 DUONG_DATA = os.path.join(GOC, "data.json")
 DUONG_INDEX = os.path.join(GOC, "index.html")
+DUONG_BANG_GIA = os.path.join(GOC, "bang-gia-thue-vinhomes-smart-city.html")
 
 SO_CARD = 16                # khớp SO_CARD_DESKTOP trong index.html
 TRAN_TOA_BAT_DAU = 3         # tối đa mỗi tòa lúc đầu, để trải trên nhiều phân khu
@@ -183,6 +184,21 @@ RE_THI_TRUONG_KHU = re.compile(
     r'(<!-- THI-TRUONG-KHU:BAT-DAU -->)(.*?)(<!-- THI-TRUONG-KHU:KET-THUC -->)',
     re.S)
 
+# Các mốc tĩnh trên trang bảng giá. JS vẫn cập nhật lại khi khách mở trang,
+# còn các mốc này giúp crawler không chạy JavaScript vẫn nhìn thấy số thật.
+RE_BANG_GIA_LOAI = re.compile(
+    r'(<!-- BANG-GIA-TOM-TAT-LOAI:BAT-DAU -->)(.*?)(<!-- BANG-GIA-TOM-TAT-LOAI:KET-THUC -->)',
+    re.S)
+RE_BANG_GIA_KHU = re.compile(
+    r'(<!-- BANG-GIA-TOM-TAT-KHU:BAT-DAU -->)(.*?)(<!-- BANG-GIA-TOM-TAT-KHU:KET-THUC -->)',
+    re.S)
+RE_BANG_GIA_CHI_TIET = re.compile(
+    r'(<!-- BANG-GIA-CHI-TIET:BAT-DAU -->)(.*?)(<!-- BANG-GIA-CHI-TIET:KET-THUC -->)',
+    re.S)
+RE_BANG_GIA_TOTAL = re.compile(r'(<b id="bangGiaTotal">)([^<]*)(</b>)')
+RE_BANG_GIA_ZONE_COUNT = re.compile(r'(<b id="bangGiaZoneCount">)([^<]*)(</b>)')
+RE_BANG_GIA_TYPE_COUNT = re.compile(r'(<b id="bangGiaTypeCount">)([^<]*)(</b>)')
+
 
 def ghi_de_khoi_tinh(html, cac_the):
     khop = RE_KHOI_TINH.search(html)
@@ -256,6 +272,62 @@ def dong_thi_truong(cac_can):
         for key, label, href in THI_TRUONG_KHU
     ]
     return [x for x in dong_loai if x], [x for x in dong_khu if x]
+
+
+def trung_vi_gia(ds_gia):
+    """Trung vị của một danh sách giá; đầu vào không cần sắp xếp trước."""
+    ds = sorted(ds_gia)
+    n = len(ds)
+    if not n:
+        return 0
+    giua = n // 2
+    return ds[giua] if n % 2 else (ds[giua - 1] + ds[giua]) / 2
+
+
+def o_chi_tiet_bang_gia(ds_gia):
+    """HTML một ô Phân khu × Loại căn. Dưới 3 mẫu thì không suy đoán giá."""
+    if len(ds_gia) < 3:
+        return '<span class="bang-gia-thieu">Chưa đủ dữ liệu</span>'
+    ds = sorted(ds_gia)
+    return (
+        '<span class="bang-gia-khoang">%s–%s tr</span>'
+        '<small>Trung vị %s · n=%d</small>'
+    ) % (
+        gia_trieu_ngan(ds[0]),
+        gia_trieu_ngan(ds[-1]),
+        gia_trieu_ngan(trung_vi_gia(ds)),
+        len(ds),
+    )
+
+
+def dong_chi_tiet_bang_gia(cac_can):
+    """Dựng các hàng của ma trận 8 phân khu × 6 loại căn trên trang bảng giá."""
+    theo = {}
+    tong_khu = {}
+    for r in cac_can:
+        gia = so_tien(r.get("Giá thuê"))
+        if gia <= 0:
+            continue
+        loai = chuan(r.get("Loại")).lower()
+        khu = phan_khu_tu_toa(r.get("Tòa", ""))
+        if not loai or not khu:
+            continue
+        theo.setdefault((khu, loai), []).append(gia)
+        tong_khu[khu] = tong_khu.get(khu, 0) + 1
+
+    cac_dong = []
+    for khu_key, khu_label, khu_href in THI_TRUONG_KHU:
+        if not tong_khu.get(khu_key):
+            continue
+        o = []
+        for loai_key, _, _ in THI_TRUONG_LOAI:
+            o.append("<td>%s</td>" % o_chi_tiet_bang_gia(
+                theo.get((khu_key, loai_key), [])))
+        cac_dong.append(
+            '<tr><th scope="row"><a href="%s">%s</a><small>%d căn</small></th>%s</tr>'
+            % (khu_href, khu_label, tong_khu[khu_key], "".join(o))
+        )
+    return cac_dong
 
 
 def main():
@@ -336,9 +408,42 @@ def main():
             f.write(html)
         print("Đã ghi index.html.")
     elif tham_so.thu:
-        print("(--thu) Không ghi file.")
+        print("(--thu) Không ghi index.html.")
     else:
-        print("Không có gì thay đổi.")
+        print("index.html không có gì thay đổi.")
+
+    # Trang bảng giá dùng cùng dữ liệu với khối thị trường trên trang chủ,
+    # nhưng có thêm ma trận Phân khu × Loại căn. Dựng sẵn HTML thô để crawler
+    # đọc được ngay; JavaScript của trang vẫn đọc data.json lại khi người dùng mở.
+    if os.path.exists(DUONG_BANG_GIA):
+        with open(DUONG_BANG_GIA, encoding="utf-8") as f:
+            html_bg = f.read()
+        goc_bg = html_bg
+        dong_chi_tiet = dong_chi_tiet_bang_gia(cac_can_cong_khai)
+
+        html_bg, _ = ghi_de_dong_thi_truong(
+            html_bg, RE_BANG_GIA_LOAI, dong_loai)
+        html_bg, _ = ghi_de_dong_thi_truong(
+            html_bg, RE_BANG_GIA_KHU, dong_khu)
+        html_bg, _ = ghi_de_dong_thi_truong(
+            html_bg, RE_BANG_GIA_CHI_TIET, dong_chi_tiet)
+        html_bg, _ = ghi_de_o(
+            html_bg, RE_BANG_GIA_TOTAL, str(tk["so_can"]))
+        html_bg, _ = ghi_de_o(
+            html_bg, RE_BANG_GIA_ZONE_COUNT, str(len(dong_khu)))
+        html_bg, _ = ghi_de_o(
+            html_bg, RE_BANG_GIA_TYPE_COUNT, str(len(dong_loai)))
+
+        if html_bg != goc_bg and not tham_so.thu:
+            with open(DUONG_BANG_GIA, "w", encoding="utf-8", newline="") as f:
+                f.write(html_bg)
+            print("Đã ghi bang-gia-thue-vinhomes-smart-city.html.")
+        elif tham_so.thu:
+            print("(--thu) Không ghi trang bảng giá.")
+        else:
+            print("Trang bảng giá không có gì thay đổi.")
+    else:
+        print("CẢNH BÁO: không tìm thấy trang bảng giá — bỏ qua.")
 
     return 0
 
