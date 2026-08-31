@@ -3,8 +3,8 @@
 
 Site đang có trang theo phân khu (/sapphire/) và theo loại căn (/2pn/) nhưng
 chưa có trang nào theo tòa, trong khi nhóm truy vấn "thuê căn hộ tòa S4.01"
-có lượng tìm khá và gần như không ai làm. Đây là thử nghiệm MỘT trang duy
-nhất: đo Search Console 4-6 tuần rồi mới tính chuyện sinh hàng loạt.
+có lượng tìm khá và gần như không ai làm. Sau giai đoạn thử nghiệm S4.01, site mở rộng có kiểm soát sang 15 tòa có quỹ căn dày nhất.
+Không sinh đại trà toàn bộ tòa: mỗi trang vẫn phải vượt ngưỡng dữ liệu tối thiểu.
 
 Khác 27 trang danh mục cũ (HTML tĩnh viết tay, lệch dần với data.json), trang
 này được dựng lại từ đầu mỗi lần chạy nên không bao giờ lệch. Toàn bộ con số
@@ -61,14 +61,86 @@ def doc_khoi_nap():
 
 
 # ---------------------------------------------------------------------------
-# Tòa cần sinh trang. Thêm tòa mới = thêm một dòng ở đây, không phải sửa code.
-# Hiện CHỈ có S4.01 - đây là thử nghiệm một trang, chưa mở rộng.
+# Cụm tòa ưu tiên SEO. Chỉ mở các tòa có quỹ căn đủ dày để tránh sinh trang mỏng.
+# Danh sách này được chọn từ data.json tại 31/08/2026: ưu tiên 15 tòa có nhiều
+# căn đang hiển thị nhất. NGUONG_TOI_THIEU bên dưới vẫn là chốt an toàn động:
+# nếu một tòa tụt dưới ngưỡng thì generator không ghi đè trang.
 # ---------------------------------------------------------------------------
 CAC_TOA = {
+    "A2 Lumière": {
+        "ma_toa_data": "A2",
+        "duong_dan": "/a2-lumiere-evergreen/",
+        "ten_hien_thi": "A2 Lumière",
+    },
+    "West B Masteri": {
+        "ma_toa_data": "MasB",
+        "duong_dan": "/west-b-masteri-smart-city/",
+        "ten_hien_thi": "West B Masteri",
+    },
+    "A3 Lumière": {
+        "ma_toa_data": "A3",
+        "duong_dan": "/a3-lumiere-evergreen/",
+        "ten_hien_thi": "A3 Lumière",
+    },
+    "West D Masteri": {
+        "ma_toa_data": "MasD",
+        "duong_dan": "/west-d-masteri-smart-city/",
+        "ten_hien_thi": "West D Masteri",
+    },
+    "GS5 The Miami": {
+        "ma_toa_data": "GS5",
+        "duong_dan": "/gs5-the-miami-smart-city/",
+        "ten_hien_thi": "GS5 The Miami",
+    },
+    "West A Masteri": {
+        "ma_toa_data": "MasA",
+        "duong_dan": "/west-a-masteri-smart-city/",
+        "ten_hien_thi": "West A Masteri",
+    },
+    "SA3 The Sakura": {
+        "ma_toa_data": "SA3",
+        "duong_dan": "/sa3-the-sakura-smart-city/",
+        "ten_hien_thi": "SA3 The Sakura",
+    },
+    "SA1 The Sakura": {
+        "ma_toa_data": "SA1",
+        "duong_dan": "/sa1-the-sakura-smart-city/",
+        "ten_hien_thi": "SA1 The Sakura",
+    },
+    "S1.01": {
+        "ma_toa_data": "S101",
+        "duong_dan": "/s1-01-vinhomes-smart-city/",
+        "ten_hien_thi": "S1.01",
+    },
+    "S2.02": {
+        "ma_toa_data": "S202",
+        "duong_dan": "/s2-02-vinhomes-smart-city/",
+        "ten_hien_thi": "S2.02",
+    },
+    "GS6 The Miami": {
+        "ma_toa_data": "GS6",
+        "duong_dan": "/gs6-the-miami-smart-city/",
+        "ten_hien_thi": "GS6 The Miami",
+    },
+    "TC1 The Canopy": {
+        "ma_toa_data": "TC1",
+        "duong_dan": "/tc1-canopy-smart-city/",
+        "ten_hien_thi": "TC1 The Canopy",
+    },
+    "I1 Imperia": {
+        "ma_toa_data": "I1",
+        "duong_dan": "/i1-imperia-smart-city/",
+        "ten_hien_thi": "I1 Imperia",
+    },
     "S4.01": {
-        "ma_toa_data": "S401",       # giá trị trong cột "Tòa" của data.json
+        "ma_toa_data": "S401",
         "duong_dan": "/s4-01-vinhomes-smart-city/",
         "ten_hien_thi": "S4.01",
+    },
+    "S3.03": {
+        "ma_toa_data": "S303",
+        "duong_dan": "/s3-03-vinhomes-smart-city/",
+        "ten_hien_thi": "S3.03",
     },
 }
 
