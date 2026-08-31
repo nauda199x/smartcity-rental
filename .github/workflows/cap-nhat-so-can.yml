@@ -191,7 +191,7 @@ jobs:
       - name: Cập nhật bài giá Studio từ data thật
         run: |
           set -o pipefail
-          python3 scripts/cap-nhat-gia-studio.py ${{ inputs.chi_thu && '--thu' || '' }} \\
+          python3 scripts/cap-nhat-gia-studio.py ${{ inputs.chi_thu && '--thu' || '' }} \
             2>&1 | tee -a ket-qua.txt
 
       - name: Sinh cụm so sánh & ngân sách
