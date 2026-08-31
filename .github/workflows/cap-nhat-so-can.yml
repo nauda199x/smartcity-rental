@@ -24,6 +24,7 @@ on:
       - "scripts/dong-bo-ten-site.py"
       - "scripts/dong-bo-thuc-the-thuong-hieu.py"
       - "scripts/cap-nhat-gia-thue-chuyen-sau.py"
+      - "scripts/cap-nhat-gia-studio.py"
       - "scripts/sinh-cum-so-sanh-ngan-sach.py"
       - ".github/workflows/cap-nhat-so-can.yml"
   schedule:
@@ -185,6 +186,12 @@ jobs:
         run: |
           set -o pipefail
           python3 scripts/cap-nhat-gia-thue-chuyen-sau.py ${{ inputs.chi_thu && '--thu' || '' }} \
+            2>&1 | tee -a ket-qua.txt
+
+      - name: Cập nhật bài giá Studio từ data thật
+        run: |
+          set -o pipefail
+          python3 scripts/cap-nhat-gia-studio.py ${{ inputs.chi_thu && '--thu' || '' }} \\
             2>&1 | tee -a ket-qua.txt
 
       - name: Sinh cụm so sánh & ngân sách
