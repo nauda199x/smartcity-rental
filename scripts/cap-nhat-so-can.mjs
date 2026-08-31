@@ -229,7 +229,7 @@ function thayGiaSan(doan, giaChu) {
  * thường, 3 chỗ viết hoa ở <meta name="description">; 15/10 ở og:description).
  * Regex bắt cả hai và trả lại đúng cụm đã khớp, không tự chuẩn hoá kiểu viết.
  */
-const RE_DESC_SO_CAN = /(Danh sách\s+)\d+(\s+căn)/;
+const RE_DESC_SO_CAN = /((?:Danh sách\s+)|(?:Studio Vinhomes Smart City đang cho thuê:\s+))\d+(\s+căn)/;
 const RE_DESC_NGAY = /([Cc]ập nhật\s+)\d{2}\/\d{2}\/\d{4}/;
 
 /* Google cắt description quanh mốc này. Vượt thì ghi cảnh báo để rà tay,
@@ -244,7 +244,7 @@ function thayTrongDescription(doan, soMoi, ngayMoi, ten, nhan, canhBao) {
     moi = moi.replace(RE_DESC_SO_CAN, (_, truoc, sau) => truoc + soMoi + sau);
     khop = true;
   } else {
-    canhBao.push(`${ten} ${nhan}: không khớp mẫu "Danh sách N căn" — GIỮ NGUYÊN số căn.`);
+    canhBao.push(`${ten} ${nhan}: không khớp mẫu số căn động đã hỗ trợ — GIỮ NGUYÊN số căn.`);
   }
 
   if (RE_DESC_NGAY.test(moi)) {
