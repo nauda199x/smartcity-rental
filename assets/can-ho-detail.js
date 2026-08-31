@@ -168,7 +168,7 @@
     });
 
     if (imgs.length) {
-      var xemAnh = tao("button", "ct-gallery-all", "Xem tất cả " + imgs.length + " ảnh");
+      var xemAnh = tao("button", "ct-gallery-all", typeof window.CT_DETAIL_T === "function"\n        ? window.CT_DETAIL_T("gallery.all", "Xem tất cả {N} ảnh", { N: imgs.length })\n        : "Xem tất cả " + imgs.length + " ảnh");
       xemAnh.type = "button";
       xemAnh.setAttribute("aria-label", "Xem toàn bộ " + imgs.length + " ảnh căn hộ");
       xemAnh.addEventListener("click", function () {
@@ -184,7 +184,7 @@
           if (gallery.clientWidth) {
             hienTai = Math.max(0, Math.min(imgs.length - 1, Math.round(gallery.scrollLeft / gallery.clientWidth)));
             if (window.matchMedia("(max-width:640px)").matches) {
-              xemAnh.textContent = (hienTai + 1) + "/" + imgs.length + " ảnh";
+              xemAnh.textContent = typeof window.CT_DETAIL_T === "function"\n                ? window.CT_DETAIL_T("gallery.count", "{I}/{N} ảnh", { I: hienTai + 1, N: imgs.length })\n                : (hienTai + 1) + "/" + imgs.length + " ảnh";
             }
           }
         });
