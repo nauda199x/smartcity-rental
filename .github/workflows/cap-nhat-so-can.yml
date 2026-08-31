@@ -24,6 +24,7 @@ on:
       - "scripts/dong-bo-ten-site.py"
       - "scripts/dong-bo-thuc-the-thuong-hieu.py"
       - "scripts/cap-nhat-gia-thue-chuyen-sau.py"
+      - "scripts/sinh-cum-so-sanh-ngan-sach.py"
       - ".github/workflows/cap-nhat-so-can.yml"
   schedule:
     # Ba lần một ngày. Giờ Việt Nam là UTC+7, nên 01/09/17 giờ UTC tương ứng
@@ -184,6 +185,12 @@ jobs:
         run: |
           set -o pipefail
           python3 scripts/cap-nhat-gia-thue-chuyen-sau.py ${{ inputs.chi_thu && '--thu' || '' }} \
+            2>&1 | tee -a ket-qua.txt
+
+      - name: Sinh cụm so sánh & ngân sách
+        run: |
+          set -o pipefail
+          python3 scripts/sinh-cum-so-sanh-ngan-sach.py ${{ inputs.chi_thu && '--thu' || '' }} \
             2>&1 | tee -a ket-qua.txt
 
       - name: Cập nhật lastmod trong sitemap.xml
