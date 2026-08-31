@@ -99,11 +99,25 @@ TRANG_PHAN_KHU = {
     "Tonkin": "/tonkin/",
 }
 
-# Ánh xạ tòa (mã đã chuẩn hoá) -> trang tòa, chỉ những tòa đã có trang thật.
-# Hiện chỉ S4.01 (S401) từ sinh-trang-toa.py. Thêm tòa mới ở CAC_TOA của file
-# đó thì thêm một dòng tương ứng ở đây.
+# Ánh xạ tòa (mã đã chuẩn hoá) -> trang tòa đang được generator duy trì.
+# Phải khớp với CAC_TOA trong sinh-trang-toa.py để breadcrumb của trang căn
+# trỏ xuống đúng landing tòa thay vì chỉ dừng ở phân khu.
 TRANG_TOA = {
+    "A2": ("/a2-lumiere-evergreen/", "A2 Lumière"),
+    "MASB": ("/west-b-masteri-smart-city/", "West B Masteri"),
+    "A3": ("/a3-lumiere-evergreen/", "A3 Lumière"),
+    "MASD": ("/west-d-masteri-smart-city/", "West D Masteri"),
+    "GS5": ("/gs5-the-miami-smart-city/", "GS5 The Miami"),
+    "MASA": ("/west-a-masteri-smart-city/", "West A Masteri"),
+    "SA3": ("/sa3-the-sakura-smart-city/", "SA3 The Sakura"),
+    "SA1": ("/sa1-the-sakura-smart-city/", "SA1 The Sakura"),
+    "S101": ("/s1-01-vinhomes-smart-city/", "S1.01"),
+    "S202": ("/s2-02-vinhomes-smart-city/", "S2.02"),
+    "GS6": ("/gs6-the-miami-smart-city/", "GS6 The Miami"),
+    "TC1": ("/tc1-canopy-smart-city/", "TC1 The Canopy"),
+    "I1": ("/i1-imperia-smart-city/", "I1 Imperia"),
     "S401": ("/s4-01-vinhomes-smart-city/", "S4.01"),
+    "S303": ("/s3-03-vinhomes-smart-city/", "S3.03"),
 }
 
 

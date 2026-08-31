@@ -223,7 +223,13 @@ jobs:
           # vì `git diff` không nhìn thấy file chưa được theo dõi: tòa mới sinh
           # lần đầu sẽ bị coi là "không có gì thay đổi" và không bao giờ được
           # commit.
-          git add -- '*.html' sitemap.xml s4-01-vinhomes-smart-city \
+          git add -- '*.html' sitemap.xml \
+            a2-lumiere-evergreen a3-lumiere-evergreen \
+            west-a-masteri-smart-city west-b-masteri-smart-city west-d-masteri-smart-city \
+            gs5-the-miami-smart-city gs6-the-miami-smart-city \
+            sa1-the-sakura-smart-city sa3-the-sakura-smart-city \
+            s1-01-vinhomes-smart-city s2-02-vinhomes-smart-city s3-03-vinhomes-smart-city s4-01-vinhomes-smart-city \
+            tc1-canopy-smart-city i1-imperia-smart-city \
             can-ho sitemap-can-ho.xml sitemap-phan-khu-loai-can.xml \
             seo-phan-khu-loai-can.json
           # Hai file bước 8 chưa tồn tại ở lần chạy đầu nếu generator chủ động
