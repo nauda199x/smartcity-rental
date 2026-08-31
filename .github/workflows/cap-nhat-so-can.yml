@@ -12,6 +12,7 @@ on:
     paths:
       - "data.json"
       - "scripts/sinh-trang-can.py"
+      - "scripts/sinh-trang-nhu-cau.py"
       - "scripts/sinh-trang-toa.py"
       - "scripts/sinh-trang-giao-thoa.py"
       - "scripts/sinh-trang-ngan-sach-loai-can.py"
@@ -131,6 +132,12 @@ jobs:
             exit 0
           fi
           exit "$ma"
+
+      - name: Sinh landing theo nhu cầu thực tế
+        run: |
+          set -o pipefail
+          python3 scripts/sinh-trang-nhu-cau.py ${{ inputs.chi_thu && '--thu' || '' }} \
+            2>&1 | tee -a ket-qua.txt
 
       # Chạy SAU sinh-trang-toa.py, dung-lai-trang-danh-muc.py (hai script dựng
       # lại section.luoi, ghi đè liên kết vừa chèn nếu chạy trước) và SAU
