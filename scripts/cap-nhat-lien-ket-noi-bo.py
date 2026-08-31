@@ -108,6 +108,13 @@ NGAN_SACH_LABEL = {
     "tren-15-trieu": "trên 15 triệu",
 }
 
+NHU_CAU_LINKS = [
+    ("/can-ho-vao-o-ngay-vinhomes-smart-city.html", "Căn vào ở ngay", "Quỹ căn có thể chuyển vào ngay theo dữ liệu hiện tại."),
+    ("/can-ho-full-noi-that-vinhomes-smart-city.html", "Căn full nội thất", "Tìm căn đã có đầy đủ nội thất."),
+    ("/thue-can-ho-smart-city-cho-nguoi-nuoc-ngoai.html", "Thuê cho người nước ngoài", "Checklist giấy tờ, hợp đồng và tạm trú."),
+    ("/thue-can-ho-smart-city-co-thu-cung.html", "Thuê khi có thú cưng", "Các điều cần xác nhận trước khi cọc."),
+]
+
 GUIDE_LINKS = [
     ("/bang-gia-thue-vinhomes-smart-city.html",
      "Bảng giá thuê Smart City",
@@ -456,6 +463,9 @@ def dung_khoi(slug, bo_loc, data, combo):
             for z in top_pk
         ]))
 
+    groups.append(group("Nhu cầu phổ biến", [
+        link_card(h, t, d) for h, t, d in NHU_CAU_LINKS
+    ]))
     groups.append(group("Thông tin trước khi thuê", [
         link_card(h, t, d) for h, t, d in GUIDE_LINKS
     ]))
