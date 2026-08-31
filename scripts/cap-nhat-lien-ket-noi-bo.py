@@ -54,6 +54,25 @@ PHAN_KHU = {
 }
 PHAN_KHU_THU_TU = list(PHAN_KHU)
 
+# Landing tòa ưu tiên. Key là mã tòa đã chuẩn hóa (bỏ dấu/chấm/gạch và viết hoa).
+TOA_LINKS = {
+    "A2": ("Lumiere", "/a2-lumiere-evergreen/", "Tòa A2 Lumière"),
+    "MASB": ("Masteri", "/west-b-masteri-smart-city/", "Tòa West B Masteri"),
+    "A3": ("Lumiere", "/a3-lumiere-evergreen/", "Tòa A3 Lumière"),
+    "MASD": ("Masteri", "/west-d-masteri-smart-city/", "Tòa West D Masteri"),
+    "GS5": ("Miami", "/gs5-the-miami-smart-city/", "Tòa GS5 The Miami"),
+    "MASA": ("Masteri", "/west-a-masteri-smart-city/", "Tòa West A Masteri"),
+    "SA3": ("Sakura", "/sa3-the-sakura-smart-city/", "Tòa SA3 The Sakura"),
+    "SA1": ("Sakura", "/sa1-the-sakura-smart-city/", "Tòa SA1 The Sakura"),
+    "S101": ("Sapphire", "/s1-01-vinhomes-smart-city/", "Tòa S1.01"),
+    "S202": ("Sapphire", "/s2-02-vinhomes-smart-city/", "Tòa S2.02"),
+    "GS6": ("Miami", "/gs6-the-miami-smart-city/", "Tòa GS6 The Miami"),
+    "TC1": ("Canopy", "/tc1-canopy-smart-city/", "Tòa TC1 The Canopy"),
+    "I1": ("Imperia", "/i1-imperia-smart-city/", "Tòa I1 Imperia"),
+    "S401": ("Sapphire", "/s4-01-vinhomes-smart-city/", "Tòa S4.01"),
+    "S303": ("Sapphire", "/s3-03-vinhomes-smart-city/", "Tòa S3.03"),
+}
+
 BAI_PHAN_KHU = {
     "Masteri": ("/cho-thue-can-ho-masteri-west-heights-smart-city.html",
                 "Tổng quan thuê Masteri West Heights"),
@@ -261,6 +280,17 @@ def dem_theo_loai(data, bo_loc):
                 dem[l] += 1
     return dem
 
+def dem_theo_toa(data, bo_loc):
+    dem = collections.Counter()
+    for r in data:
+        if not khop(r, bo_loc):
+            continue
+        ma = re.sub(r"[\s._-]", "", chuan(r.get("Tòa"))).upper()
+        if ma in TOA_LINKS:
+            dem[ma] += 1
+    return dem
+
+
 def top_keys(counter, thu_tu, n=4):
     thu = {k: i for i, k in enumerate(thu_tu)}
     ds = [k for k, c in counter.items() if c > 0]
@@ -312,6 +342,17 @@ def dung_khoi(slug, bo_loc, data, combo):
                       "%d căn loại này đang có tại %s." % (
                           dem_loai[t], PHAN_KHU[pk][1]))
             for t in top_loai
+        ]))
+        dem_toa = dem_theo_toa(data, bo_loc)
+        top_toa = sorted(
+            [ma for ma, n in dem_toa.items()
+             if ma in TOA_LINKS and TOA_LINKS[ma][0] == pk and n >= 3],
+            key=lambda ma: (-dem_toa[ma], ma)
+        )[:4]
+        groups.append(group("Tòa đang có nhiều căn", [
+            link_card(TOA_LINKS[ma][1], TOA_LINKS[ma][2],
+                      "%d căn đang trống trong quỹ hiện tại." % dem_toa[ma])
+            for ma in top_toa
         ]))
         links = [
             link_card("/", "Toàn bộ căn đang trống",
