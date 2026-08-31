@@ -22,6 +22,7 @@ on:
       - "scripts/dung-lai-trang-danh-muc.py"
       - "scripts/noi-lien-ket-chi-tiet.py"
       - "scripts/dong-bo-ten-site.py"
+      - "scripts/dong-bo-thuc-the-thuong-hieu.py"
       - "scripts/cap-nhat-gia-thue-chuyen-sau.py"
       - ".github/workflows/cap-nhat-so-can.yml"
   schedule:
@@ -171,6 +172,12 @@ jobs:
         run: |
           set -o pipefail
           node scripts/cap-nhat-so-can.mjs ${{ inputs.chi_thu && '--thu' || '' }} \
+            2>&1 | tee -a ket-qua.txt
+
+      - name: Chuẩn hóa thực thể thương hiệu
+        run: |
+          set -o pipefail
+          python3 scripts/dong-bo-thuc-the-thuong-hieu.py ${{ inputs.chi_thu && '--thu' || '' }} \
             2>&1 | tee -a ket-qua.txt
 
       - name: Cập nhật database giá thuê & snapshot tháng
