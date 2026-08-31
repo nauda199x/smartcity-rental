@@ -244,9 +244,8 @@
     var title = rented
       ? T("title.rented", "", { TYPE:type, AREA:area, TOWER:tower })
       : T("title.active", "", { TYPE:type, AREA:area, TOWER:tower });
-    if (h1 && ma() !== "vi") h1.textContent = title;
-    else if (h1 && ma() === "vi" && h1.dataset.ctVi) h1.textContent = h1.dataset.ctVi;
     if (h1 && !h1.dataset.ctVi) h1.dataset.ctVi = h1.textContent;
+    if (h1) h1.textContent = ma() === "vi" ? h1.dataset.ctVi : title;
 
     var bc = q(".bc");
     if (bc) {
@@ -379,8 +378,11 @@
       img.setAttribute("aria-label",T("gallery.open","Mở ảnh {I} trên {N}",{I:i+1,N:imgs.length}));
     });
     var all=q(".ct-gallery-all");
-    if(all && !/^\d+\/\d+/.test(all.textContent.trim())) {
-      all.textContent=T("gallery.all","Xem tất cả {N} ảnh",{N:imgs.length});
+    if(all) {
+      var dem = all.textContent.trim().match(/^(\d+)\/(\d+)/);
+      all.textContent = dem
+        ? T("gallery.count","{I}/{N} ảnh",{I:Number(dem[1]),N:Number(dem[2])})
+        : T("gallery.all","Xem tất cả {N} ảnh",{N:imgs.length});
     }
   }
 
