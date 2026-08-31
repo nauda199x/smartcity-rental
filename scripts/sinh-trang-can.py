@@ -341,7 +341,7 @@ DAU_TRANG = """<!doctype html>
 <meta property="og:image" content="%(og_image)s">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
-<meta property="og:site_name" content="Cho thuê chung cư Smart City">
+<meta property="og:site_name" content="Tìm Thuê Smart City">
 <meta name="twitter:image" content="%(og_image)s">
 <meta property="og:locale" content="vi_VN">
 <meta name="twitter:card" content="summary_large_image">
@@ -876,7 +876,7 @@ def dung_trang_hub(active, occupied_list, hom_nay):
 <meta property="og:title" content="%(tieu_de)s">
 <meta property="og:description" content="%(mo_ta)s">
 <meta property="og:image" content="%(og_image)s">
-<meta property="og:site_name" content="Cho thuê chung cư Smart City">
+<meta property="og:site_name" content="Tìm Thuê Smart City">
 <meta property="og:locale" content="vi_VN">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="%(tieu_de)s">
