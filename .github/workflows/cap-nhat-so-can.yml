@@ -20,6 +20,7 @@ on:
       - "scripts/dung-lai-trang-chu.py"
       - "scripts/dung-lai-trang-danh-muc.py"
       - "scripts/noi-lien-ket-chi-tiet.py"
+      - "scripts/dong-bo-ten-site.py"
       - ".github/workflows/cap-nhat-so-can.yml"
   schedule:
     # Ba lần một ngày. Giờ Việt Nam là UTC+7, nên 01/09/17 giờ UTC tương ứng
@@ -146,6 +147,15 @@ jobs:
         run: |
           set -o pipefail
           python3 scripts/cap-nhat-lien-ket-noi-bo.py ${{ inputs.chi_thu && '--thu' || '' }} \
+            2>&1 | tee -a ket-qua.txt
+
+      # Google dùng WebSite structured data ở trang chủ là tín hiệu chính cho
+      # site name, đồng thời còn tham khảo og:site_name. Chuẩn hóa thẻ này trên
+      # toàn bộ HTML để các trang con không phát tín hiệu tên thương hiệu cũ.
+      - name: Đồng bộ tên site cho Google
+        run: |
+          set -o pipefail
+          python3 scripts/dong-bo-ten-site.py ${{ inputs.chi_thu && '--thu' || '' }} \
             2>&1 | tee -a ket-qua.txt
 
       - name: Đếm căn và cập nhật thẻ SEO

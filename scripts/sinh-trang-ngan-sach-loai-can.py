@@ -227,7 +227,7 @@ def render_page(loai, budget_key, ds, indexable, detail_map, ngay, registry):
 <meta property="og:title" content="%(title)s">
 <meta property="og:description" content="%(desc)s">
 <meta property="og:image" content="https://timthuesmartcity.com/og-smartcity.jpg">
-<meta property="og:site_name" content="Cho thuê chung cư Smart City">
+<meta property="og:site_name" content="Tìm Thuê Smart City">
 <meta property="og:locale" content="vi_VN">
 <meta name="twitter:card" content="summary_large_image">
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-VF9KHC5TWD"></script>
