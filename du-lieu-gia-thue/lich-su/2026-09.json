@@ -1,13 +1,13 @@
 {
   "updated": "2026-09-01",
   "source": "data.json",
-  "active_count": 256,
+  "active_count": 255,
   "min_sample": 3,
   "overall": {
-    "n": 256,
+    "n": 255,
     "min": 6000000,
     "max": 19500000,
-    "median": 11000000.0
+    "median": 11000000
   },
   "by_type": {
     "1 Ngủ": {
@@ -23,10 +23,10 @@
       "median": 9500000.0
     },
     "2 Ngủ": {
-      "n": 89,
+      "n": 88,
       "min": 8000000,
       "max": 16500000,
-      "median": 11500000
+      "median": 11500000.0
     },
     "2 Ngủ +": {
       "n": 44,
@@ -85,10 +85,10 @@
       "median": 10000000.0
     },
     "Sapphire": {
-      "n": 69,
+      "n": 68,
       "min": 6000000,
       "max": 18000000,
-      "median": 10000000
+      "median": 10000000.0
     },
     "Tonkin": {
       "n": 6,
@@ -99,10 +99,10 @@
   },
   "by_interior": {
     "Full nội thất": {
-      "n": 169,
+      "n": 168,
       "min": 6500000,
       "max": 19500000,
-      "median": 11000000
+      "median": 11000000.0
     },
     "Nhà Nguyên Bản": {
       "n": 40,
@@ -716,10 +716,10 @@
       "zone": "Sapphire",
       "type": "2 Ngủ",
       "interior": "Full nội thất",
-      "n": 19,
+      "n": 18,
       "min": 9500000,
       "max": 12000000,
-      "median": 10000000
+      "median": 10000000.0
     },
     {
       "zone": "Sapphire",
