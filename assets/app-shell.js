@@ -6,10 +6,9 @@
  * là nền tảng/môi giới độc lập, không phải website chính thức của
  * Vinhomes/Vingroup.
  *
- * SỬA 03/08/2026 — tab thứ 2 đổi từ "Cẩm nang" thành "Tìm mua",
- * trỏ sang timmuasmartcity.com. Khách đang xem thuê mà muốn mua thì
- * sang thẳng, không phải rời site tìm lại. Cẩm nang chuyển vào Menu
- * (vốn đã có sẵn ở đó, nên không mất đường vào).
+ * SỬA 01/09/2026 — gỡ toàn bộ lối tắt mua bán khỏi thanh điều hướng
+ * desktop, thanh tab và Menu mobile. Mảng mua bán đã chuyển sang vận hành
+ * độc lập trên marketplace riêng, nên website này chỉ giữ luồng cho thuê.
  * timthuesmartcity.com — thêm 01/08/2026
  *
  * VÌ SAO DỰNG BẰNG JS THAY VÌ DÁN HTML VÀO 39 TRANG:
@@ -67,7 +66,6 @@
     nha: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"><path d="M3.5 10.5 12 4l8.5 6.5V19a1 1 0 0 1-1 1h-5v-6h-5v6h-5a1 1 0 0 1-1-1Z"/></svg>',
     sach: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"><path d="M4 5.5A1.5 1.5 0 0 1 5.5 4H10a2 2 0 0 1 2 2v13a2 2 0 0 0-2-2H5.5A1.5 1.5 0 0 1 4 15.5Z"/><path d="M20 5.5A1.5 1.5 0 0 0 18.5 4H14a2 2 0 0 0-2 2v13a2 2 0 0 1 2-2h4.5a1.5 1.5 0 0 0 1.5-1.5Z"/></svg>',
     kygui: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"><path d="M3.5 10.5 12 4l8.5 6.5V19a1 1 0 0 1-1 1h-15a1 1 0 0 1-1-1Z"/><path d="M12 16v-5M9.6 13.2 12 10.8l2.4 2.4" stroke-linecap="round"/></svg>',
-    timmua: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"><path d="M3.5 10.5 12 4l8.5 6.5V19a1 1 0 0 1-1 1h-15a1 1 0 0 1-1-1Z"/><path d="M12 10.5v6M10.2 12.2h2.6a1.3 1.3 0 0 1 0 2.6h-1.6a1.3 1.3 0 0 0 0 2.6h2.6" stroke-linecap="round"/></svg>',
     gia: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"><path d="M4 7.5A2.5 2.5 0 0 1 6.5 5h11A2.5 2.5 0 0 1 20 7.5v9a2.5 2.5 0 0 1-2.5 2.5h-11A2.5 2.5 0 0 1 4 16.5Z"/><path d="M8 9.5h8M8 13h5M8 16.5h3"/></svg>',
     menu: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="5" cy="12" r="1.4" fill="currentColor" stroke="none"/><circle cx="12" cy="12" r="1.4" fill="currentColor" stroke="none"/><circle cx="19" cy="12" r="1.4" fill="currentColor" stroke="none"/></svg>'
   };
@@ -109,7 +107,6 @@
     { ten: "Gọi", so: SDT, k: "ft.call", href: "tel:" + SDT },
 
     { nhom: "Khác", k: "sh.other" },
-    { ten: "Tìm mua căn hộ Smart City", k: "sh.buyLink", href: "https://timmuasmartcity.com", ngoai: true },
     { ten: "Giới thiệu & Liên hệ", k: "sh.about", href: "/gioi-thieu-lien-he.html" },
     { ten: "Chính sách quyền riêng tư", k: "sh.privacy", href: "/chinh-sach-quyen-rieng-tu.html" }
   ];
@@ -144,8 +141,6 @@
     bar.setAttribute("data-i18n-al", "sh.navAl");
     bar.innerHTML =
         '<a href="/"' + lop("trang-chu") + '>' + IC.nha + '<span data-i18n="sh.rent">Căn thuê</span></a>'
-      + '<a href="https://timmuasmartcity.com" target="_blank" rel="noopener">'
-        + IC.timmua + '<span data-i18n="sh.buy">Tìm mua</span></a>'
       + '<a href="/gui-thue/"' + lop("ky-gui") + '>' + IC.kygui + '<span data-i18n="sh.consign">Ký gửi</span></a>'
       + '<button type="button" id="tabMenu" aria-haspopup="dialog">' + IC.menu + '<span data-i18n="sh.menu">Menu</span></button>';
 
@@ -279,7 +274,6 @@
       + navNhom("Loại căn", NHOM_LOAI_CAN, active.type, "nav.type")
       + navLink("Bảng giá", "/bang-gia-thue-vinhomes-smart-city.html", active.price ? "active" : "", "nav.price")
       + navLink("Cẩm nang", "/cam-nang-thue-nha.html", active.guide ? "active" : "", "nav.guideShort")
-      + '<a class="nav-v4-link nav-v4-buy" href="https://timmuasmartcity.com" target="_blank" rel="noopener" data-i18n="sh.buy">Tìm mua</a>'
       + navLink("Ký gửi", "/gui-thue/", active.consign ? "active" : "", "nav.consignShort");
 
     var shell = header.querySelector(".shell, .khung");

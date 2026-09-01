@@ -31,6 +31,8 @@ RE_CU = re.compile(
     r'<div class="lq">.*?</div>\s*'
     r'<h2[^>]*>\s*Đọc thêm trước khi thuê\s*</h2>\s*'
     r'<div class="lq">.*?</div>\s*', re.S | re.I)
+RE_APP_SHELL = re.compile(r'/assets/app-shell\.js(?:\?v=[^"\s<>]+)?')
+APP_SHELL_MOI = '/assets/app-shell.js?v=20260901-1'
 
 LOAI = {
     "studio": ("studio", "Studio", "/studio/"),
@@ -493,6 +495,27 @@ def chen(raw, khoi):
         return raw[:i] + "\n  " + khoi + "\n\n" + raw[i:]
     return raw
 
+def cap_nhat_phien_ban_app_shell(thu=False):
+    """Phá cache app-shell trên mọi trang HTML, kể cả bài viết tĩnh."""
+    changed = 0
+    for thu_muc, dirs, files in os.walk(GOC):
+        dirs[:] = [d for d in dirs if d not in {".git", "node_modules"}]
+        for ten in files:
+            if not ten.endswith(".html"):
+                continue
+            path = os.path.join(thu_muc, ten)
+            with open(path, encoding="utf-8") as f:
+                raw = f.read()
+            moi = RE_APP_SHELL.sub(APP_SHELL_MOI, raw)
+            if moi == raw:
+                continue
+            changed += 1
+            if not thu:
+                with open(path, "w", encoding="utf-8", newline="") as f:
+                    f.write(moi)
+    print("Trang HTML được phá cache app-shell:", changed)
+    return changed
+
 def main():
     ap = argparse.ArgumentParser(
         description="Dựng internal links tĩnh cho các trang danh mục.")
@@ -529,6 +552,7 @@ def main():
                 f.write(moi)
 
     print("Thay đổi:", changed, "/", len(pages))
+    cap_nhat_phien_ban_app_shell(args.thu)
     if args.thu:
         print("(--thu) Không ghi file.")
     return 0

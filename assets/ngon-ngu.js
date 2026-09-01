@@ -307,7 +307,6 @@
        Các mục này trỏ sang trang TIẾNG VIỆT. Bản dịch chỉ để khách biết link
        đó nói về gì, không hứa trang đích có tiếng Anh — đã ghi rõ ở notice.vn. */
     "sh.guide":        ["Guide", "가이드"],
-    "sh.buy":          ["Buy", "매매"],
     "sh.contact":      ["Contact", "문의"],
     "sh.zalo":         ["Zalo", "잘로"],
     "sh.call":         ["Call", "전화"],
@@ -320,8 +319,6 @@
     "sh.exp":          ["Tips for renting at Smart City", "스마트시티 임대 노하우"],
     "sh.amen":         ["On-site amenities", "단지 내 편의시설"],
     "sh.fees":         ["Service fees, parking, pets", "관리비·주차·반려동물"],
-    "sh.buyTitle":     ["Looking to buy instead?", "매매를 원하시나요?"],
-    "sh.buyLink":      ["See apartments for sale", "매매 매물 보기"],
     "sh.other":        ["Other", "기타"],
     "sh.cat":          ["Listings by zone", "구역별 매물"],
     "sh.privacy":      ["Privacy policy", "개인정보 처리방침"],

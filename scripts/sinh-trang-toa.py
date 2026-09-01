@@ -605,7 +605,7 @@ hỏi. Lần cập nhật gần nhất là %(ngay)s.</p>
   </div>
 </footer>
 <a class="zalo-noi" href="https://zalo.me/%(sdt)s" target="_blank" rel="noopener">Nhắn Zalo tư vấn</a>
-  <script src="/assets/app-shell.js?v=20260830-6" defer></script>
+  <script src="/assets/app-shell.js?v=20260901-1" defer></script>
 </body>
 """ % {
         "tieu_de": esc(tieu_de),

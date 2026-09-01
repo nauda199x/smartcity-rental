@@ -67,7 +67,7 @@ def page(path,title,desc,h1,intro,rows,reg,faq):
 <section class="luoi">{body}</section>
 <section class="bai"><h2>Cách dùng danh sách này</h2><p>Trang được sinh trực tiếp từ data.json. Khi căn ngừng hiển thị, nó tự rời danh sách; URL chi tiết cũ vẫn được hệ thống giữ để tránh 404 và chuyển khách sang căn tương tự.</p><h2>Câu hỏi thường gặp</h2>{faq_html}
 <a class="cta-home duoi" href="/">Mở bộ lọc toàn bộ quỹ căn<small>Lọc tiếp theo phân khu, loại căn, giá và nội thất</small></a></section></main>
-<footer class="chan"><div class="khung"><p>© Tìm Thuê Smart City · <a href="/gioi-thieu-lien-he.html">Giới thiệu & Liên hệ</a></p></div></footer><script src="/assets/app-shell.js" defer></script></body></html>'''
+<footer class="chan"><div class="khung"><p>© Tìm Thuê Smart City · <a href="/gioi-thieu-lien-he.html">Giới thiệu & Liên hệ</a></p></div></footer><script src="/assets/app-shell.js?v=20260901-1" defer></script></body></html>'''
 
 def main():
     ap=argparse.ArgumentParser(); ap.add_argument("--thu",action="store_true"); args=ap.parse_args()

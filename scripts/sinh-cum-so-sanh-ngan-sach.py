@@ -117,7 +117,7 @@ def article(path,title,desc,h1,lead,body,updated):
 <div class="lq"><a href="/masteri-vs-lumiere-thue-can-ho-smart-city.html">Masteri vs Lumière</a><a href="/nen-thue-phan-khu-nao-vinhomes-smart-city.html">Nên thuê phân khu nào?</a><a href="/ngan-sach-10-trieu-thue-can-ho-smart-city.html">Ngân sách 10 triệu</a><a href="/ngan-sach-12-trieu-thue-can-ho-smart-city.html">Ngân sách 12 triệu</a></div>
 <a class="cta-home duoi" href="/">Mở quỹ căn thực tế<small>Lọc trực tiếp theo loại căn, phân khu, giá và nội thất</small></a>
 </section></main><footer class="chan"><div class="khung"><p>© Tìm Thuê Smart City · <a href="/gioi-thieu-lien-he.html">Giới thiệu & Liên hệ</a></p></div></footer>
-<script src="/assets/app-shell.js" defer></script></body></html>'''
+<script src="/assets/app-shell.js?v=20260901-1" defer></script></body></html>'''
 
 def zone_table(rows):
     zs=zone_summary(rows)
