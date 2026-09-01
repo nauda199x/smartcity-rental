@@ -1,26 +1,26 @@
 {
   "updated": "2026-09-01",
   "source": "data.json",
-  "active_count": 255,
+  "active_count": 256,
   "min_sample": 3,
   "overall": {
-    "n": 255,
+    "n": 256,
     "min": 6000000,
     "max": 19500000,
-    "median": 11000000
+    "median": 11000000.0
   },
   "by_type": {
     "1 Ngủ": {
-      "n": 12,
+      "n": 13,
       "min": 7000000,
       "max": 14500000,
-      "median": 9750000.0
+      "median": 9500000
     },
     "1 Ngủ +": {
-      "n": 37,
+      "n": 38,
       "min": 7500000,
       "max": 12500000,
-      "median": 9500000
+      "median": 9500000.0
     },
     "2 Ngủ": {
       "n": 89,
@@ -41,18 +41,18 @@
       "median": 15000000.0
     },
     "Studio": {
-      "n": 45,
+      "n": 44,
       "min": 6000000,
       "max": 10500000,
-      "median": 8000000
+      "median": 8000000.0
     }
   },
   "by_zone": {
     "Canopy": {
-      "n": 14,
+      "n": 13,
       "min": 7000000,
       "max": 15000000,
-      "median": 9250000.0
+      "median": 9500000
     },
     "Imperia": {
       "n": 21,
@@ -79,7 +79,7 @@
       "median": 12000000.0
     },
     "Sakura": {
-      "n": 26,
+      "n": 28,
       "min": 6000000,
       "max": 15000000,
       "median": 10000000.0
@@ -99,10 +99,10 @@
   },
   "by_interior": {
     "Full nội thất": {
-      "n": 168,
+      "n": 169,
       "min": 6500000,
       "max": 19500000,
-      "median": 11000000.0
+      "median": 11000000
     },
     "Nhà Nguyên Bản": {
       "n": 40,
@@ -176,10 +176,10 @@
       "zone": "Canopy",
       "type": "Studio",
       "interior": "Full nội thất",
-      "n": 3,
+      "n": 2,
       "min": 7000000,
       "max": 8000000,
-      "median": 8000000
+      "median": 7500000.0
     },
     {
       "zone": "Imperia",
@@ -590,19 +590,19 @@
       "zone": "Sakura",
       "type": "1 Ngủ",
       "interior": "Full nội thất",
-      "n": 2,
+      "n": 3,
       "min": 9000000,
       "max": 10000000,
-      "median": 9500000.0
+      "median": 9300000
     },
     {
       "zone": "Sakura",
       "type": "1 Ngủ +",
       "interior": "Full nội thất",
-      "n": 1,
-      "min": 10000000,
+      "n": 2,
+      "min": 9000000,
       "max": 10000000,
-      "median": 10000000
+      "median": 9500000.0
     },
     {
       "zone": "Sakura",

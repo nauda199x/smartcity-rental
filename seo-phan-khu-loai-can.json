@@ -23,6 +23,14 @@
     "phanKhu": "Masteri",
     "updated": "2026-09-01"
   },
+  "cho-thue-1pn-plus-sakura-smart-city": {
+    "count": 4,
+    "created": "2026-09-01",
+    "indexable": true,
+    "loai": "1 Ngủ +",
+    "phanKhu": "Sakura",
+    "updated": "2026-09-01"
+  },
   "cho-thue-1pn-plus-sapphire-smart-city": {
     "count": 10,
     "created": "2026-08-30",

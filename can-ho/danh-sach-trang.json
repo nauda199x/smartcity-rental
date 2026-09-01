@@ -349,10 +349,24 @@
   "phan_khu": "Sakura",
   "toa": "SA1"
  },
+ "cho-thue-can-ho-1-ngu-sakura-43m2-ct-1n-532": {
+  "dien_tich": 43,
+  "loai": "1 Ngủ +",
+  "ma": "CT.1N+.532",
+  "phan_khu": "Sakura",
+  "toa": "SA3"
+ },
  "cho-thue-can-ho-1-ngu-sakura-47m2-ct-1n-163": {
   "dien_tich": 47,
   "loai": "1 Ngủ",
   "ma": "CT.1N.163",
+  "phan_khu": "Sakura",
+  "toa": "SA5"
+ },
+ "cho-thue-can-ho-1-ngu-sakura-47m2-ct-1n-166": {
+  "dien_tich": 47,
+  "loai": "1 Ngủ",
+  "ma": "CT.1N.166",
   "phan_khu": "Sakura",
   "toa": "SA5"
  },
