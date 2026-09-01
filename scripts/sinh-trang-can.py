@@ -14,7 +14,9 @@ là mất lịch sử URL.
 Chỉ dùng dữ liệu có thật trong data.json. Không suy diễn số tầng, hướng ban
 công hay mô tả cảm tính.
 
-Chạy nhiều lần cho kết quả giống hệt nhau, trừ dòng ngày cập nhật.
+Ngày hiển thị trên trang chi tiết là ngày căn lần đầu xuất hiện
+trên website. Mốc này được lưu bền trong danh-sach-trang.json nên
+không bị thay đổi khi workflow chạy lại để cập nhật giá, ảnh hay nội thất.
 
 Chạy:  python3 scripts/sinh-trang-can.py [--thu]
 """
@@ -206,7 +208,16 @@ def ngay_vao_o_hien_thi(can, hom_nay):
 
 
 def ngay_iso(s):
-    khop = re.match(r'^(\d{1,2})/(\d{1,2})/(\d{4})$', str(s).strip())
+    chuoi = str(s).strip()
+    khop_iso = re.match(r'^(\d{4})-(\d{2})-(\d{2})', chuoi)
+    if khop_iso:
+        try:
+            return datetime.date(int(khop_iso.group(1)), int(khop_iso.group(2)),
+                                 int(khop_iso.group(3))).isoformat()
+        except ValueError:
+            return None
+
+    khop = re.match(r'^(\d{1,2})/(\d{1,2})/(\d{4})$', chuoi)
     if not khop:
         return None
     d, m, y = int(khop.group(1)), int(khop.group(2)), int(khop.group(3))
@@ -214,6 +225,14 @@ def ngay_iso(s):
         return datetime.date(y, m, d).isoformat()
     except ValueError:
         return None
+
+
+def ngay_hien_thi(s):
+    """Chuẩn hoá ISO hoặc dd/mm/yyyy về dd/mm/yyyy để hiển thị."""
+    iso = ngay_iso(s)
+    if not iso:
+        return ""
+    return datetime.date.fromisoformat(iso).strftime("%d/%m/%Y")
 
 
 def dang_hien_thi(can):
@@ -517,6 +536,8 @@ def dung_trang_can(can, s, active, hom_nay):
     anh_urls = danh_sach_anh(can)
     ngay_vao_o = str(can.get("Ngày vào ở", "")).strip()
     ngay_str = hom_nay.strftime("%d/%m/%Y")
+    ngay_xuat_hien_str = ngay_hien_thi(
+        active["ban_do"][s].get("ngay_xuat_hien")) or ngay_str
     url = "%s/can-ho/%s/" % (TEN_MIEN, s)
 
     tieu_de = "Cho thuê căn hộ %s %s Vinhomes Smart City %dm² – %s/tháng" % (
@@ -529,7 +550,7 @@ def dung_trang_can(can, s, active, hom_nay):
                   "Vào ở " + ngay_vao_o_hien_thi(can, hom_nay).lower()
                   if ngay_vao_o_hien_thi(can, hom_nay) != "Vào ngay"
                   else "Vào ở ngay",
-                  ngay_str))
+                  ngay_xuat_hien_str))
 
     the_can_ten = "Căn hộ %s %s %dm²" % (loai, toa, dt)
 
@@ -617,7 +638,7 @@ def dung_trang_can(can, s, active, hom_nay):
             "<tr><td>Ngày cập nhật</td><td>%s</td></tr>"
             "</tbody></table>") % (
         esc(ma), esc(loai), dt, esc(toa), esc(phan_khu or toa), esc(noi_that or "Liên hệ"),
-        esc(gia), esc(ngay_vao_o_hien_thi(can, hom_nay)), ngay_str)
+        esc(gia), esc(ngay_vao_o_hien_thi(can, hom_nay)), ngay_xuat_hien_str)
 
     lien_ket = lien_ket_noi_bo(phan_khu, loai, toa, gia_so, noi_that)
 
@@ -655,7 +676,7 @@ Vinhomes Smart City. %(noi_that_cau)s Giá thuê %(gia)s/tháng. Cập nhật %(
 """ % {
         "loai": esc(loai), "dt": dt, "toa": esc(toa), "phan_khu": esc(phan_khu or toa),
         "noi_that_cau": ("Căn %s." % noi_that.lower()) if noi_that else "",
-        "gia": esc(gia), "ngay": ngay_str, "gallery": gallery,
+        "gia": esc(gia), "ngay": ngay_xuat_hien_str, "gallery": gallery,
         "noi_that": esc(noi_that or "Liên hệ"),
         "vao_o": esc(ngay_vao_o_hien_thi(can, hom_nay)),
         "bang": bang, "sdt": SDT, "ma": esc(ma), "lien_ket": lien_ket,
@@ -1021,11 +1042,31 @@ def main():
         }
 
     so_dang_ky = doc_so_dang_ky()
+    hom_nay = ngay_hom_nay()
+
+    # Mã căn là khoá ổn định. Nếu tòa/loại/diện tích được sửa
+    # làm slug thay đổi, vẫn phải giữ ngày xuất hiện của căn cũ.
+    ngay_xuat_hien_theo_ma = {}
+    for ho_so in so_dang_ky.values():
+        ma = str(ho_so.get("ma", "")).strip()
+        ngay = ngay_iso(ho_so.get("ngay_xuat_hien", ""))
+        if ma and ngay:
+            ngay_xuat_hien_theo_ma.setdefault(ma, ngay)
+
     for s in ban_do_active:
         rec = ban_do_active[s]
+        ho_so_cu = so_dang_ky.get(s, {})
+        ngay_xuat_hien = (
+            ngay_iso(ho_so_cu.get("ngay_xuat_hien", ""))
+            or ngay_xuat_hien_theo_ma.get(rec["ma"])
+            or hom_nay.isoformat()
+        )
+        rec["ngay_xuat_hien"] = ngay_xuat_hien
+        ngay_xuat_hien_theo_ma.setdefault(rec["ma"], ngay_xuat_hien)
         so_dang_ky[s] = {
             "ma": rec["ma"], "toa": rec["toa"], "phan_khu": rec["phan_khu"],
             "loai": rec["loai"], "dien_tich": rec["dien_tich"],
+            "ngay_xuat_hien": ngay_xuat_hien,
         }
 
     occupied_slugs = sorted(set(so_dang_ky) - set(ban_do_active))
@@ -1033,8 +1074,6 @@ def main():
 
     map_anh = doc_map_anh()
     active = {"ban_do": ban_do_active, "_map_anh": map_anh}
-    hom_nay = ngay_hom_nay()
-
     print("Đang có trang (đã thuê) : %d" % len(occupied_list))
     print("Tổng trang căn (sổ đăng ký) sau lần chạy này: %d" % len(so_dang_ky))
 
