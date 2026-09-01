@@ -39,6 +39,168 @@ gtag('js',new Date());gtag('config','G-VF9KHC5TWD');</script>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@700;800&family=Be+Vietnam+Pro:wght@300;400;500;600&display=swap">
 </noscript>
 <link rel="stylesheet" href="/assets/v3.css?v=20260830-5">
+<style id="gui-thue-ux-v2">
+/* UX riêng cho /gui-thue/: 3 bước, mobile-first, không ảnh hưởng các form khác. */
+.trang-ky-gui .hero.hero-v4.hero-gui{height:clamp(455px,50vh,540px)}
+.trang-ky-gui .hero-gui .hero-v4__chu{max-width:660px}
+.trang-ky-gui .hero-gui .phu{font-size:15.5px;line-height:1.65}
+.trang-ky-gui .hero-gui .cta{display:inline-flex;align-items:center;justify-content:center;gap:8px}
+.trang-ky-gui .gui-main{padding-top:0;padding-bottom:30px}
+.trang-ky-gui .gui-proof{
+  position:relative;z-index:4;margin:-28px 0 30px;
+  display:grid;grid-template-columns:repeat(4,minmax(0,1fr));
+  background:#fff;border:1px solid rgba(15,32,60,.07);border-radius:18px;
+  box-shadow:0 16px 38px rgba(15,32,60,.12);overflow:hidden
+}
+.trang-ky-gui .gui-proof>div{padding:16px 18px;border-right:1px solid var(--line)}
+.trang-ky-gui .gui-proof>div:last-child{border-right:0}
+.trang-ky-gui .gui-proof strong{display:block;font-family:var(--font-tieu-de);font-size:.92rem;color:var(--navy);margin-bottom:2px}
+.trang-ky-gui .gui-proof span{font-size:.76rem;color:var(--gray-lt)}
+.trang-ky-gui .gui-heading{max-width:760px;margin:0 0 22px}
+.trang-ky-gui .gui-heading .eyebrow-gui{
+  display:inline-flex;align-items:center;gap:7px;margin-bottom:7px;
+  color:var(--green);font-size:.78rem;font-weight:700;text-transform:uppercase;letter-spacing:.06em
+}
+.trang-ky-gui .gui-heading h2{margin:0 0 7px;font-size:clamp(24px,3vw,34px);letter-spacing:-.45px}
+.trang-ky-gui .gui-heading p{margin:0;color:var(--gray);font-size:.91rem;max-width:66ch}
+.trang-ky-gui .gui-layout{display:grid;grid-template-columns:minmax(0,1fr) 310px;gap:24px;align-items:start}
+.trang-ky-gui .gui-form-col{min-width:0}
+.trang-ky-gui form.gui-form{
+  padding:0;margin:0;background:#fff;border:1px solid rgba(15,32,60,.08);
+  border-radius:20px;box-shadow:0 16px 42px rgba(15,32,60,.08);overflow:hidden
+}
+.trang-ky-gui .gui-progress{padding:20px 24px 18px;background:linear-gradient(180deg,#F9FBFE,#fff);border-bottom:1px solid var(--line)}
+.trang-ky-gui .gui-progress-top{display:flex;align-items:flex-end;justify-content:space-between;gap:12px}
+.trang-ky-gui .gui-progress-top span{font-size:.76rem;color:var(--gray-lt);font-weight:600}
+.trang-ky-gui .gui-progress-top strong{display:block;margin-top:2px;font-family:var(--font-tieu-de);font-size:1.03rem;color:var(--navy)}
+.trang-ky-gui .gui-progress-top b{font-family:var(--font-tieu-de);font-size:.86rem;color:var(--navy-2)}
+.trang-ky-gui .gui-stepbar{height:6px;margin:13px 0 14px;background:#E8EDF4;border-radius:99px;overflow:hidden}
+.trang-ky-gui .gui-stepbar i{display:block;width:33.333%;height:100%;background:linear-gradient(90deg,var(--navy-2),#3B82F6);border-radius:99px;transition:width .25s ease}
+.trang-ky-gui .gui-step-pills{display:grid;grid-template-columns:repeat(3,1fr);gap:7px}
+.trang-ky-gui .gui-step-pills span{
+  display:flex;align-items:center;justify-content:center;gap:6px;min-width:0;
+  padding:7px 8px;border-radius:9px;background:#F4F7FB;color:var(--gray-lt);
+  font-size:.72rem;font-weight:600;white-space:nowrap
+}
+.trang-ky-gui .gui-step-pills span i{
+  width:20px;height:20px;border-radius:50%;display:grid;place-items:center;
+  background:#E7ECF3;color:var(--gray);font-style:normal;font-size:.68rem
+}
+.trang-ky-gui .gui-step-pills span.active{background:#EEF4FF;color:var(--navy-2)}
+.trang-ky-gui .gui-step-pills span.active i{background:var(--navy-2);color:#fff}
+.trang-ky-gui .gui-step-pills span.done{background:#ECF8F1;color:var(--green)}
+.trang-ky-gui .gui-step-pills span.done i{background:var(--green);color:#fff}
+.trang-ky-gui fieldset.gui-step{padding:24px;margin:0}
+.trang-ky-gui fieldset.gui-step[hidden]{display:none!important}
+.trang-ky-gui .gui-step legend{display:block;width:100%;margin:0 0 5px;padding:0}
+.trang-ky-gui .gui-step legend .step-kicker{display:block;font-size:.74rem;font-family:var(--font-chu);font-weight:700;color:var(--navy-2);text-transform:uppercase;letter-spacing:.05em;margin-bottom:3px}
+.trang-ky-gui .gui-step legend .step-title{display:block;font-size:1.25rem;line-height:1.25}
+.trang-ky-gui .step-desc{margin:0 0 20px;font-size:.84rem;color:var(--gray-lt)}
+.trang-ky-gui .gui-step .doi{gap:14px}
+.trang-ky-gui .gui-step .o{margin-bottom:16px}
+.trang-ky-gui .gui-step label{font-size:.83rem;color:var(--gray);font-weight:600;margin-bottom:7px}
+.trang-ky-gui .gui-step input,.trang-ky-gui .gui-step select,.trang-ky-gui .gui-step textarea{
+  min-height:50px;border:1px solid #D9E0EA;border-radius:12px;padding:12px 14px;
+  background:#fff;font-size:15px;transition:border-color .18s,box-shadow .18s
+}
+.trang-ky-gui .gui-step input:focus,.trang-ky-gui .gui-step select:focus,.trang-ky-gui .gui-step textarea:focus{
+  border-color:#6A98D8;box-shadow:0 0 0 3px rgba(59,130,246,.10)
+}
+.trang-ky-gui .gui-step textarea{min-height:105px}
+.trang-ky-gui .gui-step .don-vi{position:relative;display:block}
+.trang-ky-gui .gui-step .don-vi input{padding-right:105px}
+.trang-ky-gui .gui-step .don-vi .nhan{
+  position:absolute;right:13px;top:50%;transform:translateY(-50%);
+  padding-left:10px;border-left:1px solid var(--line);font-size:.78rem;color:var(--gray-lt)
+}
+.trang-ky-gui .gui-step .chon-nhanh{margin-top:10px}
+.trang-ky-gui .gui-step .chon-nhanh button{padding:7px 12px;background:#F7F9FC}
+.trang-ky-gui .gui-step .rieng-tu{border:1px solid #D6EFE1;background:#F1FBF5;color:#237A4B;padding:10px 12px}
+.trang-ky-gui .gui-step .goi-y{display:block;margin-top:6px;line-height:1.45}
+.trang-ky-gui .gui-photo-lead{
+  padding:16px;border:1px solid #DCE8F7;border-radius:14px;background:linear-gradient(145deg,#F5F9FF,#fff);margin-bottom:16px
+}
+.trang-ky-gui .gui-photo-lead strong{display:block;color:var(--navy);font-family:var(--font-tieu-de);font-size:.98rem}
+.trang-ky-gui .gui-photo-lead span{display:block;color:var(--gray-lt);font-size:.8rem;margin-top:3px}
+.trang-ky-gui .nut-anh{padding:20px;border-radius:14px;background:#F8FBFF;border-width:1.5px}
+.trang-ky-gui .nut-anh b{font-size:.95rem}
+.trang-ky-gui .nut-anh small{font-size:.78rem;line-height:1.45}
+.trang-ky-gui .gui-actions{
+  display:flex;align-items:center;justify-content:space-between;gap:12px;
+  margin-top:22px;padding-top:18px;border-top:1px solid var(--line)
+}
+.trang-ky-gui .gui-action-buttons{display:flex;gap:10px;margin-left:auto}
+.trang-ky-gui .gui-next,.trang-ky-gui .gui-submit,.trang-ky-gui .gui-back{
+  min-height:50px;border-radius:12px;padding:0 18px;font-family:var(--font-chu);font-size:.91rem;font-weight:700;cursor:pointer
+}
+.trang-ky-gui .gui-next,.trang-ky-gui .gui-submit{border:0;background:var(--navy-2);color:#fff;box-shadow:0 8px 20px rgba(27,75,143,.16)}
+.trang-ky-gui .gui-next:hover,.trang-ky-gui .gui-submit:hover{background:var(--navy)}
+.trang-ky-gui .gui-back{border:1px solid var(--line);background:#fff;color:var(--gray)}
+.trang-ky-gui .gui-back:hover{border-color:#A9B7C8;color:var(--navy)}
+.trang-ky-gui .gui-safe{font-size:.74rem;color:var(--gray-lt);line-height:1.45}
+.trang-ky-gui .gui-summary{margin:4px 0 17px;padding:15px 16px;border-radius:14px;background:#F6F9FD;border:1px solid #E1E8F0}
+.trang-ky-gui .gui-summary small{display:block;color:var(--gray-lt);font-size:.73rem;margin-bottom:5px}
+.trang-ky-gui .gui-summary strong{display:block;color:var(--navy);font-size:.93rem;line-height:1.5}
+.trang-ky-gui .gui-summary span{display:block;color:var(--gray);font-size:.79rem;margin-top:4px}
+.trang-ky-gui .gui-aside{position:sticky;top:18px}
+.trang-ky-gui .gui-side-card{
+  padding:22px;border-radius:18px;background:linear-gradient(150deg,#0D2748,#174D86);color:#fff;box-shadow:0 16px 38px rgba(15,32,60,.16)
+}
+.trang-ky-gui .gui-side-badge{display:inline-flex;padding:6px 9px;border-radius:99px;background:rgba(255,255,255,.12);font-size:.69rem;font-weight:600;color:rgba(255,255,255,.85)}
+.trang-ky-gui .gui-side-card h3{margin:14px 0 16px;color:#fff;font-size:1.12rem;line-height:1.35}
+.trang-ky-gui .gui-side-card ol{list-style:none;padding:0;margin:0}
+.trang-ky-gui .gui-side-card li{display:grid;grid-template-columns:26px 1fr;gap:10px;align-items:start;padding:10px 0;border-top:1px solid rgba(255,255,255,.12);font-size:.82rem;color:rgba(255,255,255,.84)}
+.trang-ky-gui .gui-side-card li b{width:26px;height:26px;border-radius:50%;display:grid;place-items:center;background:rgba(255,255,255,.12);color:#fff;font-size:.72rem}
+.trang-ky-gui .gui-side-contact{margin-top:15px;padding-top:15px;border-top:1px solid rgba(255,255,255,.14)}
+.trang-ky-gui .gui-side-contact span{display:block;font-size:.72rem;color:rgba(255,255,255,.65);margin-bottom:7px}
+.trang-ky-gui .gui-side-contact a{display:flex;align-items:center;justify-content:center;min-height:43px;border-radius:10px;background:#fff;color:var(--navy-2);font-weight:700;font-size:.84rem}
+.trang-ky-gui .gui-side-privacy{margin-top:12px;padding:14px 15px;border:1px solid var(--line);border-radius:14px;background:#fff;font-size:.75rem;line-height:1.55;color:var(--gray-lt)}
+.trang-ky-gui .gui-side-privacy strong{color:var(--gray)}
+.trang-ky-gui .bao.loi{margin-bottom:14px}
+.trang-ky-gui .xong{border-radius:20px;box-shadow:0 16px 42px rgba(15,32,60,.08)}
+.trang-ky-gui .tien-trinh{margin-top:14px}
+@media (max-width:900px){
+  .trang-ky-gui .gui-layout{grid-template-columns:1fr}
+  .trang-ky-gui .gui-aside{position:static}
+  .trang-ky-gui .gui-side-card{display:none}
+  .trang-ky-gui .gui-side-privacy{margin-top:0}
+}
+@media (max-width:640px){
+  .trang-ky-gui .hero.hero-v4.hero-gui{height:auto;min-height:0;padding:34px 0 42px}
+  .trang-ky-gui .hero-gui .phu{font-size:14px;line-height:1.55;margin-bottom:18px}
+  .trang-ky-gui .hero-gui .cta-hang{gap:9px}
+  .trang-ky-gui .hero-gui .cta{width:100%;min-height:50px}
+  .trang-ky-gui .hero-gui .cta-phu{width:100%;text-align:center;font-size:.82rem}
+  .trang-ky-gui .hero-gui .duoi-cta{text-align:center;font-size:.73rem}
+  .trang-ky-gui .gui-proof{grid-template-columns:1fr 1fr;margin:-20px 0 24px;border-radius:14px}
+  .trang-ky-gui .gui-proof>div{padding:12px 13px;border-right:1px solid var(--line);border-bottom:1px solid var(--line)}
+  .trang-ky-gui .gui-proof>div:nth-child(2n){border-right:0}
+  .trang-ky-gui .gui-proof>div:nth-last-child(-n+2){border-bottom:0}
+  .trang-ky-gui .gui-proof strong{font-size:.82rem}
+  .trang-ky-gui .gui-proof span{font-size:.69rem}
+  .trang-ky-gui .gui-heading{margin-bottom:16px}
+  .trang-ky-gui .gui-heading h2{font-size:23px}
+  .trang-ky-gui .gui-heading p{font-size:.83rem}
+  .trang-ky-gui form.gui-form{border-radius:16px}
+  .trang-ky-gui .gui-progress{padding:17px 16px 14px}
+  .trang-ky-gui .gui-step-pills{gap:5px}
+  .trang-ky-gui .gui-step-pills span{padding:6px 5px;font-size:.65rem}
+  .trang-ky-gui .gui-step-pills span i{width:18px;height:18px}
+  .trang-ky-gui fieldset.gui-step{padding:20px 16px 16px}
+  .trang-ky-gui .gui-step legend .step-title{font-size:1.14rem}
+  .trang-ky-gui .gui-step .doi{grid-template-columns:1fr;gap:0}
+  .trang-ky-gui .gui-step .o{margin-bottom:14px}
+  .trang-ky-gui .gui-step input,.trang-ky-gui .gui-step select,.trang-ky-gui .gui-step textarea{font-size:16px;min-height:51px}
+  .trang-ky-gui .gui-actions{display:block;margin-top:18px;padding-top:15px}
+  .trang-ky-gui .gui-safe{display:block;margin-bottom:10px;text-align:center}
+  .trang-ky-gui .gui-action-buttons{display:grid;grid-template-columns:1fr;margin:0;gap:8px}
+  .trang-ky-gui .gui-action-buttons.hai{grid-template-columns:1fr 1.35fr}
+  .trang-ky-gui .gui-next,.trang-ky-gui .gui-submit,.trang-ky-gui .gui-back{width:100%;padding:0 12px}
+  .trang-ky-gui .nut-anh{padding:16px}
+  .trang-ky-gui .luoi-anh{grid-template-columns:repeat(3,1fr)}
+  .trang-ky-gui .gui-side-privacy{font-size:.72rem}
+}
+</style>
 </head>
 <body class="trang-ky-gui">
 
@@ -69,205 +231,295 @@ gtag('js',new Date());gtag('config','G-VF9KHC5TWD');</script>
   <div class="khung hero-v4__trong">
     <div class="hero-v4__chu">
       <span class="nhan-tin"><i></i>Đang có khách hỏi thuê mỗi ngày</span>
-      <h1>Có căn cần cho thuê?<br><span>Chúng em lo tìm khách giúp anh/chị</span></h1>
-      <p class="phu">Gửi thông tin và ảnh căn hộ ngay bên dưới. Chúng em có sẵn khách đang tìm nhà mỗi ngày, đăng tin và dẫn khách xem căn giúp anh/chị — cho thuê nhanh nhất, anh/chị không phải mất công tự đăng nhiều nơi rồi ngóng.</p>
+      <h1>Gửi căn cho thuê trong 1 phút<br><span>Chúng em tìm khách giúp anh/chị</span></h1>
+      <p class="phu">Chỉ cần vài thông tin cơ bản. Ảnh có thể bổ sung sau. Chúng em đăng căn, lọc khách và hỗ trợ dẫn xem — anh/chị không phải tự đăng nhiều nơi rồi chờ.</p>
       <div class="cta-hang">
-        <a class="cta" href="#mauGui">Gửi căn ngay
+        <a class="cta" href="#mauGui">Bắt đầu gửi căn — miễn phí
           <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
         </a>
         <a class="cta-phu" href="/">Xem các căn đang cho thuê</a>
       </div>
-      <span class="duoi-cta">Chỉ mất 2 phút · Miễn phí đăng tin · Số điện thoại không hiển thị công khai</span>
+      <span class="duoi-cta">Miễn phí · Không cần tài khoản · Số điện thoại không hiển thị công khai</span>
     </div>
   </div>
 </section>
 
-<main class="khung">
-  <h2 class="tieu-de-gui">Gửi căn — chúng em tìm khách thuê giúp</h2>
-  <p class="dan">Điền thông tin và tải ảnh trực tiếp từ điện thoại. Chỉ mất 2 phút, không cần tài khoản. Số điện thoại của anh/chị không hiển thị công khai.</p>
+<main class="khung gui-main">
+  <section class="gui-proof" aria-label="Lợi ích khi gửi căn">
+    <div><strong>Miễn phí 100%</strong><span>Không thu phí đăng tin</span></div>
+    <div><strong>Không cần tài khoản</strong><span>Mở form là gửi được ngay</span></div>
+    <div><strong>Ảnh có thể bổ sung sau</strong><span>Không có ảnh vẫn gửi trước được</span></div>
+    <div><strong>SĐT không công khai</strong><span>Chỉ dùng để liên hệ lại</span></div>
+  </section>
 
-  <div class="bao loi" id="hopLoi"></div>
+  <div class="gui-heading">
+    <span class="eyebrow-gui">● Gửi căn trong 3 bước</span>
+    <h2>Điền ít thôi — phần còn lại chúng em xử lý</h2>
+    <p>Chỉ mất khoảng 1 phút nếu anh/chị đã biết tòa, loại căn và giá thuê. Ảnh và ghi chú đều có thể bổ sung sau.</p>
+  </div>
 
-  <form id="mauGui" autocomplete="off">
+  <div class="gui-layout">
+    <div class="gui-form-col">
+      <div class="bao loi" id="hopLoi"></div>
 
-    <fieldset>
-      <legend>Thông tin căn hộ</legend>
-
-      <div class="doi">
-        <div class="o">
-          <label for="toa">Tòa <span class="sao">*</span></label>
-          <select id="toa" required>
-            <option value="">— Chọn tòa —</option>
-            <optgroup label="The Sapphire">
-              <option>S101</option><option>S102</option><option>S103</option>
-              <option>S105</option><option>S106</option>
-              <option>S201</option><option>S202</option><option>S203</option><option>S205</option>
-              <option>S301</option><option>S302</option><option>S303</option>
-              <option>S401</option><option>S402</option><option>S403</option>
-            </optgroup>
-            <optgroup label="Masteri West Heights">
-              <option value="MasA">West A</option><option value="MasB">West B</option>
-              <option value="MasC">West C</option><option value="MasD">West D</option>
-            </optgroup>
-            <optgroup label="The Miami (Grand Sapphire)">
-              <option>GS1</option><option>GS2</option><option>GS3</option>
-              <option>GS5</option><option>GS6</option>
-            </optgroup>
-            <optgroup label="The Sakura">
-              <option>SA1</option><option>SA2</option><option>SA3</option><option>SA5</option>
-            </optgroup>
-            <optgroup label="Imperia Smart City">
-              <option>I1</option><option>I2</option><option>I3</option>
-              <option>I4</option><option>I5</option>
-            </optgroup>
-            <optgroup label="Lumière Evergreen">
-              <option value="A1">The Aqua (A1)</option>
-              <option value="A2">The Atmos (A2)</option>
-              <option value="A3">The Aura (A3)</option>
-            </optgroup>
-            <optgroup label="The Canopy Residences">
-              <option>TC1</option><option>TC2</option><option>TC3</option>
-            </optgroup>
-            <optgroup label="The Tonkin">
-              <option>TK1</option><option>TK2</option>
-            </optgroup>
-            <optgroup label="The Victoria">
-              <option>V1</option><option>V2</option><option>V3</option>
-            </optgroup>
-            <optgroup label="Imperia Sola Park">
-              <option>G1</option><option>G2</option><option>G3</option>
-              <option>G5</option><option>G6</option>
-            </optgroup>
-          </select>
-        </div>
-
-        <div class="o">
-          <label for="soCan">Số căn <span class="sao">*</span></label>
-          <input id="soCan" inputmode="text" maxlength="7" placeholder="1829" required>
-          <span class="goi-y">Chỉ số căn, không cần gõ tên tòa. Căn tầng 13A thì nhập cả chữ, ví dụ 1308A.</span>
-        </div>
-      </div>
-
-      <div class="o">
-        <div class="rieng-tu" id="xemMaCan">Mã căn sẽ là: <strong>— chọn tòa và nhập số căn —</strong></div>
-      </div>
-
-      <div class="doi">
-        <div class="o">
-          <label for="loai">Loại căn <span class="sao">*</span></label>
-          <select id="loai" required>
-            <option value="">— Chọn loại —</option>
-            <option>Studio</option>
-            <option>1 Ngủ</option>
-            <option>1 Ngủ +</option>
-            <option>2 Ngủ</option>
-            <option>2 Ngủ +</option>
-            <option>3 Ngủ</option>
-          </select>
-        </div>
-
-        <div class="o">
-          <label for="dienTich">Diện tích <span class="sao">*</span></label>
-          <div class="don-vi">
-            <input id="dienTich" inputmode="decimal" placeholder="55" required>
-            <span class="nhan">m²</span>
+      <form id="mauGui" class="gui-form" autocomplete="off" novalidate>
+        <div class="gui-progress" aria-live="polite">
+          <div class="gui-progress-top">
+            <div><span id="buocText">Bước 1/3</span><strong id="buocTitle">Thông tin căn hộ</strong></div>
+            <b id="buocPhanTram">33%</b>
+          </div>
+          <div class="gui-stepbar"><i id="thanhBuoc"></i></div>
+          <div class="gui-step-pills" aria-hidden="true">
+            <span id="pill1" class="active"><i>1</i>Căn hộ</span>
+            <span id="pill2"><i>2</i>Ảnh</span>
+            <span id="pill3"><i>3</i>Liên hệ</span>
           </div>
         </div>
-      </div>
 
-      <div class="o">
-        <label for="noiThat">Tình trạng nội thất <span class="sao">*</span></label>
-        <select id="noiThat" required>
-          <option value="">— Chọn tình trạng —</option>
-          <option>Full nội thất</option>
-          <option>Đồ Cơ bản</option>
-          <option>Nhà Nguyên Bản</option>
-        </select>
-      </div>
+        <fieldset class="gui-step" data-step="1">
+          <legend>
+            <span class="step-kicker">Bước 1</span>
+            <span class="step-title">Căn hộ của anh/chị</span>
+          </legend>
+          <p class="step-desc">Các ô có dấu * là thông tin cần để chúng em đăng căn chính xác.</p>
 
-      <div class="o">
-        <label for="gia">Giá thuê mong muốn <span class="sao">*</span></label>
-        <div class="don-vi">
-          <input id="gia" inputmode="decimal" placeholder="7.5" required>
-          <span class="nhan">triệu/tháng</span>
-        </div>
-        <div class="xem-truoc" id="xemGia"></div>
-        <div class="chon-nhanh" id="giaNhanh">
-          <button type="button" data-gia="6">6 triệu</button>
-          <button type="button" data-gia="7">7 triệu</button>
-          <button type="button" data-gia="8">8 triệu</button>
-          <button type="button" data-gia="10">10 triệu</button>
-          <button type="button" data-gia="12">12 triệu</button>
-          <button type="button" data-gia="15">15 triệu</button>
-        </div>
-      </div>
+          <div class="doi">
+            <div class="o">
+              <label for="toa">Tòa <span class="sao">*</span></label>
+              <select id="toa" aria-required="true">
+                <option value="">— Chọn tòa —</option>
+                <optgroup label="The Sapphire">
+                  <option>S101</option><option>S102</option><option>S103</option>
+                  <option>S105</option><option>S106</option>
+                  <option>S201</option><option>S202</option><option>S203</option><option>S205</option>
+                  <option>S301</option><option>S302</option><option>S303</option>
+                  <option>S401</option><option>S402</option><option>S403</option>
+                </optgroup>
+                <optgroup label="Masteri West Heights">
+                  <option value="MasA">West A</option><option value="MasB">West B</option>
+                  <option value="MasC">West C</option><option value="MasD">West D</option>
+                </optgroup>
+                <optgroup label="The Miami (Grand Sapphire)">
+                  <option>GS1</option><option>GS2</option><option>GS3</option>
+                  <option>GS5</option><option>GS6</option>
+                </optgroup>
+                <optgroup label="The Sakura">
+                  <option>SA1</option><option>SA2</option><option>SA3</option><option>SA5</option>
+                </optgroup>
+                <optgroup label="Imperia Smart City">
+                  <option>I1</option><option>I2</option><option>I3</option>
+                  <option>I4</option><option>I5</option>
+                </optgroup>
+                <optgroup label="Lumière Evergreen">
+                  <option value="A1">The Aqua (A1)</option>
+                  <option value="A2">The Atmos (A2)</option>
+                  <option value="A3">The Aura (A3)</option>
+                </optgroup>
+                <optgroup label="The Canopy Residences">
+                  <option>TC1</option><option>TC2</option><option>TC3</option>
+                </optgroup>
+                <optgroup label="The Tonkin">
+                  <option>TK1</option><option>TK2</option>
+                </optgroup>
+                <optgroup label="The Victoria">
+                  <option>V1</option><option>V2</option><option>V3</option>
+                </optgroup>
+                <optgroup label="Imperia Sola Park">
+                  <option>G1</option><option>G2</option><option>G3</option>
+                  <option>G5</option><option>G6</option>
+                </optgroup>
+              </select>
+            </div>
 
-      <div class="o">
-        <label for="ngayTrong">Ngày có thể vào ở</label>
-        <input id="ngayTrong" type="date">
-        <span class="goi-y"><label style="display:inline;font-weight:400">
-          <input type="checkbox" id="trongNgay" style="width:auto;min-height:0;margin-right:5px">
-          Trống, vào ở được ngay</label></span>
-      </div>
+            <div class="o">
+              <label for="soCan">Số căn <span class="sao">*</span></label>
+              <input id="soCan" inputmode="text" maxlength="7" placeholder="Ví dụ: 1829" aria-required="true">
+              <span class="goi-y">Chỉ nhập số căn, không cần gõ lại tên tòa.</span>
+            </div>
+          </div>
 
-      <div class="o">
-        <label for="ghiChu">Ghi chú thêm</label>
-        <textarea id="ghiChu" maxlength="500" placeholder="Ví dụ: view công viên, hướng Đông Nam, có máy giặt riêng, ưu tiên khách thuê dài hạn..."></textarea>
-      </div>
-    </fieldset>
+          <div class="o">
+            <div class="rieng-tu" id="xemMaCan">Mã căn sẽ là: <strong>— chọn tòa và nhập số căn —</strong></div>
+          </div>
 
-    <fieldset>
-      <legend>Ảnh căn hộ</legend>
-      <label class="nut-anh" for="chonAnh">
-        <span class="bieu-tuong">
-          <svg width="21" height="21" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-            <path d="M4 8a2 2 0 0 1 2-2h1.5l1.2-2h6.6l1.2 2H18a2 2 0 0 1 2 2v9a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V8Z" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/>
-            <circle cx="12" cy="12.5" r="3.2" stroke="currentColor" stroke-width="2"/>
+          <div class="doi">
+            <div class="o">
+              <label for="loai">Loại căn <span class="sao">*</span></label>
+              <select id="loai" aria-required="true">
+                <option value="">— Chọn loại —</option>
+                <option>Studio</option>
+                <option>1 Ngủ</option>
+                <option>1 Ngủ +</option>
+                <option>2 Ngủ</option>
+                <option>2 Ngủ +</option>
+                <option>3 Ngủ</option>
+              </select>
+            </div>
+
+            <div class="o">
+              <label for="dienTich">Diện tích <span class="sao">*</span></label>
+              <div class="don-vi">
+                <input id="dienTich" inputmode="decimal" placeholder="Ví dụ: 55" aria-required="true">
+                <span class="nhan">m²</span>
+              </div>
+              <span class="goi-y">Không nhớ chính xác có thể nhập gần đúng.</span>
+            </div>
+          </div>
+
+          <div class="o">
+            <label for="noiThat">Nội thất <span class="sao">*</span></label>
+            <select id="noiThat" aria-required="true">
+              <option value="">— Chọn tình trạng —</option>
+              <option>Full nội thất</option>
+              <option>Đồ Cơ bản</option>
+              <option>Nhà Nguyên Bản</option>
+            </select>
+          </div>
+
+          <div class="o">
+            <label for="gia">Giá thuê mong muốn <span class="sao">*</span></label>
+            <div class="don-vi">
+              <input id="gia" inputmode="decimal" placeholder="Ví dụ: 10" aria-required="true">
+              <span class="nhan">triệu/tháng</span>
+            </div>
+            <div class="xem-truoc" id="xemGia"></div>
+            <div class="chon-nhanh" id="giaNhanh">
+              <button type="button" data-gia="6">6 triệu</button>
+              <button type="button" data-gia="7">7 triệu</button>
+              <button type="button" data-gia="8">8 triệu</button>
+              <button type="button" data-gia="10">10 triệu</button>
+              <button type="button" data-gia="12">12 triệu</button>
+              <button type="button" data-gia="15">15 triệu</button>
+            </div>
+          </div>
+
+          <div class="gui-actions">
+            <span class="gui-safe">Chưa gửi dữ liệu ở bước này.</span>
+            <div class="gui-action-buttons">
+              <button class="gui-next" id="sangBuoc2" type="button">Tiếp tục → Thêm ảnh</button>
+            </div>
+          </div>
+        </fieldset>
+
+        <fieldset class="gui-step" data-step="2" hidden>
+          <legend>
+            <span class="step-kicker">Bước 2</span>
+            <span class="step-title">Ảnh và thời gian vào ở</span>
+          </legend>
+          <p class="step-desc">Không có ảnh vẫn tiếp tục được. Có ảnh đẹp sẽ giúp khách quyết nhanh hơn.</p>
+
+          <div class="gui-photo-lead">
+            <strong>Ảnh là tùy chọn</strong>
+            <span>Anh/chị có thể gửi căn trước, sau đó bổ sung ảnh qua Zalo nếu tiện hơn.</span>
+          </div>
+
+          <label class="nut-anh" for="chonAnh">
+            <span class="bieu-tuong">
+              <svg width="21" height="21" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                <path d="M4 8a2 2 0 0 1 2-2h1.5l1.2-2h6.6l1.2 2H18a2 2 0 0 1 2 2v9a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V8Z" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/>
+                <circle cx="12" cy="12.5" r="3.2" stroke="currentColor" stroke-width="2"/>
+              </svg>
+            </span>
+            <span>
+              <b>Chọn ảnh căn hộ</b>
+              <small>Mở thư viện hoặc chụp mới. Có thể chọn nhiều ảnh cùng lúc.</small>
+            </span>
+          </label>
+          <input type="file" id="chonAnh" accept="image/*" multiple>
+          <div class="luoi-anh" id="luoiAnh"></div>
+          <p class="dem-anh" id="demAnh">Chưa chọn ảnh. Có thể bỏ qua bước ảnh và tiếp tục.</p>
+
+          <div class="doi" style="margin-top:18px">
+            <div class="o">
+              <label for="ngayTrong">Ngày có thể vào ở</label>
+              <input id="ngayTrong" type="date">
+              <span class="goi-y"><label style="display:inline;font-weight:400">
+                <input type="checkbox" id="trongNgay" style="width:auto;min-height:0;margin-right:5px">
+                Trống, vào ở được ngay</label></span>
+            </div>
+            <div class="o">
+              <label for="ghiChu">Ghi chú thêm</label>
+              <textarea id="ghiChu" maxlength="500" placeholder="Ví dụ: view đẹp, ưu tiên khách thuê dài hạn..."></textarea>
+            </div>
+          </div>
+
+          <div class="gui-actions">
+            <span class="gui-safe">Ảnh và ghi chú đều không bắt buộc.</span>
+            <div class="gui-action-buttons hai">
+              <button class="gui-back" id="veBuoc1" type="button">Quay lại</button>
+              <button class="gui-next" id="sangBuoc3" type="button">Tiếp tục → Liên hệ</button>
+            </div>
+          </div>
+        </fieldset>
+
+        <fieldset class="gui-step" data-step="3" hidden>
+          <legend>
+            <span class="step-kicker">Bước 3</span>
+            <span class="step-title">Để chúng em liên hệ lại</span>
+          </legend>
+          <p class="step-desc">Chỉ cần số điện thoại. Không cần tạo tài khoản, không cần email.</p>
+
+          <div class="gui-summary" id="tomTat">
+            <small>Anh/chị sắp gửi</small>
+            <strong id="tomTatCan">—</strong>
+            <span id="tomTatThem">—</span>
+          </div>
+
+          <div class="o">
+            <label for="sdt">Số điện thoại <span class="sao">*</span></label>
+            <input id="sdt" type="tel" inputmode="tel" maxlength="15" placeholder="09xx xxx xxx" aria-required="true">
+            <div class="rieng-tu">Chỉ dùng để chúng em gọi/Zalo lại với anh/chị. <strong>Không hiển thị trên website</strong> và không cung cấp cho bên thứ ba.</div>
+          </div>
+
+          <div style="position:absolute;left:-9999px" aria-hidden="true">
+            <label for="website">Website</label>
+            <input id="website" tabindex="-1" autocomplete="off">
+          </div>
+
+          <div class="gui-actions">
+            <span class="gui-safe">Miễn phí đăng tin · Không có phí ẩn.</span>
+            <div class="gui-action-buttons hai">
+              <button class="gui-back" id="veBuoc2" type="button">Quay lại</button>
+              <button class="gui-submit" id="nutGui" type="submit">Gửi căn miễn phí</button>
+            </div>
+          </div>
+
+          <div class="tien-trinh" id="tienTrinh">
+            <div class="thanh"><i id="thanhChay"></i></div>
+            <p id="chuTienTrinh">Đang gửi...</p>
+          </div>
+        </fieldset>
+      </form>
+
+      <div class="xong" id="manXong">
+        <div class="dau">
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+            <path d="m5 13 4.5 4.5L19 7" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/>
           </svg>
-        </span>
-        <span>
-          <b>Chọn ảnh từ máy</b>
-          <small>Bấm để mở thư viện ảnh hoặc chụp mới. Chọn được nhiều ảnh cùng lúc.</small>
-        </span>
-      </label>
-      <input type="file" id="chonAnh" accept="image/*" multiple>
-      <div class="luoi-anh" id="luoiAnh"></div>
-      <p class="dem-anh" id="demAnh">Chưa chọn ảnh nào. Nên có ít nhất 5 ảnh: phòng khách, phòng ngủ, bếp, vệ sinh, ban công.</p>
-    </fieldset>
-
-    <fieldset>
-      <legend>Thông tin liên hệ</legend>
-      <div class="o">
-        <label for="sdt">Số điện thoại <span class="sao">*</span></label>
-        <input id="sdt" type="tel" inputmode="tel" maxlength="15" placeholder="09xx xxx xxx" required>
-        <div class="rieng-tu">Số điện thoại chỉ dùng để chúng tôi liên hệ lại với anh/chị.
-          <strong>Không hiển thị trên website</strong> và không cung cấp cho bên thứ ba.</div>
+        </div>
+        <h2>Đã nhận căn của anh/chị!</h2>
+        <div class="ma" id="maDaGui"></div>
+        <p>Chúng em sẽ kiểm tra thông tin, đăng căn và bắt đầu tìm khách. Nếu cần bổ sung ảnh hoặc chi tiết, chúng em sẽ liên hệ lại theo số anh/chị vừa để lại.</p>
+        <p><a href="/">Xem các căn đang cho thuê →</a></p>
       </div>
-      <!-- Bẫy chống robot: người thật luôn để trống ô này vì nó bị ẩn -->
-      <div style="position:absolute;left:-9999px" aria-hidden="true">
-        <label for="website">Website</label>
-        <input id="website" tabindex="-1" autocomplete="off">
+    </div>
+
+    <aside class="gui-aside">
+      <div class="gui-side-card">
+        <span class="gui-side-badge">Đang có khách hỏi thuê mỗi ngày</span>
+        <h3>Gửi xong, anh/chị không cần tự đăng đi đăng lại</h3>
+        <ol>
+          <li><b>1</b><span>Chúng em kiểm tra thông tin và chuẩn hóa tin đăng.</span></li>
+          <li><b>2</b><span>Đăng căn lên hệ thống và ghép với khách đang tìm phù hợp.</span></li>
+          <li><b>3</b><span>Có khách phù hợp mới liên hệ để hẹn xem căn.</span></li>
+        </ol>
+        <div class="gui-side-contact">
+          <span>Nếu muốn gửi nhanh bằng Zalo</span>
+          <a href="https://zalo.me/0977923284" target="_blank" rel="noopener nofollow">Nhắn Zalo 0977 923 284</a>
+        </div>
       </div>
-    </fieldset>
-
-    <button class="gui" id="nutGui" type="submit">Gửi căn hộ cho thuê</button>
-
-    <div class="tien-trinh" id="tienTrinh">
-      <div class="thanh"><i id="thanhChay"></i></div>
-      <p id="chuTienTrinh">Đang gửi...</p>
-    </div>
-  </form>
-
-  <div class="xong" id="manXong">
-    <div class="dau">
-      <svg width="28" height="28" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-        <path d="m5 13 4.5 4.5L19 7" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/>
-      </svg>
-    </div>
-    <h2>Đã nhận căn của anh/chị!</h2>
-    <div class="ma" id="maDaGui"></div>
-    <p>Chúng tôi sẽ kiểm tra, đăng lên web trong ngày và bắt đầu tìm khách thuê giúp anh/chị. Nếu cần bổ sung gì, chúng tôi gọi lại theo số anh/chị vừa để lại.</p>
-    <p><a href="/">Xem các căn đang cho thuê →</a></p>
+      <div class="gui-side-privacy"><strong>Quyền riêng tư:</strong> số điện thoại của chủ nhà không được hiển thị công khai trên website. Ảnh chỉ dùng cho tin cho thuê của căn đã gửi.</div>
+    </aside>
   </div>
 </main>
 
@@ -363,6 +615,75 @@ gtag('js',new Date());gtag('config','G-VF9KHC5TWD');</script>
 
   var $ = function (id) { return document.getElementById(id); };
   var dsAnh = [];   // [{ten, blob, url}]
+  /* ---------- Luồng UX 3 bước ---------- */
+  var buocHienTai = 1;
+  var tenBuoc = ["", "Thông tin căn hộ", "Ảnh & thời gian vào ở", "Thông tin liên hệ"];
+
+  function capNhatTomTat() {
+    var toa = $("toa").value.trim();
+    var so = $("soCan").value.replace(/[^A-Za-z0-9]/g, "").toUpperCase();
+    var ma = toa && so ? toa + "." + so : "Căn hộ chưa đủ thông tin";
+    var loai = $("loai").value || "chưa chọn loại căn";
+    var giaDong = docGia($("gia").value);
+    var giaChu = giaDong ? (giaDong / 1e6).toLocaleString("vi-VN", { maximumFractionDigits: 1 }) + " triệu/tháng" : "chưa nhập giá";
+    $("tomTatCan").textContent = ma + " · " + loai + " · " + giaChu;
+    var them = [];
+    if ($("noiThat").value) them.push($("noiThat").value);
+    if ($("dienTich").value) them.push($("dienTich").value + " m²");
+    them.push(dsAnh.length ? dsAnh.length + " ảnh đã chọn" : "chưa có ảnh");
+    $("tomTatThem").textContent = them.join(" · ");
+  }
+
+  function hienBuoc(n, cuon) {
+    buocHienTai = Math.max(1, Math.min(3, n));
+    document.querySelectorAll(".gui-step").forEach(function (el) {
+      var active = Number(el.getAttribute("data-step")) === buocHienTai;
+      el.hidden = !active;
+    });
+    $("buocText").textContent = "Bước " + buocHienTai + "/3";
+    $("buocTitle").textContent = tenBuoc[buocHienTai];
+    $("buocPhanTram").textContent = Math.round((buocHienTai / 3) * 100) + "%";
+    $("thanhBuoc").style.width = (buocHienTai / 3 * 100) + "%";
+    [1,2,3].forEach(function (i) {
+      var p = $("pill" + i);
+      p.classList.toggle("active", i === buocHienTai);
+      p.classList.toggle("done", i < buocHienTai);
+      p.querySelector("i").textContent = i < buocHienTai ? "✓" : String(i);
+    });
+    capNhatTomTat();
+    if (cuon !== false) {
+      var y = $("mauGui").getBoundingClientRect().top + window.pageYOffset - 82;
+      window.scrollTo({ top: y, behavior: "smooth" });
+    }
+  }
+
+  function kiemTraBuoc1() {
+    var toa = $("toa").value.trim();
+    var soCan = $("soCan").value.replace(/[^A-Za-z0-9]/g, "").toUpperCase();
+    var gia = docGia($("gia").value);
+    var dienTich = parseFloat(String($("dienTich").value).replace(/[^\d.]/g, ""));
+    if (!toa) return baoLoi("Anh/chị chọn giúp tòa nhà."), false;
+    if (!soCan) return baoLoi("Anh/chị nhập số căn hộ."), false;
+    if (!$("loai").value) return baoLoi("Anh/chị chọn loại căn hộ."), false;
+    if (!dienTich || dienTich < 15 || dienTich > 200) return baoLoi("Diện tích chưa hợp lệ, anh/chị kiểm tra lại giúp."), false;
+    if (!$("noiThat").value) return baoLoi("Anh/chị chọn tình trạng nội thất."), false;
+    if (!gia) return baoLoi("Anh/chị nhập giá thuê mong muốn."), false;
+    anLoi();
+    return true;
+  }
+
+  $("sangBuoc2").addEventListener("click", function () {
+    if (kiemTraBuoc1()) hienBuoc(2);
+  });
+  $("veBuoc1").addEventListener("click", function () { anLoi(); hienBuoc(1); });
+  $("sangBuoc3").addEventListener("click", function () { anLoi(); hienBuoc(3); });
+  $("veBuoc2").addEventListener("click", function () { anLoi(); hienBuoc(2); });
+
+  ["toa","soCan","loai","dienTich","noiThat","gia"].forEach(function (id) {
+    $(id).addEventListener("input", capNhatTomTat);
+    $(id).addEventListener("change", capNhatTomTat);
+  });
+
 
   /* ---------- Mã căn: ghép tòa + "." + số căn ----------
      SỬA 25/07/2026: GIỮ cả chữ trong số căn (căn tầng 13A -> 1308A), chỉ bỏ ký tự đặc biệt,
@@ -457,7 +778,7 @@ gtag('js',new Date());gtag('config','G-VF9KHC5TWD');</script>
     var tong = dsAnh.reduce(function (s, a) { return s + a.blob.size; }, 0);
     $("demAnh").textContent = dsAnh.length
       ? "Đã chọn " + dsAnh.length + " ảnh (" + (tong / 1048576).toFixed(1) + " MB sau khi nén). Ảnh đầu tiên dùng làm ảnh bìa."
-      : "Chưa chọn ảnh nào. Nên có ít nhất 5 ảnh: phòng khách, phòng ngủ, bếp, vệ sinh, ban công.";
+      : "Chưa chọn ảnh. Có thể bỏ qua bước ảnh và tiếp tục.";\n    capNhatTomTat();
   }
 
   $("luoiAnh").addEventListener("click", function (e) {
@@ -544,7 +865,7 @@ gtag('js',new Date());gtag('config','G-VF9KHC5TWD');</script>
     if (!sdtHopLe(sdt)) return baoLoi("Số điện thoại chưa đúng, anh/chị kiểm tra lại giúp.");
 
     $("nutGui").disabled = true;
-    $("nutGui").textContent = "Đang gửi...";
+    $("nutGui").textContent = "Đang gửi căn...";
 
     try {
       tienDo(6, "Đang gửi thông tin căn hộ...");
@@ -588,11 +909,10 @@ gtag('js',new Date());gtag('config','G-VF9KHC5TWD');</script>
       baoLoi(err.message || "Có lỗi khi gửi, anh/chị thử lại hoặc nhắn Zalo 0977923284 giúp.");
       $("tienTrinh").classList.remove("hien");
       $("nutGui").disabled = false;
-      $("nutGui").textContent = "Gửi căn hộ cho thuê";
+      $("nutGui").textContent = "Gửi căn miễn phí";
     }
   });
-})();
-</script>
+  hienBuoc(1, false);\n  capNhatMaCan();\n  capNhatGia();\n  capNhatTomTat();\n})();\n</script>
   <script src="/assets/gallery.js" defer></script>
   <script src="/assets/app-shell.js?v=20260901-1" defer></script>
 </body>
