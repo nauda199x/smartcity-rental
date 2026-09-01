@@ -778,7 +778,8 @@ gtag('js',new Date());gtag('config','G-VF9KHC5TWD');</script>
     var tong = dsAnh.reduce(function (s, a) { return s + a.blob.size; }, 0);
     $("demAnh").textContent = dsAnh.length
       ? "Đã chọn " + dsAnh.length + " ảnh (" + (tong / 1048576).toFixed(1) + " MB sau khi nén). Ảnh đầu tiên dùng làm ảnh bìa."
-      : "Chưa chọn ảnh. Có thể bỏ qua bước ảnh và tiếp tục.";\n    capNhatTomTat();
+      : "Chưa chọn ảnh. Có thể bỏ qua bước ảnh và tiếp tục.";
+    capNhatTomTat();
   }
 
   $("luoiAnh").addEventListener("click", function (e) {
@@ -912,7 +913,12 @@ gtag('js',new Date());gtag('config','G-VF9KHC5TWD');</script>
       $("nutGui").textContent = "Gửi căn miễn phí";
     }
   });
-  hienBuoc(1, false);\n  capNhatMaCan();\n  capNhatGia();\n  capNhatTomTat();\n})();\n</script>
+  hienBuoc(1, false);
+  capNhatMaCan();
+  capNhatGia();
+  capNhatTomTat();
+})();
+</script>
   <script src="/assets/gallery.js" defer></script>
   <script src="/assets/app-shell.js?v=20260901-1" defer></script>
 </body>
