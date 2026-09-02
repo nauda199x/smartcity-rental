@@ -21,6 +21,7 @@ Google Sheets là nguồn duy nhất. Apps Script ghi đè `data.json` khoảng 
 | `cap-nhat-so-can.mjs` | Đếm căn theo bộ lọc của từng trang rồi ghi số căn, giá sàn và ngày cập nhật vào `<title>` / `og:title` / `meta description`. |
 | `cap-nhat-sitemap.mjs` | Cập nhật `<lastmod>` trong `sitemap.xml` theo ngày commit thật của `data.json` (trang động) hoặc của chính file đó (trang tĩnh). |
 | `sinh-trang-toa.py` | Dựng lại trang danh mục theo tòa (`s4-01-vinhomes-smart-city/`) từ `data.json` mỗi lần chạy nên không bao giờ lệch dữ liệu. |
+| `sinh-trang-can.py` | Sinh trang riêng cho từng căn. Căn thiếu Tòa hoặc Diện tích **không** được cấp URL (tránh slug rác `--0m2`); trang căn đã có khách mang `robots: noindex,follow` và không vào sitemap. |
 | `sinh-danh-sach-anh.py` | Dựng `scripts/danh-sach-anh.json` từ `data.json`, liệt kê căn đang hiển thị và có ảnh đại diện. |
 | `tai-anh-can-ho.py` | Tải ảnh đại diện từ Google Drive về `anh-can-ho/` dưới dạng WebP, ghi `anh-map.json` và `sitemap-images.xml`. |
 | `thay-anh-trong-html.py` | Đọc `anh-map.json` rồi đổi `src` của các thẻ `<img>` tĩnh từ URL Drive sang đường dẫn ảnh trong repo. |
@@ -38,6 +39,17 @@ Mọi script có ghi file đều nhận cờ `--thu` để xem trước mà khô
 | `tai-anh-can-ho.yml` | Không có lịch — chỉ chạy tay từ tab Actions | Chạy `sinh-danh-sach-anh.py`, `tai-anh-can-ho.py`, `thay-anh-trong-html.py` rồi commit ảnh và `sitemap-images.xml`. |
 
 Workflow ảnh phải chạy trên Actions vì môi trường phát triển bị chặn `drive.google.com`.
+
+## Header và cache — file `_headers`
+
+`_headers` khai báo 5 security header còn thiếu (audit 02/09/2026 chấm
+securityheaders.com điểm D) và cache 1 năm cho ảnh/asset. **GitHub Pages không
+đọc file này** — nó nằm sẵn để lần chuyển sang Cloudflare Pages hoặc Netlify là
+có header ngay, URL không đổi. Đang ở GitHub Pages thì phải đặt Cloudflare ở
+trước và chép đúng các giá trị đó vào Transform Rules.
+
+CSP đang để `Content-Security-Policy-Report-Only`. Chạy một tuần, xem console
+không còn cảnh báo thì mới đổi tên thành `Content-Security-Policy`.
 
 ## Không được sửa
 

@@ -63,6 +63,7 @@
     "nav.price":      ["Rent prices", "임대료"],
     "nav.guideShort": ["Guide", "가이드"],
     "nav.consignShort":["List unit", "매물 등록"],
+    "nav.moveIn":     ["Move in now", "즉시 입주"],
     "nav.guide":      ["Renting guide", "임대 가이드"],
     "nav.consign":    ["List your apartment", "매물 등록"],
     "nav.zalo":       ["Chat on Zalo", "잘로 상담"],

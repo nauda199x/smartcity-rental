@@ -28,6 +28,7 @@ import importlib.util
 import json
 import os
 import re
+import shutil
 import sys
 
 GOC = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -266,9 +267,33 @@ def danh_sach_anh(can):
     return ra
 
 
+# Slug rác: thiếu tòa làm slug dính hai dấu gạch liền nhau, thiếu diện tích
+# làm slug ghi "0m2". Cả hai đều đã từng lọt ra URL công khai (24 trang, phát
+# hiện trong audit 02/09/2026) với title "Căn hộ 1 Ngủ + 0m²" và breadcrumb
+# "Trang chủ › ›". Regex này là chốt chặn cuối, dùng cho cả slug mới sinh lẫn
+# slug cũ còn nằm trong sổ đăng ký.
+RE_SLUG_RAC = re.compile(r"--|-0m2-|-0m2$")
+
+
+def slug_rac(s):
+    return bool(RE_SLUG_RAC.search(s))
+
+
+def du_du_lieu_cap_url(can):
+    """Bản ghi phải đủ tòa và diện tích thì mới được cấp URL.
+
+    Đây KHÔNG phải điều kiện thương mại (giá, ảnh vẫn có thể trống) mà là điều
+    kiện tối thiểu để slug, title, breadcrumb và schema không sinh ra chuỗi vô
+    nghĩa. Căn thiếu hai trường này vẫn nằm trên lưới danh mục, chỉ là không có
+    trang chi tiết riêng — sửa trong Google Sheet là lần chạy sau tự có URL."""
+    return (bool(str(can.get("Tòa", "")).strip())
+            and dien_tich_so(can.get("Diện tích")) > 0)
+
+
 def du_dieu_kien(can):
-    """Mọi căn đang public có Mã nội bộ đều phải có URL chi tiết riêng."""
-    return dang_hien_thi(can) and ma_hop_le(can)
+    """Mọi căn đang public có Mã nội bộ và đủ tòa/diện tích đều phải có URL
+    chi tiết riêng."""
+    return dang_hien_thi(can) and ma_hop_le(can) and du_du_lieu_cap_url(can)
 
 
 def doc_map_anh():
@@ -365,6 +390,7 @@ DAU_TRANG = """<!doctype html>
      chạy. Sửa tay ở đây sẽ mất trong lần chạy sau - sửa script, đừng sửa file. -->
 <title>%(tieu_de)s</title>
 <meta name="description" content="%(mo_ta)s">
+<meta name="robots" content="%(robots)s">
 <link rel="canonical" href="%(url)s">
 <link rel="icon" href="/favicon.ico" sizes="any">
 <meta property="og:type" content="website">
@@ -403,6 +429,7 @@ gtag('js',new Date());gtag('config','G-VF9KHC5TWD');</script>
     <nav>
       <a href="/">Tất cả căn</a><a href="/studio/">Studio</a><a href="/1pn-plus/">1 ngủ +</a>
       <a href="/2pn/">2 ngủ</a><a href="/3pn/">3 ngủ</a>
+      <a href="/can-ho-vao-o-ngay-vinhomes-smart-city.html">Vào ở ngay</a>
       <a href="/cam-nang-thue-nha.html">Cẩm nang</a>
     </nav>
     <div class="doi-tieng" role="group" aria-label="Language / 언어">
@@ -603,6 +630,7 @@ def dung_trang_can(can, s, active, hom_nay):
         "mo_ta": esc(mo_ta),
         "url": esc(url),
         "og_image": esc(og_image),
+        "robots": "index,follow",
         "bua": bua,
         "listing": listing,
         "phan_khu": esc(phan_khu or toa),
@@ -739,6 +767,11 @@ def dung_trang_da_thue(s, ho_so, active, hom_nay):
         "mo_ta": esc(mo_ta),
         "url": esc(url),
         "og_image": ANH_MAC_DINH,
+        # Tin đã có khách là ngõ cụt với người tìm nhà: giữ trang (200) để
+        # backlink và khách cũ không gãy, nhưng gỡ khỏi index để Google dồn
+        # crawl budget cho căn còn trống, và để SERP không còn title "đã có
+        # khách". follow giữ nguyên nên link sang 6 căn tương tự vẫn truyền.
+        "robots": "noindex,follow",
         "bua": bua,
         "listing": listing,
         "phan_khu": esc(phan_khu or toa),
@@ -938,6 +971,7 @@ gtag('js',new Date());gtag('config','G-VF9KHC5TWD');</script>
     <nav>
       <a href="/">Tất cả căn</a><a href="/studio/">Studio</a><a href="/1pn-plus/">1 ngủ +</a>
       <a href="/2pn/">2 ngủ</a><a href="/3pn/">3 ngủ</a>
+      <a href="/can-ho-vao-o-ngay-vinhomes-smart-city.html">Vào ở ngay</a>
       <a href="/cam-nang-thue-nha.html">Cẩm nang</a>
     </nav>
   </div>
@@ -1006,8 +1040,20 @@ def main():
     thieu_ma = [c for c in du_lieu if dang_hien_thi(c) and not ma_hop_le(c)]
     print("data.json               : %d bản ghi" % len(du_lieu))
     print("Đủ điều kiện sinh trang  : %d" % len(qualifying))
+    thieu_du_lieu = [c for c in du_lieu
+                     if dang_hien_thi(c) and ma_hop_le(c) and not du_du_lieu_cap_url(c)]
     if thieu_ma:
         print("CẢNH BÁO: %d căn public đang thiếu Mã nội bộ — không thể cấp URL ổn định; giữ căn trên danh sách nhưng không tự bịa URL." % len(thieu_ma))
+    if thieu_du_lieu:
+        print("CẢNH BÁO: %d căn public thiếu Tòa hoặc Diện tích — không sinh trang chi tiết "
+              "(slug sẽ thành dạng '--0m2'). Điền vào Google Sheet để lần chạy sau có URL:"
+              % len(thieu_du_lieu))
+        for c in thieu_du_lieu[:10]:
+            print("    mã %s · tòa %r · diện tích %r"
+                  % (str(c.get("Mã nội bộ", "")).strip(),
+                     str(c.get("Tòa", "")).strip(), c.get("Diện tích")))
+        if len(thieu_du_lieu) > 10:
+            print("    … và %d căn nữa." % (len(thieu_du_lieu) - 10))
 
     if len(qualifying) > TOI_DA:
         print("\nDỪNG AN TOÀN (mã 2): %d căn đủ điều kiện, vượt trần %d.\n"
@@ -1020,6 +1066,19 @@ def main():
     if len(qualifying) >= TOI_DA * NGUONG_CANH_BAO:
         print("\nCẢNH BÁO: %d/%d căn đủ điều kiện (%d%% trần). Cân nhắc nâng TOI_DA."
               % (len(qualifying), TOI_DA, round(100 * len(qualifying) / TOI_DA)))
+
+    # Chốt chặn cuối: kể cả khi tòa và diện tích đã có, một mã tòa chưa nằm
+    # trong bảng ánh xạ phân khu vẫn cho slug dạng "...-ngu--<dt>m2-...".
+    # Lọc theo chính chuỗi slug là cách duy nhất bắt được mọi nguyên nhân.
+    slug_hong = [c for c in qualifying if slug_rac(tinh_slug(c))]
+    if slug_hong:
+        print("CẢNH BÁO: %d căn cho slug không hợp lệ — bỏ qua, không sinh trang:"
+              % len(slug_hong))
+        for c in slug_hong[:10]:
+            print("    mã %s · tòa %r -> %s"
+                  % (str(c.get("Mã nội bộ", "")).strip(),
+                     str(c.get("Tòa", "")).strip(), tinh_slug(c)))
+        qualifying = [c for c in qualifying if not slug_rac(tinh_slug(c))]
 
     qualifying.sort(key=tinh_slug)
 
@@ -1043,6 +1102,20 @@ def main():
 
     so_dang_ky = doc_so_dang_ky()
     hom_nay = ngay_hom_nay()
+
+    # Dọn slug rác đã lỡ sinh trước khi có du_du_lieu_cap_url. Giữ chúng trong
+    # sổ đăng ký thì mỗi lần chạy lại dựng lại đúng 24 trang "0m² đã có khách",
+    # vì nhánh occupied lấy dữ liệu từ sổ chứ không từ data.json. Xoá khỏi sổ
+    # VÀ xoá thư mục để Google nhận 404 và loại chúng khỏi index.
+    slug_can_don = sorted(s for s in so_dang_ky if slug_rac(s))
+    if slug_can_don:
+        print("Dọn %d URL rác (slug thiếu tòa/diện tích):" % len(slug_can_don))
+        for s in slug_can_don[:5]:
+            print("    /can-ho/%s/" % s)
+        if len(slug_can_don) > 5:
+            print("    … và %d URL nữa." % (len(slug_can_don) - 5))
+        for s_rac in slug_can_don:
+            so_dang_ky.pop(s_rac, None)
 
     # Mã căn là khoá ổn định. Nếu tòa/loại/diện tích được sửa
     # làm slug thay đổi, vẫn phải giữ ngày xuất hiện của căn cũ.
@@ -1085,6 +1158,11 @@ def main():
         return 0
 
     os.makedirs(THU_MUC_CAN_HO, exist_ok=True)
+
+    for s_rac in slug_can_don:
+        thu_muc_rac = os.path.join(THU_MUC_CAN_HO, s_rac)
+        if os.path.isdir(thu_muc_rac):
+            shutil.rmtree(thu_muc_rac)
 
     for c in qualifying:
         s = tinh_slug(c)

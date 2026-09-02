@@ -242,7 +242,7 @@ def render_page(loai, budget_key, ds, indexable, detail_map, ngay, registry):
 <body>
 <header class="top"><div class="khung">
 <a class="hieu" href="/">Cho thuê chung cư Smart City<small>Ảnh thật · Cập nhật mỗi ngày</small></a>
-<nav><a href="/">Tất cả căn</a><a href="/studio/">Studio</a><a href="/1pn-plus/">1 ngủ +</a><a href="/2pn/">2 ngủ</a><a href="/3pn/">3 ngủ</a><a href="/cam-nang-thue-nha.html">Cẩm nang</a></nav>
+<nav><a href="/">Tất cả căn</a><a href="/studio/">Studio</a><a href="/1pn-plus/">1 ngủ +</a><a href="/2pn/">2 ngủ</a><a href="/3pn/">3 ngủ</a><a href="/can-ho-vao-o-ngay-vinhomes-smart-city.html">Vào ở ngay</a><a href="/cam-nang-thue-nha.html">Cẩm nang</a></nav>
 </div></header>
 
 <main class="khung">

@@ -1,0 +1,36 @@
+# Security header + cache policy cho timthuesmartcity.com
+#
+# QUAN TRỌNG: GitHub Pages KHÔNG đọc file này — nó nằm đây để sẵn sàng cho lần
+# chuyển host. Cloudflare Pages và Netlify đọc đúng định dạng này và áp header
+# ngay từ lần deploy đầu tiên, URL không đổi nên không ảnh hưởng SEO.
+# Đang ở GitHub Pages thì cách duy nhất để có header là đặt Cloudflare trước
+# (Rules -> Transform Rules -> Modify Response Header) với đúng các giá trị dưới.
+#
+# Nguồn: audit 02/09/2026 — securityheaders.com chấm điểm D, site chỉ có
+# Strict-Transport-Security, thiếu 5 header còn lại.
+
+/*
+  Strict-Transport-Security: max-age=63072000; includeSubDomains; preload
+  X-Content-Type-Options: nosniff
+  X-Frame-Options: SAMEORIGIN
+  Referrer-Policy: strict-origin-when-cross-origin
+  Permissions-Policy: camera=(), microphone=(), geolocation=(), interest-cohort=()
+  # CSP: bật Report-Only 1 tuần, xem console rồi mới đổi tên header thành
+  # Content-Security-Policy. Danh sách nguồn dưới đây khớp đúng những gì site
+  # đang gọi: GA4/GTM, Google Fonts, ảnh Google Drive trên trang gửi thuê.
+  Content-Security-Policy-Report-Only: default-src 'self'; base-uri 'self'; object-src 'none'; img-src 'self' data: https:; script-src 'self' 'unsafe-inline' https://www.googletagmanager.com https://www.google-analytics.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' data: https://fonts.gstatic.com; connect-src 'self' https://www.google-analytics.com https://*.analytics.google.com https://*.google-analytics.com https://script.google.com https://script.googleusercontent.com; frame-ancestors 'self'; form-action 'self'
+
+# Ảnh và asset có tên ổn định, đổi nội dung là đổi tên file -> cache 1 năm.
+# GitHub Pages đang trả max-age=600 cho mọi thứ, PSI trừ điểm ở đây.
+/anh-can-ho/*
+  Cache-Control: public, max-age=31536000, immutable
+
+/images/*
+  Cache-Control: public, max-age=31536000, immutable
+
+/assets/*
+  Cache-Control: public, max-age=31536000, immutable
+
+# data.json do Apps Script ghi đè ~30 phút/lần — không được cache lâu.
+/data.json
+  Cache-Control: public, max-age=300, must-revalidate
