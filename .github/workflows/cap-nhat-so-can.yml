@@ -26,6 +26,7 @@ on:
       - "scripts/cap-nhat-gia-thue-chuyen-sau.py"
       - "scripts/cap-nhat-gia-studio.py"
       - "scripts/sinh-cum-so-sanh-ngan-sach.py"
+      - "scripts/toi-uu-anh-tim-kiem.py"
       - ".github/workflows/cap-nhat-so-can.yml"
   schedule:
     # Ba lần một ngày. Giờ Việt Nam là UTC+7, nên 01/09/17 giờ UTC tương ứng
@@ -199,6 +200,18 @@ jobs:
           set -o pipefail
           python3 scripts/sinh-cum-so-sanh-ngan-sach.py ${{ inputs.chi_thu && '--thu' || '' }} \
             2>&1 | tee -a ket-qua.txt
+
+      # Chạy sau toàn bộ generator HTML để trang cũ, trang căn mới và landing
+      # mới sinh đều khai cùng một ảnh ưu tiên. Đây là tín hiệu Google dùng để
+      # cân nhắc thumbnail cạnh kết quả tìm kiếm; script tự bỏ qua trang noindex.
+      - name: Khai báo ảnh ưu tiên cho Google Search
+        run: |
+          set -o pipefail
+          python3 scripts/toi-uu-anh-tim-kiem.py ${{ inputs.chi_thu && '--thu' || '' }} \
+            2>&1 | tee -a ket-qua.txt
+          if [ "${{ inputs.chi_thu }}" != "true" ]; then
+            python3 scripts/toi-uu-anh-tim-kiem.py --kiem-tra 2>&1 | tee -a ket-qua.txt
+          fi
 
       - name: Cập nhật lastmod trong sitemap.xml
         run: |
