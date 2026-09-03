@@ -671,6 +671,14 @@
   "phan_khu": "Lumiere",
   "toa": "A3"
  },
+ "cho-thue-can-ho-2-ngu-lumiere-55m2-ct-2n2-400": {
+  "dien_tich": 55,
+  "loai": "2 Ngủ",
+  "ma": "CT.2N2.400",
+  "ngay_xuat_hien": "2026-09-03",
+  "phan_khu": "Lumiere",
+  "toa": "A2"
+ },
  "cho-thue-can-ho-2-ngu-lumiere-60m2-ct-2n2-381": {
   "dien_tich": 60,
   "loai": "2 Ngủ",
@@ -2118,6 +2126,14 @@
   "ngay_xuat_hien": "2026-08-24",
   "phan_khu": "Sapphire",
   "toa": "S102"
+ },
+ "cho-thue-can-ho-studio-sapphire-28m2-ct-stu-820": {
+  "dien_tich": 28,
+  "loai": "Studio",
+  "ma": "CT.Stu.820",
+  "ngay_xuat_hien": "2026-09-03",
+  "phan_khu": "Sapphire",
+  "toa": "S403"
  },
  "cho-thue-can-ho-studio-sapphire-31m2-ct-stu-771": {
   "dien_tich": 31,

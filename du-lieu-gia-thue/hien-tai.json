@@ -1,10 +1,10 @@
 {
   "updated": "2026-09-03",
   "source": "data.json",
-  "active_count": 257,
+  "active_count": 259,
   "min_sample": 3,
   "overall": {
-    "n": 257,
+    "n": 259,
     "min": 6000000,
     "max": 19500000,
     "median": 11000000
@@ -23,10 +23,10 @@
       "median": 9500000.0
     },
     "2 Ngủ": {
-      "n": 89,
+      "n": 90,
       "min": 8000000,
       "max": 16500000,
-      "median": 11500000
+      "median": 11500000.0
     },
     "2 Ngủ +": {
       "n": 44,
@@ -41,10 +41,10 @@
       "median": 15000000.0
     },
     "Studio": {
-      "n": 43,
+      "n": 44,
       "min": 6000000,
       "max": 10500000,
-      "median": 8000000
+      "median": 7900000.0
     }
   },
   "by_zone": {
@@ -61,10 +61,10 @@
       "median": 11500000
     },
     "Lumiere": {
-      "n": 43,
+      "n": 44,
       "min": 9000000,
       "max": 17000000,
-      "median": 14000000
+      "median": 14000000.0
     },
     "Masteri": {
       "n": 45,
@@ -85,10 +85,10 @@
       "median": 10000000.0
     },
     "Sapphire": {
-      "n": 69,
+      "n": 70,
       "min": 6000000,
       "max": 18000000,
-      "median": 10000000
+      "median": 10000000.0
     },
     "Tonkin": {
       "n": 6,
@@ -99,16 +99,16 @@
   },
   "by_interior": {
     "Full nội thất": {
-      "n": 168,
+      "n": 169,
       "min": 6500000,
       "max": 19500000,
-      "median": 11000000.0
+      "median": 11000000
     },
     "Nhà Nguyên Bản": {
-      "n": 42,
+      "n": 43,
       "min": 6000000,
       "max": 15000000,
-      "median": 9000000.0
+      "median": 9000000
     },
     "Đồ Cơ bản": {
       "n": 47,
@@ -329,10 +329,10 @@
       "zone": "Lumiere",
       "type": "2 Ngủ",
       "interior": "Nhà Nguyên Bản",
-      "n": 6,
+      "n": 7,
       "min": 12000000,
       "max": 15000000,
-      "median": 13500000.0
+      "median": 13000000
     },
     {
       "zone": "Lumiere",
@@ -770,10 +770,10 @@
       "zone": "Sapphire",
       "type": "Studio",
       "interior": "Full nội thất",
-      "n": 9,
+      "n": 10,
       "min": 6500000,
       "max": 8000000,
-      "median": 7000000
+      "median": 7000000.0
     },
     {
       "zone": "Sapphire",
