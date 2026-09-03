@@ -1,10 +1,10 @@
 {
   "updated": "2026-09-03",
   "source": "data.json",
-  "active_count": 259,
+  "active_count": 257,
   "min_sample": 3,
   "overall": {
-    "n": 259,
+    "n": 257,
     "min": 6000000,
     "max": 19500000,
     "median": 11000000
@@ -29,10 +29,10 @@
       "median": 11500000.0
     },
     "2 Ngủ +": {
-      "n": 44,
+      "n": 43,
       "min": 9000000,
       "max": 19500000,
-      "median": 12500000.0
+      "median": 12500000
     },
     "3 Ngủ": {
       "n": 28,
@@ -41,10 +41,10 @@
       "median": 15000000.0
     },
     "Studio": {
-      "n": 44,
+      "n": 43,
       "min": 6000000,
       "max": 10500000,
-      "median": 7900000.0
+      "median": 8000000
     }
   },
   "by_zone": {
@@ -55,10 +55,10 @@
       "median": 9500000
     },
     "Imperia": {
-      "n": 21,
+      "n": 20,
       "min": 6000000,
       "max": 17500000,
-      "median": 11500000
+      "median": 11750000.0
     },
     "Lumiere": {
       "n": 44,
@@ -85,10 +85,10 @@
       "median": 10000000.0
     },
     "Sapphire": {
-      "n": 70,
+      "n": 69,
       "min": 6000000,
       "max": 18000000,
-      "median": 10000000.0
+      "median": 10000000
     },
     "Tonkin": {
       "n": 6,
@@ -99,7 +99,7 @@
   },
   "by_interior": {
     "Full nội thất": {
-      "n": 169,
+      "n": 167,
       "min": 6500000,
       "max": 19500000,
       "median": 11000000
@@ -252,15 +252,6 @@
       "min": 16000000,
       "max": 17500000,
       "median": 16750000.0
-    },
-    {
-      "zone": "Imperia",
-      "type": "Studio",
-      "interior": "Full nội thất",
-      "n": 1,
-      "min": 7000000,
-      "max": 7000000,
-      "median": 7000000
     },
     {
       "zone": "Imperia",
@@ -743,10 +734,10 @@
       "zone": "Sapphire",
       "type": "2 Ngủ +",
       "interior": "Full nội thất",
-      "n": 15,
+      "n": 14,
       "min": 10000000,
       "max": 13000000,
-      "median": 11000000
+      "median": 11000000.0
     },
     {
       "zone": "Sapphire",
