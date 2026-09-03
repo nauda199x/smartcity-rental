@@ -614,7 +614,12 @@ gtag('js',new Date());gtag('config','G-VF9KHC5TWD');</script>
      chừng và chủ nhà bỏ cuộc. Nén về cạnh dài tối đa 1600px, chất lượng 0.78 -> còn
      khoảng 200-400KB/tấm, tổng ~3MB, gửi trong 20-30 giây. Chất lượng này vẫn thừa đẹp
      để hiển thị trên web (thẻ căn hộ chỉ rộng ~400px). */
-  var CANH_TOI_DA = 1600, CHAT_LUONG = 0.78, TOI_DA_ANH = 20;
+  // Ảnh chủ nhà: giữ cạnh dài 1600px để đủ nét cho web/Google Images.
+  // Nếu ảnh nhiều chi tiết vẫn >700KB thì nén thêm một lượt nhẹ.
+  // Nén và tải tối đa 3 ảnh song song: đủ nhanh trên 4G/5G nhưng không làm iPhone quá tải.
+  var CANH_TOI_DA = 1600, CHAT_LUONG = 0.78, CHAT_LUONG_NHE = 0.66;
+  var KICH_THUOC_MUC_TIEU = 700 * 1024, TOI_DA_ANH = 20;
+  var SO_LUONG_NEN_DONG_THOI = 3, SO_LUONG_TAI_DONG_THOI = 3;
 
   var $ = function (id) { return document.getElementById(id); };
   var dsAnh = [];   // [{ten, blob, url}]
@@ -744,31 +749,78 @@ gtag('js',new Date());gtag('config','G-VF9KHC5TWD');</script>
     if (this.checked) $("ngayTrong").value = "";
   });
 
-  /* ---------- Chọn và nén ảnh ---------- */
-  function nenAnh(file) {
+  /* ---------- Chọn và nén ảnh ----------
+     Dùng object URL thay vì đọc cả ảnh thành DataURL/Base64 khi nén:
+     ít tốn RAM hơn trên iPhone và tránh phình dữ liệu ~33% ở bước xử lý ảnh.
+     Ảnh đầu ra vẫn là JPEG để giữ nguyên hợp đồng với Apps Script hiện tại. */
+  function canvasSangJpeg(canvas, chatLuong) {
     return new Promise(function (xong, hong) {
-      var doc = new FileReader();
-      doc.onerror = function () { hong(new Error("Không đọc được ảnh")); };
-      doc.onload = function () {
-        var img = new Image();
-        img.onerror = function () { hong(new Error("Ảnh lỗi hoặc không đúng định dạng")); };
-        img.onload = function () {
-          var w = img.width, h = img.height;
-          if (Math.max(w, h) > CANH_TOI_DA) {
-            var ti = CANH_TOI_DA / Math.max(w, h);
-            w = Math.round(w * ti); h = Math.round(h * ti);
-          }
-          var c = document.createElement("canvas");
-          c.width = w; c.height = h;
-          c.getContext("2d").drawImage(img, 0, 0, w, h);
-          c.toBlob(function (blob) {
-            blob ? xong(blob) : hong(new Error("Không nén được ảnh"));
-          }, "image/jpeg", CHAT_LUONG);
-        };
-        img.src = doc.result;
-      };
-      doc.readAsDataURL(file);
+      canvas.toBlob(function (blob) {
+        blob ? xong(blob) : hong(new Error("Không nén được ảnh"));
+      }, "image/jpeg", chatLuong);
     });
+  }
+
+  async function nenAnh(file) {
+    var objectUrl = URL.createObjectURL(file);
+    try {
+      var img = await new Promise(function (xong, hong) {
+        var anh = new Image();
+        anh.onload = function () { xong(anh); };
+        anh.onerror = function () { hong(new Error("Ảnh lỗi hoặc không đúng định dạng")); };
+        anh.src = objectUrl;
+      });
+
+      var w = img.naturalWidth || img.width;
+      var h = img.naturalHeight || img.height;
+      if (!w || !h) throw new Error("Không đọc được kích thước ảnh");
+
+      if (Math.max(w, h) > CANH_TOI_DA) {
+        var ti = CANH_TOI_DA / Math.max(w, h);
+        w = Math.round(w * ti);
+        h = Math.round(h * ti);
+      }
+
+      var c = document.createElement("canvas");
+      c.width = w;
+      c.height = h;
+      var ctx = c.getContext("2d");
+      ctx.imageSmoothingEnabled = true;
+      if ("imageSmoothingQuality" in ctx) ctx.imageSmoothingQuality = "high";
+      ctx.drawImage(img, 0, 0, w, h);
+
+      var blob = await canvasSangJpeg(c, CHAT_LUONG);
+      // Chỉ nén mạnh hơn khi thật sự cần; ảnh đã nhỏ vẫn giữ chất lượng 0.78.
+      if (blob.size > KICH_THUOC_MUC_TIEU) {
+        blob = await canvasSangJpeg(c, CHAT_LUONG_NHE);
+      }
+      return blob;
+    } finally {
+      URL.revokeObjectURL(objectUrl);
+    }
+  }
+
+  async function nenNhieuAnh(files) {
+    var ketQua = new Array(files.length);
+    var tiepTheo = 0;
+
+    async function worker() {
+      while (true) {
+        var i = tiepTheo++;
+        if (i >= files.length) return;
+        try {
+          ketQua[i] = await nenAnh(files[i]);
+        } catch (err) {
+          ketQua[i] = null;
+        }
+      }
+    }
+
+    var soWorker = Math.min(SO_LUONG_NEN_DONG_THOI, files.length);
+    var workers = [];
+    for (var w = 0; w < soWorker; w++) workers.push(worker());
+    await Promise.all(workers);
+    return ketQua;
   }
 
   function veLuoiAnh() {
@@ -803,12 +855,10 @@ gtag('js',new Date());gtag('config','G-VF9KHC5TWD');</script>
       baoLoi("Mỗi căn nhận tối đa " + TOI_DA_ANH + " ảnh, các ảnh thừa đã được bỏ qua.");
     }
     $("demAnh").textContent = "Đang xử lý ảnh...";
-    for (var i = 0; i < files.length; i++) {
-      try {
-        var blob = await nenAnh(files[i]);
-        dsAnh.push({ ten: files[i].name, blob: blob, url: URL.createObjectURL(blob) });
-        veLuoiAnh();
-      } catch (err) { /* bỏ qua ảnh lỗi, không chặn các ảnh còn lại */ }
+    var daNen = await nenNhieuAnh(files);
+    for (var i = 0; i < daNen.length; i++) {
+      if (!daNen[i]) continue;
+      dsAnh.push({ ten: files[i].name, blob: daNen[i], url: URL.createObjectURL(daNen[i]) });
     }
     veLuoiAnh();
   });
@@ -844,6 +894,48 @@ gtag('js',new Date());gtag('config','G-VF9KHC5TWD');</script>
       body: JSON.stringify(goi)
     });
     return await res.json();
+  }
+
+  /* Apps Script vẫn cần Base64, nhưng không còn tải tuần tự từng ảnh.
+     3 worker cùng chạy giúp giảm mạnh tổng thời gian, đặc biệt với 4G/5G.
+     Mỗi ảnh vẫn có thuTu riêng nên thứ tự ảnh/ảnh bìa không thay đổi. */
+  async function taiAnhSongSong(phien, thuMuc) {
+    var tong = dsAnh.length;
+    if (!tong) return;
+
+    var tiepTheo = 0;
+    var daXong = 0;
+
+    async function worker() {
+      while (true) {
+        var i = tiepTheo++;
+        if (i >= tong) return;
+
+        try {
+          var duLieu = await blobSangBase64(dsAnh[i].blob);
+          await goiAPI({
+            action: "chuNhaGuiAnh",
+            phien: phien,
+            thuMuc: thuMuc,
+            thuTu: i + 1,
+            duLieu: duLieu
+          });
+        } catch (err) {
+          // Một ảnh lỗi không hủy cả lần gửi; backend hoàn tất với các ảnh tải được.
+        }
+
+        daXong++;
+        tienDo(
+          10 + Math.round((daXong / tong) * 82),
+          "Đang tải ảnh " + daXong + "/" + tong + "..."
+        );
+      }
+    }
+
+    var soWorker = Math.min(SO_LUONG_TAI_DONG_THOI, tong);
+    var workers = [];
+    for (var w = 0; w < soWorker; w++) workers.push(worker());
+    await Promise.all(workers);
   }
 
   function sdtHopLe(s) {
@@ -884,19 +976,9 @@ gtag('js',new Date());gtag('config','G-VF9KHC5TWD');</script>
       });
       if (!b1 || !b1.ok) throw new Error((b1 && b1.loi) || "Không gửi được thông tin, anh/chị thử lại giúp.");
 
-      // Gửi từng ảnh một, không gửi cả loạt - tránh gói dữ liệu quá lớn bị máy chủ từ chối
-      for (var i = 0; i < dsAnh.length; i++) {
-        tienDo(10 + Math.round((i / Math.max(dsAnh.length, 1)) * 82),
-               "Đang tải ảnh " + (i + 1) + "/" + dsAnh.length + "...");
-        var kq = await goiAPI({
-          action: "chuNhaGuiAnh",
-          phien: b1.phien,
-          thuMuc: b1.thuMuc,
-          thuTu: i + 1,
-          duLieu: await blobSangBase64(dsAnh[i].blob)
-        });
-        if (!kq || !kq.ok) { /* một ảnh lỗi thì bỏ qua, không hủy cả lần gửi */ }
-      }
+      // Tải tối đa 3 ảnh song song. Mỗi request vẫn chỉ chứa 1 ảnh nên
+      // không làm gói POST phình quá lớn và vẫn tương thích Apps Script cũ.
+      await taiAnhSongSong(b1.phien, b1.thuMuc);
 
       tienDo(96, "Đang hoàn tất...");
       await goiAPI({ action: "chuNhaGuiXong", phien: b1.phien, thuMuc: b1.thuMuc });
