@@ -1,10 +1,10 @@
 {
   "updated": "2026-09-03",
   "source": "data.json",
-  "active_count": 257,
+  "active_count": 259,
   "min_sample": 3,
   "overall": {
-    "n": 257,
+    "n": 259,
     "min": 6000000,
     "max": 19500000,
     "median": 11000000
@@ -29,10 +29,10 @@
       "median": 11500000.0
     },
     "2 Ngủ +": {
-      "n": 43,
+      "n": 44,
       "min": 9000000,
       "max": 19500000,
-      "median": 12500000
+      "median": 12500000.0
     },
     "3 Ngủ": {
       "n": 28,
@@ -41,10 +41,10 @@
       "median": 15000000.0
     },
     "Studio": {
-      "n": 43,
+      "n": 44,
       "min": 6000000,
       "max": 10500000,
-      "median": 8000000
+      "median": 8000000.0
     }
   },
   "by_zone": {
@@ -61,7 +61,7 @@
       "median": 11750000.0
     },
     "Lumiere": {
-      "n": 44,
+      "n": 46,
       "min": 9000000,
       "max": 17000000,
       "median": 14000000.0
@@ -105,7 +105,7 @@
       "median": 11000000
     },
     "Nhà Nguyên Bản": {
-      "n": 43,
+      "n": 45,
       "min": 6000000,
       "max": 15000000,
       "median": 9000000
@@ -347,10 +347,10 @@
       "zone": "Lumiere",
       "type": "2 Ngủ +",
       "interior": "Nhà Nguyên Bản",
-      "n": 1,
+      "n": 2,
       "min": 14500000,
-      "max": 14500000,
-      "median": 14500000
+      "max": 15000000,
+      "median": 14750000.0
     },
     {
       "zone": "Lumiere",
@@ -374,10 +374,10 @@
       "zone": "Lumiere",
       "type": "Studio",
       "interior": "Nhà Nguyên Bản",
-      "n": 1,
+      "n": 2,
       "min": 9000000,
       "max": 9000000,
-      "median": 9000000
+      "median": 9000000.0
     },
     {
       "zone": "Masteri",

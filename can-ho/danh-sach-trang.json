@@ -759,6 +759,14 @@
   "phan_khu": "Lumiere",
   "toa": "A3"
  },
+ "cho-thue-can-ho-2-ngu-lumiere-64m2-cc13": {
+  "dien_tich": 64,
+  "loai": "2 Ngủ +",
+  "ma": "CC13",
+  "ngay_xuat_hien": "2026-09-03",
+  "phan_khu": "Lumiere",
+  "toa": "A3"
+ },
  "cho-thue-can-ho-2-ngu-lumiere-64m2-ct-2n-190": {
   "dien_tich": 64,
   "loai": "2 Ngủ +",
@@ -1878,6 +1886,14 @@
   "ngay_xuat_hien": "2026-08-17",
   "phan_khu": "Imperia",
   "toa": "I4"
+ },
+ "cho-thue-can-ho-studio-lumiere-30m2-cc12": {
+  "dien_tich": 30,
+  "loai": "Studio",
+  "ma": "CC12",
+  "ngay_xuat_hien": "2026-09-03",
+  "phan_khu": "Lumiere",
+  "toa": "A1"
  },
  "cho-thue-can-ho-studio-lumiere-30m2-ct-stu-746": {
   "dien_tich": 30,
