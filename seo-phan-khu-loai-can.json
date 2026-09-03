@@ -15,8 +15,16 @@
     "phanKhu": "Imperia",
     "updated": "2026-09-03"
   },
+  "cho-thue-1pn-plus-lumiere-smart-city": {
+    "count": 4,
+    "created": "2026-09-03",
+    "indexable": true,
+    "loai": "1 Ngủ +",
+    "phanKhu": "Lumiere",
+    "updated": "2026-09-03"
+  },
   "cho-thue-1pn-plus-masteri-smart-city": {
-    "count": 12,
+    "count": 13,
     "created": "2026-08-30",
     "indexable": true,
     "loai": "1 Ngủ +",
@@ -32,7 +40,7 @@
     "updated": "2026-09-03"
   },
   "cho-thue-1pn-plus-sapphire-smart-city": {
-    "count": 9,
+    "count": 10,
     "created": "2026-08-30",
     "indexable": true,
     "loai": "1 Ngủ +",
@@ -128,7 +136,7 @@
     "updated": "2026-09-03"
   },
   "cho-thue-2pn-sapphire-smart-city": {
-    "count": 21,
+    "count": 22,
     "created": "2026-08-30",
     "indexable": true,
     "loai": "2 Ngủ",
