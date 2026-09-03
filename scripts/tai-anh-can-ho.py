@@ -269,6 +269,26 @@ def ghi_sitemap_anh(ban_ghi_ok):
             if trang:
                 theo_trang.setdefault(trang, []).append(bg)
 
+    # Trang căn đã có khách mang robots:noindex (sinh-trang-can.py đặt). Khai
+    # ảnh cho một trang đang noindex là tự mâu thuẫn: sitemap mời Google vào,
+    # thẻ robots đuổi ra — Google giảm tin vào cả sitemap. Đọc thẳng file HTML
+    # vì đó là nguồn sự thật duy nhất về trạng thái index của trang.
+    bo_qua = []
+    for trang in list(theo_trang):
+        duong = os.path.join(GOC, trang.strip("/"), "index.html")
+        if not os.path.exists(duong):
+            continue
+        with open(duong, encoding="utf-8") as f:
+            if 'name="robots" content="noindex' in f.read():
+                del theo_trang[trang]
+                bo_qua.append(trang)
+    if bo_qua:
+        print("Bỏ %d trang đang noindex khỏi sitemap ảnh:" % len(bo_qua))
+        for t in bo_qua[:5]:
+            print("    %s" % t)
+        if len(bo_qua) > 5:
+            print("    … và %d trang nữa." % (len(bo_qua) - 5))
+
     dong = ['<?xml version="1.0" encoding="UTF-8"?>',
             '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"',
             '        xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">']
