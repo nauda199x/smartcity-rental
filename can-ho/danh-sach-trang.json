@@ -1863,6 +1863,14 @@
   "phan_khu": "Canopy",
   "toa": "TC2"
  },
+ "cho-thue-can-ho-studio-canopy-28m2-cc15": {
+  "dien_tich": 28,
+  "loai": "Studio",
+  "ma": "CC15",
+  "ngay_xuat_hien": "2026-09-03",
+  "phan_khu": "Canopy",
+  "toa": "TC1"
+ },
  "cho-thue-can-ho-studio-canopy-29m2-ct-stu-728": {
   "dien_tich": 29,
   "loai": "Studio",
