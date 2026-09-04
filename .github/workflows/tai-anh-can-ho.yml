@@ -2,9 +2,9 @@ name: Tải ảnh đại diện căn hộ từ Drive về repo
 
 # Google Drive chặn crawler nên ảnh căn hộ không được Google Images/Zalo đọc
 # ổn định. Workflow này tải ảnh về anh-can-ho/ dưới dạng WebP, sinh
-# anh-map.json + sitemap-images.xml, rồi sinh LẠI trang chi tiết sau khi map ảnh
-# đã có. Nhờ vậy og:image/twitter:image của mỗi căn ưu tiên ảnh thật nằm ngay
-# trên timthuesmartcity.com thay vì rơi về og-smartcity.jpg.
+# anh-map.json + sitemap-images.xml, rồi sửa trực tiếp ảnh gallery + og:image +
+# twitter:image của trang chi tiết. Không sinh lại toàn bộ trang sau đó, để
+# không ghi đè các bước SEO/internal-link đã chạy trong workflow cập nhật data.
 #
 # workflow_run chạy sau workflow cập nhật dữ liệu để tránh hai job cùng sửa
 # trang chi tiết song song. Push vào chính workflow/script ảnh dùng để áp dụng
@@ -40,7 +40,8 @@ on:
 permissions:
   contents: write
 
-# Hai lần chạy song song sẽ đá nhau khi push.
+# Hai lần chạy song song sẽ đá nhau khi push. Không hủy run cũ giữa lúc đang
+# ghi ảnh; run kế tiếp sẽ chờ rồi rà lại idempotent trên main mới nhất.
 concurrency:
   group: tai-anh-can-ho-main
   cancel-in-progress: false
@@ -76,24 +77,21 @@ jobs:
           python3 scripts/tai-anh-can-ho.py \
             --gioi-han "${{ inputs.gioi_han || 0 }}" 2>&1 | tee -a ket-qua.txt
 
-      # QUAN TRỌNG: sinh-trang-can.py đọc anh-can-ho/anh-map.json để chọn
-      # og:image. Trước đây trang căn được sinh trước lúc ảnh mới được tải nên
-      # căn mới thường rơi về /og-smartcity.jpg cho tới lần cập nhật sau.
-      - name: Sinh lại trang chi tiết với ảnh social cục bộ
-        run: |
-          set -o pipefail
-          ma=0
-          python3 scripts/sinh-trang-can.py 2>&1 | tee -a ket-qua.txt || ma=$?
-          if [ "$ma" = "2" ]; then
-            echo "::warning::sinh-trang-can.py dừng an toàn (mã 2) — giữ nguyên trang hiện có."
-            exit 0
-          fi
-          exit "$ma"
-
-      - name: Thay URL Drive trong HTML bằng ảnh trong repo
+      # Script này vừa thay src Drive bằng WebP local, vừa lấy ảnh local đầu
+      # tiên trong gallery để đồng bộ og:image/twitter:image cho URL căn.
+      - name: Đồng bộ ảnh thật vào HTML và social preview
         run: |
           set -o pipefail
           python3 scripts/thay-anh-trong-html.py 2>&1 | tee -a ket-qua.txt
+
+      # cap-nhat-so-can chạy bước này trước khi ảnh mới được tải. Chạy lại sau
+      # khi og:image đã là ảnh local để giữ max-image-preview:large và đồng bộ
+      # primaryImageOfPage/thumbnailUrl với đúng ảnh căn. Script idempotent.
+      - name: Đồng bộ tín hiệu ảnh cho Google Search
+        run: |
+          set -o pipefail
+          python3 scripts/toi-uu-anh-tim-kiem.py 2>&1 | tee -a ket-qua.txt
+          python3 scripts/toi-uu-anh-tim-kiem.py --kiem-tra 2>&1 | tee -a ket-qua.txt
 
       - name: Ghi kết quả vào phần tóm tắt của lần chạy
         if: always()
@@ -102,7 +100,7 @@ jobs:
             echo "## Kết quả tải ảnh căn hộ + social preview"
             echo
             echo '```'
-            tail -n 80 ket-qua.txt 2>/dev/null || echo "(script không chạy được)"
+            tail -n 100 ket-qua.txt 2>/dev/null || echo "(script không chạy được)"
             echo '```'
             echo
             echo "Dung lượng thư mục \`anh-can-ho/\`: $(du -sh anh-can-ho 2>/dev/null | cut -f1 || echo 'chưa có')"
@@ -120,9 +118,7 @@ jobs:
           # giờ được ghi đè. Script không sửa file đó, nhưng vẫn chặn thêm ở đây.
           git checkout -- data.json || true
 
-          # can-ho + sitemap-can-ho.xml được sinh lại sau khi anh-map.json đã có,
-          # để og:image/twitter:image đổi sang ảnh thật ngay trong cùng lần chạy.
-          THEO_DOI="anh-can-ho sitemap-images.xml scripts/danh-sach-anh.json can-ho sitemap-can-ho.xml"
+          THEO_DOI="anh-can-ho sitemap-images.xml scripts/danh-sach-anh.json"
 
           if git diff --quiet -- $THEO_DOI '*.html' && \
              [ -z "$(git ls-files --others --exclude-standard -- $THEO_DOI)" ]; then
