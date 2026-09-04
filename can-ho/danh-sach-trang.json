@@ -7,6 +7,14 @@
   "phan_khu": "Canopy",
   "toa": "TC1"
  },
+ "cho-thue-can-ho-1-ngu-canopy-43m2-ct-1n-171": {
+  "dien_tich": 43,
+  "loai": "1 Ngủ",
+  "ma": "CT.1N.171",
+  "ngay_xuat_hien": "2026-09-04",
+  "phan_khu": "Canopy",
+  "toa": "TC1"
+ },
  "cho-thue-can-ho-1-ngu-canopy-44m2-ct-1n-146": {
   "dien_tich": 44,
   "loai": "1 Ngủ",
@@ -567,6 +575,14 @@
   "phan_khu": "Canopy",
   "toa": "TC3"
  },
+ "cho-thue-can-ho-2-ngu-canopy-62m2-ct-2n2-402": {
+  "dien_tich": 62,
+  "loai": "2 Ngủ",
+  "ma": "CT.2N2.402",
+  "ngay_xuat_hien": "2026-09-04",
+  "phan_khu": "Canopy",
+  "toa": "TC2"
+ },
  "cho-thue-can-ho-2-ngu-canopy-63m2-ct-2n2-342": {
   "dien_tich": 63.4,
   "loai": "2 Ngủ",
@@ -590,6 +606,14 @@
   "ngay_xuat_hien": "2026-07-28",
   "phan_khu": "Canopy",
   "toa": "TC1"
+ },
+ "cho-thue-can-ho-2-ngu-canopy-68m2-ct-2n2-403": {
+  "dien_tich": 68,
+  "loai": "2 Ngủ",
+  "ma": "CT.2N2.403",
+  "ngay_xuat_hien": "2026-09-04",
+  "phan_khu": "Canopy",
+  "toa": "TC3"
  },
  "cho-thue-can-ho-2-ngu-canopy-69m2-ct-2n-205": {
   "dien_tich": 68.6,
@@ -686,6 +710,14 @@
   "ngay_xuat_hien": "2026-08-24",
   "phan_khu": "Imperia",
   "toa": "I1"
+ },
+ "cho-thue-can-ho-2-ngu-imperia-63m2-ct-2n-290": {
+  "dien_tich": 63,
+  "loai": "2 Ngủ +",
+  "ma": "CT.2N+.290",
+  "ngay_xuat_hien": "2026-09-04",
+  "phan_khu": "Imperia",
+  "toa": "I2"
  },
  "cho-thue-can-ho-2-ngu-imperia-64m2-26": {
   "dien_tich": 64,
@@ -2319,6 +2351,14 @@
   "phan_khu": "Sapphire",
   "toa": "S303"
  },
+ "cho-thue-can-ho-studio-sapphire-32m2-ct-stu-827": {
+  "dien_tich": 32,
+  "loai": "Studio",
+  "ma": "CT.Stu.827",
+  "ngay_xuat_hien": "2026-09-04",
+  "phan_khu": "Sapphire",
+  "toa": "S401"
+ },
  "cho-thue-can-ho-studio-sapphire-34m2-ct-stu-817": {
   "dien_tich": 34,
   "loai": "Studio",
@@ -2356,6 +2396,14 @@
   "loai": "Studio",
   "ma": "CT.Stu.804",
   "ngay_xuat_hien": "2026-08-24",
+  "phan_khu": "Tonkin",
+  "toa": "TK1"
+ },
+ "cho-thue-can-ho-studio-tonkin-25m2-ct-stu-826": {
+  "dien_tich": 25,
+  "loai": "Studio",
+  "ma": "CT.Stu.826",
+  "ngay_xuat_hien": "2026-09-04",
   "phan_khu": "Tonkin",
   "toa": "TK1"
  },

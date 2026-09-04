@@ -1,6 +1,6 @@
 {
   "cho-thue-1pn-lumiere-smart-city": {
-    "count": 7,
+    "count": 6,
     "created": "2026-08-30",
     "indexable": true,
     "loai": "1 Ngủ",
@@ -24,7 +24,7 @@
     "updated": "2026-09-04"
   },
   "cho-thue-1pn-plus-masteri-smart-city": {
-    "count": 12,
+    "count": 9,
     "created": "2026-08-30",
     "indexable": true,
     "loai": "1 Ngủ +",
@@ -56,7 +56,7 @@
     "updated": "2026-09-04"
   },
   "cho-thue-2pn-canopy-smart-city": {
-    "count": 5,
+    "count": 7,
     "created": "2026-08-30",
     "indexable": true,
     "loai": "2 Ngủ",
@@ -72,7 +72,7 @@
     "updated": "2026-09-04"
   },
   "cho-thue-2pn-lumiere-smart-city": {
-    "count": 22,
+    "count": 19,
     "created": "2026-08-30",
     "indexable": true,
     "loai": "2 Ngủ",
@@ -80,7 +80,7 @@
     "updated": "2026-09-04"
   },
   "cho-thue-2pn-masteri-smart-city": {
-    "count": 3,
+    "count": 2,
     "created": "2026-08-30",
     "indexable": false,
     "loai": "2 Ngủ",
@@ -96,7 +96,7 @@
     "updated": "2026-09-04"
   },
   "cho-thue-2pn-plus-imperia-smart-city": {
-    "count": 8,
+    "count": 7,
     "created": "2026-08-30",
     "indexable": true,
     "loai": "2 Ngủ +",
@@ -104,7 +104,7 @@
     "updated": "2026-09-04"
   },
   "cho-thue-2pn-plus-lumiere-smart-city": {
-    "count": 5,
+    "count": 4,
     "created": "2026-08-30",
     "indexable": true,
     "loai": "2 Ngủ +",
@@ -128,7 +128,7 @@
     "updated": "2026-09-04"
   },
   "cho-thue-2pn-plus-sapphire-smart-city": {
-    "count": 12,
+    "count": 11,
     "created": "2026-08-30",
     "indexable": true,
     "loai": "2 Ngủ +",
@@ -136,7 +136,7 @@
     "updated": "2026-09-04"
   },
   "cho-thue-2pn-sakura-smart-city": {
-    "count": 10,
+    "count": 9,
     "created": "2026-08-30",
     "indexable": true,
     "loai": "2 Ngủ",
@@ -176,7 +176,7 @@
     "updated": "2026-09-04"
   },
   "cho-thue-studio-masteri-smart-city": {
-    "count": 12,
+    "count": 11,
     "created": "2026-08-30",
     "indexable": true,
     "loai": "Studio",
@@ -200,9 +200,9 @@
     "updated": "2026-09-04"
   },
   "cho-thue-studio-tonkin-smart-city": {
-    "count": 3,
+    "count": 4,
     "created": "2026-09-04",
-    "indexable": false,
+    "indexable": true,
     "loai": "Studio",
     "phanKhu": "Tonkin",
     "updated": "2026-09-04"
