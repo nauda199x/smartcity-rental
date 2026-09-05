@@ -191,7 +191,7 @@ def anh_bia(can, map_anh):
     if not url:
         url = chuan(chuan(can.get("Danh sách ảnh")).split("\n")[0])
     if not url:
-        return ""
+        return STT.bia_video(can)
     return anh_dai_dien({"Ảnh đại diện": url}, map_anh)
 
 

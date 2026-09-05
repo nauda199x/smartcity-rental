@@ -267,7 +267,7 @@ def render_page(pk, loai, ds, indexable, detail_map, ngay):
 </footer>
 <a class="zalo-noi" href="https://zalo.me/%(sdt)s" target="_blank" rel="noopener">Nhắn Zalo tư vấn</a>
 <script type="application/json" id="bo-loc-trang">%(filter_json)s</script>
-<script src="/dong-bo-can.js?v=20260830-7" defer></script>
+<script src="/dong-bo-can.js?v=20260905-3" defer></script>
 <script src="/assets/app-shell.js?v=20260901-1" defer></script>
 </body>
 </html>

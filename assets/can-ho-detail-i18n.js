@@ -377,7 +377,7 @@
       if(b0) b0.textContent=T("gallery.none1","Căn này đang cập nhật ảnh");
       if(s0) s0.textContent=T("gallery.none2","Nhắn Zalo để nhận ảnh và video thực tế.");
     }
-    var imgs=qa(".ct-gallery img");
+    var imgs=qa(".ct-gallery>img");
     imgs.forEach(function(img,i){
       img.setAttribute("aria-label",T("gallery.open","Mở ảnh {I} trên {N}",{I:i+1,N:imgs.length}));
     });

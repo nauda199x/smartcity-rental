@@ -53,6 +53,14 @@ dùng một Drive preview riêng; không chạy thêm player ẩn hoặc tự đ
 tải chậm. Giới hạn mỗi MP4 30 MiB, toàn kho 450 MiB; video không xử lý được vẫn
 có đường dẫn gốc. Nút chọn video hỗ trợ căn có nhiều clip.
 
+Căn mới chỉ có video không cần sửa mã nguồn hoặc chạy lệnh riêng: sau khi căn
+được bật hiển thị trong bảng hàng (đủ mã căn, tòa và diện tích để cấp URL),
+workflow tự nhận video sau lượt đồng bộ dữ liệu và kiểm tra bổ sung mỗi 30 phút.
+Mỗi MP4 có ảnh bìa WebP lấy từ một khung hình thật; trang chủ, danh mục và trang
+chi tiết dùng ảnh này khi căn không có ảnh. Ảnh bìa video không được tính thành
+ảnh chụp trong album. Cùng lượt chạy tự sinh/cập nhật URL và đưa lên Pages.
+Video Drive phải được chia sẻ công khai như nguồn video hiện có.
+
 Kiểm tra vòng đời player: cài `jsdom` trong thư mục tạm, đặt
 `CT_VIDEO_TEST_JSDOM` trỏ tới package đó rồi chạy
 `node --test scripts/kiem-tra-video.cjs`.

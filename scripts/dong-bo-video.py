@@ -89,6 +89,26 @@ def convert(url, target):
         return info
 
 
+def create_poster(video, info):
+    """One real frame per clip, also generated for previously cached MP4s."""
+    poster = video.with_suffix(".webp")
+    if not poster.exists():
+        temporary = poster.with_suffix(".tmp.webp")
+        try:
+            subprocess.run([
+                "ffmpeg", "-nostdin", "-v", "error", "-y",
+                "-ss", str(min(1, info["duration"] / 3)), "-i", str(video),
+                "-frames:v", "1", "-vf", "scale=w='min(800,iw)':h='min(800,ih)':force_original_aspect_ratio=decrease",
+                "-c:v", "libwebp", "-quality", "80", "-threads", "2", str(temporary),
+            ], check=True, timeout=60)
+            if not temporary.exists() or not temporary.stat().st_size:
+                raise ValueError("Không tạo được ảnh bìa từ video")
+            temporary.replace(poster)
+        finally:
+            temporary.unlink(missing_ok=True)
+    return "/video-can-ho/" + poster.name
+
+
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--inventory", type=Path, help="Use a saved inventory response for verification")
@@ -115,6 +135,9 @@ def main():
     for path in OUT.glob("*.mp4"):
         if re.fullmatch(r"[a-f0-9]{20}\.mp4", path.name) and path.name not in needed:
             path.unlink()
+    for path in OUT.glob("*.webp"):
+        if re.fullmatch(r"[a-f0-9]{20}\.webp", path.name) and path.with_suffix(".mp4").name not in needed:
+            path.unlink()
     items, processed, failures = {}, 0, 0
     for code, urls in sorted(selected.items()):
         sources = {}
@@ -130,10 +153,16 @@ def main():
                 else:
                     continue
                 sources[url] = {"src": "/video-can-ho/" + target.name, **info}
+                # A poster failure must not discard a playable MP4.
+                try:
+                    sources[url]["poster"] = create_poster(target, info)
+                except (OSError, ValueError, subprocess.SubprocessError) as error:
+                    print(f"::warning::Ảnh bìa video {code}: {type(error).__name__}", flush=True)
             except (OSError, ValueError, StopIteration, subprocess.SubprocessError) as error:
                 failures += 1
                 print(f"::warning::Video {code}: {type(error).__name__}; vẫn có liên kết video gốc", flush=True)
-        items[code] = {"videos": urls, "sources": sources}
+        cover = next((sources[u]["poster"] for u in urls if sources.get(u, {}).get("poster")), "")
+        items[code] = {"videos": urls, "sources": sources, "cover": cover}
     manifest = {"version": 1, "items": items}
     if old.get("items") != items or old.get("version") != 1:
         manifest["updatedAt"] = datetime.now(timezone.utc).isoformat(timespec="seconds")
@@ -141,9 +170,11 @@ def main():
         temporary.write_text(json.dumps(manifest, ensure_ascii=False, indent=2) + "\n")
         temporary.replace(old_path)
     # Refresh existing static pages as well as newly generated apartment URLs.
-    for page in (ROOT / "can-ho").glob("*/index.html"):
+    for page in ROOT.rglob("*.html"):
         html = page.read_text()
-        updated = html.replace("/assets/can-ho-detail.js?v=20260831-2", "/assets/can-ho-detail.js?v=20260905-2")
+        updated = re.sub(r"/assets/can-ho-detail.js\?v=[\w-]+", "/assets/can-ho-detail.js?v=20260905-3", html)
+        updated = re.sub(r"/assets/can-ho-detail-i18n.js\?v=[\w-]+", "/assets/can-ho-detail-i18n.js?v=20260905-3", updated)
+        updated = re.sub(r"/dong-bo-can.js\?v=[\w-]+", "/dong-bo-can.js?v=20260905-3", updated)
         if updated != html:
             page.write_text(updated)
     print(f"{len(items)} căn; {sum(len(x['sources']) for x in items.values())} video MP4; {failures} video cần nguồn gốc", flush=True)
