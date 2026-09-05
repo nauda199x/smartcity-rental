@@ -99,7 +99,9 @@
      - Bảng hàng An Việt Land đã có sẵn Danh sách video từ Google Drive.
      - Trang chi tiết chỉ lấy 3 trường an toàn: id, videoCover, videoList.
      - JSONP để chạy ổn cả khi Apps Script không trả CORS header.
-     - Chỉ tải iframe Drive sau khi người dùng bấm Play để không làm nặng trang.
+     - Desktop: phát ngay trong mosaic.
+     - Mobile: mở player toàn màn hình riêng để control Google Drive không
+       đè lên gallery/CTA và người dùng đóng quay lại đúng vị trí đang xem.
      ===================================================================== */
   function tachDanhSachVideo(v) {
     if (Array.isArray(v)) return v.map(String).map(function (s) { return s.trim(); }).filter(Boolean);
@@ -199,19 +201,70 @@
       ".trang-chi-tiet-can .ct-gallery.ct-has-video.ct-video-one-image>img:nth-of-type(1){grid-row:1/3}",
       ".ct-video-launch,.ct-video-frame{width:100%;height:100%;border:0;display:block}",
       ".ct-video-launch{position:relative;padding:0;background:#0b1220;overflow:hidden;color:#fff;text-align:left;touch-action:pan-x}",
-      ".ct-video-launch>img{width:100%;height:100%;object-fit:cover;display:block;opacity:.94;transition:transform .25s ease,filter .25s ease}",
-      ".ct-video-launch:after{content:'';position:absolute;inset:0;background:linear-gradient(180deg,rgba(4,12,24,.04) 45%,rgba(4,12,24,.52) 100%);pointer-events:none}",
+      ".ct-video-launch>img{width:100%;height:100%;object-fit:cover;display:block;opacity:.96;transition:transform .25s ease,filter .25s ease}",
+      ".ct-video-launch:after{content:'';position:absolute;inset:0;background:linear-gradient(180deg,rgba(4,12,24,.02) 38%,rgba(4,12,24,.56) 100%);pointer-events:none}",
       ".ct-video-launch:hover>img{transform:scale(1.012);filter:brightness(.96)}",
       ".ct-video-play{position:absolute;left:50%;top:50%;z-index:3;transform:translate(-50%,-50%);width:68px;height:68px;border-radius:999px;background:rgba(15,23,42,.88);border:1px solid rgba(255,255,255,.38);box-shadow:0 12px 35px rgba(0,0,0,.28);display:grid;place-items:center;font-size:27px;line-height:1;padding-left:4px;color:#fff}",
       ".ct-video-label{position:absolute;left:14px;bottom:14px;z-index:3;display:inline-flex;align-items:center;gap:7px;padding:8px 11px;border-radius:9px;background:rgba(15,23,42,.82);color:#fff;font-size:.78rem;font-weight:700;box-shadow:0 7px 22px rgba(0,0,0,.18)}",
-      ".ct-video-count{position:absolute;right:14px;top:14px;z-index:3;padding:6px 9px;border-radius:8px;background:rgba(15,23,42,.76);color:#fff;font-size:.7rem;font-weight:700}",
+      ".ct-video-count{position:absolute;left:14px;top:14px;z-index:3;padding:6px 9px;border-radius:8px;background:rgba(15,23,42,.76);color:#fff;font-size:.7rem;font-weight:700}",
       ".ct-video-frame{background:#0b1220}",
-      "@media(max-width:640px){.trang-chi-tiet-can .ct-gallery.ct-has-video>.ct-video-media{display:block;flex:0 0 100%;width:100%;height:100%;scroll-snap-align:center;scroll-snap-stop:always}.ct-video-play{width:58px;height:58px;font-size:23px}.ct-video-label{left:10px;bottom:10px;padding:7px 9px;font-size:.72rem}.ct-video-count{right:10px;top:10px}.trang-chi-tiet-can .ct-gallery.ct-has-video>img,.trang-chi-tiet-can .ct-gallery.ct-has-video>img:nth-of-type(n+3){display:block;flex:0 0 100%;width:100%;height:100%;object-fit:cover;scroll-snap-align:center;scroll-snap-stop:always}}"
+      ".ct-video-modal{position:fixed;inset:0;z-index:10000;background:#03060b;display:flex;flex-direction:column;padding-top:env(safe-area-inset-top);padding-bottom:env(safe-area-inset-bottom)}",
+      ".ct-video-modal-head{height:58px;flex:none;display:flex;align-items:center;justify-content:space-between;padding:0 14px;color:#fff;background:#080d16;border-bottom:1px solid rgba(255,255,255,.09)}",
+      ".ct-video-modal-head strong{font-family:var(--font-tieu-de);font-size:.93rem;letter-spacing:-.01em}",
+      ".ct-video-modal-close{width:40px;height:40px;border:1px solid rgba(255,255,255,.15);border-radius:12px;background:rgba(255,255,255,.08);color:#fff;font-size:27px;line-height:1;display:grid;place-items:center;padding:0}",
+      ".ct-video-modal-body{position:relative;flex:1;min-height:0;background:#000;display:flex;align-items:stretch;justify-content:stretch}",
+      ".ct-video-modal-body iframe{width:100%;height:100%;border:0;background:#000;display:block}",
+      "body.ct-video-modal-open{overflow:hidden!important;touch-action:none}",
+      "@media(max-width:640px){.trang-chi-tiet-can .ct-gallery.ct-has-video>.ct-video-media{display:block;flex:0 0 100%;width:100%;height:100%;scroll-snap-align:center;scroll-snap-stop:always}.ct-video-play{width:58px;height:58px;font-size:23px;background:rgba(9,20,38,.9);box-shadow:0 10px 30px rgba(0,0,0,.3)}.ct-video-label{left:10px;bottom:10px;padding:7px 9px;font-size:.7rem;border-radius:8px}.ct-video-count{left:10px;top:10px}.trang-chi-tiet-can .ct-gallery.ct-has-video>img,.trang-chi-tiet-can .ct-gallery.ct-has-video>img:nth-of-type(n+3){display:block;flex:0 0 100%;width:100%;height:100%;object-fit:cover;scroll-snap-align:center;scroll-snap-stop:always}.trang-chi-tiet-can .ct-gallery.ct-has-video>.ct-gallery-all{right:10px;top:10px;bottom:auto;min-height:32px;padding:0 10px;background:rgba(255,255,255,.94);border-radius:9px;font-size:.7rem}.ct-video-modal-head{height:54px;padding:0 10px 0 14px}.ct-video-modal-close{width:38px;height:38px;border-radius:11px}.ct-video-modal-body{min-height:0}.trang-chi-tiet-can .bc{white-space:nowrap;overflow:hidden;text-overflow:ellipsis}}"
     ].join("\n");
     document.head.appendChild(st);
   }
 
-  function themVideoVaoGallery(gallery, media, soAnh) {
+  function moVideoModal(url, ma) {
+    if (!laUrlVideoAnToan(url)) return;
+    var cu = q("#ctVideoModal");
+    if (cu) cu.remove();
+
+    var modal = tao("div", "ct-video-modal");
+    modal.id = "ctVideoModal";
+    modal.setAttribute("role", "dialog");
+    modal.setAttribute("aria-modal", "true");
+    modal.setAttribute("aria-label", "Video thực tế căn hộ");
+
+    var head = tao("div", "ct-video-modal-head");
+    head.appendChild(tao("strong", "", ma ? "Video thực tế · " + ma : "Video thực tế căn hộ"));
+    var dong = tao("button", "ct-video-modal-close", "×");
+    dong.type = "button";
+    dong.setAttribute("aria-label", "Đóng video");
+    head.appendChild(dong);
+
+    var body = tao("div", "ct-video-modal-body");
+    var frame = tao("iframe");
+    frame.src = url;
+    frame.title = ma ? "Video thực tế căn " + ma : "Video thực tế căn hộ";
+    frame.loading = "eager";
+    frame.allow = "autoplay; encrypted-media; picture-in-picture; fullscreen";
+    frame.setAttribute("allowfullscreen", "");
+    frame.setAttribute("referrerpolicy", "strict-origin-when-cross-origin");
+    body.appendChild(frame);
+
+    modal.appendChild(head);
+    modal.appendChild(body);
+    document.body.appendChild(modal);
+    document.body.classList.add("ct-video-modal-open");
+
+    function tat() {
+      document.body.classList.remove("ct-video-modal-open");
+      if (modal.parentNode) modal.parentNode.removeChild(modal);
+      document.removeEventListener("keydown", phim);
+    }
+    function phim(e) { if (e.key === "Escape") tat(); }
+    dong.addEventListener("click", tat);
+    document.addEventListener("keydown", phim);
+    setTimeout(function () { try { dong.focus(); } catch (e) {} }, 0);
+  }
+
+  function themVideoVaoGallery(gallery, media, soAnh, ma) {
     if (!gallery || !media || !media.videos || !media.videos.length || q(".ct-video-media", gallery)) return;
     var videos = media.videos.filter(laUrlVideoAnToan);
     if (!videos.length) return;
@@ -223,7 +276,7 @@
     var wrap = tao("div", "ct-video-media");
     var launch = tao("button", "ct-video-launch");
     launch.type = "button";
-    launch.setAttribute("aria-label", "Phát video căn hộ");
+    launch.setAttribute("aria-label", "Xem video thực tế căn hộ");
 
     var poster = tao("img");
     var anhDau = q("img", gallery);
@@ -236,28 +289,40 @@
     var play = tao("span", "ct-video-play", "▶");
     play.setAttribute("aria-hidden", "true");
     launch.appendChild(play);
-    launch.appendChild(tao("span", "ct-video-label", "Video căn hộ · Bấm để xem"));
+    launch.appendChild(tao("span", "ct-video-label", "Video thực tế · Bấm để xem"));
     if (videos.length > 1) launch.appendChild(tao("span", "ct-video-count", videos.length + " video"));
 
     launch.addEventListener("click", function () {
+      if (window.matchMedia("(max-width:640px)").matches) {
+        moVideoModal(videos[0], ma);
+        return;
+      }
       var frame = tao("iframe", "ct-video-frame");
       frame.src = videos[0];
-      frame.title = "Video thực tế căn hộ";
+      frame.title = ma ? "Video thực tế căn " + ma : "Video thực tế căn hộ";
       frame.loading = "eager";
       frame.allow = "autoplay; encrypted-media; picture-in-picture; fullscreen";
       frame.setAttribute("allowfullscreen", "");
       frame.setAttribute("referrerpolicy", "strict-origin-when-cross-origin");
       wrap.replaceChildren(frame);
-    }, { once: true });
+    });
 
     wrap.appendChild(launch);
     gallery.insertBefore(wrap, gallery.firstChild);
+
+    /* Trên mobile nút cũ “Xem tất cả N ảnh” hơi dài và đè lên video.
+       Thu gọn thành “N ảnh”; desktop vẫn giữ nguyên câu đầy đủ. */
+    var nutAnh = q(".ct-gallery-all", gallery);
+    if (nutAnh && window.matchMedia("(max-width:640px)").matches) {
+      nutAnh.textContent = soAnh + " ảnh";
+      nutAnh.setAttribute("aria-label", "Xem toàn bộ " + soAnh + " ảnh căn hộ");
+    }
   }
 
   function napVideoChoGallery(gallery, ma, soAnh) {
     layVideoTheoMa(ma, function (media) {
       if (!media) return;
-      themVideoVaoGallery(gallery, media, soAnh);
+      themVideoVaoGallery(gallery, media, soAnh, ma);
     });
   }
 
