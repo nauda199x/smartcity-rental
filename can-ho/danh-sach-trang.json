@@ -311,6 +311,14 @@
   "phan_khu": "Masteri",
   "toa": "MasA"
  },
+ "cho-thue-can-ho-1-ngu-masteri-48m2-ct-1n-537": {
+  "dien_tich": 48,
+  "loai": "1 Ngủ +",
+  "ma": "CT.1N+.537",
+  "ngay_xuat_hien": "2026-09-05",
+  "phan_khu": "Masteri",
+  "toa": "MasB"
+ },
  "cho-thue-can-ho-1-ngu-miami-43m2-48": {
   "dien_tich": 43,
   "loai": "1 Ngủ +",
@@ -1100,6 +1108,14 @@
   "loai": "2 Ngủ",
   "ma": "CT.2N2.320",
   "ngay_xuat_hien": "2026-07-08",
+  "phan_khu": "Masteri",
+  "toa": "MasB"
+ },
+ "cho-thue-can-ho-2-ngu-masteri-62m2-ct-2n2-405": {
+  "dien_tich": 62,
+  "loai": "2 Ngủ",
+  "ma": "CT.2N2.405",
+  "ngay_xuat_hien": "2026-09-05",
   "phan_khu": "Masteri",
   "toa": "MasB"
  },
