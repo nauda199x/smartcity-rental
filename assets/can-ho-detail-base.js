@@ -225,6 +225,7 @@
     st.id = "ctDetailVideoStyle";
     st.textContent = [
       ".trang-chi-tiet-can .ct-gallery.ct-has-video>.ct-video-media{grid-column:1;grid-row:1/3;position:relative;z-index:2;min-width:0;min-height:0;overflow:hidden;background:#0b1220}",
+      ".trang-chi-tiet-can .ct-gallery.ct-video-only>.ct-video-media{grid-column:1/-1;grid-row:1/-1;width:100%;height:100%}.ct-gallery.ct-video-only .ct-video-launch>img{object-fit:contain}",
       ".trang-chi-tiet-can .ct-gallery.ct-has-video>img:nth-of-type(1){grid-column:2;grid-row:1;display:block}",
       ".trang-chi-tiet-can .ct-gallery.ct-has-video>img:nth-of-type(2){grid-column:2;grid-row:2;display:block}",
       ".trang-chi-tiet-can .ct-gallery.ct-has-video>img:nth-of-type(n+3){display:none}",
@@ -259,19 +260,26 @@
     chenCssVideo();
     gallery.classList.add("ct-has-video");
     if (soAnh === 1) gallery.classList.add("ct-video-one-image");
+    if (soAnh === 0) gallery.classList.add("ct-video-only");
+    gallery.classList.remove("ct-gallery-empty-source");
 
     var wrap = tao("div", "ct-video-media");
     var launch = tao("button", "ct-video-launch");
     launch.type = "button";
     launch.setAttribute("aria-label", "Xem video thực tế căn hộ");
 
-    var poster = tao("img");
     var anhDau = q("img", gallery);
-    poster.src = (anhDau ? (anhDau.currentSrc || anhDau.src) : "") || media.cover || "";
-    poster.alt = "Video thực tế căn hộ";
-    poster.loading = "eager";
-    poster.decoding = "async";
-    launch.appendChild(poster);
+    var posterSrc = media.cover || (anhDau ? (anhDau.currentSrc || anhDau.src) : "");
+    if (posterSrc) {
+      var poster = tao("img");
+      poster.src = posterSrc;
+      poster.alt = "Khung hình từ video căn hộ";
+      poster.loading = "eager";
+      poster.decoding = "async";
+      poster.onerror = function () { poster.remove(); };
+      launch.appendChild(poster);
+    }
+    qa(".ct-no-photo,.ct-video-placeholder", gallery).forEach(function (el) { el.remove(); });
 
     var play = tao("span", "ct-video-play", "▶");
     play.setAttribute("aria-hidden", "true");
@@ -280,7 +288,7 @@
     if (videos.length > 1) launch.appendChild(tao("span", "ct-video-count", videos.length + " video"));
 
     launch.addEventListener("click", function () {
-      moVideoModal(videos, media, ma, poster.currentSrc || poster.src);
+      moVideoModal(videos, media, ma, posterSrc);
     });
 
     wrap.appendChild(launch);
@@ -360,7 +368,8 @@
 
     /* ----- Gallery: desktop mosaic, mobile swipe; bấm mở fullscreen ----- */
     gallery.classList.add("ct-gallery");
-    var imgs = qa("img", gallery);
+    /* A generated video cover is not an extra photo in the apartment album. */
+    var imgs = qa("img", gallery).filter(function (img) { return img.parentElement === gallery; });
     var media = imgs.map(function (img) { return img.currentSrc || img.src; }).filter(Boolean);
     var hienTai = 0;
 

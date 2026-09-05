@@ -30,6 +30,7 @@ import os
 import re
 import shutil
 import sys
+from media_can_ho import bia_video, media_video
 
 GOC = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 THU_MUC_SCRIPT = os.path.dirname(os.path.abspath(__file__))
@@ -463,9 +464,9 @@ CHAN_TRANG = """</main>
 <a class="zalo-noi" href="https://zalo.me/%(sdt)s" target="_blank" rel="noopener">Nhắn Zalo tư vấn</a>
   <script src="/assets/ngon-ngu.js?v=20260831-2" defer></script>
   <script id="ct-gallery-js" src="/assets/gallery.js?v=20260830-6" defer></script>
-  <script id="ct-detail-js" src="/assets/can-ho-detail.js?v=20260905-2" defer></script>
+  <script id="ct-detail-js" src="/assets/can-ho-detail.js?v=20260905-3" defer></script>
   <script src="/assets/app-shell.js?v=20260901-1" defer></script>
-  <script id="ct-detail-i18n-js" src="/assets/can-ho-detail-i18n.js?v=20260831-1" defer></script>
+  <script id="ct-detail-i18n-js" src="/assets/can-ho-detail-i18n.js?v=20260905-3" defer></script>
 </body>
 </html>
 """
@@ -623,7 +624,8 @@ def dung_trang_can(can, s, active, hom_nay):
         "offers": offers,
     }, ensure_ascii=False)
 
-    og_image = og_image_cho_can(anh_urls, map_anh)
+    video_cover = bia_video(can)
+    og_image = (TEN_MIEN + video_cover) if not anh_urls and video_cover else og_image_cho_can(anh_urls, map_anh)
 
     dau = DAU_TRANG % {
         "tieu_de": esc(tieu_de),
@@ -648,6 +650,15 @@ def dung_trang_can(can, s, active, hom_nay):
             % (esc(src), esc(alt), tai))
     if anh_html:
         gallery = '  <section class="gallery">\n    %s\n  </section>\n' % "\n    ".join(anh_html)
+    elif video_cover and media_video(can).get("videos"):
+        preview = media_video(can)["videos"][0]
+        gallery = ('  <section class="gallery ct-gallery-empty-source">\n'
+                   '    <a class="ct-video-placeholder" href="%s" target="_blank" rel="noopener" '
+                   'style="display:block;position:relative;width:100%%;height:100%%">'
+                   '<img src="%s" alt="Khung hình từ video căn hộ" '
+                   'style="width:100%%;height:100%%;object-fit:contain" loading="eager">'
+                   '<span style="position:absolute;left:16px;bottom:16px;background:#0b1220;color:white;padding:10px;border-radius:8px">'
+                   '▶ Xem video thực tế</span></a>\n  </section>\n') % (esc(preview), esc(video_cover))
     else:
         gallery = ('  <section class="gallery ct-gallery-empty-source">\n'
                    '    <div class="ct-no-photo"><b>Căn này đang cập nhật ảnh</b>'

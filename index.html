@@ -1513,11 +1513,21 @@
       }
     }
 
+    let videoTheoMa = {};
+    async function loadVideoMap() {
+      try {
+        const response = await fetch("/video-can-ho/manifest.json", { cache: "no-cache" });
+        if (!response.ok) return;
+        const manifest = await response.json();
+        if (manifest && manifest.version === 1 && manifest.items) videoTheoMa = manifest.items;
+      } catch (err) { /* Giữ thẻ căn nếu video đang đồng bộ. */ }
+    }
+
     async function loadData() {
       /* Nạp song song để không cộng thêm một vòng mạng, nhưng PHẢI đợi cả hai xong
          mới trả dữ liệu: toApartment gọi driveUrlToViewUrl ngay khi dựng thẻ, bảng
          tra mà chưa có thì mọi ảnh sẽ rơi về Drive. */
-      const [duLieuTinh] = await Promise.all([loadStaticData(), loadAnhMap()]);
+      const [duLieuTinh] = await Promise.all([loadStaticData(), loadAnhMap(), loadVideoMap()]);
       if (duLieuTinh) return duLieuTinh;
 
       if (isConfiguredEndpoint()) {
@@ -1555,7 +1565,13 @@
       const availableDate = parseGvizDate(row["Ngày vào ở"] || row["Ngày trống"]);
       const cover = driveUrlToViewUrl(row["Ảnh đại diện"]);
       const photos = splitLinks(row["Danh sách ảnh"]).map(driveUrlToViewUrl);
-      const videos = splitLinks(row["Video"] || row["Danh sách video"]).map(driveUrlToViewUrl);
+      const videoMedia = videoTheoMa[apartmentId] || {};
+      const videoCover = /^\/video-can-ho\/[a-f0-9]{20}\.webp$/.test(videoMedia.cover || "") ? videoMedia.cover : "";
+      const nativeVideos = (Array.isArray(videoMedia.videos) ? videoMedia.videos : []).map(url => {
+        const source = videoMedia.sources && videoMedia.sources[url];
+        return source && /^\/video-can-ho\/[a-f0-9]{20}\.mp4$/.test(source.src || "") ? source.src : "";
+      }).filter(Boolean);
+      const videos = nativeVideos.length ? nativeVideos : splitLinks(row["Video"] || row["Danh sách video"]).map(driveUrlToViewUrl);
 
       const ngayThemRaw = normalizeText(row["Ngày thêm vào hệ thống"]);
       let addedAt = NaN;
@@ -1603,7 +1619,8 @@
         addedAt: isNaN(addedAt) ? 0 : addedAt,
         isNew,
         show: visible === "có" || visible === "co" || visible === "yes" || visible === "true",
-        cover: cover || photos[0] || "",
+        cover: cover || photos[0] || videoCover,
+        isVideoCover: !cover && !photos[0] && !!videoCover,
         imgBroken: false,
         photos,
         videos
@@ -2006,14 +2023,17 @@
      *  "Danh sách ảnh", loại trùng URL. Nhờ vậy ảnh đang thấy trên card chính
      *  là ảnh số 1 khi vuốt hoặc mở gallery. */
     function anhDayDu(apartment) {
-      const ds = [apartment.cover, ...apartment.photos].filter(Boolean);
+      const ds = [apartment.isVideoCover ? "" : apartment.cover, ...apartment.photos].filter(Boolean);
       return ds.filter((url, index) => ds.indexOf(url) === index);
     }
 
     /** Số media góc trên phải. Đếm cả ảnh đại diện + album + video. */
     function soAnhHtml(apartment) {
-      const soMedia = anhDayDu(apartment).length + apartment.videos.length;
-      return soMedia > 0 ? `<span class="pcount">${T("l.photos", `${soMedia} ảnh`).replace("{N}", soMedia)}</span>` : "";
+      const soAnh = anhDayDu(apartment).length;
+      const nhan = [];
+      if (soAnh) nhan.push(T("l.photos", `${soAnh} ảnh`).replace("{N}", soAnh));
+      if (apartment.videos.length) nhan.push(`${apartment.videos.length} video`);
+      return nhan.length ? `<span class="pcount">${nhan.join(" · ")}</span>` : "";
     }
 
     /* Khung ảnh thẻ: ~170px trên mobile, nửa cột ở tablet, một phần ba ở desktop. */
@@ -2050,7 +2070,7 @@
           </div>
         </div>`;
       }
-      return `<button class="media" type="button" data-gallery="${index}" aria-label="${T("l.galleryAl", "Xem ảnh căn hộ")} ${apartment.tower}">
+      return `<button class="media" type="button" data-gallery="${index}" aria-label="${apartment.isVideoCover ? 'Xem video căn hộ' : T("l.galleryAl", "Xem ảnh căn hộ")} ${apartment.tower}">
         ${hangBadge}
         ${soAnhHtml(apartment)}
         <img src="${apartment.cover}"${srcsetAnhThe(apartment.cover)} width="800" height="600" alt="Căn hộ ${apartment.type} tòa ${apartment.tower}" loading="lazy" data-akey="${apartmentKey(apartment)}" onerror="xuLyAnhLoi(this)">

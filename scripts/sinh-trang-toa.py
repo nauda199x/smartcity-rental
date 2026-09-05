@@ -31,6 +31,7 @@ import json
 import os
 import re
 import sys
+from media_can_ho import bia_video
 
 GOC = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 THU_MUC_SCRIPT = os.path.dirname(os.path.abspath(__file__))
@@ -289,7 +290,7 @@ def anh_dai_dien(can, map_anh):
     """Ảnh bìa của căn: ưu tiên WebP trong repo, không có thì giữ URL Drive."""
     url = str(can.get("Ảnh đại diện", "")).strip()
     if not url:
-        return ""
+        return bia_video(can)
     khop = re.search(r'id=([A-Za-z0-9_-]+)', url)
     if khop and khop.group(1) in map_anh:
         return map_anh[khop.group(1)]

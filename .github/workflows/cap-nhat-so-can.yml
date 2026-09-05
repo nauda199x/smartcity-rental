@@ -12,6 +12,7 @@ on:
     paths:
       - "data.json"
       - "scripts/sinh-trang-can.py"
+      - "scripts/media_can_ho.py"
       - "scripts/sinh-trang-nhu-cau.py"
       - "scripts/sinh-trang-toa.py"
       - "scripts/sinh-trang-giao-thoa.py"

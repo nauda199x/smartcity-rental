@@ -141,8 +141,8 @@ def chon_theo_tran(ung_vien, tran, con_thieu, da_chon_ma):
 
 def chon_16_can(cac_can_hien_thi):
     """Trả về (danh sách tối đa SO_CARD căn, có đủ SO_CARD hay không)."""
-    co_anh = [r for r in cac_can_hien_thi if chuan(r.get("Ảnh đại diện"))]
-    khong_anh = [r for r in cac_can_hien_thi if not chuan(r.get("Ảnh đại diện"))]
+    co_anh = [r for r in cac_can_hien_thi if anh_bia(r, {})]
+    khong_anh = [r for r in cac_can_hien_thi if not anh_bia(r, {})]
     co_anh.sort(key=lambda r: so_tien(r.get("Giá thuê")))
     khong_anh.sort(key=lambda r: so_tien(r.get("Giá thuê")))
 

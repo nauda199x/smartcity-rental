@@ -29,6 +29,26 @@
      Nạp một lần lúc script khởi động. Nếu nạp lỗi thì để rỗng — site vẫn chạy
      bình thường với ảnh Drive như trước. */
   var anhTrongRepo = {};
+  var videoTheoMa = {};
+
+  function napVideo() {
+    return fetch("/video-can-ho/manifest.json", { cache: "no-cache" })
+      .then(function (r) { return r.ok ? r.json() : null; })
+      .then(function (d) {
+        if (d && d.version === 1 && d.items) videoTheoMa = d.items;
+      }).catch(function () {});
+  }
+
+  function videoCuaCan(r) {
+    var media = videoTheoMa[chuan(r["Mã nội bộ"])] || {};
+    return {
+      cover: /^\/video-can-ho\/[a-f0-9]{20}\.webp$/.test(media.cover || "") ? media.cover : "",
+      videos: (Array.isArray(media.videos) ? media.videos : []).map(function (url) {
+        var source = media.sources && media.sources[url];
+        return source && /^\/video-can-ho\/[a-f0-9]{20}\.mp4$/.test(source.src || "") ? source.src : "";
+      }).filter(Boolean)
+    };
+  }
 
   /* Bảng tra ngược mã nội bộ -> slug trang chi tiết, dựng từ
      can-ho/danh-sach-trang.json. Nạp một lần lúc script khởi động. Nếu nạp
@@ -164,7 +184,8 @@
       var vv = driveUrlToViewUrl(dsVideoTho[k]);
       if (vv) video.push(vv);
     }
-    return { anh: anh, video: video };
+    var nativeVideos = videoCuaCan(r).videos;
+    return { anh: anh, video: nativeVideos.length ? nativeVideos : video };
   }
 
   /* Ánh xạ mã tòa -> tên phân khu (giống hệt trang chủ, tiền tố dài đứng trước) */
@@ -236,7 +257,7 @@
       var ds = chuan(r["Danh sách ảnh"]).split(/\s*\n\s*/);
       a = ds[0] || "";
     }
-    return driveUrlToViewUrl(a);
+    return driveUrlToViewUrl(a) || videoCuaCan(r).cover;
   }
 
   function homNay() {
@@ -530,7 +551,8 @@
     if (anh) {
       /* Số ảnh: icon do CSS vẽ bằng mask, nên chuỗi chỉ còn con số + chữ "ảnh". */
       var huyHieu = soMedia > 0
-        ? '<span class="dbc-huy-hieu">' + soMedia + ' ảnh</span>'
+        ? '<span class="dbc-huy-hieu">' + (media.anh.length ? media.anh.length + ' ảnh' : '') +
+          (media.anh.length && media.video.length ? ' · ' : '') + (media.video.length ? media.video.length + ' video' : '') + '</span>'
         : "";
       khungAnh = '<div class="the-anh"><img src="' + esc(anh) + '"' + srcsetAnhThe(anh) +
         ' alt="' + esc(alt) + '" loading="lazy" ' +
@@ -623,7 +645,7 @@
       el.classList.add("dbc-xem-duoc");
       el.setAttribute("tabindex", "0");
       el.setAttribute("role", "button");
-      el.setAttribute("aria-label", "Xem " + soMedia + " ảnh căn " + loai + " " + toa);
+      el.setAttribute("aria-label", "Xem ảnh và video căn " + loai + " " + toa);
 
       var giaHienThi = dinhDangGia(soTien(r["Giá thuê"]));
       var tieuDeAlbum = (loai + " · " + toa);
@@ -765,7 +787,7 @@
     /* Nạp bảng tra ảnh và bảng tra trang chi tiết trước rồi mới dựng lưới, để
        thẻ căn hộ không kịp hiện ảnh Drive/thiếu liên kết rồi mới đổi lại.
        Nạp lỗi ở bảng nào cũng vẫn đi tiếp. */
-    Promise.all([napBanDoAnh(), napTrangChiTiet()]).then(function () {
+    Promise.all([napBanDoAnh(), napTrangChiTiet(), napVideo()]).then(function () {
       return fetch(NGUON, { cache: "no-cache" })
         .then(function (r) { return r.ok ? r.json() : null; })
         .then(function (d) { if (d) chay(d, bl); });

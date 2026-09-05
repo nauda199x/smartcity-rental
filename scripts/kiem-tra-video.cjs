@@ -153,3 +153,71 @@ test('late Apps Script response after timeout remains harmless', async () => {
   assert.equal(d.querySelector('.ct-video-launch'), null);
   dom.window.close();
 });
+
+for (const width of [390, 1440]) {
+  test(`new apartment with zero photos gets a full video gallery at width ${width}`, async () => {
+    const code = 'CT.Video.New.9001';
+    const cover = '/video-can-ho/0123456789abcdef0123.webp';
+    const html = `<main class="khung"><h1>Căn mới</h1><section class="gallery ct-gallery-empty-source"><div class="ct-no-photo">Chưa có ảnh</div></section><table class="bang"><tr><td>Mã căn</td><td>${code}</td></tr></table></main>`;
+    const { dom, w, d } = environment(width, 800, html);
+    w.fetch = async () => ({ ok: true, json: async () => ({ version: 1, items: { [code]: { videos: [preview], sources: media.sources, cover } } }) });
+    w.eval(base);
+    await new Promise(setImmediate);
+    const gallery = d.querySelector('.gallery');
+    assert.ok(gallery.classList.contains('ct-video-only'));
+    assert.equal(gallery.classList.contains('ct-gallery-empty-source'), false);
+    assert.equal(gallery.querySelector('.ct-no-photo'), null);
+    assert.equal(gallery.querySelector('.ct-gallery-all'), null, 'video cover is not counted as a photo');
+    assert.equal(gallery.querySelector('img').getAttribute('src'), cover);
+    gallery.querySelector('.ct-video-launch').click();
+    assert.equal(d.querySelector('video').getAttribute('src'), src);
+    assert.equal(d.querySelector('video').getAttribute('poster'), cover);
+    assert.equal(d.querySelectorAll('video,iframe').length, 1);
+    d.querySelector('.ct-video-modal-close').click();
+    dom.window.close();
+  });
+}
+
+test('a video-only category card uses its video cover and opens the clip, without a fake photo', async () => {
+  const code = 'CT.Video.New.9001';
+  const cover = '/video-can-ho/0123456789abcdef0123.webp';
+  const { dom, w, d } = environment(390, 800, '<script type="application/json" id="bo-loc-trang">{}</script><section class="luoi"></section>');
+  const row = { 'Mã nội bộ': code, 'Tòa': 'SA2', 'Loại': 'Studio', 'Diện tích': 30, 'Giá thuê': 7500000, 'Hiển thị trên Web': 'Có', 'Ảnh đại diện': '', 'Danh sách ảnh': '', 'Video': '' };
+  w.fetch = async url => ({ ok: true, json: async () => url === '/data.json' ? [row] : url.includes('manifest') ? { version: 1, items: { [code]: { cover, videos: [preview], sources: media.sources } } } : {} });
+  let album;
+  w.MoGallery = urls => { album = urls; };
+  w.eval(fs.readFileSync(path.join(root, 'dong-bo-can.js'), 'utf8'));
+  await new Promise(setImmediate);
+  const card = d.querySelector('article.the');
+  assert.ok(card);
+  assert.equal(card.classList.contains('khong-anh'), false);
+  assert.equal(card.querySelector('img').getAttribute('src'), cover);
+  assert.equal(card.querySelector('.dbc-huy-hieu').textContent, '1 video');
+  card.click();
+  assert.equal(album.length, 1);
+  assert.equal(album[0], src);
+  dom.window.close();
+});
+
+test('the real homepage displays and plays a new video-only apartment from the manifest', async () => {
+  const code = 'CT.Video.New.9001';
+  const cover = '/video-can-ho/0123456789abcdef0123.webp';
+  const html = fs.readFileSync(path.join(root, 'index.html'), 'utf8');
+  const { dom, w, d } = environment(1440, 900, html);
+  const row = { 'Mã nội bộ': code, 'Tòa': 'SA2', 'Loại': 'Studio', 'Diện tích': 30, 'Giá thuê': 7500000, 'Hiển thị trên Web': 'Có', 'Ảnh đại diện': '', 'Danh sách ảnh': '', 'Video': '' };
+  w.fetch = async url => ({ ok: true, json: async () => url.includes('data.json') ? [row] : url.includes('manifest') ? { version: 1, items: { [code]: { cover, videos: [preview], sources: media.sources } } } : {} });
+  let album;
+  w.MoGallery = urls => { album = urls; };
+  const script = [...d.scripts].find(s => s.textContent.includes('function toApartment(row)'));
+  w.eval(script.textContent);
+  await new Promise(setImmediate);
+  const card = d.querySelector(`.card[data-ma-noi-bo="${code}"]`);
+  assert.ok(card, d.querySelector('.error-state')?.textContent || 'video-only card appears after homepage initialization');
+  assert.equal(card.querySelector('img').getAttribute('src'), cover);
+  assert.equal(card.querySelector('.pcount').textContent, '1 video');
+  assert.equal(card.querySelector('.ka-trong'), null);
+  card.querySelector('button.media').click();
+  assert.equal(album.length, 1);
+  assert.equal(album[0], src);
+  dom.window.close();
+});
