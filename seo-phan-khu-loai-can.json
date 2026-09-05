@@ -104,9 +104,9 @@
     "updated": "2026-09-05"
   },
   "cho-thue-2pn-plus-lumiere-smart-city": {
-    "count": 4,
+    "count": 3,
     "created": "2026-08-30",
-    "indexable": true,
+    "indexable": false,
     "loai": "2 Ngủ +",
     "phanKhu": "Lumiere",
     "updated": "2026-09-05"
