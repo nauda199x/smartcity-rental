@@ -1,0 +1,44 @@
+name: Them tieng Trung gian the
+
+on:
+  push:
+    paths:
+      - '.github/workflows/them-tieng-trung.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  patch-zh:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Apply Simplified Chinese UI patch
+        run: python3 scripts/them-tieng-trung.py
+
+      - name: Sanity checks
+        run: |
+          grep -q 'var HOP_LE = { vi: 1, en: 1, ko: 1, zh: 1 };' assets/ngon-ngu.js
+          grep -q 'data-lang="zh"' assets/ngon-ngu.js
+          grep -q 'var TU_DIEN_ZH =' assets/ngon-ngu.js
+          grep -q 'var TU_ZH =' assets/can-ho-detail-i18n.js
+          grep -q 'zh-CN' index.html
+          node --check assets/ngon-ngu.js
+          node --check assets/can-ho-detail-i18n.js
+
+      - name: Commit generated changes
+        run: |
+          if git diff --quiet -- assets/ngon-ngu.js assets/can-ho-detail-i18n.js index.html; then
+            echo 'No changes to commit.'
+            exit 0
+          fi
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add assets/ngon-ngu.js assets/can-ho-detail-i18n.js index.html
+          git commit -m 'Add Simplified Chinese language support'
+          git push origin HEAD:main
