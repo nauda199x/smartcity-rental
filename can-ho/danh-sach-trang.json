@@ -383,6 +383,14 @@
   "phan_khu": "Sakura",
   "toa": "SA3"
  },
+ "cho-thue-can-ho-1-ngu-sakura-43m2-ct-1n-535": {
+  "dien_tich": 43,
+  "loai": "1 Ngủ +",
+  "ma": "CT.1N+.535",
+  "ngay_xuat_hien": "2026-09-05",
+  "phan_khu": "Sakura",
+  "toa": "SA3"
+ },
  "cho-thue-can-ho-1-ngu-sakura-47m2-ct-1n-163": {
   "dien_tich": 47,
   "loai": "1 Ngủ",
@@ -428,6 +436,14 @@
   "loai": "1 Ngủ +",
   "ma": "CC18",
   "ngay_xuat_hien": "2026-09-03",
+  "phan_khu": "Sakura",
+  "toa": "SA3"
+ },
+ "cho-thue-can-ho-1-ngu-sakura-48m2-ct-1n-536": {
+  "dien_tich": 48,
+  "loai": "1 Ngủ +",
+  "ma": "CT.1N+.536",
+  "ngay_xuat_hien": "2026-09-05",
   "phan_khu": "Sakura",
   "toa": "SA3"
  },
@@ -772,6 +788,14 @@
   "loai": "2 Ngủ",
   "ma": "CT.2N2.400",
   "ngay_xuat_hien": "2026-09-03",
+  "phan_khu": "Lumiere",
+  "toa": "A2"
+ },
+ "cho-thue-can-ho-2-ngu-lumiere-56m2-ct-2n2-404": {
+  "dien_tich": 55.5,
+  "loai": "2 Ngủ",
+  "ma": "CT.2N2.404",
+  "ngay_xuat_hien": "2026-09-05",
   "phan_khu": "Lumiere",
   "toa": "A2"
  },
@@ -1703,6 +1727,14 @@
   "phan_khu": "Sapphire",
   "toa": "S202"
  },
+ "cho-thue-can-ho-2-ngu-sapphire-64m2-ct-2n-291": {
+  "dien_tich": 64,
+  "loai": "2 Ngủ +",
+  "ma": "CT.2N+.291",
+  "ngay_xuat_hien": "2026-09-05",
+  "phan_khu": "Sapphire",
+  "toa": "S106"
+ },
  "cho-thue-can-ho-2-ngu-sapphire-64m2-ct-2n2-366": {
   "dien_tich": 64,
   "loai": "2 Ngủ",
@@ -2023,6 +2055,14 @@
   "phan_khu": "Imperia",
   "toa": "I4"
  },
+ "cho-thue-can-ho-studio-imperia-32m2-ct-stu-828": {
+  "dien_tich": 32,
+  "loai": "Studio",
+  "ma": "CT.Stu.828",
+  "ngay_xuat_hien": "2026-09-05",
+  "phan_khu": "Imperia",
+  "toa": "I1"
+ },
  "cho-thue-can-ho-studio-lumiere-30m2-cc12": {
   "dien_tich": 30,
   "loai": "Studio",
@@ -2156,6 +2196,14 @@
   "loai": "Studio",
   "ma": "CT.Stu.790",
   "ngay_xuat_hien": "2026-08-17",
+  "phan_khu": "Masteri",
+  "toa": "MasB"
+ },
+ "cho-thue-can-ho-studio-masteri-32m2-ct-stu-829": {
+  "dien_tich": 32,
+  "loai": "Studio",
+  "ma": "CT.Stu.829",
+  "ngay_xuat_hien": "2026-09-05",
   "phan_khu": "Masteri",
   "toa": "MasB"
  },
