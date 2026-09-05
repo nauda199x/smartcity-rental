@@ -7,7 +7,7 @@
 
   var SDT = "0977923284";
   var MEDIA_API = "https://script.google.com/macros/s/AKfycbxP2LYjIwPnf9VPofUtKjyIETqo9lGjAmv-AT0txsh0NXcTZhdZLkpHcDDssGQtjEWs/exec";
-  var MEDIA_CACHE_KEY = "ct-detail-video-map-v1";
+  var MEDIA_CACHE_KEY = "ct-detail-video-map-v2";
   var MEDIA_CACHE_TTL = 10 * 60 * 1000;
 
   function q(sel, root) { return (root || document).querySelector(sel); }
@@ -99,9 +99,8 @@
      - Bảng hàng An Việt Land đã có sẵn Danh sách video từ Google Drive.
      - Trang chi tiết chỉ lấy 3 trường an toàn: id, videoCover, videoList.
      - JSONP để chạy ổn cả khi Apps Script không trả CORS header.
-     - Desktop: phát ngay trong mosaic.
-     - Mobile: mở player toàn màn hình riêng để control Google Drive không
-       đè lên gallery/CTA và người dùng đóng quay lại đúng vị trí đang xem.
+     - Ưu tiên manifest cùng domain và MP4 đã tối ưu.
+     - Một player chung cho mobile/desktop, đóng lại trở về đúng vị trí xem.
      ===================================================================== */
   function tachDanhSachVideo(v) {
     if (Array.isArray(v)) return v.map(String).map(function (s) { return s.trim(); }).filter(Boolean);
@@ -147,7 +146,8 @@
 
     function don() {
       if (hen) clearTimeout(hen);
-      try { delete window[cb]; } catch (e) { window[cb] = undefined; }
+      /* A late Apps Script response can still execute after its script is removed. */
+      window[cb] = function () {};
       if (script.parentNode) script.parentNode.removeChild(script);
     }
 
@@ -172,7 +172,7 @@
       xong = true;
       don();
       done(new Error("Quá thời gian tải video"), null);
-    }, 9000);
+    }, 20000);
     document.head.appendChild(script);
   }
 
@@ -180,12 +180,42 @@
     ma = String(ma || "").trim();
     if (!ma) return done(null);
 
-    var cache = docMediaCache();
-    if (cache) return done(cache[ma] || null);
-
-    napInventoryJsonp(function (err, map) {
-      if (err || !map) return done(null);
-      done(map[ma] || null);
+    function legacy() {
+      var cache = docMediaCache();
+      if (cache) return done(cache[ma] || null);
+      napInventoryJsonp(function (err, map) {
+        if (err || !map) return done(null);
+        done(map[ma] || null);
+      });
+    }
+    if (!window.fetch) return legacy();
+    var finished = false;
+    var wait = setTimeout(function () {
+      if (finished) return;
+      finished = true;
+      legacy();
+    }, 4500);
+    fetch("/video-can-ho/manifest.json", { cache: "no-cache" }).then(function (response) {
+      if (!response.ok) throw new Error("Video manifest unavailable");
+      return response.json();
+    }).then(function (manifest) {
+      if (finished) return;
+      if (!manifest || manifest.version !== 1 || !manifest.items) throw new Error("Invalid video manifest");
+      finished = true;
+      clearTimeout(wait);
+      var media = manifest.items[ma];
+      if (media && Array.isArray(media.videos) && media.videos.some(laUrlVideoAnToan)) {
+        /* Do not cache the native manifest in sessionStorage: newly processed
+           videos must replace Drive previews on the next page visit. */
+        done(media);
+      } else {
+        legacy();
+      }
+    }).catch(function () {
+      if (finished) return;
+      finished = true;
+      clearTimeout(wait);
+      legacy();
     });
   }
 
@@ -208,60 +238,17 @@
       ".ct-video-label{position:absolute;left:14px;bottom:14px;z-index:3;display:inline-flex;align-items:center;gap:7px;padding:8px 11px;border-radius:9px;background:rgba(15,23,42,.82);color:#fff;font-size:.78rem;font-weight:700;box-shadow:0 7px 22px rgba(0,0,0,.18)}",
       ".ct-video-count{position:absolute;left:14px;top:14px;z-index:3;padding:6px 9px;border-radius:8px;background:rgba(15,23,42,.76);color:#fff;font-size:.7rem;font-weight:700}",
       ".ct-video-frame{background:#0b1220}",
-      ".ct-video-modal{position:fixed;inset:0;z-index:10000;background:#03060b;display:flex;flex-direction:column;padding-top:env(safe-area-inset-top);padding-bottom:env(safe-area-inset-bottom)}",
-      ".ct-video-modal-head{height:58px;flex:none;display:flex;align-items:center;justify-content:space-between;padding:0 14px;color:#fff;background:#080d16;border-bottom:1px solid rgba(255,255,255,.09)}",
-      ".ct-video-modal-head strong{font-family:var(--font-tieu-de);font-size:.93rem;letter-spacing:-.01em}",
-      ".ct-video-modal-close{width:40px;height:40px;border:1px solid rgba(255,255,255,.15);border-radius:12px;background:rgba(255,255,255,.08);color:#fff;font-size:27px;line-height:1;display:grid;place-items:center;padding:0}",
-      ".ct-video-modal-body{position:relative;flex:1;min-height:0;background:#000;display:flex;align-items:stretch;justify-content:stretch}",
-      ".ct-video-modal-body iframe{width:100%;height:100%;border:0;background:#000;display:block}",
-      "body.ct-video-modal-open{overflow:hidden!important;touch-action:none}",
-      "@media(max-width:640px){.trang-chi-tiet-can .ct-gallery.ct-has-video>.ct-video-media{display:block;flex:0 0 100%;width:100%;height:100%;scroll-snap-align:center;scroll-snap-stop:always}.ct-video-play{width:58px;height:58px;font-size:23px;background:rgba(9,20,38,.9);box-shadow:0 10px 30px rgba(0,0,0,.3)}.ct-video-label{left:10px;bottom:10px;padding:7px 9px;font-size:.7rem;border-radius:8px}.ct-video-count{left:10px;top:10px}.trang-chi-tiet-can .ct-gallery.ct-has-video>img,.trang-chi-tiet-can .ct-gallery.ct-has-video>img:nth-of-type(n+3){display:block;flex:0 0 100%;width:100%;height:100%;object-fit:cover;scroll-snap-align:center;scroll-snap-stop:always}.trang-chi-tiet-can .ct-gallery.ct-has-video>.ct-gallery-all{right:10px;top:10px;bottom:auto;min-height:32px;padding:0 10px;background:rgba(255,255,255,.94);border-radius:9px;font-size:.7rem}.ct-video-modal-head{height:54px;padding:0 10px 0 14px}.ct-video-modal-close{width:38px;height:38px;border-radius:11px}.ct-video-modal-body{min-height:0}.trang-chi-tiet-can .bc{white-space:nowrap;overflow:hidden;text-overflow:ellipsis}}"
+      "@media(max-width:640px){.trang-chi-tiet-can .ct-gallery.ct-has-video>.ct-video-media{display:block;flex:0 0 100%;width:100%;height:100%;scroll-snap-align:center;scroll-snap-stop:always}.ct-video-play{width:58px;height:58px;font-size:23px;background:rgba(9,20,38,.9);box-shadow:0 10px 30px rgba(0,0,0,.3)}.ct-video-label{left:10px;bottom:10px;padding:7px 9px;font-size:.7rem;border-radius:8px}.ct-video-count{left:10px;top:10px}.trang-chi-tiet-can .ct-gallery.ct-has-video>img,.trang-chi-tiet-can .ct-gallery.ct-has-video>img:nth-of-type(n+3){display:block;flex:0 0 100%;width:100%;height:100%;object-fit:cover;scroll-snap-align:center;scroll-snap-stop:always}.trang-chi-tiet-can .ct-gallery.ct-has-video>.ct-gallery-all{right:10px;top:10px;bottom:auto;min-height:32px;padding:0 10px;background:rgba(255,255,255,.94);border-radius:9px;font-size:.7rem}.trang-chi-tiet-can .bc{white-space:nowrap;overflow:hidden;text-overflow:ellipsis}}"
     ].join("\n");
     document.head.appendChild(st);
   }
 
-  function moVideoModal(url, ma) {
-    if (!laUrlVideoAnToan(url)) return;
-    var cu = q("#ctVideoModal");
-    if (cu) cu.remove();
-
-    var modal = tao("div", "ct-video-modal");
-    modal.id = "ctVideoModal";
-    modal.setAttribute("role", "dialog");
-    modal.setAttribute("aria-modal", "true");
-    modal.setAttribute("aria-label", "Video thực tế căn hộ");
-
-    var head = tao("div", "ct-video-modal-head");
-    head.appendChild(tao("strong", "", ma ? "Video thực tế · " + ma : "Video thực tế căn hộ"));
-    var dong = tao("button", "ct-video-modal-close", "×");
-    dong.type = "button";
-    dong.setAttribute("aria-label", "Đóng video");
-    head.appendChild(dong);
-
-    var body = tao("div", "ct-video-modal-body");
-    var frame = tao("iframe");
-    frame.src = url;
-    frame.title = ma ? "Video thực tế căn " + ma : "Video thực tế căn hộ";
-    frame.loading = "eager";
-    frame.allow = "autoplay; encrypted-media; picture-in-picture; fullscreen";
-    frame.setAttribute("allowfullscreen", "");
-    frame.setAttribute("referrerpolicy", "strict-origin-when-cross-origin");
-    body.appendChild(frame);
-
-    modal.appendChild(head);
-    modal.appendChild(body);
-    document.body.appendChild(modal);
-    document.body.classList.add("ct-video-modal-open");
-
-    function tat() {
-      document.body.classList.remove("ct-video-modal-open");
-      if (modal.parentNode) modal.parentNode.removeChild(modal);
-      document.removeEventListener("keydown", phim);
+  function moVideoModal(videos, media, ma, poster) {
+    if (window.CTDetailVideo) {
+      window.CTDetailVideo.open({ urls: videos, sources: media.sources || {}, code: ma, poster: poster });
+    } else if (laUrlVideoAnToan(videos[0])) {
+      window.open(videos[0].replace("/preview", "/view"), "_blank", "noopener,noreferrer");
     }
-    function phim(e) { if (e.key === "Escape") tat(); }
-    dong.addEventListener("click", tat);
-    document.addEventListener("keydown", phim);
-    setTimeout(function () { try { dong.focus(); } catch (e) {} }, 0);
   }
 
   function themVideoVaoGallery(gallery, media, soAnh, ma) {
@@ -280,7 +267,7 @@
 
     var poster = tao("img");
     var anhDau = q("img", gallery);
-    poster.src = media.cover || (anhDau ? (anhDau.currentSrc || anhDau.src) : "");
+    poster.src = (anhDau ? (anhDau.currentSrc || anhDau.src) : "") || media.cover || "";
     poster.alt = "Video thực tế căn hộ";
     poster.loading = "eager";
     poster.decoding = "async";
@@ -293,18 +280,7 @@
     if (videos.length > 1) launch.appendChild(tao("span", "ct-video-count", videos.length + " video"));
 
     launch.addEventListener("click", function () {
-      if (window.matchMedia("(max-width:640px)").matches) {
-        moVideoModal(videos[0], ma);
-        return;
-      }
-      var frame = tao("iframe", "ct-video-frame");
-      frame.src = videos[0];
-      frame.title = ma ? "Video thực tế căn " + ma : "Video thực tế căn hộ";
-      frame.loading = "eager";
-      frame.allow = "autoplay; encrypted-media; picture-in-picture; fullscreen";
-      frame.setAttribute("allowfullscreen", "");
-      frame.setAttribute("referrerpolicy", "strict-origin-when-cross-origin");
-      wrap.replaceChildren(frame);
+      moVideoModal(videos, media, ma, poster.currentSrc || poster.src);
     });
 
     wrap.appendChild(launch);

@@ -463,7 +463,7 @@ CHAN_TRANG = """</main>
 <a class="zalo-noi" href="https://zalo.me/%(sdt)s" target="_blank" rel="noopener">Nhắn Zalo tư vấn</a>
   <script src="/assets/ngon-ngu.js?v=20260831-2" defer></script>
   <script id="ct-gallery-js" src="/assets/gallery.js?v=20260830-6" defer></script>
-  <script id="ct-detail-js" src="/assets/can-ho-detail.js?v=20260831-2" defer></script>
+  <script id="ct-detail-js" src="/assets/can-ho-detail.js?v=20260905-2" defer></script>
   <script src="/assets/app-shell.js?v=20260901-1" defer></script>
   <script id="ct-detail-i18n-js" src="/assets/can-ho-detail-i18n.js?v=20260831-1" defer></script>
 </body>

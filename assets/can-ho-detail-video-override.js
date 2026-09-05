@@ -1,98 +1,233 @@
-/* Mobile video UX override: dùng native HTML5 video thay cho Drive iframe. */
-(function(){
+/* Shared apartment video player. Never mount two players or use Drive download URLs as media. */
+(function () {
   'use strict';
-  if (!window.matchMedia || !window.matchMedia('(max-width:640px)').matches) return;
-
-  function q(s,r){ return (r||document).querySelector(s); }
-  function driveId(url){ var m=String(url||'').match(/\/file\/d\/([A-Za-z0-9_-]+)/i); return m?m[1]:''; }
-  function directUrl(url){ var id=driveId(url); return id ? 'https://drive.google.com/uc?export=download&id='+encodeURIComponent(id) : ''; }
-
-  var st=document.createElement('style');
-  st.id='ctNativeVideoOverrideStyle';
-  st.textContent=[
-    '.ct-video-modal{background:#000!important}',
-    '.ct-video-modal-head{height:50px!important;min-height:50px!important;padding:0 10px 0 14px!important;background:rgba(4,8,15,.97)!important;border-bottom:1px solid rgba(255,255,255,.08)!important}',
-    '.ct-video-modal-head strong{font-size:.82rem!important;font-weight:700!important;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}',
-    '.ct-video-modal-close{width:36px!important;height:36px!important;border-radius:11px!important;font-size:23px!important}',
-    '.ct-video-modal-body{display:grid!important;place-items:center!important;background:#000!important;overflow:hidden!important}',
-    '.ct-native-video{display:block;width:100%;height:100%;max-width:100vw;max-height:calc(100dvh - 50px - env(safe-area-inset-top) - env(safe-area-inset-bottom));object-fit:contain;background:#000}',
-    '.ct-native-loading{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);z-index:3;padding:7px 11px;border-radius:999px;background:rgba(15,23,42,.75);color:#fff;font-size:.7rem;pointer-events:none}',
-    'body.ct-video-modal-open .ct-mobile-actions,body.ct-video-modal-open .tabbar,body.ct-video-modal-open .zalo-noi{visibility:hidden!important;pointer-events:none!important}',
-    '@media (orientation:landscape) and (max-width:900px){.ct-video-modal-head{height:44px!important;min-height:44px!important}.ct-native-video{max-height:calc(100dvh - 44px - env(safe-area-inset-top) - env(safe-area-inset-bottom))}}'
-  ].join('\n');
-  document.head.appendChild(st);
-
-  function posterHienTai(){
-    var img=q('.ct-video-launch img');
-    return img ? (img.currentSrc||img.src||'') : '';
+  var closeCurrent = null;
+  var strings = {
+    vi: ['Video thực tế', 'Đóng video', 'Đang tải video…', 'Video tải chậm. Có thể thử lại hoặc mở video gốc.', 'Video chưa tải được. Thử lại hoặc mở video gốc.', 'Thử lại', 'Mở video gốc', 'Chọn video'],
+    en: ['Apartment video', 'Close video', 'Loading video…', 'Loading slowly. Retry or open the original video.', 'Unable to load. Retry or open the original video.', 'Retry', 'Open original video', 'Choose video'],
+    ko: ['실제 매물 영상', '영상 닫기', '영상 로딩 중…', '로딩이 느립니다. 다시 시도하거나 원본 영상을 여세요.', '영상을 불러올 수 없습니다. 다시 시도하거나 원본을 여세요.', '다시 시도', '원본 영상 열기', '영상 선택'],
+    zh: ['房源实拍视频', '关闭视频', '视频加载中…', '加载较慢，请重试或打开原视频。', '视频暂时无法加载，请重试或打开原视频。', '重试', '打开原视频', '选择视频']
+  };
+  function text(n) { return (strings[(document.documentElement.lang || 'vi').split('-')[0]] || strings.vi)[n]; }
+  function el(tag, cls, value) {
+    var node = document.createElement(tag);
+    if (cls) node.className = cls;
+    if (value !== undefined) node.textContent = value;
+    return node;
   }
+  function safePreview(url) { return /^https:\/\/drive\.google\.com\/file\/d\/[A-Za-z0-9_-]+\/preview(?:[?#].*)?$/i.test(String(url || '')); }
+  function safeSource(value) { return value && /^\/video-can-ho\/[a-f0-9]{20}\.mp4$/.test(value.src || ''); }
 
-  function nangModal(modal){
-    if (!modal || modal.dataset.nativeVideo==='1') return;
-    modal.dataset.nativeVideo='1';
-    var body=q('.ct-video-modal-body',modal);
-    var old=q('iframe',body);
-    if (!body || !old) return;
-    var preview=old.src||old.getAttribute('src')||'';
-    var direct=directUrl(preview);
-    if (!direct) return;
+  var style = document.createElement('link');
+  style.rel = 'stylesheet';
+  style.href = '/assets/can-ho-video.css?v=20260905-2';
+  document.head.appendChild(style);
 
-    var loading=document.createElement('span');
-    loading.className='ct-native-loading';
-    loading.textContent='Đang mở video…';
-
-    var v=document.createElement('video');
-    v.className='ct-native-video';
-    v.controls=true;
-    v.autoplay=true;
-    v.playsInline=true;
-    v.preload='metadata';
-    v.setAttribute('playsinline','');
-    v.setAttribute('webkit-playsinline','');
-    v.setAttribute('controlslist','nodownload');
-    v.setAttribute('disablepictureinpicture','');
-    var poster=posterHienTai();
-    if (poster) v.poster=poster;
-
-    var fallbackDone=false;
-    function fallback(){
-      if (fallbackDone || !document.body.contains(modal)) return;
-      fallbackDone=true;
-      try{v.pause();}catch(e){}
-      if (loading.parentNode) loading.remove();
-      if (v.parentNode) v.remove();
-      old.style.display='block';
-      if (!old.parentNode) body.appendChild(old);
-    }
-
-    old.style.display='none';
-    body.appendChild(loading);
-    body.appendChild(v);
-    v.src=direct;
-
-    v.addEventListener('loadedmetadata',function(){
-      if (loading.parentNode) loading.remove();
-      var p=v.play(); if (p && p.catch) p.catch(function(){});
-    },{once:true});
-    v.addEventListener('canplay',function(){ if (loading.parentNode) loading.remove(); },{once:true});
-    v.addEventListener('error',fallback,{once:true});
-
-    setTimeout(function(){
-      if (!document.body.contains(modal) || fallbackDone) return;
-      if (!v.duration || !isFinite(v.duration)) fallback();
-    },5500);
-  }
-
-  var ob=new MutationObserver(function(muts){
-    muts.forEach(function(m){
-      Array.prototype.forEach.call(m.addedNodes||[],function(n){
-        if (!n || n.nodeType!==1) return;
-        if (n.id==='ctVideoModal' || (n.matches && n.matches('.ct-video-modal'))) nangModal(n);
-        var nested=n.querySelector && n.querySelector('.ct-video-modal');
-        if (nested) nangModal(nested);
+  function open(options) {
+    var urls = (options.urls || []).filter(safePreview);
+    if (!urls.length) return;
+    if (closeCurrent) closeCurrent();
+    var previousFocus = document.activeElement;
+    var scrollY = window.scrollY;
+    var scrollX = window.scrollX;
+    var originalStyles = {};
+    ['position', 'top', 'left', 'width', 'overflow'].forEach(function (key) { originalStyles[key] = document.body.style[key]; });
+    var modal = el('div', 'ct-video-modal');
+    modal.id = 'ctVideoModal';
+    modal.setAttribute('role', 'dialog');
+    modal.setAttribute('aria-modal', 'true');
+    modal.setAttribute('aria-labelledby', 'ctVideoTitle');
+    var dialog = el('div', 'ct-video-dialog');
+    var head = el('div', 'ct-video-modal-head');
+    var title = el('strong');
+    title.id = 'ctVideoTitle';
+    var close = el('button', 'ct-video-modal-close');
+    close.type = 'button';
+    close.innerHTML = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="m6 6 12 12M18 6 6 18"/></svg>';
+    head.appendChild(title);
+    head.appendChild(close);
+    var body = el('div', 'ct-video-modal-body');
+    var status = el('span', 'ct-video-status');
+    status.setAttribute('role', 'status');
+    status.setAttribute('aria-live', 'polite');
+    body.appendChild(status);
+    var foot = el('div', 'ct-video-modal-foot');
+    var pickerLabel, picker;
+    if (urls.length > 1) {
+      var pickerWrap = el('label', 'ct-video-picker');
+      pickerLabel = el('span');
+      picker = el('select');
+      urls.forEach(function (url, i) {
+        var option = el('option', '', (i + 1) + ' / ' + urls.length);
+        option.value = String(i);
+        picker.appendChild(option);
       });
-    });
-  });
-  ob.observe(document.documentElement,{childList:true,subtree:true});
-  var now=q('.ct-video-modal'); if (now) nangModal(now);
+      pickerWrap.appendChild(pickerLabel);
+      pickerWrap.appendChild(picker);
+      foot.appendChild(pickerWrap);
+      picker.addEventListener('change', function () { load(Number(picker.value)); });
+    }
+    var retry = el('button', 'ct-video-retry');
+    retry.type = 'button';
+    retry.hidden = true;
+    var original = el('a');
+    original.target = '_blank';
+    original.rel = 'noopener noreferrer';
+    foot.appendChild(retry);
+    foot.appendChild(original);
+    dialog.appendChild(head);
+    dialog.appendChild(body);
+    dialog.appendChild(foot);
+    modal.appendChild(dialog);
+    document.body.appendChild(modal);
+    document.body.classList.add('ct-video-modal-open');
+    document.body.style.position = 'fixed';
+    document.body.style.top = -scrollY + 'px';
+    document.body.style.left = -scrollX + 'px';
+    document.body.style.width = '100%';
+    document.body.style.overflow = 'hidden';
+
+    var current = null, timer = null, index = 0, disposed = false, disposeMedia = null;
+    var statusKey = 2;
+    function labels() {
+      title.textContent = text(0) + (options.code ? ' · ' + options.code : '');
+      close.setAttribute('aria-label', text(1));
+      status.textContent = text(statusKey);
+      retry.textContent = text(5);
+      original.textContent = text(6);
+      if (pickerLabel) pickerLabel.textContent = text(7);
+    }
+    function message(key, offerRetry) {
+      statusKey = key;
+      status.textContent = text(key);
+      status.hidden = false;
+      retry.hidden = !offerRetry;
+    }
+    function clearMedia() {
+      clearTimeout(timer);
+      if (disposeMedia) disposeMedia();
+      disposeMedia = null;
+      if (!current) return;
+      if (current.tagName === 'VIDEO') {
+        current.pause();
+        current.removeAttribute('src');
+        current.load();
+      } else {
+        current.src = 'about:blank';
+      }
+      current.remove();
+      current = null;
+    }
+    function load(nextIndex) {
+      clearMedia();
+      index = nextIndex;
+      var url = urls[index];
+      original.href = url.replace('/preview', '/view');
+      message(2, false);
+      var source = (options.sources || {})[url];
+      var media = el(safeSource(source) ? 'video' : 'iframe');
+      current = media;
+      var bindings = [];
+      function on(event, handler) {
+        media.addEventListener(event, handler);
+        bindings.push([event, handler]);
+      }
+      disposeMedia = function () { bindings.forEach(function (pair) { media.removeEventListener(pair[0], pair[1]); }); };
+      function ready() {
+        if (disposed || current !== media) return;
+        clearTimeout(timer);
+        status.hidden = true;
+        retry.hidden = true;
+      }
+      function failed() {
+        if (disposed || current !== media) return;
+        clearTimeout(timer);
+        message(4, true);
+      }
+      on('error', failed);
+      if (media.tagName === 'VIDEO') {
+        media.controls = true;
+        media.playsInline = true;
+        media.preload = 'metadata';
+        media.setAttribute('playsinline', '');
+        media.setAttribute('webkit-playsinline', '');
+        if (options.poster) media.poster = options.poster;
+        on('loadeddata', ready);
+        on('canplay', ready);
+        on('playing', ready);
+        on('waiting', function () { message(2, false); });
+        body.insertBefore(media, status);
+        media.src = source.src;
+        // The source is known before the click: preserve iOS user activation.
+        var play = media.play();
+        if (play && play.catch) play.catch(function (error) {
+          if (disposed || current !== media) return;
+          if (error.name === 'NotAllowedError') ready();
+          else if (error.name !== 'AbortError') failed();
+        });
+      } else {
+        // A newly uploaded video may still be processing. Mount only the Drive
+        // preview, never a hidden second player and never a timed source swap.
+        media.title = title.textContent;
+        media.allow = 'autoplay; encrypted-media; picture-in-picture; fullscreen';
+        media.setAttribute('allowfullscreen', '');
+        media.setAttribute('referrerpolicy', 'strict-origin-when-cross-origin');
+        on('load', ready);
+        body.insertBefore(media, status);
+        media.src = url;
+      }
+      timer = setTimeout(function () {
+        if (!disposed && current === media && !status.hidden) message(3, true);
+      }, 15000);
+    }
+    function fitViewport() {
+      var view = window.visualViewport;
+      modal.style.height = (view ? view.height : window.innerHeight) + 'px';
+      modal.style.top = (view ? view.offsetTop : 0) + 'px';
+    }
+    function finish() {
+      if (disposed) return;
+      disposed = true;
+      clearMedia();
+      document.removeEventListener('keydown', keyboard);
+      document.removeEventListener('ngonngu:doi', labels);
+      window.removeEventListener('resize', fitViewport);
+      window.removeEventListener('pagehide', finish);
+      if (window.visualViewport) {
+        window.visualViewport.removeEventListener('resize', fitViewport);
+        window.visualViewport.removeEventListener('scroll', fitViewport);
+      }
+      modal.remove();
+      document.body.classList.remove('ct-video-modal-open');
+      Object.keys(originalStyles).forEach(function (key) { document.body.style[key] = originalStyles[key]; });
+      window.scrollTo({ left: scrollX, top: scrollY, behavior: 'instant' });
+      if (previousFocus && previousFocus.isConnected) previousFocus.focus({ preventScroll: true });
+      closeCurrent = null;
+    }
+    function keyboard(event) {
+      if (event.key === 'Escape') { event.preventDefault(); finish(); }
+      if (event.key !== 'Tab') return;
+      var focusable = Array.prototype.slice.call(dialog.querySelectorAll('button:not([hidden]), a[href], select, video, iframe'));
+      var first = focusable[0], last = focusable[focusable.length - 1];
+      if (event.shiftKey && document.activeElement === first) { event.preventDefault(); last.focus(); }
+      else if (!event.shiftKey && document.activeElement === last) { event.preventDefault(); first.focus(); }
+    }
+    close.addEventListener('click', finish);
+    retry.addEventListener('click', function () { load(index); });
+    modal.addEventListener('click', function (event) { if (event.target === modal) finish(); });
+    document.addEventListener('keydown', keyboard);
+    document.addEventListener('ngonngu:doi', labels);
+    window.addEventListener('resize', fitViewport);
+    window.addEventListener('pagehide', finish);
+    if (window.visualViewport) {
+      window.visualViewport.addEventListener('resize', fitViewport);
+      window.visualViewport.addEventListener('scroll', fitViewport);
+    }
+    closeCurrent = finish;
+    labels();
+    fitViewport();
+    close.focus({ preventScroll: true });
+    load(0);
+  }
+  window.CTDetailVideo = { open: open };
 })();

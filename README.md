@@ -40,6 +40,23 @@ Mọi script có ghi file đều nhận cờ `--thu` để xem trước mà khô
 
 Workflow ảnh phải chạy trên Actions vì môi trường phát triển bị chặn `drive.google.com`.
 
+## Video trang chi tiết
+
+`scripts/dong-bo-video.py` lấy danh sách video công khai từ bảng hàng, đối chiếu
+với căn đang hiển thị trong `data.json`, rồi tạo MP4 H.264/AAC có `faststart`
+trong `video-can-ho/`. Script chỉ chuyển đổi video mới; không ghi `data.json`.
+Workflow `dong-bo-video.yml` cập nhật manifest và yêu cầu GitHub Pages build sau
+khi push để video mới xuất hiện trên website.
+
+Player dùng chung cho mobile/desktop, ưu tiên MP4 cùng domain. Video chưa xử lý
+dùng một Drive preview riêng; không chạy thêm player ẩn hoặc tự đổi nguồn khi
+tải chậm. Giới hạn mỗi MP4 30 MiB, toàn kho 450 MiB; video không xử lý được vẫn
+có đường dẫn gốc. Nút chọn video hỗ trợ căn có nhiều clip.
+
+Kiểm tra vòng đời player: cài `jsdom` trong thư mục tạm, đặt
+`CT_VIDEO_TEST_JSDOM` trỏ tới package đó rồi chạy
+`node --test scripts/kiem-tra-video.cjs`.
+
 ## Header và cache — file `_headers`
 
 `_headers` khai báo 5 security header còn thiếu (audit 02/09/2026 chấm
