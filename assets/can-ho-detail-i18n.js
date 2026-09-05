@@ -1,5 +1,5 @@
 /*!
- * can-ho-detail-i18n.js — VI / EN / KO cho trang chi tiết căn hộ.
+ * can-ho-detail-i18n.js — VI / EN / KO / ZH cho trang chi tiết căn hộ.
  * Dùng chung state localStorage và nút .doi-tieng của assets/ngon-ngu.js.
  * Không đổi title/meta/canonical/schema; chỉ đổi chữ hiển thị.
  */
@@ -78,6 +78,9 @@
     "zalo.float": ["Chat on Zalo", "잘로 상담"]
   };
 
+
+  var TU_ZH = {"brand":"Smart City 公寓出租","brandSub":"实拍照片 · 每日更新","nav.all":"全部房源","nav.studio":"Studio","nav.1p":"1居+","nav.2":"2居","nav.3":"3居","nav.guide":"租房指南","bc.home":"首页","title.active":"Vinhomes Smart City 出租：{TYPE}，{AREA}，{TOWER}楼","title.rented":"{TYPE}，{AREA}，{TOWER}楼 — 已出租","lead.active":"Vinhomes Smart City {ZONE} {TOWER}楼，{TYPE}，{AREA}。{FURN}。租金 {PRICE}。更新于 {DATE}。","rented.note1":"这套公寓已经出租。","rented.note2":"下面是目前仍可出租的相似房源。","table.code":"房源编号","table.type":"户型","table.area":"面积","table.tower":"楼栋","table.zone":"分区","table.furn":"家具配置","table.price":"月租","table.move":"入住时间","table.updated":"更新时间","stat.area":"面积","stat.price":"月租","stat.furn":"家具配置","stat.status":"入住状态","status.now":"可立即入住","status.from":"{DATE} 起可入住","status.liveNow":"可立即入住","price.contact":"咨询价格","aside.price":"月租","aside.type":"户型","aside.area":"面积","aside.tower":"楼栋","aside.furn":"家具配置","action.book":"预约看房","action.zalo":"Zalo 咨询","action.call":"电话 0977 923 284","action.callShort":"电话","action.bookShort":"预约看房","aside.code":"房源编号：{CODE}","aside.note":"房源详情与网站当前可租库存同步。","gallery.all":"查看全部 {N} 张照片","gallery.count":"{I}/{N} 张照片","gallery.open":"打开第 {I}/{N} 张照片","gallery.none1":"照片更新中","gallery.none2":"通过 Zalo 获取实拍照片和视频。","toast":"看房消息已复制，请打开 Zalo 粘贴后发送。","h.more":"按需求继续浏览","h.similar":"相似房源","h.availableSimilar":"仍可出租的相似房源","empty.similar":"目前没有相似空置房源，请查看全部出租公寓。","cta.ask":"通过 Zalo 咨询房源 {CODE}","cta.call":"拨打 {PHONE}","mobile.available":"查看可租房源","footer.find":"找公寓","footer.guide":"租房指南","footer.owner":"发布房源","footer.privacy":"隐私政策","zalo.float":"Zalo 咨询"};
+
   function q(s, r) { return (r || document).querySelector(s); }
   function qa(s, r) { return Array.prototype.slice.call((r || document).querySelectorAll(s)); }
 
@@ -101,6 +104,7 @@
     var m = ma();
     if (m === "vi") return thay(vi, bien);
     var muc = TU[k];
+    if (m === "zh") return thay(TU_ZH[k] || vi, bien);
     if (!muc) return thay(vi, bien);
     return thay(m === "en" ? muc[0] : muc[1], bien);
   }
@@ -170,7 +174,7 @@
     try {
       if (typeof window.NGON_NGU_GIA === "function") base = window.NGON_NGU_GIA(so, goc);
     } catch (e) {}
-    return base + (ma() === "en" ? "/month" : "/월");
+    return base + (ma() === "en" ? "/month" : ma() === "zh" ? "/月" : "/월");
   }
 
   function tinhTrang(raw) {
