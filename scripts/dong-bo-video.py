@@ -30,6 +30,13 @@ def filename(url):
     return hashlib.sha256(("h264-v1:" + drive_id).encode()).hexdigest()[:20] + ".mp4"
 
 
+def encoding_budget(duration):
+    # Leave room for audio and container overhead on longer walkthroughs.
+    # A fixed 1.4 Mbps ceiling can exceed 30 MiB for a four-minute video.
+    rate = max(160, min(1400, int(MAX_OUTPUT * 0.88 * 8 / duration / 1000) - 96))
+    return rate, 720 if rate < 900 else 1280
+
+
 def probe(path):
     result = subprocess.run(["ffprobe", "-v", "error", "-show_streams", "-show_format", "-of", "json", str(path)], capture_output=True, text=True, check=True, timeout=30)
     data = json.loads(result.stdout)
@@ -61,14 +68,15 @@ def convert(url, target):
         original = Path(directory) / "original"
         encoded = Path(directory) / "video.mp4"
         download(url, original)
+        rate, edge = encoding_budget(probe(original)["duration"])
         # Fit either orientation, keep the complete picture, and put MP4 metadata
         # first so Safari can start without downloading the complete file.
         subprocess.run([
             "ffmpeg", "-nostdin", "-v", "error", "-y", "-i", str(original),
             "-map", "0:v:0", "-map", "0:a:0?", "-sn", "-dn", "-map_metadata", "-1",
-            "-vf", "scale=w='min(1280,iw)':h='min(1280,ih)':force_original_aspect_ratio=decrease:force_divisible_by=2,setsar=1",
+            "-vf", f"scale=w='min({edge},iw)':h='min({edge},ih)':force_original_aspect_ratio=decrease:force_divisible_by=2,setsar=1",
             "-c:v", "libx264", "-profile:v", "main", "-pix_fmt", "yuv420p", "-preset", "fast",
-            "-crf", "27", "-maxrate", "1400k", "-bufsize", "2800k", "-threads", "2",
+            "-crf", "27", "-maxrate", f"{rate}k", "-bufsize", f"{rate * 2}k", "-threads", "2",
             "-c:a", "aac", "-b:a", "96k", "-ac", "2", "-movflags", "+faststart", str(encoded),
         ], check=True, timeout=900)
         info = probe(encoded)
