@@ -1,0 +1,64 @@
+/* One player surface, with definite dimensions in both orientations. */
+.ct-video-modal {
+  position: fixed;
+  z-index: 10000;
+  inset: 0;
+  box-sizing: border-box;
+  height: 100vh;
+  height: 100dvh;
+  display: grid;
+  place-items: center;
+  padding: 24px;
+  background: rgba(0, 0, 0, .92);
+  overscroll-behavior: contain;
+}
+.ct-video-dialog {
+  width: min(1100px, 100%);
+  height: 100%;
+  min-width: 0;
+  min-height: 0;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  border-radius: 16px;
+  color: #fff;
+  background: #000;
+  box-shadow: 0 16px 64px rgba(0, 0, 0, .3);
+}
+.ct-video-modal-head {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex: none;
+  min-height: 56px;
+  padding: 4px 8px 4px 16px;
+  box-sizing: border-box;
+  background: #0c0e12;
+  border-bottom: 1px solid #26282d;
+}
+.ct-video-modal-head strong { flex: 1; min-width: 0; font: inherit; font-weight: 650; font-size: 16px; overflow: hidden; white-space: nowrap; text-overflow: ellipsis; }
+.ct-video-modal button, .ct-video-modal a, .ct-video-modal select { font: inherit; font-size: 14px; }
+.ct-video-modal-close { flex: none; width: 44px; height: 44px; display: grid; place-items: center; padding: 0; border: 1px solid #393b41; border-radius: 10px; color: #fff; background: #1b1d22; cursor: pointer; }
+.ct-video-modal-close svg { width: 22px; height: 22px; }
+.ct-video-modal-body { position: relative; flex: 1 1 0; width: 100%; min-width: 0; min-height: 0; overflow: hidden; background: #000; }
+.ct-video-modal-body > video, .ct-video-modal-body > iframe { position: absolute; inset: 0; display: block; width: 100%; height: 100%; max-width: none; max-height: none; margin: 0; padding: 0; border: 0; border-radius: 0; object-fit: contain; background: #000; }
+.ct-video-status { position: absolute; z-index: 2; top: 16px; left: 50%; transform: translateX(-50%); box-sizing: border-box; width: max-content; max-width: calc(100% - 32px); padding: 8px 12px; border-radius: 8px; color: #fff; background: rgba(20, 22, 27, .88); font-size: 14px; line-height: 1.5; text-align: center; pointer-events: none; }
+.ct-video-status[hidden] { display: none; }
+.ct-video-modal-foot { flex: none; display: flex; align-items: center; justify-content: flex-end; flex-wrap: wrap; gap: 8px 12px; min-height: 52px; box-sizing: border-box; padding: 4px 12px; background: #0c0e12; border-top: 1px solid #26282d; }
+.ct-video-modal-foot a, .ct-video-retry { display: inline-flex; align-items: center; justify-content: center; min-height: 44px; box-sizing: border-box; color: #eee; padding: 0 8px; border: 0; border-radius: 6px; background: transparent; text-decoration: underline; text-underline-offset: 3px; cursor: pointer; }
+.ct-video-retry[hidden] { display: none; }
+.ct-video-picker { display: flex; align-items: center; gap: 8px; margin-right: auto; }
+.ct-video-picker select { min-height: 44px; padding: 0 8px; color: #fff; background: #1b1d22; border: 1px solid #393b41; border-radius: 8px; }
+.ct-video-modal :focus-visible { outline: 2px solid #fff; outline-offset: -3px; }
+body.ct-video-modal-open { overflow: hidden !important; }
+body.ct-video-modal-open .ct-mobile-actions, body.ct-video-modal-open .tabbar, body.ct-video-modal-open .zalo-noi { visibility: hidden !important; pointer-events: none !important; }
+@media (max-width: 640px), (max-height: 540px) {
+  .ct-video-modal { padding: 0; }
+  .ct-video-dialog { width: 100%; border-radius: 0; padding-top: env(safe-area-inset-top); padding-bottom: env(safe-area-inset-bottom); box-sizing: border-box; }
+  .ct-video-modal-head { padding-left: max(12px, env(safe-area-inset-left)); padding-right: max(8px, env(safe-area-inset-right)); }
+  .ct-video-modal-foot { padding-left: max(8px, env(safe-area-inset-left)); padding-right: max(8px, env(safe-area-inset-right)); }
+}
+@media (max-height: 440px) {
+  .ct-video-modal-head { min-height: 48px; padding-top: 0; padding-bottom: 0; }
+  .ct-video-modal-foot { min-height: 44px; padding-top: 0; padding-bottom: 0; }
+}
