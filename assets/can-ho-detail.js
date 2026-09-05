@@ -6,6 +6,9 @@
   "use strict";
 
   var SDT = "0977923284";
+  var MEDIA_API = "https://script.google.com/macros/s/AKfycbxP2LYjIwPnf9VPofUtKjyIETqo9lGjAmv-AT0txsh0NXcTZhdZLkpHcDDssGQtjEWs/exec";
+  var MEDIA_CACHE_KEY = "ct-detail-video-map-v1";
+  var MEDIA_CACHE_TTL = 10 * 60 * 1000;
 
   function q(sel, root) { return (root || document).querySelector(sel); }
   function qa(sel, root) { return Array.prototype.slice.call((root || document).querySelectorAll(sel)); }
@@ -89,6 +92,173 @@
     t.setAttribute("role", "status");
     t.setAttribute("aria-live", "polite");
     document.body.appendChild(t);
+  }
+
+  /* =====================================================================
+     VIDEO CĂN HỘ
+     - Bảng hàng An Việt Land đã có sẵn Danh sách video từ Google Drive.
+     - Trang chi tiết chỉ lấy 3 trường an toàn: id, videoCover, videoList.
+     - JSONP để chạy ổn cả khi Apps Script không trả CORS header.
+     - Chỉ tải iframe Drive sau khi người dùng bấm Play để không làm nặng trang.
+     ===================================================================== */
+  function tachDanhSachVideo(v) {
+    if (Array.isArray(v)) return v.map(String).map(function (s) { return s.trim(); }).filter(Boolean);
+    return String(v || "").split(/\r?\n/).map(function (s) { return s.trim(); }).filter(Boolean);
+  }
+
+  function laUrlVideoAnToan(url) {
+    return /^https:\/\/drive\.google\.com\/file\/d\/[A-Za-z0-9_-]+\/preview(?:[?#].*)?$/i.test(String(url || ""));
+  }
+
+  function docMediaCache() {
+    try {
+      var raw = sessionStorage.getItem(MEDIA_CACHE_KEY);
+      if (!raw) return null;
+      var x = JSON.parse(raw);
+      if (!x || !x.at || !x.map || Date.now() - x.at > MEDIA_CACHE_TTL) return null;
+      return x.map;
+    } catch (e) { return null; }
+  }
+
+  function luuMediaCache(items) {
+    var map = {};
+    (Array.isArray(items) ? items : []).forEach(function (item) {
+      var id = String(item && item.id || "").trim();
+      var videos = tachDanhSachVideo(item && item.videoList).filter(laUrlVideoAnToan);
+      if (!id || !videos.length) return;
+      map[id] = {
+        videos: videos,
+        cover: String(item.videoCover || "").trim()
+      };
+    });
+    try {
+      sessionStorage.setItem(MEDIA_CACHE_KEY, JSON.stringify({ at: Date.now(), map: map }));
+    } catch (e) {}
+    return map;
+  }
+
+  function napInventoryJsonp(done) {
+    var cb = "__ctVideoCb" + Date.now() + Math.floor(Math.random() * 100000);
+    var script = document.createElement("script");
+    var xong = false;
+    var hen;
+
+    function don() {
+      if (hen) clearTimeout(hen);
+      try { delete window[cb]; } catch (e) { window[cb] = undefined; }
+      if (script.parentNode) script.parentNode.removeChild(script);
+    }
+
+    window[cb] = function (payload) {
+      if (xong) return;
+      xong = true;
+      don();
+      var items = payload && Array.isArray(payload.items) ? payload.items : [];
+      done(null, luuMediaCache(items));
+    };
+
+    script.async = true;
+    script.src = MEDIA_API + "?action=inventory&callback=" + encodeURIComponent(cb) + "&_=" + Date.now();
+    script.onerror = function () {
+      if (xong) return;
+      xong = true;
+      don();
+      done(new Error("Không tải được dữ liệu video"), null);
+    };
+    hen = setTimeout(function () {
+      if (xong) return;
+      xong = true;
+      don();
+      done(new Error("Quá thời gian tải video"), null);
+    }, 9000);
+    document.head.appendChild(script);
+  }
+
+  function layVideoTheoMa(ma, done) {
+    ma = String(ma || "").trim();
+    if (!ma) return done(null);
+
+    var cache = docMediaCache();
+    if (cache) return done(cache[ma] || null);
+
+    napInventoryJsonp(function (err, map) {
+      if (err || !map) return done(null);
+      done(map[ma] || null);
+    });
+  }
+
+  function chenCssVideo() {
+    if (q("#ctDetailVideoStyle")) return;
+    var st = tao("style");
+    st.id = "ctDetailVideoStyle";
+    st.textContent = [
+      ".trang-chi-tiet-can .ct-gallery.ct-has-video>.ct-video-media{grid-column:1;grid-row:1/3;position:relative;z-index:2;min-width:0;min-height:0;overflow:hidden;background:#0b1220}",
+      ".trang-chi-tiet-can .ct-gallery.ct-has-video>img:nth-of-type(1){grid-column:2;grid-row:1;display:block}",
+      ".trang-chi-tiet-can .ct-gallery.ct-has-video>img:nth-of-type(2){grid-column:2;grid-row:2;display:block}",
+      ".trang-chi-tiet-can .ct-gallery.ct-has-video>img:nth-of-type(n+3){display:none}",
+      ".trang-chi-tiet-can .ct-gallery.ct-has-video.ct-video-one-image>img:nth-of-type(1){grid-row:1/3}",
+      ".ct-video-launch,.ct-video-frame{width:100%;height:100%;border:0;display:block}",
+      ".ct-video-launch{position:relative;padding:0;background:#0b1220;overflow:hidden;color:#fff;text-align:left;touch-action:pan-x}",
+      ".ct-video-launch>img{width:100%;height:100%;object-fit:cover;display:block;opacity:.94;transition:transform .25s ease,filter .25s ease}",
+      ".ct-video-launch:after{content:'';position:absolute;inset:0;background:linear-gradient(180deg,rgba(4,12,24,.04) 45%,rgba(4,12,24,.52) 100%);pointer-events:none}",
+      ".ct-video-launch:hover>img{transform:scale(1.012);filter:brightness(.96)}",
+      ".ct-video-play{position:absolute;left:50%;top:50%;z-index:3;transform:translate(-50%,-50%);width:68px;height:68px;border-radius:999px;background:rgba(15,23,42,.88);border:1px solid rgba(255,255,255,.38);box-shadow:0 12px 35px rgba(0,0,0,.28);display:grid;place-items:center;font-size:27px;line-height:1;padding-left:4px;color:#fff}",
+      ".ct-video-label{position:absolute;left:14px;bottom:14px;z-index:3;display:inline-flex;align-items:center;gap:7px;padding:8px 11px;border-radius:9px;background:rgba(15,23,42,.82);color:#fff;font-size:.78rem;font-weight:700;box-shadow:0 7px 22px rgba(0,0,0,.18)}",
+      ".ct-video-count{position:absolute;right:14px;top:14px;z-index:3;padding:6px 9px;border-radius:8px;background:rgba(15,23,42,.76);color:#fff;font-size:.7rem;font-weight:700}",
+      ".ct-video-frame{background:#0b1220}",
+      "@media(max-width:640px){.trang-chi-tiet-can .ct-gallery.ct-has-video>.ct-video-media{display:block;flex:0 0 100%;width:100%;height:100%;scroll-snap-align:center;scroll-snap-stop:always}.ct-video-play{width:58px;height:58px;font-size:23px}.ct-video-label{left:10px;bottom:10px;padding:7px 9px;font-size:.72rem}.ct-video-count{right:10px;top:10px}.trang-chi-tiet-can .ct-gallery.ct-has-video>img,.trang-chi-tiet-can .ct-gallery.ct-has-video>img:nth-of-type(n+3){display:block;flex:0 0 100%;width:100%;height:100%;object-fit:cover;scroll-snap-align:center;scroll-snap-stop:always}}"
+    ].join("\n");
+    document.head.appendChild(st);
+  }
+
+  function themVideoVaoGallery(gallery, media, soAnh) {
+    if (!gallery || !media || !media.videos || !media.videos.length || q(".ct-video-media", gallery)) return;
+    var videos = media.videos.filter(laUrlVideoAnToan);
+    if (!videos.length) return;
+
+    chenCssVideo();
+    gallery.classList.add("ct-has-video");
+    if (soAnh === 1) gallery.classList.add("ct-video-one-image");
+
+    var wrap = tao("div", "ct-video-media");
+    var launch = tao("button", "ct-video-launch");
+    launch.type = "button";
+    launch.setAttribute("aria-label", "Phát video căn hộ");
+
+    var poster = tao("img");
+    var anhDau = q("img", gallery);
+    poster.src = media.cover || (anhDau ? (anhDau.currentSrc || anhDau.src) : "");
+    poster.alt = "Video thực tế căn hộ";
+    poster.loading = "eager";
+    poster.decoding = "async";
+    launch.appendChild(poster);
+
+    var play = tao("span", "ct-video-play", "▶");
+    play.setAttribute("aria-hidden", "true");
+    launch.appendChild(play);
+    launch.appendChild(tao("span", "ct-video-label", "Video căn hộ · Bấm để xem"));
+    if (videos.length > 1) launch.appendChild(tao("span", "ct-video-count", videos.length + " video"));
+
+    launch.addEventListener("click", function () {
+      var frame = tao("iframe", "ct-video-frame");
+      frame.src = videos[0];
+      frame.title = "Video thực tế căn hộ";
+      frame.loading = "eager";
+      frame.allow = "autoplay; encrypted-media; picture-in-picture; fullscreen";
+      frame.setAttribute("allowfullscreen", "");
+      frame.setAttribute("referrerpolicy", "strict-origin-when-cross-origin");
+      wrap.replaceChildren(frame);
+    }, { once: true });
+
+    wrap.appendChild(launch);
+    gallery.insertBefore(wrap, gallery.firstChild);
+  }
+
+  function napVideoChoGallery(gallery, ma, soAnh) {
+    layVideoTheoMa(ma, function (media) {
+      if (!media) return;
+      themVideoVaoGallery(gallery, media, soAnh);
+    });
   }
 
   function nangTrangDaThue(main) {
@@ -180,6 +350,7 @@
 
       var hen = 0;
       gallery.addEventListener("scroll", function () {
+        if (gallery.classList.contains("ct-has-video")) return;
         if (hen) return;
         hen = requestAnimationFrame(function () {
           hen = 0;
@@ -194,6 +365,10 @@
         });
       }, { passive: true });
     }
+
+    /* Video lấy từ cùng nguồn đang cấp cho bảng hàng. Chạy bất đồng bộ để
+       HTML/ảnh hiển thị ngay; lỗi API không ảnh hưởng phần còn lại của trang. */
+    napVideoChoGallery(gallery, ma, imgs.length);
 
     /* ----- Hai cột: nội dung + card liên hệ sticky ----- */
     var cacSauGallery = [];
