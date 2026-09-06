@@ -13,6 +13,14 @@
     "2pn-plus": "2 Ngủ +",
     "3pn": "3 Ngủ"
   };
+  var loaiDuong = {
+    "studio": "/studio/",
+    "1pn": "/1pn/",
+    "1pn-plus": "/1pn-plus/",
+    "2pn": "/2pn/",
+    "2pn-plus": "/2pn-plus/",
+    "3pn": "/3pn/"
+  };
   var phanKhuSach = {
     "sapphire": "Sapphire",
     "masteri": "Masteri",
@@ -22,6 +30,16 @@
     "lumiere": "Lumiere",
     "canopy": "Canopy",
     "tonkin": "Tonkin"
+  };
+  var phanKhuDuong = {
+    "sapphire": "/sapphire/",
+    "masteri": "/masteri/",
+    "miami": "/miami/",
+    "sakura": "/sakura/",
+    "imperia": "/imperia/",
+    "lumiere": "/lumiere/",
+    "canopy": "/canopy/",
+    "tonkin": "/tonkin/"
   };
   var toaSach = {
     "masteri|masa": "/west-a-masteri-smart-city/",
@@ -54,6 +72,16 @@
     p.forEach(function (_v, k) { if (ds.indexOf(k) === -1) ds.push(k); });
     return ds.length === keys.length && ds.every(function (k) { return keys.indexOf(k) !== -1; });
   }
+  function slugDanhMucTuQuery(search) {
+    var p = params(search);
+    if (chiCo(p, ["loai"])) {
+      return loaiDuong[String(p.get("loai") || "").trim().toLowerCase()] || "";
+    }
+    if (chiCo(p, ["pk"])) {
+      return phanKhuDuong[String(p.get("pk") || "").trim().toLowerCase()] || "";
+    }
+    return "";
+  }
   function slugToaTuQuery(search) {
     var p = params(search);
     if (!chiCo(p, ["pk", "q"])) return "";
@@ -63,8 +91,13 @@
   }
 
   try {
-    /* Deep-link tòa cũ: chuyển thẳng sang landing tòa sạch nếu đã tồn tại. */
+    /* Các deep-link cũ có landing sạch tương đương được hợp nhất ngay. */
     if (location.pathname === "/" && location.search) {
+      var dichDanhMuc = slugDanhMucTuQuery(location.search);
+      if (dichDanhMuc) {
+        location.replace(dichDanhMuc);
+        return;
+      }
       var dichToa = slugToaTuQuery(location.search);
       if (dichToa) {
         location.replace(dichToa);
@@ -93,7 +126,7 @@
         var loai = loaiSach[String(pTrang.get("loai") || "").toLowerCase()];
         var pk = phanKhuSach[String(pTrang.get("pk") || "").toLowerCase()];
         if (loai && pk && window.fetch) {
-          fetch("/seo-phan-khu-loai-can.json?v=20260906-seo3", { cache: "no-store" })
+          fetch("/seo-phan-khu-loai-can.json?v=20260906-seo4", { cache: "no-store" })
             .then(function (r) { return r.ok ? r.json() : {}; })
             .then(function (registry) {
               Object.keys(registry || {}).some(function (slug) {
@@ -111,13 +144,18 @@
     }
   } catch (e) { /* SEO guard hỏng không được ảnh hưởng UX */ }
 
-  /* Giữ trải nghiệm deep-link bộ lọc, nhưng ưu tiên URL tòa sạch nếu có;
+  /* Giữ trải nghiệm deep-link bộ lọc, nhưng ưu tiên URL sạch nếu có;
      các query còn lại được nofollow để không tiếp tục truyền tín hiệu SEO. */
   function danhDauLinkLoc() {
     document.querySelectorAll('a[href]').forEach(function (a) {
       try {
         var u = new URL(a.getAttribute("href"), location.href);
         if (u.origin !== location.origin || !coThamSoLoc(u.search)) return;
+        var dichDanhMuc = u.pathname === "/" ? slugDanhMucTuQuery(u.search) : "";
+        if (dichDanhMuc) {
+          a.setAttribute("href", dichDanhMuc);
+          return;
+        }
         var dichToa = u.pathname === "/" ? slugToaTuQuery(u.search) : "";
         if (dichToa) {
           a.setAttribute("href", dichToa);
@@ -136,7 +174,7 @@
   }
 
   var s = document.createElement("script");
-  s.src = "/assets/app-shell-core.js?v=20260906-seo3";
+  s.src = "/assets/app-shell-core.js?v=20260906-seo4";
   s.async = false;
   document.head.appendChild(s);
 })();
