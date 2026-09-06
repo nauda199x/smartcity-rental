@@ -40,10 +40,11 @@ on:
 permissions:
   contents: write
 
-# Hai lần chạy song song sẽ đá nhau khi push. Không hủy run cũ giữa lúc đang
-# ghi ảnh; run kế tiếp sẽ chờ rồi rà lại idempotent trên main mới nhất.
+# SEO, ảnh và video cùng ghi HTML trên main. Dùng chung hàng đợi để không
+# rebase các trang được sinh từ hai snapshot khác nhau; giữ mọi run đang chờ.
 concurrency:
-  group: tai-anh-can-ho-main
+  group: smartcity-generated-main
+  queue: max
   cancel-in-progress: false
 
 jobs:

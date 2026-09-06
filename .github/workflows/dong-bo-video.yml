@@ -19,8 +19,11 @@ permissions:
   contents: write
   pages: write
 
+# SEO, ảnh và video cùng ghi HTML trên main. Dùng chung hàng đợi để không
+# rebase các trang được sinh từ hai snapshot khác nhau; giữ mọi run đang chờ.
 concurrency:
-  group: dong-bo-video-main
+  group: smartcity-generated-main
+  queue: max
   cancel-in-progress: false
 
 jobs:
@@ -41,10 +44,21 @@ jobs:
       - name: Kiểm tra cơ chế căn mới chỉ có video
         run: python3 scripts/kiem-tra-can-chi-video.py
       - name: Đồng bộ video công khai và tối ưu MP4
-        run: python3 -u scripts/dong-bo-video.py
+        id: videos
+        run: |
+          set -euo pipefail
+          python3 -u scripts/dong-bo-video.py
+          if git diff --quiet -- video-can-ho && \
+             [ -z "$(git ls-files --others --exclude-standard -- video-can-ho)" ]; then
+            echo "changed=false" >> "$GITHUB_OUTPUT"
+            echo "Video và ảnh bìa không đổi; giữ nguyên các trang đã tối ưu SEO."
+          else
+            echo "changed=true" >> "$GITHUB_OUTPUT"
+          fi
       # Regenerate from the new manifest in this same run. Video-only listings
       # must not wait for the next SEO run to receive a cover and detail URL.
       - name: Cập nhật căn chỉ có video trên các trang
+        if: steps.videos.outputs.changed == 'true'
         run: |
           set -euo pipefail
           python3 scripts/sinh-trang-can.py
@@ -52,6 +66,13 @@ jobs:
           python3 scripts/dung-lai-trang-danh-muc.py
           python3 scripts/dung-lai-trang-chu.py
           python3 scripts/noi-lien-ket-chi-tiet.py
+          # Các generator dựng lại cả trang: khôi phục hậu xử lý đã áp dụng
+          # trong workflow SEO/ảnh trước khi lưu, kể cả ảnh của căn vừa thêm.
+          python3 scripts/cap-nhat-lien-ket-noi-bo.py
+          python3 scripts/dong-bo-thuc-the-thuong-hieu.py
+          python3 scripts/thay-anh-trong-html.py
+          python3 scripts/toi-uu-anh-tim-kiem.py
+          python3 scripts/toi-uu-anh-tim-kiem.py --kiem-tra
       - name: Lưu video và danh sách phát
         id: save
         run: |
@@ -65,7 +86,15 @@ jobs:
           fi
           git commit -m "Đồng bộ video MP4 căn hộ"
           for attempt in 1 2 3; do
-            if git pull --rebase origin main && git push origin HEAD:main; then
+            if ! git pull --rebase origin main; then
+              # Không lặp lại pull khi Git đang kẹt ở một rebase xung đột.
+              # Hàng đợi bảo vệ các workflow; thay đổi thủ công ngoài hàng đợi
+              # vẫn phải được giữ lại, không tự chọn một phía/force-push.
+              git rebase --abort || true
+              echo "::error::Main đã thay đổi ngoài hàng đợi; giữ nguyên dữ liệu trên main và dừng để tránh ghi đè."
+              exit 1
+            fi
+            if git push origin HEAD:main; then
               echo "changed=true" >> "$GITHUB_OUTPUT"
               exit 0
             fi

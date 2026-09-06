@@ -45,9 +45,11 @@ on:
 permissions:
   contents: write
 
-# Không để hai lần chạy chồng nhau — sẽ đá nhau khi push.
+# SEO, ảnh và video cùng ghi HTML trên main. Dùng chung hàng đợi để không
+# rebase các trang được sinh từ hai snapshot khác nhau; giữ mọi run đang chờ.
 concurrency:
-  group: cap-nhat-so-can
+  group: smartcity-generated-main
+  queue: max
   cancel-in-progress: false
 
 jobs:
@@ -57,6 +59,8 @@ jobs:
       - name: Lấy code
         uses: actions/checkout@v4
         with:
+          # Run có thể đã chờ ảnh/video; lấy main mới nhất khi bắt đầu chạy.
+          ref: main
           # cap-nhat-sitemap.mjs hỏi git ngày commit gần nhất của data.json và
           # của từng file bài viết. Checkout nông (mặc định fetch-depth: 1) chỉ
           # có một commit nên mọi file sẽ trả về cùng một ngày.
