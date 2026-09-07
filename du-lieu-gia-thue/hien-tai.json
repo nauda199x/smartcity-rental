@@ -1,13 +1,13 @@
 {
   "updated": "2026-09-07",
   "source": "data.json",
-  "active_count": 222,
+  "active_count": 223,
   "min_sample": 3,
   "overall": {
-    "n": 222,
+    "n": 223,
     "min": 6000000,
     "max": 19500000,
-    "median": 11000000.0
+    "median": 11000000
   },
   "by_type": {
     "1 Ngủ": {
@@ -29,10 +29,10 @@
       "median": 12000000.0
     },
     "2 Ngủ +": {
-      "n": 42,
+      "n": 43,
       "min": 8000000,
       "max": 19500000,
-      "median": 12500000.0
+      "median": 12500000
     },
     "3 Ngủ": {
       "n": 28,
@@ -49,10 +49,10 @@
   },
   "by_zone": {
     "Canopy": {
-      "n": 14,
+      "n": 15,
       "min": 7000000,
-      "max": 13500000,
-      "median": 10250000.0
+      "max": 14000000,
+      "median": 10500000
     },
     "Imperia": {
       "n": 18,
@@ -99,10 +99,10 @@
   },
   "by_interior": {
     "Full nội thất": {
-      "n": 140,
+      "n": 141,
       "min": 6500000,
       "max": 19500000,
-      "median": 11000000.0
+      "median": 11000000
     },
     "Nhà Nguyên Bản": {
       "n": 34,
@@ -171,6 +171,15 @@
       "min": 9500000,
       "max": 10500000,
       "median": 10000000
+    },
+    {
+      "zone": "Canopy",
+      "type": "2 Ngủ +",
+      "interior": "Full nội thất",
+      "n": 1,
+      "min": 14000000,
+      "max": 14000000,
+      "median": 14000000
     },
     {
       "zone": "Canopy",

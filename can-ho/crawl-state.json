@@ -1,12 +1,12 @@
 {
   "items": {
     "cho-thue-can-ho-1-ngu-canopy-43m2-ct-1n-171": {
-      "hash": "5d7f825ddece911f6d66bf0805d10d3de13a7f7721b601fc81a6711b47495dbf",
-      "lastmod": "2026-09-06"
+      "hash": "752787f03e140c79652cb5feedde967dbd44348f2872de6a14b95939862ede6a",
+      "lastmod": "2026-09-07"
     },
     "cho-thue-can-ho-1-ngu-canopy-44m2-ct-1n-146": {
-      "hash": "ffb1816dba95c3dc5ff82993b34d1f9b01338ee35bea40d5778b6fad725f59e8",
-      "lastmod": "2026-09-06"
+      "hash": "921d496a42ce3422236cf37c9547728087b3aa3556072ddac01033a2ca75565c",
+      "lastmod": "2026-09-07"
     },
     "cho-thue-can-ho-1-ngu-canopy-50m2-ct-1n-496": {
       "hash": "c5eab40c79330d9436443482f6cb5323310638766b52d26134901f77b4dd46ee",
@@ -185,11 +185,15 @@
       "lastmod": "2026-09-07"
     },
     "cho-thue-can-ho-2-ngu-canopy-63m2-ct-2n2-343": {
-      "hash": "6371e3b0f7b069ce45b05388d5594ffe5050d90ed99f1ba11060046e4c9d3f3d",
+      "hash": "c03cd9334f143a5cdcb0da76f7ff472477d16fb13f28e645f304a0f960e15138",
+      "lastmod": "2026-09-07"
+    },
+    "cho-thue-can-ho-2-ngu-canopy-64m2-cc21": {
+      "hash": "7af1177e7cacf030be00564a93f34a1c47491780de4c0dd0692affab886c6261",
       "lastmod": "2026-09-07"
     },
     "cho-thue-can-ho-2-ngu-canopy-65m2-ct-2n2-344": {
-      "hash": "3412dc8f39b147cc28473fba6ca3b05f797ece30ac20ec68d5f990e87c328cbd",
+      "hash": "75240d6db98efb10cdd9c8e6686c80d710188d3a43b96c60f8fc56a629e700bb",
       "lastmod": "2026-09-07"
     },
     "cho-thue-can-ho-2-ngu-canopy-68m2-ct-2n2-403": {
@@ -197,8 +201,8 @@
       "lastmod": "2026-09-07"
     },
     "cho-thue-can-ho-2-ngu-canopy-69m2-ct-2n-205": {
-      "hash": "7a2be9b0e135840a249fd81724b4f6edec60b90dd8295d2510bac02e24a2e55a",
-      "lastmod": "2026-09-06"
+      "hash": "af1daf8f0036c46d0a9d8995eabf41d9da8de8e5263199bf594323c44575d33a",
+      "lastmod": "2026-09-07"
     },
     "cho-thue-can-ho-2-ngu-imperia-54m2-ct-2n1-206": {
       "hash": "7e64e5d491911a9918c90f4eb356f84d272d74b820ee726ea44faaabf62fd003",
@@ -741,8 +745,8 @@
       "lastmod": "2026-09-06"
     },
     "cho-thue-can-ho-studio-canopy-30m2-ct-stu-823": {
-      "hash": "c6854732a56f2fa28fbfde1847951e8482a7511d9cab4e6fcd92aa1ca771c70d",
-      "lastmod": "2026-09-06"
+      "hash": "952f01b6d47b4e4a437c05c0cfba01c8849d46bbbad1ac1e79e604d83a6a3946",
+      "lastmod": "2026-09-07"
     },
     "cho-thue-can-ho-studio-imperia-31m2-ct-stu-782": {
       "hash": "1d02ec06a0c65ec4f22f32dc54b44e2662d3d73a545a5f33039401d2ea2c812b",
