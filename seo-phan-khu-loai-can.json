@@ -160,11 +160,19 @@
     "updated": "2026-09-07"
   },
   "cho-thue-3pn-miami-smart-city": {
-    "count": 7,
+    "count": 8,
     "created": "2026-08-30",
     "indexable": true,
     "loai": "3 Ngủ",
     "phanKhu": "Miami",
+    "updated": "2026-09-07"
+  },
+  "cho-thue-3pn-sakura-smart-city": {
+    "count": 4,
+    "created": "2026-09-07",
+    "indexable": true,
+    "loai": "3 Ngủ",
+    "phanKhu": "Sakura",
     "updated": "2026-09-07"
   },
   "cho-thue-3pn-sapphire-smart-city": {

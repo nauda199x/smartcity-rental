@@ -1951,6 +1951,14 @@
   "phan_khu": "Miami",
   "toa": "GS5"
  },
+ "cho-thue-can-ho-3-ngu-miami-80m2-cc20": {
+  "dien_tich": 80,
+  "loai": "3 Ngủ",
+  "ma": "CC20",
+  "ngay_xuat_hien": "2026-09-07",
+  "phan_khu": "Miami",
+  "toa": "GS1"
+ },
  "cho-thue-can-ho-3-ngu-miami-80m2-ct-3n-122": {
   "dien_tich": 80.3,
   "loai": "3 Ngủ",
@@ -1974,6 +1982,14 @@
   "ngay_xuat_hien": "2026-07-08",
   "phan_khu": "Miami",
   "toa": "GS1"
+ },
+ "cho-thue-can-ho-3-ngu-sakura-74m2-ct-3n-162": {
+  "dien_tich": 74,
+  "loai": "3 Ngủ",
+  "ma": "CT.3N.162",
+  "ngay_xuat_hien": "2026-09-07",
+  "phan_khu": "Sakura",
+  "toa": "SA3"
  },
  "cho-thue-can-ho-3-ngu-sakura-75m2-ct-3n-141": {
   "dien_tich": 75,
