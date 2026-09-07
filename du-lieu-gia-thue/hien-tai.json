@@ -1,13 +1,13 @@
 {
   "updated": "2026-09-07",
   "source": "data.json",
-  "active_count": 221,
+  "active_count": 222,
   "min_sample": 3,
   "overall": {
-    "n": 221,
+    "n": 222,
     "min": 6000000,
     "max": 19500000,
-    "median": 11000000
+    "median": 11000000.0
   },
   "by_type": {
     "1 Ngủ": {
@@ -17,10 +17,10 @@
       "median": 9000000
     },
     "1 Ngủ +": {
-      "n": 28,
+      "n": 29,
       "min": 7500000,
       "max": 14000000,
-      "median": 9750000.0
+      "median": 9500000
     },
     "2 Ngủ": {
       "n": 70,
@@ -73,10 +73,10 @@
       "median": 11000000
     },
     "Miami": {
-      "n": 25,
+      "n": 26,
       "min": 7000000,
       "max": 18000000,
-      "median": 11500000
+      "median": 11250000.0
     },
     "Sakura": {
       "n": 28,
@@ -99,10 +99,10 @@
   },
   "by_interior": {
     "Full nội thất": {
-      "n": 139,
+      "n": 140,
       "min": 6500000,
       "max": 19500000,
-      "median": 11000000
+      "median": 11000000.0
     },
     "Nhà Nguyên Bản": {
       "n": 34,
@@ -482,10 +482,10 @@
       "zone": "Miami",
       "type": "1 Ngủ +",
       "interior": "Full nội thất",
-      "n": 1,
-      "min": 10500000,
+      "n": 2,
+      "min": 8000000,
       "max": 10500000,
-      "median": 10500000
+      "median": 9250000.0
     },
     {
       "zone": "Miami",
@@ -701,7 +701,7 @@
       "n": 6,
       "min": 8000000,
       "max": 9500000,
-      "median": 9000000.0
+      "median": 8750000.0
     },
     {
       "zone": "Sapphire",
