@@ -1,0 +1,108 @@
+name: Đồng bộ SEO trang chủ cho thuê
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - "data.json"
+      - ".github/workflows/seo-trang-chu.yml"
+  schedule:
+    - cron: "15 17 * * *"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: smartcity-generated-main
+  cancel-in-progress: false
+
+jobs:
+  seo-trang-chu:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Lấy code mới nhất
+        uses: actions/checkout@v4
+        with:
+          ref: main
+          fetch-depth: 0
+
+      - name: Đồng bộ title, description, canonical, social metadata, schema và H1
+        shell: bash
+        run: |
+          python3 - <<'PY'
+          from pathlib import Path
+          from datetime import datetime
+          from zoneinfo import ZoneInfo
+          import re
+
+          p = Path("index.html")
+          s = p.read_text(encoding="utf-8")
+          now = datetime.now(ZoneInfo("Asia/Ho_Chi_Minh"))
+          thang = now.month
+          nam = now.year
+
+          title = f"Cho Thuê Căn Hộ Chung Cư Vinhomes Smart City Giá Tốt T{thang:02d}/{nam}"
+          h1 = "Cho Thuê Căn Hộ Chung Cư Vinhomes Smart City"
+          description = (
+              "Cho thuê căn hộ chung cư Vinhomes Smart City Tây Mỗ, quỹ căn cập nhật liên tục: "
+              "Studio, 1PN, 1PN+, 2PN, 2PN+, 3PN. Ảnh thật, lọc theo giá, tòa và nội thất."
+          )
+          canonical = "https://timthuesmartcity.com/"
+
+          def sub1(pattern, repl, text, flags=re.I | re.S, label=""):
+              out, n = re.subn(pattern, repl, text, count=1, flags=flags)
+              if n != 1:
+                  raise SystemExit(f"Không tìm thấy đúng 1 vị trí để sửa: {label or pattern}")
+              return out
+
+          s = sub1(r"(<title[^>]*>).*?(</title>)", rf"\1{title}\2", s, label="title")
+          s = sub1(r'(<meta[^>]+name="description"[^>]+content=")[^"]*(")', rf"\1{description}\2", s, label="meta description")
+          s = sub1(r'(<link[^>]+rel="canonical"[^>]+href=")[^"]*(")', rf"\1{canonical}\2", s, label="canonical")
+          s = sub1(r'(<meta[^>]+property="og:url"[^>]+content=")[^"]*(")', rf"\1{canonical}\2", s, label="og:url")
+          s = sub1(r'(<meta[^>]+property="og:title"[^>]+content=")[^"]*(")', rf"\1{title}\2", s, label="og:title")
+          s = sub1(r'(<meta[^>]+name="twitter:title"[^>]+content=")[^"]*(")', rf"\1{title}\2", s, label="twitter:title")
+          s = sub1(r'(<h1\b[^>]*>).*?(</h1>)', rf"\1{h1}\2", s, label="H1")
+
+          # WebPage schema do script tối ưu ảnh tạo; đồng bộ name/caption nếu khối này đã tồn tại.
+          marker = 'id="google-image-preview-data"'
+          if marker in s:
+              m = re.search(r'(<script[^>]+id="google-image-preview-data"[^>]*>)(.*?)(</script>)', s, re.I | re.S)
+              if not m:
+                  raise SystemExit("Có marker WebPage schema nhưng không đọc được block JSON-LD")
+              block = m.group(2)
+              block = re.sub(r'("name"\s*:\s*")[^"]*(")', rf'\1{title}\2', block, count=1)
+              block = re.sub(r'("caption"\s*:\s*")[^"]*(")', rf'\1{title}\2', block, count=1)
+              s = s[:m.start(2)] + block + s[m.end(2):]
+
+          p.write_text(s, encoding="utf-8")
+          print(title)
+          print(description)
+          PY
+
+      - name: Kiểm tra metadata sau khi sửa
+        shell: bash
+        run: |
+          set -euo pipefail
+          grep -n '<title>' index.html | head -1
+          grep -n 'name="description"' index.html | head -1
+          grep -n 'rel="canonical"' index.html | head -1
+          grep -n 'property="og:title"' index.html | head -1
+          grep -n 'name="twitter:title"' index.html | head -1
+          grep -n '<h1' index.html | head -1
+          grep -n 'google-image-preview-data' index.html | head -1
+
+      - name: Commit thay đổi nếu có
+        shell: bash
+        run: |
+          set -euo pipefail
+          if git diff --quiet -- index.html; then
+            echo "SEO trang chủ đã đúng, không cần commit."
+            exit 0
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add index.html
+          git commit -m "SEO: tối ưu title landing cho thuê Smart City"
+          git pull --rebase origin main
+          git push origin HEAD:main
