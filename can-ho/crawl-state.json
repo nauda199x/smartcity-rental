@@ -160,10 +160,6 @@
       "hash": "3dd42cab1ea4bc69e08e805e5da235432a93e5954c999f06ba42f397bd7569a0",
       "lastmod": "2026-09-08"
     },
-    "cho-thue-can-ho-1-ngu-sapphire-48m2-ct-1n-510": {
-      "hash": "e15e9d18b95bb47ec6e49d338acc1a8e295d5255f06f6353f99663bef3a9dbd7",
-      "lastmod": "2026-09-08"
-    },
     "cho-thue-can-ho-2-ngu-canopy-61m2-ct-2n2-209": {
       "hash": "eb4838aa6fb6a3028906005edd0e819768cb1535cd5415bde0ba1ccbedcdf24f",
       "lastmod": "2026-09-08"
@@ -533,7 +529,7 @@
       "lastmod": "2026-09-08"
     },
     "cho-thue-can-ho-2-ngu-sapphire-54m2-ct-2n1-238": {
-      "hash": "05cb415a985ab3e42007200f93c1f5dc7a02255b4cef4369d37a41d1f3969ffc",
+      "hash": "c149e8509e1d44e0df973c4d46caec744195d4ad61fed2a24a4f535955185547",
       "lastmod": "2026-09-08"
     },
     "cho-thue-can-ho-2-ngu-sapphire-55m2-ct-2n1-150": {
@@ -564,8 +560,12 @@
       "hash": "b9010b317dea35d9fc0b3f16888e48235e895db70798eec3ef3118480298f7c7",
       "lastmod": "2026-09-08"
     },
+    "cho-thue-can-ho-2-ngu-sapphire-55m2-ct-2n1-239": {
+      "hash": "866ca984717898d7be54c841d406a84b1e7d931a30c74919ccc3e22be612df07",
+      "lastmod": "2026-09-08"
+    },
     "cho-thue-can-ho-2-ngu-sapphire-55m2-ct-2n2-329": {
-      "hash": "db4f6c1143d99131d52a492d14243773ff51f3c10d120744a722d41e04207d88",
+      "hash": "1be0e307723803ac864a2a0fa46508ba825de00bb1845707da604506a107e439",
       "lastmod": "2026-09-08"
     },
     "cho-thue-can-ho-2-ngu-sapphire-62m2-ct-2n-235": {
@@ -745,7 +745,7 @@
       "lastmod": "2026-09-07"
     },
     "cho-thue-can-ho-3-ngu-sapphire-98m2-ct-3n-107": {
-      "hash": "b7e2ef62cd1312d720352913556bf3f68c3e5a104ae8be0138299cfeabe8ff9d",
+      "hash": "bc24d1fd3cc5c0ad22b1f371843d4082889abadaed6dd426b9fa0cbaca1979b2",
       "lastmod": "2026-09-08"
     },
     "cho-thue-can-ho-studio-canopy-26m2-ct-stu-752": {
