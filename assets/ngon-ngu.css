@@ -1,6 +1,7 @@
 /* ==================================================================
-   ngon-ngu.css — Nút đổi ngôn ngữ VI / EN / 한 (thêm 11/08/2026)
-   Chỉ tải trên trang chủ. Không có selector nào trùng với v3.css.
+   ngon-ngu.css — Trang chủ: đổi ngôn ngữ + lớp giao diện premium
+   Phần đầu giữ trải nghiệm VI / EN / 한. Phần cuối là lớp tinh chỉnh riêng
+   cho homepage, không tác động các landing/category/detail pages dùng v3.css.
    ================================================================== */
 
 .doi-tieng{
@@ -21,52 +22,17 @@
 }
 .doi-tieng button:focus-visible{ outline:2px solid #1d4ed8; outline-offset:2px; }
 
-/* Điện thoại: .topbar .actions bị ẩn từ 640px trở xuống (v3.css dòng ~1350),
-   .topnav bị ẩn từ 860px. Nút ngôn ngữ KHÔNG nằm trong hai khối đó nên vẫn
-   hiện; đẩy sang phải cho cân với tên thương hiệu. */
 @media (max-width:640px){
   .doi-tieng{ margin-left:auto; }
   .doi-tieng button{ padding:6px 9px; font-size:.74rem; }
 }
 
-/* ==================================================================
-   MÁY TÍNH: ĐƯA Ô TÌM KIẾM XUỐNG HÀNG RIÊNG (thêm 11/08/2026)
-   ------------------------------------------------------------------
-   VÌ SAO: .topbar .shell bị chặn max-width:1200px nên ngân sách bề ngang
-   CỐ ĐỊNH 1160px ở mọi màn hình rộng. Đo thực tế ở 1440px:
-
-     bản main   : brand 320 + search 165 + topnav 463 + Zalo 140 + gap 72 = 1160
-     có nút ngôn ngữ: brand 320 + topnav 463 + ngôn ngữ 118 + Zalo 140 + gap 96
-                      -> ô tìm chỉ còn 37px, ô nhập chữ 4px
-
-   .topnav và .actions đều flex:none nên .search là phần tử DUY NHẤT co được;
-   cụm nút ngôn ngữ lấy đúng 128px từ nó. Cho ô tìm chiếm trọn một hàng là trả
-   lại nguyên bề ngang cho nó, đồng thời hàng đầu còn dư chỗ để cụm ngôn ngữ và
-   nút Zalo đứng liền nhau ở góc phải.
-
-   Đây CHÍNH LÀ cơ chế v3.css đã dùng từ 1080px trở xuống (.search{order:3;
-   flex-basis:100%}), chỉ mở rộng lên dải máy tính. Đo được ở 1440px: ô nhập
-   chữ 4px -> 1100px, đổi lại đầu trang dính cao 71px -> 138px.
-
-   MỐC 1200px, không phải 1081px: hàng đầu (đã bỏ ô tìm) cần
-   320+463+118+140+72 = 1113px cộng 10px hở = 1123px. Đo thực tế: 1200px chạy
-   đúng, 1160px đã hụt chỗ và nút Zalo lại bị đẩy xuống hàng khác — đúng lỗi
-   đang thấy ở dải 1024–1080px. 1200px cũng là chỗ .shell chạm max-width nên
-   từ đó trở lên bề ngang không đổi nữa, chạy đúng là đúng ở mọi màn rộng hơn.
-   Dưới 1200px giữ nguyên hành vi của bản 5d84c1e, không đụng tới.
-
-   ngon-ngu.css được nạp TRƯỚC v3.css (ngay sau thẻ canonical) nên mọi luật ở
-   đây phải THẮNG BẰNG ĐỘ ĐẶC HIỆU, không dựa vào thứ tự file:
-   .topbar .shell.nav (0,3,0) > .topbar .shell (0,2,0);
-   .topbar .shell.nav .search (0,4,0) > .search (0,1,0).
-   Không cần !important và không sửa một dòng nào của v3.css.
-   ================================================================== */
+/* Header desktop cũ từng đưa ô tìm kiếm xuống hàng riêng. Khối premium phía
+   dưới thay bằng một header gọn một hàng ở màn hình rộng; giữ đoạn này làm
+   fallback cho trình duyệt/cỡ màn hình chưa vào mốc premium. */
 @media (min-width:1200px){
   .topbar .shell.nav{ flex-wrap:wrap; padding-top:12px; padding-bottom:12px; }
   .topbar .shell.nav .search{ order:3; flex:1 1 100%; }
-  /* Hàng đầu giờ mới thật sự dư chỗ -> auto hút hết phần dư, đẩy cả hai cụm
-     về sát mép phải. -14px = gap 24px của .topbar .shell trừ đi 10px hở mong
-     muốn; đặt margin-left:10px thì thành 24+10 = 34px, xa hơn. */
   .topbar .shell.nav .doi-tieng{ margin-left:auto; }
   .topbar .shell.nav .doi-tieng + .actions{ margin-left:-14px; }
 }
@@ -78,4 +44,367 @@ html[lang="ko"] .nhac-tieng{
   display:block; text-align:center;
   padding:8px 14px; font-size:.82rem; line-height:1.5;
   background:#eff6ff; color:#1e3a8a; border-bottom:1px solid #dbeafe;
+}
+
+/* ==================================================================
+   PREMIUM HOME V9 — 08/09/2026
+   Mục tiêu: giao diện bất động sản cao cấp, nhất quán, bớt cảm giác catalog.
+   Chỉ file này được nạp ở trang chủ nên selector bên dưới không lan sang site.
+   ================================================================== */
+
+/* 1) Design tokens riêng cho homepage: nền ấm, chữ gần đen, chỉ dùng xanh
+      cho hành động và xanh lá cho trạng thái. */
+body{
+  --ink:#111827;
+  --gray:#667085;
+  --gray-lt:#98A2B3;
+  --bg:#F6F6F3;
+  --surface:#FFFFFF;
+  --line:#E7E7E2;
+  --navy:#101828;
+  --navy-2:#1D2939;
+  --blue:#2563EB;
+  --green:#167A4A;
+  --green-lt:#EAF6EF;
+  --r:18px;
+  --r-sm:12px;
+  --sh:0 16px 46px -30px rgba(16,24,40,.38);
+  background:var(--bg);
+  color:var(--ink);
+}
+body ::selection{background:#111827;color:#fff}
+body :focus-visible{outline:3px solid rgba(37,99,235,.72);outline-offset:3px}
+
+/* 2) Header cao cấp, gọn một hàng ở desktop. */
+body .topbar{
+  background:rgba(255,255,255,.92)!important;
+  border-bottom:1px solid rgba(17,24,39,.08)!important;
+  box-shadow:0 1px 0 rgba(255,255,255,.8),0 10px 30px -28px rgba(16,24,40,.55);
+  -webkit-backdrop-filter:blur(18px);backdrop-filter:blur(18px);
+}
+body .brand-mark{
+  width:40px;height:40px;border-radius:12px;
+  background:#111827!important;
+  box-shadow:0 8px 18px -12px rgba(17,24,39,.65);
+}
+body .brand>span:not(.brand-mark){font-size:.96rem;letter-spacing:-.025em}
+body .brand small{font-size:.68rem;color:#8A8F98;margin-top:2px}
+body .topbar nav a{
+  color:#667085;font-weight:500;border-bottom:0!important;
+  border-radius:999px;padding:8px 10px!important;
+  transition:background .18s,color .18s!important;
+}
+body .topbar nav a:hover,
+body .topbar nav a[aria-current]{background:#F2F4F7;color:#101828!important}
+body .search{
+  height:46px;background:#F5F5F2!important;border:1px solid #E5E5DF!important;
+  border-radius:14px!important;padding-inline:14px!important;
+}
+body .search:focus-within{
+  background:#fff!important;border-color:#B8C2D0!important;
+  box-shadow:0 0 0 4px rgba(37,99,235,.07);
+}
+body .search-suggest{border-radius:16px!important;box-shadow:0 18px 50px -26px rgba(16,24,40,.38)!important}
+body .pill-btn.primary{
+  background:#111827!important;border-color:#111827!important;
+  box-shadow:0 10px 24px -16px rgba(17,24,39,.65)!important;
+}
+body .pill-btn.primary:hover{background:#273142!important;border-color:#273142!important}
+body .doi-tieng{background:#F3F4F6;border-color:#E5E7EB}
+body .doi-tieng button[aria-pressed="true"]{box-shadow:0 2px 8px rgba(16,24,40,.08)}
+
+@media (min-width:1200px){
+  body .topbar .shell.nav{
+    min-height:76px!important;flex-wrap:nowrap!important;
+    padding-top:0!important;padding-bottom:0!important;gap:14px!important;
+  }
+  body .topbar .brand{flex:0 1 226px!important;max-width:226px}
+  body .topbar .brand small{display:none}
+  body .topbar .shell.nav .search{
+    order:0!important;flex:1 1 250px!important;min-width:190px!important;
+  }
+  body .topbar .topnav{gap:4px!important;flex:none}
+  body .topbar .topnav a{font-size:.82rem!important;padding-inline:9px!important;white-space:nowrap}
+  body .topbar .shell.nav .doi-tieng{margin-left:0!important}
+  body .topbar .shell.nav .doi-tieng + .actions{margin-left:0!important}
+  body .topbar .actions .pill-btn{padding:10px 14px!important}
+}
+
+/* 3) Dải cập nhật: bỏ marquee gây cảm giác quảng cáo rẻ, chuyển thành status bar. */
+body .new-today-bar{
+  background:#F0F0EC!important;color:#475467!important;
+  border-bottom:1px solid #E6E6E0;padding:8px 14px!important;
+  text-align:center!important;font-size:.8rem!important;letter-spacing:.005em;
+}
+body .new-today-bar.show{display:block!important}
+body .new-today-bar .ntb-chay{
+  display:flex!important;width:100%;justify-content:center;
+  animation:none!important;transform:none!important;will-change:auto!important;
+}
+body .new-today-bar .ntb-doan{padding:0!important}
+body .new-today-bar .ntb-doan[aria-hidden="true"]{display:none!important}
+body .new-today-bar strong{color:#101828!important}
+body .new-today-bar .arrow{margin-left:8px;color:#667085}
+
+/* 4) Hero: typography lớn, ảnh editorial và lớp phủ điện ảnh nhưng sạch. */
+body .hero.hero-v4{
+  height:clamp(540px,60vh,650px)!important;background:#101828!important;
+}
+body .hero-v4__anh img{
+  object-position:center 54%!important;
+  filter:saturate(.86) contrast(1.04) brightness(.97);
+  transform:scale(1.002);
+}
+body .hero-v4__phu{
+  background:
+    linear-gradient(90deg,rgba(11,18,29,.91) 0%,rgba(11,18,29,.80) 34%,rgba(11,18,29,.42) 62%,rgba(11,18,29,.07) 88%,rgba(11,18,29,.02) 100%)!important;
+}
+body .hero-v4__trong{padding-bottom:62px!important}
+body .hero-v4__chu{max-width:690px!important}
+body .hero-v4 h1{
+  max-width:680px!important;font-size:clamp(38px,4.25vw,58px)!important;
+  line-height:1.06!important;letter-spacing:-.045em!important;
+  text-wrap:balance;text-shadow:0 5px 28px rgba(0,0,0,.26)!important;
+}
+body .hero-v4 p{
+  max-width:590px!important;font-size:clamp(15px,1.35vw,18px)!important;
+  line-height:1.72!important;color:rgba(255,255,255,.82)!important;
+}
+body .hero-v4 p.hero-dong-bo{
+  display:inline-flex!important;align-items:center;gap:8px;
+  width:auto;padding:7px 11px;border:1px solid rgba(255,255,255,.16);
+  border-radius:999px;background:rgba(255,255,255,.09);
+  color:rgba(255,255,255,.88)!important;font-size:.78rem!important;
+  -webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px);
+}
+body .hero-v4 .stats{
+  display:grid!important;grid-template-columns:repeat(3,minmax(110px,1fr));
+  gap:10px!important;max-width:470px;margin-top:24px!important;
+}
+body .hero-v4 .stat{
+  margin:0!important;padding:13px 14px!important;border:1px solid rgba(255,255,255,.14)!important;
+  border-radius:14px;background:rgba(255,255,255,.08);
+  -webkit-backdrop-filter:blur(9px);backdrop-filter:blur(9px);
+}
+body .hero-v4 .stat strong{font-size:1.72rem!important;letter-spacing:-.04em}
+body .hero-v4 .stat span{margin-top:5px!important;font-size:.72rem!important;color:rgba(255,255,255,.68)!important}
+
+/* 5) Card lọc nổi như thanh tìm kiếm marketplace cao cấp. */
+body .filter-card{
+  border:1px solid rgba(16,24,40,.08)!important;border-radius:22px!important;
+  background:rgba(255,255,255,.97)!important;
+  box-shadow:0 28px 70px -38px rgba(16,24,40,.48)!important;
+  -webkit-backdrop-filter:blur(16px);backdrop-filter:blur(16px);
+}
+body .filter-card .loc-pc{gap:10px!important;align-items:stretch!important}
+body .filter-card .loc-pc-o{
+  padding:0!important;border:0!important;background:#F7F7F4;
+  border-radius:14px;overflow:hidden;
+}
+body .filter-card .loc-pc-o>span{
+  display:block;padding:9px 12px 0!important;
+  color:#8A8F98!important;font-size:.66rem!important;font-weight:600;letter-spacing:.02em;
+}
+body .filter-card .loc-pc-o select{
+  width:100%;min-height:42px;border:0!important;background:transparent!important;
+  padding:3px 34px 9px 12px!important;color:#101828!important;font-weight:600!important;
+  box-shadow:none!important;
+}
+body .filter-card .loc-pc-tim{
+  background:#111827!important;border-color:#111827!important;border-radius:14px!important;
+  box-shadow:0 12px 24px -18px rgba(17,24,39,.72);
+}
+body .filter-card .loc-pc-tim:hover{background:#273142!important}
+body .filter-card.is-stuck{box-shadow:0 20px 52px -28px rgba(16,24,40,.46)!important}
+
+/* 6) Danh sách căn: bỏ cảm giác “lưới tin đăng cơ bản”. Hai card dọc lớn,
+      ảnh 16:10 đồng nhất, khoảng trắng rộng, CTA rõ và chỉ một màu hành động. */
+@media (min-width:861px){
+  body .grid,body .luoi{
+    grid-template-columns:repeat(2,minmax(0,1fr))!important;
+    gap:22px!important;
+  }
+  body .card,body .the{
+    flex-direction:column!important;min-height:0!important;height:auto!important;
+    border:1px solid rgba(16,24,40,.075)!important;border-radius:22px!important;
+    background:#fff!important;overflow:hidden!important;
+    box-shadow:0 14px 38px -30px rgba(16,24,40,.44)!important;
+  }
+  body .card:hover,body .the:hover{
+    transform:translateY(-4px)!important;
+    box-shadow:0 26px 54px -32px rgba(16,24,40,.42)!important;
+  }
+  body .media,body .the-anh{
+    width:100%!important;min-height:0!important;height:auto!important;
+    aspect-ratio:16/10!important;border-right:0!important;border-bottom:1px solid #ECECE7!important;
+  }
+}
+body .media img,body .the-anh img{
+  filter:saturate(.90) contrast(1.025) brightness(.995);
+  transition:transform .45s cubic-bezier(.2,.7,.2,1),filter .25s ease!important;
+}
+body .card:hover .media img,body .the:hover .the-anh img{
+  transform:scale(1.035)!important;filter:saturate(.98) contrast(1.02) brightness(1.01);
+}
+body .media::after,body .the-anh::after{
+  content:"";position:absolute;inset:0;z-index:1;pointer-events:none;
+  background:linear-gradient(180deg,rgba(16,24,40,.03) 52%,rgba(16,24,40,.13) 100%);
+  box-shadow:inset 0 0 0 1px rgba(255,255,255,.10);
+}
+body .badge,body .tinh-trang{
+  z-index:2!important;left:12px!important;top:12px!important;
+  background:rgba(15,118,74,.92)!important;border:1px solid rgba(255,255,255,.28);
+  border-radius:999px!important;padding:5px 10px!important;
+  box-shadow:0 7px 18px -13px rgba(16,24,40,.9);
+  -webkit-backdrop-filter:blur(8px);backdrop-filter:blur(8px);
+}
+body .badge-nt{
+  z-index:2!important;left:12px!important;top:43px!important;
+  background:rgba(255,255,255,.90)!important;color:#344054!important;
+  border:1px solid rgba(255,255,255,.55);border-radius:999px!important;
+  padding:5px 10px!important;-webkit-backdrop-filter:blur(8px);backdrop-filter:blur(8px);
+}
+body .badge-nt.thuong{background:rgba(255,255,255,.88)!important;color:#475467!important}
+body .pcount,body .dbc-huy-hieu{
+  z-index:2!important;right:12px!important;top:12px!important;
+  background:rgba(17,24,39,.70)!important;border-radius:999px!important;
+  -webkit-backdrop-filter:blur(8px);backdrop-filter:blur(8px);
+}
+body .card .body,body .the .than{padding:18px 20px 20px!important;gap:8px!important}
+body .card .price,body .the .gia{
+  color:#101828!important;font-size:1.56rem!important;letter-spacing:-.035em!important;
+}
+body .price small,body .gia small{color:#98A2B3!important;font-size:.74rem!important;margin-left:3px}
+body .card .body h3,body .the .ten{
+  color:#344054!important;font-size:.98rem!important;font-weight:600!important;
+}
+body .tower,body .vi-tri{color:#667085!important}
+body .ask,body .zalo{
+  background:#2563EB!important;border-radius:12px!important;min-height:46px!important;
+  box-shadow:0 12px 26px -19px rgba(37,99,235,.78)!important;
+}
+body .ask:hover,body .zalo:hover{background:#1D4ED8!important}
+body .ma-can{color:#98A2B3!important}
+
+/* 7) Đầu danh sách + sort: typography rõ hơn, điều khiển bớt “form mặc định”. */
+body .list-head{margin-bottom:16px!important}
+body .result-count{font-size:.9rem!important;color:#667085!important}
+body .result-count strong{font-size:1rem;color:#101828!important}
+body #sortSelect{
+  min-height:42px;background-color:#fff!important;border-color:#E4E7EC!important;
+  border-radius:12px!important;color:#475467!important;box-shadow:0 5px 16px -15px rgba(16,24,40,.5);
+}
+body .active-filter-strip .afs-chip{
+  background:#fff!important;border-color:#DFE3E8!important;color:#344054!important;
+}
+
+/* 8) Dữ liệu giá thuê: biến bảng thống kê thành dashboard sạch. */
+body .thi-truong{
+  border:1px solid rgba(16,24,40,.075)!important;border-radius:24px!important;
+  background:#fff!important;padding:30px!important;
+  box-shadow:0 18px 48px -36px rgba(16,24,40,.38)!important;
+}
+body .thi-truong-head h2{letter-spacing:-.035em!important}
+body .thi-truong-eyebrow{color:#667085!important;letter-spacing:.08em!important}
+body .thi-truong-link{font-weight:700!important;color:#2563EB!important}
+body .thi-truong-grid{gap:14px!important}
+body .thi-truong-panel{
+  background:#F8F8F5!important;border:1px solid #ECECE7!important;
+  border-radius:18px!important;padding:18px!important;
+}
+body .thi-truong-panel h3{color:#101828!important}
+body .thi-truong-table th,body .thi-truong-table td{border-color:#E8E8E2!important}
+body .thi-truong-table tbody tr:hover{background:rgba(255,255,255,.72)}
+body .thi-truong-boost{border-top-color:#ECECE7!important}
+body .thi-truong-boost a{background:#F5F5F2!important;border-radius:999px;padding:6px 10px!important}
+
+/* 9) CTA: tương phản cao, tối giản; tránh quá nhiều mảng xanh trên cùng trang. */
+body .lead-prompt,body .cta-giua{
+  background:#111827!important;border-color:#111827!important;
+  box-shadow:0 18px 44px -30px rgba(17,24,39,.64)!important;
+}
+body .lead-prompt-text strong,body .cta-giua-chu strong{color:#fff!important}
+body .lead-prompt-text span,body .cta-giua-chu span{color:rgba(255,255,255,.68)!important}
+body .lead-prompt-btn,body .cta-giua-nut{
+  background:#fff!important;color:#111827!important;border-radius:12px!important;font-weight:700!important;
+}
+body .lead-prompt-btn:hover,body .cta-giua-nut:hover{background:#F2F4F7!important}
+
+/* 10) Các khối nội dung dưới trang bớt “box trong box”, cùng một hệ bo góc. */
+body .muc-luc,body .faq-block,body .seo-block,body .kham-pha,
+body .bai,body .sec,body .pillar{
+  border-color:#E8E8E2!important;border-radius:20px!important;
+  box-shadow:0 10px 34px -32px rgba(16,24,40,.42);
+}
+body .page-btn{border-radius:11px!important;border-color:#E1E4E8!important}
+body .page-btn.active{background:#111827!important;border-color:#111827!important}
+
+/* 11) Mobile: màn đầu tiên gọn, card ảnh đẹp, target chạm >=44px. */
+@media (max-width:860px){
+  body .hero.hero-v4{height:520px!important;min-height:520px!important}
+  body .hero-v4__phu{
+    background:linear-gradient(180deg,rgba(11,18,29,.40) 0%,rgba(11,18,29,.64) 34%,rgba(11,18,29,.92) 100%)!important;
+  }
+  body .hero-v4__trong{padding-bottom:28px!important;align-self:flex-end!important}
+  body .hero-v4 h1{font-size:clamp(31px,8vw,40px)!important;line-height:1.08!important}
+  body .hero-v4 p{font-size:14.5px!important;line-height:1.6!important;max-width:94%!important}
+  body .hero-v4 .stats{max-width:none!important;width:100%;gap:7px!important;margin-top:18px!important}
+  body .hero-v4 .stat{padding:10px 9px!important;border-radius:12px!important;text-align:left}
+  body .hero-v4 .stat strong{font-size:1.38rem!important}
+  body .hero-v4 .stat span{font-size:.66rem!important}
+
+  body .grid,body .luoi{gap:16px!important}
+  body .card,body .the{
+    flex-direction:column!important;height:auto!important;min-height:0!important;
+    border:1px solid rgba(16,24,40,.075)!important;border-radius:18px!important;
+    box-shadow:0 12px 34px -28px rgba(16,24,40,.45)!important;
+  }
+  body .media,body .the-anh{
+    width:100%!important;height:auto!important;min-height:0!important;
+    aspect-ratio:16/10!important;border-right:0!important;border-bottom:1px solid #ECECE7!important;
+  }
+  body .card .body,body .the .than{padding:14px 15px 16px!important;gap:7px!important}
+  body .card .price,body .the .gia{font-size:1.36rem!important}
+  body .ask,body .zalo{min-height:46px!important;font-size:.84rem!important}
+  body .lead-prompt{border-radius:18px!important;padding:18px!important}
+  body .thi-truong{padding:18px 14px!important;border-radius:20px!important}
+  body .thi-truong-panel{padding:13px!important;border-radius:14px!important}
+}
+
+@media (max-width:640px){
+  body .topbar .shell.nav{gap:8px!important;padding-top:9px!important;padding-bottom:9px!important}
+  body .brand-mark{width:36px;height:36px;border-radius:11px}
+  body .brand>span:not(.brand-mark){font-size:.9rem!important;max-width:190px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+  body .doi-tieng{padding:2px}
+  body .doi-tieng button{min-height:32px;padding:6px 8px!important}
+  body .search{height:44px!important;border-radius:12px!important}
+  body .new-today-bar{padding:7px 10px!important;font-size:.73rem!important}
+  body .hero.hero-v4{height:500px!important;min-height:500px!important}
+  body .hero-v4__anh img{object-position:center center!important}
+  body .hero-v4 p.hero-dong-bo{font-size:.70rem!important;padding:6px 9px!important;margin-top:12px!important}
+
+  body .quick-bar{
+    background:rgba(255,255,255,.94)!important;border-bottom:1px solid rgba(16,24,40,.08)!important;
+    -webkit-backdrop-filter:blur(16px);backdrop-filter:blur(16px);
+  }
+  body .qb-btn{min-width:44px!important;min-height:44px!important;border-radius:12px!important}
+  body .chips-quick .chip{min-height:40px!important;border-radius:999px!important;background:#fff!important}
+  body .chips-quick .chip.active{background:#111827!important;border-color:#111827!important;color:#fff!important}
+  body .mobile-filter-toggle{
+    border-radius:14px!important;border-color:#E4E7EC!important;min-height:58px;
+    box-shadow:0 8px 24px -22px rgba(16,24,40,.5)!important;
+  }
+  body .filters{border-radius:24px 24px 0 0!important}
+  body .filters .chip{min-height:42px!important;border-radius:12px!important}
+  body .filters-sheet-foot{min-height:52px!important;background:#111827!important;border-radius:13px!important}
+  body .filters-sheet-foot:hover{background:#273142!important}
+  body .badge-nt{display:inline-flex!important}
+  body .badge-nt{font-size:.62rem!important;top:41px!important}
+  body .tinh-trang{font-size:.62rem!important}
+}
+
+/* 12) Motion tinh tế và tôn trọng Reduce Motion. */
+@media (prefers-reduced-motion:reduce){
+  body .card,body .the,body .media img,body .the-anh img,
+  body .topbar nav a,body .pill-btn{transition:none!important;transform:none!important}
 }
