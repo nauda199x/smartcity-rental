@@ -24,7 +24,7 @@
     "updated": "2026-09-08"
   },
   "cho-thue-1pn-plus-masteri-smart-city": {
-    "count": 11,
+    "count": 12,
     "created": "2026-08-30",
     "indexable": true,
     "loai": "1 Ngủ +",
@@ -48,15 +48,15 @@
     "updated": "2026-09-08"
   },
   "cho-thue-1pn-sakura-smart-city": {
-    "count": 4,
+    "count": 3,
     "created": "2026-09-04",
-    "indexable": true,
+    "indexable": false,
     "loai": "1 Ngủ",
     "phanKhu": "Sakura",
     "updated": "2026-09-08"
   },
   "cho-thue-2pn-canopy-smart-city": {
-    "count": 6,
+    "count": 7,
     "created": "2026-08-30",
     "indexable": true,
     "loai": "2 Ngủ",
@@ -64,7 +64,7 @@
     "updated": "2026-09-08"
   },
   "cho-thue-2pn-imperia-smart-city": {
-    "count": 6,
+    "count": 7,
     "created": "2026-08-30",
     "indexable": true,
     "loai": "2 Ngủ",
@@ -72,7 +72,7 @@
     "updated": "2026-09-08"
   },
   "cho-thue-2pn-lumiere-smart-city": {
-    "count": 21,
+    "count": 22,
     "created": "2026-08-30",
     "indexable": true,
     "loai": "2 Ngủ",
@@ -80,9 +80,9 @@
     "updated": "2026-09-08"
   },
   "cho-thue-2pn-masteri-smart-city": {
-    "count": 3,
+    "count": 4,
     "created": "2026-08-30",
-    "indexable": false,
+    "indexable": true,
     "loai": "2 Ngủ",
     "phanKhu": "Masteri",
     "updated": "2026-09-08"
@@ -120,9 +120,9 @@
     "updated": "2026-09-08"
   },
   "cho-thue-2pn-plus-miami-smart-city": {
-    "count": 4,
+    "count": 3,
     "created": "2026-08-30",
-    "indexable": true,
+    "indexable": false,
     "loai": "2 Ngủ +",
     "phanKhu": "Miami",
     "updated": "2026-09-08"
@@ -184,7 +184,7 @@
     "updated": "2026-09-08"
   },
   "cho-thue-studio-masteri-smart-city": {
-    "count": 12,
+    "count": 13,
     "created": "2026-08-30",
     "indexable": true,
     "loai": "Studio",
@@ -192,7 +192,7 @@
     "updated": "2026-09-08"
   },
   "cho-thue-studio-sakura-smart-city": {
-    "count": 5,
+    "count": 6,
     "created": "2026-08-30",
     "indexable": true,
     "loai": "Studio",
