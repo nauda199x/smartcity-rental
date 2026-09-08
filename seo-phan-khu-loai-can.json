@@ -208,9 +208,9 @@
     "updated": "2026-09-08"
   },
   "cho-thue-studio-tonkin-smart-city": {
-    "count": 4,
+    "count": 2,
     "created": "2026-09-04",
-    "indexable": true,
+    "indexable": false,
     "loai": "Studio",
     "phanKhu": "Tonkin",
     "updated": "2026-09-08"

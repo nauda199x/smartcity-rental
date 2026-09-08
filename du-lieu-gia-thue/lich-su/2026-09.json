@@ -1,13 +1,13 @@
 {
   "updated": "2026-09-08",
   "source": "data.json",
-  "active_count": 228,
+  "active_count": 225,
   "min_sample": 3,
   "overall": {
-    "n": 228,
+    "n": 225,
     "min": 6000000,
     "max": 19500000,
-    "median": 11000000.0
+    "median": 11000000
   },
   "by_type": {
     "1 Ngủ": {
@@ -41,10 +41,10 @@
       "median": 15000000.0
     },
     "Studio": {
-      "n": 40,
+      "n": 37,
       "min": 6000000,
       "max": 10500000,
-      "median": 8000000.0
+      "median": 8000000
     }
   },
   "by_zone": {
@@ -62,7 +62,7 @@
     },
     "Lumiere": {
       "n": 37,
-      "min": 9000000,
+      "min": 8500000,
       "max": 17000000,
       "median": 13500000
     },
@@ -73,10 +73,10 @@
       "median": 11000000.0
     },
     "Miami": {
-      "n": 24,
+      "n": 23,
       "min": 7000000,
       "max": 18000000,
-      "median": 11750000.0
+      "median": 12000000
     },
     "Sakura": {
       "n": 27,
@@ -91,18 +91,18 @@
       "median": 10000000.0
     },
     "Tonkin": {
-      "n": 8,
-      "min": 7500000,
+      "n": 6,
+      "min": 8000000,
       "max": 14000000,
-      "median": 10250000.0
+      "median": 12000000.0
     }
   },
   "by_interior": {
     "Full nội thất": {
-      "n": 145,
+      "n": 142,
       "min": 6500000,
       "max": 19500000,
-      "median": 11000000
+      "median": 11250000.0
     },
     "Nhà Nguyên Bản": {
       "n": 33,
@@ -366,9 +366,9 @@
       "type": "Studio",
       "interior": "Nhà Nguyên Bản",
       "n": 2,
-      "min": 9000000,
+      "min": 8500000,
       "max": 9000000,
-      "median": 9000000.0
+      "median": 8750000.0
     },
     {
       "zone": "Masteri",
@@ -567,15 +567,6 @@
       "min": 11000000,
       "max": 11000000,
       "median": 11000000
-    },
-    {
-      "zone": "Miami",
-      "type": "Studio",
-      "interior": "Full nội thất",
-      "n": 1,
-      "min": 7000000,
-      "max": 7000000,
-      "median": 7000000
     },
     {
       "zone": "Sakura",
@@ -806,8 +797,8 @@
       "zone": "Tonkin",
       "type": "Studio",
       "interior": "Full nội thất",
-      "n": 4,
-      "min": 7500000,
+      "n": 2,
+      "min": 8000000,
       "max": 8500000,
       "median": 8250000.0
     }
