@@ -1,117 +1,126 @@
 /* ==================================================================
-   ngon-ngu.css — Trang chủ: đổi ngôn ngữ + lớp giao diện premium
-   Phần đầu giữ trải nghiệm VI / EN / 한. Phần cuối là lớp tinh chỉnh riêng
-   cho homepage, không tác động các landing/category/detail pages dùng v3.css.
+   ngon-ngu.css — Trang chủ: đổi ngôn ngữ + SKY BLUE PREMIUM V10
+   Chỉ tải ở homepage. Không thay SEO, dữ liệu, URL, schema hay logic lọc.
    ================================================================== */
 
+/* =========================
+   1) NÚT ĐỔI NGÔN NGỮ
+   ========================= */
 .doi-tieng{
-  display:flex; align-items:center; gap:2px; flex:none;
-  padding:3px; border-radius:99px;
-  background:rgba(15,23,42,.06); border:1px solid rgba(15,23,42,.10);
+  display:flex;align-items:center;gap:2px;flex:none;
+  padding:3px;border-radius:999px;
+  background:#EFF8FF;border:1px solid #D9EEFF;
 }
 .doi-tieng button{
-  appearance:none; border:0; background:transparent; cursor:pointer;
-  font:inherit; font-size:.78rem; font-weight:600; line-height:1;
-  color:#475569; padding:7px 10px; border-radius:99px;
-  transition:background .15s, color .15s;
+  appearance:none;border:0;background:transparent;cursor:pointer;
+  font:inherit;font-size:.78rem;font-weight:600;line-height:1;
+  color:#52708B;padding:7px 10px;border-radius:999px;
+  transition:background .15s,color .15s,box-shadow .15s;
 }
-.doi-tieng button:hover{ color:#0f172a; }
+.doi-tieng button:hover{color:#155E91;background:rgba(255,255,255,.72)}
 .doi-tieng button[aria-pressed="true"]{
-  background:#fff; color:#0f172a;
-  box-shadow:0 1px 2px rgba(15,23,42,.14);
+  background:#fff;color:#0F6FA8;
+  box-shadow:0 4px 14px -10px rgba(14,116,170,.55);
 }
-.doi-tieng button:focus-visible{ outline:2px solid #1d4ed8; outline-offset:2px; }
+.doi-tieng button:focus-visible{outline:2px solid #38BDF8;outline-offset:2px}
 
 @media (max-width:640px){
-  .doi-tieng{ margin-left:auto; }
-  .doi-tieng button{ padding:6px 9px; font-size:.74rem; }
+  .doi-tieng{margin-left:auto}
+  .doi-tieng button{padding:6px 9px;font-size:.74rem}
 }
 
-/* Header desktop cũ từng đưa ô tìm kiếm xuống hàng riêng. Khối premium phía
-   dưới thay bằng một header gọn một hàng ở màn hình rộng; giữ đoạn này làm
-   fallback cho trình duyệt/cỡ màn hình chưa vào mốc premium. */
+/* Fallback desktop; khối premium bên dưới khóa lại thành một hàng. */
 @media (min-width:1200px){
-  .topbar .shell.nav{ flex-wrap:wrap; padding-top:12px; padding-bottom:12px; }
-  .topbar .shell.nav .search{ order:3; flex:1 1 100%; }
-  .topbar .shell.nav .doi-tieng{ margin-left:auto; }
-  .topbar .shell.nav .doi-tieng + .actions{ margin-left:-14px; }
+  .topbar .shell.nav{flex-wrap:wrap;padding-top:12px;padding-bottom:12px}
+  .topbar .shell.nav .search{order:3;flex:1 1 100%}
+  .topbar .shell.nav .doi-tieng{margin-left:auto}
+  .topbar .shell.nav .doi-tieng + .actions{margin-left:-14px}
 }
 
-/* Dải nhắc khách nước ngoài — chỉ hiện khi đang ở EN/KO */
-.nhac-tieng{ display:none; }
+.nhac-tieng{display:none}
 html[lang="en"] .nhac-tieng,
 html[lang="ko"] .nhac-tieng{
-  display:block; text-align:center;
-  padding:8px 14px; font-size:.82rem; line-height:1.5;
-  background:#eff6ff; color:#1e3a8a; border-bottom:1px solid #dbeafe;
+  display:block;text-align:center;
+  padding:8px 14px;font-size:.82rem;line-height:1.5;
+  background:#EFF9FF;color:#17658F;border-bottom:1px solid #D9EEFF;
 }
 
 /* ==================================================================
-   PREMIUM HOME V9 — 08/09/2026
-   Mục tiêu: giao diện bất động sản cao cấp, nhất quán, bớt cảm giác catalog.
-   Chỉ file này được nạp ở trang chủ nên selector bên dưới không lan sang site.
+   SKY BLUE PREMIUM HOME V10 — 08/09/2026
+   Hướng màu: trắng + xanh da trời + xanh biển nhạt, chữ xanh navy mềm.
+   Không dùng mảng đen lớn; vẫn giữ tương phản và cảm giác bất động sản cao cấp.
    ================================================================== */
 
-/* 1) Design tokens riêng cho homepage: nền ấm, chữ gần đen, chỉ dùng xanh
-      cho hành động và xanh lá cho trạng thái. */
+/* 2) Design tokens riêng cho homepage */
 body{
-  --ink:#111827;
-  --gray:#667085;
-  --gray-lt:#98A2B3;
-  --bg:#F6F6F3;
+  --ink:#16324F;
+  --gray:#5F7890;
+  --gray-lt:#8AA0B4;
+  --bg:#F4FAFF;
   --surface:#FFFFFF;
-  --line:#E7E7E2;
-  --navy:#101828;
-  --navy-2:#1D2939;
-  --blue:#2563EB;
-  --green:#167A4A;
-  --green-lt:#EAF6EF;
+  --line:#DCECF7;
+  --navy:#155E91;
+  --navy-2:#0F78B8;
+  --blue:#168FD2;
+  --zalo:#087DDA;
+  --zalo-dam:#066AB9;
+  --green:#17865C;
+  --green-lt:#E8F8F1;
   --r:18px;
   --r-sm:12px;
-  --sh:0 16px 46px -30px rgba(16,24,40,.38);
-  background:var(--bg);
+  --sh:0 18px 50px -34px rgba(20,101,151,.35);
+  background:
+    radial-gradient(circle at 12% 0%,rgba(125,211,252,.16),transparent 30%),
+    linear-gradient(180deg,#F8FCFF 0%,#F3FAFF 44%,#F8FCFF 100%);
   color:var(--ink);
 }
-body ::selection{background:#111827;color:#fff}
-body :focus-visible{outline:3px solid rgba(37,99,235,.72);outline-offset:3px}
+body ::selection{background:#BAE6FD;color:#0C4A6E}
+body :focus-visible{outline:3px solid rgba(56,189,248,.78);outline-offset:3px}
 
-/* 2) Header cao cấp, gọn một hàng ở desktop. */
+/* 3) Header trắng pha xanh, nhẹ và sạch */
 body .topbar{
-  background:rgba(255,255,255,.92)!important;
-  border-bottom:1px solid rgba(17,24,39,.08)!important;
-  box-shadow:0 1px 0 rgba(255,255,255,.8),0 10px 30px -28px rgba(16,24,40,.55);
+  background:rgba(255,255,255,.93)!important;
+  border-bottom:1px solid rgba(14,116,170,.10)!important;
+  box-shadow:0 10px 34px -32px rgba(14,116,170,.58);
   -webkit-backdrop-filter:blur(18px);backdrop-filter:blur(18px);
 }
 body .brand-mark{
   width:40px;height:40px;border-radius:12px;
-  background:#111827!important;
-  box-shadow:0 8px 18px -12px rgba(17,24,39,.65);
+  background:linear-gradient(145deg,#38BDF8 0%,#168FD2 52%,#0F78B8 100%)!important;
+  box-shadow:0 10px 22px -14px rgba(14,116,170,.72);
 }
-body .brand>span:not(.brand-mark){font-size:.96rem;letter-spacing:-.025em}
-body .brand small{font-size:.68rem;color:#8A8F98;margin-top:2px}
+body .brand>span:not(.brand-mark){font-size:.96rem;letter-spacing:-.025em;color:#16324F!important}
+body .brand small{font-size:.68rem;color:#7F99AD;margin-top:2px}
 body .topbar nav a{
-  color:#667085;font-weight:500;border-bottom:0!important;
+  color:#5A748B;font-weight:500;border-bottom:0!important;
   border-radius:999px;padding:8px 10px!important;
   transition:background .18s,color .18s!important;
 }
 body .topbar nav a:hover,
-body .topbar nav a[aria-current]{background:#F2F4F7;color:#101828!important}
+body .topbar nav a[aria-current]{background:#EAF7FF;color:#0F78B8!important}
 body .search{
-  height:46px;background:#F5F5F2!important;border:1px solid #E5E5DF!important;
+  height:46px;background:#F2FAFF!important;border:1px solid #D8ECF8!important;
   border-radius:14px!important;padding-inline:14px!important;
 }
 body .search:focus-within{
-  background:#fff!important;border-color:#B8C2D0!important;
-  box-shadow:0 0 0 4px rgba(37,99,235,.07);
+  background:#fff!important;border-color:#7DD3FC!important;
+  box-shadow:0 0 0 4px rgba(56,189,248,.12);
 }
-body .search-suggest{border-radius:16px!important;box-shadow:0 18px 50px -26px rgba(16,24,40,.38)!important}
+body .search svg{color:#6E9AB7!important}
+body .search input::placeholder{color:#8AA0B4!important}
+body .search-suggest{
+  border-color:#DCECF7!important;border-radius:16px!important;
+  box-shadow:0 22px 56px -32px rgba(14,116,170,.34)!important;
+}
 body .pill-btn.primary{
-  background:#111827!important;border-color:#111827!important;
-  box-shadow:0 10px 24px -16px rgba(17,24,39,.65)!important;
+  background:linear-gradient(135deg,#22B4EA 0%,#168FD2 52%,#087DDA 100%)!important;
+  border-color:#168FD2!important;color:#fff!important;
+  box-shadow:0 12px 28px -18px rgba(8,125,218,.72)!important;
 }
-body .pill-btn.primary:hover{background:#273142!important;border-color:#273142!important}
-body .doi-tieng{background:#F3F4F6;border-color:#E5E7EB}
-body .doi-tieng button[aria-pressed="true"]{box-shadow:0 2px 8px rgba(16,24,40,.08)}
+body .pill-btn.primary:hover{
+  background:linear-gradient(135deg,#16A6DD,#0D7FC2)!important;border-color:#0D7FC2!important;
+}
+body .doi-tieng{background:#EFF8FF;border-color:#D9EEFF}
 
 @media (min-width:1200px){
   body .topbar .shell.nav{
@@ -120,9 +129,7 @@ body .doi-tieng button[aria-pressed="true"]{box-shadow:0 2px 8px rgba(16,24,40,.
   }
   body .topbar .brand{flex:0 1 226px!important;max-width:226px}
   body .topbar .brand small{display:none}
-  body .topbar .shell.nav .search{
-    order:0!important;flex:1 1 250px!important;min-width:190px!important;
-  }
+  body .topbar .shell.nav .search{order:0!important;flex:1 1 250px!important;min-width:190px!important}
   body .topbar .topnav{gap:4px!important;flex:none}
   body .topbar .topnav a{font-size:.82rem!important;padding-inline:9px!important;white-space:nowrap}
   body .topbar .shell.nav .doi-tieng{margin-left:0!important}
@@ -130,11 +137,12 @@ body .doi-tieng button[aria-pressed="true"]{box-shadow:0 2px 8px rgba(16,24,40,.
   body .topbar .actions .pill-btn{padding:10px 14px!important}
 }
 
-/* 3) Dải cập nhật: bỏ marquee gây cảm giác quảng cáo rẻ, chuyển thành status bar. */
+/* 4) Status bar xanh rất nhạt, không còn cảm giác banner quảng cáo */
 body .new-today-bar{
-  background:#F0F0EC!important;color:#475467!important;
-  border-bottom:1px solid #E6E6E0;padding:8px 14px!important;
-  text-align:center!important;font-size:.8rem!important;letter-spacing:.005em;
+  background:linear-gradient(90deg,#EFF9FF,#F8FCFF,#EFF9FF)!important;
+  color:#4A708A!important;border-bottom:1px solid #DCECF7;
+  padding:8px 14px!important;text-align:center!important;
+  font-size:.8rem!important;letter-spacing:.005em;
 }
 body .new-today-bar.show{display:block!important}
 body .new-today-bar .ntb-chay{
@@ -143,207 +151,226 @@ body .new-today-bar .ntb-chay{
 }
 body .new-today-bar .ntb-doan{padding:0!important}
 body .new-today-bar .ntb-doan[aria-hidden="true"]{display:none!important}
-body .new-today-bar strong{color:#101828!important}
-body .new-today-bar .arrow{margin-left:8px;color:#667085}
+body .new-today-bar strong{color:#0F78B8!important}
+body .new-today-bar .arrow{margin-left:8px;color:#38A7D8}
 
-/* 4) Hero: typography lớn, ảnh editorial và lớp phủ điện ảnh nhưng sạch. */
+/* 5) Hero: xanh trời + trắng, bỏ lớp phủ đen */
 body .hero.hero-v4{
-  height:clamp(540px,60vh,650px)!important;background:#101828!important;
+  height:clamp(540px,60vh,650px)!important;
+  background:linear-gradient(135deg,#0F78B8,#38BDF8)!important;
 }
 body .hero-v4__anh img{
   object-position:center 54%!important;
-  filter:saturate(.86) contrast(1.04) brightness(.97);
+  filter:saturate(.94) contrast(1.02) brightness(1.04);
   transform:scale(1.002);
 }
 body .hero-v4__phu{
   background:
-    linear-gradient(90deg,rgba(11,18,29,.91) 0%,rgba(11,18,29,.80) 34%,rgba(11,18,29,.42) 62%,rgba(11,18,29,.07) 88%,rgba(11,18,29,.02) 100%)!important;
+    linear-gradient(90deg,
+      rgba(10,92,145,.88) 0%,
+      rgba(16,127,184,.76) 34%,
+      rgba(36,161,211,.40) 62%,
+      rgba(125,211,252,.10) 86%,
+      rgba(255,255,255,.02) 100%)!important;
 }
 body .hero-v4__trong{padding-bottom:62px!important}
 body .hero-v4__chu{max-width:690px!important}
 body .hero-v4 h1{
   max-width:680px!important;font-size:clamp(38px,4.25vw,58px)!important;
   line-height:1.06!important;letter-spacing:-.045em!important;
-  text-wrap:balance;text-shadow:0 5px 28px rgba(0,0,0,.26)!important;
+  text-wrap:balance;text-shadow:0 5px 26px rgba(7,73,117,.24)!important;
 }
 body .hero-v4 p{
   max-width:590px!important;font-size:clamp(15px,1.35vw,18px)!important;
-  line-height:1.72!important;color:rgba(255,255,255,.82)!important;
+  line-height:1.72!important;color:rgba(255,255,255,.91)!important;
 }
 body .hero-v4 p.hero-dong-bo{
-  display:inline-flex!important;align-items:center;gap:8px;
-  width:auto;padding:7px 11px;border:1px solid rgba(255,255,255,.16);
-  border-radius:999px;background:rgba(255,255,255,.09);
-  color:rgba(255,255,255,.88)!important;font-size:.78rem!important;
-  -webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px);
+  display:inline-flex!important;align-items:center;gap:8px;width:auto;
+  padding:7px 11px;border:1px solid rgba(255,255,255,.26);
+  border-radius:999px;background:rgba(255,255,255,.14);
+  color:#fff!important;font-size:.78rem!important;
+  box-shadow:0 10px 28px -24px rgba(3,105,161,.65);
+  -webkit-backdrop-filter:blur(12px);backdrop-filter:blur(12px);
 }
 body .hero-v4 .stats{
   display:grid!important;grid-template-columns:repeat(3,minmax(110px,1fr));
   gap:10px!important;max-width:470px;margin-top:24px!important;
 }
 body .hero-v4 .stat{
-  margin:0!important;padding:13px 14px!important;border:1px solid rgba(255,255,255,.14)!important;
-  border-radius:14px;background:rgba(255,255,255,.08);
-  -webkit-backdrop-filter:blur(9px);backdrop-filter:blur(9px);
+  margin:0!important;padding:13px 14px!important;
+  border:1px solid rgba(255,255,255,.28)!important;
+  border-radius:14px;background:rgba(255,255,255,.15);
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.15);
+  -webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px);
 }
-body .hero-v4 .stat strong{font-size:1.72rem!important;letter-spacing:-.04em}
-body .hero-v4 .stat span{margin-top:5px!important;font-size:.72rem!important;color:rgba(255,255,255,.68)!important}
+body .hero-v4 .stat strong{font-size:1.72rem!important;letter-spacing:-.04em;color:#fff!important}
+body .hero-v4 .stat span{margin-top:5px!important;font-size:.72rem!important;color:rgba(255,255,255,.82)!important}
 
-/* 5) Card lọc nổi như thanh tìm kiếm marketplace cao cấp. */
+/* 6) Bộ lọc trắng pha xanh như search panel */
 body .filter-card{
-  border:1px solid rgba(16,24,40,.08)!important;border-radius:22px!important;
-  background:rgba(255,255,255,.97)!important;
-  box-shadow:0 28px 70px -38px rgba(16,24,40,.48)!important;
-  -webkit-backdrop-filter:blur(16px);backdrop-filter:blur(16px);
+  border:1px solid rgba(56,189,248,.22)!important;border-radius:22px!important;
+  background:rgba(255,255,255,.975)!important;
+  box-shadow:0 30px 72px -42px rgba(14,116,170,.48)!important;
+  -webkit-backdrop-filter:blur(18px);backdrop-filter:blur(18px);
 }
 body .filter-card .loc-pc{gap:10px!important;align-items:stretch!important}
 body .filter-card .loc-pc-o{
-  padding:0!important;border:0!important;background:#F7F7F4;
+  padding:0!important;border:1px solid #E0F0FA!important;background:#F4FAFE;
   border-radius:14px;overflow:hidden;
 }
+body .filter-card .loc-pc-o:focus-within{border-color:#7DD3FC!important;background:#fff}
 body .filter-card .loc-pc-o>span{
   display:block;padding:9px 12px 0!important;
-  color:#8A8F98!important;font-size:.66rem!important;font-weight:600;letter-spacing:.02em;
+  color:#7795AA!important;font-size:.66rem!important;font-weight:600;letter-spacing:.02em;
 }
 body .filter-card .loc-pc-o select{
   width:100%;min-height:42px;border:0!important;background:transparent!important;
-  padding:3px 34px 9px 12px!important;color:#101828!important;font-weight:600!important;
+  padding:3px 34px 9px 12px!important;color:#16324F!important;font-weight:600!important;
   box-shadow:none!important;
 }
 body .filter-card .loc-pc-tim{
-  background:#111827!important;border-color:#111827!important;border-radius:14px!important;
-  box-shadow:0 12px 24px -18px rgba(17,24,39,.72);
+  background:linear-gradient(135deg,#22B4EA,#168FD2 58%,#087DDA)!important;
+  border-color:#168FD2!important;border-radius:14px!important;
+  box-shadow:0 14px 28px -19px rgba(8,125,218,.72);
 }
-body .filter-card .loc-pc-tim:hover{background:#273142!important}
-body .filter-card.is-stuck{box-shadow:0 20px 52px -28px rgba(16,24,40,.46)!important}
+body .filter-card .loc-pc-tim:hover{background:linear-gradient(135deg,#16A6DD,#0D7FC2)!important}
+body .filter-card.is-stuck{box-shadow:0 22px 56px -32px rgba(14,116,170,.42)!important}
 
-/* 6) Danh sách căn: bỏ cảm giác “lưới tin đăng cơ bản”. Hai card dọc lớn,
-      ảnh 16:10 đồng nhất, khoảng trắng rộng, CTA rõ và chỉ một màu hành động. */
+/* 7) Card căn hộ: white card, viền xanh nhạt, giá xanh biển */
 @media (min-width:861px){
-  body .grid,body .luoi{
-    grid-template-columns:repeat(2,minmax(0,1fr))!important;
-    gap:22px!important;
-  }
+  body .grid,body .luoi{grid-template-columns:repeat(2,minmax(0,1fr))!important;gap:22px!important}
   body .card,body .the{
     flex-direction:column!important;min-height:0!important;height:auto!important;
-    border:1px solid rgba(16,24,40,.075)!important;border-radius:22px!important;
+    border:1px solid #DCECF7!important;border-radius:22px!important;
     background:#fff!important;overflow:hidden!important;
-    box-shadow:0 14px 38px -30px rgba(16,24,40,.44)!important;
+    box-shadow:0 16px 42px -34px rgba(14,116,170,.42)!important;
   }
   body .card:hover,body .the:hover{
-    transform:translateY(-4px)!important;
-    box-shadow:0 26px 54px -32px rgba(16,24,40,.42)!important;
+    transform:translateY(-4px)!important;border-color:#B9E2F7!important;
+    box-shadow:0 28px 60px -36px rgba(14,116,170,.42)!important;
   }
   body .media,body .the-anh{
     width:100%!important;min-height:0!important;height:auto!important;
-    aspect-ratio:16/10!important;border-right:0!important;border-bottom:1px solid #ECECE7!important;
+    aspect-ratio:16/10!important;border-right:0!important;border-bottom:1px solid #E4F1F8!important;
   }
 }
 body .media img,body .the-anh img{
-  filter:saturate(.90) contrast(1.025) brightness(.995);
+  filter:saturate(.94) contrast(1.018) brightness(1.012);
   transition:transform .45s cubic-bezier(.2,.7,.2,1),filter .25s ease!important;
 }
 body .card:hover .media img,body .the:hover .the-anh img{
-  transform:scale(1.035)!important;filter:saturate(.98) contrast(1.02) brightness(1.01);
+  transform:scale(1.035)!important;filter:saturate(1.01) contrast(1.015) brightness(1.02);
 }
 body .media::after,body .the-anh::after{
   content:"";position:absolute;inset:0;z-index:1;pointer-events:none;
-  background:linear-gradient(180deg,rgba(16,24,40,.03) 52%,rgba(16,24,40,.13) 100%);
-  box-shadow:inset 0 0 0 1px rgba(255,255,255,.10);
+  background:linear-gradient(180deg,rgba(14,116,170,.015) 52%,rgba(7,89,133,.10) 100%);
+  box-shadow:inset 0 0 0 1px rgba(255,255,255,.12);
 }
 body .badge,body .tinh-trang{
   z-index:2!important;left:12px!important;top:12px!important;
-  background:rgba(15,118,74,.92)!important;border:1px solid rgba(255,255,255,.28);
+  background:rgba(23,134,92,.93)!important;border:1px solid rgba(255,255,255,.35);
   border-radius:999px!important;padding:5px 10px!important;
-  box-shadow:0 7px 18px -13px rgba(16,24,40,.9);
+  box-shadow:0 8px 18px -14px rgba(4,80,55,.75);
   -webkit-backdrop-filter:blur(8px);backdrop-filter:blur(8px);
 }
 body .badge-nt{
   z-index:2!important;left:12px!important;top:43px!important;
-  background:rgba(255,255,255,.90)!important;color:#344054!important;
-  border:1px solid rgba(255,255,255,.55);border-radius:999px!important;
-  padding:5px 10px!important;-webkit-backdrop-filter:blur(8px);backdrop-filter:blur(8px);
+  background:rgba(239,249,255,.93)!important;color:#17658F!important;
+  border:1px solid rgba(255,255,255,.70);border-radius:999px!important;
+  padding:5px 10px!important;-webkit-backdrop-filter:blur(9px);backdrop-filter:blur(9px);
 }
-body .badge-nt.thuong{background:rgba(255,255,255,.88)!important;color:#475467!important}
+body .badge-nt.thuong{background:rgba(255,255,255,.90)!important;color:#52708B!important}
 body .pcount,body .dbc-huy-hieu{
   z-index:2!important;right:12px!important;top:12px!important;
-  background:rgba(17,24,39,.70)!important;border-radius:999px!important;
-  -webkit-backdrop-filter:blur(8px);backdrop-filter:blur(8px);
+  background:rgba(11,96,146,.78)!important;border:1px solid rgba(255,255,255,.25);
+  border-radius:999px!important;-webkit-backdrop-filter:blur(9px);backdrop-filter:blur(9px);
 }
 body .card .body,body .the .than{padding:18px 20px 20px!important;gap:8px!important}
 body .card .price,body .the .gia{
-  color:#101828!important;font-size:1.56rem!important;letter-spacing:-.035em!important;
+  color:#0F78B8!important;font-size:1.56rem!important;letter-spacing:-.035em!important;
 }
-body .price small,body .gia small{color:#98A2B3!important;font-size:.74rem!important;margin-left:3px}
-body .card .body h3,body .the .ten{
-  color:#344054!important;font-size:.98rem!important;font-weight:600!important;
-}
-body .tower,body .vi-tri{color:#667085!important}
+body .price small,body .gia small{color:#8AA0B4!important;font-size:.74rem!important;margin-left:3px}
+body .card .body h3,body .the .ten{color:#25445F!important;font-size:.98rem!important;font-weight:600!important}
+body .tower,body .vi-tri{color:#648097!important}
 body .ask,body .zalo{
-  background:#2563EB!important;border-radius:12px!important;min-height:46px!important;
-  box-shadow:0 12px 26px -19px rgba(37,99,235,.78)!important;
+  background:linear-gradient(135deg,#24AFE4,#168FD2 58%,#087DDA)!important;
+  border-radius:12px!important;min-height:46px!important;
+  box-shadow:0 13px 28px -20px rgba(8,125,218,.78)!important;
 }
-body .ask:hover,body .zalo:hover{background:#1D4ED8!important}
-body .ma-can{color:#98A2B3!important}
+body .ask:hover,body .zalo:hover{background:linear-gradient(135deg,#16A6DD,#0D7FC2)!important}
+body .ma-can{color:#91A7B9!important}
 
-/* 7) Đầu danh sách + sort: typography rõ hơn, điều khiển bớt “form mặc định”. */
+/* 8) Đầu danh sách + sort */
 body .list-head{margin-bottom:16px!important}
-body .result-count{font-size:.9rem!important;color:#667085!important}
-body .result-count strong{font-size:1rem;color:#101828!important}
+body .result-count{font-size:.9rem!important;color:#648097!important}
+body .result-count strong{font-size:1rem;color:#155E91!important}
 body #sortSelect{
-  min-height:42px;background-color:#fff!important;border-color:#E4E7EC!important;
-  border-radius:12px!important;color:#475467!important;box-shadow:0 5px 16px -15px rgba(16,24,40,.5);
+  min-height:42px;background-color:#fff!important;border-color:#DCECF7!important;
+  border-radius:12px!important;color:#52708B!important;
+  box-shadow:0 7px 20px -18px rgba(14,116,170,.45);
 }
+body #sortSelect:hover{border-color:#7DD3FC!important;color:#0F78B8!important}
 body .active-filter-strip .afs-chip{
-  background:#fff!important;border-color:#DFE3E8!important;color:#344054!important;
+  background:#fff!important;border-color:#D6EAF6!important;color:#2E5C7A!important;
 }
 
-/* 8) Dữ liệu giá thuê: biến bảng thống kê thành dashboard sạch. */
+/* 9) Dashboard giá thuê */
 body .thi-truong{
-  border:1px solid rgba(16,24,40,.075)!important;border-radius:24px!important;
-  background:#fff!important;padding:30px!important;
-  box-shadow:0 18px 48px -36px rgba(16,24,40,.38)!important;
+  border:1px solid #DCECF7!important;border-radius:24px!important;
+  background:linear-gradient(180deg,#FFFFFF 0%,#FAFDFF 100%)!important;
+  padding:30px!important;box-shadow:0 20px 52px -40px rgba(14,116,170,.36)!important;
 }
-body .thi-truong-head h2{letter-spacing:-.035em!important}
-body .thi-truong-eyebrow{color:#667085!important;letter-spacing:.08em!important}
-body .thi-truong-link{font-weight:700!important;color:#2563EB!important}
+body .thi-truong-head h2{letter-spacing:-.035em!important;color:#16324F!important}
+body .thi-truong-eyebrow{color:#2C93C9!important;letter-spacing:.08em!important}
+body .thi-truong-link{font-weight:700!important;color:#0F8BC8!important}
 body .thi-truong-grid{gap:14px!important}
 body .thi-truong-panel{
-  background:#F8F8F5!important;border:1px solid #ECECE7!important;
+  background:#F3FAFE!important;border:1px solid #DCECF7!important;
   border-radius:18px!important;padding:18px!important;
 }
-body .thi-truong-panel h3{color:#101828!important}
-body .thi-truong-table th,body .thi-truong-table td{border-color:#E8E8E2!important}
-body .thi-truong-table tbody tr:hover{background:rgba(255,255,255,.72)}
-body .thi-truong-boost{border-top-color:#ECECE7!important}
-body .thi-truong-boost a{background:#F5F5F2!important;border-radius:999px;padding:6px 10px!important}
+body .thi-truong-panel h3{color:#155E91!important}
+body .thi-truong-table th,body .thi-truong-table td{border-color:#DDECF5!important}
+body .thi-truong-table tbody tr:hover{background:rgba(255,255,255,.86)}
+body .thi-truong-boost{border-top-color:#DCECF7!important}
+body .thi-truong-boost a{
+  background:#EDF8FE!important;color:#2F6584!important;border-radius:999px;padding:6px 10px!important;
+}
+body .thi-truong-boost a:hover{background:#DDF2FC!important;color:#0F78B8!important}
 
-/* 9) CTA: tương phản cao, tối giản; tránh quá nhiều mảng xanh trên cùng trang. */
+/* 10) CTA lớn: xanh biển sáng thay cho đen */
 body .lead-prompt,body .cta-giua{
-  background:#111827!important;border-color:#111827!important;
-  box-shadow:0 18px 44px -30px rgba(17,24,39,.64)!important;
+  background:linear-gradient(125deg,#0F78B8 0%,#1697D0 48%,#38BDF8 100%)!important;
+  border-color:#2BA8DC!important;
+  box-shadow:0 20px 48px -32px rgba(14,116,170,.60)!important;
 }
 body .lead-prompt-text strong,body .cta-giua-chu strong{color:#fff!important}
-body .lead-prompt-text span,body .cta-giua-chu span{color:rgba(255,255,255,.68)!important}
+body .lead-prompt-text span,body .cta-giua-chu span{color:rgba(255,255,255,.84)!important}
 body .lead-prompt-btn,body .cta-giua-nut{
-  background:#fff!important;color:#111827!important;border-radius:12px!important;font-weight:700!important;
+  background:#fff!important;color:#0F78B8!important;border-radius:12px!important;font-weight:700!important;
+  box-shadow:0 10px 24px -18px rgba(4,92,145,.7);
 }
-body .lead-prompt-btn:hover,body .cta-giua-nut:hover{background:#F2F4F7!important}
+body .lead-prompt-btn:hover,body .cta-giua-nut:hover{background:#EAF8FF!important;color:#086B9F!important}
 
-/* 10) Các khối nội dung dưới trang bớt “box trong box”, cùng một hệ bo góc. */
+/* 11) Khối nội dung dưới trang */
 body .muc-luc,body .faq-block,body .seo-block,body .kham-pha,
 body .bai,body .sec,body .pillar{
-  border-color:#E8E8E2!important;border-radius:20px!important;
-  box-shadow:0 10px 34px -32px rgba(16,24,40,.42);
+  background:#fff!important;border-color:#DCECF7!important;border-radius:20px!important;
+  box-shadow:0 12px 38px -34px rgba(14,116,170,.34);
 }
-body .page-btn{border-radius:11px!important;border-color:#E1E4E8!important}
-body .page-btn.active{background:#111827!important;border-color:#111827!important}
+body .muc-luc h2,body .faq-block h2,body .seo-block h2,body .kham-pha h2,
+body .bai h2,body .sec h2,body .pillar h2{color:#16324F!important}
+body .page-btn{border-radius:11px!important;border-color:#DCECF7!important;color:#52708B!important}
+body .page-btn:hover{border-color:#7DD3FC!important;color:#0F78B8!important}
+body .page-btn.active{background:#168FD2!important;border-color:#168FD2!important;color:#fff!important}
 
-/* 11) Mobile: màn đầu tiên gọn, card ảnh đẹp, target chạm >=44px. */
+/* 12) Mobile: giữ layout premium, đổi toàn bộ accent sang sky-blue */
 @media (max-width:860px){
   body .hero.hero-v4{height:520px!important;min-height:520px!important}
   body .hero-v4__phu{
-    background:linear-gradient(180deg,rgba(11,18,29,.40) 0%,rgba(11,18,29,.64) 34%,rgba(11,18,29,.92) 100%)!important;
+    background:linear-gradient(180deg,
+      rgba(56,189,248,.12) 0%,
+      rgba(18,145,200,.48) 35%,
+      rgba(9,96,150,.88) 100%)!important;
   }
   body .hero-v4__trong{padding-bottom:28px!important;align-self:flex-end!important}
   body .hero-v4 h1{font-size:clamp(31px,8vw,40px)!important;line-height:1.08!important}
@@ -356,12 +383,12 @@ body .page-btn.active{background:#111827!important;border-color:#111827!importan
   body .grid,body .luoi{gap:16px!important}
   body .card,body .the{
     flex-direction:column!important;height:auto!important;min-height:0!important;
-    border:1px solid rgba(16,24,40,.075)!important;border-radius:18px!important;
-    box-shadow:0 12px 34px -28px rgba(16,24,40,.45)!important;
+    border:1px solid #DCECF7!important;border-radius:18px!important;
+    box-shadow:0 14px 38px -32px rgba(14,116,170,.40)!important;
   }
   body .media,body .the-anh{
     width:100%!important;height:auto!important;min-height:0!important;
-    aspect-ratio:16/10!important;border-right:0!important;border-bottom:1px solid #ECECE7!important;
+    aspect-ratio:16/10!important;border-right:0!important;border-bottom:1px solid #E4F1F8!important;
   }
   body .card .body,body .the .than{padding:14px 15px 16px!important;gap:7px!important}
   body .card .price,body .the .gia{font-size:1.36rem!important}
@@ -374,7 +401,9 @@ body .page-btn.active{background:#111827!important;border-color:#111827!importan
 @media (max-width:640px){
   body .topbar .shell.nav{gap:8px!important;padding-top:9px!important;padding-bottom:9px!important}
   body .brand-mark{width:36px;height:36px;border-radius:11px}
-  body .brand>span:not(.brand-mark){font-size:.9rem!important;max-width:190px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+  body .brand>span:not(.brand-mark){
+    font-size:.9rem!important;max-width:190px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;
+  }
   body .doi-tieng{padding:2px}
   body .doi-tieng button{min-height:32px;padding:6px 8px!important}
   body .search{height:44px!important;border-radius:12px!important}
@@ -384,26 +413,38 @@ body .page-btn.active{background:#111827!important;border-color:#111827!importan
   body .hero-v4 p.hero-dong-bo{font-size:.70rem!important;padding:6px 9px!important;margin-top:12px!important}
 
   body .quick-bar{
-    background:rgba(255,255,255,.94)!important;border-bottom:1px solid rgba(16,24,40,.08)!important;
+    background:rgba(255,255,255,.95)!important;border-bottom:1px solid rgba(14,116,170,.10)!important;
+    box-shadow:0 8px 28px -26px rgba(14,116,170,.55);
     -webkit-backdrop-filter:blur(16px);backdrop-filter:blur(16px);
   }
-  body .qb-btn{min-width:44px!important;min-height:44px!important;border-radius:12px!important}
-  body .chips-quick .chip{min-height:40px!important;border-radius:999px!important;background:#fff!important}
-  body .chips-quick .chip.active{background:#111827!important;border-color:#111827!important;color:#fff!important}
-  body .mobile-filter-toggle{
-    border-radius:14px!important;border-color:#E4E7EC!important;min-height:58px;
-    box-shadow:0 8px 24px -22px rgba(16,24,40,.5)!important;
+  body .qb-btn{min-width:44px!important;min-height:44px!important;border-radius:12px!important;color:#168FD2!important}
+  body .chips-quick .chip{
+    min-height:40px!important;border-radius:999px!important;background:#fff!important;border-color:#DCECF7!important;
   }
-  body .filters{border-radius:24px 24px 0 0!important}
+  body .chips-quick .chip.active{
+    background:#168FD2!important;border-color:#168FD2!important;color:#fff!important;
+  }
+  body .mobile-filter-toggle{
+    border-radius:14px!important;border-color:#DCECF7!important;min-height:58px;background:#fff!important;
+    box-shadow:0 10px 28px -24px rgba(14,116,170,.42)!important;
+  }
+  body .mft-icon{background:#EAF8FF!important;color:#168FD2!important}
+  body .mft-count{background:#168FD2!important}
+  body .filters{border-radius:24px 24px 0 0!important;border-color:#DCECF7!important}
   body .filters .chip{min-height:42px!important;border-radius:12px!important}
-  body .filters-sheet-foot{min-height:52px!important;background:#111827!important;border-radius:13px!important}
-  body .filters-sheet-foot:hover{background:#273142!important}
-  body .badge-nt{display:inline-flex!important}
-  body .badge-nt{font-size:.62rem!important;top:41px!important}
+  body .filters .chip.active{
+    background:#EAF8FF!important;border-color:#67C7ED!important;color:#0F78B8!important;
+    box-shadow:inset 0 0 0 1px #67C7ED!important;
+  }
+  body .filters-sheet-foot{
+    min-height:52px!important;background:linear-gradient(135deg,#22B4EA,#168FD2)!important;border-radius:13px!important;
+  }
+  body .filters-sheet-foot:hover{background:linear-gradient(135deg,#16A6DD,#0D7FC2)!important}
+  body .badge-nt{display:inline-flex!important;font-size:.62rem!important;top:41px!important}
   body .tinh-trang{font-size:.62rem!important}
 }
 
-/* 12) Motion tinh tế và tôn trọng Reduce Motion. */
+/* 13) Motion tinh tế và tôn trọng Reduce Motion */
 @media (prefers-reduced-motion:reduce){
   body .card,body .the,body .media img,body .the-anh img,
   body .topbar nav a,body .pill-btn{transition:none!important;transform:none!important}
