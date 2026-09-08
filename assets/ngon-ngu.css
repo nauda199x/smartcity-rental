@@ -480,3 +480,274 @@ body .page-btn.active{background:#167fb3!important;border-color:#167fb3!importan
   body .card,body .the,body .media img,body .the-anh img,
   body .topbar nav a,body .pill-btn{transition:none!important;transform:none!important}
 }
+
+/* =========================================================
+   SOFT CHARCOAL OVERRIDE — 08/09/2026
+   Quay lại premium đen/xám nhưng giảm độ gắt so với bản V9.
+   Append-only để rollback nhanh và không đụng logic cũ.
+   ========================================================= */
+body{
+  --ink:#1B2430;
+  --gray:#667085;
+  --gray-lt:#98A2B3;
+  --bg:#F6F7F9;
+  --surface:#FFFFFF;
+  --line:#E7EBF0;
+  --navy:#1F2937;
+  --navy-2:#2B3645;
+  --blue:#2563EB;
+  --zalo:#2563EB;
+  --zalo-dam:#1D4ED8;
+  --green:#167A4A;
+  --green-lt:#EAF6EF;
+  --sh:0 16px 46px -30px rgba(16,24,40,.22);
+  background:#F6F7F9!important;
+  color:var(--ink)!important;
+}
+body ::selection{background:#DDE3EA;color:#1B2430}
+body :focus-visible{outline:3px solid rgba(37,99,235,.45);outline-offset:3px}
+
+body .doi-tieng{background:#F3F4F6!important;border-color:#E5E7EB!important}
+body .doi-tieng button{color:#667085!important}
+body .doi-tieng button:hover{color:#1F2937!important;background:#fff!important}
+body .doi-tieng button[aria-pressed="true"]{background:#fff!important;color:#1F2937!important}
+
+/* Header */
+body .topbar{
+  background:rgba(255,255,255,.95)!important;
+  border-bottom:1px solid rgba(16,24,40,.08)!important;
+  box-shadow:0 8px 24px -22px rgba(16,24,40,.20)!important;
+}
+body .brand-mark{
+  background:linear-gradient(145deg,#273241 0%,#1F2937 100%)!important;
+  box-shadow:0 8px 18px -12px rgba(17,24,39,.35)!important;
+}
+body .brand>span:not(.brand-mark){color:#1B2430!important}
+body .brand small{color:#8A94A3!important}
+body .topbar nav a{color:#667085!important}
+body .topbar nav a:hover,
+body .topbar nav a[aria-current]{background:#F2F4F7!important;color:#1F2937!important}
+
+/* Search */
+body .search{background:#F7F8FA!important;border-color:#E4E7EC!important}
+body .search:focus-within{
+  background:#fff!important;border-color:#B8C2D0!important;
+  box-shadow:0 0 0 4px rgba(37,99,235,.06)!important;
+}
+body .search svg{color:#98A2B3!important}
+body .search input::placeholder{color:#98A2B3!important}
+body .search-suggest{
+  border-color:#E4E7EC!important;
+  box-shadow:0 18px 50px -26px rgba(16,24,40,.20)!important;
+}
+
+/* Primary action */
+body .pill-btn.primary,
+body .filter-card .loc-pc-tim,
+body .ask,body .zalo,
+body .filters-sheet-foot{
+  background:#1F2937!important;
+  border-color:#1F2937!important;
+  color:#fff!important;
+  box-shadow:0 10px 24px -16px rgba(17,24,39,.34)!important;
+}
+body .pill-btn.primary:hover,
+body .filter-card .loc-pc-tim:hover,
+body .ask:hover,body .zalo:hover,
+body .filters-sheet-foot:hover{
+  background:#2B3645!important;border-color:#2B3645!important;
+}
+
+/* Status */
+body .new-today-bar{
+  background:#EFF2F5!important;color:#667085!important;
+  border-bottom-color:#E6EAF0!important;
+}
+body .new-today-bar strong{color:#1F2937!important}
+body .new-today-bar .arrow{color:#667085!important}
+
+/* Hero — charcoal mềm, ảnh vẫn tự nhiên */
+body .hero.hero-v4{
+  height:clamp(500px,58vh,620px)!important;
+  background:#1F2937!important;
+}
+body .hero-v4__anh img{
+  filter:saturate(.91) contrast(1.025) brightness(.99)!important;
+}
+body .hero-v4__phu{
+  background:linear-gradient(90deg,
+    rgba(24,32,43,.82) 0%,
+    rgba(24,32,43,.72) 34%,
+    rgba(24,32,43,.38) 62%,
+    rgba(24,32,43,.10) 88%,
+    rgba(24,32,43,.02) 100%)!important;
+}
+body .hero-v4 h1{color:#fff!important;text-shadow:0 5px 22px rgba(0,0,0,.18)!important}
+body .hero-v4 p{color:rgba(255,255,255,.84)!important}
+body .hero-v4 p.hero-dong-bo{
+  background:rgba(255,255,255,.10)!important;
+  border-color:rgba(255,255,255,.16)!important;
+  color:rgba(255,255,255,.90)!important;
+}
+body .hero-v4 .stat{
+  background:rgba(255,255,255,.09)!important;
+  border-color:rgba(255,255,255,.14)!important;
+}
+body .hero-v4 .stat strong{color:#fff!important}
+body .hero-v4 .stat span{color:rgba(255,255,255,.70)!important}
+
+/* Filter card */
+body .filter-card{
+  border-color:rgba(16,24,40,.08)!important;
+  background:rgba(255,255,255,.98)!important;
+  box-shadow:0 24px 60px -40px rgba(16,24,40,.24)!important;
+}
+body .filter-card .loc-pc-o{
+  background:#F7F8FA!important;
+  border-color:transparent!important;
+}
+body .filter-card .loc-pc-o:focus-within{
+  background:#fff!important;border-color:#D0D5DD!important;
+}
+body .filter-card .loc-pc-o>span{color:#98A2B3!important}
+body .filter-card .loc-pc-o select{color:#1B2430!important}
+
+/* Listing cards */
+body .card,body .the{
+  border-color:rgba(16,24,40,.07)!important;
+  background:#fff!important;
+  box-shadow:0 14px 38px -30px rgba(16,24,40,.18)!important;
+}
+body .card:hover,body .the:hover{
+  border-color:#D7DCE3!important;
+  box-shadow:0 24px 48px -32px rgba(16,24,40,.20)!important;
+}
+body .media,body .the-anh{border-bottom-color:#ECEFF3!important}
+body .media img,body .the-anh img{
+  filter:saturate(.94) contrast(1.015) brightness(1.005)!important;
+}
+body .media::after,body .the-anh::after{
+  background:linear-gradient(180deg,rgba(16,24,40,.02) 52%,rgba(16,24,40,.10) 100%)!important;
+}
+body .card .price,body .the .gia{color:#1F2937!important}
+body .price small,body .gia small{color:#98A2B3!important}
+body .card .body h3,body .the .ten{color:#344054!important}
+body .tower,body .vi-tri{color:#667085!important}
+body .ma-can{color:#98A2B3!important}
+body .badge,body .tinh-trang{background:rgba(22,122,74,.92)!important}
+body .badge-nt{background:rgba(255,255,255,.90)!important;color:#475467!important}
+body .badge-nt.thuong{background:rgba(255,255,255,.90)!important;color:#667085!important}
+body .pcount,body .dbc-huy-hieu{background:rgba(31,41,55,.72)!important}
+
+/* Market + content */
+body .result-count{color:#667085!important}
+body .result-count strong{color:#1F2937!important}
+body #sortSelect{border-color:#E4E7EC!important;color:#667085!important}
+body .active-filter-strip .afs-chip{border-color:#E1E6EC!important;color:#475467!important}
+body .thi-truong{
+  border-color:rgba(16,24,40,.07)!important;
+  background:#fff!important;
+  box-shadow:0 18px 48px -36px rgba(16,24,40,.18)!important;
+}
+body .thi-truong-head h2{color:#1B2430!important}
+body .thi-truong-eyebrow{color:#667085!important}
+body .thi-truong-link{color:#2563EB!important}
+body .thi-truong-panel{background:#F8F9FB!important;border-color:#ECEFF3!important}
+body .thi-truong-panel h3{color:#1F2937!important}
+body .thi-truong-table th,body .thi-truong-table td{border-color:#EAECF0!important}
+body .thi-truong-boost{border-top-color:#ECEFF3!important}
+body .thi-truong-boost a{background:#F4F5F7!important;color:#475467!important}
+
+/* CTA giữa trang */
+body .lead-prompt,body .cta-giua{
+  background:#1F2937!important;border-color:#1F2937!important;
+  box-shadow:0 18px 44px -30px rgba(17,24,39,.28)!important;
+}
+body .lead-prompt-text strong,body .cta-giua-chu strong{color:#fff!important}
+body .lead-prompt-text span,body .cta-giua-chu span{color:rgba(255,255,255,.74)!important}
+body .lead-prompt-btn,body .cta-giua-nut{
+  background:#fff!important;color:#1F2937!important;
+}
+body .lead-prompt-btn:hover,body .cta-giua-nut:hover{background:#F2F4F7!important}
+body .muc-luc,body .faq-block,body .seo-block,body .kham-pha,
+body .bai,body .sec,body .pillar{
+  border-color:#E7EBF0!important;
+  box-shadow:0 10px 30px -30px rgba(16,24,40,.18)!important;
+}
+body .page-btn{border-color:#E1E4EA!important;color:#667085!important}
+body .page-btn.active{background:#1F2937!important;border-color:#1F2937!important;color:#fff!important}
+
+@media (max-width:860px){
+  body .hero.hero-v4{height:430px!important;min-height:430px!important}
+  body .hero-v4__phu{
+    background:linear-gradient(180deg,
+      rgba(24,32,43,.18) 0%,
+      rgba(24,32,43,.34) 34%,
+      rgba(24,32,43,.82) 100%)!important;
+  }
+  body .hero-v4 h1{
+    font-size:clamp(29px,7.5vw,38px)!important;
+    line-height:1.08!important;
+  }
+  body .hero-v4 p{font-size:14px!important;line-height:1.55!important}
+  body .hero-v4 .stat{background:rgba(255,255,255,.12)!important}
+}
+
+@media (max-width:640px){
+  body{background:#F6F7F9!important}
+  body .quick-bar{
+    background:rgba(255,255,255,.97)!important;
+    border-bottom-color:#E6EAF0!important;
+    box-shadow:0 8px 20px -20px rgba(16,24,40,.20)!important;
+  }
+  body .qb-btn{
+    border-color:#E4E7EC!important;background:#fff!important;color:#1F2937!important;
+  }
+  body .qb-filter{
+    background:#1F2937!important;border-color:#1F2937!important;color:#fff!important;
+  }
+  body .qb-filter.dang-loc::after{
+    background:#2B3645!important;color:#fff!important;border-color:#fff!important;
+  }
+  body .chips-quick .chip{
+    background:#fff!important;border-color:#DCE3EA!important;color:#667085!important;
+  }
+  body .chips-quick .chip.active{
+    background:#EEF2F6!important;border-color:#CBD5E1!important;color:#1F2937!important;
+    box-shadow:inset 0 0 0 1px rgba(31,41,55,.04)!important;
+  }
+  body .chips-quick .chip.active>small{
+    background:#fff!important;color:#1F2937!important;border-color:#D0D5DD!important;
+  }
+
+  body .mobile-filter-toggle{
+    background:#fff!important;border-color:#E4E7EC!important;
+    box-shadow:0 10px 24px -22px rgba(16,24,40,.18)!important;
+    color:#1B2430!important;
+  }
+  body .mobile-filter-toggle:hover{background:#fff!important;border-color:#D0D5DD!important}
+  body .mobile-filter-toggle .mft-icon{
+    background:#F2F4F7!important;color:#1F2937!important;border-color:#E4E7EC!important;
+  }
+  body .mobile-filter-toggle .mft-text b{color:#1F2937!important}
+  body .mobile-filter-toggle .mft-text small{color:#98A2B3!important}
+  body .mobile-filter-toggle .mft-cta{
+    background:#1F2937!important;color:#fff!important;
+  }
+  body .mobile-filter-toggle .mft-count{background:#2B3645!important;color:#fff!important}
+
+  body .filters{border-color:#E4E7EC!important;background:#fff!important}
+  body .filters .chip.active{
+    background:#EEF2F6!important;border-color:#CBD5E1!important;color:#1F2937!important;
+    box-shadow:inset 0 0 0 1px #CBD5E1!important;
+  }
+  body .filters .chip.active>small{background:#1F2937!important;color:#fff!important}
+
+  body .tabbar{
+    background:rgba(255,255,255,.98)!important;
+    border-top-color:#E6EAF0!important;
+    box-shadow:0 -6px 20px -20px rgba(16,24,40,.22)!important;
+  }
+  body .tabbar a,body .tabbar button{color:#98A2B3!important}
+  body .tabbar .dang-o-day{color:#1F2937!important}
+}
