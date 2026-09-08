@@ -37,3 +37,463 @@ body .badge-nt{
     padding:5px 10px!important;
   }
 }
+
+/* ==================================================================
+   APPLE-INSPIRED MINIMAL HIERARCHY V14 — 09/09/2026
+   Học nguyên tắc: visual silence, typography-first, 1 primary action/section,
+   nhiều khoảng thở, ít badge/viền/shadow. Không sao chép Apple UI.
+   Giữ palette Modern Slate & Emerald và toàn bộ logic hiện có.
+   ================================================================== */
+
+/* 1) Nền + chữ: giảm noise, tăng cảm giác sạch */
+body{
+  background:#F5F5F7!important;
+  letter-spacing:-.006em;
+}
+body .shell,body .khung,body .wrap{
+  padding-left:clamp(18px,4vw,24px)!important;
+  padding-right:clamp(18px,4vw,24px)!important;
+}
+body h1,body h2,body h3{
+  letter-spacing:-.035em!important;
+}
+
+/* 2) Header: nhẹ như một lớp kính, không tranh spotlight */
+body .topbar{
+  background:rgba(250,250,252,.90)!important;
+  border-bottom:1px solid rgba(15,23,42,.06)!important;
+  box-shadow:none!important;
+  -webkit-backdrop-filter:blur(22px) saturate(1.15)!important;
+  backdrop-filter:blur(22px) saturate(1.15)!important;
+}
+body .brand-mark{
+  box-shadow:none!important;
+  border-radius:11px!important;
+}
+body .search{
+  background:#F2F3F5!important;
+  border-color:transparent!important;
+  box-shadow:none!important;
+}
+body .search:focus-within{
+  background:#fff!important;
+  border-color:#D6DAE1!important;
+  box-shadow:0 0 0 4px rgba(37,99,235,.06)!important;
+}
+body .doi-tieng{
+  background:#F2F3F5!important;
+  border-color:transparent!important;
+}
+
+/* 3) Quick filter: ít mảng màu, active rõ nhưng không ồn */
+body .quick-bar{
+  background:rgba(250,250,252,.94)!important;
+  border-bottom:1px solid rgba(15,23,42,.06)!important;
+  box-shadow:none!important;
+  -webkit-backdrop-filter:blur(20px) saturate(1.12)!important;
+  backdrop-filter:blur(20px) saturate(1.12)!important;
+}
+body .chips-quick .chip{
+  background:#fff!important;
+  border-color:#E4E6EA!important;
+  color:#667085!important;
+  box-shadow:none!important;
+  font-weight:500!important;
+}
+body .chips-quick .chip.active{
+  background:#F0F4F8!important;
+  border-color:#D5DBE4!important;
+  color:#0F172A!important;
+  box-shadow:none!important;
+  font-weight:700!important;
+}
+body .chips-quick .chip.active>small{
+  background:#fff!important;
+  color:#2563EB!important;
+  border-color:#E0E7FF!important;
+}
+body .qb-btn{
+  background:#fff!important;
+  border-color:#E4E6EA!important;
+  box-shadow:none!important;
+}
+body .qb-filter{
+  background:#0F172A!important;
+  border-color:#0F172A!important;
+}
+
+/* 4) Hero: một câu chuyện, ít hiệu ứng hơn, chữ dẫn dắt */
+body .hero.hero-v4{
+  height:clamp(490px,56vh,600px)!important;
+}
+body .hero-v4__phu{
+  background:linear-gradient(90deg,
+    rgba(15,23,42,.78) 0%,
+    rgba(15,23,42,.66) 34%,
+    rgba(15,23,42,.32) 66%,
+    rgba(15,23,42,.05) 100%)!important;
+}
+body .hero-v4__trong{padding-bottom:46px!important}
+body .hero-v4 h1{
+  max-width:650px!important;
+  font-size:clamp(38px,4.2vw,58px)!important;
+  line-height:1.04!important;
+  letter-spacing:-.052em!important;
+  text-shadow:0 3px 16px rgba(0,0,0,.14)!important;
+}
+body .hero-v4 p{
+  max-width:560px!important;
+  font-size:clamp(15px,1.2vw,17px)!important;
+  line-height:1.62!important;
+  color:rgba(255,255,255,.82)!important;
+}
+body .hero-v4 .stats{
+  gap:8px!important;
+  max-width:430px!important;
+  margin-top:20px!important;
+}
+body .hero-v4 .stat{
+  background:rgba(255,255,255,.075)!important;
+  border-color:rgba(255,255,255,.12)!important;
+  box-shadow:none!important;
+  border-radius:13px!important;
+}
+body .hero-v4 .stat strong{font-size:1.55rem!important}
+body .hero-v4 .stat span{color:rgba(255,255,255,.66)!important}
+
+/* 5) CTA trợ giúp: bỏ khối đen nặng trước danh sách, chuyển thành editorial card */
+body .lead-prompt{
+  background:#fff!important;
+  color:#0F172A!important;
+  border:0!important;
+  border-radius:24px!important;
+  padding:24px 26px!important;
+  margin:0 0 32px!important;
+  box-shadow:none!important;
+}
+body .lead-prompt-text{gap:6px!important;max-width:680px}
+body .lead-prompt-text strong{
+  color:#0F172A!important;
+  font-size:1.15rem!important;
+  letter-spacing:-.025em!important;
+}
+body .lead-prompt-text span{
+  color:#667085!important;
+  font-size:.9rem!important;
+  line-height:1.6!important;
+}
+body .lead-prompt-btn{
+  background:#0F172A!important;
+  color:#fff!important;
+  border-radius:999px!important;
+  min-height:46px!important;
+  padding:0 20px!important;
+  box-shadow:none!important;
+}
+body .lead-prompt-btn:hover{background:#1E293B!important}
+
+/* 6) Card: ảnh là nhân vật chính, thân card có nhịp chữ rõ */
+body .card,body .the{
+  border:1px solid rgba(15,23,42,.065)!important;
+  border-radius:24px!important;
+  box-shadow:none!important;
+  background:#fff!important;
+  overflow:hidden!important;
+}
+body .card:hover,body .the:hover{
+  transform:translateY(-2px)!important;
+  border-color:rgba(15,23,42,.10)!important;
+  box-shadow:0 18px 42px -34px rgba(15,23,42,.22)!important;
+}
+body .media,body .the-anh{
+  border-bottom:0!important;
+  background:#EEF0F3!important;
+}
+body .media img,body .the-anh img{
+  filter:saturate(.98) contrast(1.008) brightness(1.008)!important;
+}
+body .media::after,body .the-anh::after{
+  background:linear-gradient(180deg,rgba(15,23,42,0) 64%,rgba(15,23,42,.055) 100%)!important;
+}
+
+/* Chỉ giữ 2 lớp thông tin trên ảnh: tình trạng + số ảnh. Nội thất đã có chip ở thân card. */
+body .badge-nt{display:none!important}
+body .badge,body .tinh-trang{
+  left:14px!important;
+  top:14px!important;
+  background:rgba(236,253,245,.96)!important;
+  color:#065F46!important;
+  border:1px solid rgba(167,243,208,.92)!important;
+  box-shadow:0 8px 22px -18px rgba(6,95,70,.44)!important;
+}
+body .pcount,body .dbc-huy-hieu{
+  top:14px!important;
+  right:14px!important;
+  background:rgba(15,23,42,.72)!important;
+  border:1px solid rgba(255,255,255,.12)!important;
+  border-radius:999px!important;
+  padding:6px 10px!important;
+  -webkit-backdrop-filter:blur(10px)!important;
+  backdrop-filter:blur(10px)!important;
+}
+
+body .card .body,body .the .than{
+  padding:22px 22px 22px!important;
+  gap:9px!important;
+}
+body .card .price,body .the .gia{
+  color:#0F172A!important;
+  font-size:1.62rem!important;
+  line-height:1.08!important;
+  letter-spacing:-.045em!important;
+}
+body .price small,body .gia small{
+  color:#98A2B3!important;
+  font-size:.78rem!important;
+  font-weight:400!important;
+}
+body .card .body h3,body .the .ten{
+  color:#344054!important;
+  font-size:1rem!important;
+  line-height:1.38!important;
+  font-weight:600!important;
+}
+body .tower,body .vi-tri{
+  color:#667085!important;
+  font-size:.84rem!important;
+}
+body .card-chips{
+  gap:8px!important;
+  margin-top:2px!important;
+}
+body .cc-nt{
+  background:rgba(5,150,105,.10)!important;
+  color:#047857!important;
+  border:0!important;
+  border-radius:8px!important;
+  padding:5px 9px!important;
+  font-size:.72rem!important;
+  font-weight:600!important;
+}
+body .cc-nt.thuong{
+  background:#F2F4F7!important;
+  color:#667085!important;
+}
+body .cc-ma{
+  color:#98A2B3!important;
+  font-size:.71rem!important;
+  font-weight:400!important;
+}
+
+/* 7) Hai loại button duy nhất trong card: secondary outline + primary Royal Blue */
+body .card-foot.co-chi-tiet{
+  grid-template-columns:minmax(0,.95fr) minmax(0,1.05fr)!important;
+  gap:10px!important;
+  padding-top:6px!important;
+}
+body .detail-card-link{
+  min-height:48px!important;
+  border:1px solid #D0D5DD!important;
+  background:#fff!important;
+  color:#0F172A!important;
+  border-radius:14px!important;
+  font-size:.84rem!important;
+  font-weight:600!important;
+  box-shadow:none!important;
+}
+body .detail-card-link:hover{
+  border-color:#98A2B3!important;
+  background:#F7F7F8!important;
+}
+body .card-foot.co-chi-tiet .ask,
+body .ask,body .zalo{
+  min-height:48px!important;
+  border-radius:14px!important;
+  background:#2563EB!important;
+  border-color:#2563EB!important;
+  color:#fff!important;
+  font-size:.86rem!important;
+  font-weight:600!important;
+  box-shadow:none!important;
+}
+body .ask:hover,body .zalo:hover{
+  background:#1D4ED8!important;
+  border-color:#1D4ED8!important;
+}
+
+/* 8) Bảng giá/content: bỏ cảm giác dashboard nặng */
+body .thi-truong,
+body .muc-luc,body .faq-block,body .seo-block,body .kham-pha,
+body .bai,body .sec,body .pillar{
+  border:0!important;
+  box-shadow:none!important;
+  border-radius:24px!important;
+  background:#fff!important;
+}
+body .thi-truong{padding:32px!important}
+body .thi-truong-panel{
+  background:#F5F5F7!important;
+  border:0!important;
+  border-radius:18px!important;
+}
+body .thi-truong-head h2,
+body .muc-luc h2,body .faq-block h2,body .seo-block h2,body .kham-pha h2{
+  letter-spacing:-.04em!important;
+}
+body section{margin-bottom:42px!important}
+
+/* 9) Floating chat: vẫn thấy rõ nhưng không đè UI */
+body .floating-zalo,body .zalo-noi{
+  width:58px!important;
+  height:58px!important;
+  right:18px!important;
+  background:#2563EB!important;
+  box-shadow:0 12px 30px -18px rgba(37,99,235,.48)!important;
+}
+
+/* =========================
+   MOBILE — ưu tiên visual silence + scan nhanh
+   ========================= */
+@media (max-width:640px){
+  body .topbar .shell.nav{
+    padding-top:10px!important;
+    padding-bottom:10px!important;
+  }
+
+  /* Hero gọn để căn đầu tiên lên sớm hơn */
+  body .hero.hero-v4{
+    height:405px!important;
+    min-height:405px!important;
+  }
+  body .hero-v4__phu{
+    background:linear-gradient(180deg,
+      rgba(15,23,42,.10) 0%,
+      rgba(15,23,42,.26) 38%,
+      rgba(15,23,42,.78) 100%)!important;
+  }
+  body .hero-v4__trong{padding-bottom:22px!important}
+  body .hero-v4 h1{
+    max-width:96%!important;
+    font-size:clamp(30px,8.1vw,36px)!important;
+    line-height:1.04!important;
+    letter-spacing:-.052em!important;
+  }
+  body .hero-v4 p{
+    max-width:94%!important;
+    font-size:13.5px!important;
+    line-height:1.5!important;
+    -webkit-line-clamp:2!important;
+  }
+  body .hero-v4 .stats{
+    margin-top:14px!important;
+    gap:6px!important;
+  }
+  body .hero-v4 .stat{
+    padding:9px 10px!important;
+    border-radius:11px!important;
+  }
+  body .hero-v4 .stat strong{font-size:1.24rem!important}
+  body .hero-v4 .stat span{font-size:.64rem!important}
+
+  /* Lead prompt thành một card nhẹ, không còn mảng slate khổng lồ */
+  body .lead-prompt{
+    padding:20px!important;
+    margin:8px 0 24px!important;
+    border-radius:22px!important;
+    gap:16px!important;
+  }
+  body .lead-prompt-text strong{font-size:1.04rem!important}
+  body .lead-prompt-text span{font-size:.82rem!important;line-height:1.55!important}
+  body .lead-prompt-btn{
+    width:100%!important;
+    justify-content:center!important;
+    min-height:48px!important;
+    border-radius:14px!important;
+    background:#0F172A!important;
+  }
+
+  /* Filter trigger: trắng, gọn; CTA xanh là điểm hành động */
+  body .mobile-filter-toggle{
+    min-height:62px!important;
+    padding:9px 10px!important;
+    margin:12px 0 14px!important;
+    border:0!important;
+    border-radius:18px!important;
+    box-shadow:none!important;
+  }
+  body .mobile-filter-toggle .mft-icon{
+    width:40px!important;height:40px!important;
+    border:0!important;
+    background:#F2F4F7!important;
+  }
+  body .mobile-filter-toggle .mft-text b{font-size:.89rem!important}
+  body .mobile-filter-toggle .mft-text small{font-size:.69rem!important}
+  body .mobile-filter-toggle .mft-cta{
+    min-height:36px!important;
+    padding:0 12px!important;
+    border-radius:999px!important;
+    background:#2563EB!important;
+  }
+
+  /* Card mobile: nhiều khoảng thở, chỉ 2 badge trên ảnh */
+  body .grid,body .luoi{gap:22px!important}
+  body .card,body .the{border-radius:22px!important}
+  body .card .body,body .the .than{
+    padding:20px 20px 21px!important;
+    gap:9px!important;
+  }
+  body .card .price,body .the .gia{
+    font-size:1.58rem!important;
+  }
+  body .card .body h3,body .the .ten{
+    font-size:.98rem!important;
+  }
+  body .badge,body .tinh-trang{
+    left:12px!important;top:12px!important;
+    font-size:.72rem!important;
+    padding:6px 10px!important;
+  }
+  body .pcount,body .dbc-huy-hieu{
+    top:12px!important;right:12px!important;
+    font-size:.68rem!important;
+    padding:6px 9px!important;
+  }
+  body .detail-card-link,
+  body .card-foot.co-chi-tiet .ask{
+    min-height:48px!important;
+    padding:10px 8px!important;
+    font-size:.80rem!important;
+  }
+
+  /* Tab bar gần như biến mất về thị giác, chỉ giữ chức năng */
+  body .tabbar{
+    background:rgba(250,250,252,.96)!important;
+    border-top:1px solid rgba(15,23,42,.06)!important;
+    box-shadow:none!important;
+    -webkit-backdrop-filter:blur(20px)!important;
+    backdrop-filter:blur(20px)!important;
+  }
+  body .tabbar a,body .tabbar button{
+    color:#98A2B3!important;
+    min-height:58px!important;
+  }
+  body .tabbar .dang-o-day{color:#0F172A!important}
+
+  /* Chat nằm trên tab bar, không che card/nút */
+  body .floating-zalo,body .zalo-noi{
+    width:54px!important;
+    height:54px!important;
+    right:16px!important;
+    bottom:calc(76px + env(safe-area-inset-bottom))!important;
+  }
+
+  body .thi-truong{padding:22px 18px!important}
+  body section{margin-bottom:34px!important}
+}
+
+@media (max-width:390px){
+  body .card .body,body .the .than{padding:18px!important}
+  body .card-foot.co-chi-tiet{gap:8px!important}
+  body .detail-card-link,
+  body .card-foot.co-chi-tiet .ask{font-size:.76rem!important}
+}
