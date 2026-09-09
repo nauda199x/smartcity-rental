@@ -647,6 +647,14 @@
   "phan_khu": "Sapphire",
   "toa": "S106"
  },
+ "cho-thue-can-ho-1-ngu-sapphire-43m2-ct-1n-547": {
+  "dien_tich": 43,
+  "loai": "1 Ngủ +",
+  "ma": "CT.1N+.547",
+  "ngay_xuat_hien": "2026-09-09",
+  "phan_khu": "Sapphire",
+  "toa": "S402"
+ },
  "cho-thue-can-ho-1-ngu-sapphire-48m2-ct-1n-510": {
   "dien_tich": 48,
   "loai": "1 Ngủ +",
@@ -2390,6 +2398,14 @@
   "ngay_xuat_hien": "2026-08-17",
   "phan_khu": "Masteri",
   "toa": "MasD"
+ },
+ "cho-thue-can-ho-studio-masteri-27m2-ct-stu-839": {
+  "dien_tich": 27,
+  "loai": "Studio",
+  "ma": "CT.Stu.839",
+  "ngay_xuat_hien": "2026-09-09",
+  "phan_khu": "Masteri",
+  "toa": "MasC"
  },
  "cho-thue-can-ho-studio-masteri-29m2-ct-stu-709": {
   "dien_tich": 29,
