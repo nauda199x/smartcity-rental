@@ -25,8 +25,8 @@
       "lastmod": "2026-09-07"
     },
     "cho-thue-can-ho-1-ngu-imperia-43m2-ct-1n-540": {
-      "hash": "ea24ed59b31f16e6a4f8f756635ee85540c6df193365d4fb9ba776fb650ad413",
-      "lastmod": "2026-09-08"
+      "hash": "8998c9e0bab91b44f5889ead630fe6cce626e2e3f3413b021abb203b0edc7188",
+      "lastmod": "2026-09-09"
     },
     "cho-thue-can-ho-1-ngu-lumiere-40m2-ct-1n-150": {
       "hash": "013987f3376185e4daee11adb6cb828c87c34a54f2c0a445c5442c8f9d443da0",
@@ -113,11 +113,11 @@
       "lastmod": "2026-09-08"
     },
     "cho-thue-can-ho-1-ngu-miami-45m2-ct-1n-157": {
-      "hash": "a2f252fff10b1df9426ef8c96712f24a9b6f6e7be17a7d31f567c0b2e18fd4a1",
+      "hash": "faeac17415362c26da0978d728cc2e943ff1c0b85e80d4d8d250993038585682",
       "lastmod": "2026-09-09"
     },
     "cho-thue-can-ho-1-ngu-miami-45m2-ct-1n-175": {
-      "hash": "ebefac6b75121d66a826e6fd709aab8eb4fe54ce3845be08dcd3badacf8160c7",
+      "hash": "4c7a675370771c9bef57fdc4cdaa4f1ff00f33f1a5734a75bc5543e6d60ae3f1",
       "lastmod": "2026-09-09"
     },
     "cho-thue-can-ho-1-ngu-sakura-42m2-ct-1n-135": {
@@ -181,7 +181,7 @@
       "lastmod": "2026-09-09"
     },
     "cho-thue-can-ho-1-ngu-tonkin-40m2-ct-1n-545": {
-      "hash": "75cc50473aa39601c2749db04e08436a92556ccfc8e050bba9eea1f349fc34d8",
+      "hash": "245c25e6aa060d74837031da4fecef6dfc8a796d47792755c83ab4af060b5dc6",
       "lastmod": "2026-09-09"
     },
     "cho-thue-can-ho-2-ngu-canopy-61m2-ct-2n2-209": {
@@ -189,7 +189,7 @@
       "lastmod": "2026-09-09"
     },
     "cho-thue-can-ho-2-ngu-canopy-61m2-ct-2n2-413": {
-      "hash": "4c4345a42f937ee1272e22c8ad6ebbc25ab2ec2aa295e5f72dc8633fe766911e",
+      "hash": "be2db3124cf55cb9012726676ab44f5720dae613370543c695c3e785ad735f88",
       "lastmod": "2026-09-09"
     },
     "cho-thue-can-ho-2-ngu-canopy-62m2-ct-2n2-352": {
@@ -237,8 +237,8 @@
       "lastmod": "2026-09-09"
     },
     "cho-thue-can-ho-2-ngu-imperia-54m2-ct-2n1-237": {
-      "hash": "85ad6fd27d572b471a69c50cef9b3af90cda1ecdc42f702fe14b20aa7402dc15",
-      "lastmod": "2026-09-08"
+      "hash": "f5ba2f192bc3e619ec17d7a93a026afcb963b5f9300b7598684a1c26e9527647",
+      "lastmod": "2026-09-09"
     },
     "cho-thue-can-ho-2-ngu-imperia-55m2-30": {
       "hash": "c7999c99332eb03ae4ef81a4ff57568d088e5acdc55d4066bb239ee6862c1a66",
@@ -265,12 +265,12 @@
       "lastmod": "2026-09-06"
     },
     "cho-thue-can-ho-2-ngu-imperia-63m2-ct-2n-290": {
-      "hash": "976226052233a432fb653ceae0eebdadeb9667d3943a4e7e905e302d09b4b619",
-      "lastmod": "2026-09-08"
+      "hash": "bfcfe27a577a53cf9df0c34303896f65ff6f061c13e6d024b59f9d3b4a61509a",
+      "lastmod": "2026-09-09"
     },
     "cho-thue-can-ho-2-ngu-imperia-64m2-26": {
-      "hash": "2c1df9ceea96b2ff3b22af1175cb8d2b29816997ff5e414b94b6477c7950bacc",
-      "lastmod": "2026-09-08"
+      "hash": "6de0de5f26c3a0b9f5449d87ab9cce25404eb8c26918116bdb153e11cad555f1",
+      "lastmod": "2026-09-09"
     },
     "cho-thue-can-ho-2-ngu-imperia-64m2-ct-2n-220": {
       "hash": "c87dd8a2f900a4990a23133f96a290b9a707f158e4ec7baec6a4f24871f7f3bc",
@@ -325,7 +325,7 @@
       "lastmod": "2026-09-06"
     },
     "cho-thue-can-ho-2-ngu-lumiere-62m2-ct-2n2-412": {
-      "hash": "4a4714f399cf9f5aeebe31217bc1c827333dae42940d8921aea7db17ecb696a7",
+      "hash": "1c351cca3588ac449a6199f9a661ab3bf0baba382a6e091e48c898a81e53d38d",
       "lastmod": "2026-09-09"
     },
     "cho-thue-can-ho-2-ngu-lumiere-63m2-ct-2n-243": {
@@ -481,7 +481,15 @@
       "lastmod": "2026-09-08"
     },
     "cho-thue-can-ho-2-ngu-miami-63m2-ct-2n2-361": {
-      "hash": "546b31aa4e7c4d85af66dec4d55d5810ff08de759972e4d7a37345740eb99d6e",
+      "hash": "214ecffc6b52b9a83dac92843b79631b657406126bc8834470f1840157c9280e",
+      "lastmod": "2026-09-09"
+    },
+    "cho-thue-can-ho-2-ngu-miami-63m2-ct-2n2-414": {
+      "hash": "6f611609144792a4b44a00b3160d7f2d94d21e841b7145b2b55e56513c8bf09b",
+      "lastmod": "2026-09-09"
+    },
+    "cho-thue-can-ho-2-ngu-miami-63m2-ct-2n2-415": {
+      "hash": "924ac336a04f3b496ae61650db463a9df64df901bede499b6b44ffad0b0f5723",
       "lastmod": "2026-09-09"
     },
     "cho-thue-can-ho-2-ngu-miami-64m2-ct-2n-288": {
@@ -489,11 +497,11 @@
       "lastmod": "2026-09-08"
     },
     "cho-thue-can-ho-2-ngu-miami-72m2-ct-2n2-326": {
-      "hash": "80cf0c163a9b91e4fab532307cafef202128ee80a5e5bb840ed67ad165825f8a",
+      "hash": "683590774581ee40d23637df705fb2c29ea529408fd7a64df0bfbf921a8efe54",
       "lastmod": "2026-09-09"
     },
     "cho-thue-can-ho-2-ngu-miami-72m2-ct-2n2-398": {
-      "hash": "472454788d1d0c23989626788907e6fc465fcba1239884f4c6331784d61a211f",
+      "hash": "69871418f83a300464bfbd9be42d74ac3398301c1d8e2e1b478119dc03b17214",
       "lastmod": "2026-09-09"
     },
     "cho-thue-can-ho-2-ngu-sakura-54m2-ct-2n2-205": {
@@ -533,7 +541,7 @@
       "lastmod": "2026-09-09"
     },
     "cho-thue-can-ho-2-ngu-sakura-63m2-ct-2n-300": {
-      "hash": "82ba51fb751fb5f788448143be96ac170c7ca689540599d44cf584bc3cae5af6",
+      "hash": "32ae2d84af6d456c2d677d8de2be32619f13653e7a016e5c7665e3eafc4dc436",
       "lastmod": "2026-09-09"
     },
     "cho-thue-can-ho-2-ngu-sakura-63m2-ct-2n2-393": {
@@ -661,7 +669,7 @@
       "lastmod": "2026-09-08"
     },
     "cho-thue-can-ho-2-ngu-tonkin-60m2-ct-2n2-408": {
-      "hash": "64651f7ec7b7197ecb37dcb9aebe25dac17ce414bf90533519acdbaefc4c2a4f",
+      "hash": "fa5b34c730d81f238d98aeaea73636a724f1bb0cb43660f21559cf6aafc8bac4",
       "lastmod": "2026-09-09"
     },
     "cho-thue-can-ho-2-ngu-tonkin-61m2-53": {
@@ -673,7 +681,7 @@
       "lastmod": "2026-09-08"
     },
     "cho-thue-can-ho-2-ngu-tonkin-72m2-ct-2n-223": {
-      "hash": "13b11ca8c9be58da642d6f78221f6817dd706472ae7c0ca2bab443fe2cc4cd58",
+      "hash": "3bfd2a50bc5da096bb49f92e8e794f7140d0af2580ffc5200574e6f0f609f6b5",
       "lastmod": "2026-09-09"
     },
     "cho-thue-can-ho-3-ngu-imperia-76m2-ct-3n-151": {
@@ -721,7 +729,7 @@
       "lastmod": "2026-09-08"
     },
     "cho-thue-can-ho-3-ngu-miami-76m2-ct-3n-129": {
-      "hash": "656c55d3bec56a19f56f771557c394468c832ca4aa9aebf95f4191a9a6e884ec",
+      "hash": "aa2dfcfddb80750293a9902542122a78976cad02ccb9e963b14e22c6cd22e6f6",
       "lastmod": "2026-09-09"
     },
     "cho-thue-can-ho-3-ngu-miami-80m2-cc20": {
@@ -733,7 +741,7 @@
       "lastmod": "2026-09-08"
     },
     "cho-thue-can-ho-3-ngu-miami-82m2-ct-3n-52": {
-      "hash": "76463b305e4ccdf25ed28ea08063cf76f6fc64a14d3d7f98e50e4ca35753fd8d",
+      "hash": "3c0a80e2db15cf6f682ddde006d0ac6582a87e55f5fd7ef07b6089f5f3ca729b",
       "lastmod": "2026-09-09"
     },
     "cho-thue-can-ho-3-ngu-miami-95m2-ct-3n-124": {
@@ -753,7 +761,7 @@
       "lastmod": "2026-09-09"
     },
     "cho-thue-can-ho-3-ngu-sakura-78m2-ct-3n-136": {
-      "hash": "98d5198f6c8fb2cf2adfe9621b504f712e7f8c336054ade657a51c1434291be7",
+      "hash": "a92e3e73ad5adb322464f296a7dabb70226d6abaab86ec0ae20bad666e5010cd",
       "lastmod": "2026-09-09"
     },
     "cho-thue-can-ho-3-ngu-sapphire-75m2-ct-3n-108": {
@@ -796,13 +804,17 @@
       "hash": "0d31d26c0e22c066f2bba652c5d312336818c1ede9133fec28ff755e6f5160bc",
       "lastmod": "2026-09-09"
     },
+    "cho-thue-can-ho-studio-imperia-28m2-ct-stu-843": {
+      "hash": "a8a2242f155e193eac2cd99fb1f9496c94b3e07fee22467bd963d28ddc46261b",
+      "lastmod": "2026-09-09"
+    },
     "cho-thue-can-ho-studio-imperia-32m2-ct-stu-828": {
-      "hash": "46f15137a986b6c6ea00e1a8022967c4a06dd794e550c84d194be2a117d8bc83",
+      "hash": "3b4e0f47193e652cc5c9cfccec5ee9f4d92aa0b3b13febecb497bfa553bb92a1",
       "lastmod": "2026-09-09"
     },
     "cho-thue-can-ho-studio-lumiere-30m2-cc12": {
-      "hash": "c02793cbda40d762cc94fac51497e6de7828ce7109a42ae49bf46b7a5da79214",
-      "lastmod": "2026-09-08"
+      "hash": "9fa81357bddd4541d73037f1b14ada50228a5312c0af6f8334e7494462f3e50c",
+      "lastmod": "2026-09-09"
     },
     "cho-thue-can-ho-studio-lumiere-30m2-ct-stu-746": {
       "hash": "5ced96c6fb616b0b76f6c9204f2c5d4312766c697e565e39da151e61b6be42f8",
@@ -825,11 +837,15 @@
       "lastmod": "2026-09-09"
     },
     "cho-thue-can-ho-studio-masteri-30m2-ct-stu-779": {
-      "hash": "0de4239f439848da6c04d451a33750676290e81b5060a4f29709afa8581f8aad",
+      "hash": "fb59d7c0d366d46721b1a4f2b279205d759295311851e346ba083b4c1f635afd",
       "lastmod": "2026-09-09"
     },
     "cho-thue-can-ho-studio-masteri-30m2-ct-stu-840": {
       "hash": "25141f2ccd53b354379ea96138b5dc07f243a2d726fdcccd49054554a1d1026e",
+      "lastmod": "2026-09-09"
+    },
+    "cho-thue-can-ho-studio-masteri-30m2-ct-stu-844": {
+      "hash": "b4d5b6de143601eec1fd1980361cadd4bc064c2e758b524e66bb16c71beb1137",
       "lastmod": "2026-09-09"
     },
     "cho-thue-can-ho-studio-masteri-31m2-ct-stu-753": {
@@ -873,11 +889,7 @@
       "lastmod": "2026-09-06"
     },
     "cho-thue-can-ho-studio-sakura-30m2-ct-stu-660": {
-      "hash": "a2478dfffd5e0c5804e7543ebc7f251c5c15385f6461d1ba0a65a1fcf8652633",
-      "lastmod": "2026-09-09"
-    },
-    "cho-thue-can-ho-studio-sakura-30m2-ct-stu-807": {
-      "hash": "0f1450c8347e78751fb133f8a11539649dd5586859502eceb04df03b5c8bbe34",
+      "hash": "422519d680fa0a692bf86cc2f114e5a552a99aa312fe3356b81795d562f60b23",
       "lastmod": "2026-09-09"
     },
     "cho-thue-can-ho-studio-sakura-32m2-ct-stu-777": {
@@ -889,15 +901,15 @@
       "lastmod": "2026-09-09"
     },
     "cho-thue-can-ho-studio-sakura-32m2-ct-stu-837": {
-      "hash": "dbcf7caf35b0accd602d1e719dbafdf5ed2d6da68561192d043951aad44a0f8a",
+      "hash": "794bd915c18e5b90f8fbcd17edc709cdebbd38b400b338febb10155d293b4b5c",
       "lastmod": "2026-09-09"
     },
     "cho-thue-can-ho-studio-sakura-34m2-ct-stu-803": {
-      "hash": "93c8ca9fd35796eb6f142446c4648c40bb9ba83723a297ab7cb5f1e3c0897582",
+      "hash": "c7a3e1b34b7f56aa817f9963e89e96cad4ef616739892bcde49d3fe670a6f395",
       "lastmod": "2026-09-09"
     },
     "cho-thue-can-ho-studio-sakura-34m2-ct-stu-842": {
-      "hash": "92eb12f7c3ba46f5f77374d092b36795c2773720ab0115488a4a0cb448cbd9ff",
+      "hash": "c42e0d4b14f7b60bb7bc59e80a8e56854ff3556b3be59a4068bdf40dd9b1499e",
       "lastmod": "2026-09-09"
     },
     "cho-thue-can-ho-studio-sapphire-28m2-ct-stu-830": {
@@ -925,12 +937,16 @@
       "lastmod": "2026-09-09"
     },
     "cho-thue-can-ho-studio-tonkin-25m2-ct-stu-715": {
-      "hash": "565159629b8339b5ddf80dd3e32d815034824d4ab1726c98742f4ce10fabf018",
+      "hash": "50dc9dec37304cb61d7403aed8d610e8a768044c0e64e8b7d4e221ae47026671",
       "lastmod": "2026-09-09"
     },
     "cho-thue-can-ho-studio-tonkin-25m2-ct-stu-804": {
-      "hash": "6514c9de9fddc04465fa741dcfdafb46ea717c4b78b389aa3e9732bb35d8f403",
-      "lastmod": "2026-09-08"
+      "hash": "d3e368a07e428f8f3c3e81a9f0057fcedbbf4dd5fb0106bf930e7e797fd5af38",
+      "lastmod": "2026-09-09"
+    },
+    "cho-thue-can-ho-studio-tonkin-25m2-ct-stu-845": {
+      "hash": "e1dfec2a8a55086845fa4b76b116fd15728a76e71945d9fc82c88d37a2fbc390",
+      "lastmod": "2026-09-09"
     }
   },
   "version": 1
