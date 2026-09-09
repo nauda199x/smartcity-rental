@@ -10,6 +10,13 @@ name: Tải ảnh đại diện căn hộ từ Drive về repo
 # trang chi tiết song song. Push vào chính workflow/script ảnh dùng để áp dụng
 # bản vá ngay khi thay đổi pipeline; commit ảnh sinh ra không khớp các path này
 # nên không tạo vòng lặp.
+#
+# QUAN TRỌNG: file WebP local có thể đã tồn tại nhưng Drive ID của căn đã đổi.
+# Downloader cũ chỉ nhìn thấy file local rồi BỎ QUA, nên ảnh mới trên Drive
+# không bao giờ ghi đè ảnh cũ. Bước "Phát hiện ảnh Drive đã thay đổi" bên dưới
+# đối chiếu drive_id hiện tại với anh-map.json, tạm cất file cũ và buộc tải lại.
+# Push/schedule/manual lam_moi sẽ làm mới toàn bộ để bắt cả trường hợp nội dung
+# file trên Drive thay đổi nhưng vẫn giữ nguyên Drive ID.
 
 on:
   push:
@@ -28,14 +35,20 @@ on:
     branches:
       - main
   schedule:
-    # Giữ lịch Chủ nhật như một lớp dự phòng nếu workflow dữ liệu từng bị tắt.
-    - cron: "0 3 * * 0"
+    # 03:20 mỗi ngày theo giờ Việt Nam (20:20 UTC ngày hôm trước).
+    # Đây là lớp refresh sâu để bắt cả ảnh bị thay nội dung nhưng giữ nguyên
+    # Drive ID; các thay đổi link/Drive ID vẫn được bắt ngay sau data sync.
+    - cron: "20 20 * * *"
   workflow_dispatch:
     inputs:
       gioi_han:
         description: "Chỉ tải N ảnh đầu (0 = tải hết)"
         type: string
         default: "0"
+      lam_moi:
+        description: "Buộc tải lại ảnh đã có để lấy bản mới nhất từ Drive"
+        type: boolean
+        default: false
 
 permissions:
   contents: write
@@ -72,11 +85,130 @@ jobs:
           set -o pipefail
           python3 scripts/sinh-danh-sach-anh.py 2>&1 | tee ket-qua.txt
 
+      # Downloader hiện tại cố ý bỏ qua file WebP đã tồn tại để chạy nhanh.
+      # Vì tên ảnh bìa phụ thuộc mã căn chứ không phụ thuộc Drive ID, khi Sheet
+      # đổi sang ảnh Drive mới thì tên local vẫn y nguyên và bản cũ bị giữ lại.
+      # Bước này đối chiếu source hiện tại với anh-map.json. Nếu Drive ID đổi,
+      # file cũ được chuyển vào cache tạm để downloader thấy file "chưa có" và
+      # tải bản mới. Push/schedule/manual lam_moi làm mới toàn bộ để bắt cả
+      # trường hợp người dùng Replace file trên Drive nhưng Drive ID không đổi.
+      - name: Phát hiện ảnh Drive đã thay đổi
+        env:
+          LAM_MOI_TAT_CA: ${{ (github.event_name == 'push' || github.event_name == 'schedule' || inputs.lam_moi == true) && '1' || '0' }}
+        run: |
+          set -o pipefail
+          python3 - <<'PY' 2>&1 | tee -a ket-qua.txt
+          import json
+          import os
+          import shutil
+          from pathlib import Path
+
+          danh_sach_path = Path("scripts/danh-sach-anh.json")
+          map_path = Path("anh-can-ho/anh-map.json")
+          cache = Path(".cache-anh-cu")
+
+          with danh_sach_path.open(encoding="utf-8") as f:
+              danh_sach = json.load(f)
+
+          anh_map_cu = {}
+          if map_path.exists():
+              with map_path.open(encoding="utf-8") as f:
+                  anh_map_cu = json.load(f)
+
+          lam_moi_tat_ca = os.environ.get("LAM_MOI_TAT_CA") == "1"
+          if cache.exists():
+              shutil.rmtree(cache)
+          cache.mkdir(parents=True)
+
+          manifest = []
+          so_anh_bi_danh_dau = 0
+
+          def tam_cat(path):
+              if not path.exists():
+                  return
+              dich = cache / path.name
+              # Tên ảnh local là duy nhất trong pipeline. Nếu gặp trùng thì
+              # dừng thay vì ghi đè backup của một file khác.
+              if dich.exists():
+                  raise RuntimeError(f"Trùng tên backup: {dich}")
+              shutil.move(str(path), str(dich))
+              manifest.append({"goc": str(path), "backup": str(dich)})
+
+          for bg in danh_sach:
+              ten_file = bg["ten_file"]
+              drive_id = bg["drive_id"]
+              local = Path("anh-can-ho") / ten_file
+              duong_map_mong_doi = "/" + local.as_posix()
+
+              # Chỉ coi là đúng cache khi CHÍNH Drive ID hiện tại đang trỏ tới
+              # đúng file local đó. File tồn tại nhưng map khác/mất => stale.
+              cache_dung_source = anh_map_cu.get(drive_id) == duong_map_mong_doi
+              can_lam_moi = lam_moi_tat_ca or (local.exists() and not cache_dung_source)
+              if not can_lam_moi:
+                  continue
+
+              tam_cat(local)
+              if bg.get("loai_anh", "bia") == "bia":
+                  ban_nho = local.with_name(local.stem + "-400" + local.suffix)
+                  tam_cat(ban_nho)
+              so_anh_bi_danh_dau += 1
+
+          with (cache / "manifest.json").open("w", encoding="utf-8") as f:
+              json.dump(manifest, f, ensure_ascii=False, indent=2)
+
+          che_do = "LÀM MỚI TOÀN BỘ" if lam_moi_tat_ca else "CHỈ ẢNH ĐỔI DRIVE ID"
+          print(f"Chế độ cache ảnh: {che_do}")
+          print(f"Đã đánh dấu {so_anh_bi_danh_dau} ảnh nguồn để tải lại; "
+                f"tạm cất {len(manifest)} file WebP cũ.")
+          PY
+
       - name: Tải ảnh và chuyển sang WebP
         run: |
           set -o pipefail
           python3 scripts/tai-anh-can-ho.py \
             --gioi-han "${{ inputs.gioi_han || 0 }}" 2>&1 | tee -a ket-qua.txt
+
+      # Nếu Drive lỗi giữa chừng, tuyệt đối không để việc refresh làm mất ảnh
+      # đang chạy tốt trên production. File cũ chỉ được xóa hẳn sau khi file
+      # mới đã xuất hiện. Có ảnh phải khôi phục => fail job để không commit một
+      # anh-map.json nửa cũ nửa mới; lần chạy sau sẽ thử lại sạch sẽ.
+      - name: Khôi phục ảnh cũ nếu Drive tải lỗi
+        if: always()
+        run: |
+          python3 - <<'PY'
+          import json
+          import shutil
+          import sys
+          from pathlib import Path
+
+          cache = Path(".cache-anh-cu")
+          manifest_path = cache / "manifest.json"
+          if not manifest_path.exists():
+              print("Không có cache ảnh cũ cần xử lý.")
+              sys.exit(0)
+
+          with manifest_path.open(encoding="utf-8") as f:
+              manifest = json.load(f)
+
+          khoi_phuc = 0
+          for item in manifest:
+              goc = Path(item["goc"])
+              backup = Path(item["backup"])
+              if not backup.exists():
+                  continue
+              if goc.exists():
+                  backup.unlink()
+              else:
+                  goc.parent.mkdir(parents=True, exist_ok=True)
+                  shutil.move(str(backup), str(goc))
+                  khoi_phuc += 1
+
+          shutil.rmtree(cache, ignore_errors=True)
+          if khoi_phuc:
+              print(f"::error::Drive tải thiếu/lỗi; đã khôi phục {khoi_phuc} file ảnh cũ. Không commit snapshot thiếu ảnh.")
+              sys.exit(1)
+          print("Ảnh refresh đã tải đủ; cache cũ đã dọn.")
+          PY
 
       # Script này vừa thay src Drive bằng WebP local, vừa lấy ảnh local đầu
       # tiên trong gallery để đồng bộ og:image/twitter:image cho URL căn.
