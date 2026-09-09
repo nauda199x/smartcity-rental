@@ -1,0 +1,35 @@
+name: Debug nguồn ảnh Drive CC12
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - ".github/workflows/debug-drive-cc12.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  debug:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Lấy code
+        uses: actions/checkout@v4
+        with:
+          ref: main
+
+      - name: So sánh thumbnail, direct và ảnh trong repo
+        run: |
+          set -euo pipefail
+          id='13IqSRk0wjAIJaTpp7wnR_jmVXHohYOeG'
+          ts="$(date +%s)"
+          curl -fL --retry 2 -A 'Mozilla/5.0' "https://drive.google.com/thumbnail?id=${id}&sz=w1000&cachebust=${ts}" -o /tmp/thumb.bin
+          curl -fL --retry 2 -A 'Mozilla/5.0' "https://drive.google.com/uc?export=download&id=${id}&cachebust=${ts}" -o /tmp/direct.bin
+          cp anh-can-ho/cho-thue-can-ho-studio-lumiere-30m2-cc12.webp /tmp/repo.webp
+          echo '=== SHA256 ==='
+          sha256sum /tmp/thumb.bin /tmp/direct.bin /tmp/repo.webp
+          echo '=== KICH THUOC BYTE ==='
+          wc -c /tmp/thumb.bin /tmp/direct.bin /tmp/repo.webp
+          echo '=== LOAI FILE ==='
+          file /tmp/thumb.bin /tmp/direct.bin /tmp/repo.webp
