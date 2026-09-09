@@ -191,6 +191,14 @@
   "phan_khu": "Lumiere",
   "toa": "A3"
  },
+ "cho-thue-can-ho-1-ngu-lumiere-48m2-ct-1n-544": {
+  "dien_tich": 48,
+  "loai": "1 Ngủ +",
+  "ma": "CT.1N+.544",
+  "ngay_xuat_hien": "2026-09-09",
+  "phan_khu": "Lumiere",
+  "toa": "A3"
+ },
  "cho-thue-can-ho-1-ngu-masteri-41m2-ct-1n-446": {
   "dien_tich": 41,
   "loai": "1 Ngủ +",
@@ -630,6 +638,22 @@
   "ngay_xuat_hien": "2026-08-18",
   "phan_khu": "Sapphire",
   "toa": "S402"
+ },
+ "cho-thue-can-ho-1-ngu-sapphire-48m2-ct-1n-546": {
+  "dien_tich": 48,
+  "loai": "1 Ngủ +",
+  "ma": "CT.1N+.546",
+  "ngay_xuat_hien": "2026-09-09",
+  "phan_khu": "Sapphire",
+  "toa": "S402"
+ },
+ "cho-thue-can-ho-1-ngu-tonkin-40m2-ct-1n-545": {
+  "dien_tich": 40,
+  "loai": "1 Ngủ +",
+  "ma": "CT.1N+.545",
+  "ngay_xuat_hien": "2026-09-09",
+  "phan_khu": "Tonkin",
+  "toa": "TK2"
  },
  "cho-thue-can-ho-1-ngu-tonkin-49m2-ct-1n-459": {
   "dien_tich": 49,
