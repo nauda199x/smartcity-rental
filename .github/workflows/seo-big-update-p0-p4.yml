@@ -1,4 +1,4 @@
-name: SEO Big Update P0-P4
+name: SEO Big Update P0-P6
 
 on:
   push:
@@ -12,6 +12,8 @@ on:
       - "scripts/kiem-tra-mat-bang-toa.py"
       - "scripts/dedupe-tieu-de-can.py"
       - "scripts/toi-uu-chat-luong-can.py"
+      - "scripts/tang-suc-manh-internal-link.py"
+      - "scripts/kiem-tra-lien-ket.py"
       - ".github/workflows/seo-big-update-p0-p4.yml"
       - "robots.txt"
   pull_request:
@@ -23,6 +25,8 @@ on:
       - "scripts/kiem-tra-mat-bang-toa.py"
       - "scripts/dedupe-tieu-de-can.py"
       - "scripts/toi-uu-chat-luong-can.py"
+      - "scripts/tang-suc-manh-internal-link.py"
+      - "scripts/kiem-tra-lien-ket.py"
       - ".github/workflows/seo-big-update-p0-p4.yml"
       - "robots.txt"
   workflow_run:
@@ -36,11 +40,11 @@ permissions:
   contents: write
 
 concurrency:
-  group: seo-p0-p4-${{ github.event_name == 'pull_request' && github.event.pull_request.number || 'main' }}
+  group: seo-p0-p6-${{ github.event_name == 'pull_request' && github.event.pull_request.number || 'main' }}
   cancel-in-progress: false
 
 jobs:
-  seo-p0-p4:
+  seo-p0-p6:
     if: ${{ github.event_name != 'workflow_run' || github.event.workflow_run.conclusion == 'success' }}
     runs-on: ubuntu-latest
     steps:
@@ -53,70 +57,74 @@ jobs:
       - name: Mở rộng landing SEO theo tòa
         run: |
           set -o pipefail
-          python3 scripts/mo-rong-trang-toa.py 2>&1 | tee seo-p0-p4.log
+          python3 scripts/mo-rong-trang-toa.py 2>&1 | tee seo-p0-p6.log
 
       - name: Nối URL căn chi tiết vào các landing tòa mới
         run: |
           set -o pipefail
-          python3 scripts/noi-lien-ket-chi-tiet.py 2>&1 | tee -a seo-p0-p4.log
+          python3 scripts/noi-lien-ket-chi-tiet.py 2>&1 | tee -a seo-p0-p6.log
 
       - name: Dựng lại internal-link graph sau khi có tòa mới
         run: |
           set -o pipefail
-          python3 scripts/cap-nhat-lien-ket-noi-bo.py 2>&1 | tee -a seo-p0-p4.log
+          python3 scripts/cap-nhat-lien-ket-noi-bo.py 2>&1 | tee -a seo-p0-p6.log
 
       - name: P0-P4 crawl guard, entity schema và unique context
         run: |
           set -o pipefail
-          python3 scripts/seo-p0-p4.py 2>&1 | tee -a seo-p0-p4.log
+          python3 scripts/seo-p0-p4.py 2>&1 | tee -a seo-p0-p6.log
 
       - name: Chặn gắn nhầm mặt bằng giữa các tòa
         run: |
           set -o pipefail
-          python3 scripts/kiem-tra-mat-bang-toa.py 2>&1 | tee -a seo-p0-p4.log
+          python3 scripts/kiem-tra-mat-bang-toa.py 2>&1 | tee -a seo-p0-p6.log
 
       - name: Nối tower hub vào các phân khu và hub căn hộ
         run: |
           set -o pipefail
-          python3 scripts/noi-hub-toa.py 2>&1 | tee -a seo-p0-p4.log
+          python3 scripts/noi-hub-toa.py 2>&1 | tee -a seo-p0-p6.log
 
       - name: Nối các landing programmatic indexable khỏi orphan
         run: |
           set -o pipefail
-          python3 scripts/noi-hub-programmatic.py 2>&1 | tee -a seo-p0-p4.log
+          python3 scripts/noi-hub-programmatic.py 2>&1 | tee -a seo-p0-p6.log
 
       - name: Làm unique title cho các căn bị trùng
         run: |
           set -o pipefail
-          python3 scripts/dedupe-tieu-de-can.py 2>&1 | tee -a seo-p0-p4.log
+          python3 scripts/dedupe-tieu-de-can.py 2>&1 | tee -a seo-p0-p6.log
 
       - name: P5 tăng độ khác biệt từng trang căn
         run: |
           set -o pipefail
-          python3 scripts/toi-uu-chat-luong-can.py 2>&1 | tee -a seo-p0-p4.log
+          python3 scripts/toi-uu-chat-luong-can.py 2>&1 | tee -a seo-p0-p6.log
+
+      - name: P6 tăng sức mạnh internal-link theo cụm
+        run: |
+          set -o pipefail
+          python3 scripts/tang-suc-manh-internal-link.py 2>&1 | tee -a seo-p0-p6.log
 
       - name: Đồng bộ tên site và ảnh ưu tiên
         run: |
           set -o pipefail
-          python3 scripts/dong-bo-ten-site.py 2>&1 | tee -a seo-p0-p4.log
-          python3 scripts/toi-uu-anh-tim-kiem.py 2>&1 | tee -a seo-p0-p4.log
+          python3 scripts/dong-bo-ten-site.py 2>&1 | tee -a seo-p0-p6.log
+          python3 scripts/toi-uu-anh-tim-kiem.py 2>&1 | tee -a seo-p0-p6.log
 
-      - name: Audit P0-P5 lần cuối
+      - name: Audit P0-P6 lần cuối
         run: |
           set -o pipefail
-          python3 scripts/seo-p0-p4.py --kiem-tra 2>&1 | tee -a seo-p0-p4.log
-          python3 scripts/audit-indexability-can-ho.py 2>&1 | tee -a seo-p0-p4.log
-          python3 scripts/kiem-tra-lien-ket.py 2>&1 | tee -a seo-p0-p4.log || \
-            echo "::warning::Internal-link audit còn cảnh báo legacy; xem log để xử lý tiếp."
+          python3 scripts/seo-p0-p4.py --kiem-tra 2>&1 | tee -a seo-p0-p6.log
+          python3 scripts/audit-indexability-can-ho.py 2>&1 | tee -a seo-p0-p6.log
+          python3 scripts/kiem-tra-lien-ket.py 2>&1 | tee -a seo-p0-p6.log
 
       - name: Tóm tắt thay đổi
         if: always()
         run: |
           {
-            echo "## SEO Big Update P0-P5"
+            echo "## SEO Big Update P0-P6"
             echo
             echo '```'
-            tail -n 220 seo-p0-p4.log 2>/dev/null || true
+            tail -n 240 seo-p0-p6.log 2>/dev/null || true
             echo '```'
             echo
             echo "### Diff"
@@ -132,12 +140,7 @@ jobs:
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
 
-          # data.json chỉ do pipeline đồng bộ dữ liệu quản lý, tuyệt đối không ghi đè.
           git checkout -- data.json || true
-
-          # Stage mọi file ĐÃ ĐƯỢC TRACK mà các generator hợp lệ cập nhật
-          # (ví dụ crawl-state/registry phụ), rồi bổ sung các output mới chưa track.
-          # Cách này tránh để sót tracked change khiến `git rebase` từ chối chạy.
           git add -u
           git add -- '*.html' sitemap-toa.xml seo-toa.json bao-cao-seo-p0-p4.json \
             sitemap.xml sitemap-images.xml sitemap-can-ho.xml sitemap-phan-khu-loai-can.xml \
@@ -152,9 +155,8 @@ jobs:
             exit 0
           fi
 
-          git commit -m "SEO P0-P5: strengthen apartment uniqueness and quality"
+          git commit -m "SEO P0-P6: strengthen internal link graph"
 
-          # Chỉ còn file log untracked; tracked tree phải sạch trước rebase.
           if ! git diff --quiet; then
             echo "::error::Vẫn còn tracked change chưa stage sau commit:"
             git status --short
@@ -166,7 +168,7 @@ jobs:
             git fetch origin main
             if git rebase origin/main; then
               if git push origin HEAD:main; then
-                echo "Đã push SEO P0-P5 lên main."
+                echo "Đã push SEO P0-P6 lên main."
                 exit 0
               fi
             fi
