@@ -2,15 +2,10 @@
 # -*- coding: utf-8 -*-
 """Audit sức khoẻ internal-link cho timthuesmartcity.com.
 
-Bản P6 sửa các false-positive của audit cũ:
-- đọc <a href> với cả dấu nháy đơn và nháy kép;
-- không đếm URL nằm trong script/style/noscript;
-- chuẩn hoá absolute/relative URL theo đúng hostname;
-- orphan chỉ FAIL với page thực sự indexable/self-canonical;
-- tách căn active trong sitemap khỏi căn lưu trữ và khỏi landing phân khu;
-- link gãy chỉ xét anchor nội bộ thật, không xét canonical/CSS/JS asset.
-
-Mã thoát: 0 = graph sạch; 1 = còn orphan/link gãy/ngưỡng cứng thật.
+P6 đo anchor crawlable thật, chỉ FAIL orphan indexable/self-canonical hoặc link
+gãy/ngưỡng cứng. Cảnh báo dùng ngưỡng theo vai trò để tránh so sánh méo bởi
+sitewide links (ví dụ /1pn/ có 42 inbound không thể bị coi là yếu chỉ vì nhóm
+khác có 491 inbound).
 """
 
 import collections
@@ -28,6 +23,17 @@ BO_QUA = {'.git', '.github', 'node_modules'}
 
 NGUONG_TY_LE = 0.40
 TOI_THIEU_MAU = 4
+# Ngưỡng cảnh báo tối thiểu theo vai trò. Đây là tín hiệu chất lượng, không
+# phải điều kiện index. Chỉ dùng median 40% cho nhóm chưa có ngưỡng riêng.
+NGUONG_NHOM = {
+    'bai-viet': 5,
+    'can-ho-active': 5,
+    'danh-muc-gia-noi-that': 5,
+    'danh-muc-loai-can': 20,
+    'danh-muc-phan-khu': 5,
+    'giao-thoa': 4,
+    'trang-toa': 4,
+}
 
 NGUONG_VAO = {
     'so-sanh-gia-thue-cac-phan-khu-smart-city.html': 10,
@@ -40,24 +46,16 @@ NGUONG_VAO = {
     'chinh-sach-quyen-rieng-tu.html': 30,
 }
 NGUONG_RA = {p: 5 for p in NGUONG_VAO if p != 'chinh-sach-quyen-rieng-tu.html'}
-
-MIEN_ORPHAN = {
-    '404.html',
-    'bang-gia-thue-smart-city-thang-7-2026.html',
-}
+MIEN_ORPHAN = {'404.html', 'bang-gia-thue-smart-city-thang-7-2026.html'}
 BO_QUA_NGUON = {'404.html'}
 
 RE_SCHEME_BO_QUA = re.compile(r'^(mailto|tel|javascript|data|blob|sms|zalomsg|ftp|file):', re.I)
 RE_SCRIPT_STYLE = re.compile(r'<(script|style|noscript)\b[\s\S]*?</\1>', re.I)
 RE_A_HREF = re.compile(r'<a\b[^>]*\bhref\s*=\s*(["\'])(.*?)\1', re.I | re.S)
 RE_META_ROBOTS = re.compile(
-    r'<meta\b(?=[^>]*\bname\s*=\s*["\']robots["\'])(?=[^>]*\bcontent\s*=\s*["\']([^"\']*)["\'])[^>]*>',
-    re.I,
-)
+    r'<meta\b(?=[^>]*\bname\s*=\s*["\']robots["\'])(?=[^>]*\bcontent\s*=\s*["\']([^"\']*)["\'])[^>]*>', re.I)
 RE_CANONICAL = re.compile(
-    r'<link\b(?=[^>]*\brel\s*=\s*["\']canonical["\'])(?=[^>]*\bhref\s*=\s*["\']([^"\']+)["\'])[^>]*>',
-    re.I,
-)
+    r'<link\b(?=[^>]*\brel\s*=\s*["\']canonical["\'])(?=[^>]*\bhref\s*=\s*["\']([^"\']+)["\'])[^>]*>', re.I)
 RE_SITEMAP_LOC = re.compile(r'<loc>\s*([^<]+?)\s*</loc>', re.I)
 
 
@@ -84,52 +82,37 @@ def nap_can_active():
         loc = html_lib.unescape(loc.strip())
         if not loc.startswith(TEN_MIEN + '/can-ho/') or loc == TEN_MIEN + '/can-ho/':
             continue
-        parsed = urlsplit(loc)
-        rel = parsed.path.lstrip('/')
+        rel = urlsplit(loc).path.lstrip('/')
         if rel.endswith('/'):
             rel += 'index.html'
         active.add(rel)
     return active
 
 
-def page_path_from_file(p):
-    if p == 'index.html':
-        return '/'
-    if p.endswith('/index.html'):
-        return '/' + p[:-len('index.html')]
-    return '/' + p
-
-
 def canon(href, src):
-    """Chuẩn hoá một anchor href nội bộ về file HTML trong repo."""
     h = html_lib.unescape(href.strip())
     if not h or h.startswith('#') or RE_SCHEME_BO_QUA.match(h):
         return None
-
     parsed = urlsplit(h)
     if parsed.scheme in ('http', 'https'):
-        host = (parsed.hostname or '').lower()
-        if host not in HOSTS:
+        if (parsed.hostname or '').lower() not in HOSTS:
             return None
         h = parsed.path or '/'
     elif h.startswith('//'):
         parsed = urlsplit('https:' + h)
-        host = (parsed.hostname or '').lower()
-        if host not in HOSTS:
+        if (parsed.hostname or '').lower() not in HOSTS:
             return None
         h = parsed.path or '/'
     else:
         h = h.split('#', 1)[0].split('?', 1)[0]
         if not h:
             return None
-
     if not h.startswith('/'):
         keep_slash = h.endswith('/')
         h = os.path.normpath(os.path.join(os.path.dirname(src), h)).replace(os.sep, '/')
         h = '/' + h.lstrip('./')
         if keep_slash and not h.endswith('/'):
             h += '/'
-
     if h in ('', '/'):
         return 'index.html'
     h = h.lstrip('/')
@@ -140,32 +123,30 @@ def anchor_links(raw, src):
     sach = RE_SCRIPT_STYLE.sub('', raw)
     out = set()
     for _, href in RE_A_HREF.findall(sach):
-        target = canon(href, src)
-        if target:
-            out.add(target)
+        t = canon(href, src)
+        if t:
+            out.add(t)
     return out
 
 
 def meta_noindex(raw):
     vals = [html_lib.unescape(x).lower() for x in RE_META_ROBOTS.findall(raw)]
-    return any(
-        'noindex' in x or re.search(r'(^|[,\s])none([,\s]|$)', x)
-        for x in vals
-    )
+    return any('noindex' in x or re.search(r'(^|[,\s])none([,\s]|$)', x) for x in vals)
 
 
 def canonical_file(raw, src):
     vals = [html_lib.unescape(x).strip() for x in RE_CANONICAL.findall(raw)]
+    if not vals:
+        return src
     if len(vals) != 1:
-        return src if not vals else None
+        return None
     return canon(vals[0], src)
 
 
 def la_indexable(raw, src):
     if meta_noindex(raw):
         return False
-    c = canonical_file(raw, src)
-    return c in (None, src) if c is None else c == src
+    return canonical_file(raw, src) == src
 
 
 def phan_nhom(p, active_can):
@@ -197,7 +178,6 @@ def main():
     pages = nap_trang()
     active_can = nap_can_active()
     indexable = {p for p, raw in pages.items() if la_indexable(raw, p)}
-
     inb = collections.Counter()
     outb = {}
     nguon = collections.defaultdict(set)
@@ -211,36 +191,29 @@ def main():
         for t in links:
             inb[t] += 1
             nguon[t].add(p)
-
     for p in pages:
         inb.setdefault(p, 0)
 
     loi = 0
     canh_bao = 0
-
     print('=' * 76)
     print('AUDIT INTERNAL-LINK — timthuesmartcity.com')
     print('=' * 76)
     print(f'Tổng HTML: {len(pages)} · indexable/self-canonical: {len(indexable)}')
     print(f'Căn active trong sitemap: {len(active_can)}')
 
-    print('\n' + '=' * 76)
-    print('1. INBOUND THEO NHÓM INDEXABLE')
-    print('=' * 76)
     nhom = collections.defaultdict(list)
     for p in sorted(indexable):
         nhom[phan_nhom(p, active_can)].append(p)
-
     trung_vi = {}
+    print('\n1. INBOUND THEO NHÓM INDEXABLE')
     for g, ps in sorted(nhom.items()):
         vals = sorted(inb[p] for p in ps)
         tv = statistics.median(vals) if vals else 0
         trung_vi[g] = tv
         print(f'[{g}] {len(ps)} page · min={min(vals) if vals else 0} · median={tv:g} · max={max(vals) if vals else 0}')
 
-    print('\n' + '=' * 76)
-    print('2. ORPHAN INDEXABLE THẬT')
-    print('=' * 76)
+    print('\n2. ORPHAN INDEXABLE THẬT')
     orphan = [p for p in sorted(indexable) if inb[p] == 0 and p not in MIEN_ORPHAN]
     if orphan:
         for p in orphan:
@@ -249,27 +222,23 @@ def main():
     else:
         print('PASS — không có orphan indexable.')
 
-    print('\n' + '=' * 76)
-    print(f'3. INBOUND THẤP (< {NGUONG_TY_LE:.0%} median nhóm)')
-    print('=' * 76)
+    print('\n3. INBOUND THẤP THEO VAI TRÒ')
     for g, ps in sorted(nhom.items()):
         if len(ps) < TOI_THIEU_MAU:
             continue
-        threshold = trung_vi[g] * NGUONG_TY_LE
+        threshold = NGUONG_NHOM.get(g, trung_vi[g] * NGUONG_TY_LE)
         for p in sorted(ps, key=lambda x: inb[x]):
             if inb[p] == 0 or inb[p] >= threshold:
                 continue
-            print(f'WARN {p}: {inb[p]} link vào — median [{g}]={trung_vi[g]:g}, ngưỡng={threshold:.1f}')
+            print(f'WARN {p}: {inb[p]} link vào — ngưỡng [{g}]={threshold:g}')
             srcs = sorted(nguon[p])[:5]
             if srcs:
                 print('     nguồn:', ', '.join(srcs) + (' …' if len(nguon[p]) > 5 else ''))
             canh_bao += 1
     if canh_bao == 0:
-        print('PASS — không có page thấp bất thường.')
+        print('PASS — không có page dưới ngưỡng vai trò.')
 
-    print('\n' + '=' * 76)
-    print('4. NGƯỠNG CỨNG & LINK GÃY')
-    print('=' * 76)
+    print('\n4. NGƯỠNG CỨNG & LINK GÃY')
     for p, n in sorted(NGUONG_VAO.items()):
         actual = inb[p]
         ok = actual >= n
@@ -286,21 +255,14 @@ def main():
     gay = []
     for p, raw in pages.items():
         for t in anchor_links(raw, p):
-            if t in pages:
+            if t in pages or os.path.exists(os.path.join(GOC, t.replace('/', os.sep))):
                 continue
-            disk = os.path.join(GOC, t.replace('/', os.sep))
-            if os.path.exists(disk):
-                continue
-            # Chỉ coi là broken page-link khi href đích có dạng HTML/page.
             if t.endswith('.html') or t.endswith('/index.html'):
                 gay.append((p, t))
     if gay:
-        for p, t in gay[:120]:
+        for p, t in gay:
             print(f'FAIL link gãy: {p} -> {t}')
             loi += 1
-        if len(gay) > 120:
-            print(f'... và {len(gay) - 120} link gãy nữa')
-            loi += len(gay) - 120
     else:
         print('PASS — không có internal page-link gãy.')
 
