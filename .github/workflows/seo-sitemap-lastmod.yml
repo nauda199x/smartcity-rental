@@ -29,7 +29,7 @@ jobs:
       - name: Chuẩn bị Node
         uses: actions/setup-node@v4
         with:
-          node-version: "20"
+          node-version: "24"
 
       - name: Sửa lastmod sitemap theo thay đổi thật
         run: |
@@ -37,28 +37,59 @@ jobs:
           node scripts/cap-nhat-sitemap.mjs
           git diff --check
 
-      - name: Kiểm tra sitemap căn hộ không còn đồng loạt một ngày
+      - name: Audit cấu trúc sitemap căn hộ
         run: |
           python3 - <<'PY'
           import collections
+          import datetime
           import re
           from pathlib import Path
+          from zoneinfo import ZoneInfo
 
           text = Path('sitemap-can-ho.xml').read_text(encoding='utf-8')
           dates = re.findall(r'<lastmod>([^<]+)</lastmod>', text)
           urls = re.findall(r'<loc>([^<]+)</loc>', text)
-          if not dates or len(dates) != len(urls):
+          if not urls or not dates or len(dates) != len(urls):
               raise SystemExit('Sitemap căn hộ thiếu loc/lastmod hoặc số lượng không khớp')
+          if len(urls) != len(set(urls)):
+              raise SystemExit('Sitemap căn hộ có URL trùng lặp')
+
+          today = datetime.datetime.now(ZoneInfo('Asia/Ho_Chi_Minh')).date()
+          bad_dates = []
+          future_dates = []
+          bad_urls = []
+          missing_files = []
+
+          for url, raw_date in zip(urls, dates):
+              if not url.startswith('https://timthuesmartcity.com/can-ho/'):
+                  bad_urls.append(url)
+              try:
+                  d = datetime.date.fromisoformat(raw_date)
+              except ValueError:
+                  bad_dates.append(raw_date)
+                  continue
+              if d > today:
+                  future_dates.append((url, raw_date))
+
+              rel = url.removeprefix('https://timthuesmartcity.com/').split('?', 1)[0].split('#', 1)[0]
+              path = Path(rel + 'index.html') if rel.endswith('/') else Path(rel)
+              if not path.exists():
+                  missing_files.append(str(path))
+
+          if bad_urls:
+              raise SystemExit(f'Có {len(bad_urls)} URL ngoài namespace /can-ho/')
+          if bad_dates:
+              raise SystemExit(f'Có lastmod sai định dạng: {bad_dates[:5]}')
+          if future_dates:
+              raise SystemExit(f'Có {len(future_dates)} lastmod ở tương lai')
+          if missing_files:
+              raise SystemExit(f'Có {len(missing_files)} URL không có file HTML: {missing_files[:5]}')
 
           counts = collections.Counter(dates)
           print('Tổng URL:', len(urls))
-          print('Số ngày lastmod khác nhau:', len(counts))
+          print('Số ngày lastmod khác nhau hiện tại:', len(counts))
           print('5 ngày phổ biến nhất:', counts.most_common(5))
-
-          # Có thể nhiều căn thực sự cùng cập nhật một ngày, nhưng toàn bộ URL
-          # cùng một ngày là dấu hiệu generator quay lại lỗi freshness giả.
-          if len(urls) >= 20 and len(counts) == 1:
-              raise SystemExit('LỖI: toàn bộ sitemap-can-ho.xml vẫn có cùng một lastmod')
+          print('Audit sitemap căn hộ: OK')
           PY
 
       - name: Commit sitemap nếu có thay đổi
