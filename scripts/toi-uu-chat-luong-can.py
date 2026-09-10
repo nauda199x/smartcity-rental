@@ -5,7 +5,7 @@ Không đổi URL/canonical. Script chỉ xử lý URL đang nằm trong sitemap
 - rút title >75 ký tự nhưng giữ intent thuê + dự án + mã nhận diện ngắn
 - làm H1 duy nhất nếu nhiều căn cùng loại/tòa/diện tích
 - làm meta description duy nhất khi bị trùng
-- thêm một dòng nhận diện bằng dữ liệu thật của căn (mã, loại, diện tích, tòa, nội thất, giá, vào ở)
+- thêm một dòng nhận diện bằng dữ liệu thật của căn
 - thêm identifier/mainEntityOfPage vào RealEstateListing JSON-LD
 - nếu căn chưa có ảnh/video thật, hiển thị og:image làm ảnh minh họa và ghi rõ là ảnh minh họa
 
@@ -75,14 +75,21 @@ def meta_value(text: str, pattern: re.Pattern[str]) -> str:
 
 
 def set_meta_content(text: str, key: str, attr: str, value: str) -> str:
-    # key=name/property, attr=description/og:title/twitter:title
-    pat = re.compile(
-        r"(<meta\b(?=[^>]*\b" + re.escape(key) + r"=[\"']" + re.escape(attr) +
-        r"[\"'])(?=[^>]*\bcontent=[\"']))([^\"']*)([\"'][^>]*>)",
+    """Thay content của đúng meta tag, không phụ thuộc thứ tự attribute."""
+    tag_pat = re.compile(
+        r"<meta\b[^>]*\b" + re.escape(key) + r"=[\"']" + re.escape(attr) + r"[\"'][^>]*>",
         re.I,
     )
+    m = tag_pat.search(text)
+    if not m:
+        return text
+    tag = m.group(0)
+    content_pat = re.compile(r"(\bcontent=[\"'])[^\"']*([\"'])", re.I)
     escaped = html.escape(value, quote=True)
-    return pat.sub(lambda m: m.group(1) + escaped + m.group(3), text, count=1)
+    new_tag, n = content_pat.subn(lambda x: x.group(1) + escaped + x.group(2), tag, count=1)
+    if not n:
+        return text
+    return text[:m.start()] + new_tag + text[m.end():]
 
 
 def short_id(code: str, slug: str) -> str:
@@ -90,14 +97,13 @@ def short_id(code: str, slug: str) -> str:
     if code:
         parts = [p for p in re.split(r"[.\s]+", code) if p]
         if len(parts) >= 2:
-            s = "-".join(parts[-2:])
+            value = "-".join(parts[-2:])
         else:
-            s = parts[-1]
-        s = re.sub(r"[^0-9A-Za-z+_-]", "", s)
-        if s:
-            return s[-14:]
-    tail = slug.rsplit("-", 2)[-2:]
-    return "-".join(tail)[-14:].upper()
+            value = parts[-1]
+        value = re.sub(r"[^0-9A-Za-z+_-]", "", value)
+        if value:
+            return value[-14:]
+    return "-".join(slug.rsplit("-", 2)[-2:])[-14:].upper()
 
 
 def compact_title(text: str, code: str, slug: str) -> str:
@@ -106,13 +112,16 @@ def compact_title(text: str, code: str, slug: str) -> str:
     toa = table_value(text, "Tòa")
     gia = table_value(text, "Giá thuê")
     sid = short_id(code, slug)
-    candidate = f"Cho thuê {loai} {toa} {dt} Vinhomes Smart City – {gia} · #{sid}"
-    if len(candidate) <= 75:
-        return candidate
-    candidate = f"Cho thuê {loai} {toa} {dt} Smart City – {gia} · #{sid}"
-    if len(candidate) <= 75:
-        return candidate
-    return candidate[:74].rstrip(" –·|")
+    candidates = [
+        f"Cho thuê {loai} {toa} {dt} Vinhomes Smart City – {gia} · #{sid}",
+        f"Cho thuê căn {loai} {toa} {dt} Smart City – {gia} · #{sid}",
+        f"Thuê {loai} {toa} {dt} Smart City – {gia} · #{sid}",
+        f"Thuê {loai} {toa} {dt} Smart City · #{sid}",
+    ]
+    for candidate in candidates:
+        if len(candidate) <= 75:
+            return candidate
+    return candidates[-1]
 
 
 def update_listing_schema(text: str, code: str, loc: str) -> str:
@@ -126,12 +135,12 @@ def update_listing_schema(text: str, code: str, loc: str) -> str:
                 about = value.get("about")
                 if isinstance(about, dict) and code:
                     about["identifier"] = code
-            for k, v in list(value.items()):
-                if k not in {"mainEntityOfPage"}:
-                    walk(v)
+            for key, child in list(value.items()):
+                if key != "mainEntityOfPage":
+                    walk(child)
         elif isinstance(value, list):
-            for item in value:
-                walk(item)
+            for child in value:
+                walk(child)
 
     def repl(m: re.Match[str]) -> str:
         raw = m.group(2).strip()
@@ -139,11 +148,12 @@ def update_listing_schema(text: str, code: str, loc: str) -> str:
             data = json.loads(html.unescape(raw))
         except (json.JSONDecodeError, TypeError):
             return m.group(0)
-        before = json.dumps(data, ensure_ascii=False, separators=(",", ":"))
+        before = json.dumps(data, ensure_ascii=False, sort_keys=True)
         walk(data)
-        after = json.dumps(data, ensure_ascii=False, separators=(",", ":"))
-        if after == before:
+        after_compare = json.dumps(data, ensure_ascii=False, sort_keys=True)
+        if after_compare == before:
             return m.group(0)
+        after = json.dumps(data, ensure_ascii=False, separators=(",", ":"))
         return m.group(1) + after + m.group(3)
 
     return RE_JSONLD_BLOCK.sub(repl, text)
@@ -171,16 +181,12 @@ def identity_note(text: str, code: str) -> str:
 
 
 def add_identity_note(text: str, note: str) -> str:
-    if 'class="ct-identity-note"' in text or "class='ct-identity-note'" in text:
-        return re.sub(
-            r"<p\s+class=[\"']ct-identity-note[\"'][^>]*>[\s\S]*?</p>",
-            '<p class="ct-identity-note">%s</p>' % html.escape(note),
-            text,
-            count=1,
-            flags=re.I,
-        )
+    existing = re.compile(r"<p\s+class=[\"']ct-identity-note[\"'][^>]*>[\s\S]*?</p>", re.I)
+    replacement = '<p class="ct-identity-note">%s</p>' % html.escape(note)
+    if existing.search(text):
+        return existing.sub(replacement, text, count=1)
     pat = re.compile(r"(<p\s+class=[\"']tt[\"'][^>]*>[\s\S]*?</p>)", re.I)
-    return pat.sub(r'\1\n  <p class="ct-identity-note">' + html.escape(note) + "</p>", text, count=1)
+    return pat.sub(r"\1\n  " + replacement, text, count=1)
 
 
 def add_media_fallback(text: str, code: str) -> str:
@@ -205,7 +211,6 @@ def add_media_fallback(text: str, code: str) -> str:
     marker = '<div class="ct-no-photo">'
     if marker in text:
         return text.replace(marker, figure + marker, 1)
-    # Fallback an toàn: chỉ chèn trong gallery rỗng nếu đúng cấu trúc generator.
     pat = re.compile(r"(<section\s+class=[\"'][^\"']*ct-gallery-empty-source[^\"']*[\"'][^>]*>)", re.I)
     return pat.sub(r"\1\n    " + figure, text, count=1)
 
@@ -235,48 +240,43 @@ def main() -> int:
 
     h1_groups = collections.defaultdict(list)
     desc_groups = collections.defaultdict(list)
-    for p in pages:
-        if p["h1"]:
-            h1_groups[p["h1"]].append(p)
-        if p["desc"]:
-            desc_groups[p["desc"]].append(p)
-    duplicate_h1 = {k for k, v in h1_groups.items() if len(v) > 1}
-    duplicate_desc = {k for k, v in desc_groups.items() if len(v) > 1}
+    for page in pages:
+        if page["h1"]:
+            h1_groups[page["h1"]].append(page)
+        if page["desc"]:
+            desc_groups[page["desc"]].append(page)
+    duplicate_h1 = {key for key, values in h1_groups.items() if len(values) > 1}
+    duplicate_desc = {key for key, values in desc_groups.items() if len(values) > 1}
 
     changed = 0
     stats = collections.Counter()
-    new_titles = set()
 
-    for p in pages:
-        text = p["text"]
-        code = table_value(text, "Mã căn") or p["slug"]
-        sid = short_id(code, p["slug"])
+    for page in pages:
+        text = page["text"]
+        code = table_value(text, "Mã căn") or page["slug"]
+        sid = short_id(code, page["slug"])
 
         tm = RE_TITLE.search(text)
         old_title = plain(tm.group(1)) if tm else ""
         if old_title and len(old_title) > 75:
-            new_title = compact_title(text, code, p["slug"])
-            # Bảo đảm không vô tình tạo title trùng sau khi rút gọn.
-            if new_title in new_titles:
-                new_title = (new_title[: max(20, 70 - len(code))].rstrip(" –·|") + " · " + code)[:75]
+            new_title = compact_title(text, code, page["slug"])
             if new_title != old_title:
                 text = RE_TITLE.sub("<title>%s</title>" % html.escape(new_title), text, count=1)
                 text = set_meta_content(text, "property", "og:title", new_title)
                 text = set_meta_content(text, "name", "twitter:title", new_title)
                 stats["title"] += 1
-                old_title = new_title
-        if old_title:
-            new_titles.add(old_title)
 
-        if p["h1"] in duplicate_h1 and f"#{sid}" not in p["h1"]:
-            new_h1 = p["h1"] + f" · Căn #{sid}"
+        if page["h1"] in duplicate_h1 and f"#{sid}" not in page["h1"]:
+            new_h1 = page["h1"] + f" · Căn #{sid}"
             text = RE_H1.sub("<h1>%s</h1>" % html.escape(new_h1), text, count=1)
             stats["h1"] += 1
 
-        if p["desc"] in duplicate_desc and code.lower() not in p["desc"].lower():
-            new_desc = p["desc"].rstrip(" .") + f". Mã căn {code}."
-            text = set_meta_content(text, "name", "description", new_desc)
-            stats["description"] += 1
+        if page["desc"] in duplicate_desc and code.lower() not in page["desc"].lower():
+            new_desc = page["desc"].rstrip(" .") + f". Mã căn {code}."
+            updated = set_meta_content(text, "name", "description", new_desc)
+            if updated != text:
+                text = updated
+                stats["description"] += 1
 
         note = identity_note(text, code)
         before = text
@@ -285,7 +285,7 @@ def main() -> int:
             stats["identity"] += 1
 
         before = text
-        text = update_listing_schema(text, code, p["loc"])
+        text = update_listing_schema(text, code, page["loc"])
         if text != before:
             stats["schema"] += 1
 
@@ -294,10 +294,10 @@ def main() -> int:
         if text != before:
             stats["media_fallback"] += 1
 
-        if text != p["text"]:
+        if text != page["text"]:
             changed += 1
             if not dry:
-                p["path"].write_text(text, encoding="utf-8", newline="")
+                page["path"].write_text(text, encoding="utf-8", newline="")
 
     mode = "cần đổi" if dry else "đã tối ưu"
     print(f"P5 chất lượng trang căn: {len(pages)} URL · {changed} file {mode}.")
