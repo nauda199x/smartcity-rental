@@ -11,6 +11,7 @@ on:
       - "scripts/noi-hub-programmatic.py"
       - "scripts/kiem-tra-mat-bang-toa.py"
       - "scripts/dedupe-tieu-de-can.py"
+      - "scripts/toi-uu-chat-luong-can.py"
       - ".github/workflows/seo-big-update-p0-p4.yml"
       - "robots.txt"
   pull_request:
@@ -21,6 +22,7 @@ on:
       - "scripts/noi-hub-programmatic.py"
       - "scripts/kiem-tra-mat-bang-toa.py"
       - "scripts/dedupe-tieu-de-can.py"
+      - "scripts/toi-uu-chat-luong-can.py"
       - ".github/workflows/seo-big-update-p0-p4.yml"
       - "robots.txt"
   workflow_run:
@@ -88,16 +90,22 @@ jobs:
           set -o pipefail
           python3 scripts/dedupe-tieu-de-can.py 2>&1 | tee -a seo-p0-p4.log
 
+      - name: P5 tăng độ khác biệt từng trang căn
+        run: |
+          set -o pipefail
+          python3 scripts/toi-uu-chat-luong-can.py 2>&1 | tee -a seo-p0-p4.log
+
       - name: Đồng bộ tên site và ảnh ưu tiên
         run: |
           set -o pipefail
           python3 scripts/dong-bo-ten-site.py 2>&1 | tee -a seo-p0-p4.log
           python3 scripts/toi-uu-anh-tim-kiem.py 2>&1 | tee -a seo-p0-p4.log
 
-      - name: Audit P0-P4 lần cuối
+      - name: Audit P0-P5 lần cuối
         run: |
           set -o pipefail
           python3 scripts/seo-p0-p4.py --kiem-tra 2>&1 | tee -a seo-p0-p4.log
+          python3 scripts/audit-indexability-can-ho.py 2>&1 | tee -a seo-p0-p4.log
           python3 scripts/kiem-tra-lien-ket.py 2>&1 | tee -a seo-p0-p4.log || \
             echo "::warning::Internal-link audit còn cảnh báo legacy; xem log để xử lý tiếp."
 
@@ -105,10 +113,10 @@ jobs:
         if: always()
         run: |
           {
-            echo "## SEO Big Update P0-P4"
+            echo "## SEO Big Update P0-P5"
             echo
             echo '```'
-            tail -n 180 seo-p0-p4.log 2>/dev/null || true
+            tail -n 220 seo-p0-p4.log 2>/dev/null || true
             echo '```'
             echo
             echo "### Diff"
@@ -144,7 +152,7 @@ jobs:
             exit 0
           fi
 
-          git commit -m "SEO P0-P4: crawl hygiene, landing tòa và internal-link graph"
+          git commit -m "SEO P0-P5: strengthen apartment uniqueness and quality"
 
           # Chỉ còn file log untracked; tracked tree phải sạch trước rebase.
           if ! git diff --quiet; then
@@ -158,7 +166,7 @@ jobs:
             git fetch origin main
             if git rebase origin/main; then
               if git push origin HEAD:main; then
-                echo "Đã push SEO P0-P4 lên main."
+                echo "Đã push SEO P0-P5 lên main."
                 exit 0
               fi
             fi
