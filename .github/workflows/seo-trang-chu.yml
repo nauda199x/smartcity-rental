@@ -1,4 +1,4 @@
-name: Đồng bộ SEO trang chủ cho thuê
+name: Đồng bộ SEO intent trang chủ và cẩm nang
 
 on:
   push:
@@ -27,7 +27,7 @@ jobs:
           ref: main
           fetch-depth: 0
 
-      - name: Đồng bộ title, description, canonical, social metadata, schema và H1
+      - name: Đồng bộ intent SEO trang chủ và cẩm nang
         shell: bash
         run: |
           python3 - <<'PY'
@@ -36,19 +36,36 @@ jobs:
           from zoneinfo import ZoneInfo
           import re
 
-          p = Path("index.html")
-          s = p.read_text(encoding="utf-8")
           now = datetime.now(ZoneInfo("Asia/Ho_Chi_Minh"))
           thang = now.month
           nam = now.year
 
-          title = f"Cho Thuê Căn Hộ Chung Cư Vinhomes Smart City Giá Tốt T{thang:02d}/{nam}"
-          h1 = "Cho Thuê Căn Hộ Chung Cư Vinhomes Smart City"
+          # Trang chủ = landing giao dịch chính cho nhóm từ khóa
+          # "thuê/cho thuê chung cư Vinhomes Smart City".
+          title = f"Cho Thuê Chung Cư Vinhomes Smart City T{thang:02d}/{nam} | Giá Tốt"
+          h1 = "Cho Thuê Chung Cư Vinhomes Smart City"
           description = (
-              "Cho thuê căn hộ chung cư Vinhomes Smart City Tây Mỗ, quỹ căn cập nhật liên tục: "
-              "Studio, 1PN, 1PN+, 2PN, 2PN+, 3PN. Ảnh thật, lọc theo giá, tòa và nội thất."
+              f"Cho thuê chung cư Vinhomes Smart City Tây Mỗ T{thang:02d}/{nam}. "
+              "Căn Studio–3PN, ảnh thật, giá và tình trạng trống cập nhật liên tục. "
+              "Lọc theo tòa, phân khu và nội thất."
+          )
+          social_description = (
+              "Quỹ căn Vinhomes Smart City đang cho thuê, đồng bộ mỗi 30 phút. "
+              "Xem Studio–3PN theo giá, tòa, phân khu và nội thất, kèm ảnh thực tế."
           )
           canonical = "https://timthuesmartcity.com/"
+
+          # Cẩm nang = informational intent, không tranh keyword giao dịch với trang chủ.
+          guide_title = f"Giá thuê Vinhomes Smart City {nam}: Studio–3PN, phí & kinh nghiệm"
+          guide_h1 = f"Giá thuê và kinh nghiệm thuê nhà Vinhomes Smart City {nam}"
+          guide_description = (
+              f"Tham khảo giá thuê Vinhomes Smart City {nam} theo Studio, 1PN, 2PN, 3PN và phân khu; "
+              "kèm phí dịch vụ, kinh nghiệm xem nhà và lưu ý hợp đồng trước khi thuê."
+          )
+          guide_social_description = (
+              "Bảng giá tham khảo, phí dịch vụ và kinh nghiệm thuê nhà tại Vinhomes Smart City "
+              "trước khi xem căn và ký hợp đồng."
+          )
 
           def sub1(pattern, repl, text, flags=re.I | re.S, label=""):
               out, n = re.subn(pattern, repl, text, count=1, flags=flags)
@@ -56,53 +73,136 @@ jobs:
                   raise SystemExit(f"Không tìm thấy đúng 1 vị trí để sửa: {label or pattern}")
               return out
 
-          s = sub1(r"(<title[^>]*>).*?(</title>)", rf"\1{title}\2", s, label="title")
-          s = sub1(r'(<meta[^>]+name="description"[^>]+content=")[^"]*(")', rf"\1{description}\2", s, label="meta description")
-          s = sub1(r'(<link[^>]+rel="canonical"[^>]+href=")[^"]*(")', rf"\1{canonical}\2", s, label="canonical")
-          s = sub1(r'(<meta[^>]+property="og:url"[^>]+content=")[^"]*(")', rf"\1{canonical}\2", s, label="og:url")
-          s = sub1(r'(<meta[^>]+property="og:title"[^>]+content=")[^"]*(")', rf"\1{title}\2", s, label="og:title")
-          s = sub1(r'(<meta[^>]+name="twitter:title"[^>]+content=")[^"]*(")', rf"\1{title}\2", s, label="twitter:title")
-          s = sub1(r'(<h1\b[^>]*>).*?(</h1>)', rf"\1{h1}\2", s, label="H1")
-
-          # WebPage schema do script tối ưu ảnh tạo; đồng bộ name/caption nếu khối này đã tồn tại.
-          marker = 'id="google-image-preview-data"'
-          if marker in s:
-              m = re.search(r'(<script[^>]+id="google-image-preview-data"[^>]*>)(.*?)(</script>)', s, re.I | re.S)
+          def update_image_schema(text, new_title):
+              marker = 'id="google-image-preview-data"'
+              if marker not in text:
+                  return text
+              m = re.search(r'(<script[^>]+id="google-image-preview-data"[^>]*>)(.*?)(</script>)', text, re.I | re.S)
               if not m:
                   raise SystemExit("Có marker WebPage schema nhưng không đọc được block JSON-LD")
               block = m.group(2)
-              block = re.sub(r'("name"\s*:\s*")[^"]*(")', rf'\1{title}\2', block, count=1)
-              block = re.sub(r'("caption"\s*:\s*")[^"]*(")', rf'\1{title}\2', block, count=1)
-              s = s[:m.start(2)] + block + s[m.end(2):]
+              block = re.sub(r'("name"\s*:\s*")[^"]*(")', lambda x: x.group(1) + new_title + x.group(2), block, count=1)
+              block = re.sub(r'("caption"\s*:\s*")[^"]*(")', lambda x: x.group(1) + new_title + x.group(2), block, count=1)
+              return text[:m.start(2)] + block + text[m.end(2):]
+
+          # ---------- TRANG CHỦ ----------
+          p = Path("index.html")
+          s = p.read_text(encoding="utf-8")
+          s = sub1(r"(<title[^>]*>).*?(</title>)", lambda m: m.group(1) + title + m.group(2), s, label="homepage title")
+          s = sub1(r'(<meta[^>]+name="description"[^>]+content=")[^"]*(")', lambda m: m.group(1) + description + m.group(2), s, label="homepage meta description")
+          s = sub1(r'(<link[^>]+rel="canonical"[^>]+href=")[^"]*(")', lambda m: m.group(1) + canonical + m.group(2), s, label="homepage canonical")
+          s = sub1(r'(<meta[^>]+property="og:url"[^>]+content=")[^"]*(")', lambda m: m.group(1) + canonical + m.group(2), s, label="homepage og:url")
+          s = sub1(r'(<meta[^>]+property="og:title"[^>]+content=")[^"]*(")', lambda m: m.group(1) + title + m.group(2), s, label="homepage og:title")
+          s = sub1(r'(<meta[^>]+property="og:description"[^>]+content=")[^"]*(")', lambda m: m.group(1) + social_description + m.group(2), s, label="homepage og:description")
+          s = sub1(r'(<meta[^>]+name="twitter:title"[^>]+content=")[^"]*(")', lambda m: m.group(1) + title + m.group(2), s, label="homepage twitter:title")
+          s = sub1(r'(<meta[^>]+name="twitter:description"[^>]+content=")[^"]*(")', lambda m: m.group(1) + social_description + m.group(2), s, label="homepage twitter:description")
+          s = sub1(r'(<h1\b[^>]*>).*?(</h1>)', lambda m: m.group(1) + h1 + m.group(2), s, label="homepage H1")
+          s = update_image_schema(s, title)
+
+          # URL có query chỉ là trạng thái lọc/tracking của cùng trang chủ.
+          # Canonical đã luôn trỏ về /; thêm noindex động để ?loai=, ?pk=, ?q=,
+          # UTM... không trở thành đối thủ index của landing chính.
+          query_noindex = '''<meta name="robots" id="robotsMeta" content="index,follow,max-image-preview:large">
+<script id="seo-query-noindex">
+  (function () {
+    if (!window.location.search) return;
+    var meta = document.getElementById('robotsMeta');
+    if (meta) meta.setAttribute('content', 'noindex,follow,max-image-preview:large');
+  }());
+</script>'''
+          if 'id="seo-query-noindex"' not in s:
+              s = sub1(
+                  r'<meta\s+name="robots"\s+content="max-image-preview:large"\s*>',
+                  query_noindex,
+                  s,
+                  flags=re.I,
+                  label="homepage robots meta"
+              )
 
           p.write_text(s, encoding="utf-8")
-          print(title)
-          print(description)
+
+          # ---------- CẨM NANG ----------
+          gp = Path("cam-nang-thue-nha.html")
+          g = gp.read_text(encoding="utf-8")
+          g = sub1(r"(<title[^>]*>).*?(</title>)", lambda m: m.group(1) + guide_title + m.group(2), g, label="guide title")
+          g = sub1(r'(<meta[^>]+name="description"[^>]+content=")[^"]*(")', lambda m: m.group(1) + guide_description + m.group(2), g, label="guide meta description")
+          g = sub1(r'(<meta[^>]+property="og:title"[^>]+content=")[^"]*(")', lambda m: m.group(1) + guide_title + m.group(2), g, label="guide og:title")
+          g = sub1(r'(<meta[^>]+property="og:description"[^>]+content=")[^"]*(")', lambda m: m.group(1) + guide_social_description + m.group(2), g, label="guide og:description")
+          g = sub1(r'<meta\s+name="robots"\s+content="[^"]*"\s*>', '<meta name="robots" content="index,follow,max-image-preview:large">', g, flags=re.I, label="guide robots")
+          g = sub1(r'(<h1\b[^>]*>).*?(</h1>)', lambda m: m.group(1) + guide_h1 + m.group(2), g, label="guide H1")
+
+          old_brand = '<span>Cho thuê chung cư Smart City<small>Cẩm nang thuê nhà</small></span>'
+          new_brand = '<span>Tìm Thuê Smart City<small>Giá thuê · phí · kinh nghiệm</small></span>'
+          if old_brand in g:
+              g = g.replace(old_brand, new_brand, 1)
+
+          g = g.replace(
+              'Xem căn đang trống kèm ảnh thật',
+              'Xem căn Vinhomes Smart City đang cho thuê',
+              1
+          )
+          g = g.replace(
+              'Tổng hợp kinh nghiệm, bảng giá và các lưu ý thực tế giúp anh/chị thuê căn hộ tại Vinhomes Smart City nhanh chóng, đúng nhu cầu và tránh rủi ro không đáng có.',
+              'Trang tham khảo giá, chi phí và kinh nghiệm thực tế trước khi xem căn hoặc ký hợp đồng tại Vinhomes Smart City.',
+              1
+          )
+
+          guide_lead = '''<p class="pillar-lead">
+        Trang này dành cho anh/chị cần <strong>tham khảo giá thuê, chi phí và kinh nghiệm</strong> trước khi quyết định tại Vinhomes Smart City, Tây Mỗ, Hà Nội. Nội dung tập trung vào mặt bằng giá theo loại căn và phân khu, tình trạng nội thất, phí dịch vụ, kinh nghiệm xem nhà và các lưu ý hợp đồng. Khi đã xác định nhu cầu, anh/chị có thể chuyển sang <a href="/">danh sách căn Vinhomes Smart City đang cho thuê</a> để xem quỹ căn thực tế và lọc theo ngân sách.
+      </p>'''
+          g = sub1(r'<p\s+class="pillar-lead">.*?</p>', guide_lead, g, label="guide lead")
+
+          # Đồng bộ CollectionPage schema theo informational intent.
+          scripts = list(re.finditer(r'(<script[^>]*type="application/ld\+json"[^>]*>)(.*?)(</script>)', g, re.I | re.S))
+          collection = next((m for m in scripts if '"@type": "CollectionPage"' in m.group(2)), None)
+          if not collection:
+              raise SystemExit("Không tìm thấy CollectionPage schema của cẩm nang")
+          block = collection.group(2)
+          schema_name = f"Giá thuê và kinh nghiệm Vinhomes Smart City {nam}"
+          schema_desc = (
+              f"Tài liệu tham khảo giá thuê Vinhomes Smart City {nam} theo loại căn và phân khu, "
+              "kèm phí dịch vụ, kinh nghiệm xem nhà và lưu ý hợp đồng."
+          )
+          block = re.sub(r'("name"\s*:\s*")[^"]*(")', lambda m: m.group(1) + schema_name + m.group(2), block, count=1)
+          block = re.sub(r'("description"\s*:\s*")[^"]*(")', lambda m: m.group(1) + schema_desc + m.group(2), block, count=1)
+          g = g[:collection.start(2)] + block + g[collection.end(2):]
+          g = update_image_schema(g, guide_title)
+
+          gp.write_text(g, encoding="utf-8")
+
+          print("Homepage:", title)
+          print("Guide:", guide_title)
           PY
 
       - name: Kiểm tra metadata sau khi sửa
         shell: bash
         run: |
           set -euo pipefail
+          echo "--- Homepage ---"
           grep -n '<title>' index.html | head -1
           grep -n 'name="description"' index.html | head -1
           grep -n 'rel="canonical"' index.html | head -1
           grep -n 'property="og:title"' index.html | head -1
-          grep -n 'name="twitter:title"' index.html | head -1
           grep -n '<h1' index.html | head -1
-          grep -n 'google-image-preview-data' index.html | head -1
+          grep -n 'seo-query-noindex' index.html | head -1
+          echo "--- Guide ---"
+          grep -n '<title>' cam-nang-thue-nha.html | head -1
+          grep -n 'name="description"' cam-nang-thue-nha.html | head -1
+          grep -n 'rel="canonical"' cam-nang-thue-nha.html | head -1
+          grep -n '<h1' cam-nang-thue-nha.html | head -1
+          grep -n 'danh sách căn Vinhomes Smart City đang cho thuê' cam-nang-thue-nha.html | head -1
 
       - name: Commit thay đổi nếu có
         shell: bash
         run: |
           set -euo pipefail
-          if git diff --quiet -- index.html; then
-            echo "SEO trang chủ đã đúng, không cần commit."
+          if git diff --quiet -- index.html cam-nang-thue-nha.html; then
+            echo "SEO intent đã đúng, không cần commit."
             exit 0
           fi
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add index.html
-          git commit -m "SEO: tối ưu title landing cho thuê Smart City"
+          git add index.html cam-nang-thue-nha.html
+          git commit -m "SEO: tách intent landing thuê và cẩm nang Smart City"
           git pull --rebase origin main
           git push origin HEAD:main
