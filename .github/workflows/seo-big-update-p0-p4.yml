@@ -8,6 +8,8 @@ on:
       - "scripts/mo-rong-trang-toa.py"
       - "scripts/seo-p0-p4.py"
       - "scripts/noi-hub-toa.py"
+      - "scripts/noi-hub-programmatic.py"
+      - "scripts/kiem-tra-mat-bang-toa.py"
       - ".github/workflows/seo-big-update-p0-p4.yml"
       - "robots.txt"
   pull_request:
@@ -15,6 +17,8 @@ on:
       - "scripts/mo-rong-trang-toa.py"
       - "scripts/seo-p0-p4.py"
       - "scripts/noi-hub-toa.py"
+      - "scripts/noi-hub-programmatic.py"
+      - "scripts/kiem-tra-mat-bang-toa.py"
       - ".github/workflows/seo-big-update-p0-p4.yml"
       - "robots.txt"
   workflow_run:
@@ -62,10 +66,20 @@ jobs:
           set -o pipefail
           python3 scripts/seo-p0-p4.py 2>&1 | tee -a seo-p0-p4.log
 
+      - name: Chặn gắn nhầm mặt bằng giữa các tòa
+        run: |
+          set -o pipefail
+          python3 scripts/kiem-tra-mat-bang-toa.py 2>&1 | tee -a seo-p0-p4.log
+
       - name: Nối tower hub vào các phân khu và hub căn hộ
         run: |
           set -o pipefail
           python3 scripts/noi-hub-toa.py 2>&1 | tee -a seo-p0-p4.log
+
+      - name: Nối các landing programmatic indexable khỏi orphan
+        run: |
+          set -o pipefail
+          python3 scripts/noi-hub-programmatic.py 2>&1 | tee -a seo-p0-p4.log
 
       - name: Đồng bộ tên site và ảnh ưu tiên
         run: |
