@@ -1,0 +1,114 @@
+name: SEO Big Update P0-P4
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - "scripts/mo-rong-trang-toa.py"
+      - "scripts/seo-p0-p4.py"
+      - ".github/workflows/seo-big-update-p0-p4.yml"
+      - "robots.txt"
+  workflow_run:
+    workflows:
+      - "Cập nhật số căn và tháng trong thẻ SEO"
+    types:
+      - completed
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: smartcity-generated-main
+  cancel-in-progress: false
+
+jobs:
+  seo-p0-p4:
+    if: ${{ github.event_name != 'workflow_run' || github.event.workflow_run.conclusion == 'success' }}
+    runs-on: ubuntu-latest
+    steps:
+      - name: Lấy main mới nhất
+        uses: actions/checkout@v4
+        with:
+          ref: main
+          fetch-depth: 0
+
+      - name: Mở rộng landing SEO theo tòa
+        run: |
+          set -o pipefail
+          python3 scripts/mo-rong-trang-toa.py 2>&1 | tee seo-p0-p4.log
+
+      - name: Nối URL căn chi tiết vào các landing tòa mới
+        run: |
+          set -o pipefail
+          python3 scripts/noi-lien-ket-chi-tiet.py 2>&1 | tee -a seo-p0-p4.log
+
+      - name: Dựng lại internal-link graph sau khi có tòa mới
+        run: |
+          set -o pipefail
+          python3 scripts/cap-nhat-lien-ket-noi-bo.py 2>&1 | tee -a seo-p0-p4.log
+
+      - name: P0-P4 crawl guard, entity schema và unique context
+        run: |
+          set -o pipefail
+          python3 scripts/seo-p0-p4.py 2>&1 | tee -a seo-p0-p4.log
+
+      - name: Đồng bộ tên site và ảnh ưu tiên
+        run: |
+          set -o pipefail
+          python3 scripts/dong-bo-ten-site.py 2>&1 | tee -a seo-p0-p4.log
+          python3 scripts/toi-uu-anh-tim-kiem.py 2>&1 | tee -a seo-p0-p4.log
+
+      - name: Audit P0-P4 lần cuối
+        run: |
+          set -o pipefail
+          python3 scripts/seo-p0-p4.py --kiem-tra 2>&1 | tee -a seo-p0-p4.log
+          python3 scripts/kiem-tra-lien-ket.py 2>&1 | tee -a seo-p0-p4.log || \
+            echo "::warning::Internal-link audit còn cảnh báo; xem log để xử lý tiếp."
+
+      - name: Tóm tắt thay đổi
+        if: always()
+        run: |
+          {
+            echo "## SEO Big Update P0-P4"
+            echo
+            echo '```'
+            tail -n 180 seo-p0-p4.log 2>/dev/null || true
+            echo '```'
+            echo
+            echo "### Diff"
+            echo '```'
+            git --no-pager diff --stat || true
+            echo '```'
+          } >> "$GITHUB_STEP_SUMMARY"
+
+      - name: Commit và push thay đổi sinh tự động
+        run: |
+          set -euo pipefail
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+
+          # data.json chỉ do pipeline đồng bộ dữ liệu quản lý, tuyệt đối không ghi đè.
+          git checkout -- data.json || true
+
+          git add -- '*.html' sitemap-toa.xml seo-toa.json bao-cao-seo-p0-p4.json \
+            sitemap.xml sitemap-can-ho.xml sitemap-phan-khu-loai-can.xml \
+            sitemap-ngan-sach-loai-can.xml 2>/dev/null || true
+
+          if git diff --cached --quiet; then
+            echo "Không có thay đổi sinh tự động — bỏ qua commit."
+            exit 0
+          fi
+
+          git commit -m "SEO P0-P4: crawl hygiene, landing tòa và internal-link graph"
+
+          for lan in 1 2 3 4; do
+            if git pull --rebase origin main && git push origin HEAD:main; then
+              echo "Đã push SEO P0-P4 lên main."
+              exit 0
+            fi
+            sleep $((2 ** lan))
+          done
+          echo "Không push được sau 4 lần thử."
+          exit 1
