@@ -120,9 +120,17 @@ jobs:
           # data.json chỉ do pipeline đồng bộ dữ liệu quản lý, tuyệt đối không ghi đè.
           git checkout -- data.json || true
 
+          # Stage mọi file ĐÃ ĐƯỢC TRACK mà các generator hợp lệ cập nhật
+          # (ví dụ crawl-state/registry phụ), rồi bổ sung các output mới chưa track.
+          # Cách này tránh để sót tracked change khiến `git rebase` từ chối chạy.
+          git add -u
           git add -- '*.html' sitemap-toa.xml seo-toa.json bao-cao-seo-p0-p4.json \
-            sitemap.xml sitemap-can-ho.xml sitemap-phan-khu-loai-can.xml \
+            sitemap.xml sitemap-images.xml sitemap-can-ho.xml sitemap-phan-khu-loai-can.xml \
             sitemap-ngan-sach-loai-can.xml 2>/dev/null || true
+          git reset -- data.json 2>/dev/null || true
+
+          echo "Trạng thái trước commit:"
+          git status --short
 
           if git diff --cached --quiet; then
             echo "Không có thay đổi sinh tự động — bỏ qua commit."
@@ -131,11 +139,23 @@ jobs:
 
           git commit -m "SEO P0-P4: crawl hygiene, landing tòa và internal-link graph"
 
+          # Chỉ còn file log untracked; tracked tree phải sạch trước rebase.
+          if ! git diff --quiet; then
+            echo "::error::Vẫn còn tracked change chưa stage sau commit:"
+            git status --short
+            exit 1
+          fi
+
           for lan in 1 2 3 4; do
-            if git pull --rebase origin main && git push origin HEAD:main; then
-              echo "Đã push SEO P0-P4 lên main."
-              exit 0
+            git rebase --abort 2>/dev/null || true
+            git fetch origin main
+            if git rebase origin/main; then
+              if git push origin HEAD:main; then
+                echo "Đã push SEO P0-P4 lên main."
+                exit 0
+              fi
             fi
+            git rebase --abort 2>/dev/null || true
             sleep $((2 ** lan))
           done
           echo "Không push được sau 4 lần thử."
