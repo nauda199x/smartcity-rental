@@ -1,11 +1,11 @@
 {
   "updated": "2026-09-10",
   "source": "data.json",
-  "active_count": 239,
+  "active_count": 241,
   "min_sample": 3,
   "overall": {
-    "n": 239,
-    "min": 6000000,
+    "n": 241,
+    "min": 5500000,
     "max": 19500000,
     "median": 11000000
   },
@@ -17,10 +17,10 @@
       "median": 9000000
     },
     "1 Ngủ +": {
-      "n": 34,
+      "n": 35,
       "min": 7500000,
       "max": 14000000,
-      "median": 9500000.0
+      "median": 9500000
     },
     "2 Ngủ": {
       "n": 79,
@@ -41,10 +41,10 @@
       "median": 15000000
     },
     "Studio": {
-      "n": 39,
-      "min": 6000000,
+      "n": 40,
+      "min": 5500000,
       "max": 10500000,
-      "median": 8000000
+      "median": 8000000.0
     }
   },
   "by_zone": {
@@ -67,10 +67,10 @@
       "median": 13000000
     },
     "Masteri": {
-      "n": 49,
+      "n": 50,
       "min": 7500000,
       "max": 19500000,
-      "median": 11000000
+      "median": 11000000.0
     },
     "Miami": {
       "n": 25,
@@ -79,10 +79,10 @@
       "median": 12000000
     },
     "Sakura": {
-      "n": 26,
-      "min": 6000000,
+      "n": 27,
+      "min": 5500000,
       "max": 16000000,
-      "median": 9500000.0
+      "median": 9500000
     },
     "Sapphire": {
       "n": 54,
@@ -99,16 +99,16 @@
   },
   "by_interior": {
     "Full nội thất": {
-      "n": 153,
+      "n": 154,
       "min": 6500000,
       "max": 19500000,
-      "median": 11500000
+      "median": 11500000.0
     },
     "Nhà Nguyên Bản": {
-      "n": 34,
-      "min": 6000000,
+      "n": 35,
+      "min": 5500000,
       "max": 14500000,
-      "median": 9000000.0
+      "median": 9000000
     },
     "Đồ Cơ bản": {
       "n": 52,
@@ -392,10 +392,10 @@
       "zone": "Masteri",
       "type": "1 Ngủ +",
       "interior": "Full nội thất",
-      "n": 9,
+      "n": 10,
       "min": 10500000,
       "max": 14000000,
-      "median": 11000000
+      "median": 11500000.0
     },
     {
       "zone": "Masteri",
@@ -680,10 +680,10 @@
       "zone": "Sakura",
       "type": "Studio",
       "interior": "Nhà Nguyên Bản",
-      "n": 2,
-      "min": 6000000,
+      "n": 3,
+      "min": 5500000,
       "max": 6000000,
-      "median": 6000000.0
+      "median": 6000000
     },
     {
       "zone": "Sapphire",

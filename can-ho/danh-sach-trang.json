@@ -319,6 +319,14 @@
   "phan_khu": "Masteri",
   "toa": "MasB"
  },
+ "cho-thue-can-ho-1-ngu-masteri-46m2-ct-1n-549": {
+  "dien_tich": 46,
+  "loai": "1 Ngủ +",
+  "ma": "CT.1N+.549",
+  "ngay_xuat_hien": "2026-09-10",
+  "phan_khu": "Masteri",
+  "toa": "MasB"
+ },
  "cho-thue-can-ho-1-ngu-masteri-47m2-ct-1n-477": {
   "dien_tich": 47,
   "loai": "1 Ngủ +",
@@ -2726,6 +2734,14 @@
   "ngay_xuat_hien": "2026-08-24",
   "phan_khu": "Sakura",
   "toa": "SA2"
+ },
+ "cho-thue-can-ho-studio-sakura-31m2-ct-stu-848": {
+  "dien_tich": 31,
+  "loai": "Studio",
+  "ma": "CT.Stu.848",
+  "ngay_xuat_hien": "2026-09-10",
+  "phan_khu": "Sakura",
+  "toa": "SA1"
  },
  "cho-thue-can-ho-studio-sakura-32m2-ct-stu-777": {
   "dien_tich": 32,
