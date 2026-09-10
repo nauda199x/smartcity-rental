@@ -9,6 +9,12 @@ on:
       - "scripts/seo-p0-p4.py"
       - ".github/workflows/seo-big-update-p0-p4.yml"
       - "robots.txt"
+  pull_request:
+    paths:
+      - "scripts/mo-rong-trang-toa.py"
+      - "scripts/seo-p0-p4.py"
+      - ".github/workflows/seo-big-update-p0-p4.yml"
+      - "robots.txt"
   workflow_run:
     workflows:
       - "Cập nhật số căn và tháng trong thẻ SEO"
@@ -20,7 +26,7 @@ permissions:
   contents: write
 
 concurrency:
-  group: smartcity-generated-main
+  group: seo-p0-p4-${{ github.event_name == 'pull_request' && github.event.pull_request.number || 'main' }}
   cancel-in-progress: false
 
 jobs:
@@ -28,10 +34,10 @@ jobs:
     if: ${{ github.event_name != 'workflow_run' || github.event.workflow_run.conclusion == 'success' }}
     runs-on: ubuntu-latest
     steps:
-      - name: Lấy main mới nhất
+      - name: Lấy đúng snapshot cần kiểm tra
         uses: actions/checkout@v4
         with:
-          ref: main
+          ref: ${{ github.event_name == 'pull_request' && github.event.pull_request.head.sha || 'main' }}
           fetch-depth: 0
 
       - name: Mở rộng landing SEO theo tòa
@@ -84,6 +90,7 @@ jobs:
           } >> "$GITHUB_STEP_SUMMARY"
 
       - name: Commit và push thay đổi sinh tự động
+        if: ${{ github.event_name != 'pull_request' }}
         run: |
           set -euo pipefail
           git config user.name "github-actions[bot]"
