@@ -1,0 +1,48 @@
+name: Audit indexability căn hộ
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - "scripts/audit-indexability-can-ho.py"
+      - ".github/workflows/audit-indexability-can-ho.yml"
+      - "sitemap-can-ho.xml"
+      - "can-ho/**/index.html"
+  schedule:
+    # 09:20 giờ Việt Nam mỗi ngày.
+    - cron: "20 2 * * *"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: smartcity-indexability-audit
+  cancel-in-progress: true
+
+jobs:
+  audit:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Lấy code
+        uses: actions/checkout@v4
+        with:
+          ref: main
+          fetch-depth: 1
+
+      - name: Audit 247+ URL căn hộ
+        run: |
+          set -o pipefail
+          python3 scripts/audit-indexability-can-ho.py 2>&1 | tee audit-indexability.txt
+
+      - name: Ghi kết quả audit
+        if: always()
+        run: |
+          {
+            echo "## Audit indexability căn hộ"
+            echo
+            echo '```text'
+            cat audit-indexability.txt 2>/dev/null || echo "Không có log audit."
+            echo '```'
+          } >> "$GITHUB_STEP_SUMMARY"
