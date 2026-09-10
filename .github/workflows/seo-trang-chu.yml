@@ -40,8 +40,6 @@ jobs:
           thang = now.month
           nam = now.year
 
-          # Trang chủ = landing giao dịch chính cho nhóm từ khóa
-          # "thuê/cho thuê chung cư Vinhomes Smart City".
           title = f"Cho Thuê Chung Cư Vinhomes Smart City T{thang:02d}/{nam} | Giá Tốt"
           h1 = "Cho Thuê Chung Cư Vinhomes Smart City"
           description = (
@@ -55,7 +53,6 @@ jobs:
           )
           canonical = "https://timthuesmartcity.com/"
 
-          # Cẩm nang = informational intent, không tranh keyword giao dịch với trang chủ.
           guide_title = f"Giá thuê Vinhomes Smart City {nam}: Studio–3PN, phí & kinh nghiệm"
           guide_h1 = f"Giá thuê và kinh nghiệm thuê nhà Vinhomes Smart City {nam}"
           guide_description = (
@@ -85,7 +82,7 @@ jobs:
               block = re.sub(r'("caption"\s*:\s*")[^"]*(")', lambda x: x.group(1) + new_title + x.group(2), block, count=1)
               return text[:m.start(2)] + block + text[m.end(2):]
 
-          # ---------- TRANG CHỦ ----------
+          # Trang chủ: landing giao dịch chính.
           p = Path("index.html")
           s = p.read_text(encoding="utf-8")
           s = sub1(r"(<title[^>]*>).*?(</title>)", lambda m: m.group(1) + title + m.group(2), s, label="homepage title")
@@ -99,17 +96,18 @@ jobs:
           s = sub1(r'(<h1\b[^>]*>).*?(</h1>)', lambda m: m.group(1) + h1 + m.group(2), s, label="homepage H1")
           s = update_image_schema(s, title)
 
-          # URL có query chỉ là trạng thái lọc/tracking của cùng trang chủ.
-          # Canonical đã luôn trỏ về /; thêm noindex động để ?loai=, ?pk=, ?q=,
-          # UTM... không trở thành đối thủ index của landing chính.
-          query_noindex = '''<meta name="robots" id="robotsMeta" content="index,follow,max-image-preview:large">
-<script id="seo-query-noindex">
-  (function () {
-    if (!window.location.search) return;
-    var meta = document.getElementById('robotsMeta');
-    if (meta) meta.setAttribute('content', 'noindex,follow,max-image-preview:large');
-  }());
-</script>'''
+          # Query URL chỉ là trạng thái lọc/tracking; canonical vẫn là trang chủ.
+          # Noindex query giúp ?loai=, ?pk=, ?q=, UTM... không tranh index với /.
+          query_noindex = "\n".join([
+              '<meta name="robots" id="robotsMeta" content="index,follow,max-image-preview:large">',
+              '<script id="seo-query-noindex">',
+              '  (function () {',
+              '    if (!window.location.search) return;',
+              "    var meta = document.getElementById('robotsMeta');",
+              "    if (meta) meta.setAttribute('content', 'noindex,follow,max-image-preview:large');",
+              '  }());',
+              '</script>'
+          ])
           if 'id="seo-query-noindex"' not in s:
               s = sub1(
                   r'<meta\s+name="robots"\s+content="max-image-preview:large"\s*>',
@@ -118,10 +116,9 @@ jobs:
                   flags=re.I,
                   label="homepage robots meta"
               )
-
           p.write_text(s, encoding="utf-8")
 
-          # ---------- CẨM NANG ----------
+          # Cẩm nang: informational intent, không tranh keyword giao dịch.
           gp = Path("cam-nang-thue-nha.html")
           g = gp.read_text(encoding="utf-8")
           g = sub1(r"(<title[^>]*>).*?(</title>)", lambda m: m.group(1) + guide_title + m.group(2), g, label="guide title")
@@ -136,23 +133,22 @@ jobs:
           if old_brand in g:
               g = g.replace(old_brand, new_brand, 1)
 
-          g = g.replace(
-              'Xem căn đang trống kèm ảnh thật',
-              'Xem căn Vinhomes Smart City đang cho thuê',
-              1
-          )
+          g = g.replace('Xem căn đang trống kèm ảnh thật', 'Xem căn Vinhomes Smart City đang cho thuê', 1)
           g = g.replace(
               'Tổng hợp kinh nghiệm, bảng giá và các lưu ý thực tế giúp anh/chị thuê căn hộ tại Vinhomes Smart City nhanh chóng, đúng nhu cầu và tránh rủi ro không đáng có.',
               'Trang tham khảo giá, chi phí và kinh nghiệm thực tế trước khi xem căn hoặc ký hợp đồng tại Vinhomes Smart City.',
               1
           )
 
-          guide_lead = '''<p class="pillar-lead">
-        Trang này dành cho anh/chị cần <strong>tham khảo giá thuê, chi phí và kinh nghiệm</strong> trước khi quyết định tại Vinhomes Smart City, Tây Mỗ, Hà Nội. Nội dung tập trung vào mặt bằng giá theo loại căn và phân khu, tình trạng nội thất, phí dịch vụ, kinh nghiệm xem nhà và các lưu ý hợp đồng. Khi đã xác định nhu cầu, anh/chị có thể chuyển sang <a href="/">danh sách căn Vinhomes Smart City đang cho thuê</a> để xem quỹ căn thực tế và lọc theo ngân sách.
-      </p>'''
+          guide_lead = (
+              '<p class="pillar-lead">\n'
+              '        Trang này dành cho anh/chị cần <strong>tham khảo giá thuê, chi phí và kinh nghiệm</strong> trước khi quyết định tại Vinhomes Smart City, Tây Mỗ, Hà Nội. '
+              'Nội dung tập trung vào mặt bằng giá theo loại căn và phân khu, tình trạng nội thất, phí dịch vụ, kinh nghiệm xem nhà và các lưu ý hợp đồng. '
+              'Khi đã xác định nhu cầu, anh/chị có thể chuyển sang <a href="/">danh sách căn Vinhomes Smart City đang cho thuê</a> để xem quỹ căn thực tế và lọc theo ngân sách.\n'
+              '      </p>'
+          )
           g = sub1(r'<p\s+class="pillar-lead">.*?</p>', guide_lead, g, label="guide lead")
 
-          # Đồng bộ CollectionPage schema theo informational intent.
           scripts = list(re.finditer(r'(<script[^>]*type="application/ld\+json"[^>]*>)(.*?)(</script>)', g, re.I | re.S))
           collection = next((m for m in scripts if '"@type": "CollectionPage"' in m.group(2)), None)
           if not collection:
@@ -167,7 +163,6 @@ jobs:
           block = re.sub(r'("description"\s*:\s*")[^"]*(")', lambda m: m.group(1) + schema_desc + m.group(2), block, count=1)
           g = g[:collection.start(2)] + block + g[collection.end(2):]
           g = update_image_schema(g, guide_title)
-
           gp.write_text(g, encoding="utf-8")
 
           print("Homepage:", title)
