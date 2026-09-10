@@ -2487,6 +2487,14 @@
   "phan_khu": "Lumiere",
   "toa": "A2"
  },
+ "cho-thue-can-ho-studio-lumiere-30m2-ct-stu-847": {
+  "dien_tich": 30,
+  "loai": "Studio",
+  "ma": "CT.Stu.847",
+  "ngay_xuat_hien": "2026-09-10",
+  "phan_khu": "Lumiere",
+  "toa": "A1"
+ },
  "cho-thue-can-ho-studio-masteri-27m2-ct-stu-789": {
   "dien_tich": 27,
   "loai": "Studio",

@@ -1,13 +1,13 @@
 {
   "updated": "2026-09-10",
   "source": "data.json",
-  "active_count": 242,
+  "active_count": 241,
   "min_sample": 3,
   "overall": {
-    "n": 242,
+    "n": 241,
     "min": 6000000,
     "max": 19500000,
-    "median": 11000000.0
+    "median": 11000000
   },
   "by_type": {
     "1 Ngủ": {
@@ -23,10 +23,10 @@
       "median": 9500000.0
     },
     "2 Ngủ": {
-      "n": 80,
+      "n": 79,
       "min": 8000000,
       "max": 16500000,
-      "median": 12000000.0
+      "median": 12000000
     },
     "2 Ngủ +": {
       "n": 47,
@@ -73,10 +73,10 @@
       "median": 11000000
     },
     "Miami": {
-      "n": 26,
+      "n": 25,
       "min": 7000000,
       "max": 18000000,
-      "median": 12000000.0
+      "median": 12000000
     },
     "Sakura": {
       "n": 26,
@@ -99,22 +99,22 @@
   },
   "by_interior": {
     "Full nội thất": {
-      "n": 154,
+      "n": 153,
       "min": 6500000,
       "max": 19500000,
-      "median": 11500000.0
+      "median": 11500000
     },
     "Nhà Nguyên Bản": {
-      "n": 35,
+      "n": 34,
       "min": 6000000,
       "max": 14500000,
-      "median": 9000000
+      "median": 9000000.0
     },
     "Đồ Cơ bản": {
-      "n": 53,
+      "n": 54,
       "min": 6800000,
       "max": 17000000,
-      "median": 12000000
+      "median": 12000000.0
     }
   },
   "zone_type_interior": [
@@ -374,10 +374,19 @@
       "zone": "Lumiere",
       "type": "Studio",
       "interior": "Nhà Nguyên Bản",
-      "n": 2,
-      "min": 8500000,
+      "n": 1,
+      "min": 9000000,
       "max": 9000000,
-      "median": 8750000.0
+      "median": 9000000
+    },
+    {
+      "zone": "Lumiere",
+      "type": "Studio",
+      "interior": "Đồ Cơ bản",
+      "n": 1,
+      "min": 8500000,
+      "max": 8500000,
+      "median": 8500000
     },
     {
       "zone": "Masteri",
@@ -509,10 +518,10 @@
       "zone": "Miami",
       "type": "2 Ngủ",
       "interior": "Full nội thất",
-      "n": 5,
-      "min": 11500000,
+      "n": 4,
+      "min": 12000000,
       "max": 14000000,
-      "median": 12000000
+      "median": 12250000.0
     },
     {
       "zone": "Miami",
