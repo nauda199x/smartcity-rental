@@ -10,6 +10,7 @@ on:
       - "scripts/noi-hub-toa.py"
       - "scripts/noi-hub-programmatic.py"
       - "scripts/kiem-tra-mat-bang-toa.py"
+      - "scripts/dedupe-tieu-de-can.py"
       - ".github/workflows/seo-big-update-p0-p4.yml"
       - "robots.txt"
   pull_request:
@@ -19,6 +20,7 @@ on:
       - "scripts/noi-hub-toa.py"
       - "scripts/noi-hub-programmatic.py"
       - "scripts/kiem-tra-mat-bang-toa.py"
+      - "scripts/dedupe-tieu-de-can.py"
       - ".github/workflows/seo-big-update-p0-p4.yml"
       - "robots.txt"
   workflow_run:
@@ -80,6 +82,11 @@ jobs:
         run: |
           set -o pipefail
           python3 scripts/noi-hub-programmatic.py 2>&1 | tee -a seo-p0-p4.log
+
+      - name: Làm unique title cho các căn bị trùng
+        run: |
+          set -o pipefail
+          python3 scripts/dedupe-tieu-de-can.py 2>&1 | tee -a seo-p0-p4.log
 
       - name: Đồng bộ tên site và ảnh ưu tiên
         run: |
