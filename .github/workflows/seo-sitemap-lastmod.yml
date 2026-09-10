@@ -1,0 +1,76 @@
+name: SEO sitemap lastmod chuẩn
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - "scripts/cap-nhat-sitemap.mjs"
+      - ".github/workflows/seo-sitemap-lastmod.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: smartcity-generated-main
+  cancel-in-progress: false
+
+jobs:
+  sua-lastmod:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Lấy code và toàn bộ lịch sử git
+        uses: actions/checkout@v4
+        with:
+          ref: main
+          fetch-depth: 0
+
+      - name: Chuẩn bị Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+
+      - name: Sửa lastmod sitemap theo thay đổi thật
+        run: |
+          set -euo pipefail
+          node scripts/cap-nhat-sitemap.mjs
+          git diff --check
+
+      - name: Kiểm tra sitemap căn hộ không còn đồng loạt một ngày
+        run: |
+          python3 - <<'PY'
+          import collections
+          import re
+          from pathlib import Path
+
+          text = Path('sitemap-can-ho.xml').read_text(encoding='utf-8')
+          dates = re.findall(r'<lastmod>([^<]+)</lastmod>', text)
+          urls = re.findall(r'<loc>([^<]+)</loc>', text)
+          if not dates or len(dates) != len(urls):
+              raise SystemExit('Sitemap căn hộ thiếu loc/lastmod hoặc số lượng không khớp')
+
+          counts = collections.Counter(dates)
+          print('Tổng URL:', len(urls))
+          print('Số ngày lastmod khác nhau:', len(counts))
+          print('5 ngày phổ biến nhất:', counts.most_common(5))
+
+          # Có thể nhiều căn thực sự cùng cập nhật một ngày, nhưng toàn bộ URL
+          # cùng một ngày là dấu hiệu generator quay lại lỗi freshness giả.
+          if len(urls) >= 20 and len(counts) == 1:
+              raise SystemExit('LỖI: toàn bộ sitemap-can-ho.xml vẫn có cùng một lastmod')
+          PY
+
+      - name: Commit sitemap nếu có thay đổi
+        run: |
+          set -euo pipefail
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add sitemap.xml sitemap-can-ho.xml
+          if git diff --cached --quiet; then
+            echo "Sitemap đã đúng, không cần commit."
+            exit 0
+          fi
+          git commit -m "fix(seo): correct sitemap lastmod dates"
+          git pull --rebase origin main
+          git push origin HEAD:main
