@@ -2,12 +2,15 @@
 # -*- coding: utf-8 -*-
 """P6: tăng sức mạnh internal-link cho các cụm thật sự yếu, không tạo URL mới.
 
-Ba lớp liên kết ổn định:
+Bốn lớp liên kết ổn định:
 1) Hub cẩm nang/giá/so sánh -> các bài nghiên cứu chuyên sâu đang có ít nguồn.
 2) Ba hub thuê mạnh -> toàn bộ landing ngân sách/nội thất indexable theo loại căn.
 3) Landing giao thoa + landing tòa -> các tòa cùng phân khu.
+4) Hỗ trợ cụm tòa nhỏ chưa đủ nguồn crawl từ một hub loại căn liên quan.
 
-Marker riêng giúp chạy lặp idempotent. Không đổi title/canonical/robots/schema.
+Mỗi lớp có marker riêng để nhiều block P6 cùng tồn tại trên một trang. Script tự
+migrate marker P6 cũ dùng chung một lần, chạy lặp idempotent. Không đổi URL,
+title, canonical, robots hay schema.
 """
 
 import argparse
@@ -19,8 +22,8 @@ import sys
 from collections import defaultdict
 
 GOC = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-START = "<!-- P6-LINK-BOOST:START -->"
-END = "<!-- P6-LINK-BOOST:END -->"
+LEGACY_START = "<!-- P6-LINK-BOOST:START -->"
+LEGACY_END = "<!-- P6-LINK-BOOST:END -->"
 
 ARTICLE_HUBS = [
     "cam-nang-thue-nha.html",
@@ -82,14 +85,32 @@ def is_indexable(raw):
     return not (m and "noindex" in m.group(1).lower())
 
 
-def replace_block(raw, block):
-    pat = re.compile(re.escape(START) + r".*?" + re.escape(END), re.S)
+def markers(key):
+    safe = re.sub(r"[^A-Z0-9_-]", "-", key.upper())
+    return (
+        "<!-- P6-LINK-BOOST:%s:START -->" % safe,
+        "<!-- P6-LINK-BOOST:%s:END -->" % safe,
+    )
+
+
+def wrap_block(key, body):
+    start, end = markers(key)
+    return start + "\n" + body + "\n" + end
+
+
+def replace_block(raw, key, new_block):
+    """Thay đúng block P6 theo key; migrate marker legacy mà không đè block khác."""
+    legacy = re.compile(re.escape(LEGACY_START) + r".*?" + re.escape(LEGACY_END), re.S)
+    raw = legacy.sub("", raw)
+
+    start, end = markers(key)
+    pat = re.compile(re.escape(start) + r".*?" + re.escape(end), re.S)
     if pat.search(raw):
-        return pat.sub(block, raw, count=1)
+        return pat.sub(new_block, raw, count=1)
     if "</main>" in raw:
-        return raw.replace("</main>", block + "\n</main>", 1)
+        return raw.replace("</main>", new_block + "\n</main>", 1)
     if "</body>" in raw:
-        return raw.replace("</body>", block + "\n</body>", 1)
+        return raw.replace("</body>", new_block + "\n</body>", 1)
     return raw
 
 
@@ -98,7 +119,7 @@ def link_card(href, label, desc=""):
     return '<a href="%s"><strong>%s</strong>%s</a>' % (esc(href), esc(label), span)
 
 
-def block(title, intro, groups):
+def block(key, title, intro, groups):
     cols = []
     for heading, links in groups:
         if not links:
@@ -109,29 +130,29 @@ def block(title, intro, groups):
         )
     if not cols:
         return ""
-    return (
-        START + '\n<section class="seo-graph p6-link-boost" aria-label="Liên kết nội bộ chuyên sâu">'
+    body = (
+        '<section class="seo-graph p6-link-boost" aria-label="Liên kết nội bộ chuyên sâu">'
         '<div class="seo-graph-head"><span>Khám phá chuyên sâu</span><h2>%s</h2><p>%s</p></div>'
-        '<div class="seo-graph-grid">%s</div></section>\n' + END
+        '<div class="seo-graph-grid">%s</div></section>'
     ) % (esc(title), esc(intro), "".join(cols))
+    return wrap_block(key, body)
 
 
-def write(rel, b, dry):
+def write(rel, key, b, dry):
     raw = read(rel)
     if raw is None or not b:
         return 0
-    new = replace_block(raw, b)
+    new = replace_block(raw, key, b)
     if new == raw:
         return 0
     if not dry:
         with open(os.path.join(GOC, rel), "w", encoding="utf-8", newline="") as f:
             f.write(new)
-    print(("(--thu) sẽ boost " if dry else "Boost ") + rel)
+    print(("(--thu) sẽ boost " if dry else "Boost ") + rel + " [" + key + "]")
     return 1
 
 
 def budget_pages():
-    """Lấy toàn bộ landing top-level giá/nội thất đang indexable và nhóm theo loại."""
     groups = defaultdict(list)
     pat = re.compile(r'^(studio|1pn-plus|1pn|2pn-plus|2pn|3pn)-(.+)$')
     for name in sorted(os.listdir(GOC)):
@@ -158,10 +179,10 @@ def article_block():
     links = []
     for href, label in ARTICLE_LINKS:
         rel = href.lstrip("/")
-        raw = read(rel)
-        if is_indexable(raw):
+        if is_indexable(read(rel)):
             links.append(link_card(href, label, "Phân tích chuyên sâu phục vụ quyết định thuê."))
     return block(
+        "ARTICLE",
         "Nghiên cứu thêm trước khi thuê",
         "Các bài dưới đây bổ sung dữ liệu giá, so sánh phân khu và tình huống thuê thực tế.",
         [("Bài chuyên sâu", links)],
@@ -179,6 +200,7 @@ def budget_block(groups):
             for href, label in rows
         ]))
     return block(
+        "BUDGET",
         "Tìm căn theo ngân sách và nội thất",
         "Đi trực tiếp tới các landing lọc sâu có quỹ căn thật thay vì tìm lại từ đầu.",
         cols,
@@ -224,6 +246,7 @@ def tower_block(district, towers, current_path=""):
         "Quay về hub phân khu để so sánh toàn bộ quỹ căn.",
     )
     return block(
+        "TOWER",
         "Xem thêm theo tòa tại %s" % district,
         "Các tòa cùng phân khu được nối trực tiếp để Googlebot và người thuê đi qua cụm này dễ hơn.",
         [("Hub phân khu", [parent]), ("Các tòa cùng phân khu", tower_links(towers, current_path))],
@@ -246,18 +269,26 @@ def combo_pages_by_district():
     return out
 
 
+def small_cluster_support_block(district, towers):
+    return block(
+        "SMALL-%s" % district.upper(),
+        "Xem căn theo tòa tại %s" % district,
+        "Các tòa đang có quỹ căn được nối từ trang loại căn liên quan để tăng đường crawl tự nhiên.",
+        [("Tòa đang có căn", tower_links(towers))],
+    )
+
+
 def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--thu", action="store_true")
     args = ap.parse_args()
-
     changed = 0
 
     # 1) Bài nghiên cứu: thêm nguồn link từ 5 hub mạnh, có ngữ cảnh rõ ràng.
     ab = article_block()
     for rel in ARTICLE_HUBS:
         if is_indexable(read(rel)):
-            changed += write(rel, ab, args.thu)
+            changed += write(rel, "ARTICLE", ab, args.thu)
 
     # 2) Landing ngân sách: ba hub mạnh nối tới toàn bộ landing indexable.
     bgroups = budget_pages()
@@ -268,7 +299,7 @@ def main():
         "kinh-nghiem-thue-chung-cu-smart-city.html",
     ):
         if is_indexable(read(rel)):
-            changed += write(rel, bb, args.thu)
+            changed += write(rel, "BUDGET", bb, args.thu)
 
     # 3) Cụm tòa: tower -> sibling và combo phân khu×loại -> tower.
     towers = load_towers()
@@ -278,12 +309,20 @@ def main():
             href = str(e.get("path") or "")
             rel = href.strip("/") + "/index.html"
             if is_indexable(read(rel)):
-                changed += write(rel, tower_block(district, rows, href), args.thu)
+                changed += write(rel, "TOWER", tower_block(district, rows, href), args.thu)
         for rel in combos.get(district, []):
             if is_indexable(read(rel)):
-                changed += write(rel, tower_block(district, rows), args.thu)
+                changed += write(rel, "TOWER", tower_block(district, rows), args.thu)
 
-    print("P6 internal-link boost: %d file %s · %d nhóm ngân sách · %d phân khu tòa." % (
+    # 4) Tonkin hiện chỉ có hai tower nên sibling + district hub cho mỗi tòa mới
+    # tạo 3 nguồn. Studio là hub liên quan trực tiếp và đang có quỹ Tonkin,
+    # thêm đúng một nguồn crawl chung để cả TK1/TK2 vượt ngưỡng vai trò 4.
+    tonkin = towers.get("Tonkin", [])
+    if tonkin and is_indexable(read("studio/index.html")):
+        sb = small_cluster_support_block("Tonkin", tonkin)
+        changed += write("studio/index.html", "SMALL-TONKIN", sb, args.thu)
+
+    print("P6 internal-link boost: %d file/block %s · %d landing ngân sách · %d phân khu tòa." % (
         changed,
         "cần đổi" if args.thu else "đã đổi",
         sum(len(v) for v in bgroups.values()),
