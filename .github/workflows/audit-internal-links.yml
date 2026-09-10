@@ -1,0 +1,54 @@
+name: Audit internal link graph
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - "**/*.html"
+      - "sitemap-can-ho.xml"
+      - "scripts/kiem-tra-lien-ket.py"
+      - "scripts/cap-nhat-lien-ket-noi-bo.py"
+      - "scripts/noi-hub-toa.py"
+      - "scripts/noi-hub-programmatic.py"
+      - ".github/workflows/audit-internal-links.yml"
+  schedule:
+    # 09:30 giờ Việt Nam mỗi ngày.
+    - cron: "30 2 * * *"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: smartcity-internal-link-audit
+  cancel-in-progress: true
+
+jobs:
+  audit:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Lấy code
+        uses: actions/checkout@v4
+        with:
+          ref: main
+          fetch-depth: 1
+
+      - name: Kiểm tra cú pháp audit
+        run: python3 -m py_compile scripts/kiem-tra-lien-ket.py
+
+      - name: Audit internal link thật
+        run: |
+          set -o pipefail
+          python3 scripts/kiem-tra-lien-ket.py 2>&1 | tee audit-internal-links.txt
+
+      - name: Ghi kết quả
+        if: always()
+        run: |
+          {
+            echo "## Audit internal link graph"
+            echo
+            echo '```text'
+            cat audit-internal-links.txt 2>/dev/null || echo "Không có log audit."
+            echo '```'
+          } >> "$GITHUB_STEP_SUMMARY"
