@@ -5,7 +5,7 @@
 Năm lớp liên kết ổn định:
 1) Hub cẩm nang/giá/so sánh -> các bài nghiên cứu chuyên sâu đang có ít nguồn.
 2) Ba hub thuê mạnh -> toàn bộ landing ngân sách/nội thất indexable theo loại căn.
-3) Landing tòa -> các tòa cùng phân khu.
+3) Landing tòa <-> các intent page cùng phân khu.
 4) Landing giao thoa phân khu×loại -> sibling intent + tòa cùng phân khu.
 5) Hỗ trợ cụm tòa nhỏ chưa đủ nguồn crawl từ một hub loại căn liên quan.
 
@@ -240,17 +240,48 @@ def tower_links(towers, current_path=""):
     return out
 
 
-def tower_block(district, towers, current_path=""):
+def page_h1(rel):
+    raw = read(rel) or ""
+    m = re.search(r'<h1[^>]*>(.*?)</h1>', raw, re.I | re.S)
+    if not m:
+        return rel.split("/", 1)[0].replace("-", " ").title()
+    value = re.sub(r'<[^>]+>', ' ', m.group(1))
+    value = html.unescape(re.sub(r'\s+', ' ', value)).strip()
+    return value or rel.split("/", 1)[0].replace("-", " ").title()
+
+
+def combo_links(combo_rels, current_rel="", limit=4):
+    links = []
+    for rel in combo_rels:
+        if rel == current_rel or not is_indexable(read(rel)):
+            continue
+        href = "/" + rel[:-len("index.html")]
+        links.append(link_card(
+            href,
+            page_h1(rel),
+            "Loại căn đang có quỹ thuê trong cùng phân khu.",
+        ))
+    return links[:limit]
+
+
+def tower_block(district, towers, combo_rels, current_path=""):
     parent = link_card(
         DISTRICT_HUB[district],
         "Tất cả căn tại %s" % district,
         "Quay về hub phân khu để so sánh toàn bộ quỹ căn.",
     )
+    groups = [
+        ("Hub phân khu", [parent]),
+        ("Các tòa cùng phân khu", tower_links(towers, current_path)),
+    ]
+    intents = combo_links(combo_rels, limit=4)
+    if intents:
+        groups.append(("Loại căn tại phân khu", intents))
     return block(
         "TOWER",
         "Xem thêm theo tòa tại %s" % district,
-        "Các tòa cùng phân khu được nối trực tiếp để Googlebot và người thuê đi qua cụm này dễ hơn.",
-        [("Hub phân khu", [parent]), ("Các tòa cùng phân khu", tower_links(towers, current_path))],
+        "Các tòa và loại căn cùng phân khu được nối trực tiếp để Googlebot và người thuê đi qua cụm này dễ hơn.",
+        groups,
     )
 
 
@@ -272,37 +303,13 @@ def combo_pages_by_district():
     return out
 
 
-def page_h1(rel):
-    raw = read(rel) or ""
-    m = re.search(r'<h1[^>]*>(.*?)</h1>', raw, re.I | re.S)
-    if not m:
-        return rel.split("/", 1)[0].replace("-", " ").title()
-    value = re.sub(r'<[^>]+>', ' ', m.group(1))
-    value = html.unescape(re.sub(r'\s+', ' ', value)).strip()
-    return value or rel.split("/", 1)[0].replace("-", " ").title()
-
-
-def combo_sibling_links(combo_rels, current_rel):
-    links = []
-    for rel in combo_rels:
-        if rel == current_rel or not is_indexable(read(rel)):
-            continue
-        href = "/" + rel[:-len("index.html")]
-        links.append(link_card(
-            href,
-            page_h1(rel),
-            "Cùng phân khu, mở một loại căn khác đang có quỹ thuê.",
-        ))
-    return links[:4]
-
-
 def combo_block(district, towers, combo_rels, current_rel):
     parent = link_card(
         DISTRICT_HUB[district],
         "Tất cả căn tại %s" % district,
         "Quay về hub phân khu để so sánh toàn bộ quỹ căn.",
     )
-    siblings = combo_sibling_links(combo_rels, current_rel)
+    siblings = combo_links(combo_rels, current_rel, 4)
     groups = [("Hub phân khu", [parent])]
     if siblings:
         groups.append(("Loại căn khác cùng phân khu", siblings))
@@ -347,16 +354,16 @@ def main():
         if is_indexable(read(rel)):
             changed += write(rel, "BUDGET", bb, args.thu)
 
-    # 3-4) Cụm tòa và landing phân khu×loại: link ngang trong đúng semantic cluster.
+    # 3-4) Cụm tòa và landing phân khu×loại: link hai chiều trong đúng semantic cluster.
     towers = load_towers()
     combos = combo_pages_by_district()
     for district, rows in towers.items():
+        combo_rels = combos.get(district, [])
         for e in rows:
             href = str(e.get("path") or "")
             rel = href.strip("/") + "/index.html"
             if is_indexable(read(rel)):
-                changed += write(rel, "TOWER", tower_block(district, rows, href), args.thu)
-        combo_rels = combos.get(district, [])
+                changed += write(rel, "TOWER", tower_block(district, rows, combo_rels, href), args.thu)
         for rel in combo_rels:
             if is_indexable(read(rel)):
                 changed += write(rel, "TOWER", combo_block(district, rows, combo_rels, rel), args.thu)
