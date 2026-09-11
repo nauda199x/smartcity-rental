@@ -7,13 +7,7 @@
   "query_guard_pages": 513,
   "tower_indexable": 34,
   "tower_registry": 34,
-  "version": 1,
-  "warning_count": 1,
-  "warnings": [
-    {
-      "count": 2,
-      "issue": "duplicate canonical",
-      "value": "https://timthuesmartcity.com/bang-gia-thue-vinhomes-smart-city.html"
-    }
-  ]
+  "version": 2,
+  "warning_count": 0,
+  "warnings": []
 }
