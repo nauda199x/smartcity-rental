@@ -465,7 +465,7 @@
       "area_max": 79,
       "area_min": 31,
       "code": "MASB",
-      "count": 19,
+      "count": 18,
       "data_code": "MasB",
       "district": "Masteri",
       "first_seen": "2026-09-10",
@@ -489,7 +489,7 @@
           "price_min": 12500000
         },
         {
-          "count": 5,
+          "count": 4,
           "name": "Studio",
           "price_max": 10000000,
           "price_min": 8000000
@@ -521,7 +521,7 @@
       "name": "West C Masteri",
       "path": "/west-c-masteri-smart-city/",
       "price_max": 14000000,
-      "price_min": 8500000,
+      "price_min": 8000000,
       "types": [
         {
           "count": 3,
@@ -533,7 +533,7 @@
           "count": 3,
           "name": "Studio",
           "price_max": 9000000,
-          "price_min": 8500000
+          "price_min": 8000000
         },
         {
           "count": 2,
@@ -693,7 +693,7 @@
       "area_max": 75,
       "area_min": 32,
       "code": "S202",
-      "count": 4,
+      "count": 3,
       "data_code": "S202",
       "district": "Sapphire",
       "first_seen": "2026-09-10",
@@ -704,12 +704,6 @@
       "price_max": 12500000,
       "price_min": 7000000,
       "types": [
-        {
-          "count": 1,
-          "name": "2 Ngủ",
-          "price_max": 10000000,
-          "price_min": 10000000
-        },
         {
           "count": 1,
           "name": "2 Ngủ +",
@@ -878,9 +872,9 @@
     },
     "S402": {
       "area_max": 98,
-      "area_min": 43,
+      "area_min": 38,
       "code": "S402",
-      "count": 4,
+      "count": 5,
       "data_code": "S402",
       "district": "Sapphire",
       "first_seen": "2026-09-10",
@@ -889,13 +883,19 @@
       "name": "S4.02",
       "path": "/s4-02-vinhomes-smart-city/",
       "price_max": 18000000,
-      "price_min": 9000000,
+      "price_min": 7800000,
       "types": [
         {
           "count": 2,
           "name": "1 Ngủ +",
           "price_max": 9000000,
           "price_min": 9000000
+        },
+        {
+          "count": 1,
+          "name": "1 Ngủ",
+          "price_max": 7800000,
+          "price_min": 7800000
         },
         {
           "count": 1,
