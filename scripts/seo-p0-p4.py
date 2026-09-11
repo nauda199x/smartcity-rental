@@ -241,24 +241,33 @@ def local_path_from_url(url):
 
 def audit(registry):
     critical, warnings = [], []
-    title_counts, canonical_counts = Counter(), Counter()
+    # Chỉ duplicate giữa các trang indexable mới là tín hiệu cannibalization thật.
+    # Trang legacy noindex được phép canonical về URL mới để giữ link cũ không 404.
+    title_pages, canonical_pages = defaultdict(list), defaultdict(list)
     query_guard = indexable = total = 0
     for path in iter_html():
         total += 1
         text = open(path, encoding="utf-8").read()
         rel = os.path.relpath(path, GOC).replace(os.sep, "/")
         t, c, h = title_of(text), canonical(text), h1_of(text)
-        if t: title_counts[t] += 1
-        if c: canonical_counts[c] += 1
-        if QUERY_START in text: query_guard += 1
+        if QUERY_START in text:
+            query_guard += 1
         if not noindex(text):
             indexable += 1
-            if not t or not c or not h: warnings.append({"page": rel, "issue": "indexable page thiếu title/canonical/H1"})
-            if c and ("?" in c or "#" in c): warnings.append({"page": rel, "issue": "canonical chứa query/hash"})
-    for t, n in title_counts.items():
-        if n > 1: warnings.append({"issue": "duplicate title", "value": t, "count": n})
-    for c, n in canonical_counts.items():
-        if n > 1: warnings.append({"issue": "duplicate canonical", "value": c, "count": n})
+            if t:
+                title_pages[t].append(rel)
+            if c:
+                canonical_pages[c].append(rel)
+            if not t or not c or not h:
+                warnings.append({"page": rel, "issue": "indexable page thiếu title/canonical/H1"})
+            if c and ("?" in c or "#" in c):
+                warnings.append({"page": rel, "issue": "canonical chứa query/hash"})
+    for t, pages in title_pages.items():
+        if len(pages) > 1:
+            warnings.append({"issue": "duplicate title", "value": t, "count": len(pages), "pages": pages})
+    for c, pages in canonical_pages.items():
+        if len(pages) > 1:
+            warnings.append({"issue": "duplicate canonical", "value": c, "count": len(pages), "pages": pages})
     active_paths = {e["path"] for e in registry.values() if e.get("indexable") and e.get("count", 0) > 0}
     by_path = {e["path"]: e for e in registry.values()}
     sm_paths = {u[len(DOMAIN):] for u in sitemap_urls(SITEMAP_TOWER) if u.startswith(DOMAIN)}
@@ -281,7 +290,7 @@ def audit(registry):
             if lp and os.path.exists(lp) and noindex(open(lp, encoding="utf-8").read()):
                 critical.append({"issue": "noindex URL nằm trong sitemap", "sitemap": sm_name, "url": u})
     data_hash = hashlib.sha256(open(DATA, "rb").read()).hexdigest()[:16] if os.path.exists(DATA) else ""
-    return {"version": 1, "data_fingerprint": data_hash, "html_pages": total, "indexable_pages": indexable, "query_guard_pages": query_guard, "tower_registry": len(registry), "tower_indexable": len(active_paths), "critical_count": len(critical), "warning_count": len(warnings), "critical": critical, "warnings": warnings[:200]}
+    return {"version": 2, "data_fingerprint": data_hash, "html_pages": total, "indexable_pages": indexable, "query_guard_pages": query_guard, "tower_registry": len(registry), "tower_indexable": len(active_paths), "critical_count": len(critical), "warning_count": len(warnings), "critical": critical, "warnings": warnings[:200]}
 
 
 def main():
