@@ -95,6 +95,14 @@
   "phan_khu": "Imperia",
   "toa": "I2"
  },
+ "cho-thue-can-ho-1-ngu-imperia-43m2-ct-1n-552": {
+  "dien_tich": 43,
+  "loai": "1 Ngủ +",
+  "ma": "CT.1N+.552",
+  "ngay_xuat_hien": "2026-09-11",
+  "phan_khu": "Imperia",
+  "toa": "I2"
+ },
  "cho-thue-can-ho-1-ngu-imperia-47m2-ct-1n-505": {
   "dien_tich": 47,
   "loai": "1 Ngủ +",
@@ -366,6 +374,14 @@
   "ngay_xuat_hien": "2026-09-08",
   "phan_khu": "Masteri",
   "toa": "MasA"
+ },
+ "cho-thue-can-ho-1-ngu-masteri-47m2-ct-1n-551": {
+  "dien_tich": 47,
+  "loai": "1 Ngủ +",
+  "ma": "CT.1N+.551",
+  "ngay_xuat_hien": "2026-09-11",
+  "phan_khu": "Masteri",
+  "toa": "MasB"
  },
  "cho-thue-can-ho-1-ngu-masteri-48m2-ct-1n-447": {
   "dien_tich": 48,
@@ -2159,6 +2175,14 @@
   "phan_khu": "Tonkin",
   "toa": "TK1"
  },
+ "cho-thue-can-ho-2-ngu-tonkin-64m2-ct-2n2-419": {
+  "dien_tich": 64,
+  "loai": "2 Ngủ",
+  "ma": "CT.2N2.419",
+  "ngay_xuat_hien": "2026-09-11",
+  "phan_khu": "Tonkin",
+  "toa": "TK2"
+ },
  "cho-thue-can-ho-2-ngu-tonkin-72m2-ct-2n-223": {
   "dien_tich": 72,
   "loai": "2 Ngủ +",
@@ -2348,6 +2372,14 @@
   "loai": "3 Ngủ",
   "ma": "CT.3N.147",
   "ngay_xuat_hien": "2026-08-12",
+  "phan_khu": "Sakura",
+  "toa": "SA1"
+ },
+ "cho-thue-can-ho-3-ngu-sakura-75m2-ct-3n-166": {
+  "dien_tich": 75,
+  "loai": "3 Ngủ",
+  "ma": "CT.3N.166",
+  "ngay_xuat_hien": "2026-09-11",
   "phan_khu": "Sakura",
   "toa": "SA1"
  },
