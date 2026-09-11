@@ -43,8 +43,13 @@ on:
 permissions:
   contents: write
 
+# Mọi workflow sinh/ghi HTML lên main phải dùng chung hàng đợi. Trước đây
+# P0-P8 dùng group riêng nên có thể chạy song song với seo-trang-chu, ảnh/video
+# và cùng sửa index.html; commit xong mới rebase nên bị conflict lặp lại.
+# PR chỉ audit trên snapshot riêng nên không chiếm hàng đợi ghi main.
 concurrency:
-  group: seo-p0-p8-${{ github.event_name == 'pull_request' && github.event.pull_request.number || 'main' }}
+  group: ${{ github.event_name == 'pull_request' && format('seo-p0-p8-pr-{0}', github.event.pull_request.number) || 'smartcity-generated-main' }}
+  queue: max
   cancel-in-progress: false
 
 jobs:
@@ -179,6 +184,9 @@ jobs:
             exit 1
           fi
 
+          # Các workflow sinh HTML đã được serialize bằng smartcity-generated-main.
+          # Rebase vẫn giữ lại như lớp bảo vệ cho trường hợp data.json/manual push
+          # xảy ra từ bên ngoài Actions trong lúc job đang chạy.
           for lan in 1 2 3 4; do
             git rebase --abort 2>/dev/null || true
             git fetch origin main
