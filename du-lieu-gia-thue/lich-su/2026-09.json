@@ -1,10 +1,10 @@
 {
   "updated": "2026-09-11",
   "source": "data.json",
-  "active_count": 246,
+  "active_count": 248,
   "min_sample": 3,
   "overall": {
-    "n": 246,
+    "n": 248,
     "min": 6000000,
     "max": 19500000,
     "median": 11000000.0
@@ -41,7 +41,7 @@
       "median": 15000000.0
     },
     "Studio": {
-      "n": 37,
+      "n": 39,
       "min": 6000000,
       "max": 10000000,
       "median": 8000000
@@ -79,16 +79,16 @@
       "median": 12000000.0
     },
     "Sakura": {
-      "n": 28,
+      "n": 29,
       "min": 6000000,
       "max": 16000000,
-      "median": 11250000.0
+      "median": 11000000
     },
     "Sapphire": {
-      "n": 55,
+      "n": 56,
       "min": 6000000,
       "max": 18000000,
-      "median": 10000000
+      "median": 10000000.0
     },
     "Tonkin": {
       "n": 9,
@@ -99,16 +99,16 @@
   },
   "by_interior": {
     "Full nội thất": {
-      "n": 160,
+      "n": 161,
       "min": 6500000,
       "max": 19500000,
-      "median": 11500000.0
+      "median": 11500000
     },
     "Nhà Nguyên Bản": {
-      "n": 35,
+      "n": 36,
       "min": 6000000,
       "max": 14500000,
-      "median": 9000000
+      "median": 9000000.0
     },
     "Đồ Cơ bản": {
       "n": 51,
@@ -680,10 +680,10 @@
       "zone": "Sakura",
       "type": "Studio",
       "interior": "Nhà Nguyên Bản",
-      "n": 2,
+      "n": 3,
       "min": 6000000,
       "max": 6000000,
-      "median": 6000000.0
+      "median": 6000000
     },
     {
       "zone": "Sapphire",
@@ -779,10 +779,10 @@
       "zone": "Sapphire",
       "type": "Studio",
       "interior": "Full nội thất",
-      "n": 5,
+      "n": 6,
       "min": 6500000,
       "max": 7000000,
-      "median": 7000000
+      "median": 7000000.0
     },
     {
       "zone": "Sapphire",
