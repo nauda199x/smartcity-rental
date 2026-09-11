@@ -418,7 +418,7 @@
       "area_max": 79,
       "area_min": 29,
       "code": "MASA",
-      "count": 13,
+      "count": 14,
       "data_code": "MasA",
       "district": "Masteri",
       "first_seen": "2026-09-10",
@@ -430,7 +430,7 @@
       "price_min": 7500000,
       "types": [
         {
-          "count": 6,
+          "count": 7,
           "name": "1 Ngủ +",
           "price_max": 12000000,
           "price_min": 9500000
@@ -1166,7 +1166,7 @@
       "area_max": 61,
       "area_min": 25,
       "code": "TK1",
-      "count": 3,
+      "count": 4,
       "data_code": "TK1",
       "district": "Tonkin",
       "first_seen": "2026-09-10",
@@ -1184,9 +1184,9 @@
           "price_min": 14000000
         },
         {
-          "count": 1,
+          "count": 2,
           "name": "Studio",
-          "price_max": 8000000,
+          "price_max": 8500000,
           "price_min": 8000000
         }
       ]
