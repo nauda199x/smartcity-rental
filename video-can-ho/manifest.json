@@ -177,22 +177,6 @@
       },
       "cover": "/video-can-ho/2ac58e1b053bf955d107.webp"
     },
-    "CT.2N2.344": {
-      "videos": [
-        "https://drive.google.com/file/d/1aUzMUPBw9g-oKSOGNmimbgTpxckVm_PI/preview"
-      ],
-      "sources": {
-        "https://drive.google.com/file/d/1aUzMUPBw9g-oKSOGNmimbgTpxckVm_PI/preview": {
-          "src": "/video-can-ho/940aec25dca8727a1038.mp4",
-          "width": 720,
-          "height": 1280,
-          "duration": 22.03,
-          "bytes": 4016195,
-          "poster": "/video-can-ho/940aec25dca8727a1038.webp"
-        }
-      },
-      "cover": "/video-can-ho/940aec25dca8727a1038.webp"
-    },
     "CT.2N2.352": {
       "videos": [
         "https://drive.google.com/file/d/15nR7bUNJqFPWjs0_KypTcgYGoYHV5_DS/preview"
@@ -363,5 +347,5 @@
       "cover": "/video-can-ho/1b228f92fea7b2b259c0.webp"
     }
   },
-  "updatedAt": "2026-09-09T11:50:51+00:00"
+  "updatedAt": "2026-09-11T04:41:07+00:00"
 }
