@@ -10,7 +10,7 @@
       "url": "/",
       "label": "Trang thuê Smart City",
       "reason": "landing chính cho cụm từ khóa thuê Smart City",
-      "inbound_pages": 360,
+      "inbound_pages": 362,
       "exists": true,
       "indexable": true,
       "self_canonical": true,
@@ -20,7 +20,7 @@
       "url": "/can-ho/",
       "label": "Căn hộ đang cho thuê",
       "reason": "hub URL chi tiết căn active",
-      "inbound_pages": 311,
+      "inbound_pages": 313,
       "exists": true,
       "indexable": true,
       "self_canonical": true,
@@ -30,7 +30,7 @@
       "url": "/studio/",
       "label": "Thuê Studio",
       "reason": "intent theo loại căn",
-      "inbound_pages": 348,
+      "inbound_pages": 350,
       "exists": true,
       "indexable": true,
       "self_canonical": true,
@@ -50,7 +50,7 @@
       "url": "/1pn-plus/",
       "label": "Thuê 1PN+",
       "reason": "intent theo loại căn",
-      "inbound_pages": 348,
+      "inbound_pages": 350,
       "exists": true,
       "indexable": true,
       "self_canonical": true,
@@ -60,7 +60,7 @@
       "url": "/2pn/",
       "label": "Thuê 2PN",
       "reason": "intent theo loại căn",
-      "inbound_pages": 348,
+      "inbound_pages": 350,
       "exists": true,
       "indexable": true,
       "self_canonical": true,
@@ -80,7 +80,7 @@
       "url": "/3pn/",
       "label": "Thuê 3PN",
       "reason": "intent theo loại căn",
-      "inbound_pages": 348,
+      "inbound_pages": 350,
       "exists": true,
       "indexable": true,
       "self_canonical": true,
@@ -90,7 +90,7 @@
       "url": "/bang-gia-thue-vinhomes-smart-city.html",
       "label": "Bảng giá thuê",
       "reason": "intent giá thuê có dữ liệu thực tế",
-      "inbound_pages": 350,
+      "inbound_pages": 352,
       "exists": true,
       "indexable": true,
       "self_canonical": true,
@@ -110,7 +110,7 @@
       "url": "/sapphire/",
       "label": "Thuê Sapphire",
       "reason": "phân khu có quỹ căn active lớn",
-      "inbound_pages": 116,
+      "inbound_pages": 117,
       "exists": true,
       "indexable": true,
       "self_canonical": true,
@@ -127,8 +127,8 @@
       "in_sitemap": true
     },
     {
-      "url": "/miami/",
-      "label": "Thuê The Miami",
+      "url": "/sakura/",
+      "label": "Thuê The Sakura",
       "reason": "phân khu có quỹ căn active lớn",
       "inbound_pages": 80,
       "exists": true,
@@ -137,10 +137,10 @@
       "in_sitemap": true
     },
     {
-      "url": "/sakura/",
-      "label": "Thuê The Sakura",
+      "url": "/miami/",
+      "label": "Thuê The Miami",
       "reason": "phân khu có quỹ căn active lớn",
-      "inbound_pages": 79,
+      "inbound_pages": 80,
       "exists": true,
       "indexable": true,
       "self_canonical": true,
@@ -244,6 +244,24 @@
     }
   ],
   "tier_3": [
+    {
+      "url": "/can-ho/cho-thue-can-ho-studio-sapphire-32m2-ct-stu-851/",
+      "first_seen": "2026-09-11",
+      "code": "CT.Stu.851",
+      "tower": "S202",
+      "type": "Studio",
+      "district": "Sapphire",
+      "inbound_pages": 13
+    },
+    {
+      "url": "/can-ho/cho-thue-can-ho-studio-sakura-25m2-ct-stu-850/",
+      "first_seen": "2026-09-11",
+      "code": "CT.Stu.850",
+      "tower": "SA5",
+      "type": "Studio",
+      "district": "Sakura",
+      "inbound_pages": 13
+    },
     {
       "url": "/can-ho/cho-thue-can-ho-3-ngu-sakura-75m2-ct-3n-166/",
       "first_seen": "2026-09-11",
@@ -350,7 +368,7 @@
       "tower": "SA5",
       "type": "2 Ngủ",
       "district": "Sakura",
-      "inbound_pages": 11
+      "inbound_pages": 12
     },
     {
       "url": "/can-ho/cho-thue-can-ho-2-ngu-miami-63m2-ct-2n2-418/",
@@ -405,32 +423,14 @@
       "type": "1 Ngủ",
       "district": "Canopy",
       "inbound_pages": 11
-    },
-    {
-      "url": "/can-ho/cho-thue-can-ho-studio-tonkin-25m2-ct-stu-845/",
-      "first_seen": "2026-09-09",
-      "code": "CT.Stu.845",
-      "tower": "TK2",
-      "type": "Studio",
-      "district": "Tonkin",
-      "inbound_pages": 14
-    },
-    {
-      "url": "/can-ho/cho-thue-can-ho-studio-sapphire-30m2-ct-stu-838/",
-      "first_seen": "2026-09-09",
-      "code": "CT.Stu.838",
-      "tower": "S303",
-      "type": "Studio",
-      "district": "Sapphire",
-      "inbound_pages": 17
     }
   ],
   "district_inventory": {
     "Masteri": 51,
-    "Sapphire": 46,
+    "Sapphire": 47,
     "Lumiere": 35,
+    "Sakura": 27,
     "Miami": 26,
-    "Sakura": 26,
     "Imperia": 23,
     "Canopy": 17,
     "Tonkin": 9
