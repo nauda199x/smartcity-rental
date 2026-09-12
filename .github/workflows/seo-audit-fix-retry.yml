@@ -1,0 +1,119 @@
+name: SEO audit fixes retry 2026-09-12
+
+on:
+  push:
+    branches: [main]
+    paths: [".github/workflows/seo-audit-fix-retry.yml"]
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: smartcity-generated-main
+  cancel-in-progress: false
+
+jobs:
+  fix-seo:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+          fetch-depth: 0
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+
+      - name: Patch generators
+        run: |
+          python3 - <<'PY'
+          from pathlib import Path
+
+          p = Path('scripts/sinh-trang-giao-thoa.py')
+          s = p.read_text(encoding='utf-8')
+          old = '"Imperia": {"slug": "imperia", "label": "Imperia Smart City", "parent": "/imperia/"},'
+          new = '"Imperia": {"slug": "imperia", "label": "Imperia", "parent": "/imperia/"},'
+          if old in s:
+              s = s.replace(old, new, 1)
+          elif new not in s:
+              raise SystemExit('Không tìm thấy cấu hình Imperia')
+          p.write_text(s, encoding='utf-8')
+
+          p = Path('scripts/sinh-trang-toa.py')
+          s = p.read_text(encoding='utf-8')
+          helper = '''\n\ndef dung_item_list_schema(cac_can, ten):\n    """ItemList JSON-LD cho đúng các căn đang xuất hiện trên trang tòa."""\n    items = []\n    for i, can in enumerate(cac_can, 1):\n        loai = str(can.get("Loại", "")).strip()\n        toa = str(can.get("Tòa", "")).strip()\n        dt = round(dien_tich(can.get("Diện tích")))\n        gia = dinh_dang_gia(so_tien(can.get("Giá thuê")))\n        items.append({\n            "@type": "ListItem",\n            "position": i,\n            "name": "%s %s%s – %s/tháng" % (loai, toa, " %dm²" % dt if dt else "", gia),\n        })\n    return json.dumps({\n        "@context": "https://schema.org",\n        "@type": "ItemList",\n        "name": "Căn hộ đang cho thuê tại tòa %s Vinhomes Smart City" % ten,\n        "numberOfItems": len(cac_can),\n        "itemListElement": items,\n    }, ensure_ascii=False)\n'''
+          marker = '\ndef dung_trang(toa, cau_hinh, cac_can, tk, map_anh, hom_nay):'
+          if 'def dung_item_list_schema(' not in s:
+              if marker not in s:
+                  raise SystemExit('Không tìm thấy vị trí chèn ItemList helper')
+              s = s.replace(marker, helper + marker, 1)
+
+          needle = '    }, ensure_ascii=False)\n\n    return ("""<!doctype html>'
+          repl = '    }, ensure_ascii=False)\n    danh_sach_can_schema = dung_item_list_schema(cac_can, ten)\n\n    return ("""<!doctype html>'
+          if 'danh_sach_can_schema = dung_item_list_schema(cac_can, ten)' not in s:
+              if needle not in s:
+                  raise SystemExit('Không tìm thấy vị trí tạo schema trang tòa')
+              s = s.replace(needle, repl, 1)
+
+          needle = '<script type="application/ld+json">%(duong_dan_bua)s</script>'
+          if '%(danh_sach_can_schema)s' not in s:
+              if needle not in s:
+                  raise SystemExit('Không tìm thấy Breadcrumb JSON-LD')
+              s = s.replace(needle, needle + '\n<script type="application/ld+json">%(danh_sach_can_schema)s</script>', 1)
+
+          needle = '        "duong_dan_bua": duong_dan_bua,\n'
+          if '"danh_sach_can_schema": danh_sach_can_schema' not in s:
+              if needle not in s:
+                  raise SystemExit('Không tìm thấy template mapping')
+              s = s.replace(needle, needle + '        "danh_sach_can_schema": danh_sach_can_schema,\n', 1)
+          p.write_text(s, encoding='utf-8')
+          PY
+
+      - name: Regenerate and normalize
+        run: |
+          set -euo pipefail
+          python3 scripts/sinh-trang-toa.py
+          python3 scripts/sinh-trang-giao-thoa.py
+          python3 scripts/dung-lai-trang-danh-muc.py
+          python3 scripts/sinh-trang-can.py
+          python3 scripts/noi-lien-ket-chi-tiet.py
+          python3 scripts/cap-nhat-lien-ket-noi-bo.py
+          node scripts/cap-nhat-so-can.mjs
+          python3 scripts/toi-uu-anh-tim-kiem.py
+          node scripts/cap-nhat-sitemap.mjs
+
+      - name: Scoped regression checks
+        run: |
+          set -euo pipefail
+          python3 - <<'PY'
+          from pathlib import Path
+
+          imperia = list(Path('.').glob('cho-thue-*-imperia-smart-city/index.html'))
+          if not imperia:
+              raise SystemExit('Không tìm thấy landing Imperia')
+          bad = [str(p) for p in imperia if 'Smart City Smart City' in p.read_text(encoding='utf-8', errors='ignore')]
+          if bad:
+              raise SystemExit('Vẫn lặp Smart City ở: ' + ', '.join(bad))
+
+          towers = []
+          for p in Path('.').glob('*/index.html'):
+              txt = p.read_text(encoding='utf-8', errors='ignore')
+              if 'Trang này do scripts/sinh-trang-toa.py sinh lại' in txt:
+                  towers.append(p)
+                  if '"@type": "ItemList"' not in txt and '"@type":"ItemList"' not in txt:
+                      raise SystemExit('Thiếu ItemList: ' + str(p))
+          if not towers:
+              raise SystemExit('Không tìm thấy trang tòa generator đang quản lý')
+          print(f'OK: {len(imperia)} landing Imperia không còn lặp; {len(towers)} trang tòa có ItemList')
+          PY
+
+      - name: Commit fixes and clean temporary workflows
+        run: |
+          set -euo pipefail
+          rm -f .github/workflows/seo-audit-fix-once.yml .github/workflows/seo-audit-fix-retry.yml
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -A
+          git commit -m "fix: apply SEO audit template fixes"
+          git push origin HEAD:main
