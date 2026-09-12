@@ -214,7 +214,7 @@
       "area_max": 80,
       "area_min": 43,
       "code": "GS6",
-      "count": 4,
+      "count": 5,
       "data_code": "GS6",
       "district": "Miami",
       "first_seen": "2026-09-10",
@@ -223,7 +223,7 @@
       "name": "GS6 The Miami",
       "path": "/gs6-the-miami-smart-city/",
       "price_max": 18000000,
-      "price_min": 10500000,
+      "price_min": 10000000,
       "types": [
         {
           "count": 3,
@@ -232,10 +232,10 @@
           "price_min": 14000000
         },
         {
-          "count": 1,
+          "count": 2,
           "name": "1 Ngủ +",
           "price_max": 10500000,
-          "price_min": 10500000
+          "price_min": 10000000
         }
       ]
     },
@@ -418,7 +418,7 @@
       "area_max": 79,
       "area_min": 29,
       "code": "MASA",
-      "count": 15,
+      "count": 16,
       "data_code": "MasA",
       "district": "Masteri",
       "first_seen": "2026-09-10",
@@ -430,7 +430,7 @@
       "price_min": 7500000,
       "types": [
         {
-          "count": 8,
+          "count": 9,
           "name": "1 Ngủ +",
           "price_max": 12000000,
           "price_min": 9500000
@@ -629,7 +629,7 @@
       "area_max": 55,
       "area_min": 32,
       "code": "S103",
-      "count": 5,
+      "count": 6,
       "data_code": "S103",
       "district": "Sapphire",
       "first_seen": "2026-09-10",
@@ -641,7 +641,7 @@
       "price_min": 6000000,
       "types": [
         {
-          "count": 3,
+          "count": 4,
           "name": "2 Ngủ",
           "price_max": 10500000,
           "price_min": 8000000
@@ -1230,7 +1230,7 @@
       "area_max": 72,
       "area_min": 25,
       "code": "TK2",
-      "count": 7,
+      "count": 8,
       "data_code": "TK2",
       "district": "Tonkin",
       "first_seen": "2026-09-10",
@@ -1243,6 +1243,12 @@
       "types": [
         {
           "count": 2,
+          "name": "1 Ngủ",
+          "price_max": 11000000,
+          "price_min": 11000000
+        },
+        {
+          "count": 2,
           "name": "2 Ngủ",
           "price_max": 14000000,
           "price_min": 12000000
@@ -1252,12 +1258,6 @@
           "name": "Studio",
           "price_max": 8500000,
           "price_min": 8000000
-        },
-        {
-          "count": 1,
-          "name": "1 Ngủ",
-          "price_max": 11000000,
-          "price_min": 11000000
         },
         {
           "count": 1,
