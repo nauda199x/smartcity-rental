@@ -420,6 +420,28 @@ def dung_bang_gia(tk):
     return "".join(dong)
 
 
+
+def dung_item_list_schema(cac_can, ten):
+    """ItemList JSON-LD cho đúng các căn đang xuất hiện trên trang tòa."""
+    items = []
+    for i, can in enumerate(cac_can, 1):
+        loai = str(can.get("Loại", "")).strip()
+        toa = str(can.get("Tòa", "")).strip()
+        dt = round(dien_tich(can.get("Diện tích")))
+        gia = dinh_dang_gia(so_tien(can.get("Giá thuê")))
+        items.append({
+            "@type": "ListItem",
+            "position": i,
+            "name": "%s %s%s – %s/tháng" % (loai, toa, " %dm²" % dt if dt else "", gia),
+        })
+    return json.dumps({
+        "@context": "https://schema.org",
+        "@type": "ItemList",
+        "name": "Căn hộ đang cho thuê tại tòa %s Vinhomes Smart City" % ten,
+        "numberOfItems": len(cac_can),
+        "itemListElement": items,
+    }, ensure_ascii=False)
+
 def dung_trang(toa, cau_hinh, cac_can, tk, map_anh, hom_nay):
     ten = cau_hinh["ten_hien_thi"]
     duong_dan = cau_hinh["duong_dan"]
@@ -491,6 +513,7 @@ def dung_trang(toa, cau_hinh, cac_can, tk, map_anh, hom_nay):
              "item": url},
         ],
     }, ensure_ascii=False)
+    danh_sach_can_schema = dung_item_list_schema(cac_can, ten)
 
     return ("""<!doctype html>
 <html lang="vi">
@@ -520,6 +543,7 @@ def dung_trang(toa, cau_hinh, cac_can, tk, map_anh, hom_nay):
 <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}
 gtag('js',new Date());gtag('config','G-VF9KHC5TWD');</script>
 <script type="application/ld+json">%(duong_dan_bua)s</script>
+<script type="application/ld+json">%(danh_sach_can_schema)s</script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet"
@@ -614,6 +638,7 @@ hỏi. Lần cập nhật gần nhất là %(ngay)s.</p>
         "mo_ta": esc(mo_ta),
         "url": esc(url),
         "duong_dan_bua": duong_dan_bua,
+        "danh_sach_can_schema": danh_sach_can_schema,
         "ten": esc(ten),
         "phan_khu": esc(phan_khu),
         "trang_phan_khu": esc(trang_phan_khu),

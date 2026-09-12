@@ -34,7 +34,7 @@ ZONES = {
     "Masteri": {"slug": "masteri", "label": "Masteri West Heights", "parent": "/masteri/"},
     "Miami": {"slug": "miami", "label": "The Miami", "parent": "/miami/"},
     "Sakura": {"slug": "sakura", "label": "The Sakura", "parent": "/sakura/"},
-    "Imperia": {"slug": "imperia", "label": "Imperia Smart City", "parent": "/imperia/"},
+    "Imperia": {"slug": "imperia", "label": "Imperia", "parent": "/imperia/"},
     "Lumiere": {"slug": "lumiere", "label": "Lumière Evergreen", "parent": "/lumiere/"},
     "Canopy": {"slug": "canopy", "label": "The Canopy", "parent": "/canopy/"},
     "Tonkin": {"slug": "tonkin", "label": "The Tonkin", "parent": "/tonkin/"},
