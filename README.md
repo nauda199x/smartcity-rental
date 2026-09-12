@@ -1,6 +1,6 @@
 # timthuesmartcity.com
 
-Trang cho thuê căn hộ Vinhomes Smart City. Toàn bộ là HTML tĩnh chạy trên GitHub Pages — không framework, không bundler, không build step. Danh sách căn nằm trong `data.json`, được các script trong `scripts/` và `dong-bo-can.js` đọc để dựng lưới căn cùng thẻ SEO cho 25 trang danh mục.
+Trang cho thuê căn hộ Vinhomes Smart City. Toàn bộ là HTML tĩnh chạy trên GitHub Pages — không framework, không bundler, không build step. Danh sách căn nằm trong `data.json`, được các script trong `scripts/` và `dong-bo-can.js` đọc để dựng lưới căn cùng thẻ SEO cho các trang danh mục.
 
 ## Luồng dữ liệu
 
@@ -35,8 +35,8 @@ Mọi script có ghi file đều nhận cờ `--thu` để xem trước mà khô
 
 | Workflow | Lịch chạy | Việc nó làm |
 |---|---|---|
-| `cap-nhat-so-can.yml` | `0 19 * * *` — mỗi ngày một lần, 02:00 giờ Việt Nam | Chạy `sinh-trang-toa.py`, `cap-nhat-so-can.mjs`, `cap-nhat-sitemap.mjs` rồi commit HTML và `sitemap.xml`. |
-| `tai-anh-can-ho.yml` | Không có lịch — chỉ chạy tay từ tab Actions | Chạy `sinh-danh-sach-anh.py`, `tai-anh-can-ho.py`, `thay-anh-trong-html.py` rồi commit ảnh và `sitemap-images.xml`. |
+| `cap-nhat-so-can.yml` | `0 1,9,17 * * *` — 08:00, 16:00 và 00:00 giờ Việt Nam | Sinh lại trang tòa, phân khu × loại căn, trang chi tiết; cập nhật liên kết nội bộ, thẻ SEO, ảnh ưu tiên và sitemap rồi commit thay đổi. |
+| `tai-anh-can-ho.yml` | Không có lịch — chạy khi cần đồng bộ ảnh | Chạy `sinh-danh-sach-anh.py`, `tai-anh-can-ho.py`, `thay-anh-trong-html.py` rồi commit ảnh và `sitemap-images.xml`. |
 
 Workflow ảnh phải chạy trên Actions vì môi trường phát triển bị chặn `drive.google.com`.
 
