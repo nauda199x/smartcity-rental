@@ -32,7 +32,7 @@
     "updated": "2026-09-12"
   },
   "cho-thue-1pn-plus-masteri-smart-city": {
-    "count": 16,
+    "count": 17,
     "created": "2026-08-30",
     "indexable": true,
     "loai": "1 Ngủ +",
@@ -135,6 +135,14 @@
     "phanKhu": "Miami",
     "updated": "2026-09-12"
   },
+  "cho-thue-2pn-plus-sakura-smart-city": {
+    "count": 4,
+    "created": "2026-09-12",
+    "indexable": true,
+    "loai": "2 Ngủ +",
+    "phanKhu": "Sakura",
+    "updated": "2026-09-12"
+  },
   "cho-thue-2pn-plus-sapphire-smart-city": {
     "count": 16,
     "created": "2026-08-30",
@@ -152,7 +160,7 @@
     "updated": "2026-09-12"
   },
   "cho-thue-2pn-sapphire-smart-city": {
-    "count": 12,
+    "count": 13,
     "created": "2026-08-30",
     "indexable": true,
     "loai": "2 Ngủ",
