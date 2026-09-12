@@ -1,4 +1,12 @@
 {
+  "1pn-10-12-trieu": {
+    "count": 4,
+    "created": "2026-09-12",
+    "indexable": true,
+    "loai": "1 Ngủ",
+    "nganSach": "10-12-trieu",
+    "updated": "2026-09-12"
+  },
   "1pn-7-10-trieu": {
     "count": 11,
     "created": "2026-08-30",
@@ -8,7 +16,7 @@
     "updated": "2026-09-12"
   },
   "1pn-plus-10-12-trieu": {
-    "count": 14,
+    "count": 15,
     "created": "2026-08-30",
     "indexable": true,
     "loai": "1 Ngủ +",

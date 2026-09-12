@@ -1,32 +1,32 @@
 {
   "updated": "2026-09-12",
   "source": "data.json",
-  "active_count": 252,
+  "active_count": 256,
   "min_sample": 3,
   "overall": {
-    "n": 252,
+    "n": 256,
     "min": 6000000,
     "max": 19500000,
     "median": 11000000.0
   },
   "by_type": {
     "1 Ngủ": {
-      "n": 15,
+      "n": 16,
       "min": 7000000,
       "max": 12000000,
-      "median": 9000000
+      "median": 9250000.0
     },
     "1 Ngủ +": {
-      "n": 40,
+      "n": 42,
       "min": 7500000,
       "max": 14000000,
-      "median": 9500000.0
+      "median": 9750000.0
     },
     "2 Ngủ": {
-      "n": 79,
+      "n": 80,
       "min": 8000000,
       "max": 16500000,
-      "median": 12000000
+      "median": 12000000.0
     },
     "2 Ngủ +": {
       "n": 50,
@@ -67,16 +67,16 @@
       "median": 13000000
     },
     "Masteri": {
-      "n": 53,
+      "n": 54,
       "min": 7500000,
       "max": 19500000,
-      "median": 11000000
+      "median": 11000000.0
     },
     "Miami": {
-      "n": 26,
+      "n": 27,
       "min": 7000000,
       "max": 18000000,
-      "median": 12000000.0
+      "median": 12000000
     },
     "Sakura": {
       "n": 30,
@@ -85,21 +85,21 @@
       "median": 11250000.0
     },
     "Sapphire": {
-      "n": 55,
+      "n": 56,
       "min": 6000000,
       "max": 18000000,
-      "median": 10000000
+      "median": 10000000.0
     },
     "Tonkin": {
-      "n": 11,
+      "n": 12,
       "min": 8000000,
       "max": 14000000,
-      "median": 11000000
+      "median": 11000000.0
     }
   },
   "by_interior": {
     "Full nội thất": {
-      "n": 165,
+      "n": 169,
       "min": 6500000,
       "max": 19500000,
       "median": 11500000
@@ -392,10 +392,10 @@
       "zone": "Masteri",
       "type": "1 Ngủ +",
       "interior": "Full nội thất",
-      "n": 14,
+      "n": 15,
       "min": 10500000,
       "max": 14000000,
-      "median": 11750000.0
+      "median": 11500000
     },
     {
       "zone": "Masteri",
@@ -509,10 +509,10 @@
       "zone": "Miami",
       "type": "1 Ngủ +",
       "interior": "Full nội thất",
-      "n": 2,
+      "n": 3,
       "min": 8000000,
       "max": 10500000,
-      "median": 9250000.0
+      "median": 10000000
     },
     {
       "zone": "Miami",
@@ -707,10 +707,10 @@
       "zone": "Sapphire",
       "type": "2 Ngủ",
       "interior": "Full nội thất",
-      "n": 10,
+      "n": 11,
       "min": 8500000,
       "max": 12000000,
-      "median": 10000000.0
+      "median": 10000000
     },
     {
       "zone": "Sapphire",
@@ -788,10 +788,10 @@
       "zone": "Tonkin",
       "type": "1 Ngủ",
       "interior": "Full nội thất",
-      "n": 1,
+      "n": 2,
       "min": 11000000,
       "max": 11000000,
-      "median": 11000000
+      "median": 11000000.0
     },
     {
       "zone": "Tonkin",
