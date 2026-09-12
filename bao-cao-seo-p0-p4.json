@@ -1,12 +1,12 @@
 {
   "critical": [],
   "critical_count": 0,
-  "data_fingerprint": "aed493f67ecf2d56",
-  "html_pages": 518,
-  "indexable_pages": 363,
-  "query_guard_pages": 518,
-  "tower_indexable": 34,
-  "tower_registry": 34,
+  "data_fingerprint": "ca9826ff3090c0a7",
+  "html_pages": 524,
+  "indexable_pages": 369,
+  "query_guard_pages": 524,
+  "tower_indexable": 35,
+  "tower_registry": 35,
   "version": 2,
   "warning_count": 0,
   "warnings": []
