@@ -792,7 +792,7 @@
       "area_max": 64,
       "area_min": 43,
       "code": "S302",
-      "count": 4,
+      "count": 3,
       "data_code": "S302",
       "district": "Sapphire",
       "first_seen": "2026-09-10",
@@ -814,12 +814,6 @@
           "name": "1 Ngủ +",
           "price_max": 8500000,
           "price_min": 8500000
-        },
-        {
-          "count": 1,
-          "name": "2 Ngủ",
-          "price_max": 10000000,
-          "price_min": 10000000
         }
       ]
     },
