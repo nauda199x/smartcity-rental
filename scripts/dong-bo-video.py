@@ -54,15 +54,13 @@ def canonical_drive_url(drive_id):
 
 
 def direct_drive_url(drive_id):
-    return "https://drive.usercontent.google.com/download?" + urllib.parse.urlencode({"id": drive_id, "export": "download", "confirm": "t"})
+    return "https://drive.usercontent.google.com/download?" + urllib.parse.urlencode(
+        {"id": drive_id, "export": "download", "confirm": "t"}
+    )
 
 
 def video_urls(value):
-    """Normalize inventory video values to canonical Drive preview URLs.
-
-    The inventory has historically returned strings, but accepting object-shaped
-    entries keeps sync compatible with Apps Script responses that expose fileId/id.
-    """
+    """Normalize known Drive video values to canonical preview URLs."""
     values = value if isinstance(value, list) else str(value or "").splitlines()
     urls = []
     for entry in values:
@@ -72,7 +70,10 @@ def video_urls(value):
         if isinstance(entry, dict):
             mime = str(entry.get("mimeType") or entry.get("mime") or "").strip().lower()
             name = str(entry.get("name") or entry.get("fileName") or "").strip()
-            raw = entry.get("fileId") or entry.get("id") or entry.get("url") or entry.get("previewUrl") or entry.get("webViewLink") or ""
+            raw = (
+                entry.get("fileId") or entry.get("id") or entry.get("url")
+                or entry.get("previewUrl") or entry.get("webViewLink") or ""
+            )
             if mime and not mime.startswith("video/") and not VIDEO_EXT.search(name):
                 continue
         elif not isinstance(entry, str):
@@ -87,13 +88,18 @@ def video_urls(value):
 
 
 def remote_is_video(drive_id):
-    """Probe only response headers so a video-only cover can be recovered safely."""
-    request = urllib.request.Request(direct_drive_url(drive_id), headers={"User-Agent": "SmartCityVideoSync/1.2"})
+    """Probe response metadata so a video-only thumbnail can be recovered safely."""
+    request = urllib.request.Request(
+        direct_drive_url(drive_id),
+        headers={"User-Agent": "SmartCityVideoSync/1.3", "Range": "bytes=0-0"},
+    )
     try:
-        with urllib.request.urlopen(request, timeout=25) as response:
+        with urllib.request.urlopen(request, timeout=12) as response:
             mime = response.headers.get("Content-Type", "").lower()
             disposition = response.headers.get("Content-Disposition", "")
-            return mime.startswith("video/") or ("application/octet-stream" in mime and bool(VIDEO_EXT.search(disposition)))
+            return mime.startswith("video/") or (
+                "application/octet-stream" in mime and bool(VIDEO_EXT.search(disposition))
+            )
     except (OSError, ValueError):
         return False
 
@@ -107,26 +113,33 @@ def filename(url):
 
 def encoding_budget(duration):
     # Leave room for audio and container overhead on longer walkthroughs.
-    # A fixed 1.4 Mbps ceiling can exceed 30 MiB for a four-minute video.
     rate = max(160, min(1400, int(MAX_OUTPUT * 0.88 * 8 / duration / 1000) - 96))
     return rate, 720 if rate < 900 else 1280
 
 
 def probe(path):
-    result = subprocess.run(["ffprobe", "-v", "error", "-show_streams", "-show_format", "-of", "json", str(path)], capture_output=True, text=True, check=True, timeout=30)
+    result = subprocess.run(
+        ["ffprobe", "-v", "error", "-show_streams", "-show_format", "-of", "json", str(path)],
+        capture_output=True, text=True, check=True, timeout=30,
+    )
     data = json.loads(result.stdout)
     stream = next(s for s in data["streams"] if s.get("codec_type") == "video")
     duration = float(data["format"].get("duration", 0))
     if not duration or not stream.get("width") or not stream.get("height"):
         raise ValueError("Video thiếu thông tin kích thước hoặc thời lượng")
-    return {"width": stream["width"], "height": stream["height"], "duration": round(duration, 2), "bytes": path.stat().st_size}
+    return {
+        "width": stream["width"], "height": stream["height"],
+        "duration": round(duration, 2), "bytes": path.stat().st_size,
+    }
 
 
 def download(url, target):
     drive_id = extract_drive_id(url)
     if not drive_id:
         raise ValueError("Không nhận diện được Drive file id")
-    request = urllib.request.Request(direct_drive_url(drive_id), headers={"User-Agent": "SmartCityVideoSync/1.2"})
+    request = urllib.request.Request(
+        direct_drive_url(drive_id), headers={"User-Agent": "SmartCityVideoSync/1.3"}
+    )
     with urllib.request.urlopen(request, timeout=90) as response, target.open("wb") as file:
         mime = response.headers.get("Content-Type", "").lower()
         if not (mime.startswith("video/") or "application/octet-stream" in mime):
@@ -145,8 +158,6 @@ def convert(url, target):
         encoded = Path(directory) / "video.mp4"
         download(url, original)
         rate, edge = encoding_budget(probe(original)["duration"])
-        # Fit either orientation, keep the complete picture, and put MP4 metadata
-        # first so Safari can start without downloading the complete file.
         subprocess.run([
             "ffmpeg", "-nostdin", "-v", "error", "-y", "-i", str(original),
             "-map", "0:v:0", "-map", "0:a:0?", "-sn", "-dn", "-map_metadata", "-1",
@@ -174,7 +185,8 @@ def create_poster(video, info):
             subprocess.run([
                 "ffmpeg", "-nostdin", "-v", "error", "-y",
                 "-ss", str(min(1, info["duration"] / 3)), "-i", str(video),
-                "-frames:v", "1", "-vf", "scale=w='min(800,iw)':h='min(800,ih)':force_original_aspect_ratio=decrease",
+                "-frames:v", "1",
+                "-vf", "scale=w='min(800,iw)':h='min(800,ih)':force_original_aspect_ratio=decrease",
                 "-c:v", "libwebp", "-quality", "80", "-threads", "2", str(temporary),
             ], check=True, timeout=60)
             if not temporary.exists() or not temporary.stat().st_size:
@@ -185,18 +197,53 @@ def create_poster(video, info):
     return "/video-can-ho/" + poster.name
 
 
+def valid_inventory(value):
+    return (
+        isinstance(value, dict)
+        and value.get("ok") is True
+        and isinstance(value.get("items"), list)
+        and bool(value["items"])
+    )
+
+
+def load_inventory(path):
+    """Strict for tests/files; fault-tolerant for the live Apps Script endpoint."""
+    if path:
+        value = json.loads(path.read_text())
+        if not valid_inventory(value):
+            raise ValueError("Inventory không hợp lệ; giữ nguyên kho video hiện có")
+        return value, True
+    try:
+        request = urllib.request.Request(API, headers={"User-Agent": "SmartCityVideoSync/1.3"})
+        with urllib.request.urlopen(request, timeout=45) as response:
+            value = json.load(response)
+        if not valid_inventory(value):
+            raise ValueError("inventory payload invalid")
+        return value, True
+    except (OSError, ValueError, json.JSONDecodeError) as error:
+        print(
+            f"::warning::Inventory API không dùng được ({type(error).__name__}); "
+            "giữ video hiện có và dùng fallback an toàn từ data.json.",
+            flush=True,
+        )
+        return None, False
+
+
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--inventory", type=Path, help="Use a saved inventory response for verification")
     parser.add_argument("--limit", type=int, default=0, help="Maximum new videos to encode, 0 = all")
     args = parser.parse_args()
-    if args.inventory:
-        inventory = json.loads(args.inventory.read_text())
-    else:
-        with urllib.request.urlopen(API, timeout=120) as response:
-            inventory = json.load(response)
-    if inventory.get("ok") is not True or not isinstance(inventory.get("items"), list) or not inventory["items"]:
-        raise ValueError("Inventory không hợp lệ; giữ nguyên kho video hiện có")
+
+    OUT.mkdir(exist_ok=True)
+    old_path = OUT / "manifest.json"
+    try:
+        old = json.loads(old_path.read_text()) if old_path.exists() else {}
+    except (OSError, ValueError):
+        old = {}
+    old_items = old.get("items") if old.get("version") == 1 and isinstance(old.get("items"), dict) else {}
+
+    inventory, inventory_ok = load_inventory(args.inventory)
     rows = json.loads((ROOT / "data.json").read_text())
     active_rows = {
         str(row.get("Mã nội bộ", "")).strip(): row
@@ -210,34 +257,43 @@ def main():
 
     selected = {}
     rejected = []
-    for item in inventory["items"]:
-        code = str(item.get("id", "")).strip()
-        if not code or code not in active:
-            continue
-        raw_videos = item.get("videoList")
-        urls = video_urls(raw_videos)
-        if urls:
-            selected[code] = urls
-        elif raw_videos:
-            rejected.append(code)
+    if inventory_ok:
+        for item in inventory["items"]:
+            code = str(item.get("id", "")).strip()
+            if not code or code not in active:
+                continue
+            raw_videos = item.get("videoList")
+            urls = video_urls(raw_videos)
+            if urls:
+                selected[code] = urls
+            elif raw_videos:
+                rejected.append(code)
+    else:
+        # Never turn a temporary Apps Script outage into destructive media loss.
+        # Rebuild the selected set from the last valid manifest first.
+        for code, item in old_items.items():
+            if code not in active or not isinstance(item, dict):
+                continue
+            urls = video_urls(item.get("videos"))
+            if urls:
+                selected[code] = urls
+        print(f"Giữ lại {len(selected)} căn video từ manifest gần nhất.", flush=True)
+
     if rejected:
         sample = ", ".join(rejected[:20])
         more = f" +{len(rejected) - 20} căn" if len(rejected) > 20 else ""
         print(f"::warning::Có videoList nhưng không nhận diện được Drive file id: {sample}{more}", flush=True)
 
-    # Some upstream rows historically put the only Drive file into "Ảnh đại diện"
-    # even when that file is actually an MP4, while leaving Danh sách ảnh/Video empty.
-    # Recover those listings by checking the real response MIME instead of guessing
-    # from a thumbnail URL. Normal one-photo listings stay untouched.
+    # Recover data that upstream historically classified as an image thumbnail:
+    # if a listing has no image list and its cover Drive file is actually video/*,
+    # treat it as a video-only listing. This is generic, not code-specific.
     recovered = []
     for code, row in active_rows.items():
-        if code in selected:
+        row_urls = video_urls(row.get("Video"))
+        if row_urls:
+            selected[code] = row_urls
             continue
-        urls = video_urls(row.get("Video"))
-        if urls:
-            selected[code] = urls
-            continue
-        if str(row.get("Danh sách ảnh", "")).strip():
+        if code in selected or str(row.get("Danh sách ảnh", "")).strip():
             continue
         cover_id = extract_drive_id(row.get("Ảnh đại diện"))
         if cover_id and remote_is_video(cover_id):
@@ -246,17 +302,20 @@ def main():
     if recovered:
         print("Khôi phục video-only từ ảnh đại diện: " + ", ".join(recovered), flush=True)
 
-    OUT.mkdir(exist_ok=True)
-    old_path = OUT / "manifest.json"
-    old = json.loads(old_path.read_text()) if old_path.exists() else {}
+    if not inventory_ok and not selected:
+        raise ValueError("Inventory đang lỗi và không có manifest/fallback video an toàn; giữ nguyên kho video")
+
     needed = {filename(url) for urls in selected.values() for url in urls}
-    # Remove only our own generated files after both input sources validated.
-    for path in OUT.glob("*.mp4"):
-        if re.fullmatch(r"[a-f0-9]{20}\.mp4", path.name) and path.name not in needed:
-            path.unlink()
-    for path in OUT.glob("*.webp"):
-        if re.fullmatch(r"[a-f0-9]{20}\.webp", path.name) and path.with_suffix(".mp4").name not in needed:
-            path.unlink()
+    # Prune only when the authoritative inventory is healthy. During an outage,
+    # preserving a stale cached file is safer than deleting a still-live video.
+    if inventory_ok:
+        for path in OUT.glob("*.mp4"):
+            if re.fullmatch(r"[a-f0-9]{20}\.mp4", path.name) and path.name not in needed:
+                path.unlink()
+        for path in OUT.glob("*.webp"):
+            if re.fullmatch(r"[a-f0-9]{20}\.webp", path.name) and path.with_suffix(".mp4").name not in needed:
+                path.unlink()
+
     items, processed, failures = {}, 0, 0
     for code, urls in sorted(selected.items()):
         sources = {}
@@ -272,7 +331,6 @@ def main():
                 else:
                     continue
                 sources[url] = {"src": "/video-can-ho/" + target.name, **info}
-                # A poster failure must not discard a playable MP4.
                 try:
                     sources[url]["poster"] = create_poster(target, info)
                 except (OSError, ValueError, subprocess.SubprocessError) as error:
@@ -282,12 +340,14 @@ def main():
                 print(f"::warning::Video {code}: {type(error).__name__}; vẫn có liên kết video gốc", flush=True)
         cover = next((sources[u]["poster"] for u in urls if sources.get(u, {}).get("poster")), "")
         items[code] = {"videos": urls, "sources": sources, "cover": cover}
+
     manifest = {"version": 1, "items": items}
-    if old.get("items") != items or old.get("version") != 1:
+    if old_items != items or old.get("version") != 1:
         manifest["updatedAt"] = datetime.now(timezone.utc).isoformat(timespec="seconds")
         temporary = OUT / "manifest.json.tmp"
         temporary.write_text(json.dumps(manifest, ensure_ascii=False, indent=2) + "\n")
         temporary.replace(old_path)
+
     # Refresh existing static pages as well as newly generated apartment URLs.
     for page in ROOT.rglob("*.html"):
         html = page.read_text()
@@ -296,7 +356,13 @@ def main():
         updated = re.sub(r"/dong-bo-can.js\?v=[\w-]+", "/dong-bo-can.js?v=20260905-3", updated)
         if updated != html:
             page.write_text(updated)
-    print(f"{len(items)} căn; {sum(len(x['sources']) for x in items.values())} video MP4; {failures} video cần nguồn gốc", flush=True)
+
+    mode = "inventory" if inventory_ok else "fallback"
+    print(
+        f"{len(items)} căn; {sum(len(x['sources']) for x in items.values())} video MP4; "
+        f"{failures} video cần nguồn gốc; chế độ {mode}",
+        flush=True,
+    )
 
 
 if __name__ == "__main__":
