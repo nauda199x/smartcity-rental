@@ -16,7 +16,7 @@ OUT = ROOT / "video-can-ho"
 API = "https://script.google.com/macros/s/AKfycbxP2LYjIwPnf9VPofUtKjyIETqo9lGjAmv-AT0txsh0NXcTZhdZLkpHcDDssGQtjEWs/exec?action=inventory"
 DRIVE_ID = re.compile(r"^[A-Za-z0-9_-]{10,}$")
 DRIVE_FILE_PATH = re.compile(r"/file/d/([A-Za-z0-9_-]{10,})(?:/|$)", re.I)
-VIDEO_EXT = re.compile(r"\.(?:mp4|mov|m4v|webm)(?:[?#].*)?$", re.I)
+VIDEO_EXT = re.compile(r"\.(?:mp4|mov|m4v|webm)(?:[?#\"'].*)?$", re.I)
 MAX_INPUT = 400 * 1024 * 1024
 MAX_OUTPUT = 30 * 1024 * 1024
 MAX_TOTAL = 450 * 1024 * 1024
@@ -53,6 +53,10 @@ def canonical_drive_url(drive_id):
     return f"https://drive.google.com/file/d/{drive_id}/preview"
 
 
+def direct_drive_url(drive_id):
+    return "https://drive.usercontent.google.com/download?" + urllib.parse.urlencode({"id": drive_id, "export": "download", "confirm": "t"})
+
+
 def video_urls(value):
     """Normalize inventory video values to canonical Drive preview URLs.
 
@@ -80,6 +84,18 @@ def video_urls(value):
         if url not in urls:
             urls.append(url)
     return urls
+
+
+def remote_is_video(drive_id):
+    """Probe only response headers so a video-only cover can be recovered safely."""
+    request = urllib.request.Request(direct_drive_url(drive_id), headers={"User-Agent": "SmartCityVideoSync/1.2"})
+    try:
+        with urllib.request.urlopen(request, timeout=25) as response:
+            mime = response.headers.get("Content-Type", "").lower()
+            disposition = response.headers.get("Content-Disposition", "")
+            return mime.startswith("video/") or ("application/octet-stream" in mime and bool(VIDEO_EXT.search(disposition)))
+    except (OSError, ValueError):
+        return False
 
 
 def filename(url):
@@ -110,8 +126,7 @@ def download(url, target):
     drive_id = extract_drive_id(url)
     if not drive_id:
         raise ValueError("Không nhận diện được Drive file id")
-    direct = "https://drive.usercontent.google.com/download?" + urllib.parse.urlencode({"id": drive_id, "export": "download", "confirm": "t"})
-    request = urllib.request.Request(direct, headers={"User-Agent": "SmartCityVideoSync/1.1"})
+    request = urllib.request.Request(direct_drive_url(drive_id), headers={"User-Agent": "SmartCityVideoSync/1.2"})
     with urllib.request.urlopen(request, timeout=90) as response, target.open("wb") as file:
         mime = response.headers.get("Content-Type", "").lower()
         if not (mime.startswith("video/") or "application/octet-stream" in mime):
@@ -183,7 +198,13 @@ def main():
     if inventory.get("ok") is not True or not isinstance(inventory.get("items"), list) or not inventory["items"]:
         raise ValueError("Inventory không hợp lệ; giữ nguyên kho video hiện có")
     rows = json.loads((ROOT / "data.json").read_text())
-    active = {str(row.get("Mã nội bộ", "")).strip() for row in rows if str(row.get("Hiển thị trên Web", "")).strip().lower() in ("có", "co", "yes", "true", "1")}
+    active_rows = {
+        str(row.get("Mã nội bộ", "")).strip(): row
+        for row in rows
+        if str(row.get("Mã nội bộ", "")).strip()
+        and str(row.get("Hiển thị trên Web", "")).strip().lower() in ("có", "co", "yes", "true", "1")
+    }
+    active = set(active_rows)
     if not active:
         raise ValueError("Không đọc được quỹ căn đang hiển thị; giữ nguyên kho video")
 
@@ -203,6 +224,27 @@ def main():
         sample = ", ".join(rejected[:20])
         more = f" +{len(rejected) - 20} căn" if len(rejected) > 20 else ""
         print(f"::warning::Có videoList nhưng không nhận diện được Drive file id: {sample}{more}", flush=True)
+
+    # Some upstream rows historically put the only Drive file into "Ảnh đại diện"
+    # even when that file is actually an MP4, while leaving Danh sách ảnh/Video empty.
+    # Recover those listings by checking the real response MIME instead of guessing
+    # from a thumbnail URL. Normal one-photo listings stay untouched.
+    recovered = []
+    for code, row in active_rows.items():
+        if code in selected:
+            continue
+        urls = video_urls(row.get("Video"))
+        if urls:
+            selected[code] = urls
+            continue
+        if str(row.get("Danh sách ảnh", "")).strip():
+            continue
+        cover_id = extract_drive_id(row.get("Ảnh đại diện"))
+        if cover_id and remote_is_video(cover_id):
+            selected[code] = [canonical_drive_url(cover_id)]
+            recovered.append(code)
+    if recovered:
+        print("Khôi phục video-only từ ảnh đại diện: " + ", ".join(recovered), flush=True)
 
     OUT.mkdir(exist_ok=True)
     old_path = OUT / "manifest.json"
