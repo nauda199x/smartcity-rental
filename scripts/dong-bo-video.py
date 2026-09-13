@@ -14,19 +14,78 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parents[1]
 OUT = ROOT / "video-can-ho"
 API = "https://script.google.com/macros/s/AKfycbxP2LYjIwPnf9VPofUtKjyIETqo9lGjAmv-AT0txsh0NXcTZhdZLkpHcDDssGQtjEWs/exec?action=inventory"
-PREVIEW = re.compile(r"https://drive\.google\.com/file/d/([A-Za-z0-9_-]+)/preview(?:[?#].*)?", re.I)
+DRIVE_ID = re.compile(r"^[A-Za-z0-9_-]{20,}$")
+DRIVE_FILE_PATH = re.compile(r"/file/d/([A-Za-z0-9_-]{20,})(?:/|$)", re.I)
+VIDEO_EXT = re.compile(r"\.(?:mp4|mov|m4v|webm)(?:[?#].*)?$", re.I)
 MAX_INPUT = 400 * 1024 * 1024
 MAX_OUTPUT = 30 * 1024 * 1024
 MAX_TOTAL = 450 * 1024 * 1024
 
 
+def extract_drive_id(value):
+    """Return a Drive file id from known public Drive URL shapes or a raw id."""
+    if value is None:
+        return ""
+    text = str(value).strip()
+    if not text:
+        return ""
+    if DRIVE_ID.fullmatch(text):
+        return text
+    try:
+        parsed = urllib.parse.urlparse(text)
+    except ValueError:
+        return ""
+    host = (parsed.hostname or "").lower()
+    if host not in {"drive.google.com", "docs.google.com", "drive.usercontent.google.com"}:
+        return ""
+    match = DRIVE_FILE_PATH.search(parsed.path)
+    if match:
+        return match.group(1)
+    query = urllib.parse.parse_qs(parsed.query)
+    for key in ("id", "file_id", "fileId"):
+        candidate = (query.get(key) or [""])[0].strip()
+        if DRIVE_ID.fullmatch(candidate):
+            return candidate
+    return ""
+
+
+def canonical_drive_url(drive_id):
+    return f"https://drive.google.com/file/d/{drive_id}/preview"
+
+
 def video_urls(value):
+    """Normalize inventory video values to canonical Drive preview URLs.
+
+    The inventory has historically returned strings, but accepting object-shaped
+    entries keeps sync compatible with Apps Script responses that expose fileId/id.
+    """
     values = value if isinstance(value, list) else str(value or "").splitlines()
-    return list(dict.fromkeys(s.strip() for s in values if isinstance(s, str) and PREVIEW.fullmatch(s.strip())))
+    urls = []
+    for entry in values:
+        raw = entry
+        mime = ""
+        name = ""
+        if isinstance(entry, dict):
+            mime = str(entry.get("mimeType") or entry.get("mime") or "").strip().lower()
+            name = str(entry.get("name") or entry.get("fileName") or "").strip()
+            raw = entry.get("fileId") or entry.get("id") or entry.get("url") or entry.get("previewUrl") or entry.get("webViewLink") or ""
+            if mime and not mime.startswith("video/") and not VIDEO_EXT.search(name):
+                continue
+        elif not isinstance(entry, str):
+            continue
+        drive_id = extract_drive_id(raw)
+        if not drive_id:
+            continue
+        url = canonical_drive_url(drive_id)
+        if url not in urls:
+            urls.append(url)
+    return urls
 
 
 def filename(url):
-    drive_id = PREVIEW.fullmatch(url).group(1)
+    drive_id = extract_drive_id(url)
+    if not drive_id:
+        raise ValueError("Không nhận diện được Drive file id")
     return hashlib.sha256(("h264-v1:" + drive_id).encode()).hexdigest()[:20] + ".mp4"
 
 
@@ -48,9 +107,11 @@ def probe(path):
 
 
 def download(url, target):
-    drive_id = PREVIEW.fullmatch(url).group(1)
+    drive_id = extract_drive_id(url)
+    if not drive_id:
+        raise ValueError("Không nhận diện được Drive file id")
     direct = "https://drive.usercontent.google.com/download?" + urllib.parse.urlencode({"id": drive_id, "export": "download", "confirm": "t"})
-    request = urllib.request.Request(direct, headers={"User-Agent": "SmartCityVideoSync/1.0"})
+    request = urllib.request.Request(direct, headers={"User-Agent": "SmartCityVideoSync/1.1"})
     with urllib.request.urlopen(request, timeout=90) as response, target.open("wb") as file:
         mime = response.headers.get("Content-Type", "").lower()
         if not (mime.startswith("video/") or "application/octet-stream" in mime):
@@ -125,8 +186,24 @@ def main():
     active = {str(row.get("Mã nội bộ", "")).strip() for row in rows if str(row.get("Hiển thị trên Web", "")).strip().lower() in ("có", "co", "yes", "true", "1")}
     if not active:
         raise ValueError("Không đọc được quỹ căn đang hiển thị; giữ nguyên kho video")
-    selected = {str(item.get("id", "")).strip(): video_urls(item.get("videoList")) for item in inventory["items"] if str(item.get("id", "")).strip() in active}
-    selected = {code: urls for code, urls in selected.items() if urls}
+
+    selected = {}
+    rejected = []
+    for item in inventory["items"]:
+        code = str(item.get("id", "")).strip()
+        if not code or code not in active:
+            continue
+        raw_videos = item.get("videoList")
+        urls = video_urls(raw_videos)
+        if urls:
+            selected[code] = urls
+        elif raw_videos:
+            rejected.append(code)
+    if rejected:
+        sample = ", ".join(rejected[:20])
+        more = f" +{len(rejected) - 20} căn" if len(rejected) > 20 else ""
+        print(f"::warning::Có videoList nhưng không nhận diện được Drive file id: {sample}{more}", flush=True)
+
     OUT.mkdir(exist_ok=True)
     old_path = OUT / "manifest.json"
     old = json.loads(old_path.read_text()) if old_path.exists() else {}
