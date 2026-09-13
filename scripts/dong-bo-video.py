@@ -14,8 +14,8 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parents[1]
 OUT = ROOT / "video-can-ho"
 API = "https://script.google.com/macros/s/AKfycbxP2LYjIwPnf9VPofUtKjyIETqo9lGjAmv-AT0txsh0NXcTZhdZLkpHcDDssGQtjEWs/exec?action=inventory"
-DRIVE_ID = re.compile(r"^[A-Za-z0-9_-]{20,}$")
-DRIVE_FILE_PATH = re.compile(r"/file/d/([A-Za-z0-9_-]{20,})(?:/|$)", re.I)
+DRIVE_ID = re.compile(r"^[A-Za-z0-9_-]{10,}$")
+DRIVE_FILE_PATH = re.compile(r"/file/d/([A-Za-z0-9_-]{10,})(?:/|$)", re.I)
 VIDEO_EXT = re.compile(r"\.(?:mp4|mov|m4v|webm)(?:[?#].*)?$", re.I)
 MAX_INPUT = 400 * 1024 * 1024
 MAX_OUTPUT = 30 * 1024 * 1024
