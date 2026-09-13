@@ -8,6 +8,7 @@ import subprocess
 import tempfile
 import urllib.parse
 import urllib.request
+from concurrent.futures import ThreadPoolExecutor, as_completed
 from datetime import datetime, timezone
 from pathlib import Path
 
@@ -91,10 +92,10 @@ def remote_is_video(drive_id):
     """Probe response metadata so a video-only thumbnail can be recovered safely."""
     request = urllib.request.Request(
         direct_drive_url(drive_id),
-        headers={"User-Agent": "SmartCityVideoSync/1.3", "Range": "bytes=0-0"},
+        headers={"User-Agent": "SmartCityVideoSync/1.4", "Range": "bytes=0-0"},
     )
     try:
-        with urllib.request.urlopen(request, timeout=12) as response:
+        with urllib.request.urlopen(request, timeout=8) as response:
             mime = response.headers.get("Content-Type", "").lower()
             disposition = response.headers.get("Content-Disposition", "")
             return mime.startswith("video/") or (
@@ -112,7 +113,6 @@ def filename(url):
 
 
 def encoding_budget(duration):
-    # Leave room for audio and container overhead on longer walkthroughs.
     rate = max(160, min(1400, int(MAX_OUTPUT * 0.88 * 8 / duration / 1000) - 96))
     return rate, 720 if rate < 900 else 1280
 
@@ -138,7 +138,7 @@ def download(url, target):
     if not drive_id:
         raise ValueError("Không nhận diện được Drive file id")
     request = urllib.request.Request(
-        direct_drive_url(drive_id), headers={"User-Agent": "SmartCityVideoSync/1.3"}
+        direct_drive_url(drive_id), headers={"User-Agent": "SmartCityVideoSync/1.4"}
     )
     with urllib.request.urlopen(request, timeout=90) as response, target.open("wb") as file:
         mime = response.headers.get("Content-Type", "").lower()
@@ -207,15 +207,15 @@ def valid_inventory(value):
 
 
 def load_inventory(path):
-    """Strict for tests/files; fault-tolerant for the live Apps Script endpoint."""
+    """Strict for test fixtures; fault-tolerant for the live Apps Script endpoint."""
     if path:
         value = json.loads(path.read_text())
         if not valid_inventory(value):
             raise ValueError("Inventory không hợp lệ; giữ nguyên kho video hiện có")
         return value, True
     try:
-        request = urllib.request.Request(API, headers={"User-Agent": "SmartCityVideoSync/1.3"})
-        with urllib.request.urlopen(request, timeout=45) as response:
+        request = urllib.request.Request(API, headers={"User-Agent": "SmartCityVideoSync/1.4"})
+        with urllib.request.urlopen(request, timeout=15) as response:
             value = json.load(response)
         if not valid_inventory(value):
             raise ValueError("inventory payload invalid")
@@ -269,8 +269,7 @@ def main():
             elif raw_videos:
                 rejected.append(code)
     else:
-        # Never turn a temporary Apps Script outage into destructive media loss.
-        # Rebuild the selected set from the last valid manifest first.
+        # A temporary Apps Script outage must never erase already published media.
         for code, item in old_items.items():
             if code not in active or not isinstance(item, dict):
                 continue
@@ -284,10 +283,10 @@ def main():
         more = f" +{len(rejected) - 20} căn" if len(rejected) > 20 else ""
         print(f"::warning::Có videoList nhưng không nhận diện được Drive file id: {sample}{more}", flush=True)
 
-    # Recover data that upstream historically classified as an image thumbnail:
-    # if a listing has no image list and its cover Drive file is actually video/*,
-    # treat it as a video-only listing. This is generic, not code-specific.
-    recovered = []
+    # Recover rows where the upstream sheet used an MP4 thumbnail as "Ảnh đại diện"
+    # while leaving Danh sách ảnh/Video empty. Probe candidates concurrently so a
+    # temporary Drive slowdown cannot turn this safety fallback into a long serial job.
+    candidates = {}
     for code, row in active_rows.items():
         row_urls = video_urls(row.get("Video"))
         if row_urls:
@@ -296,18 +295,32 @@ def main():
         if code in selected or str(row.get("Danh sách ảnh", "")).strip():
             continue
         cover_id = extract_drive_id(row.get("Ảnh đại diện"))
-        if cover_id and remote_is_video(cover_id):
-            selected[code] = [canonical_drive_url(cover_id)]
-            recovered.append(code)
+        if cover_id:
+            candidates[code] = cover_id
+
+    recovered = []
+    if candidates:
+        with ThreadPoolExecutor(max_workers=min(12, len(candidates))) as pool:
+            futures = {pool.submit(remote_is_video, drive_id): (code, drive_id) for code, drive_id in candidates.items()}
+            for future in as_completed(futures):
+                code, drive_id = futures[future]
+                try:
+                    is_video = future.result()
+                except Exception:
+                    is_video = False
+                if is_video:
+                    selected[code] = [canonical_drive_url(drive_id)]
+                    recovered.append(code)
     if recovered:
+        recovered.sort()
         print("Khôi phục video-only từ ảnh đại diện: " + ", ".join(recovered), flush=True)
 
     if not inventory_ok and not selected:
         raise ValueError("Inventory đang lỗi và không có manifest/fallback video an toàn; giữ nguyên kho video")
 
     needed = {filename(url) for urls in selected.values() for url in urls}
-    # Prune only when the authoritative inventory is healthy. During an outage,
-    # preserving a stale cached file is safer than deleting a still-live video.
+    # Prune only with an authoritative inventory. During an outage stale cache is
+    # harmless; deleting a still-live video is not.
     if inventory_ok:
         for path in OUT.glob("*.mp4"):
             if re.fullmatch(r"[a-f0-9]{20}\.mp4", path.name) and path.name not in needed:
@@ -348,7 +361,6 @@ def main():
         temporary.write_text(json.dumps(manifest, ensure_ascii=False, indent=2) + "\n")
         temporary.replace(old_path)
 
-    # Refresh existing static pages as well as newly generated apartment URLs.
     for page in ROOT.rglob("*.html"):
         html = page.read_text()
         updated = re.sub(r"/assets/can-ho-detail.js\?v=[\w-]+", "/assets/can-ho-detail.js?v=20260905-3", html)
