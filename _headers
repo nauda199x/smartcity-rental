@@ -17,8 +17,8 @@
   Permissions-Policy: camera=(), microphone=(), geolocation=(), interest-cohort=()
   # CSP: bật Report-Only 1 tuần, xem console rồi mới đổi tên header thành
   # Content-Security-Policy. Danh sách nguồn dưới đây khớp đúng những gì site
-  # đang gọi: GA4/GTM, Google Fonts, ảnh Google Drive và Supabase Storage cho video ký gửi.
-  Content-Security-Policy-Report-Only: default-src 'self'; base-uri 'self'; object-src 'none'; img-src 'self' data: https:; media-src 'self' blob: https://owwqrgwezuwonwdzphie.supabase.co; script-src 'self' 'unsafe-inline' https://www.googletagmanager.com https://www.google-analytics.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' data: https://fonts.gstatic.com; connect-src 'self' https://www.google-analytics.com https://*.analytics.google.com https://*.google-analytics.com https://script.google.com https://script.googleusercontent.com https://owwqrgwezuwonwdzphie.supabase.co; frame-ancestors 'self'; form-action 'self'
+  # đang gọi: GA4/GTM, Google Fonts, ảnh Google Drive và Supabase/direct Storage cho video ký gửi.
+  Content-Security-Policy-Report-Only: default-src 'self'; base-uri 'self'; object-src 'none'; img-src 'self' data: https:; media-src 'self' blob: https://owwqrgwezuwonwdzphie.supabase.co https://owwqrgwezuwonwdzphie.storage.supabase.co; script-src 'self' 'unsafe-inline' https://www.googletagmanager.com https://www.google-analytics.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' data: https://fonts.gstatic.com; connect-src 'self' https://www.google-analytics.com https://*.analytics.google.com https://*.google-analytics.com https://script.google.com https://script.googleusercontent.com https://owwqrgwezuwonwdzphie.supabase.co https://owwqrgwezuwonwdzphie.storage.supabase.co; frame-ancestors 'self'; form-action 'self'
 
 # Ảnh và asset có tên ổn định, đổi nội dung là đổi tên file -> cache 1 năm.
 # GitHub Pages đang trả max-age=600 cho mọi thứ, PSI trừ điểm ở đây.
