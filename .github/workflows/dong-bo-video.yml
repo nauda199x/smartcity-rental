@@ -85,6 +85,13 @@ jobs:
             exit 0
           fi
           git commit -m "Đồng bộ video MP4 căn hộ"
+          # Các generator phía trên có thể cập nhật state/cache phụ không thuộc
+          # artifact cần publish. Runner là checkout sạch, nên bỏ các thay đổi
+          # unstaged này trước rebase để Git không chặn việc lưu video.
+          if ! git diff --quiet; then
+            echo "Bỏ thay đổi generator phụ không thuộc artifact video."
+            git restore --worktree -- .
+          fi
           for attempt in 1 2 3; do
             if ! git pull --rebase origin main; then
               # Không lặp lại pull khi Git đang kẹt ở một rebase xung đột.
