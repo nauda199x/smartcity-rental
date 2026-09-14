@@ -72,6 +72,7 @@ import json
 import os
 import re
 import sys
+from media_anh import ap_dung_anh
 
 GOC = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 THU_MUC_SCRIPT = os.path.dirname(os.path.abspath(__file__))
@@ -187,6 +188,7 @@ def anh_bia(can, map_anh):
     anh_dai_dien() lo. Đo trên data.json ngày 11/08/2026: 0/265 căn rơi vào
     nhánh dự phòng này, nhưng thiếu nó thì một căn chỉ có "Danh sách ảnh" sẽ
     bị xếp vào nhóm "có ảnh" mà thẻ lại không có ảnh nào."""
+    can = ap_dung_anh(can)
     url = chuan(can.get("Ảnh đại diện"))
     if not url:
         url = chuan(chuan(can.get("Danh sách ảnh")).split("\n")[0])
@@ -311,6 +313,7 @@ def dung_the(can, map_anh, hom_nay):
     phan_khu suy từ chính mã tòa của căn (không phải từ bộ lọc của trang):
     trang /2pn/ gộp căn của nhiều phân khu nên mỗi thẻ phải tự ghi phân khu
     của nó — đúng như dong-bo-can.js làm ở dòng 458."""
+    can = ap_dung_anh(can)
     toa = chuan(can.get("Tòa"))
     anh = anh_bia(can, map_anh)
 

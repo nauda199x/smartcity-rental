@@ -30,6 +30,7 @@ import os
 import re
 import shutil
 import sys
+from media_anh import ap_dung_anh
 from media_can_ho import bia_video, media_video
 
 GOC = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -256,6 +257,7 @@ def danh_sach_anh(can):
 
     Trang chi tiết phải tồn tại kể cả căn mới chỉ có 0–1 ảnh. Ảnh là nội dung
     bổ sung, KHÔNG còn là điều kiện để một căn được cấp URL."""
+    can = ap_dung_anh(can)
     ra = []
     da_co = set()
     nguon = [str(can.get("Ảnh đại diện", "") or "").strip()]

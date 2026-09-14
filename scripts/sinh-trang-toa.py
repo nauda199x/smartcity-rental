@@ -31,6 +31,7 @@ import json
 import os
 import re
 import sys
+from media_anh import ap_dung_anh
 from media_can_ho import bia_video
 
 GOC = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -288,6 +289,7 @@ def doc_map_anh():
 
 def anh_dai_dien(can, map_anh):
     """Ảnh bìa của căn: ưu tiên WebP trong repo, không có thì giữ URL Drive."""
+    can = ap_dung_anh(can)
     url = str(can.get("Ảnh đại diện", "")).strip()
     if not url:
         return bia_video(can)

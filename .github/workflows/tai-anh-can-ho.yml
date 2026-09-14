@@ -1,22 +1,8 @@
 name: Tải ảnh đại diện căn hộ từ Drive về repo
 
-# Google Drive chặn crawler nên ảnh căn hộ không được Google Images/Zalo đọc
-# ổn định. Workflow này tải ảnh về anh-can-ho/ dưới dạng WebP, sinh
-# anh-map.json + sitemap-images.xml, rồi sửa trực tiếp ảnh gallery + og:image +
-# twitter:image của trang chi tiết. Không sinh lại toàn bộ trang sau đó, để
-# không ghi đè các bước SEO/internal-link đã chạy trong workflow cập nhật data.
-#
-# workflow_run chạy sau workflow cập nhật dữ liệu để tránh hai job cùng sửa
-# trang chi tiết song song. Push vào chính workflow/script ảnh dùng để áp dụng
-# bản vá ngay khi thay đổi pipeline; commit ảnh sinh ra không khớp các path này
-# nên không tạo vòng lặp.
-#
-# QUAN TRỌNG: file WebP local có thể đã tồn tại nhưng Drive ID của căn đã đổi.
-# Downloader cũ chỉ nhìn thấy file local rồi BỎ QUA, nên ảnh mới trên Drive
-# không bao giờ ghi đè ảnh cũ. Bước "Phát hiện ảnh Drive đã thay đổi" bên dưới
-# đối chiếu drive_id hiện tại với anh-map.json, tạm cất file cũ và buộc tải lại.
-# Push/schedule/manual lam_moi sẽ làm mới toàn bộ để bắt cả trường hợp nội dung
-# file trên Drive thay đổi nhưng vẫn giữ nguyên Drive ID.
+# Quét lại thư mục Drive dù link trên Sheet không đổi. Snapshot ảnh độc lập
+# với data.json, rồi tải WebP và dựng lại gallery khi nội dung ảnh thay đổi.
+# Các workflow sinh HTML dùng chung hàng đợi để tránh ghi đè lẫn nhau.
 
 on:
   push:
@@ -27,6 +13,9 @@ on:
       - "scripts/sinh-danh-sach-anh.py"
       - "scripts/tai-anh-can-ho.py"
       - "scripts/thay-anh-trong-html.py"
+      - "scripts/quet-thu-muc-anh.py"
+      - "scripts/media_anh.py"
+      - "scripts/test_quet_anh.py"
   workflow_run:
     workflows:
       - "Cập nhật số căn và tháng trong thẻ SEO"
@@ -39,6 +28,8 @@ on:
     # Đây là lớp refresh sâu để bắt cả ảnh bị thay nội dung nhưng giữ nguyên
     # Drive ID; các thay đổi link/Drive ID vẫn được bắt ngay sau data sync.
     - cron: "20 20 * * *"
+    # Bắt ảnh thêm/xóa và Replace file mà không cần Sheet đổi link.
+    - cron: "7,37 * * * *"
   workflow_dispatch:
     inputs:
       gioi_han:
@@ -52,6 +43,7 @@ on:
 
 permissions:
   contents: write
+  pages: write
 
 # SEO, ảnh và video cùng ghi HTML trên main. Dùng chung hàng đợi để không
 # rebase các trang được sinh từ hai snapshot khác nhau; giữ mọi run đang chờ.
@@ -80,21 +72,36 @@ jobs:
       - name: Cài Pillow và requests
         run: pip install --quiet Pillow requests
 
-      - name: Sinh lại danh sách ảnh từ data.json
+      - name: Kiểm tra cơ chế quét ảnh
+        run: python3 -m unittest discover -s scripts -p test_quet_anh.py
+
+      - name: Quét lại các thư mục ảnh công khai
+        id: photos
+        run: |
+          set -euo pipefail
+          python3 -u scripts/quet-thu-muc-anh.py 2>&1 | tee ket-qua.txt
+          if git diff --quiet -- anh-can-ho/nguon-anh.json && \
+             [ -z "$(git ls-files --others --exclude-standard -- anh-can-ho/nguon-anh.json)" ]; then
+            echo "changed=false" >> "$GITHUB_OUTPUT"
+          else
+            echo "changed=true" >> "$GITHUB_OUTPUT"
+          fi
+
+      - name: Sinh lại danh sách ảnh từ data.json và thư mục Drive
         run: |
           set -o pipefail
-          python3 scripts/sinh-danh-sach-anh.py 2>&1 | tee ket-qua.txt
+          python3 scripts/sinh-danh-sach-anh.py 2>&1 | tee -a ket-qua.txt
 
       # Downloader hiện tại cố ý bỏ qua file WebP đã tồn tại để chạy nhanh.
       # Vì tên ảnh bìa phụ thuộc mã căn chứ không phụ thuộc Drive ID, khi Sheet
       # đổi sang ảnh Drive mới thì tên local vẫn y nguyên và bản cũ bị giữ lại.
       # Bước này đối chiếu source hiện tại với anh-map.json. Nếu Drive ID đổi,
       # file cũ được chuyển vào cache tạm để downloader thấy file "chưa có" và
-      # tải bản mới. Push/schedule/manual lam_moi làm mới toàn bộ để bắt cả
+      # tải bản mới. Lịch refresh sâu/manual lam_moi làm mới toàn bộ để bắt cả
       # trường hợp người dùng Replace file trên Drive nhưng Drive ID không đổi.
       - name: Phát hiện ảnh Drive đã thay đổi
         env:
-          LAM_MOI_TAT_CA: ${{ (github.event_name == 'push' || github.event_name == 'schedule' || inputs.lam_moi == true) && '1' || '0' }}
+          LAM_MOI_TAT_CA: ${{ (github.event.schedule == '20 20 * * *' || inputs.lam_moi == true) && '1' || '0' }}
         run: |
           set -o pipefail
           python3 - <<'PY' 2>&1 | tee -a ket-qua.txt
@@ -210,6 +217,19 @@ jobs:
           print("Ảnh refresh đã tải đủ; cache cũ đã dọn.")
           PY
 
+      # Chỉ thay src không thêm được ảnh mới vào gallery đã sinh tĩnh.
+      - name: Dựng lại album và thẻ căn từ snapshot ảnh mới
+        if: steps.photos.outputs.changed == 'true'
+        run: |
+          set -euo pipefail
+          python3 scripts/sinh-trang-can.py
+          python3 scripts/sinh-trang-toa.py
+          python3 scripts/dung-lai-trang-danh-muc.py
+          python3 scripts/dung-lai-trang-chu.py
+          python3 scripts/noi-lien-ket-chi-tiet.py
+          python3 scripts/cap-nhat-lien-ket-noi-bo.py
+          python3 scripts/dong-bo-thuc-the-thuong-hieu.py
+
       # Script này vừa thay src Drive bằng WebP local, vừa lấy ảnh local đầu
       # tiên trong gallery để đồng bộ og:image/twitter:image cho URL căn.
       - name: Đồng bộ ảnh thật vào HTML và social preview
@@ -240,6 +260,7 @@ jobs:
           } >> "$GITHUB_STEP_SUMMARY"
 
       - name: Commit và push ảnh
+        id: save
         env:
           NHANH: main
         run: |
@@ -251,7 +272,7 @@ jobs:
           # giờ được ghi đè. Script không sửa file đó, nhưng vẫn chặn thêm ở đây.
           git checkout -- data.json || true
 
-          THEO_DOI="anh-can-ho sitemap-images.xml scripts/danh-sach-anh.json"
+          THEO_DOI="anh-can-ho sitemap-images.xml scripts/danh-sach-anh.json can-ho/danh-sach-trang.json sitemap-can-ho.xml"
 
           if git diff --quiet -- $THEO_DOI '*.html' && \
              [ -z "$(git ls-files --others --exclude-standard -- $THEO_DOI)" ]; then
@@ -261,9 +282,19 @@ jobs:
 
           git add -- $THEO_DOI '*.html'
           git commit -m "Đồng bộ ảnh căn hộ và social preview từ Drive"
+          # Runner checkout sạch: bỏ state phụ của generator trước rebase.
+          if ! git diff --quiet; then
+            git restore --worktree -- .
+          fi
 
           for lan in 1 2 3 4; do
-            if git pull --rebase origin "$NHANH" && git push origin "HEAD:$NHANH"; then
+            if ! git pull --rebase origin "$NHANH"; then
+              git rebase --abort || true
+              echo "::error::Main thay đổi xung đột; dừng để giữ dữ liệu trên main."
+              exit 1
+            fi
+            if git push origin "HEAD:$NHANH"; then
+              echo "changed=true" >> "$GITHUB_OUTPUT"
               echo "Đã push thành công."
               exit 0
             fi
@@ -273,3 +304,10 @@ jobs:
           done
           echo "Không push được sau 4 lần thử."
           exit 1
+
+      # Push bằng GITHUB_TOKEN không tự kích hoạt GitHub Pages.
+      - name: Cập nhật ảnh mới trên website
+        if: steps.save.outputs.changed == 'true'
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: gh api --method POST "repos/$GITHUB_REPOSITORY/pages/builds" --jq '.status'

@@ -1515,7 +1515,7 @@
     async function loadStaticData() {
       if (!CONFIG.staticDataUrl) return null;
       try {
-        const response = await fetch(CONFIG.staticDataUrl);
+        const response = await fetch(CONFIG.staticDataUrl, { cache: "no-cache" });
         if (!response.ok) return null;
         const data = await response.json();
         return Array.isArray(data) && data.length ? data : null;
@@ -1529,13 +1529,41 @@
     async function loadAnhMap() {
       if (!CONFIG.anhMapUrl) return;
       try {
-        const response = await fetch(CONFIG.anhMapUrl);
+        const response = await fetch(CONFIG.anhMapUrl, { cache: "no-cache" });
         if (!response.ok) return;
         const data = await response.json();
         if (data && typeof data === "object" && !Array.isArray(data)) anhTrongRepo = data;
       } catch (err) {
         // im lặng — giữ bảng rỗng
       }
+    }
+
+
+    // Snapshot thư mục Drive được quét riêng; Sheet mới hơn luôn được ưu tiên.
+    let anhTheoMa = {};
+    async function napNguonAnh() {
+      try {
+        const response = await fetch("/anh-can-ho/nguon-anh.json", { cache: "no-cache" });
+        if (!response.ok) return;
+        const data = await response.json();
+        if (data && data.version === 1 && data.items) anhTheoMa = data.items;
+      } catch (err) { /* Dùng dữ liệu Sheet khi snapshot không tải được. */ }
+    }
+    function apDungAnh(row) {
+      const text = value => String(value == null ? "" : value).trim();
+      const ident = value => {
+        const url = text(value), match = url.match(/(?:[?&]id=|\/file\/d\/)([A-Za-z0-9_-]+)/);
+        return match ? match[1] : url;
+      };
+      const source = [ident(row["Ảnh đại diện"])].concat(
+        text(row["Danh sách ảnh"]).split(/\r?\n/).filter(x => x.trim()).map(ident)).join("|");
+      const item = anhTheoMa[text(row["Mã nội bộ"])];
+      if (!item || item.source !== source || !Array.isArray(item.photos) ||
+          item.photos.some(id => typeof id !== "string" || !/^[A-Za-z0-9_-]{10,}$/.test(id)) ||
+          item.cover !== (item.photos[0] || item.poster || "") ||
+          (item.cover && !/^[A-Za-z0-9_-]{10,}$/.test(item.cover))) return row;
+      const url = id => id ? "https://drive.google.com/thumbnail?id=" + id + "&sz=w1000" : "";
+      return { ...row, "Ảnh đại diện": url(item.cover), "Danh sách ảnh": item.photos.map(url).join("\n") };
     }
 
     let videoTheoMa = {};
@@ -1552,7 +1580,7 @@
       /* Nạp song song để không cộng thêm một vòng mạng, nhưng PHẢI đợi cả hai xong
          mới trả dữ liệu: toApartment gọi driveUrlToViewUrl ngay khi dựng thẻ, bảng
          tra mà chưa có thì mọi ảnh sẽ rơi về Drive. */
-      const [duLieuTinh] = await Promise.all([loadStaticData(), loadAnhMap(), loadVideoMap()]);
+      const [duLieuTinh] = await Promise.all([loadStaticData(), loadAnhMap(), loadVideoMap(), napNguonAnh()]);
       if (duLieuTinh) return duLieuTinh;
 
       if (isConfiguredEndpoint()) {
@@ -1579,6 +1607,7 @@
     }
 
     function toApartment(row) {
+      row = apDungAnh(row);
       const apartmentId = normalizeText(row["Mã nội bộ"]);
       const visible = normalizeKey(row["Hiển thị trên Web"] || row["Hiển thị trên web"] || row["Hiển thị"]);
       const status = normalizeText(row["Trạng thái căn"] || row["Trạng thái"]);
