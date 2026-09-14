@@ -216,6 +216,22 @@ body .media::after,body .the-anh::after{
   background:linear-gradient(180deg,rgba(15,23,42,0) 64%,rgba(15,23,42,.055) 100%)!important;
 }
 
+/* Listing density: tablet 2 cột, laptop 3 cột, desktop rộng 4 cột.
+   1440px giữ mỗi card khoảng 280px trong shell 1220px, đủ hai nút liên hệ.
+   Override tại theme đang dùng để cả card JS và card HTML tĩnh cùng khớp. */
+@media (min-width:641px){
+  body .grid,body .luoi{
+    grid-template-columns:repeat(2,minmax(0,1fr))!important;
+    gap:16px!important;
+  }
+}
+@media (min-width:1081px){
+  body .grid,body .luoi{grid-template-columns:repeat(3,minmax(0,1fr))!important}
+}
+@media (min-width:1440px){
+  body .grid,body .luoi{grid-template-columns:repeat(4,minmax(0,1fr))!important}
+}
+
 /* Chỉ giữ 2 lớp thông tin trên ảnh: tình trạng + số ảnh. Nội thất đã có chip ở thân card. */
 body .badge-nt{display:none!important}
 body .badge,body .tinh-trang{
@@ -319,6 +335,38 @@ body .ask,body .zalo{
 body .ask:hover,body .zalo:hover{
   background:#1D4ED8!important;
   border-color:#1D4ED8!important;
+}
+
+/* Card rộng từ 280px: giữ giá rõ, bớt padding và không khóa chiều cao phần chữ. */
+@media (min-width:641px){
+  body .card,body .the{border-radius:var(--ds-r-lg)!important}
+  body .card .body,body .the .than{
+    padding:14px!important;
+    gap:6px!important;
+    overflow:visible;
+  }
+  body .card .price,body .the .gia{font-size:1.4rem!important}
+  body .card .body h3,body .the .ten{font-size:.94rem!important}
+  body .card .tower,body .the .vi-tri{font-size:.8rem!important}
+  body .card .card-foot,body .the .the-actions{
+    gap:8px!important;
+    padding-top:4px!important;
+  }
+  body .card .detail-card-link,body .card .ask,
+  body .the .detail-card-link,body .the .zalo{
+    min-height:44px!important;
+    height:auto;
+    padding:8px 6px!important;
+    border-radius:var(--ds-r-sm)!important;
+    font-size:.78rem!important;
+    line-height:1.3;
+  }
+  body .card .badge,body .the .tinh-trang{top:10px!important;left:10px!important}
+  body .card .pcount,body .the .dbc-huy-hieu{
+    top:10px!important;
+    right:10px!important;
+    padding:5px 8px!important;
+  }
 }
 
 /* 8) Bảng giá/content: bỏ cảm giác dashboard nặng */
@@ -435,12 +483,12 @@ body .floating-zalo,body .zalo-noi{
     background:#2563EB!important;
   }
 
-  /* Card mobile: nhiều khoảng thở, chỉ 2 badge trên ảnh */
-  body .grid,body .luoi{gap:22px!important}
+  /* Card mobile: một cột, bớt khoảng trống; giữ ảnh và nút đủ lớn để chạm. */
+  body .grid,body .luoi{gap:16px!important}
   body .card,body .the{border-radius:22px!important}
   body .card .body,body .the .than{
-    padding:20px 20px 21px!important;
-    gap:9px!important;
+    padding:16px!important;
+    gap:7px!important;
   }
   body .card .price,body .the .gia{
     font-size:1.58rem!important;
@@ -492,7 +540,7 @@ body .floating-zalo,body .zalo-noi{
 }
 
 @media (max-width:390px){
-  body .card .body,body .the .than{padding:18px!important}
+  body .card .body,body .the .than{padding:16px!important}
   body .card-foot.co-chi-tiet{gap:8px!important}
   body .detail-card-link,
   body .card-foot.co-chi-tiet .ask{font-size:.76rem!important}

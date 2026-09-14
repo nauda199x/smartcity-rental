@@ -1,6 +1,6 @@
 # Smart City Design System
 
-> Áp dụng cho timthuesmartcity.com. Nguồn CSS chính: `assets/v3.css`, khối **SMART CITY DESIGN SYSTEM V11**.
+> Áp dụng cho timthuesmartcity.com. Token nền: `assets/v3.css`, khối **SMART CITY DESIGN SYSTEM V11**. Theme hiện hành và mật độ card: `assets/ngon-ngu.css`.
 
 ## 1. Nguyên tắc
 
@@ -67,9 +67,11 @@ Không dùng shadow lớn cho mọi card. Viền + shadow nhẹ là mặc địn
 - Hover chỉ nâng nhẹ; không phóng/nhảy quá mạnh.
 
 ### Listing card
-- Desktop 2 card/hàng, card ngang.
-- Tablet 1 card ngang/hàng.
-- Mobile card dọc + swipe ảnh.
+- Laptop 1081–1439px: 3 card dọc/hàng; desktop từ 1440px: 4 card/hàng.
+- Tablet 641–1080px: 2 card dọc/hàng.
+- Mobile: 1 card dọc/hàng + swipe ảnh; nút tối thiểu 48px.
+- Trang chủ: 24 căn/trang trên desktop, 12 căn/trang ở màn hẹp; ảnh lazy-load.
+- CTA giữa danh sách sau 12 căn desktop (đủ hàng ở cả 3/4 cột), sau 4 căn mobile/tablet.
 - Giá là hierarchy số 1; loại căn/diện tích số 2; vị trí số 3.
 
 ### Content article
@@ -98,6 +100,7 @@ Không dùng shadow lớn cho mọi card. Viền + shadow nhẹ là mặc địn
 - Mobile: `<= 640px`
 - Tablet/intermediate: `641–1080px`
 - Desktop marketplace: `>= 1081px`
+- Desktop rộng: `>= 1440px`, 4 cột trong shell 1220px để card rộng khoảng 280px.
 
 Không tạo breakpoint mới nếu không có lý do kỹ thuật rõ ràng.
 

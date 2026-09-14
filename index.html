@@ -35,7 +35,7 @@
   <link rel="canonical" href="https://timthuesmartcity.com/">
 
   <!-- ĐỔI NGÔN NGỮ VI/EN/한 (thêm 11/08/2026) — file CSS riêng, không đụng v3.css -->
-  <link rel="stylesheet" href="/assets/ngon-ngu.css">
+  <link rel="stylesheet" href="/assets/ngon-ngu.css?v=20260914-compact">
 
   <!-- Open Graph: hiển thị ảnh/tiêu đề đẹp khi dán link trên Zalo, Facebook, Messenger -->
   <meta property="og:type" content="website">
@@ -1210,17 +1210,16 @@
     };
 
     /* ================================================================
-       SỐ CARD MỖI TRANG — desktop 10, màn hẹp hơn 8
+       SỐ CARD MỖI TRANG — desktop 24, màn hẹp hơn 12
        ----------------------------------------------------------------
-       Giao diện marketplace V4 dùng 2 card ngang/hàng trên desktop,
-       1 card/hàng ở tablet và mobile. 10 card desktop = 5 hàng; 8 card
-       ở màn hẹp giữ trang đủ ngắn để khách lọc/đổi trang nhanh.
+       Desktop có 3 hoặc 4 cột: 24 card luôn đủ hàng ở cả hai độ rộng.
+       Tablet có 2 cột, mobile 1 cột. Ảnh vẫn lazy-load, không tải cả album.
 
        Đọc bằng hàm (không phải hằng số) để người dùng thu/phóng cửa sổ
        hay xoay máy tính bảng thì lần render kế tiếp lấy đúng số mới.
        ================================================================ */
-    const SO_CARD_DESKTOP = 10;
-    const SO_CARD_HEP = 8;
+    const SO_CARD_DESKTOP = 24;
+    const SO_CARD_HEP = 12;
 
     function soCardMoiTrang() {
       return window.matchMedia("(min-width:1081px)").matches
@@ -2062,8 +2061,8 @@
       return nhan.length ? `<span class="pcount">${nhan.join(" · ")}</span>` : "";
     }
 
-    /* Khung ảnh thẻ: ~170px trên mobile, nửa cột ở tablet, một phần ba ở desktop. */
-    const SIZES_ANH_THE = "(max-width:640px) 170px, (max-width:1080px) 50vw, 33vw";
+    /* Khớp shell 1220px, padding 48px và gap 16px của lưới 1/2/3/4 cột. */
+    const SIZES_ANH_THE = "(max-width:640px) calc(100vw - 48px), (max-width:1080px) calc((100vw - 64px) / 2), (max-width:1219px) calc((100vw - 80px) / 3), (max-width:1439px) 380px, 281px";
 
     /** Ảnh đã về repo có kèm bản rộng 400px (hậu tố -400) cho khung ảnh nhỏ
      *  trên mobile. Ảnh còn trỏ Drive không có biến thể nào nên chỉ dùng src. */
@@ -2189,11 +2188,11 @@
       /* ================================================================
          KHỐI CTA GIỮA DANH SÁCH (thêm 14/08/2026)
          ----------------------------------------------------------------
-         Chèn THẲNG vào chuỗi HTML của lưới, ngay sau card thứ 6, chứ không
+         Chèn THẲNG vào chuỗi HTML của lưới, sau số card theo breakpoint, không
          dùng MutationObserver: chèn sau khi lưới đã vẽ xong sẽ thấy khối
          nhảy vào giữa danh sách (nháy hình).
 
-         Chỉ chèn khi trang hiện có TỪ 7 CARD trở lên. Dưới ngưỡng đó khối
+         Chỉ chèn khi trang còn card phía sau vị trí CTA. Dưới ngưỡng đó khối
          sẽ rơi xuống cuối lưới, chỗ đó đã có sẵn dải "Chưa thấy căn ưng ý"
          nên thành hai lời mời giống nhau nằm sát nhau.
 
@@ -2203,9 +2202,9 @@
          KHÔNG đặt class "card" hay "the" cho khối này: hai class đó đang bị
          mục 16.3 của v3.css ép flex-direction:row và height:190px.
          ================================================================ */
-      /* Marketplace V4: desktop 2 cột nên chèn CTA sau 4 card = sau 2 hàng.
-         Màn hẹp cũng chèn sau 4 card để lời mời không bị đẩy quá sâu. */
-      const viTriCta = 4;
+      /* 12 chia hết cho cả 3 và 4 cột: CTA không để thừa ô khi đổi độ rộng.
+         Mobile/tablet giữ sau 4 căn để lời mời tư vấn vẫn dễ tìm. */
+      const viTriCta = window.matchMedia("(min-width:1081px)").matches ? 12 : 4;
       if (theHtml.length > viTriCta) {
         theHtml.splice(viTriCta, 0, `
           <div class="cta-giua">
@@ -2596,8 +2595,8 @@
 
       /* Kẹp state.page TRƯỚC khi cắt mảng. Trước đây việc kẹp nằm trong
          renderPagination() — chạy sau slice — nên khi số trang co lại
-         (đổi bộ lọc lúc đang ở trang cuối, hoặc thu cửa sổ desktop → mobile
-         làm 16 trang thành 21 trang) thì slice trả mảng rỗng và lưới trắng
+         (đổi bộ lọc lúc đang ở trang cuối, hoặc đổi breakpoint
+         làm số căn mỗi trang thay đổi) thì slice trả mảng rỗng và lưới trắng
          một nhịp trước khi nhảy về trang hợp lệ. */
       const soCard = soCardMoiTrang();
       const tongTrang = Math.max(1, Math.ceil(apartments.length / soCard));
