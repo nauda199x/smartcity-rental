@@ -31,6 +31,34 @@
   var anhTrongRepo = {};
   var videoTheoMa = {};
 
+    // Snapshot thư mục Drive được quét riêng; Sheet mới hơn luôn được ưu tiên.
+    let anhTheoMa = {};
+    async function napNguonAnh() {
+      try {
+        const response = await fetch("/anh-can-ho/nguon-anh.json", { cache: "no-cache" });
+        if (!response.ok) return;
+        const data = await response.json();
+        if (data && data.version === 1 && data.items) anhTheoMa = data.items;
+      } catch (err) { /* Dùng dữ liệu Sheet khi snapshot không tải được. */ }
+    }
+    function apDungAnh(row) {
+      const text = value => String(value == null ? "" : value).trim();
+      const ident = value => {
+        const url = text(value), match = url.match(/(?:[?&]id=|\/file\/d\/)([A-Za-z0-9_-]+)/);
+        return match ? match[1] : url;
+      };
+      const source = [ident(row["Ảnh đại diện"])].concat(
+        text(row["Danh sách ảnh"]).split(/\r?\n/).filter(x => x.trim()).map(ident)).join("|");
+      const item = anhTheoMa[text(row["Mã nội bộ"])];
+      if (!item || item.source !== source || !Array.isArray(item.photos) ||
+          item.photos.some(id => typeof id !== "string" || !/^[A-Za-z0-9_-]{10,}$/.test(id)) ||
+          item.cover !== (item.photos[0] || item.poster || "") ||
+          (item.cover && !/^[A-Za-z0-9_-]{10,}$/.test(item.cover))) return row;
+      const url = id => id ? "https://drive.google.com/thumbnail?id=" + id + "&sz=w1000" : "";
+      return { ...row, "Ảnh đại diện": url(item.cover), "Danh sách ảnh": item.photos.map(url).join("\n") };
+    }
+
+
   function napVideo() {
     return fetch("/video-can-ho/manifest.json", { cache: "no-cache" })
       .then(function (r) { return r.ok ? r.json() : null; })
@@ -787,10 +815,10 @@
     /* Nạp bảng tra ảnh và bảng tra trang chi tiết trước rồi mới dựng lưới, để
        thẻ căn hộ không kịp hiện ảnh Drive/thiếu liên kết rồi mới đổi lại.
        Nạp lỗi ở bảng nào cũng vẫn đi tiếp. */
-    Promise.all([napBanDoAnh(), napTrangChiTiet(), napVideo()]).then(function () {
+    Promise.all([napBanDoAnh(), napTrangChiTiet(), napVideo(), napNguonAnh()]).then(function () {
       return fetch(NGUON, { cache: "no-cache" })
         .then(function (r) { return r.ok ? r.json() : null; })
-        .then(function (d) { if (d) chay(d, bl); });
+        .then(function (d) { if (Array.isArray(d)) chay(d.map(apDungAnh), bl); });
     }).catch(function () { /* giữ nguyên nội dung tĩnh */ });
   }
 

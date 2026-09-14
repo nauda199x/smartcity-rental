@@ -25,6 +25,7 @@ import json
 import os
 import re
 import sys
+from media_anh import ap_dung_anh, ten_file_co_phien_ban
 import unicodedata
 
 GOC = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -183,7 +184,7 @@ def dung_ban_ghi_gallery(can, s, anh_map_ten_file, theo_drive_id, canh_bao):
 
     # N của ảnh mới phải nối tiếp N lớn nhất đã dùng cho chính căn này trên
     # đĩa — không bắt đầu lại từ 1 mỗi lần, nếu không sẽ ghi đè tên đã có.
-    mau_hau_to = re.compile(r'^%s-a(\d+)\.webp$' % re.escape(s))
+    mau_hau_to = re.compile(r'^%s-a(\d+)(?:-v[a-f0-9]{12})?\.webp$' % re.escape(s))
     da_dung = [int(m.group(1)) for ten in anh_map_ten_file.values()
               if (m := mau_hau_to.match(ten))]
     n_ke_tiep = (max(da_dung) + 1) if da_dung else 1
@@ -205,7 +206,10 @@ def dung_ban_ghi_gallery(can, s, anh_map_ten_file, theo_drive_id, canh_bao):
             continue
 
         ten_co_san = anh_map_ten_file.get(drive_id)
-        if ten_co_san:
+        # Bìa cũ có thể vẫn ở gallery khi Sheet chọn bìa mới. Không để hai
+        # Drive ID cùng ghi vào tên file bìa cố định của căn.
+        ten_da_cap = {bg["ten_file"] for bg in theo_drive_id.values()}
+        if ten_co_san and ten_co_san not in ten_da_cap:
             ten_file = ten_co_san
         else:
             ten_file = "%s-a%d.webp" % (s, n_ke_tiep)
@@ -228,7 +232,7 @@ def main():
     tham_so = bo_phan_tich.parse_args()
 
     with open(DUONG_DATA, encoding="utf-8") as f:
-        du_lieu = json.load(f)
+        du_lieu = [ap_dung_anh(c) for c in json.load(f)]
 
     co_anh = [c for c in du_lieu
               if dang_hien_thi(c) and str(c.get("Ảnh đại diện", "")).strip()]
@@ -300,6 +304,8 @@ def main():
             print("  ... còn %d cảnh báo nữa" % (len(canh_bao_gallery) - 20))
 
     toan_bo = ban_ghi + ban_ghi_gallery
+    for bg in toan_bo:
+        bg["ten_file"] = ten_file_co_phien_ban(bg["ten_file"], bg["drive_id"])
     toan_bo.sort(key=lambda x: x["ten_file"])
 
     if tham_so.thu:
