@@ -2359,6 +2359,14 @@
   "phan_khu": "Tonkin",
   "toa": "TK2"
  },
+ "cho-thue-can-ho-3-ngu-canopy-80m2-ct-3n-167": {
+  "dien_tich": 80.5,
+  "loai": "3 Ngủ",
+  "ma": "CT.3N.167",
+  "ngay_xuat_hien": "2026-09-14",
+  "phan_khu": "Canopy",
+  "toa": "TC1"
+ },
  "cho-thue-can-ho-3-ngu-imperia-75m2-cc26": {
   "dien_tich": 75,
   "loai": "3 Ngủ",
@@ -3230,6 +3238,14 @@
   "ngay_xuat_hien": "2026-09-14",
   "phan_khu": "Sapphire",
   "toa": "S301"
+ },
+ "cho-thue-can-ho-studio-sapphire-32m2-ct-stu-855": {
+  "dien_tich": 32,
+  "loai": "Studio",
+  "ma": "CT.Stu.855",
+  "ngay_xuat_hien": "2026-09-14",
+  "phan_khu": "Sapphire",
+  "toa": "S205"
  },
  "cho-thue-can-ho-studio-sapphire-34m2-ct-stu-817": {
   "dien_tich": 34,
