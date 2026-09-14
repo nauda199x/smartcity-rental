@@ -322,10 +322,10 @@
       ]
     },
     "I3": {
-      "area_max": 64,
+      "area_max": 75,
       "area_min": 54,
       "code": "I3",
-      "count": 4,
+      "count": 5,
       "data_code": "I3",
       "district": "Imperia",
       "first_seen": "2026-09-10",
@@ -333,7 +333,7 @@
       "last_seen": "2026-09-14",
       "name": "I3 Imperia",
       "path": "/i3-imperia-smart-city/",
-      "price_max": 14000000,
+      "price_max": 16000000,
       "price_min": 10000000,
       "types": [
         {
@@ -347,6 +347,12 @@
           "name": "2 Ngủ +",
           "price_max": 12500000,
           "price_min": 12000000
+        },
+        {
+          "count": 1,
+          "name": "3 Ngủ",
+          "price_max": 16000000,
+          "price_min": 16000000
         }
       ]
     },
@@ -856,7 +862,7 @@
       "area_max": 94,
       "area_min": 30,
       "code": "S303",
-      "count": 4,
+      "count": 5,
       "data_code": "S303",
       "district": "Sapphire",
       "first_seen": "2026-09-10",
@@ -878,6 +884,12 @@
           "name": "2 Ngủ",
           "price_max": 12000000,
           "price_min": 12000000
+        },
+        {
+          "count": 1,
+          "name": "2 Ngủ +",
+          "price_max": 11000000,
+          "price_min": 11000000
         },
         {
           "count": 1,
@@ -1043,7 +1055,7 @@
       "area_max": 75,
       "area_min": 32,
       "code": "SA3",
-      "count": 11,
+      "count": 12,
       "data_code": "SA3",
       "district": "Sakura",
       "first_seen": "2026-09-10",
@@ -1055,7 +1067,7 @@
       "price_min": 6000000,
       "types": [
         {
-          "count": 5,
+          "count": 6,
           "name": "2 Ngủ",
           "price_max": 12000000,
           "price_min": 8000000
