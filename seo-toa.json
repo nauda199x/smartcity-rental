@@ -586,9 +586,9 @@
     },
     "S101": {
       "area_max": 64,
-      "area_min": 31,
+      "area_min": 43,
       "code": "S101",
-      "count": 9,
+      "count": 8,
       "data_code": "S101",
       "district": "Sapphire",
       "first_seen": "2026-09-10",
@@ -597,7 +597,7 @@
       "name": "S1.01",
       "path": "/s1-01-vinhomes-smart-city/",
       "price_max": 13000000,
-      "price_min": 6500000,
+      "price_min": 8500000,
       "types": [
         {
           "count": 6,
@@ -616,12 +616,6 @@
           "name": "2 Ngủ",
           "price_max": 10000000,
           "price_min": 10000000
-        },
-        {
-          "count": 1,
-          "name": "Studio",
-          "price_max": 6500000,
-          "price_min": 6500000
         }
       ]
     },
@@ -629,7 +623,7 @@
       "area_max": 55,
       "area_min": 32,
       "code": "S103",
-      "count": 6,
+      "count": 5,
       "data_code": "S103",
       "district": "Sapphire",
       "first_seen": "2026-09-10",
@@ -644,12 +638,6 @@
           "count": 4,
           "name": "2 Ngủ",
           "price_max": 10500000,
-          "price_min": 8000000
-        },
-        {
-          "count": 1,
-          "name": "1 Ngủ +",
-          "price_max": 8000000,
           "price_min": 8000000
         },
         {
@@ -901,9 +889,9 @@
     },
     "S401": {
       "area_max": 94,
-      "area_min": 43,
+      "area_min": 64,
       "code": "S401",
-      "count": 5,
+      "count": 4,
       "data_code": "S401",
       "district": "Sapphire",
       "first_seen": "2026-09-10",
@@ -912,7 +900,7 @@
       "name": "S4.01",
       "path": "/s4-01-vinhomes-smart-city/",
       "price_max": 18000000,
-      "price_min": 8000000,
+      "price_min": 11000000,
       "types": [
         {
           "count": 2,
@@ -925,12 +913,6 @@
           "name": "3 Ngủ",
           "price_max": 18000000,
           "price_min": 12000000
-        },
-        {
-          "count": 1,
-          "name": "1 Ngủ +",
-          "price_max": 8000000,
-          "price_min": 8000000
         }
       ]
     },
