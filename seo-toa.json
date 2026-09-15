@@ -144,7 +144,7 @@
       "area_max": 64,
       "area_min": 54,
       "code": "GS3",
-      "count": 3,
+      "count": 4,
       "data_code": "GS3",
       "district": "Miami",
       "first_seen": "2026-09-10",
@@ -162,10 +162,10 @@
           "price_min": 8500000
         },
         {
-          "count": 1,
+          "count": 2,
           "name": "2 Ngủ +",
           "price_max": 10500000,
-          "price_min": 10500000
+          "price_min": 10000000
         }
       ]
     },
@@ -352,9 +352,9 @@
     },
     "I4": {
       "area_max": 64,
-      "area_min": 54,
+      "area_min": 43,
       "code": "I4",
-      "count": 3,
+      "count": 4,
       "data_code": "I4",
       "district": "Imperia",
       "first_seen": "2026-09-10",
@@ -363,13 +363,19 @@
       "name": "I4 Imperia",
       "path": "/i4-imperia-smart-city/",
       "price_max": 11500000,
-      "price_min": 10000000,
+      "price_min": 9000000,
       "types": [
         {
           "count": 2,
           "name": "2 Ngủ +",
           "price_max": 11500000,
           "price_min": 10000000
+        },
+        {
+          "count": 1,
+          "name": "1 Ngủ +",
+          "price_max": 9000000,
+          "price_min": 9000000
         },
         {
           "count": 1,
@@ -780,7 +786,7 @@
       "area_max": 75,
       "area_min": 32,
       "code": "S301",
-      "count": 4,
+      "count": 5,
       "data_code": "S301",
       "district": "Sapphire",
       "first_seen": "2026-09-10",
@@ -792,10 +798,10 @@
       "price_min": 7000000,
       "types": [
         {
-          "count": 1,
+          "count": 2,
           "name": "1 Ngủ +",
           "price_max": 9000000,
-          "price_min": 9000000
+          "price_min": 8500000
         },
         {
           "count": 1,
@@ -961,7 +967,7 @@
       "area_max": 95,
       "area_min": 37,
       "code": "S403",
-      "count": 3,
+      "count": 4,
       "data_code": "S403",
       "district": "Sapphire",
       "first_seen": "2026-09-10",
@@ -973,6 +979,12 @@
       "price_min": 8000000,
       "types": [
         {
+          "count": 2,
+          "name": "3 Ngủ",
+          "price_max": 17000000,
+          "price_min": 17000000
+        },
+        {
           "count": 1,
           "name": "1 Ngủ",
           "price_max": 8000000,
@@ -983,12 +995,6 @@
           "name": "2 Ngủ +",
           "price_max": 12500000,
           "price_min": 12500000
-        },
-        {
-          "count": 1,
-          "name": "3 Ngủ",
-          "price_max": 17000000,
-          "price_min": 17000000
         }
       ]
     },
@@ -1072,7 +1078,7 @@
       "area_max": 64,
       "area_min": 25,
       "code": "SA5",
-      "count": 6,
+      "count": 7,
       "data_code": "SA5",
       "district": "Sakura",
       "first_seen": "2026-09-10",
@@ -1084,10 +1090,10 @@
       "price_min": 6000000,
       "types": [
         {
-          "count": 2,
+          "count": 3,
           "name": "2 Ngủ",
           "price_max": 12000000,
-          "price_min": 12000000
+          "price_min": 8500000
         },
         {
           "count": 2,
