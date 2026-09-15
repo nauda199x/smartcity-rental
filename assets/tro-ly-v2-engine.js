@@ -1,7 +1,7 @@
 (function(){
 var TYPES=["Studio","1 Ngủ","1 Ngủ +","2 Ngủ","2 Ngủ +","3 Ngủ"],FURNS=["Full nội thất","Đồ Cơ bản","Nhà Nguyên Bản"];
 function fresh(){return{types:[],furn:null,min:null,max:null,zone:null,tower:null,date:null,cheap:false}}
-function norm(s){return String(s||"").toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g,"").replace(/đ/g,"d").replace(/[^\p{L}0-9\s+.,/<>-]/gu," ").replace(/\s+/g," ").trim()}
+function norm(s){return String(s||"").toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g,"").replace(/đ/g,"d").replace(/[^\p{L}0-9\s+.,/<>-]/gu," ").replace(/\s+/g," ").trim().normalize("NFC")}
 function compact(s){return norm(s).replace(/[\s._-]/g,"")}
 function pdate(s){var m=/^(\d{1,2})\/(\d{1,2})\/(\d{4})/.exec(String(s||""));if(!m)return null;var d=new Date(+m[3],+m[2]-1,+m[1]);d.setHours(0,0,0,0);return isNaN(d)?null:d}
 function add(n){var d=new Date();d.setHours(23,59,59,999);d.setDate(d.getDate()+n);return d}
