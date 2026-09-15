@@ -1,10 +1,10 @@
 {
   "updated": "2026-09-15",
   "source": "data.json",
-  "active_count": 246,
+  "active_count": 244,
   "min_sample": 3,
   "overall": {
-    "n": 246,
+    "n": 244,
     "min": 6000000,
     "max": 18500000,
     "median": 11000000.0
@@ -23,10 +23,10 @@
       "median": 10000000
     },
     "2 Ngủ": {
-      "n": 75,
+      "n": 74,
       "min": 8000000,
       "max": 17000000,
-      "median": 12000000
+      "median": 12000000.0
     },
     "2 Ngủ +": {
       "n": 53,
@@ -41,10 +41,10 @@
       "median": 15000000.0
     },
     "Studio": {
-      "n": 37,
+      "n": 36,
       "min": 6000000,
       "max": 10000000,
-      "median": 8000000
+      "median": 8000000.0
     }
   },
   "by_zone": {
@@ -55,10 +55,10 @@
       "median": 11000000.0
     },
     "Imperia": {
-      "n": 25,
-      "min": 6800000,
+      "n": 23,
+      "min": 7500000,
       "max": 17500000,
-      "median": 11500000
+      "median": 12000000
     },
     "Lumiere": {
       "n": 31,
@@ -99,10 +99,10 @@
   },
   "by_interior": {
     "Full nội thất": {
-      "n": 164,
+      "n": 163,
       "min": 6500000,
       "max": 18500000,
-      "median": 11500000.0
+      "median": 11500000
     },
     "Nhà Nguyên Bản": {
       "n": 33,
@@ -111,10 +111,10 @@
       "median": 9000000
     },
     "Đồ Cơ bản": {
-      "n": 49,
-      "min": 6800000,
+      "n": 48,
+      "min": 7500000,
       "max": 17000000,
-      "median": 12000000
+      "median": 12000000.0
     }
   },
   "zone_type_interior": [
@@ -230,10 +230,10 @@
       "zone": "Imperia",
       "type": "2 Ngủ",
       "interior": "Full nội thất",
-      "n": 6,
+      "n": 5,
       "min": 10000000,
       "max": 14000000,
-      "median": 11500000.0
+      "median": 12000000
     },
     {
       "zone": "Imperia",
@@ -288,15 +288,6 @@
       "min": 8000000,
       "max": 8000000,
       "median": 8000000.0
-    },
-    {
-      "zone": "Imperia",
-      "type": "Studio",
-      "interior": "Đồ Cơ bản",
-      "n": 1,
-      "min": 6800000,
-      "max": 6800000,
-      "median": 6800000
     },
     {
       "zone": "Lumiere",
