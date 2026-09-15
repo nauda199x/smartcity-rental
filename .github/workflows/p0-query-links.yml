@@ -9,8 +9,16 @@ on:
       - "scripts/fix-query-links.py"
       - "scripts/audit-query-url.py"
       - ".github/workflows/p0-query-links.yml"
+  # Push bằng GITHUB_TOKEN không kích hoạt workflow push khác. Bắt trực tiếp
+  # sự kiện generator hoàn tất để P0 vẫn chạy sau các commit tự động.
+  workflow_run:
+    workflows:
+      - "Cập nhật số căn và tháng trong thẻ SEO"
+      - "SEO Big Update P0-P8"
+    types:
+      - completed
   schedule:
-    # Chạy sau các mốc workflow đồng bộ chính 10 phút, làm lớp tự phục hồi.
+    # Lớp tự phục hồi độc lập sau các mốc đồng bộ chính.
     - cron: "10 1,9,17 * * *"
   workflow_dispatch:
 
@@ -23,6 +31,8 @@ concurrency:
 
 jobs:
   normalize:
+    # workflow_run chỉ xử lý main; push/schedule/dispatch luôn dùng main bên dưới.
+    if: ${{ github.event_name != 'workflow_run' || github.event.workflow_run.head_branch == 'main' }}
     runs-on: ubuntu-latest
     steps:
       - name: Lấy code mới nhất
