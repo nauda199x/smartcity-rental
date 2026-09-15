@@ -144,7 +144,7 @@
       "area_max": 64,
       "area_min": 54,
       "code": "GS3",
-      "count": 4,
+      "count": 3,
       "data_code": "GS3",
       "district": "Miami",
       "first_seen": "2026-09-10",
@@ -157,15 +157,15 @@
       "types": [
         {
           "count": 2,
-          "name": "2 Ngủ",
-          "price_max": 9000000,
-          "price_min": 8500000
-        },
-        {
-          "count": 2,
           "name": "2 Ngủ +",
           "price_max": 10500000,
           "price_min": 10000000
+        },
+        {
+          "count": 1,
+          "name": "2 Ngủ",
+          "price_max": 8500000,
+          "price_min": 8500000
         }
       ]
     },
@@ -418,7 +418,7 @@
       "area_max": 79,
       "area_min": 29,
       "code": "MASA",
-      "count": 15,
+      "count": 16,
       "data_code": "MasA",
       "district": "Masteri",
       "first_seen": "2026-09-10",
@@ -430,7 +430,7 @@
       "price_min": 7500000,
       "types": [
         {
-          "count": 7,
+          "count": 8,
           "name": "1 Ngủ +",
           "price_max": 12000000,
           "price_min": 9500000
@@ -547,7 +547,7 @@
       "area_max": 62,
       "area_min": 30,
       "code": "MASD",
-      "count": 12,
+      "count": 13,
       "data_code": "MasD",
       "district": "Masteri",
       "first_seen": "2026-09-10",
@@ -566,15 +566,15 @@
         },
         {
           "count": 3,
-          "name": "2 Ngủ +",
-          "price_max": 16000000,
-          "price_min": 13000000
-        },
-        {
-          "count": 2,
           "name": "1 Ngủ +",
           "price_max": 11000000,
           "price_min": 10500000
+        },
+        {
+          "count": 3,
+          "name": "2 Ngủ +",
+          "price_max": 16000000,
+          "price_min": 13000000
         },
         {
           "count": 1,
