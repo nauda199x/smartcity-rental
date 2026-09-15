@@ -278,7 +278,7 @@
       "area_max": 64,
       "area_min": 28,
       "code": "I2",
-      "count": 7,
+      "count": 6,
       "data_code": "I2",
       "district": "Imperia",
       "first_seen": "2026-09-10",
@@ -287,7 +287,7 @@
       "name": "I2 Imperia",
       "path": "/i2-imperia-smart-city/",
       "price_max": 15000000,
-      "price_min": 6800000,
+      "price_min": 8000000,
       "types": [
         {
           "count": 2,
@@ -302,16 +302,16 @@
           "price_min": 13000000
         },
         {
-          "count": 2,
-          "name": "Studio",
-          "price_max": 8000000,
-          "price_min": 6800000
-        },
-        {
           "count": 1,
           "name": "2 Ngủ",
           "price_max": 12500000,
           "price_min": 12500000
+        },
+        {
+          "count": 1,
+          "name": "Studio",
+          "price_max": 8000000,
+          "price_min": 8000000
         }
       ]
     },
@@ -354,7 +354,7 @@
       "area_max": 64,
       "area_min": 43,
       "code": "I4",
-      "count": 4,
+      "count": 3,
       "data_code": "I4",
       "district": "Imperia",
       "first_seen": "2026-09-10",
@@ -376,12 +376,6 @@
           "name": "1 Ngủ +",
           "price_max": 9000000,
           "price_min": 9000000
-        },
-        {
-          "count": 1,
-          "name": "2 Ngủ",
-          "price_max": 10000000,
-          "price_min": 10000000
         }
       ]
     },

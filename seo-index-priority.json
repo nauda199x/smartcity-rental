@@ -10,7 +10,7 @@
       "url": "/",
       "label": "Trang thuê Smart City",
       "reason": "landing chính cho cụm từ khóa thuê Smart City",
-      "inbound_pages": 363,
+      "inbound_pages": 361,
       "exists": true,
       "indexable": true,
       "self_canonical": true,
@@ -20,7 +20,7 @@
       "url": "/can-ho/",
       "label": "Căn hộ đang cho thuê",
       "reason": "hub URL chi tiết căn active",
-      "inbound_pages": 314,
+      "inbound_pages": 312,
       "exists": true,
       "indexable": true,
       "self_canonical": true,
@@ -30,7 +30,7 @@
       "url": "/studio/",
       "label": "Thuê Studio",
       "reason": "intent theo loại căn",
-      "inbound_pages": 351,
+      "inbound_pages": 349,
       "exists": true,
       "indexable": true,
       "self_canonical": true,
@@ -50,7 +50,7 @@
       "url": "/1pn-plus/",
       "label": "Thuê 1PN+",
       "reason": "intent theo loại căn",
-      "inbound_pages": 351,
+      "inbound_pages": 349,
       "exists": true,
       "indexable": true,
       "self_canonical": true,
@@ -60,7 +60,7 @@
       "url": "/2pn/",
       "label": "Thuê 2PN",
       "reason": "intent theo loại căn",
-      "inbound_pages": 351,
+      "inbound_pages": 349,
       "exists": true,
       "indexable": true,
       "self_canonical": true,
@@ -80,7 +80,7 @@
       "url": "/3pn/",
       "label": "Thuê 3PN",
       "reason": "intent theo loại căn",
-      "inbound_pages": 351,
+      "inbound_pages": 349,
       "exists": true,
       "indexable": true,
       "self_canonical": true,
@@ -90,7 +90,7 @@
       "url": "/bang-gia-thue-vinhomes-smart-city.html",
       "label": "Bảng giá thuê",
       "reason": "intent giá thuê có dữ liệu thực tế",
-      "inbound_pages": 353,
+      "inbound_pages": 351,
       "exists": true,
       "indexable": true,
       "self_canonical": true,
@@ -137,20 +137,20 @@
       "in_sitemap": true
     },
     {
-      "url": "/imperia/",
-      "label": "Thuê Imperia Smart City",
+      "url": "/sakura/",
+      "label": "Thuê The Sakura",
       "reason": "phân khu có quỹ căn active lớn",
-      "inbound_pages": 78,
+      "inbound_pages": 77,
       "exists": true,
       "indexable": true,
       "self_canonical": true,
       "in_sitemap": true
     },
     {
-      "url": "/sakura/",
-      "label": "Thuê The Sakura",
+      "url": "/imperia/",
+      "label": "Thuê Imperia Smart City",
       "reason": "phân khu có quỹ căn active lớn",
-      "inbound_pages": 77,
+      "inbound_pages": 76,
       "exists": true,
       "indexable": true,
       "self_canonical": true,
@@ -229,18 +229,18 @@
       "inbound_pages": 16
     },
     {
-      "url": "/i2-imperia-smart-city/",
-      "label": "I2 Imperia",
-      "district": "Imperia",
-      "inventory": 7,
-      "inbound_pages": 9
-    },
-    {
       "url": "/sa5-the-sakura-smart-city/",
       "label": "SA5 The Sakura",
       "district": "Sakura",
       "inventory": 7,
       "inbound_pages": 8
+    },
+    {
+      "url": "/tk2-tonkin-smart-city/",
+      "label": "TK2 Tonkin",
+      "district": "Tonkin",
+      "inventory": 7,
+      "inbound_pages": 5
     }
   ],
   "tier_3": [
@@ -296,7 +296,7 @@
       "tower": "I4",
       "type": "1 Ngủ +",
       "district": "Imperia",
-      "inbound_pages": 13
+      "inbound_pages": 12
     },
     {
       "url": "/can-ho/cho-thue-can-ho-studio-sapphire-32m2-ct-stu-855/",
@@ -430,8 +430,8 @@
     "Masteri": 51,
     "Lumiere": 29,
     "Miami": 26,
-    "Imperia": 25,
     "Sakura": 24,
+    "Imperia": 23,
     "Canopy": 16,
     "Tonkin": 12
   },
