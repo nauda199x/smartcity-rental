@@ -1,0 +1,87 @@
+name: P0 normalize query links
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - "**/*.html"
+      - "scripts/fix-query-links.py"
+      - "scripts/audit-query-url.py"
+      - ".github/workflows/p0-query-links.yml"
+  schedule:
+    # Chạy sau các mốc workflow đồng bộ chính 10 phút, làm lớp tự phục hồi.
+    - cron: "10 1,9,17 * * *"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: smartcity-p0-query-links
+  cancel-in-progress: false
+
+jobs:
+  normalize:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Lấy code mới nhất
+        uses: actions/checkout@v4
+        with:
+          ref: main
+          fetch-depth: 0
+
+      - name: Kiểm tra cú pháp P0
+        run: |
+          python3 -m py_compile scripts/fix-query-links.py
+          python3 -m py_compile scripts/audit-query-url.py
+
+      - name: Chuẩn hóa internal query links
+        run: |
+          set -o pipefail
+          python3 scripts/fix-query-links.py 2>&1 | tee p0-query.txt
+
+      - name: Audit sau khi sửa
+        run: |
+          set -o pipefail
+          python3 scripts/audit-query-url.py 2>&1 | tee -a p0-query.txt
+
+      - name: Xem thay đổi
+        if: always()
+        run: git --no-pager diff --stat
+
+      - name: Commit nếu có link cần sửa
+        env:
+          NHANH: main
+        run: |
+          set -euo pipefail
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -- '*.html'
+
+          if git diff --cached --quiet; then
+            echo "P0 sạch — không có HTML nào cần sửa."
+            exit 0
+          fi
+
+          git commit -m "SEO P0: nofollow internal query/filter links"
+          for lan in 1 2 3 4; do
+            if git pull --rebase origin "$NHANH" && git push origin "HEAD:$NHANH"; then
+              echo "Đã push bản P0 sạch."
+              exit 0
+            fi
+            sleep $((2 ** lan))
+          done
+          echo "Không push được P0 sau 4 lần thử."
+          exit 1
+
+      - name: Tóm tắt
+        if: always()
+        run: |
+          {
+            echo "## P0 Query URL"
+            echo
+            echo '```text'
+            cat p0-query.txt 2>/dev/null || echo "Không có log."
+            echo '```'
+          } >> "$GITHUB_STEP_SUMMARY"
