@@ -148,9 +148,9 @@
     },
     "GS3": {
       "area_max": 64,
-      "area_min": 30,
+      "area_min": 28,
       "code": "GS3",
-      "count": 4,
+      "count": 5,
       "data_code": "GS3",
       "district": "Miami",
       "first_seen": "2026-09-10",
@@ -168,16 +168,16 @@
           "price_min": 10000000
         },
         {
+          "count": 2,
+          "name": "Studio",
+          "price_max": 7000000,
+          "price_min": 6000000
+        },
+        {
           "count": 1,
           "name": "2 Ngủ",
           "price_max": 8500000,
           "price_min": 8500000
-        },
-        {
-          "count": 1,
-          "name": "Studio",
-          "price_max": 6000000,
-          "price_min": 6000000
         }
       ]
     },
