@@ -1,0 +1,52 @@
+name: Audit query URL indexing
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - "**/*.html"
+      - "sitemap*.xml"
+      - "robots.txt"
+      - "scripts/audit-query-url.py"
+      - ".github/workflows/audit-query-url.yml"
+  schedule:
+    # 09:45 giờ Việt Nam mỗi ngày.
+    - cron: "45 2 * * *"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: smartcity-query-url-audit
+  cancel-in-progress: true
+
+jobs:
+  audit:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Lấy code
+        uses: actions/checkout@v4
+        with:
+          ref: main
+          fetch-depth: 1
+
+      - name: Kiểm tra cú pháp
+        run: python3 -m py_compile scripts/audit-query-url.py
+
+      - name: Audit query URL / indexing
+        run: |
+          set -o pipefail
+          python3 scripts/audit-query-url.py 2>&1 | tee audit-query-url.txt
+
+      - name: Ghi kết quả
+        if: always()
+        run: |
+          {
+            echo "## P0 Query URL / Indexing Audit"
+            echo
+            echo '```text'
+            cat audit-query-url.txt 2>/dev/null || echo "Không có log audit."
+            echo '```'
+          } >> "$GITHUB_STEP_SUMMARY"
