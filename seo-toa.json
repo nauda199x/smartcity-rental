@@ -247,9 +247,9 @@
     },
     "I1": {
       "area_max": 76,
-      "area_min": 32,
+      "area_min": 55,
       "code": "I1",
-      "count": 6,
+      "count": 5,
       "data_code": "I1",
       "district": "Imperia",
       "first_seen": "2026-09-10",
@@ -258,7 +258,7 @@
       "name": "I1 Imperia",
       "path": "/i1-imperia-smart-city/",
       "price_max": 17500000,
-      "price_min": 8000000,
+      "price_min": 10500000,
       "types": [
         {
           "count": 2,
@@ -277,12 +277,6 @@
           "name": "2 Ngủ +",
           "price_max": 13000000,
           "price_min": 13000000
-        },
-        {
-          "count": 1,
-          "name": "Studio",
-          "price_max": 8000000,
-          "price_min": 8000000
         }
       ]
     },
