@@ -1,15 +1,8 @@
 name: Audit query URL indexing
 
 on:
-  push:
-    branches:
-      - main
-    paths:
-      - "**/*.html"
-      - "sitemap*.xml"
-      - "robots.txt"
-      - "scripts/audit-query-url.py"
-      - ".github/workflows/audit-query-url.yml"
+  # Guard cuối ngày. Mọi push HTML đã được workflow P0 normalize + audit ngay;
+  # lịch này là lớp kiểm tra độc lập để bắt lỗi nếu workflow kia bị sửa/tắt.
   schedule:
     # 09:45 giờ Việt Nam mỗi ngày.
     - cron: "45 2 * * *"
