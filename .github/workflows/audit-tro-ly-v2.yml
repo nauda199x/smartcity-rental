@@ -31,3 +31,32 @@ jobs:
           grep -q 'TROLY_V2_UI' assets/tro-ly-v2-base.js
           grep -q 'quy-can-san-sang' assets/tro-ly-v2-flow.js
           grep -q 'ngonngu:doi' assets/tro-ly-v2-flow.js
+      - name: Test hiểu nhu cầu và matching
+        run: |
+          node <<'NODE'
+          global.window = {};
+          require('./assets/tro-ly-v2-engine.js');
+          const E = window.TROLY_V2_ENGINE;
+          const units = [
+            {show:true,type:'2 Ngủ',interior:'Full nội thất',price:10500000,phanKhu:'Masteri',tower:'Mas B',availableDate:'20/09/2026'},
+            {show:true,type:'1 Ngủ',interior:'Full nội thất',price:9500000,phanKhu:'Sapphire',tower:'S2.02',availableDate:'16/09/2026'}
+          ];
+          function ok(v, msg) { if (!v) throw new Error(msg); }
+          let p = E.parse('2PN full đồ 10-12tr Masteri cuối tháng', E.fresh(), units);
+          ok(p.o.types[0] === '2 Ngủ', 'không hiểu 2PN');
+          ok(p.o.furn === 'Full nội thất', 'không hiểu full đồ');
+          ok(p.o.min === 10000000 && p.o.max === 12000000, 'không hiểu khoảng 10-12tr');
+          ok(p.o.zone === 'Masteri', 'không hiểu Masteri');
+          ok(p.o.date instanceof Date, 'không hiểu cuối tháng');
+          let tower = E.parse('1PN full đồ dưới 10tr S202', E.fresh(), units).o;
+          ok(tower.tower === 'S2.02', 'không hiểu mã tòa S202');
+          let en = E.parse('2BR furnished max 11M Masteri', E.fresh(), units).o;
+          ok(en.types[0] === '2 Ngủ' && en.furn === 'Full nội thất' && en.max === 11000000, 'English parser lỗi');
+          let zh = E.parse('2居室 全套家具 1100万 Masteri 月底入住', E.fresh(), units).o;
+          ok(zh.types[0] === '2 Ngủ' && zh.furn === 'Full nội thất' && zh.max === 11000000, 'Chinese parser lỗi');
+          let ko = E.parse('2베드룸 풀옵션 1100만 Masteri', E.fresh(), units).o;
+          ok(ko.types[0] === '2 Ngủ' && ko.furn === 'Full nội thất' && ko.max === 11000000, 'Korean parser lỗi');
+          let s = E.fresh(); s.types=['2 Ngủ']; s.furn='Full nội thất'; s.max=11000000; s.zone='Masteri'; s.date=new Date(2026,8,25,23,59,59);
+          ok(E.ranked(units,s,false).length === 1, 'exact matching lỗi');
+          console.log('PASS: parser VI/EN/KO/ZH + range + tower + date + exact matching');
+          NODE
