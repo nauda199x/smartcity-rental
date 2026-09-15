@@ -1,0 +1,33 @@
+name: Audit trợ lý tìm căn V2
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'assets/tro-ly.js'
+      - 'assets/tro-ly-v2-*.js'
+      - '.github/workflows/audit-tro-ly-v2.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  audit:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Kiểm tra cú pháp JavaScript
+        run: |
+          node --check assets/tro-ly.js
+          node --check assets/tro-ly-v2-i18n.js
+          node --check assets/tro-ly-v2-engine.js
+          node --check assets/tro-ly-v2-base.js
+          node --check assets/tro-ly-v2-flow.js
+      - name: Kiểm tra module V2 đầy đủ
+        run: |
+          grep -q 'TROLY_V2_PENDING_DATA' assets/tro-ly.js
+          grep -q 'TROLY_V2_ENGINE' assets/tro-ly-v2-engine.js
+          grep -q 'TROLY_V2_UI' assets/tro-ly-v2-base.js
+          grep -q 'quy-can-san-sang' assets/tro-ly-v2-flow.js
+          grep -q 'ngonngu:doi' assets/tro-ly-v2-flow.js
