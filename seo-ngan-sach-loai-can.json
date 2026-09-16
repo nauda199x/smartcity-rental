@@ -48,9 +48,9 @@
     "updated": "2026-09-16"
   },
   "2pn-tren-15-trieu": {
-    "count": 3,
+    "count": 4,
     "created": "2026-08-30",
-    "indexable": false,
+    "indexable": true,
     "loai": "2 Ngủ",
     "nganSach": "tren-15-trieu",
     "updated": "2026-09-16"
