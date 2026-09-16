@@ -100,7 +100,7 @@
       "url": "/sapphire/",
       "label": "Thuê Sapphire",
       "reason": "phân khu có quỹ căn active lớn",
-      "inbound_pages": 124,
+      "inbound_pages": 125,
       "exists": true,
       "indexable": true,
       "self_canonical": true,
@@ -140,7 +140,7 @@
       "url": "/sakura/",
       "label": "Thuê The Sakura",
       "reason": "phân khu có quỹ căn active lớn",
-      "inbound_pages": 77,
+      "inbound_pages": 76,
       "exists": true,
       "indexable": true,
       "self_canonical": true,
@@ -215,13 +215,6 @@
       "inbound_pages": 14
     },
     {
-      "url": "/sa3-the-sakura-smart-city/",
-      "label": "SA3 The Sakura",
-      "district": "Sakura",
-      "inventory": 8,
-      "inbound_pages": 16
-    },
-    {
       "url": "/tk2-tonkin-smart-city/",
       "label": "TK2 Tonkin",
       "district": "Tonkin",
@@ -236,6 +229,13 @@
       "inbound_pages": 12
     },
     {
+      "url": "/sa3-the-sakura-smart-city/",
+      "label": "SA3 The Sakura",
+      "district": "Sakura",
+      "inventory": 7,
+      "inbound_pages": 15
+    },
+    {
       "url": "/sa5-the-sakura-smart-city/",
       "label": "SA5 The Sakura",
       "district": "Sakura",
@@ -244,6 +244,15 @@
     }
   ],
   "tier_3": [
+    {
+      "url": "/can-ho/cho-thue-can-ho-studio-sapphire-32m2-ct-stu-867/",
+      "first_seen": "2026-09-16",
+      "code": "CT.Stu.867",
+      "tower": "S401",
+      "type": "Studio",
+      "district": "Sapphire",
+      "inbound_pages": 13
+    },
     {
       "url": "/can-ho/cho-thue-can-ho-studio-sapphire-32m2-ct-stu-866/",
       "first_seen": "2026-09-16",
@@ -341,7 +350,7 @@
       "tower": "S202",
       "type": "Studio",
       "district": "Sapphire",
-      "inbound_pages": 14
+      "inbound_pages": 13
     },
     {
       "url": "/can-ho/cho-thue-can-ho-studio-sapphire-28m2-ct-stu-859/",
@@ -350,7 +359,7 @@
       "tower": "S101",
       "type": "Studio",
       "district": "Sapphire",
-      "inbound_pages": 21
+      "inbound_pages": 22
     },
     {
       "url": "/can-ho/cho-thue-can-ho-studio-sapphire-28m2-ct-stu-858/",
@@ -359,7 +368,7 @@
       "tower": "S101",
       "type": "Studio",
       "district": "Sapphire",
-      "inbound_pages": 21
+      "inbound_pages": 22
     },
     {
       "url": "/can-ho/cho-thue-can-ho-studio-miami-30m2-ct-stu-860/",
@@ -395,7 +404,7 @@
       "tower": "S203",
       "type": "3 Ngủ",
       "district": "Sapphire",
-      "inbound_pages": 11
+      "inbound_pages": 9
     },
     {
       "url": "/can-ho/cho-thue-can-ho-2-ngu-sakura-62m2-ct-2n2-425/",
@@ -414,23 +423,14 @@
       "type": "2 Ngủ",
       "district": "Sakura",
       "inbound_pages": 16
-    },
-    {
-      "url": "/can-ho/cho-thue-can-ho-2-ngu-miami-64m2-ct-2n-308/",
-      "first_seen": "2026-09-15",
-      "code": "CT.2N+.308",
-      "tower": "GS1",
-      "type": "2 Ngủ +",
-      "district": "Miami",
-      "inbound_pages": 12
     }
   ],
   "district_inventory": {
-    "Sapphire": 57,
+    "Sapphire": 58,
     "Masteri": 55,
     "Lumiere": 31,
     "Miami": 29,
-    "Sakura": 24,
+    "Sakura": 23,
     "Imperia": 22,
     "Canopy": 16,
     "Tonkin": 13
