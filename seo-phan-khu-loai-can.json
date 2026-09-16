@@ -48,7 +48,7 @@
     "updated": "2026-09-16"
   },
   "cho-thue-1pn-plus-sapphire-smart-city": {
-    "count": 8,
+    "count": 7,
     "created": "2026-08-30",
     "indexable": true,
     "loai": "1 Ngủ +",
@@ -88,7 +88,7 @@
     "updated": "2026-09-16"
   },
   "cho-thue-2pn-masteri-smart-city": {
-    "count": 5,
+    "count": 6,
     "created": "2026-08-30",
     "indexable": true,
     "loai": "2 Ngủ",
@@ -208,7 +208,7 @@
     "updated": "2026-09-16"
   },
   "cho-thue-studio-masteri-smart-city": {
-    "count": 16,
+    "count": 15,
     "created": "2026-08-30",
     "indexable": true,
     "loai": "Studio",
@@ -224,7 +224,7 @@
     "updated": "2026-09-16"
   },
   "cho-thue-studio-sapphire-smart-city": {
-    "count": 13,
+    "count": 14,
     "created": "2026-08-30",
     "indexable": true,
     "loai": "Studio",
