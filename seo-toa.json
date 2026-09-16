@@ -150,7 +150,7 @@
       "area_max": 64,
       "area_min": 28,
       "code": "GS3",
-      "count": 5,
+      "count": 6,
       "data_code": "GS3",
       "district": "Miami",
       "first_seen": "2026-09-10",
@@ -159,19 +159,19 @@
       "name": "GS3 The Miami",
       "path": "/gs3-the-miami-smart-city/",
       "price_max": 10500000,
-      "price_min": 6000000,
+      "price_min": 5500000,
       "types": [
+        {
+          "count": 3,
+          "name": "Studio",
+          "price_max": 7000000,
+          "price_min": 5500000
+        },
         {
           "count": 2,
           "name": "2 Ngủ +",
           "price_max": 10500000,
           "price_min": 10000000
-        },
-        {
-          "count": 2,
-          "name": "Studio",
-          "price_max": 7000000,
-          "price_min": 6000000
         },
         {
           "count": 1,
