@@ -459,7 +459,7 @@
       "area_max": 79,
       "area_min": 29,
       "code": "MASA",
-      "count": 16,
+      "count": 17,
       "data_code": "MasA",
       "district": "Masteri",
       "first_seen": "2026-09-10",
@@ -471,7 +471,7 @@
       "price_min": 7500000,
       "types": [
         {
-          "count": 8,
+          "count": 9,
           "name": "1 Ngủ +",
           "price_max": 12000000,
           "price_min": 9500000
