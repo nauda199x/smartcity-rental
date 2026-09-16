@@ -2493,42 +2493,6 @@
   "trang": "/can-ho/cho-thue-can-ho-1-ngu-sapphire-43m2-ct-1n-481/"
  },
  {
-  "ma": "CT.1N+.525",
-  "toa": "S302",
-  "phan_khu": "Sapphire",
-  "loai": "1 Ngủ +",
-  "dien_tich": 43,
-  "drive_id": "1R2pVE2IoAQf4x3_wKnyN4B_lb4y5Y-qR",
-  "url_goc": "https://drive.google.com/thumbnail?id=1R2pVE2IoAQf4x3_wKnyN4B_lb4y5Y-qR&sz=w1000",
-  "ten_file": "cho-thue-can-ho-1-ngu-sapphire-43m2-ct-1n-525-a1.webp",
-  "loai_anh": "gallery",
-  "trang": "/can-ho/cho-thue-can-ho-1-ngu-sapphire-43m2-ct-1n-525/"
- },
- {
-  "ma": "CT.1N+.525",
-  "toa": "S302",
-  "phan_khu": "Sapphire",
-  "loai": "1 Ngủ +",
-  "dien_tich": 43,
-  "drive_id": "1Bvd9njeCipPWgRVB47c5G-zXVIZFoAYB",
-  "url_goc": "https://drive.google.com/thumbnail?id=1Bvd9njeCipPWgRVB47c5G-zXVIZFoAYB&sz=w1000",
-  "ten_file": "cho-thue-can-ho-1-ngu-sapphire-43m2-ct-1n-525-a2.webp",
-  "loai_anh": "gallery",
-  "trang": "/can-ho/cho-thue-can-ho-1-ngu-sapphire-43m2-ct-1n-525/"
- },
- {
-  "ma": "CT.1N+.525",
-  "toa": "S302",
-  "phan_khu": "Sapphire",
-  "loai": "1 Ngủ +",
-  "dien_tich": 43,
-  "drive_id": "1FsYFHiP3yYtSSgUe_hhqEiJWwZpksCIK",
-  "url_goc": "https://drive.google.com/thumbnail?id=1FsYFHiP3yYtSSgUe_hhqEiJWwZpksCIK&sz=w1000",
-  "ten_file": "cho-thue-can-ho-1-ngu-sapphire-43m2-ct-1n-525.webp",
-  "loai_anh": "bia",
-  "trang": "/can-ho/cho-thue-can-ho-1-ngu-sapphire-43m2-ct-1n-525/"
- },
- {
   "ma": "CT.1N+.539",
   "toa": "S301",
   "phan_khu": "Sapphire",
@@ -3079,6 +3043,30 @@
   "ten_file": "cho-thue-can-ho-1-ngu-tonkin-40m2-ct-1n-545.webp",
   "loai_anh": "bia",
   "trang": "/can-ho/cho-thue-can-ho-1-ngu-tonkin-40m2-ct-1n-545/"
+ },
+ {
+  "ma": "CT.1N.180",
+  "toa": "TK2",
+  "phan_khu": "Tonkin",
+  "loai": "1 Ngủ",
+  "dien_tich": 42,
+  "drive_id": "19SGc75IVBZCFXCOCvMwt9sbBvlQ-Hdc5",
+  "url_goc": "https://drive.google.com/thumbnail?id=19SGc75IVBZCFXCOCvMwt9sbBvlQ-Hdc5&sz=w1000",
+  "ten_file": "cho-thue-can-ho-1-ngu-tonkin-42m2-ct-1n-180-a1.webp",
+  "loai_anh": "gallery",
+  "trang": "/can-ho/cho-thue-can-ho-1-ngu-tonkin-42m2-ct-1n-180/"
+ },
+ {
+  "ma": "CT.1N.180",
+  "toa": "TK2",
+  "phan_khu": "Tonkin",
+  "loai": "1 Ngủ",
+  "dien_tich": 42,
+  "drive_id": "11H29Y3XHExPNuzTn0AaEegpFIkcvx0MN",
+  "url_goc": "https://drive.google.com/thumbnail?id=11H29Y3XHExPNuzTn0AaEegpFIkcvx0MN&sz=w1000",
+  "ten_file": "cho-thue-can-ho-1-ngu-tonkin-42m2-ct-1n-180.webp",
+  "loai_anh": "bia",
+  "trang": "/can-ho/cho-thue-can-ho-1-ngu-tonkin-42m2-ct-1n-180/"
  },
  {
   "ma": "CT.1N.178",
@@ -5860,6 +5848,30 @@
   "ten_file": "cho-thue-can-ho-2-ngu-masteri-54m2-ct-2n2-409.webp",
   "loai_anh": "bia",
   "trang": "/can-ho/cho-thue-can-ho-2-ngu-masteri-54m2-ct-2n2-409/"
+ },
+ {
+  "ma": "CT.2N2.427",
+  "toa": "MasB",
+  "phan_khu": "Masteri",
+  "loai": "2 Ngủ",
+  "dien_tich": 54,
+  "drive_id": "1BBW97fTDqa7DPAXeHjUO3KPU4Yqu2bFJ",
+  "url_goc": "https://drive.google.com/thumbnail?id=1BBW97fTDqa7DPAXeHjUO3KPU4Yqu2bFJ&sz=w1000",
+  "ten_file": "cho-thue-can-ho-2-ngu-masteri-54m2-ct-2n2-427-a1.webp",
+  "loai_anh": "gallery",
+  "trang": "/can-ho/cho-thue-can-ho-2-ngu-masteri-54m2-ct-2n2-427/"
+ },
+ {
+  "ma": "CT.2N2.427",
+  "toa": "MasB",
+  "phan_khu": "Masteri",
+  "loai": "2 Ngủ",
+  "dien_tich": 54,
+  "drive_id": "1BhrF5vUdBVjAzPPJJTcCQVp1Cxy9anjz",
+  "url_goc": "https://drive.google.com/thumbnail?id=1BhrF5vUdBVjAzPPJJTcCQVp1Cxy9anjz&sz=w1000",
+  "ten_file": "cho-thue-can-ho-2-ngu-masteri-54m2-ct-2n2-427.webp",
+  "loai_anh": "bia",
+  "trang": "/can-ho/cho-thue-can-ho-2-ngu-masteri-54m2-ct-2n2-427/"
  },
  {
   "ma": "29",
@@ -14968,54 +14980,6 @@
   "trang": "/can-ho/cho-thue-can-ho-studio-masteri-32m2-328/"
  },
  {
-  "ma": "CT.Stu.829",
-  "toa": "MasB",
-  "phan_khu": "Masteri",
-  "loai": "Studio",
-  "dien_tich": 32,
-  "drive_id": "1l1r83kGsBKmzHOAp56fuVwtDTQHoP8Vw",
-  "url_goc": "https://drive.google.com/thumbnail?id=1l1r83kGsBKmzHOAp56fuVwtDTQHoP8Vw&sz=w1000",
-  "ten_file": "cho-thue-can-ho-studio-masteri-32m2-ct-stu-829-a1.webp",
-  "loai_anh": "gallery",
-  "trang": "/can-ho/cho-thue-can-ho-studio-masteri-32m2-ct-stu-829/"
- },
- {
-  "ma": "CT.Stu.829",
-  "toa": "MasB",
-  "phan_khu": "Masteri",
-  "loai": "Studio",
-  "dien_tich": 32,
-  "drive_id": "1HwwA0bMxfZsqKxzFhO0NKbgRYRfcz1vc",
-  "url_goc": "https://drive.google.com/thumbnail?id=1HwwA0bMxfZsqKxzFhO0NKbgRYRfcz1vc&sz=w1000",
-  "ten_file": "cho-thue-can-ho-studio-masteri-32m2-ct-stu-829-a2.webp",
-  "loai_anh": "gallery",
-  "trang": "/can-ho/cho-thue-can-ho-studio-masteri-32m2-ct-stu-829/"
- },
- {
-  "ma": "CT.Stu.829",
-  "toa": "MasB",
-  "phan_khu": "Masteri",
-  "loai": "Studio",
-  "dien_tich": 32,
-  "drive_id": "1bLkCVjty0c2V5XmOCb4zrkUiBUHAtHZ4",
-  "url_goc": "https://drive.google.com/thumbnail?id=1bLkCVjty0c2V5XmOCb4zrkUiBUHAtHZ4&sz=w1000",
-  "ten_file": "cho-thue-can-ho-studio-masteri-32m2-ct-stu-829-a3.webp",
-  "loai_anh": "gallery",
-  "trang": "/can-ho/cho-thue-can-ho-studio-masteri-32m2-ct-stu-829/"
- },
- {
-  "ma": "CT.Stu.829",
-  "toa": "MasB",
-  "phan_khu": "Masteri",
-  "loai": "Studio",
-  "dien_tich": 32,
-  "drive_id": "1MJ63sKxjI7K_tE11MDqdDLi0XpEJqkkM",
-  "url_goc": "https://drive.google.com/thumbnail?id=1MJ63sKxjI7K_tE11MDqdDLi0XpEJqkkM&sz=w1000",
-  "ten_file": "cho-thue-can-ho-studio-masteri-32m2-ct-stu-829.webp",
-  "loai_anh": "bia",
-  "trang": "/can-ho/cho-thue-can-ho-studio-masteri-32m2-ct-stu-829/"
- },
- {
   "ma": "CT.Stu.841",
   "toa": "MasD",
   "phan_khu": "Masteri",
@@ -16033,6 +15997,138 @@
   "ten_file": "cho-thue-can-ho-studio-sapphire-30m2-ct-stu-854.webp",
   "loai_anh": "bia",
   "trang": "/can-ho/cho-thue-can-ho-studio-sapphire-30m2-ct-stu-854/"
+ },
+ {
+  "ma": "CT.Stu.863",
+  "toa": "S102",
+  "phan_khu": "Sapphire",
+  "loai": "Studio",
+  "dien_tich": 31,
+  "drive_id": "1QkQXr8xQqXbsdZ6S0tUPi_ZQCVlKx67q",
+  "url_goc": "https://drive.google.com/thumbnail?id=1QkQXr8xQqXbsdZ6S0tUPi_ZQCVlKx67q&sz=w1000",
+  "ten_file": "cho-thue-can-ho-studio-sapphire-31m2-ct-stu-863-a1.webp",
+  "loai_anh": "gallery",
+  "trang": "/can-ho/cho-thue-can-ho-studio-sapphire-31m2-ct-stu-863/"
+ },
+ {
+  "ma": "CT.Stu.863",
+  "toa": "S102",
+  "phan_khu": "Sapphire",
+  "loai": "Studio",
+  "dien_tich": 31,
+  "drive_id": "1AO7y1YiVZkvjT10BVAcisapN1bQiRSdq",
+  "url_goc": "https://drive.google.com/thumbnail?id=1AO7y1YiVZkvjT10BVAcisapN1bQiRSdq&sz=w1000",
+  "ten_file": "cho-thue-can-ho-studio-sapphire-31m2-ct-stu-863-a10.webp",
+  "loai_anh": "gallery",
+  "trang": "/can-ho/cho-thue-can-ho-studio-sapphire-31m2-ct-stu-863/"
+ },
+ {
+  "ma": "CT.Stu.863",
+  "toa": "S102",
+  "phan_khu": "Sapphire",
+  "loai": "Studio",
+  "dien_tich": 31,
+  "drive_id": "1bfGO2rxm_AFfmo1PdjL9_TiJvL0lN0vW",
+  "url_goc": "https://drive.google.com/thumbnail?id=1bfGO2rxm_AFfmo1PdjL9_TiJvL0lN0vW&sz=w1000",
+  "ten_file": "cho-thue-can-ho-studio-sapphire-31m2-ct-stu-863-a2.webp",
+  "loai_anh": "gallery",
+  "trang": "/can-ho/cho-thue-can-ho-studio-sapphire-31m2-ct-stu-863/"
+ },
+ {
+  "ma": "CT.Stu.863",
+  "toa": "S102",
+  "phan_khu": "Sapphire",
+  "loai": "Studio",
+  "dien_tich": 31,
+  "drive_id": "1imUUTxVLCKTa1A4aQSPLlWCRSVueYgcd",
+  "url_goc": "https://drive.google.com/thumbnail?id=1imUUTxVLCKTa1A4aQSPLlWCRSVueYgcd&sz=w1000",
+  "ten_file": "cho-thue-can-ho-studio-sapphire-31m2-ct-stu-863-a3.webp",
+  "loai_anh": "gallery",
+  "trang": "/can-ho/cho-thue-can-ho-studio-sapphire-31m2-ct-stu-863/"
+ },
+ {
+  "ma": "CT.Stu.863",
+  "toa": "S102",
+  "phan_khu": "Sapphire",
+  "loai": "Studio",
+  "dien_tich": 31,
+  "drive_id": "14gW_2NetQE4LPAHCdsvFuQo0MVPc266C",
+  "url_goc": "https://drive.google.com/thumbnail?id=14gW_2NetQE4LPAHCdsvFuQo0MVPc266C&sz=w1000",
+  "ten_file": "cho-thue-can-ho-studio-sapphire-31m2-ct-stu-863-a4.webp",
+  "loai_anh": "gallery",
+  "trang": "/can-ho/cho-thue-can-ho-studio-sapphire-31m2-ct-stu-863/"
+ },
+ {
+  "ma": "CT.Stu.863",
+  "toa": "S102",
+  "phan_khu": "Sapphire",
+  "loai": "Studio",
+  "dien_tich": 31,
+  "drive_id": "1RCeUKEnvXBvmzMMfGGzsyYXFxnceMIiB",
+  "url_goc": "https://drive.google.com/thumbnail?id=1RCeUKEnvXBvmzMMfGGzsyYXFxnceMIiB&sz=w1000",
+  "ten_file": "cho-thue-can-ho-studio-sapphire-31m2-ct-stu-863-a5.webp",
+  "loai_anh": "gallery",
+  "trang": "/can-ho/cho-thue-can-ho-studio-sapphire-31m2-ct-stu-863/"
+ },
+ {
+  "ma": "CT.Stu.863",
+  "toa": "S102",
+  "phan_khu": "Sapphire",
+  "loai": "Studio",
+  "dien_tich": 31,
+  "drive_id": "1cheLCps-W3zqaI-WwOwmjuepProG9Rir",
+  "url_goc": "https://drive.google.com/thumbnail?id=1cheLCps-W3zqaI-WwOwmjuepProG9Rir&sz=w1000",
+  "ten_file": "cho-thue-can-ho-studio-sapphire-31m2-ct-stu-863-a6.webp",
+  "loai_anh": "gallery",
+  "trang": "/can-ho/cho-thue-can-ho-studio-sapphire-31m2-ct-stu-863/"
+ },
+ {
+  "ma": "CT.Stu.863",
+  "toa": "S102",
+  "phan_khu": "Sapphire",
+  "loai": "Studio",
+  "dien_tich": 31,
+  "drive_id": "10mJU--DMGbsoFYpBXGR36KBr4ZivSAuT",
+  "url_goc": "https://drive.google.com/thumbnail?id=10mJU--DMGbsoFYpBXGR36KBr4ZivSAuT&sz=w1000",
+  "ten_file": "cho-thue-can-ho-studio-sapphire-31m2-ct-stu-863-a7.webp",
+  "loai_anh": "gallery",
+  "trang": "/can-ho/cho-thue-can-ho-studio-sapphire-31m2-ct-stu-863/"
+ },
+ {
+  "ma": "CT.Stu.863",
+  "toa": "S102",
+  "phan_khu": "Sapphire",
+  "loai": "Studio",
+  "dien_tich": 31,
+  "drive_id": "1XMeDH6qZOvNtgbj4kyDjfi_u7znt4AD_",
+  "url_goc": "https://drive.google.com/thumbnail?id=1XMeDH6qZOvNtgbj4kyDjfi_u7znt4AD_&sz=w1000",
+  "ten_file": "cho-thue-can-ho-studio-sapphire-31m2-ct-stu-863-a8.webp",
+  "loai_anh": "gallery",
+  "trang": "/can-ho/cho-thue-can-ho-studio-sapphire-31m2-ct-stu-863/"
+ },
+ {
+  "ma": "CT.Stu.863",
+  "toa": "S102",
+  "phan_khu": "Sapphire",
+  "loai": "Studio",
+  "dien_tich": 31,
+  "drive_id": "1DahvxhB6c5S4dgqcMAFCX4V5xSx8W28i",
+  "url_goc": "https://drive.google.com/thumbnail?id=1DahvxhB6c5S4dgqcMAFCX4V5xSx8W28i&sz=w1000",
+  "ten_file": "cho-thue-can-ho-studio-sapphire-31m2-ct-stu-863-a9.webp",
+  "loai_anh": "gallery",
+  "trang": "/can-ho/cho-thue-can-ho-studio-sapphire-31m2-ct-stu-863/"
+ },
+ {
+  "ma": "CT.Stu.863",
+  "toa": "S102",
+  "phan_khu": "Sapphire",
+  "loai": "Studio",
+  "dien_tich": 31,
+  "drive_id": "1Qp8bQpAqUav78E40dHLc1szblFshCLuL",
+  "url_goc": "https://drive.google.com/thumbnail?id=1Qp8bQpAqUav78E40dHLc1szblFshCLuL&sz=w1000",
+  "ten_file": "cho-thue-can-ho-studio-sapphire-31m2-ct-stu-863.webp",
+  "loai_anh": "bia",
+  "trang": "/can-ho/cho-thue-can-ho-studio-sapphire-31m2-ct-stu-863/"
  },
  {
   "ma": "CT.Stu.732",
