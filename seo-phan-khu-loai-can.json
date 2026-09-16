@@ -40,7 +40,7 @@
     "updated": "2026-09-16"
   },
   "cho-thue-1pn-plus-sakura-smart-city": {
-    "count": 1,
+    "count": 0,
     "created": "2026-09-01",
     "indexable": false,
     "loai": "1 Ngủ +",
@@ -224,7 +224,7 @@
     "updated": "2026-09-16"
   },
   "cho-thue-studio-sapphire-smart-city": {
-    "count": 14,
+    "count": 15,
     "created": "2026-08-30",
     "indexable": true,
     "loai": "Studio",
