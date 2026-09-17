@@ -1,10 +1,10 @@
 {
   "towers": {
     "A1": {
-      "area_max": 66,
+      "area_max": 73,
       "area_min": 30,
       "code": "A1",
-      "count": 3,
+      "count": 4,
       "data_code": "A1",
       "district": "Lumiere",
       "first_seen": "2026-09-16",
@@ -29,6 +29,12 @@
         },
         {
           "count": 1,
+          "name": "2 Ngủ +",
+          "price_max": 14000000,
+          "price_min": 14000000
+        },
+        {
+          "count": 1,
           "name": "Studio",
           "price_max": 8500000,
           "price_min": 8500000
@@ -39,7 +45,7 @@
       "area_max": 87,
       "area_min": 30,
       "code": "A2",
-      "count": 21,
+      "count": 22,
       "data_code": "A2",
       "district": "Lumiere",
       "first_seen": "2026-09-10",
@@ -48,7 +54,7 @@
       "name": "A2 Lumière",
       "path": "/a2-lumiere-evergreen/",
       "price_max": 17000000,
-      "price_min": 9000000,
+      "price_min": 8500000,
       "types": [
         {
           "count": 16,
@@ -69,10 +75,10 @@
           "price_min": 15000000
         },
         {
-          "count": 1,
+          "count": 2,
           "name": "Studio",
           "price_max": 9000000,
-          "price_min": 9000000
+          "price_min": 8500000
         }
       ]
     },
