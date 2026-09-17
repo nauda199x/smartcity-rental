@@ -220,7 +220,7 @@
       "area_max": 82,
       "area_min": 45,
       "code": "GS5",
-      "count": 9,
+      "count": 10,
       "data_code": "GS5",
       "district": "Miami",
       "first_seen": "2026-09-10",
@@ -232,7 +232,7 @@
       "price_min": 7500000,
       "types": [
         {
-          "count": 6,
+          "count": 7,
           "name": "2 Ngủ",
           "price_max": 14000000,
           "price_min": 9000000
@@ -889,9 +889,9 @@
     },
     "S302": {
       "area_max": 64,
-      "area_min": 62,
+      "area_min": 32,
       "code": "S302",
-      "count": 2,
+      "count": 3,
       "data_code": "S302",
       "district": "Sapphire",
       "first_seen": "2026-09-10",
@@ -900,13 +900,19 @@
       "name": "S3.02",
       "path": "/s3-02-vinhomes-smart-city/",
       "price_max": 13000000,
-      "price_min": 12000000,
+      "price_min": 7600000,
       "types": [
         {
           "count": 2,
           "name": "2 Ngủ +",
           "price_max": 13000000,
           "price_min": 12000000
+        },
+        {
+          "count": 1,
+          "name": "Studio",
+          "price_max": 7600000,
+          "price_min": 7600000
         }
       ]
     },
@@ -949,7 +955,7 @@
       "area_max": 94,
       "area_min": 32,
       "code": "S401",
-      "count": 5,
+      "count": 6,
       "data_code": "S401",
       "district": "Sapphire",
       "first_seen": "2026-09-10",
@@ -971,6 +977,12 @@
           "name": "3 Ngủ",
           "price_max": 18000000,
           "price_min": 12000000
+        },
+        {
+          "count": 1,
+          "name": "1 Ngủ +",
+          "price_max": 8500000,
+          "price_min": 8500000
         },
         {
           "count": 1,
@@ -1017,9 +1029,9 @@
     },
     "S403": {
       "area_max": 95,
-      "area_min": 63,
+      "area_min": 27,
       "code": "S403",
-      "count": 3,
+      "count": 5,
       "data_code": "S403",
       "district": "Sapphire",
       "first_seen": "2026-09-10",
@@ -1028,7 +1040,7 @@
       "name": "S4.03",
       "path": "/s4-03-vinhomes-smart-city/",
       "price_max": 17000000,
-      "price_min": 12500000,
+      "price_min": 6500000,
       "types": [
         {
           "count": 2,
@@ -1038,9 +1050,21 @@
         },
         {
           "count": 1,
+          "name": "1 Ngủ +",
+          "price_max": 7000000,
+          "price_min": 7000000
+        },
+        {
+          "count": 1,
           "name": "2 Ngủ +",
           "price_max": 12500000,
           "price_min": 12500000
+        },
+        {
+          "count": 1,
+          "name": "Studio",
+          "price_max": 6500000,
+          "price_min": 6500000
         }
       ]
     },
@@ -1264,7 +1288,7 @@
       "area_max": 61,
       "area_min": 25,
       "code": "TK1",
-      "count": 5,
+      "count": 6,
       "data_code": "TK1",
       "district": "Tonkin",
       "first_seen": "2026-09-10",
@@ -1276,10 +1300,10 @@
       "price_min": 8000000,
       "types": [
         {
-          "count": 3,
+          "count": 4,
           "name": "2 Ngủ",
           "price_max": 14000000,
-          "price_min": 14000000
+          "price_min": 12000000
         },
         {
           "count": 2,
