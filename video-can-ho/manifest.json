@@ -378,40 +378,6 @@
       },
       "cover": "/video-can-ho/64edf9b6625b038ba3ea.webp"
     },
-    "CT.2N2.409": {
-      "videos": [
-        "https://drive.google.com/file/d/1j1CxjG4e_5UeSGuLYHchPuNzwHDfwcO1/preview",
-        "https://drive.google.com/file/d/1D0YXlMdBI9sJqvXyNdChj1jLEvfs0ASc/preview",
-        "https://drive.google.com/file/d/1xcBi88CuZAxbDm1ozq-18qFkA6g2Dt7C/preview"
-      ],
-      "sources": {
-        "https://drive.google.com/file/d/1j1CxjG4e_5UeSGuLYHchPuNzwHDfwcO1/preview": {
-          "src": "/video-can-ho/8590208fcd587be34643.mp4",
-          "width": 720,
-          "height": 1280,
-          "duration": 9.6,
-          "bytes": 1194577,
-          "poster": "/video-can-ho/8590208fcd587be34643.webp"
-        },
-        "https://drive.google.com/file/d/1D0YXlMdBI9sJqvXyNdChj1jLEvfs0ASc/preview": {
-          "src": "/video-can-ho/38ea5f45998112b8e5ae.mp4",
-          "width": 720,
-          "height": 1280,
-          "duration": 9.6,
-          "bytes": 1194577,
-          "poster": "/video-can-ho/38ea5f45998112b8e5ae.webp"
-        },
-        "https://drive.google.com/file/d/1xcBi88CuZAxbDm1ozq-18qFkA6g2Dt7C/preview": {
-          "src": "/video-can-ho/a15baa6016705fc07145.mp4",
-          "width": 720,
-          "height": 1280,
-          "duration": 37.03,
-          "bytes": 5380081,
-          "poster": "/video-can-ho/a15baa6016705fc07145.webp"
-        }
-      },
-      "cover": "/video-can-ho/8590208fcd587be34643.webp"
-    },
     "CT.2N2.415": {
       "videos": [
         "https://drive.google.com/file/d/1scOfcY0jdCXR8ZnOxgjAo8JmKRIxAsyL/preview"
@@ -555,23 +521,7 @@
         }
       },
       "cover": "/video-can-ho/50bcadb9f41916b9f790.webp"
-    },
-    "CT.Stu.853": {
-      "videos": [
-        "https://drive.google.com/file/d/1n9L9sUKFI6elvJ9E_yS6xdNIPm946WPv/preview"
-      ],
-      "sources": {
-        "https://drive.google.com/file/d/1n9L9sUKFI6elvJ9E_yS6xdNIPm946WPv/preview": {
-          "src": "/video-can-ho/92aed63227d76032f36d.mp4",
-          "width": 720,
-          "height": 1280,
-          "duration": 55.53,
-          "bytes": 7513093,
-          "poster": "/video-can-ho/92aed63227d76032f36d.webp"
-        }
-      },
-      "cover": "/video-can-ho/92aed63227d76032f36d.webp"
     }
   },
-  "updatedAt": "2026-09-16T02:40:20+00:00"
+  "updatedAt": "2026-09-17T08:42:46+00:00"
 }
