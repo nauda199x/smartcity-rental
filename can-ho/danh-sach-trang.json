@@ -463,6 +463,14 @@
   "phan_khu": "Masteri",
   "toa": "MasB"
  },
+ "cho-thue-can-ho-1-ngu-masteri-47m2-ct-1n-565": {
+  "dien_tich": 47,
+  "loai": "1 Ngủ +",
+  "ma": "CT.1N+.565",
+  "ngay_xuat_hien": "2026-09-17",
+  "phan_khu": "Masteri",
+  "toa": "MasB"
+ },
  "cho-thue-can-ho-1-ngu-masteri-48m2-ct-1n-447": {
   "dien_tich": 48,
   "loai": "1 Ngủ +",
@@ -919,6 +927,14 @@
   "phan_khu": "Canopy",
   "toa": "TC2"
  },
+ "cho-thue-can-ho-2-ngu-canopy-62m2-ct-2n2-431": {
+  "dien_tich": 62,
+  "loai": "2 Ngủ",
+  "ma": "CT.2N2.431",
+  "ngay_xuat_hien": "2026-09-17",
+  "phan_khu": "Canopy",
+  "toa": "TC3"
+ },
  "cho-thue-can-ho-2-ngu-canopy-63m2-ct-2n2-342": {
   "dien_tich": 63.4,
   "loai": "2 Ngủ",
@@ -1158,6 +1174,14 @@
   "ngay_xuat_hien": "2026-09-10",
   "phan_khu": "Imperia",
   "toa": "I4"
+ },
+ "cho-thue-can-ho-2-ngu-imperia-64m2-ct-2n-310": {
+  "dien_tich": 64,
+  "loai": "2 Ngủ +",
+  "ma": "CT.2N+.310",
+  "ngay_xuat_hien": "2026-09-17",
+  "phan_khu": "Imperia",
+  "toa": "I2"
  },
  "cho-thue-can-ho-2-ngu-lumiere-52m2-ct-2n2-410": {
   "dien_tich": 52,
@@ -2855,6 +2879,14 @@
   "phan_khu": "Canopy",
   "toa": "TC2"
  },
+ "cho-thue-can-ho-studio-canopy-26m2-ct-stu-870": {
+  "dien_tich": 26,
+  "loai": "Studio",
+  "ma": "CT.Stu.870",
+  "ngay_xuat_hien": "2026-09-17",
+  "phan_khu": "Canopy",
+  "toa": "TC2"
+ },
  "cho-thue-can-ho-studio-canopy-28m2-cc15": {
   "dien_tich": 28,
   "loai": "Studio",
@@ -3214,6 +3246,14 @@
   "ngay_xuat_hien": "2026-09-15",
   "phan_khu": "Miami",
   "toa": "GS3"
+ },
+ "cho-thue-can-ho-studio-miami-31m2-ct-stu-871": {
+  "dien_tich": 31,
+  "loai": "Studio",
+  "ma": "CT.Stu.871",
+  "ngay_xuat_hien": "2026-09-17",
+  "phan_khu": "Miami",
+  "toa": "GS2"
  },
  "cho-thue-can-ho-studio-sakura-25m2-ct-stu-835": {
   "dien_tich": 25,
