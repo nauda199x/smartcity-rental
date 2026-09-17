@@ -154,9 +154,9 @@
     },
     "GS2": {
       "area_max": 75,
-      "area_min": 62,
+      "area_min": 31,
       "code": "GS2",
-      "count": 3,
+      "count": 4,
       "data_code": "GS2",
       "district": "Miami",
       "first_seen": "2026-09-10",
@@ -165,7 +165,7 @@
       "name": "GS2 The Miami",
       "path": "/gs2-the-miami-smart-city/",
       "price_max": 13000000,
-      "price_min": 12000000,
+      "price_min": 7000000,
       "types": [
         {
           "count": 2,
@@ -178,6 +178,12 @@
           "name": "3 Ngủ",
           "price_max": 12000000,
           "price_min": 12000000
+        },
+        {
+          "count": 1,
+          "name": "Studio",
+          "price_max": 7000000,
+          "price_min": 7000000
         }
       ]
     },
@@ -319,7 +325,7 @@
       "area_max": 64,
       "area_min": 28,
       "code": "I2",
-      "count": 6,
+      "count": 7,
       "data_code": "I2",
       "district": "Imperia",
       "first_seen": "2026-09-10",
@@ -331,16 +337,16 @@
       "price_min": 8000000,
       "types": [
         {
+          "count": 3,
+          "name": "2 Ngủ +",
+          "price_max": 15000000,
+          "price_min": 13000000
+        },
+        {
           "count": 2,
           "name": "1 Ngủ +",
           "price_max": 10000000,
           "price_min": 9000000
-        },
-        {
-          "count": 2,
-          "name": "2 Ngủ +",
-          "price_max": 15000000,
-          "price_min": 13000000
         },
         {
           "count": 1,
@@ -506,7 +512,7 @@
       "area_max": 79,
       "area_min": 31,
       "code": "MASB",
-      "count": 19,
+      "count": 20,
       "data_code": "MasB",
       "district": "Masteri",
       "first_seen": "2026-09-10",
@@ -518,7 +524,7 @@
       "price_min": 7800000,
       "types": [
         {
-          "count": 7,
+          "count": 8,
           "name": "1 Ngủ +",
           "price_max": 14000000,
           "price_min": 9500000
@@ -1156,7 +1162,7 @@
         {
           "count": 3,
           "name": "2 Ngủ",
-          "price_max": 12000000,
+          "price_max": 11500000,
           "price_min": 8500000
         },
         {
@@ -1228,9 +1234,9 @@
     },
     "TC2": {
       "area_max": 75,
-      "area_min": 47,
+      "area_min": 26,
       "code": "TC2",
-      "count": 4,
+      "count": 5,
       "data_code": "TC2",
       "district": "Canopy",
       "first_seen": "2026-09-10",
@@ -1239,7 +1245,7 @@
       "name": "TC2 The Canopy",
       "path": "/tc2-canopy-smart-city/",
       "price_max": 12500000,
-      "price_min": 9000000,
+      "price_min": 7300000,
       "types": [
         {
           "count": 2,
@@ -1258,6 +1264,12 @@
           "name": "2 Ngủ +",
           "price_max": 10500000,
           "price_min": 10500000
+        },
+        {
+          "count": 1,
+          "name": "Studio",
+          "price_max": 7300000,
+          "price_min": 7300000
         }
       ]
     },
@@ -1265,7 +1277,7 @@
       "area_max": 68,
       "area_min": 50,
       "code": "TC3",
-      "count": 4,
+      "count": 5,
       "data_code": "TC3",
       "district": "Canopy",
       "first_seen": "2026-09-10",
@@ -1277,16 +1289,16 @@
       "price_min": 10000000,
       "types": [
         {
+          "count": 3,
+          "name": "2 Ngủ",
+          "price_max": 13500000,
+          "price_min": 10000000
+        },
+        {
           "count": 2,
           "name": "1 Ngủ +",
           "price_max": 11000000,
           "price_min": 11000000
-        },
-        {
-          "count": 2,
-          "name": "2 Ngủ",
-          "price_max": 13500000,
-          "price_min": 10000000
         }
       ]
     },
