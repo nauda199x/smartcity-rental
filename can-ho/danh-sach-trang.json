@@ -1479,6 +1479,14 @@
   "phan_khu": "Lumiere",
   "toa": "A1"
  },
+ "cho-thue-can-ho-2-ngu-lumiere-73m2-ct-2n-311": {
+  "dien_tich": 73.2,
+  "loai": "2 Ngủ +",
+  "ma": "CT.2N+.311",
+  "ngay_xuat_hien": "2026-09-17",
+  "phan_khu": "Lumiere",
+  "toa": "A1"
+ },
  "cho-thue-can-ho-2-ngu-masteri-54m2-42": {
   "dien_tich": 54,
   "loai": "2 Ngủ",
@@ -2990,6 +2998,14 @@
   "ngay_xuat_hien": "2026-09-10",
   "phan_khu": "Lumiere",
   "toa": "A1"
+ },
+ "cho-thue-can-ho-studio-lumiere-30m2-ct-stu-872": {
+  "dien_tich": 30,
+  "loai": "Studio",
+  "ma": "CT.Stu.872",
+  "ngay_xuat_hien": "2026-09-17",
+  "phan_khu": "Lumiere",
+  "toa": "A2"
  },
  "cho-thue-can-ho-studio-masteri-27m2-ct-stu-789": {
   "dien_tich": 27,
