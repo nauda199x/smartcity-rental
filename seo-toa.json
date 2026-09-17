@@ -792,7 +792,7 @@
       "area_max": 75,
       "area_min": 55,
       "code": "S201",
-      "count": 3,
+      "count": 4,
       "data_code": "S201",
       "district": "Sapphire",
       "first_seen": "2026-09-12",
@@ -808,6 +808,12 @@
           "name": "2 Ngủ",
           "price_max": 8500000,
           "price_min": 8500000
+        },
+        {
+          "count": 1,
+          "name": "2 Ngủ +",
+          "price_max": 10500000,
+          "price_min": 10500000
         },
         {
           "count": 1,
