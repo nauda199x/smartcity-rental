@@ -16,6 +16,10 @@ on:
       - "scripts/audit-indexability-can-ho.py"
       - "scripts/fix-query-links.py"
       - "scripts/audit-query-url.py"
+      - "scripts/mo-rong-trang-toa.py"
+      - "scripts/seo-p0-p4.py"
+      - "scripts/kiem-tra-mat-bang-toa.py"
+      - "scripts/dedupe-tieu-de-can.py"
       - "scripts/noi-hub-toa.py"
       - "scripts/noi-hub-programmatic.py"
       - "scripts/tang-suc-manh-internal-link.py"
@@ -214,6 +218,17 @@ jobs:
           set -o pipefail
           python3 scripts/sinh-cum-so-sanh-ngan-sach.py ${{ inputs.chi_thu && '--thu' || '' }} \
             2>&1 | tee -a ket-qua.txt
+
+      # Áp toàn bộ lớp SEO deterministic trên chính snapshot sẽ được commit.
+      # Trước đây các bước này nằm ở workflow nối đuôi nên tạo thêm một commit
+      # và một Pages deployment cho cùng một lần data thay đổi.
+      - name: Hoàn thiện SEO P0-P4 trên snapshot hiện tại
+        run: |
+          set -o pipefail
+          python3 scripts/mo-rong-trang-toa.py 2>&1 | tee -a ket-qua.txt
+          python3 scripts/seo-p0-p4.py 2>&1 | tee -a ket-qua.txt
+          python3 scripts/kiem-tra-mat-bang-toa.py 2>&1 | tee -a ket-qua.txt
+          python3 scripts/dedupe-tieu-de-can.py 2>&1 | tee -a ket-qua.txt
 
       # Generator trang căn chạy lại mỗi lần data.json đổi. Vì vậy P5 phải chạy
       # trong chính workflow đồng bộ; nếu chỉ chạy một lần, lần generator sau sẽ
