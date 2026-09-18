@@ -1431,6 +1431,14 @@
   "phan_khu": "Lumiere",
   "toa": "A2"
  },
+ "cho-thue-can-ho-2-ngu-lumiere-65m2-ct-2n-314": {
+  "dien_tich": 65,
+  "loai": "2 Ngủ +",
+  "ma": "CT.2N+.314",
+  "ngay_xuat_hien": "2026-09-18",
+  "phan_khu": "Lumiere",
+  "toa": "A3"
+ },
  "cho-thue-can-ho-2-ngu-lumiere-65m2-ct-2n2-355": {
   "dien_tich": 65,
   "loai": "2 Ngủ",
@@ -1555,6 +1563,14 @@
   "dien_tich": 66,
   "loai": "2 Ngủ",
   "ma": "CT.2N2.436",
+  "ngay_xuat_hien": "2026-09-18",
+  "phan_khu": "Lumiere",
+  "toa": "A2"
+ },
+ "cho-thue-can-ho-2-ngu-lumiere-66m2-ct-2n2-438": {
+  "dien_tich": 66,
+  "loai": "2 Ngủ",
+  "ma": "CT.2N2.438",
   "ngay_xuat_hien": "2026-09-18",
   "phan_khu": "Lumiere",
   "toa": "A2"
