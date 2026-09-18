@@ -333,6 +333,12 @@ jobs:
           # lớp chặn ở đây cho chắc.
           git checkout -- data.json || true
 
+          # Stage mọi file đã track mà generator thực sự sửa. Trước đây danh
+          # sách thủ công đã bỏ sót bao-cao-seo-p0-p4.json, khiến commit xong
+          # vẫn còn unstaged change và git pull --rebase thất bại.
+          git add -u
+          git reset -- data.json 2>/dev/null || true
+
           # Thư mục trang tòa do sinh-trang-toa.py dựng lại mỗi lần chạy nên
           # phải nằm trong danh sách add. Đưa lên trước phần kiểm tra thay đổi
           # vì `git diff` không nhìn thấy file chưa được theo dõi: tòa mới sinh
@@ -346,7 +352,8 @@ jobs:
             s1-01-vinhomes-smart-city s2-02-vinhomes-smart-city s3-03-vinhomes-smart-city s4-01-vinhomes-smart-city \
             tc1-canopy-smart-city i1-imperia-smart-city \
             can-ho sitemap-can-ho.xml sitemap-phan-khu-loai-can.xml \
-            seo-phan-khu-loai-can.json seo-index-priority.json seo-toa.json sitemap-toa.xml
+            seo-phan-khu-loai-can.json seo-index-priority.json seo-toa.json sitemap-toa.xml \
+            bao-cao-seo-p0-p4.json
           # Hai file bước 8 chưa tồn tại ở lần chạy đầu nếu generator chủ động
           # dừng an toàn; không để pathspec thiếu làm hỏng cả workflow.
           git add -- sitemap-ngan-sach-loai-can.xml seo-ngan-sach-loai-can.json \
@@ -366,6 +373,13 @@ jobs:
           fi
 
           git commit -m "Tự động cập nhật số căn, tháng trong thẻ SEO và lastmod sitemap"
+
+          # Rebase chỉ an toàn khi không còn tracked change ngoài commit.
+          if ! git diff --quiet; then
+            echo "::error::Vẫn còn tracked change chưa stage sau commit:"
+            git status --short
+            exit 1
+          fi
 
           # Apps Script có thể vừa push data.json lên trong lúc job đang chạy,
           # nên rebase trước khi push. Thử lại vài lần nếu mạng/đụng độ.
