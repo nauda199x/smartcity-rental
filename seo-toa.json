@@ -45,7 +45,7 @@
       "area_max": 87,
       "area_min": 30,
       "code": "A2",
-      "count": 21,
+      "count": 23,
       "data_code": "A2",
       "district": "Lumiere",
       "first_seen": "2026-09-10",
@@ -57,9 +57,9 @@
       "price_min": 8000000,
       "types": [
         {
-          "count": 12,
+          "count": 14,
           "name": "2 Ngủ",
-          "price_max": 15000000,
+          "price_max": 15500000,
           "price_min": 12500000
         },
         {
@@ -1283,7 +1283,7 @@
       "area_max": 80,
       "area_min": 30,
       "code": "TC1",
-      "count": 9,
+      "count": 10,
       "data_code": "TC1",
       "district": "Canopy",
       "first_seen": "2026-09-10",
@@ -1296,6 +1296,12 @@
       "types": [
         {
           "count": 3,
+          "name": "2 Ngủ",
+          "price_max": 14000000,
+          "price_min": 10500000
+        },
+        {
+          "count": 3,
           "name": "2 Ngủ +",
           "price_max": 11000000,
           "price_min": 10000000
@@ -1305,12 +1311,6 @@
           "name": "1 Ngủ",
           "price_max": 8000000,
           "price_min": 8000000
-        },
-        {
-          "count": 2,
-          "name": "2 Ngủ",
-          "price_max": 14000000,
-          "price_min": 14000000
         },
         {
           "count": 1,
