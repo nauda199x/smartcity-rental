@@ -229,22 +229,28 @@ def main() -> int:
         text = path.read_text(encoding="utf-8")
         h1m = RE_H1.search(text)
         descm = RE_META_DESC.search(text)
+        tm = RE_TITLE.search(text)
         pages.append({
             "loc": loc,
             "path": path,
             "slug": urlparse(loc).path.rstrip("/").split("/")[-1],
             "text": text,
+            "title": plain(tm.group(1)) if tm else "",
             "h1": plain(h1m.group(1)) if h1m else "",
             "desc": html.unescape(descm.group(1)).strip() if descm else "",
         })
 
+    title_groups = collections.defaultdict(list)
     h1_groups = collections.defaultdict(list)
     desc_groups = collections.defaultdict(list)
     for page in pages:
+        if page["title"]:
+            title_groups[page["title"]].append(page)
         if page["h1"]:
             h1_groups[page["h1"]].append(page)
         if page["desc"]:
             desc_groups[page["desc"]].append(page)
+    duplicate_title = {key for key, values in title_groups.items() if len(values) > 1}
     duplicate_h1 = {key for key, values in h1_groups.items() if len(values) > 1}
     duplicate_desc = {key for key, values in desc_groups.items() if len(values) > 1}
 
@@ -258,7 +264,10 @@ def main() -> int:
 
         tm = RE_TITLE.search(text)
         old_title = plain(tm.group(1)) if tm else ""
-        if old_title and len(old_title) > 75:
+        # Title trùng giữa hai căn là lỗi indexability thực tế, kể cả khi title
+        # không dài. Luôn thêm mã nhận diện ngắn khi title trùng; đồng thời vẫn
+        # rút gọn các title quá dài như trước.
+        if old_title and (len(old_title) > 75 or old_title in duplicate_title):
             new_title = compact_title(text, code, page["slug"])
             if new_title != old_title:
                 text = RE_TITLE.sub("<title>%s</title>" % html.escape(new_title), text, count=1)
