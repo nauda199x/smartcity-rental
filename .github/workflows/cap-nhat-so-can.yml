@@ -70,7 +70,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Lấy code
-        uses: actions/checkout@v4
+        uses: actions/checkout@v7
         with:
           # Run có thể đã chờ ảnh/video; lấy main mới nhất khi bắt đầu chạy.
           ref: main
@@ -80,9 +80,9 @@ jobs:
           fetch-depth: 0
 
       - name: Chuẩn bị Node
-        uses: actions/setup-node@v4
+        uses: actions/setup-node@v7
         with:
-          node-version: "20"
+          node-version: "24"
 
       # Phải chạy TRƯỚC cap-nhat-so-can.mjs: trang tòa vừa sinh ra cũng nằm
       # trong phạm vi mà script kia quét, chạy sau thì trang mới phải đợi tới
