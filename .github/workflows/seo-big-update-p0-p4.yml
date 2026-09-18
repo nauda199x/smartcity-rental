@@ -16,6 +16,8 @@ on:
       - "scripts/uu-tien-crawl-index.py"
       - "scripts/toi-uu-landing-chinh.py"
       - "scripts/kiem-tra-lien-ket.py"
+      - "scripts/fix-query-links.py"
+      - "scripts/audit-query-url.py"
       - ".github/workflows/seo-big-update-p0-p4.yml"
       - "robots.txt"
   pull_request:
@@ -31,13 +33,10 @@ on:
       - "scripts/uu-tien-crawl-index.py"
       - "scripts/toi-uu-landing-chinh.py"
       - "scripts/kiem-tra-lien-ket.py"
+      - "scripts/fix-query-links.py"
+      - "scripts/audit-query-url.py"
       - ".github/workflows/seo-big-update-p0-p4.yml"
       - "robots.txt"
-  workflow_run:
-    workflows:
-      - "Cập nhật số căn và tháng trong thẻ SEO"
-    types:
-      - completed
   workflow_dispatch:
 
 permissions:
@@ -54,7 +53,6 @@ concurrency:
 
 jobs:
   seo-p0-p8:
-    if: ${{ github.event_name != 'workflow_run' || github.event.workflow_run.conclusion == 'success' }}
     runs-on: ubuntu-latest
     steps:
       - name: Lấy đúng snapshot cần kiểm tra
@@ -129,12 +127,19 @@ jobs:
           python3 scripts/dong-bo-ten-site.py 2>&1 | tee -a seo-p0-p8.log
           python3 scripts/toi-uu-anh-tim-kiem.py 2>&1 | tee -a seo-p0-p8.log
 
+      - name: Chuẩn hóa query/filter URL
+        run: |
+          set -o pipefail
+          python3 scripts/fix-query-links.py 2>&1 | tee -a seo-p0-p8.log
+          python3 scripts/audit-query-url.py 2>&1 | tee -a seo-p0-p8.log
+
       - name: Audit P0-P8 lần cuối
         run: |
           set -o pipefail
           python3 scripts/seo-p0-p4.py --kiem-tra 2>&1 | tee -a seo-p0-p8.log
           python3 scripts/audit-indexability-can-ho.py 2>&1 | tee -a seo-p0-p8.log
           python3 scripts/kiem-tra-lien-ket.py 2>&1 | tee -a seo-p0-p8.log
+          python3 scripts/audit-query-url.py 2>&1 | tee -a seo-p0-p8.log
           python3 scripts/uu-tien-crawl-index.py --kiem-tra 2>&1 | tee -a seo-p0-p8.log
           python3 scripts/toi-uu-landing-chinh.py --kiem-tra 2>&1 | tee -a seo-p0-p8.log
 
