@@ -847,6 +847,14 @@
   "phan_khu": "Sapphire",
   "toa": "S401"
  },
+ "cho-thue-can-ho-1-ngu-sapphire-48m2-cc29": {
+  "dien_tich": 48,
+  "loai": "1 Ngủ +",
+  "ma": "CC29",
+  "ngay_xuat_hien": "2026-09-18",
+  "phan_khu": "Sapphire",
+  "toa": "S401"
+ },
  "cho-thue-can-ho-1-ngu-sapphire-48m2-ct-1n-510": {
   "dien_tich": 48,
   "loai": "1 Ngủ +",
@@ -1534,6 +1542,14 @@
   "ngay_xuat_hien": "2026-09-16",
   "phan_khu": "Lumiere",
   "toa": "A1"
+ },
+ "cho-thue-can-ho-2-ngu-lumiere-66m2-ct-2n2-436": {
+  "dien_tich": 66,
+  "loai": "2 Ngủ",
+  "ma": "CT.2N2.436",
+  "ngay_xuat_hien": "2026-09-18",
+  "phan_khu": "Lumiere",
+  "toa": "A2"
  },
  "cho-thue-can-ho-2-ngu-lumiere-73m2-ct-2n-311": {
   "dien_tich": 73.2,
