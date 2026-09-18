@@ -14,6 +14,13 @@ on:
       - "scripts/sinh-trang-can.py"
       - "scripts/toi-uu-chat-luong-can.py"
       - "scripts/audit-indexability-can-ho.py"
+      - "scripts/fix-query-links.py"
+      - "scripts/audit-query-url.py"
+      - "scripts/noi-hub-toa.py"
+      - "scripts/noi-hub-programmatic.py"
+      - "scripts/tang-suc-manh-internal-link.py"
+      - "scripts/uu-tien-crawl-index.py"
+      - "scripts/toi-uu-landing-chinh.py"
       - "scripts/media_can_ho.py"
       - "scripts/sinh-trang-nhu-cau.py"
       - "scripts/sinh-trang-toa.py"
@@ -217,6 +224,26 @@ jobs:
           python3 scripts/toi-uu-chat-luong-can.py ${{ inputs.chi_thu && '--thu' || '' }} \
             2>&1 | tee -a ket-qua.txt
 
+      # Chạy các lớp SEO vốn trước đây phải đợi workflow P0-P8 rồi mới commit.
+      # Gom vào cùng snapshot để data sync chỉ cần một commit/deploy HTML chính.
+      - name: Hoàn thiện hub và crawl priority
+        run: |
+          set -o pipefail
+          python3 scripts/noi-hub-toa.py 2>&1 | tee -a ket-qua.txt
+          python3 scripts/noi-hub-programmatic.py 2>&1 | tee -a ket-qua.txt
+          python3 scripts/tang-suc-manh-internal-link.py 2>&1 | tee -a ket-qua.txt
+          python3 scripts/uu-tien-crawl-index.py 2>&1 | tee -a ket-qua.txt
+          python3 scripts/toi-uu-landing-chinh.py 2>&1 | tee -a ket-qua.txt
+
+      # Mọi generator HTML phải kết thúc bằng cùng một policy query URL.
+      # Nhờ vậy workflow P0 độc lập chỉ còn là safety net, không phải tạo
+      # thêm commit ngay sau mỗi lần đồng bộ.
+      - name: Chuẩn hóa query/filter URL
+        run: |
+          set -o pipefail
+          python3 scripts/fix-query-links.py 2>&1 | tee -a ket-qua.txt
+          python3 scripts/audit-query-url.py 2>&1 | tee -a ket-qua.txt
+
       # Chạy sau bước chất lượng để chặn commit nếu sitemap chứa URL không index,
       # canonical lệch, title trùng, thiếu schema hoặc URL căn không có internal link.
       - name: Audit indexability trang căn
@@ -302,7 +329,7 @@ jobs:
             s1-01-vinhomes-smart-city s2-02-vinhomes-smart-city s3-03-vinhomes-smart-city s4-01-vinhomes-smart-city \
             tc1-canopy-smart-city i1-imperia-smart-city \
             can-ho sitemap-can-ho.xml sitemap-phan-khu-loai-can.xml \
-            seo-phan-khu-loai-can.json
+            seo-phan-khu-loai-can.json seo-index-priority.json seo-toa.json sitemap-toa.xml
           # Hai file bước 8 chưa tồn tại ở lần chạy đầu nếu generator chủ động
           # dừng an toàn; không để pathspec thiếu làm hỏng cả workflow.
           git add -- sitemap-ngan-sach-loai-can.xml seo-ngan-sach-loai-can.json \
