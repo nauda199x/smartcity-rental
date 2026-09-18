@@ -45,7 +45,7 @@
       "area_max": 87,
       "area_min": 30,
       "code": "A2",
-      "count": 23,
+      "count": 24,
       "data_code": "A2",
       "district": "Lumiere",
       "first_seen": "2026-09-10",
@@ -57,7 +57,7 @@
       "price_min": 8000000,
       "types": [
         {
-          "count": 14,
+          "count": 15,
           "name": "2 Ngủ",
           "price_max": 15500000,
           "price_min": 12500000
@@ -454,7 +454,7 @@
       "area_max": 63,
       "area_min": 43,
       "code": "I5",
-      "count": 4,
+      "count": 3,
       "data_code": "I5",
       "district": "Imperia",
       "first_seen": "2026-09-10",
@@ -466,9 +466,9 @@
       "price_min": 7500000,
       "types": [
         {
-          "count": 2,
+          "count": 1,
           "name": "1 Ngủ +",
-          "price_max": 8800000,
+          "price_max": 7500000,
           "price_min": 7500000
         },
         {
@@ -750,9 +750,9 @@
     },
     "S105": {
       "area_max": 55,
-      "area_min": 30,
+      "area_min": 43,
       "code": "S105",
-      "count": 4,
+      "count": 3,
       "data_code": "S105",
       "district": "Sapphire",
       "first_seen": "2026-09-14",
@@ -761,7 +761,7 @@
       "name": "S1.05",
       "path": "/s1-05-vinhomes-smart-city/",
       "price_max": 10500000,
-      "price_min": 7500000,
+      "price_min": 9500000,
       "types": [
         {
           "count": 2,
@@ -774,12 +774,6 @@
           "name": "1 Ngủ +",
           "price_max": 9500000,
           "price_min": 9500000
-        },
-        {
-          "count": 1,
-          "name": "Studio",
-          "price_max": 7500000,
-          "price_min": 7500000
         }
       ]
     },
@@ -1020,7 +1014,7 @@
       "area_max": 94,
       "area_min": 32,
       "code": "S401",
-      "count": 6,
+      "count": 7,
       "data_code": "S401",
       "district": "Sapphire",
       "first_seen": "2026-09-10",
@@ -1033,6 +1027,12 @@
       "types": [
         {
           "count": 2,
+          "name": "1 Ngủ +",
+          "price_max": 9500000,
+          "price_min": 8500000
+        },
+        {
+          "count": 2,
           "name": "2 Ngủ +",
           "price_max": 11000000,
           "price_min": 11000000
@@ -1042,12 +1042,6 @@
           "name": "3 Ngủ",
           "price_max": 18000000,
           "price_min": 12000000
-        },
-        {
-          "count": 1,
-          "name": "1 Ngủ +",
-          "price_max": 8500000,
-          "price_min": 8500000
         },
         {
           "count": 1,
