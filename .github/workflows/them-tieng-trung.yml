@@ -9,6 +9,10 @@ on:
 permissions:
   contents: write
 
+concurrency:
+  group: smartcity-generated-main
+  cancel-in-progress: false
+
 jobs:
   patch-zh:
     runs-on: ubuntu-latest
@@ -16,6 +20,7 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
         with:
+          ref: main
           fetch-depth: 0
 
       - name: Apply Simplified Chinese UI patch
@@ -41,4 +46,15 @@ jobs:
           git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
           git add assets/ngon-ngu.js assets/can-ho-detail-i18n.js index.html
           git commit -m 'Add Simplified Chinese language support'
-          git push origin HEAD:main
+          for lan in 1 2 3 4; do
+            git rebase --abort 2>/dev/null || true
+            git fetch origin main
+            if git rebase origin/main && git push origin HEAD:main; then
+              echo 'Đã push bản tiếng Trung an toàn.'
+              exit 0
+            fi
+            git rebase --abort 2>/dev/null || true
+            sleep $((2 ** lan))
+          done
+          echo 'Không push được sau 4 lần thử.'
+          exit 1
