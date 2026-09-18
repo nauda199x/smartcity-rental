@@ -251,7 +251,7 @@
       "tower": "A2",
       "type": "Studio",
       "district": "Lumiere",
-      "inbound_pages": 6
+      "inbound_pages": 7
     },
     {
       "url": "/can-ho/cho-thue-can-ho-studio-lumiere-30m2-ct-stu-873/",
@@ -260,7 +260,7 @@
       "tower": "A2",
       "type": "Studio",
       "district": "Lumiere",
-      "inbound_pages": 7
+      "inbound_pages": 8
     },
     {
       "url": "/can-ho/cho-thue-can-ho-2-ngu-sapphire-63m2-ct-2n-313/",
@@ -269,7 +269,7 @@
       "tower": "S203",
       "type": "2 Ngủ +",
       "district": "Sapphire",
-      "inbound_pages": 7
+      "inbound_pages": 8
     },
     {
       "url": "/can-ho/cho-thue-can-ho-2-ngu-lumiere-74m2-ct-2n-312/",
@@ -278,7 +278,7 @@
       "tower": "A2",
       "type": "2 Ngủ +",
       "district": "Lumiere",
-      "inbound_pages": 5
+      "inbound_pages": 6
     },
     {
       "url": "/can-ho/cho-thue-can-ho-2-ngu-lumiere-66m2-ct-2n2-438/",
@@ -287,7 +287,7 @@
       "tower": "A2",
       "type": "2 Ngủ",
       "district": "Lumiere",
-      "inbound_pages": 5
+      "inbound_pages": 6
     },
     {
       "url": "/can-ho/cho-thue-can-ho-2-ngu-lumiere-66m2-ct-2n2-436/",
@@ -296,7 +296,7 @@
       "tower": "A2",
       "type": "2 Ngủ",
       "district": "Lumiere",
-      "inbound_pages": 5
+      "inbound_pages": 6
     },
     {
       "url": "/can-ho/cho-thue-can-ho-2-ngu-lumiere-65m2-ct-2n2-435/",
@@ -305,7 +305,7 @@
       "tower": "A2",
       "type": "2 Ngủ",
       "district": "Lumiere",
-      "inbound_pages": 5
+      "inbound_pages": 6
     },
     {
       "url": "/can-ho/cho-thue-can-ho-2-ngu-lumiere-65m2-ct-2n-314/",
@@ -314,7 +314,7 @@
       "tower": "A3",
       "type": "2 Ngủ +",
       "district": "Lumiere",
-      "inbound_pages": 6
+      "inbound_pages": 7
     },
     {
       "url": "/can-ho/cho-thue-can-ho-2-ngu-lumiere-64m2-ct-2n2-433/",
@@ -323,7 +323,7 @@
       "tower": "A2",
       "type": "2 Ngủ",
       "district": "Lumiere",
-      "inbound_pages": 6
+      "inbound_pages": 7
     },
     {
       "url": "/can-ho/cho-thue-can-ho-2-ngu-lumiere-64m2-ct-2n2-432/",
@@ -332,7 +332,7 @@
       "tower": "A2",
       "type": "2 Ngủ",
       "district": "Lumiere",
-      "inbound_pages": 5
+      "inbound_pages": 6
     },
     {
       "url": "/can-ho/cho-thue-can-ho-2-ngu-imperia-55m2-ct-2n1-246/",
@@ -341,7 +341,7 @@
       "tower": "I4",
       "type": "2 Ngủ",
       "district": "Imperia",
-      "inbound_pages": 11
+      "inbound_pages": 12
     },
     {
       "url": "/can-ho/cho-thue-can-ho-2-ngu-canopy-64m2-ct-2n2-434/",
@@ -350,7 +350,7 @@
       "tower": "TC1",
       "type": "2 Ngủ",
       "district": "Canopy",
-      "inbound_pages": 14
+      "inbound_pages": 15
     },
     {
       "url": "/can-ho/cho-thue-can-ho-2-ngu-canopy-60m2-ct-2n2-437/",
@@ -359,7 +359,7 @@
       "tower": "TC3",
       "type": "2 Ngủ",
       "district": "Canopy",
-      "inbound_pages": 13
+      "inbound_pages": 14
     },
     {
       "url": "/can-ho/cho-thue-can-ho-1-ngu-sapphire-48m2-cc29/",
@@ -368,7 +368,7 @@
       "tower": "S401",
       "type": "1 Ngủ +",
       "district": "Sapphire",
-      "inbound_pages": 13
+      "inbound_pages": 14
     },
     {
       "url": "/can-ho/cho-thue-can-ho-1-ngu-sakura-33m2-ct-1n-181/",
@@ -377,7 +377,7 @@
       "tower": "SA2",
       "type": "1 Ngủ",
       "district": "Sakura",
-      "inbound_pages": 8
+      "inbound_pages": 9
     },
     {
       "url": "/can-ho/cho-thue-can-ho-1-ngu-imperia-48m2-ct-1n-566/",
@@ -386,7 +386,7 @@
       "tower": "I1",
       "type": "1 Ngủ +",
       "district": "Imperia",
-      "inbound_pages": 10
+      "inbound_pages": 11
     },
     {
       "url": "/can-ho/cho-thue-can-ho-studio-sapphire-32m2-ct-stu-868/",
@@ -395,7 +395,7 @@
       "tower": "S302",
       "type": "Studio",
       "district": "Sapphire",
-      "inbound_pages": 9
+      "inbound_pages": 10
     },
     {
       "url": "/can-ho/cho-thue-can-ho-studio-sapphire-27m2-ct-stu-869/",
@@ -404,7 +404,7 @@
       "tower": "S403",
       "type": "Studio",
       "district": "Sapphire",
-      "inbound_pages": 21
+      "inbound_pages": 22
     },
     {
       "url": "/can-ho/cho-thue-can-ho-studio-miami-31m2-ct-stu-871/",
@@ -413,7 +413,7 @@
       "tower": "GS2",
       "type": "Studio",
       "district": "Miami",
-      "inbound_pages": 14
+      "inbound_pages": 15
     },
     {
       "url": "/can-ho/cho-thue-can-ho-studio-lumiere-30m2-ct-stu-872/",
@@ -422,7 +422,7 @@
       "tower": "A2",
       "type": "Studio",
       "district": "Lumiere",
-      "inbound_pages": 7
+      "inbound_pages": 8
     }
   ],
   "district_inventory": {
