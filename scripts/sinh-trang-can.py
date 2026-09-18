@@ -457,7 +457,7 @@ CHAN_TRANG = """</main>
          lập và số điện thoại — mà nói bằng ĐÚNG một cách viết số duy nhất
          "0977 923 284". Để cả hai thì mỗi trang có hai cách viết số điện thoại
          khác nhau, đúng kiểu lệch NAP mà việc này sinh ra để dẹp. -->
-    <p>Cập nhật %(ngay)s · <a href="/">Tìm căn hộ</a> ·
+    <p>Dữ liệu căn hộ được đồng bộ tự động · <a href="/">Tìm căn hộ</a> ·
     <a href="/cam-nang-thue-nha.html">Cẩm nang thuê nhà</a> ·
     <a href="/gui-thue/">Chủ nhà gửi căn</a> ·
     <a href="/chinh-sach-quyen-rieng-tu.html">Chính sách quyền riêng tư</a></p>
@@ -740,8 +740,8 @@ def dung_trang_da_thue(s, ho_so, active, hom_nay):
 
     tieu_de = "Căn hộ %s %s %dm² đã có khách – Vinhomes Smart City" % (loai, toa, dt)
     mo_ta = ("Căn hộ %s tòa %s %dm² tại Vinhomes Smart City hiện đã có khách thuê. "
-              "Xem các căn còn trống tương tự cùng tòa, cùng phân khu %s. Cập nhật %s."
-              % (loai, toa, dt, phan_khu or toa, ngay_str))
+              "Xem các căn còn trống tương tự cùng tòa, cùng phân khu %s."
+              % (loai, toa, dt, phan_khu or toa))
     the_can_ten = "Căn hộ %s %s %dm² (đã có khách)" % (loai, toa, dt)
 
     bua = json.dumps({
@@ -1023,10 +1023,15 @@ def dung_sitemap(active, hom_nay):
             '  <url><loc>%s/can-ho/</loc><lastmod>%s</lastmod>'
             '<changefreq>daily</changefreq><priority>0.8</priority></url>' % (TEN_MIEN, ngay)]
     for s in sorted(active["ban_do"]):
+        # Generator dùng mốc bảo thủ, ổn định: ngày căn lần đầu xuất hiện.
+        # Workflow cap-nhat-sitemap.mjs chạy sau sẽ nâng lastmod lên ngày hiện tại
+        # CHỈ khi HTML của chính URL này thực sự khác HEAD. Không gắn "hôm nay"
+        # hàng loạt vì như vậy tạo freshness giả và làm Google khó tin sitemap.
+        lastmod = ngay_iso(active["ban_do"][s].get("ngay_xuat_hien", "")) or ngay
         dong.append(
             '  <url><loc>%s/can-ho/%s/</loc><lastmod>%s</lastmod>'
             '<changefreq>weekly</changefreq><priority>0.6</priority></url>'
-            % (TEN_MIEN, s, ngay))
+            % (TEN_MIEN, s, lastmod))
     dong.append('</urlset>')
     return "\n".join(dong) + "\n"
 
