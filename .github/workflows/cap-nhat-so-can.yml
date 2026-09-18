@@ -231,6 +231,9 @@ jobs:
           python3 scripts/seo-p0-p4.py 2>&1 | tee -a ket-qua.txt
           python3 scripts/kiem-tra-mat-bang-toa.py 2>&1 | tee -a ket-qua.txt
           python3 scripts/dedupe-tieu-de-can.py 2>&1 | tee -a ket-qua.txt
+          # mo-rong-trang-toa.py dựng lại grid; nối lại detail URL sau cùng để
+          # card tòa không mất anchor tới /can-ho/<slug>/.
+          python3 scripts/noi-lien-ket-chi-tiet.py 2>&1 | tee -a ket-qua.txt
 
       # Generator trang căn chạy lại mỗi lần data.json đổi. Vì vậy P5 phải chạy
       # trong chính workflow đồng bộ; nếu chỉ chạy một lần, lần generator sau sẽ
