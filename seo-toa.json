@@ -45,7 +45,7 @@
       "area_max": 87,
       "area_min": 30,
       "code": "A2",
-      "count": 24,
+      "count": 25,
       "data_code": "A2",
       "district": "Lumiere",
       "first_seen": "2026-09-10",
@@ -57,7 +57,7 @@
       "price_min": 8000000,
       "types": [
         {
-          "count": 15,
+          "count": 16,
           "name": "2 Ngủ",
           "price_max": 15500000,
           "price_min": 12500000
@@ -89,10 +89,10 @@
       ]
     },
     "A3": {
-      "area_max": 64,
+      "area_max": 65,
       "area_min": 47,
       "code": "A3",
-      "count": 7,
+      "count": 8,
       "data_code": "A3",
       "district": "Lumiere",
       "first_seen": "2026-09-10",
@@ -100,7 +100,7 @@
       "last_seen": "2026-09-18",
       "name": "A3 Lumière",
       "path": "/a3-lumiere-evergreen/",
-      "price_max": 17000000,
+      "price_max": 18000000,
       "price_min": 9000000,
       "types": [
         {
@@ -110,16 +110,16 @@
           "price_min": 12000000
         },
         {
+          "count": 3,
+          "name": "2 Ngủ +",
+          "price_max": 18000000,
+          "price_min": 13000000
+        },
+        {
           "count": 2,
           "name": "1 Ngủ +",
           "price_max": 9000000,
           "price_min": 9000000
-        },
-        {
-          "count": 2,
-          "name": "2 Ngủ +",
-          "price_max": 14500000,
-          "price_min": 13000000
         }
       ]
     },
