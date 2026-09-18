@@ -12,6 +12,8 @@ on:
     paths:
       - "data.json"
       - "scripts/sinh-trang-can.py"
+      - "scripts/toi-uu-chat-luong-can.py"
+      - "scripts/audit-indexability-can-ho.py"
       - "scripts/media_can_ho.py"
       - "scripts/sinh-trang-nhu-cau.py"
       - "scripts/sinh-trang-toa.py"
@@ -205,6 +207,22 @@ jobs:
           set -o pipefail
           python3 scripts/sinh-cum-so-sanh-ngan-sach.py ${{ inputs.chi_thu && '--thu' || '' }} \
             2>&1 | tee -a ket-qua.txt
+
+      # Generator trang căn chạy lại mỗi lần data.json đổi. Vì vậy P5 phải chạy
+      # trong chính workflow đồng bộ; nếu chỉ chạy một lần, lần generator sau sẽ
+      # ghi đè title/H1/description/schema đã tối ưu.
+      - name: Tăng khác biệt hữu ích cho trang căn
+        run: |
+          set -o pipefail
+          python3 scripts/toi-uu-chat-luong-can.py ${{ inputs.chi_thu && '--thu' || '' }} \
+            2>&1 | tee -a ket-qua.txt
+
+      # Chạy sau bước chất lượng để chặn commit nếu sitemap chứa URL không index,
+      # canonical lệch, title trùng, thiếu schema hoặc URL căn không có internal link.
+      - name: Audit indexability trang căn
+        run: |
+          set -o pipefail
+          python3 scripts/audit-indexability-can-ho.py 2>&1 | tee -a ket-qua.txt
 
       # Chạy sau toàn bộ generator HTML để trang cũ, trang căn mới và landing
       # mới sinh đều khai cùng một ảnh ưu tiên. Đây là tín hiệu Google dùng để
