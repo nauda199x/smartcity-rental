@@ -45,7 +45,7 @@
       "area_max": 87,
       "area_min": 30,
       "code": "A2",
-      "count": 18,
+      "count": 21,
       "data_code": "A2",
       "district": "Lumiere",
       "first_seen": "2026-09-10",
@@ -54,13 +54,19 @@
       "name": "A2 Lumière",
       "path": "/a2-lumiere-evergreen/",
       "price_max": 17000000,
-      "price_min": 8500000,
+      "price_min": 8000000,
       "types": [
         {
           "count": 12,
           "name": "2 Ngủ",
           "price_max": 15000000,
-          "price_min": 12000000
+          "price_min": 12500000
+        },
+        {
+          "count": 4,
+          "name": "Studio",
+          "price_max": 9000000,
+          "price_min": 8000000
         },
         {
           "count": 2,
@@ -75,10 +81,10 @@
           "price_min": 15000000
         },
         {
-          "count": 2,
-          "name": "Studio",
-          "price_max": 9000000,
-          "price_min": 8500000
+          "count": 1,
+          "name": "2 Ngủ +",
+          "price_max": 13000000,
+          "price_min": 13000000
         }
       ]
     },
@@ -294,9 +300,9 @@
     },
     "I1": {
       "area_max": 76,
-      "area_min": 61,
+      "area_min": 48,
       "code": "I1",
-      "count": 4,
+      "count": 5,
       "data_code": "I1",
       "district": "Imperia",
       "first_seen": "2026-09-10",
@@ -305,13 +311,19 @@
       "name": "I1 Imperia",
       "path": "/i1-imperia-smart-city/",
       "price_max": 17500000,
-      "price_min": 10500000,
+      "price_min": 8500000,
       "types": [
         {
           "count": 2,
           "name": "3 Ngủ",
           "price_max": 17500000,
           "price_min": 13000000
+        },
+        {
+          "count": 1,
+          "name": "1 Ngủ +",
+          "price_max": 8500000,
+          "price_min": 8500000
         },
         {
           "count": 1,
@@ -407,7 +419,7 @@
       "area_max": 64,
       "area_min": 43,
       "code": "I4",
-      "count": 3,
+      "count": 4,
       "data_code": "I4",
       "district": "Imperia",
       "first_seen": "2026-09-10",
@@ -429,6 +441,12 @@
           "name": "1 Ngủ +",
           "price_max": 9000000,
           "price_min": 9000000
+        },
+        {
+          "count": 1,
+          "name": "2 Ngủ",
+          "price_max": 11000000,
+          "price_min": 11000000
         }
       ]
     },
@@ -545,7 +563,7 @@
           "count": 3,
           "name": "2 Ngủ",
           "price_max": 16000000,
-          "price_min": 11000000
+          "price_min": 10500000
         },
         {
           "count": 3,
@@ -858,6 +876,41 @@
         }
       ]
     },
+    "S203": {
+      "area_max": 75,
+      "area_min": 55,
+      "code": "S203",
+      "count": 3,
+      "data_code": "S203",
+      "district": "Sapphire",
+      "first_seen": "2026-09-18",
+      "indexable": true,
+      "last_seen": "2026-09-18",
+      "name": "S2.03",
+      "path": "/s2-03-vinhomes-smart-city/",
+      "price_max": 11000000,
+      "price_min": 10000000,
+      "types": [
+        {
+          "count": 1,
+          "name": "2 Ngủ",
+          "price_max": 10000000,
+          "price_min": 10000000
+        },
+        {
+          "count": 1,
+          "name": "2 Ngủ +",
+          "price_max": 11000000,
+          "price_min": 11000000
+        },
+        {
+          "count": 1,
+          "name": "3 Ngủ",
+          "price_max": 10000000,
+          "price_min": 10000000
+        }
+      ]
+    },
     "S301": {
       "area_max": 75,
       "area_min": 32,
@@ -1112,6 +1165,41 @@
           "name": "3 Ngủ",
           "price_max": 15000000,
           "price_min": 12000000
+        }
+      ]
+    },
+    "SA2": {
+      "area_max": 78,
+      "area_min": 30,
+      "code": "SA2",
+      "count": 3,
+      "data_code": "SA2",
+      "district": "Sakura",
+      "first_seen": "2026-09-18",
+      "indexable": true,
+      "last_seen": "2026-09-18",
+      "name": "SA2 The Sakura",
+      "path": "/sa2-the-sakura-smart-city/",
+      "price_max": 14000000,
+      "price_min": 8500000,
+      "types": [
+        {
+          "count": 1,
+          "name": "1 Ngủ",
+          "price_max": 8500000,
+          "price_min": 8500000
+        },
+        {
+          "count": 1,
+          "name": "3 Ngủ",
+          "price_max": 14000000,
+          "price_min": 14000000
+        },
+        {
+          "count": 1,
+          "name": "Studio",
+          "price_max": 8500000,
+          "price_min": 8500000
         }
       ]
     },
