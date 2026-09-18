@@ -12,25 +12,19 @@ Script chạy SAU sinh-trang-can.py và các generator lưới. Nó làm 4 việ
    có khách vẫn giữ 200 + noindex,follow để không gãy backlink, nhưng không
    còn nằm trong danh sách hub khiến bot tốn lượt crawl vào trang noindex.
 
-3. Sửa sitemap-can-ho.xml để <lastmod> phản ánh thay đổi THẬT của từng trang.
-   sinh-trang-can.py phải dựng lại file mỗi lần chạy nên trước đây mọi URL đều
-   bị gắn ngày hôm nay dù nội dung không đổi. Script lưu fingerprint của HTML
-   (bỏ qua đúng ngày footer tự thay mỗi ngày); trang không đổi giữ lastmod cũ,
-   trang đổi nội dung mới nhận ngày hiện tại.
-
-4. Đồng bộ ngày ở footer trang chi tiết với lastmod thật. Nhờ vậy lần chạy tự
-   động ngày hôm sau không tạo diff cho hàng trăm trang chỉ vì một con số ngày.
+3. Lấy danh sách căn ĐANG hoạt động trực tiếp từ sitemap-can-ho.xml để lọc
+   /can-ho/ hub. Script này KHÔNG còn ghi lastmod hay crawl-state. Quyền sở hữu
+   freshness thuộc duy nhất scripts/cap-nhat-sitemap.mjs, tránh hai workflow
+   tính fingerprint ở hai thời điểm khác nhau rồi tự ghi đè state của nhau.
 
 Không tạo URL mới, không dùng Indexing API, không fake <priority>. Google vẫn
-quyết định crawl/index; mục tiêu ở đây là làm tín hiệu discovery, internal
-links và freshness đáng tin hơn.
+quyết định crawl/index; mục tiêu ở đây là làm discovery/internal links sạch,
+deterministic và không tạo commit giả.
 
 Chạy:  python3 scripts/noi-lien-ket-chi-tiet.py [--thu]
 """
 
 import argparse
-import datetime
-import hashlib
 import html
 import json
 import os
@@ -42,7 +36,6 @@ THU_MUC_CAN_HO = os.path.join(GOC, "can-ho")
 DUONG_DANH_SACH_TRANG = os.path.join(THU_MUC_CAN_HO, "danh-sach-trang.json")
 DUONG_HUB = os.path.join(THU_MUC_CAN_HO, "index.html")
 DUONG_SITEMAP_CAN_HO = os.path.join(GOC, "sitemap-can-ho.xml")
-DUONG_TRANG_THAI_CRAWL = os.path.join(THU_MUC_CAN_HO, "crawl-state.json")
 TEN_MIEN = "https://timthuesmartcity.com"
 
 BO_QUA_THU_MUC = {".git", ".github", "node_modules", "images", "scripts",
@@ -58,13 +51,6 @@ RE_TEN = re.compile(r'(<h3 class="ten">)(.*?)(</h3>)', re.S)
 # chịu được xuống dòng để không phụ thuộc cách format sau này.
 RE_KHOI_URL = re.compile(r'<url>[\s\S]*?</url>')
 RE_LOC = re.compile(r'<loc>([^<]+)</loc>')
-RE_LASTMOD = re.compile(r'(<lastmod>)(\d{4}-\d{2}-\d{2})(</lastmod>)')
-
-# Ngày duy nhất thay tự động mỗi lần chạy trên trang chi tiết là ngày trong
-# footer. Bỏ nó khỏi fingerprint để một trang không đổi không giả vờ "mới".
-RE_NGAY_FOOTER = re.compile(
-    r'(<p>Cập nhật )(\d{2}/\d{2}/\d{4})( · <a href="/">Tìm căn hộ</a>)')
-
 # Khối lịch sử đã có khách trên /can-ho/. Chỉ gỡ khỏi HUB; bản thân URL vẫn
 # tồn tại 200 + noindex,follow và vẫn gợi ý sang căn còn trống.
 RE_KHOI_DA_CO_KHACH = re.compile(
@@ -168,127 +154,27 @@ def slug_tu_loc(loc):
     return duoi
 
 
-def doc_trang_thai_crawl():
-    if not os.path.exists(DUONG_TRANG_THAI_CRAWL):
-        return {"version": 1, "items": {}}
-    try:
-        with open(DUONG_TRANG_THAI_CRAWL, encoding="utf-8") as f:
-            d = json.load(f)
-        if d.get("version") == 1 and isinstance(d.get("items"), dict):
-            return d
-    except (OSError, ValueError, TypeError):
-        pass
-    return {"version": 1, "items": {}}
+def doc_active_slugs_sitemap():
+    """Đọc đúng các URL căn active mà sitemap-can-ho.xml đang publish.
 
-
-def fingerprint_trang(slug):
-    """Hash HTML thật của trang, bỏ duy nhất ngày footer tự nhảy hàng ngày."""
-    duong = os.path.join(THU_MUC_CAN_HO, slug, "index.html")
-    if not os.path.exists(duong):
-        return None
-    with open(duong, encoding="utf-8") as f:
-        noi_dung = f.read()
-    chuan = RE_NGAY_FOOTER.sub(r'\1__LASTMOD__\3', noi_dung)
-    return hashlib.sha256(chuan.encode("utf-8")).hexdigest()
-
-
-def dong_bo_footer_lastmod(slug, lastmod, chi_thu):
-    duong = os.path.join(THU_MUC_CAN_HO, slug, "index.html")
-    if not os.path.exists(duong):
-        return False
-    hien_thi = ngay_hien_thi(lastmod)
-    if not hien_thi:
-        return False
-    with open(duong, encoding="utf-8") as f:
-        goc = f.read()
-    moi = RE_NGAY_FOOTER.sub(lambda m: m.group(1) + hien_thi + m.group(3), goc, count=1)
-    if moi == goc:
-        return False
-    if not chi_thu:
-        with open(duong, "w", encoding="utf-8", newline="") as f:
-            f.write(moi)
-    return True
-
-
-def toi_uu_sitemap_can_ho(chi_thu):
-    """Giữ lastmod ổn định nếu HTML không đổi; đổi ngày khi fingerprint đổi."""
+    lastmod được quản lý ở cap-nhat-sitemap.mjs. Hàm này chỉ đọc sitemap để
+    /can-ho/ hub không giữ link tới các trang đã noindex/hết hàng.
+    """
     if not os.path.exists(DUONG_SITEMAP_CAN_HO):
-        return {"url": 0, "doi_lastmod": 0, "footer": 0, "state": False,
-                "active_slugs": set()}
+        return set()
 
     with open(DUONG_SITEMAP_CAN_HO, encoding="utf-8") as f:
-        goc = f.read()
+        noi_dung = f.read()
 
-    trang_thai_cu = doc_trang_thai_crawl()
-    cu = trang_thai_cu.get("items", {})
-    hom_nay = ngay_hom_nay()
-    moi_state = {}
-    doi_lastmod = 0
-    doi_footer = 0
-    active_slugs = set()
-
-    def mot_khoi(m):
-        nonlocal doi_lastmod, doi_footer
-        khoi = m.group(0)
+    active = set()
+    for khoi in RE_KHOI_URL.findall(noi_dung):
         mloc = RE_LOC.search(khoi)
         if not mloc:
-            return khoi
+            continue
         slug = slug_tu_loc(mloc.group(1).strip())
-        if not slug:
-            return khoi
-        active_slugs.add(slug)
-
-        fp = fingerprint_trang(slug)
-        mlast = RE_LASTMOD.search(khoi)
-        lastmod_hien_tai = mlast.group(2) if mlast else hom_nay
-        ban_cu = cu.get(slug, {}) if isinstance(cu.get(slug, {}), dict) else {}
-        fp_cu = ban_cu.get("hash")
-        lm_cu = ban_cu.get("lastmod")
-
-        if fp and fp_cu == fp and ngay_iso_hop_le(lm_cu):
-            lastmod = lm_cu
-        elif fp_cu is not None and fp and fp_cu != fp:
-            lastmod = hom_nay
-        elif ngay_iso_hop_le(lastmod_hien_tai):
-            # Lần đầu cài state: giữ ngày sitemap hiện có thay vì giả vờ toàn
-            # bộ URL vừa mới thay đổi chỉ vì vừa cài bộ tối ưu này.
-            lastmod = lastmod_hien_tai
-        else:
-            lastmod = hom_nay
-
-        if fp:
-            moi_state[slug] = {"hash": fp, "lastmod": lastmod}
-
-        if mlast and mlast.group(2) != lastmod:
-            doi_lastmod += 1
-            khoi = RE_LASTMOD.sub(
-                lambda mm: mm.group(1) + lastmod + mm.group(3), khoi, count=1)
-
-        if dong_bo_footer_lastmod(slug, lastmod, chi_thu):
-            doi_footer += 1
-        return khoi
-
-    moi = RE_KHOI_URL.sub(mot_khoi, goc)
-    state_moi = {"version": 1, "items": dict(sorted(moi_state.items()))}
-    state_text = json.dumps(state_moi, ensure_ascii=False, indent=2, sort_keys=True) + "\n"
-    state_cu_text = ""
-    if os.path.exists(DUONG_TRANG_THAI_CRAWL):
-        with open(DUONG_TRANG_THAI_CRAWL, encoding="utf-8") as f:
-            state_cu_text = f.read()
-    state_doi = state_text != state_cu_text
-
-    if not chi_thu:
-        if moi != goc:
-            with open(DUONG_SITEMAP_CAN_HO, "w", encoding="utf-8", newline="") as f:
-                f.write(moi)
-        if state_doi:
-            with open(DUONG_TRANG_THAI_CRAWL, "w", encoding="utf-8", newline="") as f:
-                f.write(state_text)
-
-    return {"url": len(active_slugs), "doi_lastmod": doi_lastmod,
-            "footer": doi_footer, "state": state_doi,
-            "active_slugs": active_slugs}
-
+        if slug:
+            active.add(slug)
+    return active
 
 def toi_uu_hub(active_slugs, chi_thu):
     """Gỡ link tới URL noindex khỏi /can-ho/ và lọc ItemList về căn active."""
@@ -357,8 +243,8 @@ def main():
                 with open(duong, "w", encoding="utf-8", newline="") as f:
                     f.write(moi)
 
-    crawl = toi_uu_sitemap_can_ho(tham_so.thu)
-    hub_doi, hub_khoi = toi_uu_hub(crawl["active_slugs"], tham_so.thu)
+    active_slugs = doc_active_slugs_sitemap()
+    hub_doi, hub_khoi = toi_uu_hub(active_slugs, tham_so.thu)
 
     print()
     print("Trang lưới xử lý:    %d" % len(cac_trang))
@@ -369,11 +255,9 @@ def main():
     print("Trang chi tiết được lưới trỏ tới: %d/%d" % (
         len(thong_ke["slug_duoc_tro"]), len(bang_tra)))
     print()
-    print("Sitemap căn active:  %d URL" % crawl["url"])
-    print("Lastmod đổi thật:     %d URL" % crawl["doi_lastmod"])
-    print("Footer đồng bộ:       %d trang" % crawl["footer"])
-    print("Crawl state thay đổi: %s" % ("có" if crawl["state"] else "không"))
-    print("Hub gỡ khối đã thuê:  %s" % ("có" if hub_khoi else "không"))
+    print("Sitemap căn active:  %d URL" % len(active_slugs))
+    print("Lastmod/crawl-state:  do cap-nhat-sitemap.mjs quản lý (script này chỉ đọc)")
+    print("Hub gỡ khối đã thuê: %s" % ("có" if hub_khoi else "không"))
 
     if tham_so.thu:
         print("\n(--thu: chưa ghi file nào; %d trang lưới sẽ đổi, hub=%s)" % (
