@@ -30,7 +30,7 @@
      index.html / gallery.js / app-shell.js đều gọi qua đây. Đặt sớm nhất
      có thể để không phụ thuộc thứ tự tải giữa các file.
      ================================================================== */
-  var MA = "vi";                 // mã ngôn ngữ đang hiển thị: vi | en | ko | zh
+  var MA = "vi";                 // mã ngôn ngữ đang hiển thị: vi | en | ko | zh | zh
   var KHOA_NHO = "smartcity_lang";
 
   /** Tra một chuỗi hiển thị. Không có bản dịch -> trả lại đúng chữ tiếng Việt. */
@@ -38,6 +38,10 @@
     if (MA === "vi") return macDinh;
     var muc = TU_DIEN[khoa];
     if (!muc) return macDinh;
+    if (MA === "zh") {
+      var zh = TU_DIEN_ZH[khoa];
+      return (zh === undefined || zh === null || zh === "") ? macDinh : zh;
+    }
     if (MA === "zh") {
       var zh = TU_DIEN_ZH[khoa];
       return (zh === undefined || zh === null || zh === "") ? macDinh : zh;
@@ -460,6 +464,7 @@
     var muc = DU_LIEU[goc.trim().toLowerCase()];
     if (!muc) return goc;
     if (MA === "zh") return DU_LIEU_ZH[goc.trim().toLowerCase()] || goc;
+    if (MA === "zh") return DU_LIEU_ZH[goc.trim().toLowerCase()] || goc;
     return (MA === "en" ? muc[0] : muc[1]) || goc;
   }
   window.NGON_NGU_DU_LIEU = dichDuLieu;
@@ -709,6 +714,7 @@
     var cac = document.querySelectorAll(BO_CHON);
     for (var i = 0; i < cac.length; i++) ghiNhoGoc(cac[i]);
 
+    damBaoNutTrung();
     damBaoNutTrung();
     ganNut();
     var ma = maTuUrl() || docNho() || "vi";
