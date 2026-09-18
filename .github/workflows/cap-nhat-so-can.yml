@@ -1,5 +1,7 @@
 name: Cập nhật số căn và tháng trong thẻ SEO
 
+# PIPELINE-V2: P0-P8, query guard và sitemap freshness hoàn tất trong cùng snapshot.
+
 # Số căn nằm trong <title>/og:title/meta description và tháng nằm trong thẻ
 # SEO của trang chủ. dong-bo-can.js chạy trong trình duyệt nên không sửa được
 # những chỗ đó, dẫn tới việc Google hiển thị con số cũ. Workflow này sửa
