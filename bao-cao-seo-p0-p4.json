@@ -1,14 +1,14 @@
 {
   "critical": [],
   "critical_count": 0,
-  "data_fingerprint": "d2cfc9f8bc67e590",
-  "html_pages": 615,
-  "indexable_pages": 394,
-  "query_guard_pages": 615,
+  "data_fingerprint": "5b0d80155b3e69a6",
+  "html_pages": 619,
+  "indexable_pages": 398,
+  "query_guard_pages": 619,
   "tower_indexable": 40,
   "tower_registry": 40,
   "version": 2,
-  "warning_count": 16,
+  "warning_count": 17,
   "warnings": [
     {
       "count": 2,
@@ -119,6 +119,15 @@
         "can-ho/cho-thue-can-ho-1-ngu-masteri-43m2-ct-1n-553/index.html"
       ],
       "value": "Cho thuê căn hộ 1 Ngủ + MasA Vinhomes Smart City 43m² – 11,5 triệu/tháng"
+    },
+    {
+      "count": 2,
+      "issue": "duplicate title",
+      "pages": [
+        "can-ho/cho-thue-can-ho-studio-masteri-29m2-ct-stu-876/index.html",
+        "can-ho/cho-thue-can-ho-studio-masteri-29m2-ct-stu-709/index.html"
+      ],
+      "value": "Cho thuê căn hộ Studio MasA Vinhomes Smart City 29m² – 7,5 triệu/tháng"
     },
     {
       "count": 2,
