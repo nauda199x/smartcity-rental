@@ -915,7 +915,7 @@
       "area_max": 75,
       "area_min": 43,
       "code": "S301",
-      "count": 4,
+      "count": 3,
       "data_code": "S301",
       "district": "Sapphire",
       "first_seen": "2026-09-10",
@@ -924,13 +924,13 @@
       "name": "S3.01",
       "path": "/s3-01-vinhomes-smart-city/",
       "price_max": 15000000,
-      "price_min": 8500000,
+      "price_min": 9000000,
       "types": [
         {
-          "count": 2,
+          "count": 1,
           "name": "1 Ngủ +",
           "price_max": 9000000,
-          "price_min": 8500000
+          "price_min": 9000000
         },
         {
           "count": 1,
@@ -1090,7 +1090,7 @@
       "area_max": 95,
       "area_min": 27,
       "code": "S403",
-      "count": 5,
+      "count": 6,
       "data_code": "S403",
       "district": "Sapphire",
       "first_seen": "2026-09-10",
@@ -1108,6 +1108,12 @@
           "price_min": 17000000
         },
         {
+          "count": 2,
+          "name": "Studio",
+          "price_max": 7000000,
+          "price_min": 6500000
+        },
+        {
           "count": 1,
           "name": "1 Ngủ +",
           "price_max": 7000000,
@@ -1118,12 +1124,6 @@
           "name": "2 Ngủ +",
           "price_max": 12500000,
           "price_min": 12500000
-        },
-        {
-          "count": 1,
-          "name": "Studio",
-          "price_max": 6500000,
-          "price_min": 6500000
         }
       ]
     },
@@ -1357,9 +1357,9 @@
     },
     "TC3": {
       "area_max": 68,
-      "area_min": 50,
+      "area_min": 25,
       "code": "TC3",
-      "count": 7,
+      "count": 8,
       "data_code": "TC3",
       "district": "Canopy",
       "first_seen": "2026-09-10",
@@ -1368,7 +1368,7 @@
       "name": "TC3 The Canopy",
       "path": "/tc3-canopy-smart-city/",
       "price_max": 13000000,
-      "price_min": 8000000,
+      "price_min": 6000000,
       "types": [
         {
           "count": 5,
@@ -1381,6 +1381,12 @@
           "name": "1 Ngủ +",
           "price_max": 11000000,
           "price_min": 11000000
+        },
+        {
+          "count": 1,
+          "name": "Studio",
+          "price_max": 6000000,
+          "price_min": 6000000
         }
       ]
     },
