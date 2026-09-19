@@ -352,7 +352,7 @@
       "name": "I2 Imperia",
       "path": "/i2-imperia-smart-city/",
       "price_max": 15000000,
-      "price_min": 8000000,
+      "price_min": 7500000,
       "types": [
         {
           "count": 3,
@@ -375,8 +375,8 @@
         {
           "count": 1,
           "name": "Studio",
-          "price_max": 8000000,
-          "price_min": 8000000
+          "price_max": 7500000,
+          "price_min": 7500000
         }
       ]
     },

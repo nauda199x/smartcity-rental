@@ -1,14 +1,14 @@
 {
   "critical": [],
   "critical_count": 0,
-  "data_fingerprint": "13054b0e46dddf83",
+  "data_fingerprint": "f7a2dea4b7526de9",
   "html_pages": 621,
   "indexable_pages": 399,
   "query_guard_pages": 621,
   "tower_indexable": 40,
   "tower_registry": 40,
   "version": 2,
-  "warning_count": 17,
+  "warning_count": 16,
   "warnings": [
     {
       "count": 2,
@@ -64,15 +64,6 @@
         "can-ho/cho-thue-can-ho-2-ngu-lumiere-60m2-ct-2n2-381/index.html"
       ],
       "value": "Cho thuê căn hộ 2 Ngủ A2 Vinhomes Smart City 60m² – 13 triệu/tháng"
-    },
-    {
-      "count": 2,
-      "issue": "duplicate title",
-      "pages": [
-        "can-ho/cho-thue-can-ho-2-ngu-sakura-54m2-ct-2n2-407/index.html",
-        "can-ho/cho-thue-can-ho-2-ngu-sakura-54m2-ct-2n2-417/index.html"
-      ],
-      "value": "Cho thuê căn hộ 2 Ngủ SA5 Vinhomes Smart City 54m² – 11,5 triệu/tháng"
     },
     {
       "count": 3,
