@@ -4,7 +4,7 @@
       "area_max": 73,
       "area_min": 30,
       "code": "A1",
-      "count": 4,
+      "count": 5,
       "data_code": "A1",
       "district": "Lumiere",
       "first_seen": "2026-09-16",
@@ -16,16 +16,16 @@
       "price_min": 8500000,
       "types": [
         {
+          "count": 2,
+          "name": "2 Ngủ",
+          "price_max": 17000000,
+          "price_min": 13000000
+        },
+        {
           "count": 1,
           "name": "1 Ngủ",
           "price_max": 12000000,
           "price_min": 12000000
-        },
-        {
-          "count": 1,
-          "name": "2 Ngủ",
-          "price_max": 17000000,
-          "price_min": 17000000
         },
         {
           "count": 1,
@@ -618,7 +618,7 @@
       "area_max": 62,
       "area_min": 30,
       "code": "MASD",
-      "count": 12,
+      "count": 10,
       "data_code": "MasD",
       "district": "Masteri",
       "first_seen": "2026-09-10",
@@ -637,15 +637,15 @@
         },
         {
           "count": 3,
-          "name": "1 Ngủ +",
-          "price_max": 11000000,
-          "price_min": 10500000
-        },
-        {
-          "count": 3,
           "name": "2 Ngủ +",
           "price_max": 16000000,
           "price_min": 13000000
+        },
+        {
+          "count": 1,
+          "name": "1 Ngủ +",
+          "price_max": 11000000,
+          "price_min": 11000000
         }
       ]
     },
@@ -1262,7 +1262,7 @@
       "name": "TC1 The Canopy",
       "path": "/tc1-canopy-smart-city/",
       "price_max": 14000000,
-      "price_min": 8000000,
+      "price_min": 7500000,
       "types": [
         {
           "count": 3,
@@ -1291,8 +1291,8 @@
         {
           "count": 1,
           "name": "Studio",
-          "price_max": 8000000,
-          "price_min": 8000000
+          "price_max": 7500000,
+          "price_min": 7500000
         }
       ]
     },
