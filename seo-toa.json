@@ -45,7 +45,7 @@
       "area_max": 87,
       "area_min": 30,
       "code": "A2",
-      "count": 25,
+      "count": 28,
       "data_code": "A2",
       "district": "Lumiere",
       "first_seen": "2026-09-10",
@@ -63,22 +63,22 @@
           "price_min": 12000000
         },
         {
-          "count": 3,
+          "count": 4,
           "name": "Studio",
           "price_max": 8500000,
           "price_min": 8000000
+        },
+        {
+          "count": 3,
+          "name": "1 Ngủ",
+          "price_max": 12000000,
+          "price_min": 8500000
         },
         {
           "count": 2,
           "name": "3 Ngủ",
           "price_max": 17000000,
           "price_min": 15000000
-        },
-        {
-          "count": 1,
-          "name": "1 Ngủ",
-          "price_max": 9000000,
-          "price_min": 9000000
         },
         {
           "count": 1,
@@ -984,7 +984,7 @@
       "area_max": 94,
       "area_min": 32,
       "code": "S401",
-      "count": 6,
+      "count": 7,
       "data_code": "S401",
       "district": "Sapphire",
       "first_seen": "2026-09-10",
@@ -997,6 +997,12 @@
       "types": [
         {
           "count": 2,
+          "name": "1 Ngủ +",
+          "price_max": 9500000,
+          "price_min": 9000000
+        },
+        {
+          "count": 2,
           "name": "2 Ngủ +",
           "price_max": 11000000,
           "price_min": 11000000
@@ -1006,12 +1012,6 @@
           "name": "3 Ngủ",
           "price_max": 18000000,
           "price_min": 12000000
-        },
-        {
-          "count": 1,
-          "name": "1 Ngủ +",
-          "price_max": 9500000,
-          "price_min": 9500000
         },
         {
           "count": 1,
@@ -1372,10 +1372,10 @@
       ]
     },
     "TK2": {
-      "area_max": 64,
+      "area_max": 83,
       "area_min": 25,
       "code": "TK2",
-      "count": 6,
+      "count": 7,
       "data_code": "TK2",
       "district": "Tonkin",
       "first_seen": "2026-09-10",
@@ -1383,7 +1383,7 @@
       "last_seen": "2026-09-21",
       "name": "TK2 Tonkin",
       "path": "/tk2-tonkin-smart-city/",
-      "price_max": 14000000,
+      "price_max": 17000000,
       "price_min": 8000000,
       "types": [
         {
@@ -1397,6 +1397,12 @@
           "name": "2 Ngủ",
           "price_max": 14000000,
           "price_min": 12000000
+        },
+        {
+          "count": 1,
+          "name": "3 Ngủ",
+          "price_max": 17000000,
+          "price_min": 17000000
         },
         {
           "count": 1,

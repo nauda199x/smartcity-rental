@@ -1,6 +1,6 @@
 {
   "1pn-10-12-trieu": {
-    "count": 4,
+    "count": 5,
     "created": "2026-09-12",
     "indexable": true,
     "loai": "1 Ngủ",
@@ -8,7 +8,7 @@
     "updated": "2026-09-21"
   },
   "1pn-7-10-trieu": {
-    "count": 7,
+    "count": 8,
     "created": "2026-08-30",
     "indexable": true,
     "loai": "1 Ngủ",
@@ -64,7 +64,7 @@
     "updated": "2026-09-21"
   },
   "3pn-tren-15-trieu": {
-    "count": 10,
+    "count": 11,
     "created": "2026-08-30",
     "indexable": true,
     "loai": "3 Ngủ",
