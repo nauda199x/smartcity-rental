@@ -92,7 +92,7 @@
       "area_max": 65,
       "area_min": 47,
       "code": "A3",
-      "count": 8,
+      "count": 7,
       "data_code": "A3",
       "district": "Lumiere",
       "first_seen": "2026-09-10",
@@ -116,7 +116,7 @@
           "price_min": 13000000
         },
         {
-          "count": 2,
+          "count": 1,
           "name": "1 Ngủ +",
           "price_max": 9000000,
           "price_min": 9000000
@@ -341,9 +341,9 @@
     },
     "I2": {
       "area_max": 64,
-      "area_min": 28,
+      "area_min": 43,
       "code": "I2",
-      "count": 7,
+      "count": 6,
       "data_code": "I2",
       "district": "Imperia",
       "first_seen": "2026-09-10",
@@ -352,7 +352,7 @@
       "name": "I2 Imperia",
       "path": "/i2-imperia-smart-city/",
       "price_max": 15000000,
-      "price_min": 7500000,
+      "price_min": 9000000,
       "types": [
         {
           "count": 3,
@@ -371,12 +371,6 @@
           "name": "2 Ngủ",
           "price_max": 12500000,
           "price_min": 12500000
-        },
-        {
-          "count": 1,
-          "name": "Studio",
-          "price_max": 7500000,
-          "price_min": 7500000
         }
       ]
     },
@@ -673,8 +667,8 @@
         {
           "count": 1,
           "name": "1 Ngủ +",
-          "price_max": 9000000,
-          "price_min": 9000000
+          "price_max": 8500000,
+          "price_min": 8500000
         },
         {
           "count": 1,
@@ -703,7 +697,7 @@
       "name": "S1.02",
       "path": "/s1-02-vinhomes-smart-city/",
       "price_max": 10000000,
-      "price_min": 6500000,
+      "price_min": 7000000,
       "types": [
         {
           "count": 1,
@@ -714,8 +708,8 @@
         {
           "count": 1,
           "name": "Studio",
-          "price_max": 6500000,
-          "price_min": 6500000
+          "price_max": 7000000,
+          "price_min": 7000000
         }
       ]
     },
@@ -907,9 +901,9 @@
     },
     "S301": {
       "area_max": 75,
-      "area_min": 25,
+      "area_min": 63,
       "code": "S301",
-      "count": 3,
+      "count": 2,
       "data_code": "S301",
       "district": "Sapphire",
       "first_seen": "2026-09-10",
@@ -918,7 +912,7 @@
       "name": "S3.01",
       "path": "/s3-01-vinhomes-smart-city/",
       "price_max": 15000000,
-      "price_min": 7000000,
+      "price_min": 11000000,
       "types": [
         {
           "count": 1,
@@ -931,12 +925,6 @@
           "name": "3 Ngủ",
           "price_max": 15000000,
           "price_min": 15000000
-        },
-        {
-          "count": 1,
-          "name": "Studio",
-          "price_max": 7000000,
-          "price_min": 7000000
         }
       ]
     },
@@ -953,7 +941,7 @@
       "name": "S3.02",
       "path": "/s3-02-vinhomes-smart-city/",
       "price_max": 13000000,
-      "price_min": 7600000,
+      "price_min": 7500000,
       "types": [
         {
           "count": 2,
@@ -964,16 +952,16 @@
         {
           "count": 1,
           "name": "Studio",
-          "price_max": 7600000,
-          "price_min": 7600000
+          "price_max": 7500000,
+          "price_min": 7500000
         }
       ]
     },
     "S303": {
       "area_max": 64,
-      "area_min": 55,
+      "area_min": 64,
       "code": "S303",
-      "count": 2,
+      "count": 1,
       "data_code": "S303",
       "district": "Sapphire",
       "first_seen": "2026-09-10",
@@ -981,15 +969,9 @@
       "last_seen": "2026-09-21",
       "name": "S3.03",
       "path": "/s3-03-vinhomes-smart-city/",
-      "price_max": 12000000,
+      "price_max": 11000000,
       "price_min": 11000000,
       "types": [
-        {
-          "count": 1,
-          "name": "2 Ngủ",
-          "price_max": 12000000,
-          "price_min": 12000000
-        },
         {
           "count": 1,
           "name": "2 Ngủ +",
@@ -1376,7 +1358,7 @@
       "area_max": 61,
       "area_min": 25,
       "code": "TK1",
-      "count": 6,
+      "count": 7,
       "data_code": "TK1",
       "district": "Tonkin",
       "first_seen": "2026-09-10",
@@ -1394,7 +1376,7 @@
           "price_min": 12000000
         },
         {
-          "count": 2,
+          "count": 3,
           "name": "Studio",
           "price_max": 8500000,
           "price_min": 8000000

@@ -863,6 +863,14 @@
   "phan_khu": "Sapphire",
   "toa": "S401"
  },
+ "cho-thue-can-ho-1-ngu-sapphire-43m2-ct-1n-569": {
+  "dien_tich": 43,
+  "loai": "1 Ngủ +",
+  "ma": "CT.1N+.569",
+  "ngay_xuat_hien": "2026-09-21",
+  "phan_khu": "Sapphire",
+  "toa": "S401"
+ },
  "cho-thue-can-ho-1-ngu-sapphire-48m2-cc29": {
   "dien_tich": 48,
   "loai": "1 Ngủ +",
@@ -3894,6 +3902,14 @@
   "ngay_xuat_hien": "2026-09-09",
   "phan_khu": "Tonkin",
   "toa": "TK2"
+ },
+ "cho-thue-can-ho-studio-tonkin-25m2-ct-stu-880": {
+  "dien_tich": 25,
+  "loai": "Studio",
+  "ma": "CT.Stu.880",
+  "ngay_xuat_hien": "2026-09-21",
+  "phan_khu": "Tonkin",
+  "toa": "TK1"
  },
  "cho-thue-can-ho-studio-tonkin-28m2-ct-stu-809": {
   "dien_tich": 28,
