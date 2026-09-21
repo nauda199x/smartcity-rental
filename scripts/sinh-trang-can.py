@@ -728,7 +728,7 @@ Vinhomes Smart City. %(noi_that_cau)s Giá thuê %(gia)s/tháng. Cập nhật %(
 
 
 def dung_trang_da_thue(s, ho_so, active, hom_nay):
-    """Trang căn đã hết hạn hiển thị — 200, không noindex, không offers, gợi ý
+    """Trang căn đã hết hạn hiển thị — 200, noindex,follow, không offers, gợi ý
     căn tương tự còn trống. Chỉ dùng dữ liệu đóng băng trong sổ đăng ký."""
     ma = ho_so["ma"]
     loai = ho_so["loai"]
@@ -921,23 +921,13 @@ def dung_trang_hub(active, occupied_list, hom_nay):
         khoi_html.append('<h2 style="font-size:19px">%s</h2>\n  <ul class="ds-can-ho">\n    %s\n  </ul>' % (
             esc(pk), "\n    ".join(muc)))
 
-    if occupied_list:
-        muc = []
-        for s, ho_so in occupied_list:
-            dt = round(dien_tich_so(ho_so["dien_tich"]))
-            href = "%s/can-ho/%s/" % (TEN_MIEN, s)
-            item_list.append({"@type": "ListItem", "position": vi_tri, "url": href})
-            vi_tri += 1
-            muc.append('<li><a href="/can-ho/%s/">%s %s · %d m² (đã có khách)</a></li>' % (
-                esc(s), esc(ho_so["loai"]), esc(ho_so["toa"]), dt))
-        khoi_html.append(
-            '<h2 style="font-size:19px">Đã có khách</h2>\n  <ul class="ds-can-ho">\n    %s\n  </ul>'
-            % "\n    ".join(muc))
-
+    # Không đưa URL đã có khách (robots:noindex) vào crawl hub.
+    # URL lịch sử vẫn tồn tại 200 để giữ backlink và gợi ý sang căn còn trống;
+    # /can-ho/ chỉ liên kết tới URL active/indexable.
     danh_sach = json.dumps({
         "@context": "https://schema.org",
         "@type": "ItemList",
-        "numberOfItems": so_tong,
+        "numberOfItems": len(item_list),
         "itemListElement": item_list,
     }, ensure_ascii=False)
 
