@@ -119,6 +119,14 @@
   "phan_khu": "Imperia",
   "toa": "I5"
  },
+ "cho-thue-can-ho-1-ngu-imperia-43m2-ct-1n-571": {
+  "dien_tich": 43,
+  "loai": "1 Ngủ +",
+  "ma": "CT.1N+.571",
+  "ngay_xuat_hien": "2026-09-21",
+  "phan_khu": "Imperia",
+  "toa": "I5"
+ },
  "cho-thue-can-ho-1-ngu-imperia-47m2-ct-1n-505": {
   "dien_tich": 47,
   "loai": "1 Ngủ +",
@@ -132,6 +140,14 @@
   "loai": "1 Ngủ +",
   "ma": "CT.1N+.566",
   "ngay_xuat_hien": "2026-09-18",
+  "phan_khu": "Imperia",
+  "toa": "I1"
+ },
+ "cho-thue-can-ho-1-ngu-imperia-48m2-ct-1n-570": {
+  "dien_tich": 48,
+  "loai": "1 Ngủ +",
+  "ma": "CT.1N+.570",
+  "ngay_xuat_hien": "2026-09-21",
   "phan_khu": "Imperia",
   "toa": "I1"
  },
@@ -214,6 +230,14 @@
   "ngay_xuat_hien": "2026-08-24",
   "phan_khu": "Lumiere",
   "toa": "A1"
+ },
+ "cho-thue-can-ho-1-ngu-lumiere-44m2-ct-1n-182": {
+  "dien_tich": 44,
+  "loai": "1 Ngủ",
+  "ma": "CT.1N.182",
+  "ngay_xuat_hien": "2026-09-21",
+  "phan_khu": "Lumiere",
+  "toa": "A3"
  },
  "cho-thue-can-ho-1-ngu-lumiere-47m2-cc10": {
   "dien_tich": 47,
@@ -1646,6 +1670,14 @@
   "ngay_xuat_hien": "2026-09-18",
   "phan_khu": "Lumiere",
   "toa": "A2"
+ },
+ "cho-thue-can-ho-2-ngu-lumiere-80m2-ct-2n-315": {
+  "dien_tich": 80,
+  "loai": "2 Ngủ +",
+  "ma": "CT.2N+.315",
+  "ngay_xuat_hien": "2026-09-21",
+  "phan_khu": "Lumiere",
+  "toa": "A3"
  },
  "cho-thue-can-ho-2-ngu-masteri-54m2-42": {
   "dien_tich": 54,

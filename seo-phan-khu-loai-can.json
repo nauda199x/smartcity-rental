@@ -8,15 +8,15 @@
     "updated": "2026-09-21"
   },
   "cho-thue-1pn-lumiere-smart-city": {
-    "count": 3,
+    "count": 4,
     "created": "2026-08-30",
-    "indexable": false,
+    "indexable": true,
     "loai": "1 Ngủ",
     "phanKhu": "Lumiere",
     "updated": "2026-09-21"
   },
   "cho-thue-1pn-plus-imperia-smart-city": {
-    "count": 5,
+    "count": 7,
     "created": "2026-08-30",
     "indexable": true,
     "loai": "1 Ngủ +",
@@ -248,7 +248,7 @@
     "updated": "2026-09-21"
   },
   "cho-thue-studio-sapphire-smart-city": {
-    "count": 9,
+    "count": 10,
     "created": "2026-08-30",
     "indexable": true,
     "loai": "Studio",

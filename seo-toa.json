@@ -89,10 +89,10 @@
       ]
     },
     "A3": {
-      "area_max": 65,
-      "area_min": 47,
+      "area_max": 80,
+      "area_min": 44,
       "code": "A3",
-      "count": 7,
+      "count": 8,
       "data_code": "A3",
       "district": "Lumiere",
       "first_seen": "2026-09-10",
@@ -114,6 +114,12 @@
           "name": "2 Ngủ +",
           "price_max": 18000000,
           "price_min": 13000000
+        },
+        {
+          "count": 1,
+          "name": "1 Ngủ",
+          "price_max": 12000000,
+          "price_min": 12000000
         },
         {
           "count": 1,
@@ -302,7 +308,7 @@
       "area_max": 76,
       "area_min": 48,
       "code": "I1",
-      "count": 5,
+      "count": 6,
       "data_code": "I1",
       "district": "Imperia",
       "first_seen": "2026-09-10",
@@ -311,19 +317,19 @@
       "name": "I1 Imperia",
       "path": "/i1-imperia-smart-city/",
       "price_max": 17500000,
-      "price_min": 8500000,
+      "price_min": 8000000,
       "types": [
+        {
+          "count": 2,
+          "name": "1 Ngủ +",
+          "price_max": 8500000,
+          "price_min": 8000000
+        },
         {
           "count": 2,
           "name": "3 Ngủ",
           "price_max": 17500000,
           "price_min": 13000000
-        },
-        {
-          "count": 1,
-          "name": "1 Ngủ +",
-          "price_max": 8500000,
-          "price_min": 8500000
         },
         {
           "count": 1,
@@ -448,7 +454,7 @@
       "area_max": 63,
       "area_min": 43,
       "code": "I5",
-      "count": 3,
+      "count": 4,
       "data_code": "I5",
       "district": "Imperia",
       "first_seen": "2026-09-10",
@@ -460,9 +466,9 @@
       "price_min": 7500000,
       "types": [
         {
-          "count": 1,
+          "count": 2,
           "name": "1 Ngủ +",
-          "price_max": 7500000,
+          "price_max": 9000000,
           "price_min": 7500000
         },
         {
@@ -901,9 +907,9 @@
     },
     "S301": {
       "area_max": 75,
-      "area_min": 63,
+      "area_min": 25,
       "code": "S301",
-      "count": 2,
+      "count": 3,
       "data_code": "S301",
       "district": "Sapphire",
       "first_seen": "2026-09-10",
@@ -912,7 +918,7 @@
       "name": "S3.01",
       "path": "/s3-01-vinhomes-smart-city/",
       "price_max": 15000000,
-      "price_min": 11000000,
+      "price_min": 7000000,
       "types": [
         {
           "count": 1,
@@ -925,6 +931,12 @@
           "name": "3 Ngủ",
           "price_max": 15000000,
           "price_min": 15000000
+        },
+        {
+          "count": 1,
+          "name": "Studio",
+          "price_max": 7000000,
+          "price_min": 7000000
         }
       ]
     },
