@@ -1,13 +1,13 @@
 {
   "updated": "2026-09-21",
   "source": "data.json",
-  "active_count": 270,
+  "active_count": 269,
   "min_sample": 3,
   "overall": {
-    "n": 270,
+    "n": 269,
     "min": 5500000,
     "max": 18500000,
-    "median": 11000000.0
+    "median": 11000000
   },
   "by_type": {
     "1 Ngủ": {
@@ -23,10 +23,10 @@
       "median": 10000000
     },
     "2 Ngủ": {
-      "n": 85,
+      "n": 84,
       "min": 8000000,
       "max": 17000000,
-      "median": 12000000
+      "median": 12000000.0
     },
     "2 Ngủ +": {
       "n": 55,
@@ -85,10 +85,10 @@
       "median": 11000000
     },
     "Sapphire": {
-      "n": 55,
+      "n": 54,
       "min": 5800000,
       "max": 18000000,
-      "median": 10000000
+      "median": 10000000.0
     },
     "Tonkin": {
       "n": 15,
@@ -111,10 +111,10 @@
       "median": 9000000.0
     },
     "Đồ Cơ bản": {
-      "n": 48,
+      "n": 47,
       "min": 7500000,
       "max": 17000000,
-      "median": 10750000.0
+      "median": 11000000
     }
   },
   "zone_type_interior": [
@@ -747,15 +747,6 @@
       "min": 8000000,
       "max": 8500000,
       "median": 8500000
-    },
-    {
-      "zone": "Sapphire",
-      "type": "2 Ngủ",
-      "interior": "Đồ Cơ bản",
-      "n": 1,
-      "min": 8000000,
-      "max": 8000000,
-      "median": 8000000
     },
     {
       "zone": "Sapphire",
