@@ -1,14 +1,14 @@
 {
   "critical": [],
   "critical_count": 0,
-  "data_fingerprint": "204929727f0f049c",
-  "html_pages": 661,
-  "indexable_pages": 390,
-  "query_guard_pages": 661,
+  "data_fingerprint": "c8a064a2ef343a22",
+  "html_pages": 666,
+  "indexable_pages": 395,
+  "query_guard_pages": 666,
   "tower_indexable": 40,
   "tower_registry": 40,
   "version": 2,
-  "warning_count": 15,
+  "warning_count": 16,
   "warnings": [
     {
       "count": 2,
@@ -37,6 +37,16 @@
         "can-ho/cho-thue-can-ho-studio-tonkin-25m2-ct-stu-804/index.html"
       ],
       "value": "Cho thuê căn hộ Studio TK1 Vinhomes Smart City 25m² – 8 triệu/tháng"
+    },
+    {
+      "count": 3,
+      "issue": "duplicate title",
+      "pages": [
+        "can-ho/cho-thue-can-ho-2-ngu-sakura-54m2-ct-2n2-391/index.html",
+        "can-ho/cho-thue-can-ho-2-ngu-sakura-54m2-ct-2n2-449/index.html",
+        "can-ho/cho-thue-can-ho-2-ngu-sakura-54m2-ct-2n2-450/index.html"
+      ],
+      "value": "Cho thuê căn hộ 2 Ngủ SA1 Vinhomes Smart City 54m² – 12 triệu/tháng"
     },
     {
       "count": 2,

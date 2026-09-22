@@ -935,6 +935,14 @@
   "phan_khu": "Sapphire",
   "toa": "S401"
  },
+ "cho-thue-can-ho-1-ngu-sapphire-43m2-ct-1n-574": {
+  "dien_tich": 43,
+  "loai": "1 Ngủ +",
+  "ma": "CT.1N+.574",
+  "ngay_xuat_hien": "2026-09-22",
+  "phan_khu": "Sapphire",
+  "toa": "S403"
+ },
  "cho-thue-can-ho-1-ngu-sapphire-48m2-cc29": {
   "dien_tich": 48,
   "loai": "1 Ngủ +",
@@ -1991,6 +1999,14 @@
   "phan_khu": "Miami",
   "toa": "GS2"
  },
+ "cho-thue-can-ho-2-ngu-miami-62m2-ct-2n-319": {
+  "dien_tich": 62,
+  "loai": "2 Ngủ +",
+  "ma": "CT.2N+.319",
+  "ngay_xuat_hien": "2026-09-22",
+  "phan_khu": "Miami",
+  "toa": "GS3"
+ },
  "cho-thue-can-ho-2-ngu-miami-62m2-ct-2n2-373": {
   "dien_tich": 62.5,
   "loai": "2 Ngủ",
@@ -2254,6 +2270,22 @@
   "ngay_xuat_hien": "2026-09-22",
   "phan_khu": "Sakura",
   "toa": "SA3"
+ },
+ "cho-thue-can-ho-2-ngu-sakura-54m2-ct-2n2-449": {
+  "dien_tich": 54,
+  "loai": "2 Ngủ",
+  "ma": "CT.2N2.449",
+  "ngay_xuat_hien": "2026-09-22",
+  "phan_khu": "Sakura",
+  "toa": "SA1"
+ },
+ "cho-thue-can-ho-2-ngu-sakura-54m2-ct-2n2-450": {
+  "dien_tich": 54,
+  "loai": "2 Ngủ",
+  "ma": "CT.2N2.450",
+  "ngay_xuat_hien": "2026-09-22",
+  "phan_khu": "Sakura",
+  "toa": "SA1"
  },
  "cho-thue-can-ho-2-ngu-sakura-55m2-ct-2n2-395": {
   "dien_tich": 55,
@@ -2590,6 +2622,14 @@
   "ngay_xuat_hien": "2026-09-19",
   "phan_khu": "Sapphire",
   "toa": "S202"
+ },
+ "cho-thue-can-ho-2-ngu-sapphire-55m2-ct-2n1-251": {
+  "dien_tich": 55,
+  "loai": "2 Ngủ",
+  "ma": "CT.2N1.251",
+  "ngay_xuat_hien": "2026-09-22",
+  "phan_khu": "Sapphire",
+  "toa": "S303"
  },
  "cho-thue-can-ho-2-ngu-sapphire-55m2-ct-2n2-329": {
   "dien_tich": 55,
