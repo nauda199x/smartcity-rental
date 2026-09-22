@@ -950,7 +950,7 @@
       "area_max": 64,
       "area_min": 32,
       "code": "S302",
-      "count": 3,
+      "count": 4,
       "data_code": "S302",
       "district": "Sapphire",
       "first_seen": "2026-09-10",
@@ -969,6 +969,12 @@
         },
         {
           "count": 1,
+          "name": "2 Ngủ",
+          "price_max": 9000000,
+          "price_min": 9000000
+        },
+        {
+          "count": 1,
           "name": "Studio",
           "price_max": 7500000,
           "price_min": 7500000
@@ -979,7 +985,7 @@
       "area_max": 64,
       "area_min": 54,
       "code": "S303",
-      "count": 3,
+      "count": 2,
       "data_code": "S303",
       "district": "Sapphire",
       "first_seen": "2026-09-10",
@@ -988,13 +994,13 @@
       "name": "S3.03",
       "path": "/s3-03-vinhomes-smart-city/",
       "price_max": 11000000,
-      "price_min": 9000000,
+      "price_min": 10000000,
       "types": [
         {
-          "count": 2,
+          "count": 1,
           "name": "2 Ngủ",
           "price_max": 10000000,
-          "price_min": 9000000
+          "price_min": 10000000
         },
         {
           "count": 1,
