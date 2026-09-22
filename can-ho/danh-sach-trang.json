@@ -687,6 +687,14 @@
   "phan_khu": "Sakura",
   "toa": "SA5"
  },
+ "cho-thue-can-ho-1-ngu-sakura-47m2-ct-1n-185": {
+  "dien_tich": 47,
+  "loai": "1 Ngủ",
+  "ma": "CT.1N.185",
+  "ngay_xuat_hien": "2026-09-22",
+  "phan_khu": "Sakura",
+  "toa": "SA5"
+ },
  "cho-thue-can-ho-1-ngu-sakura-47m2-ct-1n-519": {
   "dien_tich": 47,
   "loai": "1 Ngủ +",
@@ -1543,6 +1551,14 @@
   "phan_khu": "Lumiere",
   "toa": "A2"
  },
+ "cho-thue-can-ho-2-ngu-lumiere-64m2-ct-2n2-447": {
+  "dien_tich": 64,
+  "loai": "2 Ngủ",
+  "ma": "CT.2N2.447",
+  "ngay_xuat_hien": "2026-09-22",
+  "phan_khu": "Lumiere",
+  "toa": "A2"
+ },
  "cho-thue-can-ho-2-ngu-lumiere-65m2-ct-2n-314": {
   "dien_tich": 65,
   "loai": "2 Ngủ +",
@@ -2054,6 +2070,14 @@
   "ngay_xuat_hien": "2026-09-10",
   "phan_khu": "Miami",
   "toa": "GS5"
+ },
+ "cho-thue-can-ho-2-ngu-miami-63m2-ct-2n2-448": {
+  "dien_tich": 63,
+  "loai": "2 Ngủ",
+  "ma": "CT.2N2.448",
+  "ngay_xuat_hien": "2026-09-22",
+  "phan_khu": "Miami",
+  "toa": "GS6"
  },
  "cho-thue-can-ho-2-ngu-miami-64m2-ct-2n-279": {
   "dien_tich": 64,
@@ -3063,6 +3087,14 @@
   "phan_khu": "Miami",
   "toa": "GS6"
  },
+ "cho-thue-can-ho-3-ngu-miami-81m2-ct-3n-173": {
+  "dien_tich": 81,
+  "loai": "3 Ngủ",
+  "ma": "CT.3N.173",
+  "ngay_xuat_hien": "2026-09-22",
+  "phan_khu": "Miami",
+  "toa": "GS1"
+ },
  "cho-thue-can-ho-3-ngu-miami-82m2-ct-3n-52": {
   "dien_tich": 81.7,
   "loai": "3 Ngủ",
@@ -3278,6 +3310,14 @@
   "ngay_xuat_hien": "2026-09-04",
   "phan_khu": "Canopy",
   "toa": "TC1"
+ },
+ "cho-thue-can-ho-studio-canopy-30m2-ct-stu-884": {
+  "dien_tich": 30,
+  "loai": "Studio",
+  "ma": "CT.Stu.884",
+  "ngay_xuat_hien": "2026-09-22",
+  "phan_khu": "Canopy",
+  "toa": "TC3"
  },
  "cho-thue-can-ho-studio-canopy-32m2-cc33": {
   "dien_tich": 32,
@@ -3798,6 +3838,14 @@
   "ngay_xuat_hien": "2026-09-19",
   "phan_khu": "Sapphire",
   "toa": "S301"
+ },
+ "cho-thue-can-ho-studio-sapphire-25m2-ct-stu-885": {
+  "dien_tich": 25,
+  "loai": "Studio",
+  "ma": "CT.Stu.885",
+  "ngay_xuat_hien": "2026-09-22",
+  "phan_khu": "Sapphire",
+  "toa": "S403"
  },
  "cho-thue-can-ho-studio-sapphire-27m2-ct-stu-869": {
   "dien_tich": 27,
