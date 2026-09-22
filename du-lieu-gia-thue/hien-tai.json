@@ -1,10 +1,10 @@
 {
   "updated": "2026-09-22",
   "source": "data.json",
-  "active_count": 266,
+  "active_count": 264,
   "min_sample": 3,
   "overall": {
-    "n": 266,
+    "n": 264,
     "min": 5800000,
     "max": 18500000,
     "median": 11000000.0
@@ -29,8 +29,8 @@
       "median": 12000000
     },
     "2 Ngủ +": {
-      "n": 55,
-      "min": 8000000,
+      "n": 53,
+      "min": 8500000,
       "max": 18500000,
       "median": 12000000
     },
@@ -73,10 +73,10 @@
       "median": 11500000.0
     },
     "Miami": {
-      "n": 30,
+      "n": 29,
       "min": 6000000,
       "max": 18000000,
-      "median": 10250000.0
+      "median": 10500000
     },
     "Sakura": {
       "n": 27,
@@ -85,10 +85,10 @@
       "median": 11000000
     },
     "Sapphire": {
-      "n": 54,
+      "n": 53,
       "min": 5800000,
       "max": 18000000,
-      "median": 10000000.0
+      "median": 10000000
     },
     "Tonkin": {
       "n": 15,
@@ -99,16 +99,16 @@
   },
   "by_interior": {
     "Full nội thất": {
-      "n": 170,
+      "n": 169,
       "min": 5800000,
       "max": 18500000,
-      "median": 11500000.0
+      "median": 11500000
     },
     "Nhà Nguyên Bản": {
-      "n": 56,
+      "n": 55,
       "min": 6000000,
       "max": 14000000,
-      "median": 9250000.0
+      "median": 9500000
     },
     "Đồ Cơ bản": {
       "n": 40,
@@ -581,10 +581,10 @@
       "zone": "Miami",
       "type": "2 Ngủ +",
       "interior": "Nhà Nguyên Bản",
-      "n": 4,
-      "min": 8000000,
+      "n": 3,
+      "min": 9000000,
       "max": 10000000,
-      "median": 9250000.0
+      "median": 9500000
     },
     {
       "zone": "Miami",
@@ -752,10 +752,10 @@
       "zone": "Sapphire",
       "type": "2 Ngủ +",
       "interior": "Full nội thất",
-      "n": 14,
+      "n": 13,
       "min": 10000000,
       "max": 13000000,
-      "median": 11000000.0
+      "median": 11000000
     },
     {
       "zone": "Sapphire",

@@ -215,7 +215,7 @@
       "area_max": 64,
       "area_min": 28,
       "code": "GS3",
-      "count": 7,
+      "count": 6,
       "data_code": "GS3",
       "district": "Miami",
       "first_seen": "2026-09-10",
@@ -227,10 +227,10 @@
       "price_min": 6000000,
       "types": [
         {
-          "count": 4,
+          "count": 3,
           "name": "2 Ngủ +",
           "price_max": 10500000,
-          "price_min": 8000000
+          "price_min": 9500000
         },
         {
           "count": 2,
@@ -982,10 +982,10 @@
       ]
     },
     "S303": {
-      "area_max": 64,
+      "area_max": 54,
       "area_min": 54,
       "code": "S303",
-      "count": 2,
+      "count": 1,
       "data_code": "S303",
       "district": "Sapphire",
       "first_seen": "2026-09-10",
@@ -993,7 +993,7 @@
       "last_seen": "2026-09-22",
       "name": "S3.03",
       "path": "/s3-03-vinhomes-smart-city/",
-      "price_max": 11000000,
+      "price_max": 10000000,
       "price_min": 10000000,
       "types": [
         {
@@ -1001,12 +1001,6 @@
           "name": "2 Ngủ",
           "price_max": 10000000,
           "price_min": 10000000
-        },
-        {
-          "count": 1,
-          "name": "2 Ngủ +",
-          "price_max": 11000000,
-          "price_min": 11000000
         }
       ]
     },
