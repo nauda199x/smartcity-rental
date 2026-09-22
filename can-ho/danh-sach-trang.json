@@ -1767,6 +1767,14 @@
   "phan_khu": "Masteri",
   "toa": "MasC"
  },
+ "cho-thue-can-ho-2-ngu-masteri-55m2-ct-2n2-444": {
+  "dien_tich": 55,
+  "loai": "2 Ngủ",
+  "ma": "CT.2N2.444",
+  "ngay_xuat_hien": "2026-09-22",
+  "phan_khu": "Masteri",
+  "toa": "MasD"
+ },
  "cho-thue-can-ho-2-ngu-masteri-60m2-ct-2n2-333": {
   "dien_tich": 60,
   "loai": "2 Ngủ",
@@ -1974,6 +1982,14 @@
   "ngay_xuat_hien": "2026-08-24",
   "phan_khu": "Miami",
   "toa": "GS2"
+ },
+ "cho-thue-can-ho-2-ngu-miami-63m2-ct-2n-318": {
+  "dien_tich": 63,
+  "loai": "2 Ngủ +",
+  "ma": "CT.2N+.318",
+  "ngay_xuat_hien": "2026-09-22",
+  "phan_khu": "Miami",
+  "toa": "GS3"
  },
  "cho-thue-can-ho-2-ngu-miami-63m2-ct-2n2-360": {
   "dien_tich": 63,
@@ -2831,6 +2847,14 @@
   "phan_khu": "Tonkin",
   "toa": "TK2"
  },
+ "cho-thue-can-ho-2-ngu-tonkin-72m2-ct-2n-317": {
+  "dien_tich": 72,
+  "loai": "2 Ngủ +",
+  "ma": "CT.2N+.317",
+  "ngay_xuat_hien": "2026-09-22",
+  "phan_khu": "Tonkin",
+  "toa": "TK2"
+ },
  "cho-thue-can-ho-3-ngu-canopy-80m2-ct-3n-167": {
   "dien_tich": 80.5,
   "loai": "3 Ngủ",
@@ -3678,6 +3702,14 @@
   "ngay_xuat_hien": "2026-09-09",
   "phan_khu": "Sakura",
   "toa": "SA5"
+ },
+ "cho-thue-can-ho-studio-sakura-32m2-ct-stu-883": {
+  "dien_tich": 32,
+  "loai": "Studio",
+  "ma": "CT.Stu.883",
+  "ngay_xuat_hien": "2026-09-22",
+  "phan_khu": "Sakura",
+  "toa": "SA3"
  },
  "cho-thue-can-ho-studio-sakura-34m2-ct-stu-798": {
   "dien_tich": 34,
