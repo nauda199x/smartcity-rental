@@ -1,41 +1,21 @@
 {
   "critical": [],
   "critical_count": 0,
-  "data_fingerprint": "8473f7062ea2c59b",
-  "html_pages": 672,
-  "indexable_pages": 399,
-  "query_guard_pages": 672,
+  "data_fingerprint": "ae523296f9a4f1ac",
+  "html_pages": 680,
+  "indexable_pages": 406,
+  "query_guard_pages": 680,
   "tower_indexable": 40,
   "tower_registry": 40,
   "version": 2,
-  "warning_count": 17,
+  "warning_count": 15,
   "warnings": [
     {
       "count": 2,
       "issue": "duplicate title",
       "pages": [
-        "can-ho/cho-thue-can-ho-3-ngu-imperia-76m2-ct-3n-171/index.html",
-        "can-ho/cho-thue-can-ho-3-ngu-imperia-76m2-ct-3n-151/index.html"
-      ],
-      "value": "Cho thuê căn hộ 3 Ngủ I1 Vinhomes Smart City 76m² – 17,5 triệu/tháng"
-    },
-    {
-      "count": 4,
-      "issue": "duplicate title",
-      "pages": [
-        "can-ho/cho-thue-can-ho-2-ngu-lumiere-66m2-ct-2n2-441/index.html",
-        "can-ho/cho-thue-can-ho-2-ngu-lumiere-66m2-ct-2n2-436/index.html",
-        "can-ho/cho-thue-can-ho-2-ngu-lumiere-66m2-ct-2n2-438/index.html",
-        "can-ho/cho-thue-can-ho-2-ngu-lumiere-66m2-ct-2n2-440/index.html"
-      ],
-      "value": "Cho thuê căn hộ 2 Ngủ A2 Vinhomes Smart City 66m² – 13 triệu/tháng"
-    },
-    {
-      "count": 2,
-      "issue": "duplicate title",
-      "pages": [
-        "can-ho/cho-thue-can-ho-2-ngu-sapphire-55m2-ct-2n1-253/index.html",
-        "can-ho/cho-thue-can-ho-2-ngu-sapphire-55m2-ct-2n1-251/index.html"
+        "can-ho/cho-thue-can-ho-2-ngu-sapphire-55m2-ct-2n1-251/index.html",
+        "can-ho/cho-thue-can-ho-2-ngu-sapphire-55m2-ct-2n1-253/index.html"
       ],
       "value": "Cho thuê căn hộ 2 Ngủ S302 Vinhomes Smart City 55m² – 9 triệu/tháng"
     },
@@ -43,37 +23,10 @@
       "count": 2,
       "issue": "duplicate title",
       "pages": [
-        "can-ho/cho-thue-can-ho-studio-tonkin-25m2-ct-stu-880/index.html",
-        "can-ho/cho-thue-can-ho-studio-tonkin-25m2-ct-stu-804/index.html"
+        "can-ho/cho-thue-can-ho-2-ngu-lumiere-65m2-ct-2n2-380/index.html",
+        "can-ho/cho-thue-can-ho-2-ngu-lumiere-65m2-ct-2n2-378/index.html"
       ],
-      "value": "Cho thuê căn hộ Studio TK1 Vinhomes Smart City 25m² – 8 triệu/tháng"
-    },
-    {
-      "count": 2,
-      "issue": "duplicate title",
-      "pages": [
-        "can-ho/cho-thue-can-ho-2-ngu-sapphire-64m2-ct-2n-266/index.html",
-        "can-ho/cho-thue-can-ho-2-ngu-sapphire-64m2-ct-2n-257/index.html"
-      ],
-      "value": "Cho thuê căn hộ 2 Ngủ + S401 Vinhomes Smart City 64m² – 11 triệu/tháng"
-    },
-    {
-      "count": 2,
-      "issue": "duplicate title",
-      "pages": [
-        "can-ho/cho-thue-can-ho-studio-masteri-29m2-ct-stu-709/index.html",
-        "can-ho/cho-thue-can-ho-studio-masteri-29m2-ct-stu-876/index.html"
-      ],
-      "value": "Cho thuê căn hộ Studio MasA Vinhomes Smart City 29m² – 7,5 triệu/tháng"
-    },
-    {
-      "count": 2,
-      "issue": "duplicate title",
-      "pages": [
-        "can-ho/cho-thue-can-ho-2-ngu-lumiere-62m2-ct-2n2-370/index.html",
-        "can-ho/cho-thue-can-ho-2-ngu-lumiere-62m2-ct-2n2-358/index.html"
-      ],
-      "value": "Cho thuê căn hộ 2 Ngủ A2 Vinhomes Smart City 62m² – 14 triệu/tháng"
+      "value": "Cho thuê căn hộ 2 Ngủ A2 Vinhomes Smart City 65m² – 14 triệu/tháng"
     },
     {
       "count": 3,
@@ -89,9 +42,9 @@
       "count": 3,
       "issue": "duplicate title",
       "pages": [
+        "can-ho/cho-thue-can-ho-2-ngu-sakura-54m2-ct-2n2-391/index.html",
         "can-ho/cho-thue-can-ho-2-ngu-sakura-54m2-ct-2n2-449/index.html",
-        "can-ho/cho-thue-can-ho-2-ngu-sakura-54m2-ct-2n2-450/index.html",
-        "can-ho/cho-thue-can-ho-2-ngu-sakura-54m2-ct-2n2-391/index.html"
+        "can-ho/cho-thue-can-ho-2-ngu-sakura-54m2-ct-2n2-450/index.html"
       ],
       "value": "Cho thuê căn hộ 2 Ngủ SA1 Vinhomes Smart City 54m² – 12 triệu/tháng"
     },
@@ -99,56 +52,10 @@
       "count": 2,
       "issue": "duplicate title",
       "pages": [
-        "can-ho/cho-thue-can-ho-2-ngu-masteri-64m2-ct-2n-274/index.html",
-        "can-ho/cho-thue-can-ho-2-ngu-masteri-64m2-ct-2n-280/index.html"
+        "can-ho/cho-thue-can-ho-3-ngu-imperia-76m2-ct-3n-151/index.html",
+        "can-ho/cho-thue-can-ho-3-ngu-imperia-76m2-ct-3n-171/index.html"
       ],
-      "value": "Cho thuê căn hộ 2 Ngủ + MasB Vinhomes Smart City 64m² – 18 triệu/tháng"
-    },
-    {
-      "count": 3,
-      "issue": "duplicate title",
-      "pages": [
-        "can-ho/cho-thue-can-ho-2-ngu-tonkin-61m2-ct-2n2-422/index.html",
-        "can-ho/cho-thue-can-ho-2-ngu-tonkin-61m2-53/index.html",
-        "can-ho/cho-thue-can-ho-2-ngu-tonkin-61m2-ct-2n2-332/index.html"
-      ],
-      "value": "Cho thuê căn hộ 2 Ngủ TK1 Vinhomes Smart City 61m² – 14 triệu/tháng"
-    },
-    {
-      "count": 2,
-      "issue": "duplicate title",
-      "pages": [
-        "can-ho/cho-thue-can-ho-2-ngu-lumiere-65m2-ct-2n2-378/index.html",
-        "can-ho/cho-thue-can-ho-2-ngu-lumiere-65m2-ct-2n2-380/index.html"
-      ],
-      "value": "Cho thuê căn hộ 2 Ngủ A2 Vinhomes Smart City 65m² – 14 triệu/tháng"
-    },
-    {
-      "count": 2,
-      "issue": "duplicate title",
-      "pages": [
-        "can-ho/cho-thue-can-ho-1-ngu-masteri-42m2-ct-1n-522/index.html",
-        "can-ho/cho-thue-can-ho-1-ngu-masteri-42m2-ct-1n-556/index.html"
-      ],
-      "value": "Cho thuê căn hộ 1 Ngủ + MasA Vinhomes Smart City 42m² – 11 triệu/tháng"
-    },
-    {
-      "count": 2,
-      "issue": "duplicate title",
-      "pages": [
-        "can-ho/cho-thue-can-ho-2-ngu-lumiere-60m2-ct-2n2-381/index.html",
-        "can-ho/cho-thue-can-ho-2-ngu-lumiere-60m2-ct-2n2-386/index.html"
-      ],
-      "value": "Cho thuê căn hộ 2 Ngủ A2 Vinhomes Smart City 60m² – 13 triệu/tháng"
-    },
-    {
-      "count": 2,
-      "issue": "duplicate title",
-      "pages": [
-        "can-ho/cho-thue-can-ho-2-ngu-sakura-54m2-ct-2n2-417/index.html",
-        "can-ho/cho-thue-can-ho-2-ngu-sakura-54m2-ct-2n2-407/index.html"
-      ],
-      "value": "Cho thuê căn hộ 2 Ngủ SA5 Vinhomes Smart City 54m² – 11 triệu/tháng"
+      "value": "Cho thuê căn hộ 3 Ngủ I1 Vinhomes Smart City 76m² – 17,5 triệu/tháng"
     },
     {
       "count": 3,
@@ -164,10 +71,85 @@
       "count": 2,
       "issue": "duplicate title",
       "pages": [
-        "can-ho/cho-thue-can-ho-1-ngu-canopy-50m2-ct-1n-496/index.html",
-        "can-ho/cho-thue-can-ho-1-ngu-canopy-50m2-ct-1n-528/index.html"
+        "can-ho/cho-thue-can-ho-2-ngu-lumiere-60m2-ct-2n2-386/index.html",
+        "can-ho/cho-thue-can-ho-2-ngu-lumiere-60m2-ct-2n2-381/index.html"
       ],
-      "value": "Cho thuê căn hộ 1 Ngủ + TC3 Vinhomes Smart City 50m² – 11 triệu/tháng"
+      "value": "Cho thuê căn hộ 2 Ngủ A2 Vinhomes Smart City 60m² – 13 triệu/tháng"
+    },
+    {
+      "count": 2,
+      "issue": "duplicate title",
+      "pages": [
+        "can-ho/cho-thue-can-ho-2-ngu-sakura-54m2-ct-2n2-407/index.html",
+        "can-ho/cho-thue-can-ho-2-ngu-sakura-54m2-ct-2n2-417/index.html"
+      ],
+      "value": "Cho thuê căn hộ 2 Ngủ SA5 Vinhomes Smart City 54m² – 11 triệu/tháng"
+    },
+    {
+      "count": 3,
+      "issue": "duplicate title",
+      "pages": [
+        "can-ho/cho-thue-can-ho-2-ngu-tonkin-61m2-ct-2n2-422/index.html",
+        "can-ho/cho-thue-can-ho-2-ngu-tonkin-61m2-53/index.html",
+        "can-ho/cho-thue-can-ho-2-ngu-tonkin-61m2-ct-2n2-332/index.html"
+      ],
+      "value": "Cho thuê căn hộ 2 Ngủ TK1 Vinhomes Smart City 61m² – 14 triệu/tháng"
+    },
+    {
+      "count": 2,
+      "issue": "duplicate title",
+      "pages": [
+        "can-ho/cho-thue-can-ho-1-ngu-masteri-42m2-ct-1n-522/index.html",
+        "can-ho/cho-thue-can-ho-1-ngu-masteri-42m2-ct-1n-556/index.html"
+      ],
+      "value": "Cho thuê căn hộ 1 Ngủ + MasA Vinhomes Smart City 42m² – 11 triệu/tháng"
+    },
+    {
+      "count": 2,
+      "issue": "duplicate title",
+      "pages": [
+        "can-ho/cho-thue-can-ho-2-ngu-sapphire-64m2-ct-2n-266/index.html",
+        "can-ho/cho-thue-can-ho-2-ngu-sapphire-64m2-ct-2n-257/index.html"
+      ],
+      "value": "Cho thuê căn hộ 2 Ngủ + S401 Vinhomes Smart City 64m² – 11 triệu/tháng"
+    },
+    {
+      "count": 2,
+      "issue": "duplicate title",
+      "pages": [
+        "can-ho/cho-thue-can-ho-studio-masteri-29m2-ct-stu-876/index.html",
+        "can-ho/cho-thue-can-ho-studio-masteri-29m2-ct-stu-709/index.html"
+      ],
+      "value": "Cho thuê căn hộ Studio MasA Vinhomes Smart City 29m² – 7,5 triệu/tháng"
+    },
+    {
+      "count": 2,
+      "issue": "duplicate title",
+      "pages": [
+        "can-ho/cho-thue-can-ho-2-ngu-masteri-64m2-ct-2n-274/index.html",
+        "can-ho/cho-thue-can-ho-2-ngu-masteri-64m2-ct-2n-280/index.html"
+      ],
+      "value": "Cho thuê căn hộ 2 Ngủ + MasB Vinhomes Smart City 64m² – 18 triệu/tháng"
+    },
+    {
+      "count": 2,
+      "issue": "duplicate title",
+      "pages": [
+        "can-ho/cho-thue-can-ho-2-ngu-lumiere-62m2-ct-2n2-358/index.html",
+        "can-ho/cho-thue-can-ho-2-ngu-lumiere-62m2-ct-2n2-370/index.html"
+      ],
+      "value": "Cho thuê căn hộ 2 Ngủ A2 Vinhomes Smart City 62m² – 14 triệu/tháng"
+    },
+    {
+      "count": 4,
+      "issue": "duplicate title",
+      "pages": [
+        "can-ho/cho-thue-can-ho-2-ngu-lumiere-66m2-ct-2n2-436/index.html",
+        "can-ho/cho-thue-can-ho-2-ngu-lumiere-66m2-ct-2n2-440/index.html",
+        "can-ho/cho-thue-can-ho-2-ngu-lumiere-66m2-ct-2n2-438/index.html",
+        "can-ho/cho-thue-can-ho-2-ngu-lumiere-66m2-ct-2n2-441/index.html"
+      ],
+      "value": "Cho thuê căn hộ 2 Ngủ A2 Vinhomes Smart City 66m² – 13 triệu/tháng"
     }
   ]
 }

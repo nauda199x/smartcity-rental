@@ -42,10 +42,10 @@
       ]
     },
     "A2": {
-      "area_max": 87,
+      "area_max": 93,
       "area_min": 30,
       "code": "A2",
-      "count": 28,
+      "count": 29,
       "data_code": "A2",
       "district": "Lumiere",
       "first_seen": "2026-09-10",
@@ -69,16 +69,16 @@
           "price_min": 8000000
         },
         {
+          "count": 3,
+          "name": "3 Ngủ",
+          "price_max": 17000000,
+          "price_min": 15000000
+        },
+        {
           "count": 2,
           "name": "1 Ngủ",
           "price_max": 12000000,
           "price_min": 9000000
-        },
-        {
-          "count": 2,
-          "name": "3 Ngủ",
-          "price_max": 17000000,
-          "price_min": 15000000
         },
         {
           "count": 1,
@@ -90,9 +90,9 @@
     },
     "A3": {
       "area_max": 80,
-      "area_min": 44,
+      "area_min": 32,
       "code": "A3",
-      "count": 8,
+      "count": 10,
       "data_code": "A3",
       "district": "Lumiere",
       "first_seen": "2026-09-10",
@@ -116,6 +116,12 @@
           "price_min": 13000000
         },
         {
+          "count": 2,
+          "name": "1 Ngủ +",
+          "price_max": 13000000,
+          "price_min": 9000000
+        },
+        {
           "count": 1,
           "name": "1 Ngủ",
           "price_max": 12000000,
@@ -123,9 +129,9 @@
         },
         {
           "count": 1,
-          "name": "1 Ngủ +",
-          "price_max": 9000000,
-          "price_min": 9000000
+          "name": "Studio",
+          "price_max": 9500000,
+          "price_min": 9500000
         }
       ]
     },
@@ -180,7 +186,7 @@
       "area_max": 75,
       "area_min": 31,
       "code": "GS2",
-      "count": 4,
+      "count": 5,
       "data_code": "GS2",
       "district": "Miami",
       "first_seen": "2026-09-10",
@@ -196,6 +202,12 @@
           "name": "2 Ngủ +",
           "price_max": 13000000,
           "price_min": 11500000
+        },
+        {
+          "count": 1,
+          "name": "1 Ngủ +",
+          "price_max": 7000000,
+          "price_min": 7000000
         },
         {
           "count": 1,
@@ -361,7 +373,7 @@
       "area_max": 64,
       "area_min": 43,
       "code": "I2",
-      "count": 7,
+      "count": 8,
       "data_code": "I2",
       "district": "Imperia",
       "first_seen": "2026-09-10",
@@ -374,15 +386,15 @@
       "types": [
         {
           "count": 3,
+          "name": "1 Ngủ +",
+          "price_max": 10000000,
+          "price_min": 8500000
+        },
+        {
+          "count": 3,
           "name": "2 Ngủ +",
           "price_max": 15000000,
           "price_min": 13000000
-        },
-        {
-          "count": 2,
-          "name": "1 Ngủ +",
-          "price_max": 10000000,
-          "price_min": 9000000
         },
         {
           "count": 2,
@@ -942,7 +954,7 @@
       "name": "S3.01",
       "path": "/s3-01-vinhomes-smart-city/",
       "price_max": 15000000,
-      "price_min": 9500000,
+      "price_min": 7000000,
       "types": [
         {
           "count": 1,
@@ -953,8 +965,8 @@
         {
           "count": 1,
           "name": "Studio",
-          "price_max": 9500000,
-          "price_min": 9500000
+          "price_max": 7000000,
+          "price_min": 7000000
         }
       ]
     },
@@ -1131,7 +1143,7 @@
       "area_max": 75,
       "area_min": 54,
       "code": "SA1",
-      "count": 11,
+      "count": 12,
       "data_code": "SA1",
       "district": "Sakura",
       "first_seen": "2026-09-10",
@@ -1143,7 +1155,7 @@
       "price_min": 8500000,
       "types": [
         {
-          "count": 6,
+          "count": 7,
           "name": "2 Ngủ",
           "price_max": 12000000,
           "price_min": 8500000
@@ -1353,7 +1365,7 @@
       "area_max": 68,
       "area_min": 25,
       "code": "TC3",
-      "count": 8,
+      "count": 7,
       "data_code": "TC3",
       "district": "Canopy",
       "first_seen": "2026-09-10",
@@ -1372,15 +1384,15 @@
         },
         {
           "count": 2,
-          "name": "1 Ngủ +",
-          "price_max": 11000000,
-          "price_min": 11000000
-        },
-        {
-          "count": 2,
           "name": "Studio",
           "price_max": 6500000,
           "price_min": 6000000
+        },
+        {
+          "count": 1,
+          "name": "1 Ngủ +",
+          "price_max": 11000000,
+          "price_min": 11000000
         }
       ]
     },
@@ -1397,7 +1409,7 @@
       "name": "TK1 Tonkin",
       "path": "/tk1-tonkin-smart-city/",
       "price_max": 14000000,
-      "price_min": 8000000,
+      "price_min": 7500000,
       "types": [
         {
           "count": 4,
@@ -1409,7 +1421,7 @@
           "count": 3,
           "name": "Studio",
           "price_max": 8500000,
-          "price_min": 8000000
+          "price_min": 7500000
         }
       ]
     },
