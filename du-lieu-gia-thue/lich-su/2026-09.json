@@ -1,20 +1,20 @@
 {
   "updated": "2026-09-23",
   "source": "data.json",
-  "active_count": 275,
+  "active_count": 278,
   "min_sample": 3,
   "overall": {
-    "n": 275,
+    "n": 278,
     "min": 5800000,
     "max": 18500000,
-    "median": 11000000
+    "median": 11000000.0
   },
   "by_type": {
     "1 Ngủ": {
-      "n": 13,
+      "n": 14,
       "min": 7500000,
       "max": 12000000,
-      "median": 9000000
+      "median": 9000000.0
     },
     "1 Ngủ +": {
       "n": 43,
@@ -23,10 +23,10 @@
       "median": 9500000
     },
     "2 Ngủ": {
-      "n": 89,
+      "n": 90,
       "min": 8000000,
       "max": 17000000,
-      "median": 12000000
+      "median": 12000000.0
     },
     "2 Ngủ +": {
       "n": 53,
@@ -41,10 +41,10 @@
       "median": 15000000
     },
     "Studio": {
-      "n": 48,
+      "n": 49,
       "min": 5800000,
       "max": 10000000,
-      "median": 7500000.0
+      "median": 7500000
     }
   },
   "by_zone": {
@@ -61,16 +61,16 @@
       "median": 11000000.0
     },
     "Lumiere": {
-      "n": 44,
+      "n": 46,
       "min": 8000000,
       "max": 18000000,
       "median": 13000000.0
     },
     "Masteri": {
-      "n": 52,
+      "n": 53,
       "min": 7500000,
       "max": 18500000,
-      "median": 11500000.0
+      "median": 11500000
     },
     "Miami": {
       "n": 30,
@@ -99,13 +99,13 @@
   },
   "by_interior": {
     "Full nội thất": {
-      "n": 176,
+      "n": 177,
       "min": 5800000,
       "max": 18500000,
-      "median": 11500000.0
+      "median": 11500000
     },
     "Nhà Nguyên Bản": {
-      "n": 57,
+      "n": 59,
       "min": 6000000,
       "max": 15000000,
       "median": 9000000
@@ -320,10 +320,10 @@
       "zone": "Lumiere",
       "type": "1 Ngủ",
       "interior": "Nhà Nguyên Bản",
-      "n": 1,
-      "min": 12000000,
+      "n": 2,
+      "min": 10000000,
       "max": 12000000,
-      "median": 12000000
+      "median": 11000000.0
     },
     {
       "zone": "Lumiere",
@@ -356,10 +356,10 @@
       "zone": "Lumiere",
       "type": "2 Ngủ",
       "interior": "Full nội thất",
-      "n": 7,
-      "min": 15000000,
+      "n": 8,
+      "min": 14500000,
       "max": 17000000,
-      "median": 15000000
+      "median": 15000000.0
     },
     {
       "zone": "Lumiere",
@@ -536,10 +536,10 @@
       "zone": "Masteri",
       "type": "Studio",
       "interior": "Nhà Nguyên Bản",
-      "n": 1,
+      "n": 2,
       "min": 7500000,
       "max": 7500000,
-      "median": 7500000
+      "median": 7500000.0
     },
     {
       "zone": "Masteri",

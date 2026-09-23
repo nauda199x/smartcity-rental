@@ -239,6 +239,14 @@
   "phan_khu": "Lumiere",
   "toa": "A3"
  },
+ "cho-thue-can-ho-1-ngu-lumiere-43m2-ct-1n-186": {
+  "dien_tich": 43,
+  "loai": "1 Ngủ",
+  "ma": "CT.1N.186",
+  "ngay_xuat_hien": "2026-09-23",
+  "phan_khu": "Lumiere",
+  "toa": "A1"
+ },
  "cho-thue-can-ho-1-ngu-lumiere-44m2-ct-1n-127": {
   "dien_tich": 44.5,
   "loai": "1 Ngủ",
@@ -1414,6 +1422,14 @@
   "ngay_xuat_hien": "2026-09-21",
   "phan_khu": "Lumiere",
   "toa": "A2"
+ },
+ "cho-thue-can-ho-2-ngu-lumiere-55m2-ct-2n2-452": {
+  "dien_tich": 55,
+  "loai": "2 Ngủ",
+  "ma": "CT.2N2.452",
+  "ngay_xuat_hien": "2026-09-23",
+  "phan_khu": "Lumiere",
+  "toa": "A3"
  },
  "cho-thue-can-ho-2-ngu-lumiere-56m2-ct-2n2-404": {
   "dien_tich": 55.5,
@@ -3582,6 +3598,14 @@
   "ngay_xuat_hien": "2026-09-19",
   "phan_khu": "Masteri",
   "toa": "MasA"
+ },
+ "cho-thue-can-ho-studio-masteri-29m2-ct-stu-890": {
+  "dien_tich": 29,
+  "loai": "Studio",
+  "ma": "CT.Stu.890",
+  "ngay_xuat_hien": "2026-09-23",
+  "phan_khu": "Masteri",
+  "toa": "MasB"
  },
  "cho-thue-can-ho-studio-masteri-30m2-ct-stu-743": {
   "dien_tich": 30,

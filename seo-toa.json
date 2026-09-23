@@ -4,7 +4,7 @@
       "area_max": 73,
       "area_min": 30,
       "code": "A1",
-      "count": 5,
+      "count": 6,
       "data_code": "A1",
       "district": "Lumiere",
       "first_seen": "2026-09-16",
@@ -17,15 +17,15 @@
       "types": [
         {
           "count": 2,
+          "name": "1 Ngủ",
+          "price_max": 12000000,
+          "price_min": 10000000
+        },
+        {
+          "count": 2,
           "name": "2 Ngủ",
           "price_max": 17000000,
           "price_min": 13000000
-        },
-        {
-          "count": 1,
-          "name": "1 Ngủ",
-          "price_max": 12000000,
-          "price_min": 12000000
         },
         {
           "count": 1,
@@ -92,7 +92,7 @@
       "area_max": 80,
       "area_min": 32,
       "code": "A3",
-      "count": 10,
+      "count": 11,
       "data_code": "A3",
       "district": "Lumiere",
       "first_seen": "2026-09-10",
@@ -104,7 +104,7 @@
       "price_min": 9000000,
       "types": [
         {
-          "count": 3,
+          "count": 4,
           "name": "2 Ngủ",
           "price_max": 17000000,
           "price_min": 12000000
@@ -552,9 +552,9 @@
     },
     "MASB": {
       "area_max": 79,
-      "area_min": 31,
+      "area_min": 29,
       "code": "MASB",
-      "count": 19,
+      "count": 20,
       "data_code": "MasB",
       "district": "Masteri",
       "first_seen": "2026-09-10",
@@ -563,7 +563,7 @@
       "name": "West B Masteri",
       "path": "/west-b-masteri-smart-city/",
       "price_max": 18500000,
-      "price_min": 7800000,
+      "price_min": 7500000,
       "types": [
         {
           "count": 8,
@@ -578,10 +578,10 @@
           "price_min": 12500000
         },
         {
-          "count": 3,
+          "count": 4,
           "name": "Studio",
           "price_max": 10000000,
-          "price_min": 7800000
+          "price_min": 7500000
         },
         {
           "count": 2,
