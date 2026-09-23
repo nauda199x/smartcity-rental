@@ -99,10 +99,10 @@
   },
   "by_interior": {
     "Full nội thất": {
-      "n": 177,
+      "n": 178,
       "min": 5800000,
       "max": 18500000,
-      "median": 11500000
+      "median": 11500000.0
     },
     "Nhà Nguyên Bản": {
       "n": 59,
@@ -111,10 +111,10 @@
       "median": 9000000
     },
     "Đồ Cơ bản": {
-      "n": 42,
+      "n": 41,
       "min": 7500000,
       "max": 17000000,
-      "median": 10500000.0
+      "median": 10500000
     }
   },
   "zone_type_interior": [
@@ -221,10 +221,10 @@
       "zone": "Imperia",
       "type": "1 Ngủ +",
       "interior": "Full nội thất",
-      "n": 4,
-      "min": 9000000,
+      "n": 5,
+      "min": 8500000,
       "max": 10000000,
-      "median": 9000000.0
+      "median": 9000000
     },
     {
       "zone": "Imperia",
@@ -239,10 +239,10 @@
       "zone": "Imperia",
       "type": "1 Ngủ +",
       "interior": "Đồ Cơ bản",
-      "n": 3,
+      "n": 2,
       "min": 8000000,
       "max": 8500000,
-      "median": 8500000
+      "median": 8250000.0
     },
     {
       "zone": "Imperia",
