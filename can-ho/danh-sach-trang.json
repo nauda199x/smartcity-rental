@@ -1375,6 +1375,14 @@
   "phan_khu": "Imperia",
   "toa": "I2"
  },
+ "cho-thue-can-ho-2-ngu-imperia-64m2-ct-2n-320": {
+  "dien_tich": 64,
+  "loai": "2 Ngủ +",
+  "ma": "CT.2N+.320",
+  "ngay_xuat_hien": "2026-09-23",
+  "phan_khu": "Imperia",
+  "toa": "I1"
+ },
  "cho-thue-can-ho-2-ngu-lumiere-52m2-ct-2n2-410": {
   "dien_tich": 52,
   "loai": "2 Ngủ",

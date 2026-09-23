@@ -1,13 +1,13 @@
 {
   "updated": "2026-09-23",
   "source": "data.json",
-  "active_count": 281,
+  "active_count": 282,
   "min_sample": 3,
   "overall": {
-    "n": 281,
+    "n": 282,
     "min": 5800000,
     "max": 18500000,
-    "median": 11000000
+    "median": 11000000.0
   },
   "by_type": {
     "1 Ngủ": {
@@ -29,10 +29,10 @@
       "median": 12000000
     },
     "2 Ngủ +": {
-      "n": 53,
+      "n": 54,
       "min": 8500000,
       "max": 18500000,
-      "median": 12000000
+      "median": 12000000.0
     },
     "3 Ngủ": {
       "n": 29,
@@ -55,10 +55,10 @@
       "median": 10000000
     },
     "Imperia": {
-      "n": 26,
+      "n": 27,
       "min": 7500000,
       "max": 17500000,
-      "median": 11000000.0
+      "median": 11000000
     },
     "Lumiere": {
       "n": 46,
@@ -111,10 +111,10 @@
       "median": 9000000.0
     },
     "Đồ Cơ bản": {
-      "n": 42,
+      "n": 43,
       "min": 6500000,
       "max": 17000000,
-      "median": 10500000.0
+      "median": 10500000
     }
   },
   "zone_type_interior": [
@@ -293,10 +293,10 @@
       "zone": "Imperia",
       "type": "2 Ngủ +",
       "interior": "Đồ Cơ bản",
-      "n": 1,
+      "n": 2,
       "min": 10000000,
       "max": 10000000,
-      "median": 10000000
+      "median": 10000000.0
     },
     {
       "zone": "Imperia",
