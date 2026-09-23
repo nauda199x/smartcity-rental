@@ -297,7 +297,7 @@
       "area_max": 80,
       "area_min": 43,
       "code": "GS6",
-      "count": 5,
+      "count": 6,
       "data_code": "GS6",
       "district": "Miami",
       "first_seen": "2026-09-10",
@@ -306,7 +306,7 @@
       "name": "GS6 The Miami",
       "path": "/gs6-the-miami-smart-city/",
       "price_max": 18000000,
-      "price_min": 10000000,
+      "price_min": 8500000,
       "types": [
         {
           "count": 2,
@@ -316,15 +316,15 @@
         },
         {
           "count": 2,
+          "name": "2 Ngủ",
+          "price_max": 13500000,
+          "price_min": 8500000
+        },
+        {
+          "count": 2,
           "name": "3 Ngủ",
           "price_max": 18000000,
           "price_min": 14000000
-        },
-        {
-          "count": 1,
-          "name": "2 Ngủ",
-          "price_max": 13500000,
-          "price_min": 13500000
         }
       ]
     },
@@ -1073,7 +1073,7 @@
       "area_max": 98,
       "area_min": 43,
       "code": "S402",
-      "count": 4,
+      "count": 5,
       "data_code": "S402",
       "district": "Sapphire",
       "first_seen": "2026-09-10",
@@ -1091,7 +1091,7 @@
           "price_min": 9000000
         },
         {
-          "count": 1,
+          "count": 2,
           "name": "2 Ngủ",
           "price_max": 11000000,
           "price_min": 11000000
@@ -1328,9 +1328,9 @@
     },
     "TC2": {
       "area_max": 75,
-      "area_min": 47,
+      "area_min": 26,
       "code": "TC2",
-      "count": 4,
+      "count": 6,
       "data_code": "TC2",
       "district": "Canopy",
       "first_seen": "2026-09-10",
@@ -1339,13 +1339,19 @@
       "name": "TC2 The Canopy",
       "path": "/tc2-canopy-smart-city/",
       "price_max": 12500000,
-      "price_min": 9000000,
+      "price_min": 6500000,
       "types": [
         {
           "count": 2,
           "name": "2 Ngủ",
           "price_max": 12500000,
           "price_min": 9000000
+        },
+        {
+          "count": 2,
+          "name": "Studio",
+          "price_max": 7500000,
+          "price_min": 6500000
         },
         {
           "count": 1,
@@ -1429,7 +1435,7 @@
       "area_max": 83,
       "area_min": 25,
       "code": "TK2",
-      "count": 8,
+      "count": 7,
       "data_code": "TK2",
       "district": "Tonkin",
       "first_seen": "2026-09-10",
@@ -1447,9 +1453,9 @@
           "price_min": 8000000
         },
         {
-          "count": 2,
+          "count": 1,
           "name": "2 Ngủ",
-          "price_max": 14000000,
+          "price_max": 12000000,
           "price_min": 12000000
         },
         {
