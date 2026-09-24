@@ -983,6 +983,14 @@
   "phan_khu": "Sapphire",
   "toa": "S403"
  },
+ "cho-thue-can-ho-1-ngu-sapphire-43m2-ct-1n-579": {
+  "dien_tich": 43,
+  "loai": "1 Ngủ +",
+  "ma": "CT.1N+.579",
+  "ngay_xuat_hien": "2026-09-24",
+  "phan_khu": "Sapphire",
+  "toa": "S402"
+ },
  "cho-thue-can-ho-1-ngu-sapphire-48m2-cc29": {
   "dien_tich": 48,
   "loai": "1 Ngủ +",
@@ -1805,7 +1813,7 @@
   "ma": "CT.2N+.312",
   "ngay_xuat_hien": "2026-09-18",
   "phan_khu": "Lumiere",
-  "toa": "A2"
+  "toa": "A1"
  },
  "cho-thue-can-ho-2-ngu-lumiere-80m2-ct-2n-315": {
   "dien_tich": 80,
@@ -2068,6 +2076,14 @@
   "loai": "2 Ngủ",
   "ma": "CT.2N2.373",
   "ngay_xuat_hien": "2026-08-18",
+  "phan_khu": "Miami",
+  "toa": "GS5"
+ },
+ "cho-thue-can-ho-2-ngu-miami-62m2-ct-2n2-455": {
+  "dien_tich": 62,
+  "loai": "2 Ngủ",
+  "ma": "CT.2N2.455",
+  "ngay_xuat_hien": "2026-09-24",
   "phan_khu": "Miami",
   "toa": "GS5"
  },
@@ -2862,6 +2878,14 @@
   "ngay_xuat_hien": "2026-09-18",
   "phan_khu": "Sapphire",
   "toa": "S203"
+ },
+ "cho-thue-can-ho-2-ngu-sapphire-63m2-ct-2n-321": {
+  "dien_tich": 63,
+  "loai": "2 Ngủ +",
+  "ma": "CT.2N+.321",
+  "ngay_xuat_hien": "2026-09-24",
+  "phan_khu": "Sapphire",
+  "toa": "S106"
  },
  "cho-thue-can-ho-2-ngu-sapphire-64m2-cc25": {
   "dien_tich": 64,
@@ -3879,6 +3903,14 @@
   "phan_khu": "Miami",
   "toa": "GS3"
  },
+ "cho-thue-can-ho-studio-miami-30m2-ct-stu-895": {
+  "dien_tich": 30,
+  "loai": "Studio",
+  "ma": "CT.Stu.895",
+  "ngay_xuat_hien": "2026-09-24",
+  "phan_khu": "Miami",
+  "toa": "GS2"
+ },
  "cho-thue-can-ho-studio-miami-31m2-ct-stu-871": {
   "dien_tich": 31,
   "loai": "Studio",
@@ -3892,6 +3924,14 @@
   "loai": "Studio",
   "ma": "CT.Stu.881",
   "ngay_xuat_hien": "2026-09-21",
+  "phan_khu": "Miami",
+  "toa": "GS1"
+ },
+ "cho-thue-can-ho-studio-miami-32m2-ct-stu-893": {
+  "dien_tich": 32,
+  "loai": "Studio",
+  "ma": "CT.Stu.893",
+  "ngay_xuat_hien": "2026-09-24",
   "phan_khu": "Miami",
   "toa": "GS1"
  },
@@ -3910,6 +3950,30 @@
   "ngay_xuat_hien": "2026-09-11",
   "phan_khu": "Sakura",
   "toa": "SA5"
+ },
+ "cho-thue-can-ho-studio-sakura-26m2-ct-stu-894": {
+  "dien_tich": 26,
+  "loai": "Studio",
+  "ma": "CT.Stu.894",
+  "ngay_xuat_hien": "2026-09-24",
+  "phan_khu": "Sakura",
+  "toa": "SA3"
+ },
+ "cho-thue-can-ho-studio-sakura-26m2-ct-stu-896": {
+  "dien_tich": 26,
+  "loai": "Studio",
+  "ma": "CT.Stu.896",
+  "ngay_xuat_hien": "2026-09-24",
+  "phan_khu": "Sakura",
+  "toa": "SA2"
+ },
+ "cho-thue-can-ho-studio-sakura-26m2-ct-stu-897": {
+  "dien_tich": 26,
+  "loai": "Studio",
+  "ma": "CT.Stu.897",
+  "ngay_xuat_hien": "2026-09-24",
+  "phan_khu": "Sakura",
+  "toa": "SA2"
  },
  "cho-thue-can-ho-studio-sakura-30m2-ct-stu-660": {
   "dien_tich": 30,
