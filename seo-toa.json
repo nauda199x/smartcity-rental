@@ -1137,7 +1137,7 @@
       "area_max": 75,
       "area_min": 54,
       "code": "SA1",
-      "count": 12,
+      "count": 11,
       "data_code": "SA1",
       "district": "Sakura",
       "first_seen": "2026-09-10",
@@ -1155,9 +1155,9 @@
           "price_min": 8500000
         },
         {
-          "count": 3,
+          "count": 2,
           "name": "2 Ngủ +",
-          "price_max": 14000000,
+          "price_max": 13500000,
           "price_min": 11000000
         },
         {

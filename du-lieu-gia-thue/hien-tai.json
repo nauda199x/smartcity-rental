@@ -1,13 +1,13 @@
 {
   "updated": "2026-09-24",
   "source": "data.json",
-  "active_count": 294,
+  "active_count": 293,
   "min_sample": 3,
   "overall": {
-    "n": 294,
+    "n": 293,
     "min": 5800000,
     "max": 18500000,
-    "median": 11000000.0
+    "median": 11000000
   },
   "by_type": {
     "1 Ngủ": {
@@ -29,10 +29,10 @@
       "median": 12000000.0
     },
     "2 Ngủ +": {
-      "n": 57,
+      "n": 56,
       "min": 8500000,
       "max": 18500000,
-      "median": 12000000
+      "median": 12000000.0
     },
     "3 Ngủ": {
       "n": 29,
@@ -79,10 +79,10 @@
       "median": 9750000.0
     },
     "Sakura": {
-      "n": 32,
+      "n": 31,
       "min": 6000000,
       "max": 15000000,
-      "median": 11000000.0
+      "median": 11000000
     },
     "Sapphire": {
       "n": 61,
@@ -99,10 +99,10 @@
   },
   "by_interior": {
     "Full nội thất": {
-      "n": 185,
+      "n": 184,
       "min": 5800000,
       "max": 18500000,
-      "median": 11000000
+      "median": 11000000.0
     },
     "Nhà Nguyên Bản": {
       "n": 64,
@@ -716,10 +716,10 @@
       "zone": "Sakura",
       "type": "2 Ngủ +",
       "interior": "Full nội thất",
-      "n": 4,
+      "n": 3,
       "min": 11000000,
-      "max": 14000000,
-      "median": 12750000.0
+      "max": 13500000,
+      "median": 12000000
     },
     {
       "zone": "Sakura",
