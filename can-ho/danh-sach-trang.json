@@ -15,6 +15,14 @@
   "phan_khu": "Canopy",
   "toa": "TC1"
  },
+ "cho-thue-can-ho-1-ngu-canopy-43m2-ct-1n-187": {
+  "dien_tich": 43,
+  "loai": "1 Ngủ",
+  "ma": "CT.1N.187",
+  "ngay_xuat_hien": "2026-09-24",
+  "phan_khu": "Canopy",
+  "toa": "TC2"
+ },
  "cho-thue-can-ho-1-ngu-canopy-44m2-ct-1n-146": {
   "dien_tich": 44,
   "loai": "1 Ngủ",
@@ -1814,6 +1822,22 @@
   "ngay_xuat_hien": "2026-09-18",
   "phan_khu": "Lumiere",
   "toa": "A1"
+ },
+ "cho-thue-can-ho-2-ngu-lumiere-75m2-ct-2n-322": {
+  "dien_tich": 75,
+  "loai": "2 Ngủ +",
+  "ma": "CT.2N+.322",
+  "ngay_xuat_hien": "2026-09-24",
+  "phan_khu": "Lumiere",
+  "toa": "A3"
+ },
+ "cho-thue-can-ho-2-ngu-lumiere-75m2-ct-2n-323": {
+  "dien_tich": 75,
+  "loai": "2 Ngủ +",
+  "ma": "CT.2N+.323",
+  "ngay_xuat_hien": "2026-09-24",
+  "phan_khu": "Lumiere",
+  "toa": "A3"
  },
  "cho-thue-can-ho-2-ngu-lumiere-80m2-ct-2n-315": {
   "dien_tich": 80,
