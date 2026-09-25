@@ -133,7 +133,7 @@
       "area_max": 81,
       "area_min": 32,
       "code": "GS1",
-      "count": 7,
+      "count": 6,
       "data_code": "GS1",
       "district": "Miami",
       "first_seen": "2026-09-10",
@@ -149,12 +149,6 @@
           "name": "3 Ngủ",
           "price_max": 13000000,
           "price_min": 11000000
-        },
-        {
-          "count": 2,
-          "name": "Studio",
-          "price_max": 7500000,
-          "price_min": 6800000
         },
         {
           "count": 1,
@@ -173,6 +167,12 @@
           "name": "2 Ngủ +",
           "price_max": 9000000,
           "price_min": 9000000
+        },
+        {
+          "count": 1,
+          "name": "Studio",
+          "price_max": 6800000,
+          "price_min": 6800000
         }
       ]
     },
@@ -683,7 +683,7 @@
       "area_max": 64,
       "area_min": 28,
       "code": "S101",
-      "count": 8,
+      "count": 9,
       "data_code": "S101",
       "district": "Sapphire",
       "first_seen": "2026-09-10",
@@ -691,13 +691,13 @@
       "last_seen": "2026-09-25",
       "name": "S1.01",
       "path": "/s1-01-vinhomes-smart-city/",
-      "price_max": 13000000,
+      "price_max": 12000000,
       "price_min": 5800000,
       "types": [
         {
-          "count": 5,
+          "count": 6,
           "name": "2 Ngủ +",
-          "price_max": 13000000,
+          "price_max": 12000000,
           "price_min": 8500000
         },
         {
