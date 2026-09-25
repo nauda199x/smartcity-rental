@@ -39,6 +39,14 @@
   "phan_khu": "Canopy",
   "toa": "TC1"
  },
+ "cho-thue-can-ho-1-ngu-canopy-46m2-ct-1n-188": {
+  "dien_tich": 46,
+  "loai": "1 Ngủ",
+  "ma": "CT.1N.188",
+  "ngay_xuat_hien": "2026-09-25",
+  "phan_khu": "Canopy",
+  "toa": "TC2"
+ },
  "cho-thue-can-ho-1-ngu-canopy-47m2-ct-1n-176": {
   "dien_tich": 47,
   "loai": "1 Ngủ",
@@ -999,6 +1007,14 @@
   "phan_khu": "Sapphire",
   "toa": "S402"
  },
+ "cho-thue-can-ho-1-ngu-sapphire-43m2-ct-1n-580": {
+  "dien_tich": 43,
+  "loai": "1 Ngủ +",
+  "ma": "CT.1N+.580",
+  "ngay_xuat_hien": "2026-09-25",
+  "phan_khu": "Sapphire",
+  "toa": "S301"
+ },
  "cho-thue-can-ho-1-ngu-sapphire-48m2-cc29": {
   "dien_tich": 48,
   "loai": "1 Ngủ +",
@@ -1799,6 +1815,14 @@
   "phan_khu": "Lumiere",
   "toa": "A2"
  },
+ "cho-thue-can-ho-2-ngu-lumiere-67m2-ct-2n2-456": {
+  "dien_tich": 67,
+  "loai": "2 Ngủ",
+  "ma": "CT.2N2.456",
+  "ngay_xuat_hien": "2026-09-25",
+  "phan_khu": "Lumiere",
+  "toa": "A2"
+ },
  "cho-thue-can-ho-2-ngu-lumiere-72m2-ct-2n2-442": {
   "dien_tich": 72,
   "loai": "2 Ngủ",
@@ -2062,6 +2086,14 @@
   "ngay_xuat_hien": "2026-08-24",
   "phan_khu": "Miami",
   "toa": "GS2"
+ },
+ "cho-thue-can-ho-2-ngu-miami-54m2-ct-2n1-255": {
+  "dien_tich": 54,
+  "loai": "2 Ngủ",
+  "ma": "CT.2N1.255",
+  "ngay_xuat_hien": "2026-09-25",
+  "phan_khu": "Miami",
+  "toa": "GS3"
  },
  "cho-thue-can-ho-2-ngu-miami-55m2-ct-2n2-259": {
   "dien_tich": 55,
