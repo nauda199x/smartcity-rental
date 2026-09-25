@@ -45,7 +45,7 @@
       "area_max": 93,
       "area_min": 30,
       "code": "A2",
-      "count": 29,
+      "count": 30,
       "data_code": "A2",
       "district": "Lumiere",
       "first_seen": "2026-09-10",
@@ -57,7 +57,7 @@
       "price_min": 8000000,
       "types": [
         {
-          "count": 20,
+          "count": 21,
           "name": "2 Ngủ",
           "price_max": 15500000,
           "price_min": 12000000

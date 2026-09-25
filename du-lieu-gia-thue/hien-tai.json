@@ -1,13 +1,13 @@
 {
   "updated": "2026-09-25",
   "source": "data.json",
-  "active_count": 297,
+  "active_count": 298,
   "min_sample": 3,
   "overall": {
-    "n": 297,
+    "n": 298,
     "min": 5800000,
     "max": 18500000,
-    "median": 11000000
+    "median": 11000000.0
   },
   "by_type": {
     "1 Ngủ": {
@@ -23,10 +23,10 @@
       "median": 9500000.0
     },
     "2 Ngủ": {
-      "n": 94,
+      "n": 95,
       "min": 8000000,
       "max": 17000000,
-      "median": 12000000.0
+      "median": 12000000
     },
     "2 Ngủ +": {
       "n": 56,
@@ -61,10 +61,10 @@
       "median": 11000000
     },
     "Lumiere": {
-      "n": 49,
+      "n": 50,
       "min": 8000000,
       "max": 18000000,
-      "median": 13000000
+      "median": 13000000.0
     },
     "Masteri": {
       "n": 54,
@@ -105,10 +105,10 @@
       "median": 11000000
     },
     "Nhà Nguyên Bản": {
-      "n": 66,
+      "n": 67,
       "min": 6000000,
       "max": 15000000,
-      "median": 9000000.0
+      "median": 9000000
     },
     "Đồ Cơ bản": {
       "n": 46,
@@ -374,10 +374,10 @@
       "zone": "Lumiere",
       "type": "2 Ngủ",
       "interior": "Nhà Nguyên Bản",
-      "n": 11,
+      "n": 12,
       "min": 12000000,
       "max": 14000000,
-      "median": 13000000
+      "median": 13000000.0
     },
     {
       "zone": "Lumiere",
