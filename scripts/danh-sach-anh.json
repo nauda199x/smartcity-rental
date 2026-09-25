@@ -101,6 +101,18 @@
   "phan_khu": "Canopy",
   "loai": "1 Ngủ",
   "dien_tich": 46,
+  "drive_id": "1xKRR2JNTn7QVGKzlhujc215NdWj80Ylq",
+  "url_goc": "https://drive.google.com/thumbnail?id=1xKRR2JNTn7QVGKzlhujc215NdWj80Ylq&sz=w1000",
+  "ten_file": "cho-thue-can-ho-1-ngu-canopy-46m2-ct-1n-188-a4.webp",
+  "loai_anh": "gallery",
+  "trang": "/can-ho/cho-thue-can-ho-1-ngu-canopy-46m2-ct-1n-188/"
+ },
+ {
+  "ma": "CT.1N.188",
+  "toa": "TC2",
+  "phan_khu": "Canopy",
+  "loai": "1 Ngủ",
+  "dien_tich": 46,
   "drive_id": "1iBavoFenXBnqnvtQsgg29aqaDJJTkAp7",
   "url_goc": "https://drive.google.com/thumbnail?id=1iBavoFenXBnqnvtQsgg29aqaDJJTkAp7&sz=w1000",
   "ten_file": "cho-thue-can-ho-1-ngu-canopy-46m2-ct-1n-188.webp",
@@ -17989,6 +18001,17 @@
   "ten_file": "cho-thue-can-ho-studio-masteri-33m2-ct-stu-814.webp",
   "loai_anh": "bia",
   "trang": "/can-ho/cho-thue-can-ho-studio-masteri-33m2-ct-stu-814/"
+ },
+ {
+  "ma": "CT.Stu.898",
+  "toa": "GS6",
+  "phan_khu": "Miami",
+  "loai": "Studio",
+  "dien_tich": 27,
+  "drive_id": "12RSvl_QQngSQlJA2XCu_7H1d5O8osq87",
+  "url_goc": "https://drive.google.com/thumbnail?id=12RSvl_QQngSQlJA2XCu_7H1d5O8osq87&sz=w1000",
+  "ten_file": "cho-thue-can-ho-studio-miami-27m2-ct-stu-898.webp",
+  "loai_anh": "bia"
  },
  {
   "ma": "CT.Stu.862",
