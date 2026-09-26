@@ -133,7 +133,7 @@
       "area_max": 81,
       "area_min": 43,
       "code": "GS1",
-      "count": 5,
+      "count": 6,
       "data_code": "GS1",
       "district": "Miami",
       "first_seen": "2026-09-10",
@@ -144,6 +144,12 @@
       "price_max": 13000000,
       "price_min": 9000000,
       "types": [
+        {
+          "count": 2,
+          "name": "2 Ngủ +",
+          "price_max": 12500000,
+          "price_min": 9000000
+        },
         {
           "count": 2,
           "name": "3 Ngủ",
@@ -161,12 +167,6 @@
           "name": "2 Ngủ",
           "price_max": 9500000,
           "price_min": 9500000
-        },
-        {
-          "count": 1,
-          "name": "2 Ngủ +",
-          "price_max": 9000000,
-          "price_min": 9000000
         }
       ]
     },
@@ -250,7 +250,7 @@
       "area_max": 82,
       "area_min": 62,
       "code": "GS5",
-      "count": 8,
+      "count": 9,
       "data_code": "GS5",
       "district": "Miami",
       "first_seen": "2026-09-10",
@@ -262,7 +262,7 @@
       "price_min": 9000000,
       "types": [
         {
-          "count": 6,
+          "count": 7,
           "name": "2 Ngủ",
           "price_max": 14000000,
           "price_min": 9000000
@@ -912,14 +912,14 @@
       "last_seen": "2026-09-26",
       "name": "S2.03",
       "path": "/s2-03-vinhomes-smart-city/",
-      "price_max": 10000000,
+      "price_max": 9500000,
       "price_min": 7000000,
       "types": [
         {
           "count": 1,
           "name": "2 Ngủ",
-          "price_max": 10000000,
-          "price_min": 10000000
+          "price_max": 9000000,
+          "price_min": 9000000
         },
         {
           "count": 1,
@@ -1330,7 +1330,7 @@
       "area_max": 75,
       "area_min": 26,
       "code": "TC2",
-      "count": 8,
+      "count": 9,
       "data_code": "TC2",
       "district": "Canopy",
       "first_seen": "2026-09-10",
@@ -1338,7 +1338,7 @@
       "last_seen": "2026-09-26",
       "name": "TC2 The Canopy",
       "path": "/tc2-canopy-smart-city/",
-      "price_max": 12500000,
+      "price_max": 14000000,
       "price_min": 6500000,
       "types": [
         {
@@ -1355,15 +1355,15 @@
         },
         {
           "count": 2,
+          "name": "2 Ngủ +",
+          "price_max": 14000000,
+          "price_min": 10500000
+        },
+        {
+          "count": 2,
           "name": "Studio",
           "price_max": 7500000,
           "price_min": 6500000
-        },
-        {
-          "count": 1,
-          "name": "2 Ngủ +",
-          "price_max": 10500000,
-          "price_min": 10500000
         }
       ]
     },

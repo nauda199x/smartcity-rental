@@ -1,13 +1,13 @@
 {
   "updated": "2026-09-26",
   "source": "data.json",
-  "active_count": 301,
+  "active_count": 304,
   "min_sample": 3,
   "overall": {
-    "n": 301,
+    "n": 304,
     "min": 5800000,
     "max": 18500000,
-    "median": 11000000
+    "median": 11000000.0
   },
   "by_type": {
     "1 Ngủ": {
@@ -23,13 +23,13 @@
       "median": 9500000
     },
     "2 Ngủ": {
-      "n": 94,
+      "n": 95,
       "min": 8000000,
       "max": 17000000,
-      "median": 12000000.0
+      "median": 12000000
     },
     "2 Ngủ +": {
-      "n": 59,
+      "n": 61,
       "min": 8500000,
       "max": 18500000,
       "median": 12000000
@@ -49,10 +49,10 @@
   },
   "by_zone": {
     "Canopy": {
-      "n": 26,
+      "n": 27,
       "min": 6000000,
       "max": 14000000,
-      "median": 9750000.0
+      "median": 10000000
     },
     "Imperia": {
       "n": 28,
@@ -73,10 +73,10 @@
       "median": 11500000
     },
     "Miami": {
-      "n": 34,
+      "n": 36,
       "min": 6000000,
       "max": 18000000,
-      "median": 10250000.0
+      "median": 10500000.0
     },
     "Sakura": {
       "n": 31,
@@ -99,10 +99,10 @@
   },
   "by_interior": {
     "Full nội thất": {
-      "n": 187,
+      "n": 190,
       "min": 5800000,
       "max": 18500000,
-      "median": 11000000
+      "median": 11250000.0
     },
     "Nhà Nguyên Bản": {
       "n": 70,
@@ -171,6 +171,15 @@
       "min": 9500000,
       "max": 9500000,
       "median": 9500000
+    },
+    {
+      "zone": "Canopy",
+      "type": "2 Ngủ +",
+      "interior": "Full nội thất",
+      "n": 1,
+      "min": 14000000,
+      "max": 14000000,
+      "median": 14000000
     },
     {
       "zone": "Canopy",
@@ -599,10 +608,10 @@
       "zone": "Miami",
       "type": "2 Ngủ",
       "interior": "Full nội thất",
-      "n": 4,
+      "n": 5,
       "min": 10500000,
       "max": 14000000,
-      "median": 13000000.0
+      "median": 12500000
     },
     {
       "zone": "Miami",
@@ -626,10 +635,10 @@
       "zone": "Miami",
       "type": "2 Ngủ +",
       "interior": "Full nội thất",
-      "n": 3,
+      "n": 4,
       "min": 11500000,
       "max": 13000000,
-      "median": 11500000
+      "median": 12000000.0
     },
     {
       "zone": "Miami",
