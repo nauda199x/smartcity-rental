@@ -254,6 +254,15 @@
       "inbound_pages": 10
     },
     {
+      "url": "/can-ho/cho-thue-can-ho-studio-sakura-26m2-ct-stu/",
+      "first_seen": "2026-09-26",
+      "code": "CT.Stu.",
+      "tower": "SA2",
+      "type": "Studio",
+      "district": "Sakura",
+      "inbound_pages": 13
+    },
+    {
       "url": "/can-ho/cho-thue-can-ho-studio-imperia-28m2-ct-stu-899/",
       "first_seen": "2026-09-26",
       "code": "CT.Stu.899",
@@ -414,15 +423,6 @@
       "type": "Studio",
       "district": "Sakura",
       "inbound_pages": 15
-    },
-    {
-      "url": "/can-ho/cho-thue-can-ho-studio-sakura-26m2-ct-stu-896/",
-      "first_seen": "2026-09-24",
-      "code": "CT.Stu.896",
-      "tower": "SA2",
-      "type": "Studio",
-      "district": "Sakura",
-      "inbound_pages": 13
     }
   ],
   "district_inventory": {
