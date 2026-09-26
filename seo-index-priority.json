@@ -10,7 +10,7 @@
       "url": "/",
       "label": "Trang thuê Smart City",
       "reason": "landing chính cho cụm từ khóa thuê Smart City",
-      "inbound_pages": 436,
+      "inbound_pages": 437,
       "exists": true,
       "indexable": true,
       "self_canonical": true,
@@ -20,7 +20,7 @@
       "url": "/can-ho/",
       "label": "Căn hộ đang cho thuê",
       "reason": "hub URL chi tiết căn active",
-      "inbound_pages": 384,
+      "inbound_pages": 385,
       "exists": true,
       "indexable": true,
       "self_canonical": true,
@@ -30,7 +30,7 @@
       "url": "/studio/",
       "label": "Thuê Studio",
       "reason": "intent theo loại căn",
-      "inbound_pages": 424,
+      "inbound_pages": 425,
       "exists": true,
       "indexable": true,
       "self_canonical": true,
@@ -50,7 +50,7 @@
       "url": "/1pn-plus/",
       "label": "Thuê 1PN+",
       "reason": "intent theo loại căn",
-      "inbound_pages": 424,
+      "inbound_pages": 425,
       "exists": true,
       "indexable": true,
       "self_canonical": true,
@@ -60,7 +60,7 @@
       "url": "/2pn/",
       "label": "Thuê 2PN",
       "reason": "intent theo loại căn",
-      "inbound_pages": 424,
+      "inbound_pages": 425,
       "exists": true,
       "indexable": true,
       "self_canonical": true,
@@ -80,7 +80,7 @@
       "url": "/3pn/",
       "label": "Thuê 3PN",
       "reason": "intent theo loại căn",
-      "inbound_pages": 424,
+      "inbound_pages": 425,
       "exists": true,
       "indexable": true,
       "self_canonical": true,
@@ -90,7 +90,7 @@
       "url": "/bang-gia-thue-vinhomes-smart-city.html",
       "label": "Bảng giá thuê",
       "reason": "intent giá thuê có dữ liệu thực tế",
-      "inbound_pages": 426,
+      "inbound_pages": 427,
       "exists": true,
       "indexable": true,
       "self_canonical": true,
@@ -147,10 +147,10 @@
       "in_sitemap": true
     },
     {
-      "url": "/imperia/",
-      "label": "Thuê Imperia Smart City",
+      "url": "/canopy/",
+      "label": "Thuê The Canopy",
       "reason": "phân khu có quỹ căn active lớn",
-      "inbound_pages": 81,
+      "inbound_pages": 80,
       "exists": true,
       "indexable": true,
       "self_canonical": true,
@@ -187,18 +187,18 @@
       "inbound_pages": 21
     },
     {
+      "url": "/tc1-canopy-smart-city/",
+      "label": "TC1 The Canopy",
+      "district": "Canopy",
+      "inventory": 12,
+      "inbound_pages": 20
+    },
+    {
       "url": "/sa1-the-sakura-smart-city/",
       "label": "SA1 The Sakura",
       "district": "Sakura",
       "inventory": 11,
       "inbound_pages": 18
-    },
-    {
-      "url": "/tc1-canopy-smart-city/",
-      "label": "TC1 The Canopy",
-      "district": "Canopy",
-      "inventory": 11,
-      "inbound_pages": 19
     },
     {
       "url": "/west-d-masteri-smart-city/",
@@ -263,6 +263,15 @@
       "inbound_pages": 12
     },
     {
+      "url": "/can-ho/cho-thue-can-ho-studio-canopy-29m2-ct-stu-901/",
+      "first_seen": "2026-09-26",
+      "code": "CT.Stu.901",
+      "tower": "TC1",
+      "type": "Studio",
+      "district": "Canopy",
+      "inbound_pages": 8
+    },
+    {
       "url": "/can-ho/cho-thue-can-ho-2-ngu-sapphire-64m2-ct-2n-327/",
       "first_seen": "2026-09-26",
       "code": "CT.2N+.327",
@@ -314,7 +323,7 @@
       "tower": "TC1",
       "type": "1 Ngủ",
       "district": "Canopy",
-      "inbound_pages": 17
+      "inbound_pages": 18
     },
     {
       "url": "/can-ho/cho-thue-can-ho-studio-miami-27m2-ct-stu-898/",
@@ -414,15 +423,6 @@
       "type": "Studio",
       "district": "Sakura",
       "inbound_pages": 13
-    },
-    {
-      "url": "/can-ho/cho-thue-can-ho-studio-sakura-26m2-ct-stu-894/",
-      "first_seen": "2026-09-24",
-      "code": "CT.Stu.894",
-      "tower": "SA3",
-      "type": "Studio",
-      "district": "Sakura",
-      "inbound_pages": 16
     }
   ],
   "district_inventory": {
@@ -431,8 +431,8 @@
     "Lumiere": 50,
     "Miami": 36,
     "Sakura": 31,
+    "Canopy": 28,
     "Imperia": 28,
-    "Canopy": 27,
     "Tonkin": 14
   },
   "summary": {

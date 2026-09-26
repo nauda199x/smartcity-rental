@@ -1281,9 +1281,9 @@
     },
     "TC1": {
       "area_max": 80,
-      "area_min": 30,
+      "area_min": 29,
       "code": "TC1",
-      "count": 11,
+      "count": 12,
       "data_code": "TC1",
       "district": "Canopy",
       "first_seen": "2026-09-10",
@@ -1313,16 +1313,16 @@
           "price_min": 10000000
         },
         {
+          "count": 2,
+          "name": "Studio",
+          "price_max": 8000000,
+          "price_min": 7500000
+        },
+        {
           "count": 1,
           "name": "3 Ngủ",
           "price_max": 13000000,
           "price_min": 13000000
-        },
-        {
-          "count": 1,
-          "name": "Studio",
-          "price_max": 7500000,
-          "price_min": 7500000
         }
       ]
     },
