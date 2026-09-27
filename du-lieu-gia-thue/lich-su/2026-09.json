@@ -1,13 +1,13 @@
 {
   "updated": "2026-09-27",
   "source": "data.json",
-  "active_count": 305,
+  "active_count": 304,
   "min_sample": 3,
   "overall": {
-    "n": 305,
+    "n": 304,
     "min": 5800000,
     "max": 18500000,
-    "median": 11000000
+    "median": 11000000.0
   },
   "by_type": {
     "1 Ngủ": {
@@ -41,18 +41,18 @@
       "median": 15000000
     },
     "Studio": {
-      "n": 57,
+      "n": 56,
       "min": 5800000,
       "max": 10000000,
-      "median": 7500000
+      "median": 7500000.0
     }
   },
   "by_zone": {
     "Canopy": {
-      "n": 28,
+      "n": 27,
       "min": 6000000,
       "max": 14000000,
-      "median": 9750000.0
+      "median": 10000000
     },
     "Imperia": {
       "n": 28,
@@ -111,10 +111,10 @@
       "median": 9000000.0
     },
     "Đồ Cơ bản": {
-      "n": 44,
+      "n": 43,
       "min": 6000000,
       "max": 17000000,
-      "median": 10000000.0
+      "median": 10000000
     }
   },
   "zone_type_interior": [
@@ -221,15 +221,6 @@
       "zone": "Canopy",
       "type": "Studio",
       "interior": "Nhà Nguyên Bản",
-      "n": 1,
-      "min": 6500000,
-      "max": 6500000,
-      "median": 6500000
-    },
-    {
-      "zone": "Canopy",
-      "type": "Studio",
-      "interior": "Đồ Cơ bản",
       "n": 1,
       "min": 6500000,
       "max": 6500000,

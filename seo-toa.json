@@ -1330,7 +1330,7 @@
       "area_max": 75,
       "area_min": 26,
       "code": "TC2",
-      "count": 9,
+      "count": 8,
       "data_code": "TC2",
       "district": "Canopy",
       "first_seen": "2026-09-10",
@@ -1339,7 +1339,7 @@
       "name": "TC2 The Canopy",
       "path": "/tc2-canopy-smart-city/",
       "price_max": 14000000,
-      "price_min": 6500000,
+      "price_min": 7500000,
       "types": [
         {
           "count": 3,
@@ -1360,10 +1360,10 @@
           "price_min": 10500000
         },
         {
-          "count": 2,
+          "count": 1,
           "name": "Studio",
           "price_max": 7500000,
-          "price_min": 6500000
+          "price_min": 7500000
         }
       ]
     },
