@@ -31,6 +31,14 @@
   "phan_khu": "Canopy",
   "toa": "TC1"
  },
+ "cho-thue-can-ho-1-ngu-canopy-45m2-ct-1n-173": {
+  "dien_tich": 45,
+  "loai": "1 Ngủ",
+  "ma": "CT.1N.173",
+  "ngay_xuat_hien": "2026-09-27",
+  "phan_khu": "Canopy",
+  "toa": "TC1"
+ },
  "cho-thue-can-ho-1-ngu-canopy-45m2-ct-1n-174": {
   "dien_tich": 45,
   "loai": "1 Ngủ",
@@ -1356,6 +1364,14 @@
   "loai": "2 Ngủ +",
   "ma": "51",
   "ngay_xuat_hien": "2026-07-12",
+  "phan_khu": "Imperia",
+  "toa": "I1"
+ },
+ "cho-thue-can-ho-2-ngu-imperia-62m2-ct-2n2-423": {
+  "dien_tich": 62,
+  "loai": "2 Ngủ",
+  "ma": "CT.2N2.423",
+  "ngay_xuat_hien": "2026-09-27",
   "phan_khu": "Imperia",
   "toa": "I1"
  },
