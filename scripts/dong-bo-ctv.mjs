@@ -198,7 +198,7 @@ function sync(old, ctv) {
   return { next, stat };
 }
 
-const stable = x => JSON.stringify(x, null, 2) + "\n";
+const stable = x => JSON.stringify(x) + "\n";
 
 async function main() {
   const old = JSON.parse(readFileSync(DATA, "utf8"));
