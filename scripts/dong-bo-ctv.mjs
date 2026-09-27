@@ -201,13 +201,13 @@ function sync(old, ctv) {
 const stable = x => JSON.stringify(x) + "\n";
 
 async function main() {
-  const old = JSON.parse(readFileSync(DATA, "utf8"));
+  const raw = readFileSync(DATA, "utf8");\n  const old = JSON.parse(raw);
   if (!Array.isArray(old) || old.length < 150)
     throw new Error("data.json rỗng/bất thường; dừng an toàn");
 
   const src = await loadCtv();
   const result = sync(old, src.map);
-  const before = stable(old), after = stable(result.next);
+  const before = raw, after = stable(result.next);
 
   console.log("CTV: " + src.nonEmpty + " dòng, " + src.map.size + " ID hợp lệ.");
   for (const r of src.invalid)
