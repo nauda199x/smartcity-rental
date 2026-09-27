@@ -201,7 +201,8 @@ function sync(old, ctv) {
 const stable = x => JSON.stringify(x) + "\n";
 
 async function main() {
-  const raw = readFileSync(DATA, "utf8");\n  const old = JSON.parse(raw);
+  const raw = readFileSync(DATA, "utf8");
+  const old = JSON.parse(raw);
   if (!Array.isArray(old) || old.length < 150)
     throw new Error("data.json rỗng/bất thường; dừng an toàn");
 
