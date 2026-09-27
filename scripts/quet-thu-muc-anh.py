@@ -1,7 +1,8 @@
 #!/usr/bin/env python3
 """Quét thư mục ảnh công khai mỗi lượt đồng bộ, kể cả link không đổi.
 
-Chỉ đọc B/I/J/K/L từ Sheet web; không đọc cột liên hệ/ghi chú nội bộ.
+Nguồn thư mục ảnh là 7 tab của Sheet CTV mới. Chỉ đọc ID CĂN (cột C)
+và LINK ẢNH (cột J); không đọc ghi chú, hoa hồng hay dữ liệu liên hệ.
 Drive public HTML không phải API ổn định: kiểm tra đủ cấu trúc/phân trang,
 giữ snapshot gần nhất khi nguồn lỗi, và dừng nếu lỗi diện rộng.
 """
@@ -15,7 +16,9 @@ from urllib.request import Request, urlopen
 
 from media_anh import ROOT, MANIFEST, drive_id, source_key
 
-SHEET = "1BBnB5PPLR3HZWHqsa5qvvtgWvFMiHNE2ZMIlUSXcKZk"
+SHEET = "1Gnh6ILQT1mV1bQFw5OLVSXMIvqcrO-M36vjlinMiH0w"
+SHEETS = ("Stu", "1N", "1n+", "2n1", "2n2", "2n+", "3n")
+APARTMENT_ID = re.compile(r"^CT\.[A-Za-z0-9+]+\.\d+$")
 ID = re.compile(r"^[A-Za-z0-9_-]{10,}$")
 
 
@@ -56,30 +59,38 @@ def parse_folder(text, folder_id):
 
 
 def read_folders():
-    query = urlencode({"tqx": "out:json", "gid": "0", "headers": "1",
-                       "tq": "select B,I,J,K,L limit 1501"})
-    text = get_text(f"https://docs.google.com/spreadsheets/d/{SHEET}/gviz/tq?{query}")
-    data = json.loads(text[text.index("{"):text.rindex("}") + 1])
-    if data.get("status") != "ok" or len(data["table"]["cols"]) != 5:
-        raise ValueError("Không đọc được các cột ảnh công khai trong Sheet")
-    rows = data["table"]["rows"]
-    if not 150 <= len(rows) <= 1500:
-        raise ValueError("Sheet rỗng bất thường hoặc vượt giới hạn đọc")
     result = {}
-    for row in rows:
-        values = [(c or {}).get("v", "") for c in row["c"]]
-        if len(values) != 5:
-            raise ValueError("Sheet trả thiếu cột")
-        code, link, cover, photos, active = [str(v or "").strip() for v in values]
-        match = re.search(r"https://drive\.google\.com/(?:drive/(?:u/\d+/)?folders/|open\?id=)([A-Za-z0-9_-]+)", link)
-        if active.lower() not in ("có", "co", "yes", "true", "1") or not code or not match:
-            continue
-        value = {"folderId": match.group(1), "Ảnh đại diện": cover, "Danh sách ảnh": photos}
-        if code in result and result[code] != value:
-            raise ValueError("Mã căn trùng thư mục khác nhau: " + code)
-        result[code] = value
+    total_rows = 0
+    for sheet in SHEETS:
+        query = urlencode({"tqx": "out:json", "sheet": sheet, "headers": "1",
+                           "tq": "select C,J limit 1001"})
+        text = get_text(f"https://docs.google.com/spreadsheets/d/{SHEET}/gviz/tq?{query}")
+        data = json.loads(text[text.index("{"):text.rindex("}") + 1])
+        if data.get("status") != "ok" or len(data["table"]["cols"]) != 2:
+            raise ValueError("Không đọc được ID/LINK ẢNH ở tab " + sheet)
+        rows = data["table"]["rows"]
+        total_rows += len(rows)
+        for row in rows:
+            values = [(cell or {}).get("v", "") for cell in row["c"]]
+            if len(values) != 2:
+                raise ValueError("Tab " + sheet + " trả thiếu cột")
+            code, link = [str(v or "").strip() for v in values]
+            if not APARTMENT_ID.fullmatch(code):
+                continue
+            match = re.search(
+                r"https://drive\.google\.com/(?:drive/(?:u/\d+/)?folders/|open\?id=)([A-Za-z0-9_-]+)",
+                link)
+            if not match:
+                continue
+            value = {"folderId": match.group(1), "Ảnh đại diện": "", "Danh sách ảnh": ""}
+            if code in result and result[code] != value:
+                raise ValueError("Mã căn trùng thư mục khác nhau: " + code)
+            result[code] = value
+    if not 250 <= total_rows <= 500:
+        raise ValueError("Sheet CTV rỗng/bất thường: %d dòng" % total_rows)
+    if len(result) < 100:
+        raise ValueError("Quá ít thư mục ảnh hợp lệ trong CTV: %d" % len(result))
     return result
-
 
 def build_item(row, source, files, previous):
     current = {f["id"] for f in files if f.get("kind", "image") == "image"}
