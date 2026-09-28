@@ -727,6 +727,14 @@
   "phan_khu": "Sakura",
   "toa": "SA5"
  },
+ "cho-thue-can-ho-1-ngu-sakura-43m2-ct-1n-191": {
+  "dien_tich": 43,
+  "loai": "1 Ngủ",
+  "ma": "CT.1N.191",
+  "ngay_xuat_hien": "2026-09-28",
+  "phan_khu": "Sakura",
+  "toa": "SA5"
+ },
  "cho-thue-can-ho-1-ngu-sakura-43m2-ct-1n-382": {
   "dien_tich": 43,
   "loai": "1 Ngủ +",
@@ -3903,6 +3911,14 @@
   "phan_khu": "Masteri",
   "toa": "MasB"
  },
+ "cho-thue-can-ho-studio-masteri-29m2-ct-stu-903": {
+  "dien_tich": 29,
+  "loai": "Studio",
+  "ma": "CT.Stu.903",
+  "ngay_xuat_hien": "2026-09-28",
+  "phan_khu": "Masteri",
+  "toa": "MasB"
+ },
  "cho-thue-can-ho-studio-masteri-30m2-ct-stu-743": {
   "dien_tich": 30,
   "loai": "Studio",
@@ -4684,6 +4700,14 @@
   "loai": "Studio",
   "ma": "CT.Stu.821",
   "ngay_xuat_hien": "2026-09-04",
+  "phan_khu": "Tonkin",
+  "toa": "TK1"
+ },
+ "cho-thue-can-ho-studio-tonkin-28m2-ct-stu-904": {
+  "dien_tich": 28,
+  "loai": "Studio",
+  "ma": "CT.Stu.904",
+  "ngay_xuat_hien": "2026-09-28",
   "phan_khu": "Tonkin",
   "toa": "TK1"
  },
