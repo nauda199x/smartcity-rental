@@ -1,6 +1,6 @@
 {
   "cho-thue-1pn-canopy-smart-city": {
-    "count": 6,
+    "count": 7,
     "created": "2026-09-10",
     "indexable": true,
     "loai": "1 Ngủ",
@@ -32,7 +32,7 @@
     "updated": "2026-09-28"
   },
   "cho-thue-1pn-plus-masteri-smart-city": {
-    "count": 19,
+    "count": 21,
     "created": "2026-08-30",
     "indexable": true,
     "loai": "1 Ngủ +",
@@ -56,7 +56,7 @@
     "updated": "2026-09-28"
   },
   "cho-thue-1pn-plus-sapphire-smart-city": {
-    "count": 11,
+    "count": 10,
     "created": "2026-08-30",
     "indexable": true,
     "loai": "1 Ngủ +",
@@ -72,7 +72,7 @@
     "updated": "2026-09-28"
   },
   "cho-thue-2pn-canopy-smart-city": {
-    "count": 9,
+    "count": 8,
     "created": "2026-08-30",
     "indexable": true,
     "loai": "2 Ngủ",
@@ -88,7 +88,7 @@
     "updated": "2026-09-28"
   },
   "cho-thue-2pn-lumiere-smart-city": {
-    "count": 27,
+    "count": 26,
     "created": "2026-08-30",
     "indexable": true,
     "loai": "2 Ngủ",
@@ -120,7 +120,7 @@
     "updated": "2026-09-28"
   },
   "cho-thue-2pn-plus-imperia-smart-city": {
-    "count": 8,
+    "count": 7,
     "created": "2026-08-30",
     "indexable": true,
     "loai": "2 Ngủ +",
@@ -136,7 +136,7 @@
     "updated": "2026-09-28"
   },
   "cho-thue-2pn-plus-masteri-smart-city": {
-    "count": 11,
+    "count": 10,
     "created": "2026-08-30",
     "indexable": true,
     "loai": "2 Ngủ +",
@@ -160,7 +160,7 @@
     "updated": "2026-09-28"
   },
   "cho-thue-2pn-plus-sapphire-smart-city": {
-    "count": 19,
+    "count": 20,
     "created": "2026-08-30",
     "indexable": true,
     "loai": "2 Ngủ +",
@@ -176,7 +176,7 @@
     "updated": "2026-09-28"
   },
   "cho-thue-2pn-sapphire-smart-city": {
-    "count": 15,
+    "count": 17,
     "created": "2026-08-30",
     "indexable": true,
     "loai": "2 Ngủ",
@@ -200,7 +200,7 @@
     "updated": "2026-09-28"
   },
   "cho-thue-3pn-lumiere-smart-city": {
-    "count": 3,
+    "count": 2,
     "created": "2026-08-30",
     "indexable": false,
     "loai": "3 Ngủ",
@@ -208,7 +208,7 @@
     "updated": "2026-09-28"
   },
   "cho-thue-3pn-miami-smart-city": {
-    "count": 7,
+    "count": 6,
     "created": "2026-08-30",
     "indexable": true,
     "loai": "3 Ngủ",
@@ -240,7 +240,7 @@
     "updated": "2026-09-28"
   },
   "cho-thue-studio-lumiere-smart-city": {
-    "count": 6,
+    "count": 7,
     "created": "2026-09-18",
     "indexable": true,
     "loai": "Studio",
@@ -272,7 +272,7 @@
     "updated": "2026-09-28"
   },
   "cho-thue-studio-sapphire-smart-city": {
-    "count": 12,
+    "count": 10,
     "created": "2026-08-30",
     "indexable": true,
     "loai": "Studio",
