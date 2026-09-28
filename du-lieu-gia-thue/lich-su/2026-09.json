@@ -1,20 +1,20 @@
 {
   "updated": "2026-09-28",
   "source": "data.json",
-  "active_count": 300,
+  "active_count": 304,
   "min_sample": 3,
   "overall": {
-    "n": 300,
+    "n": 304,
     "min": 5800000,
     "max": 18500000,
     "median": 11000000.0
   },
   "by_type": {
     "1 Ngủ": {
-      "n": 17,
+      "n": 16,
       "min": 7500000,
       "max": 12000000,
-      "median": 9000000
+      "median": 9000000.0
     },
     "1 Ngủ +": {
       "n": 47,
@@ -23,7 +23,7 @@
       "median": 9500000
     },
     "2 Ngủ": {
-      "n": 93,
+      "n": 95,
       "min": 8000000,
       "max": 17000000,
       "median": 12000000
@@ -35,10 +35,10 @@
       "median": 12000000
     },
     "3 Ngủ": {
-      "n": 26,
+      "n": 29,
       "min": 9500000,
       "max": 18000000,
-      "median": 15000000.0
+      "median": 15000000
     },
     "Studio": {
       "n": 56,
@@ -55,28 +55,28 @@
       "median": 10000000
     },
     "Imperia": {
-      "n": 29,
+      "n": 28,
       "min": 7000000,
       "max": 17500000,
-      "median": 10500000
+      "median": 10750000.0
     },
     "Lumiere": {
-      "n": 48,
+      "n": 50,
       "min": 8000000,
       "max": 18000000,
       "median": 13000000.0
     },
     "Masteri": {
-      "n": 52,
+      "n": 53,
       "min": 7000000,
       "max": 18500000,
-      "median": 11250000.0
+      "median": 11500000
     },
     "Miami": {
-      "n": 34,
+      "n": 36,
       "min": 6000000,
       "max": 18000000,
-      "median": 10250000.0
+      "median": 10500000.0
     },
     "Sakura": {
       "n": 31,
@@ -99,16 +99,16 @@
   },
   "by_interior": {
     "Full nội thất": {
-      "n": 188,
+      "n": 191,
       "min": 5800000,
       "max": 18500000,
-      "median": 11000000.0
+      "median": 11000000
     },
     "Nhà Nguyên Bản": {
-      "n": 69,
+      "n": 70,
       "min": 6000000,
       "max": 15000000,
-      "median": 9000000
+      "median": 9000000.0
     },
     "Đồ Cơ bản": {
       "n": 43,
@@ -138,15 +138,6 @@
     },
     {
       "zone": "Canopy",
-      "type": "1 Ngủ",
-      "interior": "Đồ Cơ bản",
-      "n": 1,
-      "min": 8500000,
-      "max": 8500000,
-      "median": 8500000
-    },
-    {
-      "zone": "Canopy",
       "type": "1 Ngủ +",
       "interior": "Full nội thất",
       "n": 1,
@@ -167,10 +158,10 @@
       "zone": "Canopy",
       "type": "2 Ngủ",
       "interior": "Nhà Nguyên Bản",
-      "n": 3,
+      "n": 4,
       "min": 8000000,
       "max": 10000000,
-      "median": 10000000
+      "median": 9500000.0
     },
     {
       "zone": "Canopy",
@@ -284,10 +275,10 @@
       "zone": "Imperia",
       "type": "2 Ngủ",
       "interior": "Đồ Cơ bản",
-      "n": 2,
+      "n": 1,
       "min": 8000000,
-      "max": 10500000,
-      "median": 9250000.0
+      "max": 8000000,
+      "median": 8000000
     },
     {
       "zone": "Imperia",
@@ -410,10 +401,10 @@
       "zone": "Lumiere",
       "type": "2 Ngủ",
       "interior": "Đồ Cơ bản",
-      "n": 6,
-      "min": 11000000,
+      "n": 7,
+      "min": 13000000,
       "max": 15000000,
-      "median": 14000000.0
+      "median": 14000000
     },
     {
       "zone": "Lumiere",
@@ -455,10 +446,10 @@
       "zone": "Lumiere",
       "type": "3 Ngủ",
       "interior": "Đồ Cơ bản",
-      "n": 1,
-      "min": 17000000,
+      "n": 2,
+      "min": 15000000,
       "max": 17000000,
-      "median": 17000000
+      "median": 16000000.0
     },
     {
       "zone": "Lumiere",
@@ -544,6 +535,15 @@
     {
       "zone": "Masteri",
       "type": "3 Ngủ",
+      "interior": "Full nội thất",
+      "n": 1,
+      "min": 12500000,
+      "max": 12500000,
+      "median": 12500000
+    },
+    {
+      "zone": "Masteri",
+      "type": "3 Ngủ",
       "interior": "Đồ Cơ bản",
       "n": 1,
       "min": 16000000,
@@ -599,10 +599,10 @@
       "zone": "Miami",
       "type": "2 Ngủ",
       "interior": "Full nội thất",
-      "n": 4,
+      "n": 5,
       "min": 10500000,
       "max": 14000000,
-      "median": 12750000.0
+      "median": 12500000
     },
     {
       "zone": "Miami",
@@ -653,10 +653,10 @@
       "zone": "Miami",
       "type": "3 Ngủ",
       "interior": "Full nội thất",
-      "n": 4,
-      "min": 12500000,
+      "n": 5,
+      "min": 12000000,
       "max": 18000000,
-      "median": 13500000.0
+      "median": 13000000
     },
     {
       "zone": "Miami",
