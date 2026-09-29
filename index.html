@@ -493,7 +493,7 @@
       <div class="result-count" id="resultCount" data-i18n="l.loading"><strong>303</strong> căn hộ đang trống phù hợp</div>
       <select id="sortSelect" aria-label="Sắp xếp căn hộ" data-i18n-al="l.sortAl">
         <option value="random" data-i18n="l.random">Ngẫu nhiên</option>
-        <option value="price-asc" data-i18n="l.priceAsc">Giá: Thấp đến Cao</option>
+        <option value="price-asc" data-i18n="l.priceAsc" selected>Giá: Thấp đến Cao</option>
         <option value="price-desc" data-i18n="l.priceDesc">Giá: Cao đến Thấp</option>
         <option value="newest" data-i18n="l.onlyNew">✨ Chỉ xem căn mới/vừa cập nhật</option>
       </select>
@@ -1205,7 +1205,7 @@
       price: "all",
       interior: "all",
       query: "",
-      sort: "random",
+      sort: "price-asc",
       page: 1
     };
 
