@@ -86,7 +86,7 @@
       "area_max": 80,
       "area_min": 44,
       "code": "A3",
-      "count": 14,
+      "count": 13,
       "data_code": "A3",
       "district": "Lumiere",
       "first_seen": "2026-09-10",
@@ -116,7 +116,7 @@
           "price_min": 9000000
         },
         {
-          "count": 2,
+          "count": 1,
           "name": "1 Ngủ",
           "price_max": 12000000,
           "price_min": 12000000
