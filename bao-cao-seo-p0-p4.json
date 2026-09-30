@@ -1,9 +1,9 @@
 {
   "critical": [],
   "critical_count": 0,
-  "data_fingerprint": "0476f49ecd68e82e",
+  "data_fingerprint": "cbed6c82ccbc2752",
   "html_pages": 752,
-  "indexable_pages": 429,
+  "indexable_pages": 419,
   "query_guard_pages": 752,
   "tower_indexable": 40,
   "tower_registry": 40,
@@ -88,11 +88,10 @@
       "value": "Cho thuê căn hộ 2 Ngủ + MasB Vinhomes Smart City 64m² – 18 triệu/tháng"
     },
     {
-      "count": 3,
+      "count": 2,
       "issue": "duplicate title",
       "pages": [
         "can-ho/cho-thue-can-ho-2-ngu-tonkin-61m2-ct-2n2-422/index.html",
-        "can-ho/cho-thue-can-ho-2-ngu-tonkin-61m2-53/index.html",
         "can-ho/cho-thue-can-ho-2-ngu-tonkin-61m2-ct-2n2-332/index.html"
       ],
       "value": "Cho thuê căn hộ 2 Ngủ TK1 Vinhomes Smart City 61m² – 14 triệu/tháng"
