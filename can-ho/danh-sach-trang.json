@@ -4575,6 +4575,14 @@
   "phan_khu": "Sapphire",
   "toa": "S302"
  },
+ "cho-thue-can-ho-studio-sapphire-25m2-ct-stu-909": {
+  "dien_tich": 25,
+  "loai": "Studio",
+  "ma": "CT.Stu.909",
+  "ngay_xuat_hien": "2026-09-30",
+  "phan_khu": "Sapphire",
+  "toa": "S302"
+ },
  "cho-thue-can-ho-studio-sapphire-27m2-ct-stu-869": {
   "dien_tich": 27,
   "loai": "Studio",
