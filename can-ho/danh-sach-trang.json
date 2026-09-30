@@ -1287,6 +1287,14 @@
   "phan_khu": "Canopy",
   "toa": "TC3"
  },
+ "cho-thue-can-ho-2-ngu-canopy-68m2-ct-2n2-464": {
+  "dien_tich": 68,
+  "loai": "2 Ngủ",
+  "ma": "CT.2N2.464",
+  "ngay_xuat_hien": "2026-09-30",
+  "phan_khu": "Canopy",
+  "toa": "TC2"
+ },
  "cho-thue-can-ho-2-ngu-canopy-69m2-ct-2n-205": {
   "dien_tich": 68.6,
   "loai": "2 Ngủ +",
