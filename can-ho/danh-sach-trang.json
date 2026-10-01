@@ -271,6 +271,30 @@
   "phan_khu": "Lumiere",
   "toa": "A1"
  },
+ "cho-thue-can-ho-1-ngu-lumiere-42m2-ct-1n-195": {
+  "dien_tich": 42,
+  "loai": "1 Ngủ",
+  "ma": "CT.1N.195",
+  "ngay_xuat_hien": "2026-10-01",
+  "phan_khu": "Lumiere",
+  "toa": "A1"
+ },
+ "cho-thue-can-ho-1-ngu-lumiere-42m2-ct-1n-196": {
+  "dien_tich": 42,
+  "loai": "1 Ngủ",
+  "ma": "CT.1N.196",
+  "ngay_xuat_hien": "2026-10-01",
+  "phan_khu": "Lumiere",
+  "toa": "A1"
+ },
+ "cho-thue-can-ho-1-ngu-lumiere-42m2-ct-1n-197": {
+  "dien_tich": 42,
+  "loai": "1 Ngủ",
+  "ma": "CT.1N.197",
+  "ngay_xuat_hien": "2026-10-01",
+  "phan_khu": "Lumiere",
+  "toa": "A1"
+ },
  "cho-thue-can-ho-1-ngu-lumiere-42m2-ct-1n-455": {
   "dien_tich": 42,
   "loai": "1 Ngủ +",
@@ -3719,6 +3743,14 @@
   "phan_khu": "Sakura",
   "toa": "SA1"
  },
+ "cho-thue-can-ho-3-ngu-sakura-75m2-ct-3n-178": {
+  "dien_tich": 75,
+  "loai": "3 Ngủ",
+  "ma": "CT.3N.178",
+  "ngay_xuat_hien": "2026-10-01",
+  "phan_khu": "Sakura",
+  "toa": "SA3"
+ },
  "cho-thue-can-ho-3-ngu-sakura-78m2-ct-3n-136": {
   "dien_tich": 78,
   "loai": "3 Ngủ",
@@ -4471,6 +4503,14 @@
   "phan_khu": "Sakura",
   "toa": "SA2"
  },
+ "cho-thue-can-ho-studio-sakura-26m2-ct-stu-912": {
+  "dien_tich": 26,
+  "loai": "Studio",
+  "ma": "CT.Stu.912",
+  "ngay_xuat_hien": "2026-10-01",
+  "phan_khu": "Sakura",
+  "toa": "SA2"
+ },
  "cho-thue-can-ho-studio-sakura-30m2-ct-stu-660": {
   "dien_tich": 30,
   "loai": "Studio",
@@ -4542,6 +4582,14 @@
   "ngay_xuat_hien": "2026-09-23",
   "phan_khu": "Sakura",
   "toa": "SA2"
+ },
+ "cho-thue-can-ho-studio-sakura-32m2-ct-stu-913": {
+  "dien_tich": 32,
+  "loai": "Studio",
+  "ma": "CT.Stu.913",
+  "ngay_xuat_hien": "2026-10-01",
+  "phan_khu": "Sakura",
+  "toa": "SA1"
  },
  "cho-thue-can-ho-studio-sakura-34m2-ct-stu-798": {
   "dien_tich": 34,
