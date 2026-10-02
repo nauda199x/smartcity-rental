@@ -295,6 +295,14 @@
   "phan_khu": "Lumiere",
   "toa": "A1"
  },
+ "cho-thue-can-ho-1-ngu-lumiere-42m2-ct-1n-202": {
+  "dien_tich": 42,
+  "loai": "1 Ngủ",
+  "ma": "CT.1N.202",
+  "ngay_xuat_hien": "2026-10-02",
+  "phan_khu": "Lumiere",
+  "toa": "A1"
+ },
  "cho-thue-can-ho-1-ngu-lumiere-42m2-ct-1n-455": {
   "dien_tich": 42,
   "loai": "1 Ngủ +",
@@ -332,6 +340,14 @@
   "loai": "1 Ngủ +",
   "ma": "CT.1N+.589",
   "ngay_xuat_hien": "2026-10-01",
+  "phan_khu": "Lumiere",
+  "toa": "A1"
+ },
+ "cho-thue-can-ho-1-ngu-lumiere-43m2-ct-1n-591": {
+  "dien_tich": 43,
+  "loai": "1 Ngủ +",
+  "ma": "CT.1N+.591",
+  "ngay_xuat_hien": "2026-10-02",
   "phan_khu": "Lumiere",
   "toa": "A1"
  },
@@ -1782,6 +1798,14 @@
   "ngay_xuat_hien": "2026-07-08",
   "phan_khu": "Lumiere",
   "toa": "A3"
+ },
+ "cho-thue-can-ho-2-ngu-lumiere-61m2-ct-2n2-467": {
+  "dien_tich": 61,
+  "loai": "2 Ngủ",
+  "ma": "CT.2N2.467",
+  "ngay_xuat_hien": "2026-10-02",
+  "phan_khu": "Lumiere",
+  "toa": "A1"
  },
  "cho-thue-can-ho-2-ngu-lumiere-62m2-ct-2n2-294": {
   "dien_tich": 62,
@@ -3575,6 +3599,14 @@
   "phan_khu": "Canopy",
   "toa": "TC1"
  },
+ "cho-thue-can-ho-3-ngu-canopy-80m2-ct-3n-180": {
+  "dien_tich": 80,
+  "loai": "3 Ngủ",
+  "ma": "CT.3N.180",
+  "ngay_xuat_hien": "2026-10-02",
+  "phan_khu": "Canopy",
+  "toa": "TC1"
+ },
  "cho-thue-can-ho-3-ngu-imperia-75m2-cc26": {
   "dien_tich": 75,
   "loai": "3 Ngủ",
@@ -3902,6 +3934,14 @@
   "ngay_xuat_hien": "2026-09-30",
   "phan_khu": "Sapphire",
   "toa": "S102"
+ },
+ "cho-thue-can-ho-3-ngu-sapphire-75m2-ct-3n-181": {
+  "dien_tich": 75,
+  "loai": "3 Ngủ",
+  "ma": "CT.3N.181",
+  "ngay_xuat_hien": "2026-10-02",
+  "phan_khu": "Sapphire",
+  "toa": "S202"
  },
  "cho-thue-can-ho-3-ngu-sapphire-76m2-ct-3n-133": {
   "dien_tich": 76,
@@ -5086,6 +5126,14 @@
   "ngay_xuat_hien": "2026-09-21",
   "phan_khu": "Tonkin",
   "toa": "TK1"
+ },
+ "cho-thue-can-ho-studio-tonkin-25m2-ct-stu-914": {
+  "dien_tich": 25,
+  "loai": "Studio",
+  "ma": "CT.Stu.914",
+  "ngay_xuat_hien": "2026-10-02",
+  "phan_khu": "Tonkin",
+  "toa": "TK2"
  },
  "cho-thue-can-ho-studio-tonkin-28m2-ct-stu-809": {
   "dien_tich": 28,
