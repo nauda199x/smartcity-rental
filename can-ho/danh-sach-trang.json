@@ -383,6 +383,14 @@
   "phan_khu": "Lumiere",
   "toa": "A1"
  },
+ "cho-thue-can-ho-1-ngu-lumiere-44m2-ct-1n-201": {
+  "dien_tich": 44,
+  "loai": "1 Ngủ",
+  "ma": "CT.1N.201",
+  "ngay_xuat_hien": "2026-10-02",
+  "phan_khu": "Lumiere",
+  "toa": "A1"
+ },
  "cho-thue-can-ho-1-ngu-lumiere-47m2-cc10": {
   "dien_tich": 47,
   "loai": "1 Ngủ +",
@@ -2951,6 +2959,14 @@
   "phan_khu": "Sapphire",
   "toa": "S303"
  },
+ "cho-thue-can-ho-2-ngu-sapphire-54m2-ct-2n1-263": {
+  "dien_tich": 54,
+  "loai": "2 Ngủ",
+  "ma": "CT.2N1.263",
+  "ngay_xuat_hien": "2026-10-02",
+  "phan_khu": "Sapphire",
+  "toa": "S302"
+ },
  "cho-thue-can-ho-2-ngu-sapphire-55m2-ct-2n1-150": {
   "dien_tich": 55,
   "loai": "2 Ngủ",
@@ -3150,6 +3166,14 @@
   "ngay_xuat_hien": "2026-09-28",
   "phan_khu": "Sapphire",
   "toa": "S203"
+ },
+ "cho-thue-can-ho-2-ngu-sapphire-55m2-ct-2n1-262": {
+  "dien_tich": 55,
+  "loai": "2 Ngủ",
+  "ma": "CT.2N1.262",
+  "ngay_xuat_hien": "2026-10-02",
+  "phan_khu": "Sapphire",
+  "toa": "S302"
  },
  "cho-thue-can-ho-2-ngu-sapphire-55m2-ct-2n2-329": {
   "dien_tich": 55,
@@ -3734,6 +3758,14 @@
   "ngay_xuat_hien": "2026-07-08",
   "phan_khu": "Miami",
   "toa": "GS6"
+ },
+ "cho-thue-can-ho-3-ngu-miami-80m2-ct-3n-179": {
+  "dien_tich": 80,
+  "loai": "3 Ngủ",
+  "ma": "CT.3N.179",
+  "ngay_xuat_hien": "2026-10-02",
+  "phan_khu": "Miami",
+  "toa": "GS1"
  },
  "cho-thue-can-ho-3-ngu-miami-81m2-ct-3n-173": {
   "dien_tich": 81,
