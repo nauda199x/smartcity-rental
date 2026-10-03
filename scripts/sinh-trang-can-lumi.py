@@ -180,8 +180,10 @@ def detail_html(row, page_slug, similar, slug_by_id):
                         (h(u), i + 1, h(typ), h(tower), h(area_text), "eager" if i == 0 else "lazy"))
         gallery += "  </section>"
     else:
-        gallery = ('<section class="bai"><p><strong>Căn này chưa có ảnh thực tế trên website.</strong> '
-                   'Anh/chị có thể nhắn Zalo để nhận ảnh mới nhất từ bảng hàng.</p></section>')
+        gallery = ('<section class="gallery ct-gallery-empty-source">\n'
+                   '    <div class="ct-no-photo"><b>Căn này đang cập nhật ảnh</b>'
+                   '<span>Nhắn Zalo để nhận ảnh và video thực tế.</span></div>\n'
+                   '  </section>')
 
     if is_active:
         body_top = (
