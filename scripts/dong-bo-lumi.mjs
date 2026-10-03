@@ -188,8 +188,9 @@ async function loadSource() {
 }
 
 function sync(old, source) {
-  const oldById = new Map(old.map((r, i) => [txt(r["Mã nội bộ"]), i]));
-  const next = old.map(r => ({ ...r }));
+  /* Chỉ dọn các dòng header rác từng lọt vào snapshot; căn lịch sử vẫn giữ lại. */
+  const next = old.filter(r => deaccent(r["Mã căn"]) !== "ma can").map(r => ({ ...r }));
+  const oldById = new Map(next.map((r, i) => [txt(r["Mã nội bộ"]), i]));
   const touched = new Set();
   const stat = { updated: 0, added: 0, on: 0, off: 0, missing: 0 };
 
@@ -214,7 +215,7 @@ function sync(old, source) {
     /* Chuyển đổi snapshot đầu tiên từng dùng LH.<Mã căn> sang ID mới có loại
        căn để tránh đụng mã khi cùng một mã xuất hiện ở hai tab khác nhau. */
     if (pos == null) {
-      const legacy = old.findIndex(r => txt(r["Mã căn"]) === src.code &&
+      const legacy = next.findIndex(r => txt(r["Mã căn"]) === src.code &&
         key(r["Loại"]) === key(src.spec.type) &&
         Math.abs(area(r["Diện tích"]) - src.area) < 0.01);
       if (legacy >= 0 && !touched.has(legacy)) pos = legacy;
