@@ -469,7 +469,7 @@
     state.query = ""; state.sort = "price-asc"; state.page = 1;
     ["#lumiType","#lumiTower","#lumiPrice","#lumiInterior"].forEach(function (selector) { if ($(selector)) $(selector).value = "all"; });
     if ($("#searchInput")) $("#searchInput").value = "";
-    if ($("#lumiSort")) $("#lumiSort").value = "price-asc";
+    if ($("#sortSelect")) $("#sortSelect").value = "price-asc";
     render();
   }
 
@@ -482,7 +482,7 @@
     var search = $("#searchInput");
     if (search) search.addEventListener("input", function () { state.query = search.value.trim(); state.page = 1; render(); });
 
-    var sort = $("#lumiSort");
+    var sort = $("#sortSelect");
     if (sort) sort.addEventListener("change", function () { state.sort = sort.value; state.page = 1; render(); });
 
     ["#lumiClear","#lumiClearMobile","#lumiActiveFilterClear"].forEach(function (selector) {
