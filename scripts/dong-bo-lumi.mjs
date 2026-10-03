@@ -112,6 +112,7 @@ async function fetchCsv(spec) {
   u.searchParams.set("tqx", "out:csv");
   u.searchParams.set("sheet", spec.tab);
   u.searchParams.set("headers", "1");
+  u.searchParams.set("range", "A5:P");
   u.searchParams.set("tq", spec.query);
   const r = await fetch(u, { headers: { "user-agent": "Mozilla/5.0" } });
   if (!r.ok) throw new Error(spec.tab + ": HTTP " + r.status);
@@ -130,6 +131,7 @@ async function fetchImageLinks(spec) {
     u.searchParams.set("tqx", "out:html");
     u.searchParams.set("sheet", spec.tab);
     u.searchParams.set("headers", "1");
+    u.searchParams.set("range", "A5:P");
     u.searchParams.set("tq", "select E," + spec.imageCol);
     const r = await fetch(u, { headers: { "user-agent": "Mozilla/5.0" } });
     if (!r.ok) return { ok: false, map: new Map() };
