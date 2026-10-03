@@ -168,11 +168,14 @@ async function loadSource() {
   let nonEmpty = 0;
   for (const spec of TABS) {
     const [rows, links] = await Promise.all([fetchCsv(spec), fetchImageLinks(spec)]);
-    for (let i = 1; i < rows.length; i++) {
+    for (let i = 0; i < rows.length; i++) {
       const c = rows[i];
       if (!c || c.every(x => !txt(x))) continue;
-      nonEmpty++;
       const src = sourceRow(spec, c);
+      /* CSV của GViz có lúc trả dòng label, có lúc không. Không dựa vào index;
+         nhận diện header theo nội dung để không bao giờ bỏ mất căn đầu tiên. */
+      if (deaccent(src.code) === "ma can" || deaccent(src.tower) === "toa") continue;
+      nonEmpty++;
       if (!src.code && !src.tower && !src.area && !src.price) continue;
       if (!src.code) continue;
       src.folderKnown = links.ok;
