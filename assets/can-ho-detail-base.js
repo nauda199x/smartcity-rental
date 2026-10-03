@@ -22,7 +22,19 @@
 
   function laTrangChiTiet() {
     var p = location.pathname.replace(/index\.html$/, "");
-    return /^\/can-ho\/[^/]+\/?$/.test(p);
+    return /^\/can-ho\/[^/]+\/?$/.test(p) || /^\/lumi-hanoi\/can-ho\/[^/]+\/?$/.test(p);
+  }
+
+  function laTrangLumi() {
+    return /^\/lumi-hanoi\/can-ho\/[^/]+\/?$/.test(location.pathname.replace(/index\.html$/, ""));
+  }
+
+  function tenDuAn() {
+    return laTrangLumi() ? "Lumi Hanoi" : "Vinhomes Smart City";
+  }
+
+  function trangQuyCan() {
+    return laTrangLumi() ? "/lumi-hanoi/" : "/";
   }
 
   function docBang(bang) {
@@ -52,7 +64,7 @@
   }
 
   function saoChepDatLich(ma) {
-    var noiDung = "Mình muốn đặt lịch xem căn " + (ma || "") + " tại Vinhomes Smart City. Nhờ bạn tư vấn giúp mình thời gian xem căn phù hợp.";
+    var noiDung = "Mình muốn đặt lịch xem căn " + (ma || "") + " tại " + tenDuAn() + ". Nhờ bạn tư vấn giúp mình thời gian xem căn phù hợp.";
     try {
       if (navigator.clipboard && navigator.clipboard.writeText) {
         navigator.clipboard.writeText(noiDung).catch(function () {});
@@ -325,7 +337,7 @@
     if (!q(".ct-mobile-actions")) {
       var bar = tao("nav", "ct-mobile-actions ct-mobile-occupied");
       bar.setAttribute("aria-label", "Hành động nhanh");
-      bar.appendChild(nutLienHe("ct-ma-secondary", "/", "Xem căn trống", false));
+      bar.appendChild(nutLienHe("ct-ma-secondary", trangQuyCan(), "Xem căn trống", false));
       bar.appendChild(nutLienHe("ct-ma-primary", "https://zalo.me/" + SDT, "Nhắn Zalo", true));
       document.body.appendChild(bar);
     }
