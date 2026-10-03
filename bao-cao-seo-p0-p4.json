@@ -1,14 +1,14 @@
 {
   "critical": [],
   "critical_count": 0,
-  "data_fingerprint": "d339ac8969ca168f",
-  "html_pages": 790,
-  "indexable_pages": 417,
-  "query_guard_pages": 790,
+  "data_fingerprint": "a1824eb26ba76e97",
+  "html_pages": 795,
+  "indexable_pages": 422,
+  "query_guard_pages": 795,
   "tower_indexable": 40,
   "tower_registry": 40,
   "version": 2,
-  "warning_count": 18,
+  "warning_count": 19,
   "warnings": [
     {
       "count": 4,
@@ -152,6 +152,15 @@
         "can-ho/cho-thue-can-ho-3-ngu-canopy-80m2-ct-3n-167/index.html"
       ],
       "value": "Cho thuê căn hộ 3 Ngủ TC1 Vinhomes Smart City 80m² – 13 triệu/tháng"
+    },
+    {
+      "count": 2,
+      "issue": "duplicate title",
+      "pages": [
+        "can-ho/cho-thue-can-ho-1-ngu-masteri-42m2-ct-1n-592/index.html",
+        "can-ho/cho-thue-can-ho-1-ngu-masteri-42m2-ct-1n-568/index.html"
+      ],
+      "value": "Cho thuê căn hộ 1 Ngủ + MasB Vinhomes Smart City 42m² – 11,5 triệu/tháng"
     },
     {
       "count": 2,
