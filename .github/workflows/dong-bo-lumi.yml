@@ -56,17 +56,37 @@ jobs:
       - name: Sinh trang chi tiết và sitemap Lumi
         run: python3 scripts/sinh-trang-can-lumi.py
 
-      - name: Kiểm tra không lộ cột nội bộ
+      - name: Kiểm tra không lộ mã căn thật hoặc cột nội bộ
         run: |
           python3 - <<'PY'
-          import json
+          import json,re
           data=json.load(open("data-lumi.json",encoding="utf-8"))
-          banned={"TÊN CHỦ NHÀ","SỐ ĐIỆN THOẠI","Pass cửa","NGUỒN CỦA AI"}
+          allowed={
+            "Mã nội bộ","Mã căn","Tòa","Loại","Diện tích","Nội thất","Giá thuê",
+            "Hướng ban công","Ngày vào ở","Ngày cập nhật","Ngày thêm vào hệ thống",
+            "Ảnh thư mục","Ảnh đại diện","Danh sách ảnh","Hiển thị trên Web"
+          }
+          code_re=re.compile(r"^thue(?:1N|2N|3N|Duplex|Penthouse|Shop)\.\d+$")
           for i,row in enumerate(data):
-              bad=banned.intersection(row)
-              if bad:
-                  raise SystemExit(f"Dòng {i} lộ cột nội bộ: {sorted(bad)}")
-          print(f"OK: {len(data)} dòng public, không có cột nội bộ.")
+              extra=set(row)-allowed
+              if extra:
+                  raise SystemExit(f"Dòng {i} có cột không được public: {sorted(extra)}")
+              if not code_re.fullmatch(str(row.get("Mã căn",""))):
+                  raise SystemExit(f"Dòng {i} có mã public sai chuẩn: {row.get('Mã căn')!r}")
+              if row.get("Mã nội bộ") != row.get("Mã căn"):
+                  raise SystemExit(f"Dòng {i}: Mã nội bộ phải trùng mã public")
+          raw_unit_re=re.compile(r"\b(?:S[1-6]|P[12]|E[12])\.\d{4}\b",re.I)
+          from pathlib import Path
+          public_files=[Path("data-lumi.json"),Path("sitemap-lumi.xml")]
+          public_files += list(Path("lumi-hanoi/can-ho").rglob("*.html"))
+          public_files += [Path("lumi-hanoi/can-ho/danh-sach-trang.json")]
+          leaked=[]
+          for path in public_files:
+              if path.exists() and raw_unit_re.search(path.read_text(encoding="utf-8",errors="ignore")):
+                  leaked.append(str(path))
+          if leaked:
+              raise SystemExit("Phát hiện mã căn thật trong output public: "+", ".join(leaked[:10]))
+          print(f"OK: {len(data)} dòng chỉ chứa mã public theo STT; output không có mã căn thật/cột nội bộ.")
           PY
 
       - name: Commit và push kết quả

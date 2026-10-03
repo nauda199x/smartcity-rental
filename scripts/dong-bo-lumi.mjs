@@ -9,12 +9,12 @@ const SHEET = "1Buw_vjB_2x8KExje34lqmJKEFzCUM79LOmcvCVWw-yQ";
 const DRY = process.argv.includes("--thu") || process.argv.includes("--dry-run");
 
 const TABS = [
-  { tab: "THUÊ 1PN", type: "1 Ngủ", code: "1N", query: "select D,E,F,G,H,I,K,L,M,O", imageCol: "L" },
-  { tab: "THUÊ 2PN", type: "2 Ngủ", code: "2N", query: "select D,E,F,G,H,I,K,L,M,O", imageCol: "L" },
-  { tab: "THUÊ 3PN", type: "3 Ngủ", code: "3N", query: "select D,E,F,G,H,I,K,L,M,O", imageCol: "L" },
-  { tab: "THUÊ DUPLEX", type: "Duplex", code: "DUPLEX", query: "select D,E,F,G,I,J,L,M,N,P", imageCol: "M" },
-  { tab: "THUÊ PENTHOUSE", type: "Penthouse", code: "PENTHOUSE", query: "select D,E,F,G,I,J,L,M,N,P", imageCol: "M" },
-  { tab: "THUÊ SHOP", type: "Shop", code: "SHOP", query: "select D,E,F,G,I,J,L,M,N,P", imageCol: "M" },
+  { tab: "THUÊ 1PN", type: "1 Ngủ", publicPrefix: "thue1N", query: "select A,D,E,F,G,H,I,K,L,M,O", imageCol: "L" },
+  { tab: "THUÊ 2PN", type: "2 Ngủ", publicPrefix: "thue2N", query: "select A,D,E,F,G,H,I,K,L,M,O", imageCol: "L" },
+  { tab: "THUÊ 3PN", type: "3 Ngủ", publicPrefix: "thue3N", query: "select A,D,E,F,G,H,I,K,L,M,O", imageCol: "L" },
+  { tab: "THUÊ DUPLEX", type: "Duplex", publicPrefix: "thueDuplex", query: "select A,D,E,F,G,I,J,L,M,N,P", imageCol: "M" },
+  { tab: "THUÊ PENTHOUSE", type: "Penthouse", publicPrefix: "thuePenthouse", query: "select A,D,E,F,G,I,J,L,M,N,P", imageCol: "M" },
+  { tab: "THUÊ SHOP", type: "Shop", publicPrefix: "thueShop", query: "select A,D,E,F,G,I,J,L,M,N,P", imageCol: "M" },
 ];
 
 const txt = v => String(v == null ? "" : v).trim();
@@ -96,9 +96,14 @@ function publicMove(move, note) {
   return "Chưa xác nhận";
 }
 
-function internalId(spec, code, areaValue) {
-  const a = String(areaValue || 0).replace(/[^0-9.]/g, "").replace(".", "_");
-  return "LH." + spec.code + "." + txt(code).replace(/\s+/g, "") + "." + a;
+function normalizeStt(value) {
+  const raw = txt(value).replace(/\.0+$/, "");
+  return /^\d+$/.test(raw) ? raw : "";
+}
+
+function publicCode(spec, stt) {
+  const n = normalizeStt(stt);
+  return n ? spec.publicPrefix + "." + n : "";
 }
 
 function decodeHtml(s) {
@@ -132,7 +137,7 @@ async function fetchImageLinks(spec) {
     u.searchParams.set("sheet", spec.tab);
     u.searchParams.set("headers", "1");
     u.searchParams.set("range", "A5:P");
-    u.searchParams.set("tq", "select E," + spec.imageCol);
+    u.searchParams.set("tq", "select A," + spec.imageCol);
     const r = await fetch(u, { headers: { "user-agent": "Mozilla/5.0" } });
     if (!r.ok) return { ok: false, map: new Map() };
     const html = await r.text();
@@ -141,10 +146,10 @@ async function fetchImageLinks(spec) {
     for (const tr of trs.slice(1)) {
       const tds = tr.match(/<td[\s\S]*?<\/td>/gi) || [];
       if (tds.length < 2) continue;
-      const code = decodeHtml(tds[0].replace(/<[^>]+>/g, "")).trim();
+      const stt = normalizeStt(decodeHtml(tds[0].replace(/<[^>]+>/g, "")).trim());
       const href = (tds[1].match(/href="([^"]+)"/i) || [])[1] || "";
       const clean = decodeHtml(href);
-      if (code && /https:\/\/drive\.google\.com\//i.test(clean)) map.set(code, clean);
+      if (stt && /https:\/\/drive\.google\.com\//i.test(clean)) map.set(stt, clean);
     }
     return { ok: map.size > 0, map };
   } catch {
@@ -153,13 +158,22 @@ async function fetchImageLinks(spec) {
 }
 
 function sourceRow(spec, c) {
-  /* Hai truy vấn đều trả đúng 10 cột public theo cùng thứ tự logic:
-     tower, code, direction, area, price, interior, updated, image label, note, move. */
+  /* Mã căn thật ở cột E chỉ tồn tại trong bộ nhớ để migrate snapshot cũ.
+     Tuyệt đối không ghi mã này vào data-lumi.json/public HTML. */
+  const stt = normalizeStt(c[0]);
   return {
     spec,
-    tower: txt(c[0]), code: txt(c[1]), direction: txt(c[2]),
-    area: area(c[3]), price: money(c[4]), interior: txt(c[5]),
-    updated: date(c[6]), note: txt(c[8]), move: publicMove(c[9], c[8])
+    stt,
+    publicCode: publicCode(spec, stt),
+    tower: txt(c[1]),
+    sourceCode: txt(c[2]),
+    direction: txt(c[3]),
+    area: area(c[4]),
+    price: money(c[5]),
+    interior: txt(c[6]),
+    updated: date(c[7]),
+    note: txt(c[9]),
+    move: publicMove(c[10], c[9])
   };
 }
 
@@ -174,14 +188,14 @@ async function loadSource() {
       const src = sourceRow(spec, c);
       /* CSV của GViz có lúc trả dòng label, có lúc không. Không dựa vào index;
          nhận diện header theo nội dung để không bao giờ bỏ mất căn đầu tiên. */
-      if (deaccent(src.code) === "ma can" || deaccent(src.tower) === "toa") continue;
+      if (!src.stt && deaccent(c[0]) === "stt") continue;
       nonEmpty++;
-      if (!src.code && !src.tower && !src.area && !src.price) continue;
-      if (!src.code) continue;
+      if (!src.stt && !src.tower && !src.sourceCode && !src.area && !src.price) continue;
+      if (!src.stt || !src.publicCode) continue;
       src.folderKnown = links.ok;
-      src.folder = links.map.get(src.code) || "";
-      const id = internalId(spec, src.code, src.area);
-      if (byId.has(id)) throw new Error("Trùng mã trong " + spec.tab + ": " + src.code);
+      src.folder = links.map.get(src.stt) || "";
+      const id = src.publicCode;
+      if (byId.has(id)) throw new Error("Trùng STT trong " + spec.tab + ": " + src.stt);
       byId.set(id, src);
     }
   }
@@ -191,18 +205,18 @@ async function loadSource() {
 }
 
 function sync(old, source) {
-  /* Chỉ dọn các dòng header rác từng lọt vào snapshot; căn lịch sử vẫn giữ lại. */
+  /* Snapshot mới chỉ giữ mã public theo STT, tuyệt đối không giữ mã căn thật. */
   const next = old.filter(r => deaccent(r["Mã căn"]) !== "ma can").map(r => ({ ...r }));
   const oldById = new Map(next.map((r, i) => [txt(r["Mã nội bộ"]), i]));
   const touched = new Set();
   const stat = { updated: 0, added: 0, on: 0, off: 0, missing: 0 };
 
   for (const [id, src] of source.entries()) {
-    const complete = Boolean(src.tower && src.code && src.area > 0 && src.price > 0);
+    const complete = Boolean(src.stt && src.tower && src.area > 0 && src.price > 0);
     const show = complete && !inactive(src.note);
     const payload = {
       "Mã nội bộ": id,
-      "Mã căn": src.code,
+      "Mã căn": src.publicCode,
       "Tòa": src.tower,
       "Loại": src.spec.type,
       "Diện tích": src.area,
@@ -215,10 +229,11 @@ function sync(old, source) {
     };
 
     let pos = oldById.get(id);
-    /* Chuyển đổi snapshot đầu tiên từng dùng LH.<Mã căn> sang ID mới có loại
-       căn để tránh đụng mã khi cùng một mã xuất hiện ở hai tab khác nhau. */
-    if (pos == null) {
-      const legacy = next.findIndex(r => txt(r["Mã căn"]) === src.code &&
+    /* One-time migrate snapshot cũ: dùng mã căn thật CHỈ để tìm dòng cũ trong
+       bộ nhớ, sau đó payload bên trên ghi đè thành mã public thue1N.<STT>.
+       Sau lần chạy đầu, data-lumi.json không còn lưu mã căn thật nữa. */
+    if (pos == null && src.sourceCode) {
+      const legacy = next.findIndex(r => txt(r["Mã căn"]) === src.sourceCode &&
         key(r["Loại"]) === key(src.spec.type) &&
         Math.abs(area(r["Diện tích"]) - src.area) < 0.01);
       if (legacy >= 0 && !touched.has(legacy)) pos = legacy;
@@ -254,14 +269,21 @@ function sync(old, source) {
 
   for (let i = 0; i < next.length; i++) {
     if (touched.has(i)) continue;
-    if (!/^LH\./.test(txt(next[i]["Mã nội bộ"]))) continue;
+    if (!/^thue(?:1N|2N|3N|Duplex|Penthouse|Shop)\.\d+$/.test(txt(next[i]["Mã nội bộ"]))) {
+      /* Dòng legacy chứa mã căn thật: không giữ lại sau migration. */
+      continue;
+    }
     if (key(next[i]["Hiển thị trên Web"]) === "có") {
       next[i]["Hiển thị trên Web"] = "Không";
       stat.missing++;
     }
   }
 
-  return { next, stat };
+  const cleaned = next.filter((row, index) => {
+    if (touched.has(index)) return true;
+    return /^thue(?:1N|2N|3N|Duplex|Penthouse|Shop)\.\d+$/.test(txt(row["Mã nội bộ"]));
+  });
+  return { next: cleaned, stat };
 }
 
 async function main() {

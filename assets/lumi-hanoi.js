@@ -10,6 +10,16 @@
   var TOWERS = ["S1", "S2", "S3", "S5", "S6", "P1", "P2", "E1", "E2"];
   var state = { apartments: [], type: "all", tower: "all", price: "all", interior: "all", query: "", sort: "price-asc", page: 1 };
 
+  var PRICE_FILTERS = [
+    { value: "all", label: "Tất cả mức giá", short: "Tất cả" },
+    { value: "under10", label: "Dưới 10 triệu", short: "< 10tr" },
+    { value: "10to12", label: "10 - 12 triệu", short: "10-12tr" },
+    { value: "12to15", label: "12 - 15 triệu", short: "12-15tr" },
+    { value: "15to20", label: "15 - 20 triệu", short: "15-20tr" },
+    { value: "over20", label: "Trên 20 triệu", short: "> 20tr" }
+  ];
+  var INTERIORS = ["Nguyên bản", "Đồ cơ bản", "Full nội thất"];
+
   var $ = function (s) { return document.querySelector(s); };
   var text = function (v) { return String(v == null ? "" : v).trim(); };
   var key = function (v) { return text(v).toLowerCase(); };
@@ -157,35 +167,213 @@
     select.value = Array.from(select.options).some(function (o) { return o.value === current; }) ? current : "all";
   }
 
+  function countWith(group, value) {
+    var old = state[group];
+    state[group] = value;
+    var n = state.apartments.filter(matches).length;
+    state[group] = old;
+    return n;
+  }
+
+  function chipHtml(label, shortLabel, count, group, value, selected) {
+    var disabled = count === 0 && !selected ? " disabled" : "";
+    return '<button class="chip ' + (selected ? 'active' : '') + '" type="button" data-lumi-filter="' + group +
+      '" data-value="' + value + '"' + disabled + ' aria-label="' + label + ' - ' + count + ' căn">' +
+      '<span class="chip-full">' + label + '</span><span class="chip-short">' + (shortLabel || label) +
+      '</span> <small>' + count + '</small></button>';
+  }
+
+  function bindChipBox(selector) {
+    var box = $(selector);
+    if (!box) return;
+    box.querySelectorAll("[data-lumi-filter]").forEach(function (button) {
+      button.addEventListener("click", function () {
+        state[button.dataset.lumiFilter] = button.dataset.value;
+        state.page = 1;
+        render();
+      });
+    });
+  }
+
   function buildFilters() {
     var active = state.apartments.filter(function (a) { return a.show; });
     var typeRows = TYPES.map(function (t) {
       var n = active.filter(function (a) { return key(a.type) === key(t); }).length;
-      return { value: key(t), label: t.replace(" Ngủ", "PN") + " (" + n + ")" };
+      return { value: key(t), label: t.replace(" Ngủ", "PN"), full: t, count: n };
     });
     var towerRows = TOWERS.map(function (t) {
       var n = active.filter(function (a) { return key(a.tower) === key(t); }).length;
-      return { value: key(t), label: t + " (" + n + ")" };
+      return { value: key(t), label: t, full: t, count: n };
     });
-    var furn = ["Nguyên bản", "Đồ cơ bản", "Full nội thất"].map(function (t) {
+    var furnRows = INTERIORS.map(function (t) {
       var n = active.filter(function (a) { return key(a.interior) === key(t); }).length;
-      return { value: key(t), label: t + " (" + n + ")" };
+      return { value: key(t), label: t, full: t, count: n };
     });
-    setOptions($("#lumiType"), typeRows, "Tất cả phòng (" + active.length + ")");
-    setOptions($("#lumiTower"), towerRows, "Tất cả tòa (" + active.length + ")");
-    setOptions($("#lumiInterior"), furn, "Tất cả (" + active.length + ")");
+
+    setOptions($("#lumiType"), typeRows.map(function (r) {
+      return { value: r.value, label: r.label + " (" + r.count + ")" };
+    }), "Tất cả phòng (" + active.length + ")");
+    setOptions($("#lumiTower"), towerRows.map(function (r) {
+      return { value: r.value, label: r.label + " (" + r.count + ")" };
+    }), "Tất cả tòa (" + active.length + ")");
+    setOptions($("#lumiInterior"), furnRows.map(function (r) {
+      return { value: r.value, label: r.label + " (" + r.count + ")" };
+    }), "Tất cả (" + active.length + ")");
 
     var p = $("#lumiPrice");
     if (p) {
-      p.innerHTML =
-        '<option value="all">Tất cả mức giá (' + active.length + ')</option>' +
-        '<option value="under10">Dưới 10 triệu</option>' +
-        '<option value="10to12">10 - 12 triệu</option>' +
-        '<option value="12to15">12 - 15 triệu</option>' +
-        '<option value="15to20">15 - 20 triệu</option>' +
-        '<option value="over20">Trên 20 triệu</option>';
+      p.innerHTML = PRICE_FILTERS.map(function (r) {
+        var count = r.value === "all" ? active.length : countWith("price", r.value);
+        return '<option value="' + r.value + '">' + r.label + (r.value === "all" ? " (" + count + ")" : "") + '</option>';
+      }).join("");
       p.value = state.price;
     }
+
+    var towerBox = $("#lumiTowerFilters");
+    if (towerBox) {
+      towerBox.innerHTML = chipHtml("Tất cả tòa", "Tất cả", countWith("tower", "all"), "tower", "all", state.tower === "all") +
+        towerRows.map(function (r) {
+          return chipHtml(r.full, r.label, countWith("tower", r.value), "tower", r.value, state.tower === r.value);
+        }).join("");
+    }
+
+    var typeHtml = chipHtml("Tất cả phòng", "Tất cả", countWith("type", "all"), "type", "all", state.type === "all") +
+      typeRows.map(function (r) {
+        return chipHtml(r.full, r.label, countWith("type", r.value), "type", r.value, state.type === r.value);
+      }).join("");
+    if ($("#lumiTypeFilters")) $("#lumiTypeFilters").innerHTML = typeHtml;
+    if ($("#lumiQuickTypeFilters")) $("#lumiQuickTypeFilters").innerHTML = typeHtml;
+
+    var priceBox = $("#lumiPriceFilters");
+    if (priceBox) {
+      priceBox.innerHTML = PRICE_FILTERS.map(function (r) {
+        return chipHtml(r.label, r.short, countWith("price", r.value), "price", r.value, state.price === r.value);
+      }).join("");
+    }
+
+    var interiorBox = $("#lumiInteriorFilters");
+    if (interiorBox) {
+      interiorBox.innerHTML = chipHtml("Tất cả", "Tất cả", countWith("interior", "all"), "interior", "all", state.interior === "all") +
+        furnRows.map(function (r) {
+          return chipHtml(r.full, r.label, countWith("interior", r.value), "interior", r.value, state.interior === r.value);
+        }).join("");
+    }
+
+    bindChipBox("#lumiTowerFilters");
+    bindChipBox("#lumiTypeFilters");
+    bindChipBox("#lumiQuickTypeFilters");
+    bindChipBox("#lumiPriceFilters");
+    bindChipBox("#lumiInteriorFilters");
+
+    var quick = $("#lumiQuickTypeFilters");
+    if (quick) {
+      if (state.type === "all") quick.scrollLeft = 0;
+      else {
+        var chosen = quick.querySelector(".chip.active");
+        if (chosen) quick.scrollLeft = Math.max(0, chosen.offsetLeft - (quick.clientWidth - chosen.offsetWidth) / 2);
+      }
+    }
+  }
+
+  function activeFilterCount() {
+    var n = 0;
+    if (state.type !== "all") n++;
+    if (state.tower !== "all") n++;
+    if (state.price !== "all") n++;
+    if (state.interior !== "all") n++;
+    if (state.query) n++;
+    return n;
+  }
+
+  function filterLabel(group, value) {
+    if (group === "type") {
+      var t = TYPES.find(function (x) { return key(x) === value; });
+      return t || value;
+    }
+    if (group === "tower") return value.toUpperCase();
+    if (group === "price") {
+      var p = PRICE_FILTERS.find(function (x) { return x.value === value; });
+      return p ? p.label : value;
+    }
+    if (group === "interior") {
+      var i = INTERIORS.find(function (x) { return key(x) === value; });
+      return i || value;
+    }
+    return value;
+  }
+
+  function renderFilterUi(total) {
+    buildFilters();
+    var count = activeFilterCount();
+    var badge = $("#lumiFilterCount");
+    if (badge) { badge.textContent = count; badge.hidden = count === 0; }
+    var clearMobile = $("#lumiClearMobile");
+    if (clearMobile) clearMobile.hidden = count === 0;
+    var qb = $("#lumiQbFilter");
+    if (qb) {
+      qb.classList.toggle("dang-loc", count > 0);
+      qb.dataset.count = String(count);
+    }
+    if ($("#lumiMatchCount")) $("#lumiMatchCount").textContent = total;
+
+    var summary = $("#lumiFilterSummary");
+    if (summary) summary.textContent = count ? count + " bộ lọc đang bật · " + total + " căn phù hợp" : "Bấm để lọc nhanh căn phù hợp";
+
+    var items = [];
+    if (state.tower !== "all") items.push({ group: "tower", label: filterLabel("tower", state.tower) });
+    if (state.type !== "all") items.push({ group: "type", label: filterLabel("type", state.type) });
+    if (state.price !== "all") items.push({ group: "price", label: filterLabel("price", state.price) });
+    if (state.interior !== "all") items.push({ group: "interior", label: filterLabel("interior", state.interior) });
+    if (state.query) items.push({ group: "query", label: "“" + state.query + "”" });
+
+    var strip = $("#lumiActiveFilterStrip");
+    var chips = $("#lumiActiveFilterChips");
+    if (strip && chips) {
+      strip.hidden = items.length === 0;
+      chips.innerHTML = items.map(function (item) {
+        return '<button class="afs-chip" type="button" data-remove-lumi="' + item.group + '"><span>' +
+          item.label + '</span><b aria-hidden="true">×</b></button>';
+      }).join("");
+      chips.querySelectorAll("[data-remove-lumi]").forEach(function (button) {
+        button.addEventListener("click", function () {
+          var group = button.dataset.removeLumi;
+          if (group === "query") {
+            state.query = "";
+            if ($("#searchInput")) $("#searchInput").value = "";
+          } else state[group] = "all";
+          state.page = 1;
+          render();
+        });
+      });
+    }
+  }
+
+  function openFilters(group) {
+    var sheet = $("#lumiFiltersSection"), backdrop = $("#lumiFiltersBackdrop");
+    if (!sheet || !backdrop) return;
+    sheet.classList.add("open");
+    backdrop.classList.add("open");
+    sheet.setAttribute("aria-hidden", "false");
+    var toggle = $("#lumiMobileFilterToggle"), qb = $("#lumiQbFilter");
+    if (toggle) toggle.setAttribute("aria-expanded", "true");
+    if (qb) qb.setAttribute("aria-expanded", "true");
+    document.body.style.overflow = "hidden";
+    if (group) {
+      var section = sheet.querySelector('[data-lumi-section="' + group + '"]');
+      if (section) window.setTimeout(function () { section.scrollIntoView({ block: "start" }); }, 30);
+    }
+  }
+
+  function closeFilters() {
+    var sheet = $("#lumiFiltersSection"), backdrop = $("#lumiFiltersBackdrop");
+    if (!sheet || !backdrop) return;
+    sheet.classList.remove("open");
+    backdrop.classList.remove("open");
+    sheet.setAttribute("aria-hidden", "true");
+    var toggle = $("#lumiMobileFilterToggle"), qb = $("#lumiQbFilter");
+    if (toggle) toggle.setAttribute("aria-expanded", "false");
+    if (qb) qb.setAttribute("aria-expanded", "false");
+    document.body.style.overflow = "";
   }
 
   function renderStats() {
@@ -272,13 +460,14 @@
     }
     if ($("#lumiResultCount")) $("#lumiResultCount").innerHTML = '<strong>' + filtered.length + '</strong> căn hộ đang trống phù hợp';
     if ($("#lumiFind")) $("#lumiFind").textContent = "Xem " + filtered.length + " căn";
+    renderFilterUi(filtered.length);
     renderPagination(filtered.length);
   }
 
   function reset() {
     state.type = state.tower = state.price = state.interior = "all";
     state.query = ""; state.sort = "price-asc"; state.page = 1;
-    ["#lumiType","#lumiTower","#lumiPrice","#lumiInterior"].forEach(function (s) { if ($(s)) $(s).value = "all"; });
+    ["#lumiType","#lumiTower","#lumiPrice","#lumiInterior"].forEach(function (selector) { if ($(selector)) $(selector).value = "all"; });
     if ($("#searchInput")) $("#searchInput").value = "";
     if ($("#lumiSort")) $("#lumiSort").value = "price-asc";
     render();
@@ -289,14 +478,44 @@
       var el = $(pair[0]); if (!el) return;
       el.addEventListener("change", function () { state[pair[1]] = el.value; state.page = 1; render(); });
     });
+
     var search = $("#searchInput");
     if (search) search.addEventListener("input", function () { state.query = search.value.trim(); state.page = 1; render(); });
+
     var sort = $("#lumiSort");
     if (sort) sort.addEventListener("change", function () { state.sort = sort.value; state.page = 1; render(); });
-    if ($("#lumiClear")) $("#lumiClear").addEventListener("click", reset);
+
+    ["#lumiClear","#lumiClearMobile","#lumiActiveFilterClear"].forEach(function (selector) {
+      var el = $(selector); if (el) el.addEventListener("click", reset);
+    });
+
     if ($("#lumiFind")) $("#lumiFind").addEventListener("click", function () {
       var grid = $("#lumiListingGrid"); if (grid) window.scrollTo({ top: grid.offsetTop - 100, behavior: "smooth" });
     });
+
+    if ($("#lumiMobileFilterToggle")) $("#lumiMobileFilterToggle").addEventListener("click", function () { openFilters(); });
+    if ($("#lumiQbFilter")) $("#lumiQbFilter").addEventListener("click", function () { openFilters(); });
+    if ($("#lumiCloseFilters")) $("#lumiCloseFilters").addEventListener("click", closeFilters);
+    if ($("#lumiFiltersBackdrop")) $("#lumiFiltersBackdrop").addEventListener("click", closeFilters);
+    if ($("#lumiApplyFilters")) $("#lumiApplyFilters").addEventListener("click", function () {
+      closeFilters();
+      var grid = $("#lumiListingGrid"); if (grid) window.scrollTo({ top: grid.offsetTop - 100, behavior: "smooth" });
+    });
+
+    document.querySelectorAll("[data-lumi-group]").forEach(function (button) {
+      button.addEventListener("click", function () { openFilters(button.dataset.lumiGroup); });
+    });
+
+    if ($("#lumiQbSearch")) $("#lumiQbSearch").addEventListener("click", function () {
+      var box = $("#searchInput");
+      if (box) {
+        window.scrollTo({ top: Math.max(0, box.getBoundingClientRect().top + window.scrollY - 80), behavior: "smooth" });
+        window.setTimeout(function () { box.focus(); }, 250);
+      }
+    });
+
+    document.addEventListener("keydown", function (event) { if (event.key === "Escape") closeFilters(); });
+
     var mq = window.matchMedia("(min-width:1081px)");
     var rerender = function () { state.page = 1; render(); };
     if (mq.addEventListener) mq.addEventListener("change", rerender); else if (mq.addListener) mq.addListener(rerender);
