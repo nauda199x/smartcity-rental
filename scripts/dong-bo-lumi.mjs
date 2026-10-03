@@ -96,8 +96,9 @@ function publicMove(move, note) {
   return "Chưa xác nhận";
 }
 
-function internalId(spec, code) {
-  return "LH." + spec.code + "." + txt(code).replace(/\s+/g, "");
+function internalId(spec, code, areaValue) {
+  const a = String(areaValue || 0).replace(/[^0-9.]/g, "").replace(".", "_");
+  return "LH." + spec.code + "." + txt(code).replace(/\s+/g, "") + "." + a;
 }
 
 function decodeHtml(s) {
@@ -174,7 +175,7 @@ async function loadSource() {
       if (!src.code) continue;
       src.folderKnown = links.ok;
       src.folder = links.map.get(src.code) || "";
-      const id = internalId(spec, src.code);
+      const id = internalId(spec, src.code, src.area);
       if (byId.has(id)) throw new Error("Trùng mã trong " + spec.tab + ": " + src.code);
       byId.set(id, src);
     }
@@ -211,8 +212,9 @@ function sync(old, source) {
     /* Chuyển đổi snapshot đầu tiên từng dùng LH.<Mã căn> sang ID mới có loại
        căn để tránh đụng mã khi cùng một mã xuất hiện ở hai tab khác nhau. */
     if (pos == null) {
-      const legacy = old.findIndex(r => txt(r["Mã nội bộ"]) === "LH." + src.code &&
-        key(r["Loại"]) === key(src.spec.type));
+      const legacy = old.findIndex(r => txt(r["Mã căn"]) === src.code &&
+        key(r["Loại"]) === key(src.spec.type) &&
+        Math.abs(area(r["Diện tích"]) - src.area) < 0.01);
       if (legacy >= 0 && !touched.has(legacy)) pos = legacy;
     }
 
