@@ -50,6 +50,7 @@
   function tinhTrang(giaTri) {
     var s = String(giaTri || "").trim();
     if (!s || /vào ngay|o ngay|luôn|ngay/i.test(s)) return "Vào ngay";
+    if (/liên hệ|lien he|chưa xác nhận|chua xac nhan/i.test(s)) return "Liên hệ ngày vào";
     return "Trống từ " + s;
   }
 
