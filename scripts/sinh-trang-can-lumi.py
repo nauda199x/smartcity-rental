@@ -2,6 +2,7 @@
 import json
 import os
 import re
+import shutil
 import sys
 import unicodedata
 from html import escape
@@ -381,6 +382,12 @@ def main():
             "toa": txt(r.get("Tòa")), "dien_tich": number(r.get("Diện tích")),
             "active": active(r),
         }
+
+    # Dọn toàn bộ URL legacy từng chứa mã căn thật. Chỉ giữ thư mục tương ứng
+    # với registry public hiện tại (mã dạng thue1N.<STT>, thue2N.<STT>...).
+    for child in BASE.iterdir():
+        if child.is_dir() and child.name not in registry:
+            shutil.rmtree(child)
 
     for r in rows:
         ident = txt(r.get("Mã nội bộ"))
