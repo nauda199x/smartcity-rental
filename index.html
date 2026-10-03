@@ -173,6 +173,7 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@700;800&family=Be+Vietnam+Pro:wght@300;400;500;600&display=swap">
   </noscript>
   <link rel="stylesheet" href="/assets/v3.css?v=20260830-14">
+  <link rel="stylesheet" href="/assets/project-switch.css?v=20261003-1">
 
   <!-- Dòng nhắc "đã sao chép tin nhắn" khi khách bấm Hỏi căn này (thêm 03/08/2026).
        Đặt riêng ở trang chủ vì chỉ trang này có danh sách căn; không đụng v3.css dùng chung. -->
@@ -350,6 +351,19 @@
 
     <div class="shell hero-v4__trong">
       <div class="hero-v4__chu">
+        <div class="project-switch" aria-label="Chọn dự án">
+          <span class="project-switch__eyebrow">Chọn dự án · Chuyển nhanh giữa 2 quỹ căn</span>
+          <div class="project-switch__controls">
+            <a class="project-switch__link is-active" href="/" aria-current="page">
+              <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M4 20V7l6-3v16M14 20V10l6 3v7M3 20h18" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/></svg>
+              Smart City
+            </a>
+            <a class="project-switch__link project-switch__link--lumi" href="/lumi-hanoi/">
+              <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M4 20V7l6-3v16M14 20V10l6 3v7M3 20h18" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/></svg>
+              Lumi Hanoi
+            </a>
+          </div>
+        </div>
         <h1 data-i18n="hero.h1">Cho Thuê Chung Cư Vinhomes Smart City</h1>
         <p data-i18n="hero.p">Bộ lọc thông minh — tìm nhanh theo giá thuê, loại căn hộ và tình trạng nội thất. Dữ liệu cập nhật liên tục từ thực tế, giúp anh/chị chọn đúng căn ưng ý chỉ trong vài phút.</p>
         <!-- Dấu hiệu dữ liệu sống (V3). 30 phút là chu kỳ THẬT của Apps Script
