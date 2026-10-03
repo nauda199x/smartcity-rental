@@ -1,0 +1,111 @@
+name: Đồng bộ quỹ căn Lumi Hanoi
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - "data-lumi.json"
+      - "lumi-hanoi/**"
+      - "assets/lumi-hanoi.js"
+      - "assets/lumi-hanoi.css"
+      - "assets/project-switch.css"
+      - "scripts/dong-bo-lumi.mjs"
+      - "scripts/quet-thu-muc-anh-lumi.py"
+      - "scripts/sinh-trang-can-lumi.py"
+      - ".github/workflows/dong-bo-lumi.yml"
+  schedule:
+    - cron: "*/30 * * * *"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+  pages: write
+
+concurrency:
+  group: lumi-rental-sync
+  cancel-in-progress: false
+
+jobs:
+  dong-bo:
+    if: ${{ github.event_name != 'push' || github.actor != 'github-actions[bot]' }}
+    runs-on: ubuntu-latest
+    steps:
+      - name: Lấy code
+        uses: actions/checkout@v7
+        with:
+          ref: main
+          fetch-depth: 0
+
+      - name: Chuẩn bị Node
+        uses: actions/setup-node@v7
+        with:
+          node-version: "24"
+
+      - name: Chuẩn bị Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Đồng bộ dữ liệu public từ Google Sheet Lumi
+        run: node scripts/dong-bo-lumi.mjs
+
+      - name: Quét thư mục ảnh Drive của căn Lumi
+        run: python3 -u scripts/quet-thu-muc-anh-lumi.py
+
+      - name: Sinh trang chi tiết và sitemap Lumi
+        run: python3 scripts/sinh-trang-can-lumi.py
+
+      - name: Kiểm tra không lộ cột nội bộ
+        run: |
+          python3 - <<'PY'
+          import json
+          data=json.load(open("data-lumi.json",encoding="utf-8"))
+          banned={"TÊN CHỦ NHÀ","SỐ ĐIỆN THOẠI","Pass cửa","NGUỒN CỦA AI"}
+          for i,row in enumerate(data):
+              bad=banned.intersection(row)
+              if bad:
+                  raise SystemExit(f"Dòng {i} lộ cột nội bộ: {sorted(bad)}")
+          print(f"OK: {len(data)} dòng public, không có cột nội bộ.")
+          PY
+
+      - name: Commit và push kết quả
+        id: save
+        run: |
+          set -euo pipefail
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+
+          git add data-lumi.json lumi-hanoi sitemap-lumi.xml
+
+          if git diff --cached --quiet; then
+            echo "Quỹ căn Lumi đã khớp nguồn — không cần commit."
+            exit 0
+          fi
+
+          git commit -m "Tự động đồng bộ quỹ căn Lumi Hanoi"
+
+          for lan in 1 2 3 4; do
+            if ! git pull --rebase origin main; then
+              git rebase --abort || true
+              echo "::error::Main thay đổi xung đột; dừng để không ghi đè dữ liệu mới."
+              exit 1
+            fi
+            if git push origin HEAD:main; then
+              echo "changed=true" >> "$GITHUB_OUTPUT"
+              echo "Đã push dữ liệu Lumi lên main."
+              exit 0
+            fi
+            cho=$((2 ** lan))
+            echo "Push thất bại; thử lại sau ${cho}s..."
+            sleep "$cho"
+          done
+
+          echo "::error::Không push được sau 4 lần thử."
+          exit 1
+
+      - name: Cập nhật website
+        if: steps.save.outputs.changed == 'true'
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: gh api --method POST "repos/$GITHUB_REPOSITORY/pages/builds" --jq '.status'
