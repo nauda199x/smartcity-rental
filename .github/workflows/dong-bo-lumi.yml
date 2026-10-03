@@ -10,7 +10,7 @@ on:
       - "assets/lumi-hanoi.js"
       - "assets/lumi-hanoi.css"
       - "assets/project-switch.css"
-      - "scripts/dong-bo-lumi.mjs"
+      - "scripts/dong-bo-lumi.py"
       - "scripts/quet-thu-muc-anh-lumi.py"
       - "scripts/sinh-trang-can-lumi.py"
       - ".github/workflows/dong-bo-lumi.yml"
@@ -37,18 +37,13 @@ jobs:
           ref: main
           fetch-depth: 0
 
-      - name: Chuẩn bị Node
-        uses: actions/setup-node@v7
-        with:
-          node-version: "24"
-
       - name: Chuẩn bị Python
         uses: actions/setup-python@v5
         with:
           python-version: "3.11"
 
       - name: Đồng bộ dữ liệu public từ Google Sheet Lumi
-        run: node scripts/dong-bo-lumi.mjs
+        run: python3 -u scripts/dong-bo-lumi.py
 
       - name: Quét thư mục ảnh Drive của căn Lumi
         run: python3 -u scripts/quet-thu-muc-anh-lumi.py
