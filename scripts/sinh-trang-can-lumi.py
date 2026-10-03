@@ -246,6 +246,7 @@ def detail_html(row, page_slug, similar, slug_by_id):
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@700;800&family=Be+Vietnam+Pro:wght@300;400;500;600&display=swap">
 <link rel="stylesheet" href="/assets/v3.css?v=20260830-14">
+<link rel="stylesheet" href="/assets/ngon-ngu.css?v=20260914-compact">
 <link rel="stylesheet" href="/assets/project-switch.css?v=20261003-1">
 </head>
 <body>
@@ -312,7 +313,8 @@ def detail_html(row, page_slug, similar, slug_by_id):
   </div>
 </footer>
 <a class="zalo-noi" href="https://zalo.me/%(zalo)s" target="_blank" rel="noopener">Nhắn Zalo tư vấn</a>
-<script src="/assets/gallery.js?v=20260830-6" defer></script>
+<script id="ct-gallery-js" src="/assets/gallery.js?v=20260830-6" defer></script>
+<script id="ct-detail-js" src="/assets/can-ho-detail.js?v=20261003-lumi-1" defer></script>
 </body>
 </html>
 """ % {
