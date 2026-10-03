@@ -1,0 +1,16 @@
+
+/* Project switch shared by Smart City and Lumi Hanoi hero pages. */
+.project-switch{margin:0 0 18px;color:#fff}
+.project-switch__eyebrow{display:block;margin:0 0 8px;font-size:.78rem;font-weight:600;letter-spacing:.02em;opacity:.92}
+.project-switch__controls{display:inline-flex;gap:6px;padding:5px;border:1px solid rgba(255,255,255,.24);border-radius:16px;background:rgba(11,31,52,.34);box-shadow:0 10px 30px rgba(0,0,0,.13);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px)}
+.project-switch__link{display:inline-flex;align-items:center;justify-content:center;min-height:42px;padding:0 18px;border-radius:12px;color:#fff;text-decoration:none;font-size:.9rem;font-weight:700;white-space:nowrap;transition:transform .18s ease,background .18s ease,color .18s ease}
+.project-switch__link:hover{transform:translateY(-1px);background:rgba(255,255,255,.12)}
+.project-switch__link.is-active{background:#fff;color:#10243c;box-shadow:0 4px 14px rgba(0,0,0,.14)}
+.project-switch__link--lumi.is-active{color:#075f4a}
+.project-switch__link svg{width:16px;height:16px;margin-right:7px}
+@media(max-width:640px){
+  .project-switch{margin-bottom:14px}
+  .project-switch__controls{display:grid;grid-template-columns:1fr 1fr;width:min(100%,330px)}
+  .project-switch__link{min-height:40px;padding:0 10px;font-size:.82rem}
+  .project-switch__eyebrow{font-size:.72rem}
+}
