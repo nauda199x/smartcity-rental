@@ -112,6 +112,7 @@ async function fetchCsv(spec) {
   u.searchParams.set("tqx", "out:csv");
   u.searchParams.set("sheet", spec.tab);
   u.searchParams.set("headers", "1");
+  u.searchParams.set("range", "A5:P");
   u.searchParams.set("tq", spec.query);
   const r = await fetch(u, { headers: { "user-agent": "Mozilla/5.0" } });
   if (!r.ok) throw new Error(spec.tab + ": HTTP " + r.status);
@@ -130,6 +131,7 @@ async function fetchImageLinks(spec) {
     u.searchParams.set("tqx", "out:html");
     u.searchParams.set("sheet", spec.tab);
     u.searchParams.set("headers", "1");
+    u.searchParams.set("range", "A5:P");
     u.searchParams.set("tq", "select E," + spec.imageCol);
     const r = await fetch(u, { headers: { "user-agent": "Mozilla/5.0" } });
     if (!r.ok) return { ok: false, map: new Map() };
@@ -144,7 +146,7 @@ async function fetchImageLinks(spec) {
       const clean = decodeHtml(href);
       if (code && /https:\/\/drive\.google\.com\//i.test(clean)) map.set(code, clean);
     }
-    return { ok: true, map };
+    return { ok: map.size > 0, map };
   } catch {
     return { ok: false, map: new Map() };
   }
@@ -186,8 +188,9 @@ async function loadSource() {
 }
 
 function sync(old, source) {
-  const oldById = new Map(old.map((r, i) => [txt(r["Mã nội bộ"]), i]));
-  const next = old.map(r => ({ ...r }));
+  /* Chỉ dọn các dòng header rác từng lọt vào snapshot; căn lịch sử vẫn giữ lại. */
+  const next = old.filter(r => deaccent(r["Mã căn"]) !== "ma can").map(r => ({ ...r }));
+  const oldById = new Map(next.map((r, i) => [txt(r["Mã nội bộ"]), i]));
   const touched = new Set();
   const stat = { updated: 0, added: 0, on: 0, off: 0, missing: 0 };
 
@@ -212,7 +215,7 @@ function sync(old, source) {
     /* Chuyển đổi snapshot đầu tiên từng dùng LH.<Mã căn> sang ID mới có loại
        căn để tránh đụng mã khi cùng một mã xuất hiện ở hai tab khác nhau. */
     if (pos == null) {
-      const legacy = old.findIndex(r => txt(r["Mã căn"]) === src.code &&
+      const legacy = next.findIndex(r => txt(r["Mã căn"]) === src.code &&
         key(r["Loại"]) === key(src.spec.type) &&
         Math.abs(area(r["Diện tích"]) - src.area) < 0.01);
       if (legacy >= 0 && !touched.has(legacy)) pos = legacy;
