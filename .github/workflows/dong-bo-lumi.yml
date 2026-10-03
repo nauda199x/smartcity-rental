@@ -75,7 +75,18 @@ jobs:
                   raise SystemExit(f"Dòng {i} có mã public sai chuẩn: {row.get('Mã căn')!r}")
               if row.get("Mã nội bộ") != row.get("Mã căn"):
                   raise SystemExit(f"Dòng {i}: Mã nội bộ phải trùng mã public")
-          print(f"OK: {len(data)} dòng chỉ chứa mã public theo STT, không có mã căn thật/cột nội bộ.")
+          raw_unit_re=re.compile(r"\b(?:S[1-6]|P[12]|E[12])\.\d{4}\b",re.I)
+          from pathlib import Path
+          public_files=[Path("data-lumi.json"),Path("sitemap-lumi.xml")]
+          public_files += list(Path("lumi-hanoi/can-ho").rglob("*.html"))
+          public_files += [Path("lumi-hanoi/can-ho/danh-sach-trang.json")]
+          leaked=[]
+          for path in public_files:
+              if path.exists() and raw_unit_re.search(path.read_text(encoding="utf-8",errors="ignore")):
+                  leaked.append(str(path))
+          if leaked:
+              raise SystemExit("Phát hiện mã căn thật trong output public: "+", ".join(leaked[:10]))
+          print(f"OK: {len(data)} dòng chỉ chứa mã public theo STT; output không có mã căn thật/cột nội bộ.")
           PY
 
       - name: Commit và push kết quả
