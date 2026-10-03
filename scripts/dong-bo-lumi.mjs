@@ -172,6 +172,7 @@ function sourceRow(spec, c) {
     price: money(c[5]),
     interior: txt(c[6]),
     updated: date(c[7]),
+    imageCell: txt(c[8]),
     note: txt(c[9]),
     move: publicMove(c[10], c[9])
   };
@@ -194,8 +195,11 @@ async function loadSource() {
          Chỉ coi là căn khi ngoài STT còn có dữ liệu căn thực tế. */
       if (!src.tower && !src.sourceCode && !src.area && !src.price) continue;
       if (!src.stt || !src.publicCode) continue;
-      src.folderKnown = links.ok;
-      src.folder = links.map.get(src.stt) || "";
+      const directFolder = /^https:\/\/drive\.google\.com\/(?:drive\/(?:u\/\d+\/)?folders\/|open\?id=)[A-Za-z0-9_-]+/i.test(src.imageCell)
+        ? src.imageCell
+        : "";
+      src.folder = links.map.get(src.stt) || directFolder || "";
+      src.folderKnown = links.ok || Boolean(directFolder);
       const id = src.publicCode;
       if (byId.has(id)) throw new Error("Trùng STT trong " + spec.tab + ": " + src.stt);
       byId.set(id, src);
