@@ -343,8 +343,8 @@ def list_index(rows, slug_by_id):
     return """<!doctype html><html lang="vi"><head><meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Danh sách căn hộ Lumi Hanoi đang cho thuê</title>
-<meta name="robots" content="index,follow,max-image-preview:large">
-<link rel="canonical" href="%(domain)s/lumi-hanoi/can-ho/">
+<meta name="robots" content="noindex,follow,max-image-preview:large">
+<link rel="canonical" href="%(domain)s/lumi-hanoi/">
 <link rel="stylesheet" href="/assets/v3.css?v=20260830-14"></head><body>
 <header class="top"><div class="khung"><a class="hieu" href="/lumi-hanoi/">Cho thuê căn hộ Lumi Hanoi<small>Quỹ căn cập nhật thường xuyên</small></a></div></header>
 <main class="khung"><p class="bc"><a href="/">Trang chủ</a> › <a href="/lumi-hanoi/">Lumi Hanoi</a> › Danh sách căn</p>
@@ -411,7 +411,6 @@ def main():
 
     urls = [
         (DOMAIN + "/lumi-hanoi/", "", "0.9"),
-        (DOMAIN + "/lumi-hanoi/can-ho/", "", "0.7"),
     ]
     for r in rows:
         if not active(r):
