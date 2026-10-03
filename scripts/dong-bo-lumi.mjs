@@ -146,7 +146,7 @@ async function fetchImageLinks(spec) {
       const clean = decodeHtml(href);
       if (code && /https:\/\/drive\.google\.com\//i.test(clean)) map.set(code, clean);
     }
-    return { ok: true, map };
+    return { ok: map.size > 0, map };
   } catch {
     return { ok: false, map: new Map() };
   }
