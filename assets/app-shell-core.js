@@ -55,7 +55,7 @@
   /* Tab nào đang mở: dùng để tô đậm đúng một mục */
   function tabDangMo() {
     var p = duongDan();
-    if (p === "/" || p === "") return "trang-chu";
+    if (p === "/" || p === "" || p.indexOf("/lumi-hanoi") === 0) return "trang-chu";
     if (p.indexOf("/gui-thue") === 0) return "ky-gui";
     if (/bang-gia|so-sanh-gia|gia-thue-studio/.test(p)) return "bang-gia";
     if (/cam-nang|kinh-nghiem|luu-y|phi-dich-vu|tien-ich/.test(p)) return "cam-nang";
@@ -203,7 +203,7 @@
   function navLink(label, href, cls, key) {
     var current = duongDan();
     var active = href === "/"
-      ? (current === "/" || current === "")
+      ? (current === "/" || current === "" || current.indexOf("/lumi-hanoi") === 0)
       : current.indexOf(href.replace(/\/$/, "")) === 0;
     return '<a class="nav-v4-link' + (cls ? " " + cls : "") + (active ? " active" : "") + '" href="' + href + '"'
       + (active ? ' aria-current="page"' : "")

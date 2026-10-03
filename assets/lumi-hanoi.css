@@ -1,10 +1,8 @@
-
-/* Lumi Hanoi rental collection — reuses the Smart City v3 visual system. */
+/* Lumi Hanoi: chỉ giữ style riêng cho nội dung/dữ liệu.
+   Hero, filter, card, navigation, spacing và mobile shell dùng CHUNG
+   assets/ngon-ngu.css + assets/v3.css với Smart City để không lệch design. */
 body.lumi-page{background:#f6f7f9}
-.lumi-page .hero-v4{min-height:570px}
 .lumi-page .hero-v4__anh img{object-position:center 52%}
-.lumi-page .hero-v4__phu{background:linear-gradient(90deg,rgba(9,27,45,.76) 0%,rgba(9,27,45,.53) 38%,rgba(9,27,45,.14) 70%,rgba(9,27,45,.02) 100%)}
-.lumi-page .hero-v4__chu{max-width:660px}
 .lumi-page .hero-dong-bo .cham{background:#22c58b}
 .lumi-page .lumi-kicker{margin:4px 0 0;color:#66778a;font-size:.9rem}
 .lumi-page .lumi-note{margin:34px 0 8px;padding:22px 24px;border:1px solid #e3e8ef;border-radius:20px;background:#fff}
@@ -18,13 +16,10 @@ body.lumi-page{background:#f6f7f9}
 .lumi-page .lumi-no-photo strong{color:#20344b}
 .lumi-page .lumi-source{font-size:.78rem;color:#8390a0}
 .lumi-page .lumi-detail-badge{display:inline-flex;align-items:center;gap:6px;margin:0 8px 8px 0;padding:7px 10px;border-radius:999px;background:#e9f8f2;color:#08684f;font-size:.82rem;font-weight:700}
-.lumi-page .filter-card{position:relative;z-index:4}
-@media(max-width:900px){
-  .lumi-page .hero-v4{min-height:530px}
-}
+
+/* Không override kích thước hero/filter ở đây.
+   Mọi breakpoint và tỷ lệ lấy trực tiếp từ theme Smart City. */
 @media(max-width:640px){
-  .lumi-page .hero-v4{min-height:610px}
   .lumi-page .hero-v4__anh img{object-position:center}
-  .lumi-page .hero-v4__phu{background:linear-gradient(180deg,rgba(9,27,45,.38),rgba(9,27,45,.68) 58%,rgba(9,27,45,.82))}
   .lumi-page .lumi-note{margin-top:24px;padding:18px}
 }
