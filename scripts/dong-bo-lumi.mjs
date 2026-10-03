@@ -190,7 +190,9 @@ async function loadSource() {
          nhận diện header theo nội dung để không bao giờ bỏ mất căn đầu tiên. */
       if (!src.stt && deaccent(c[0]) === "stt") continue;
       nonEmpty++;
-      if (!src.stt && !src.tower && !src.sourceCode && !src.area && !src.price) continue;
+      /* Sheet có STT/formula điền sẵn xuống rất nhiều dòng trống.
+         Chỉ coi là căn khi ngoài STT còn có dữ liệu căn thực tế. */
+      if (!src.tower && !src.sourceCode && !src.area && !src.price) continue;
       if (!src.stt || !src.publicCode) continue;
       src.folderKnown = links.ok;
       src.folder = links.map.get(src.stt) || "";
