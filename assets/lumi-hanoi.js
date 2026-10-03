@@ -307,6 +307,22 @@
     return r.json();
   }).then(function (rows) {
     state.apartments = (Array.isArray(rows) ? rows : []).map(toApartment);
+
+    /* Deep-link từ trang chi tiết quay lại đúng tòa/loại căn. */
+    try {
+      var params = new URLSearchParams(location.search);
+      var typeParam = params.get("type");
+      var towerParam = params.get("tower");
+      if (typeParam) {
+        var matchedType = TYPES.find(function (t) { return slug(t) === slug(typeParam) || key(t) === key(typeParam); });
+        if (matchedType) state.type = key(matchedType);
+      }
+      if (towerParam) {
+        var matchedTower = TOWERS.find(function (t) { return key(t) === key(towerParam); });
+        if (matchedTower) state.tower = key(matchedTower);
+      }
+    } catch (e) { /* query lỗi không được ảnh hưởng trang */ }
+
     buildFilters();
     renderStats();
     bind();
