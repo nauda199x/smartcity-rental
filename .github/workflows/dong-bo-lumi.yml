@@ -14,8 +14,13 @@ on:
       - "scripts/quet-thu-muc-anh-lumi.py"
       - "scripts/sinh-trang-can-lumi.py"
       - ".github/workflows/dong-bo-lumi.yml"
+  # Trigger chính: chạy ngay sau workflow Smart City (workflow này đang chạy ổn định mỗi 30 phút).
+  workflow_run:
+    workflows: ["Đồng bộ quỹ căn từ Sheet CTV"]
+    types: [completed]
+  # Fallback phòng trường hợp scheduler/workflow_run của GitHub bị trễ hoặc rớt.
   schedule:
-    - cron: "*/30 * * * *"
+    - cron: "17 * * * *"
   workflow_dispatch:
 
 permissions:
@@ -28,7 +33,7 @@ concurrency:
 
 jobs:
   dong-bo:
-    if: ${{ github.event_name != 'push' || github.actor != 'github-actions[bot]' }}
+    if: ${{ (github.event_name != 'push' || github.actor != 'github-actions[bot]') && (github.event_name != 'workflow_run' || github.event.workflow_run.conclusion == 'success') }}
     runs-on: ubuntu-latest
     steps:
       - name: Lấy code
