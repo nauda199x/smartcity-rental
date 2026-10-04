@@ -16,7 +16,7 @@ REGISTRY = BASE / "danh-sach-trang.json"
 SITEMAP = ROOT / "sitemap-lumi.xml"
 DOMAIN = "https://timthuesmartcity.com"
 ZALO = "0977923284"
-FALLBACK_OG = "https://www.capitaland.com/vn/en/stay/residential-development-listing/lumi-hanoi/_jcr_content/root/container/container/entitydetails.coreimg.jpeg/content/dam/capitaland-media-library/residential/Vietnam/Hanoi/lumi-hanoi/Lumi%20Hanoi_Overall%20Facade%20%28D%29_Final.jpg"
+FALLBACK_OG = "https://timthuesmartcity.com/assets/media/lumi-hero-desktop.jpeg"
 
 
 def txt(v):
