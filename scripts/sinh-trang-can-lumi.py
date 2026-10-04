@@ -257,9 +257,9 @@ def detail_html(row, page_slug, similar, slug_by_id):
     <a class="hieu" href="/lumi-hanoi/">Cho thuê căn hộ Lumi Hanoi<small>Ảnh thật · Quỹ căn cập nhật thường xuyên</small></a>
     <nav>
       <a href="/lumi-hanoi/">Tất cả căn</a>
-      <a href="/lumi-hanoi/?type=1-ngu">1PN</a>
-      <a href="/lumi-hanoi/?type=2-ngu">2PN</a>
-      <a href="/lumi-hanoi/?type=3-ngu">3PN</a>
+      <a href="/lumi-hanoi/?type=1-ngu" rel="nofollow">1PN</a>
+      <a href="/lumi-hanoi/?type=2-ngu" rel="nofollow">2PN</a>
+      <a href="/lumi-hanoi/?type=3-ngu" rel="nofollow">3PN</a>
       <a href="/">Smart City</a>
       <a href="/cam-nang-thue-nha.html">Cẩm nang</a>
     </nav>
@@ -305,8 +305,8 @@ def detail_html(row, page_slug, similar, slug_by_id):
   <h2 style="font-size:19px;margin-bottom:2px">Xem thêm theo nhu cầu</h2>
   <div class="lq">
     <a href="/lumi-hanoi/">Toàn bộ căn Lumi Hanoi</a>
-    <a href="/lumi-hanoi/?tower=%(tower_key)s">Căn tòa %(tower)s</a>
-    <a href="/lumi-hanoi/?type=%(type_slug)s">Căn %(type)s</a>
+    <a href="/lumi-hanoi/?tower=%(tower_key)s" rel="nofollow">Căn tòa %(tower)s</a>
+    <a href="/lumi-hanoi/?type=%(type_slug)s" rel="nofollow">Căn %(type)s</a>
     <a href="/">Xem quỹ căn Vinhomes Smart City</a>
   </div>
 
