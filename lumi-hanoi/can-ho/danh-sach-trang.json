@@ -61,7 +61,7 @@
     "loai": "1 Ngủ",
     "toa": "S3",
     "dien_tich": 42.0,
-    "active": true
+    "active": false
   },
   "cho-thue-can-ho-1-ngu-s5-42m2-thue1n-9": {
     "id": "thue1N.9",
@@ -101,7 +101,7 @@
     "loai": "2 Ngủ",
     "toa": "S6",
     "dien_tich": 54.0,
-    "active": false
+    "active": true
   },
   "cho-thue-can-ho-2-ngu-s5-54m2-thue2n-2": {
     "id": "thue2N.2",
