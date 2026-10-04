@@ -11,6 +11,10 @@
   var TU = {
     "brand": ["Smart City Apartments for Rent", "스마트시티 아파트 임대"],
     "brandSub": ["Real photos · Updated daily", "실사진 · 매일 업데이트"],
+    "brandLumi": ["Lumi Hanoi Apartments for Rent", "Lumi Hanoi 아파트 임대"],
+    "brandSubLumi": ["Real photos · Live Lumi inventory", "실사진 · Lumi 실시간 매물"],
+    "nav.lumiAll": ["All Lumi listings", "Lumi 전체 매물"],
+    "nav.smart": ["Smart City", "Smart City"],
     "nav.all": ["All listings", "전체 매물"],
     "nav.studio": ["Studio", "스튜디오"],
     "nav.1p": ["1BR+", "침실 1개+"],
@@ -20,10 +24,14 @@
     "bc.home": ["Home", "홈"],
     "title.active": ["Apartment for rent: {TYPE}, {AREA}, Tower {TOWER} — Vinhomes Smart City",
                      "빈홈즈 스마트시티 임대: {TYPE}, {AREA}, {TOWER}동"],
+    "title.activeLumi": ["Apartment for rent: {TYPE}, {AREA}, Tower {TOWER} — Lumi Hanoi",
+                         "Lumi Hanoi 임대: {TYPE}, {AREA}, {TOWER}동"],
     "title.rented": ["{TYPE} apartment, {AREA}, Tower {TOWER} — already rented",
                      "{TYPE} · {AREA} · {TOWER}동 — 임대 완료"],
     "lead.active": ["{TYPE} apartment, {AREA}, Tower {TOWER}, {ZONE}, Vinhomes Smart City. {FURN}. Rent {PRICE}. Updated {DATE}.",
                     "빈홈즈 스마트시티 {ZONE} {TOWER}동 {TYPE}, {AREA}. {FURN}. 월 임대료 {PRICE}. 업데이트 {DATE}."],
+    "lead.activeLumi": ["{TYPE} apartment, {AREA}, Tower {TOWER}, Lumi Hanoi. {FURN}. Rent {PRICE}. Updated {DATE}.",
+                        "Lumi Hanoi {TOWER}동 {TYPE}, {AREA}. {FURN}. 월 임대료 {PRICE}. 업데이트 {DATE}."],
     "rented.note1": ["This apartment has already been rented.", "이 매물은 임대가 완료되었습니다."],
     "rented.note2": ["Here are similar apartments that are still available.", "현재 임대 가능한 비슷한 매물을 확인해 보세요."],
     "table.code": ["Unit code", "매물 번호"],
@@ -31,6 +39,7 @@
     "table.area": ["Area", "면적"],
     "table.tower": ["Tower", "동"],
     "table.zone": ["Zone", "구역"],
+    "table.direction": ["Balcony direction", "발코니 방향"],
     "table.furn": ["Furnishing", "옵션"],
     "table.price": ["Monthly rent", "월 임대료"],
     "table.move": ["Move-in", "입주 가능일"],
@@ -42,6 +51,7 @@
     "status.now": ["Available now", "즉시 입주"],
     "status.from": ["Available from {DATE}", "{DATE}부터 입주 가능"],
     "status.liveNow": ["Available for immediate move-in", "즉시 입주 가능"],
+    "status.contactMove": ["Contact for move-in date", "입주일 문의"],
     "price.contact": ["Contact for price", "가격 문의"],
     "aside.price": ["Monthly rent", "월 임대료"],
     "aside.type": ["Apartment type", "타입"],
@@ -75,17 +85,23 @@
     "footer.guide": ["Renting guide", "임대 가이드"],
     "footer.owner": ["List your apartment", "매물 등록"],
     "footer.privacy": ["Privacy policy", "개인정보 처리방침"],
+    "footer.backLumi": ["Back to Lumi Hanoi listings", "Lumi Hanoi 매물로 돌아가기"],
     "zalo.float": ["Chat on Zalo", "잘로 상담"]
   };
 
 
-  var TU_ZH = {"brand":"Smart City 公寓出租","brandSub":"实拍照片 · 每日更新","nav.all":"全部房源","nav.studio":"Studio","nav.1p":"1居+","nav.2":"2居","nav.3":"3居","nav.guide":"租房指南","bc.home":"首页","title.active":"Vinhomes Smart City 出租：{TYPE}，{AREA}，{TOWER}楼","title.rented":"{TYPE}，{AREA}，{TOWER}楼 — 已出租","lead.active":"Vinhomes Smart City {ZONE} {TOWER}楼，{TYPE}，{AREA}。{FURN}。租金 {PRICE}。更新于 {DATE}。","rented.note1":"这套公寓已经出租。","rented.note2":"下面是目前仍可出租的相似房源。","table.code":"房源编号","table.type":"户型","table.area":"面积","table.tower":"楼栋","table.zone":"分区","table.furn":"家具配置","table.price":"月租","table.move":"入住时间","table.updated":"更新时间","stat.area":"面积","stat.price":"月租","stat.furn":"家具配置","stat.status":"入住状态","status.now":"可立即入住","status.from":"{DATE} 起可入住","status.liveNow":"可立即入住","price.contact":"咨询价格","aside.price":"月租","aside.type":"户型","aside.area":"面积","aside.tower":"楼栋","aside.furn":"家具配置","action.book":"预约看房","action.zalo":"Zalo 咨询","action.call":"电话 0977 923 284","action.callShort":"电话","action.bookShort":"预约看房","aside.code":"房源编号：{CODE}","aside.note":"房源详情与网站当前可租库存同步。","gallery.all":"查看全部 {N} 张照片","gallery.count":"{I}/{N} 张照片","gallery.open":"打开第 {I}/{N} 张照片","gallery.none1":"照片更新中","gallery.none2":"通过 Zalo 获取实拍照片和视频。","toast":"看房消息已复制，请打开 Zalo 粘贴后发送。","h.more":"按需求继续浏览","h.similar":"相似房源","h.availableSimilar":"仍可出租的相似房源","empty.similar":"目前没有相似空置房源，请查看全部出租公寓。","cta.ask":"通过 Zalo 咨询房源 {CODE}","cta.call":"拨打 {PHONE}","mobile.available":"查看可租房源","footer.find":"找公寓","footer.guide":"租房指南","footer.owner":"发布房源","footer.privacy":"隐私政策","zalo.float":"Zalo 咨询"};
+  var TU_ZH = {"brand":"Smart City 公寓出租","brandSub":"实拍照片 · 每日更新","brandLumi":"Lumi Hanoi 公寓出租","brandSubLumi":"实拍照片 · Lumi 实时房源","nav.lumiAll":"全部 Lumi 房源","nav.smart":"Smart City","nav.all":"全部房源","nav.studio":"Studio","nav.1p":"1居+","nav.2":"2居","nav.3":"3居","nav.guide":"租房指南","bc.home":"首页","title.active":"Vinhomes Smart City 出租：{TYPE}，{AREA}，{TOWER}楼","title.activeLumi":"Lumi Hanoi 出租：{TYPE}，{AREA}，{TOWER}楼","title.rented":"{TYPE}，{AREA}，{TOWER}楼 — 已出租","lead.active":"Vinhomes Smart City {ZONE} {TOWER}楼，{TYPE}，{AREA}。{FURN}。租金 {PRICE}。更新于 {DATE}。","lead.activeLumi":"Lumi Hanoi {TOWER}楼，{TYPE}，{AREA}。{FURN}。租金 {PRICE}。更新于 {DATE}。","rented.note1":"这套公寓已经出租。","rented.note2":"下面是目前仍可出租的相似房源。","table.code":"房源编号","table.type":"户型","table.area":"面积","table.tower":"楼栋","table.zone":"分区","table.direction":"阳台朝向","table.furn":"家具配置","table.price":"月租","table.move":"入住时间","table.updated":"更新时间","stat.area":"面积","stat.price":"月租","stat.furn":"家具配置","stat.status":"入住状态","status.now":"可立即入住","status.from":"{DATE} 起可入住","status.liveNow":"可立即入住","status.contactMove":"入住日期请咨询","price.contact":"咨询价格","aside.price":"月租","aside.type":"户型","aside.area":"面积","aside.tower":"楼栋","aside.furn":"家具配置","action.book":"预约看房","action.zalo":"Zalo 咨询","action.call":"电话 0977 923 284","action.callShort":"电话","action.bookShort":"预约看房","aside.code":"房源编号：{CODE}","aside.note":"房源详情与网站当前可租库存同步。","gallery.all":"查看全部 {N} 张照片","gallery.count":"{I}/{N} 张照片","gallery.open":"打开第 {I}/{N} 张照片","gallery.none1":"照片更新中","gallery.none2":"通过 Zalo 获取实拍照片和视频。","toast":"看房消息已复制，请打开 Zalo 粘贴后发送。","h.more":"按需求继续浏览","h.similar":"相似房源","h.availableSimilar":"仍可出租的相似房源","empty.similar":"目前没有相似空置房源，请查看全部出租公寓。","cta.ask":"通过 Zalo 咨询房源 {CODE}","cta.call":"拨打 {PHONE}","mobile.available":"查看可租房源","footer.find":"找公寓","footer.guide":"租房指南","footer.owner":"发布房源","footer.privacy":"隐私政策","footer.backLumi":"返回 Lumi Hanoi 房源","zalo.float":"Zalo 咨询"};
 
   function q(s, r) { return (r || document).querySelector(s); }
   function qa(s, r) { return Array.prototype.slice.call((r || document).querySelectorAll(s)); }
 
+  function laLumi() {
+    return /^\/lumi-hanoi\/can-ho\/[^/]+\/?$/.test(location.pathname.replace(/index\.html$/, ""));
+  }
+
   function laTrang() {
-    return /^\/can-ho\/[^/]+\/?$/.test(location.pathname.replace(/index\.html$/, ""));
+    var p = location.pathname.replace(/index\.html$/, "");
+    return /^\/can-ho\/[^/]+\/?$/.test(p) || /^\/lumi-hanoi\/can-ho\/[^/]+\/?$/.test(p);
   }
 
   function ma() {
@@ -179,6 +195,7 @@
 
   function tinhTrang(raw) {
     if (!raw || /vào ngay|o ngay|luôn|ngay/i.test(raw)) return T("status.now", "Vào ngay");
+    if (/liên hệ|lien he|chưa xác nhận|chua xac nhan/i.test(raw)) return T("status.contactMove", "Liên hệ ngày vào");
     return T("status.from", "Trống từ {DATE}", { DATE: ngayDich(raw) });
   }
 
@@ -188,6 +205,7 @@
     "Diện tích": "table.area",
     "Tòa": "table.tower",
     "Phân khu": "table.zone",
+    "Hướng ban công": "table.direction",
     "Nội thất": "table.furn",
     "Giá thuê": "table.price",
     "Ngày vào ở": "table.move",
@@ -202,26 +220,39 @@
   }
 
   function capNhatHeader() {
+    var lumi = laLumi();
     var hieu = q(".top .hieu");
     if (hieu) {
-      datChuTrucTiep(hieu, T("brand", "Cho thuê chung cư Smart City"));
+      datChuTrucTiep(hieu, lumi ? T("brandLumi", "Cho thuê căn hộ Lumi Hanoi") : T("brand", "Cho thuê chung cư Smart City"));
       var small = q("small", hieu);
-      if (small) small.textContent = T("brandSub", "Ảnh thật · Cập nhật mỗi ngày");
+      if (small) small.textContent = lumi ? T("brandSubLumi", "Ảnh thật · Quỹ căn cập nhật thường xuyên") : T("brandSub", "Ảnh thật · Cập nhật mỗi ngày");
     }
     var nav = q(".top nav");
     if (nav) {
-      var map = {
-        "/": ["nav.all", "Tất cả căn"],
-        "/studio/": ["nav.studio", "Studio"],
-        "/1pn-plus/": ["nav.1p", "1 ngủ +"],
-        "/2pn/": ["nav.2", "2 ngủ"],
-        "/3pn/": ["nav.3", "3 ngủ"],
-        "/cam-nang-thue-nha.html": ["nav.guide", "Cẩm nang"]
-      };
-      qa("a", nav).forEach(function (a) {
-        var x = map[a.getAttribute("href")];
-        if (x) a.textContent = T(x[0], x[1]);
-      });
+      if (lumi) {
+        qa("a", nav).forEach(function (a) {
+          var href = a.getAttribute("href") || "";
+          if (href === "/lumi-hanoi/") a.textContent = T("nav.lumiAll", "Tất cả căn");
+          else if (href.indexOf("type=1-ngu") !== -1) a.textContent = ma()==="vi" ? "1PN" : ma()==="ko" ? "1베드" : ma()==="zh" ? "1居" : "1BR";
+          else if (href.indexOf("type=2-ngu") !== -1) a.textContent = ma()==="vi" ? "2PN" : ma()==="ko" ? "2베드" : ma()==="zh" ? "2居" : "2BR";
+          else if (href.indexOf("type=3-ngu") !== -1) a.textContent = ma()==="vi" ? "3PN" : ma()==="ko" ? "3베드" : ma()==="zh" ? "3居" : "3BR";
+          else if (href === "/") a.textContent = T("nav.smart", "Smart City");
+          else if (href === "/cam-nang-thue-nha.html") a.textContent = T("nav.guide", "Cẩm nang");
+        });
+      } else {
+        var map = {
+          "/": ["nav.all", "Tất cả căn"],
+          "/studio/": ["nav.studio", "Studio"],
+          "/1pn-plus/": ["nav.1p", "1 ngủ +"],
+          "/2pn/": ["nav.2", "2 ngủ"],
+          "/3pn/": ["nav.3", "3 ngủ"],
+          "/cam-nang-thue-nha.html": ["nav.guide", "Cẩm nang"]
+        };
+        qa("a", nav).forEach(function (a) {
+          var x = map[a.getAttribute("href")];
+          if (x) a.textContent = T(x[0], x[1]);
+        });
+      }
     }
   }
 
@@ -247,7 +278,7 @@
     var h1 = q("main.khung h1");
     var title = rented
       ? T("title.rented", "", { TYPE:type, AREA:area, TOWER:tower })
-      : T("title.active", "", { TYPE:type, AREA:area, TOWER:tower });
+      : T(laLumi() ? "title.activeLumi" : "title.active", "", { TYPE:type, AREA:area, TOWER:tower });
     if (h1 && !h1.dataset.ctVi) h1.dataset.ctVi = h1.textContent;
     if (h1) h1.textContent = ma() === "vi" ? h1.dataset.ctVi : title;
 
@@ -263,7 +294,7 @@
       var p = q("main.khung > .tt");
       if (p) {
         if (!p.dataset.ctVi) p.dataset.ctVi = p.textContent;
-        p.textContent = ma() === "vi" ? p.dataset.ctVi : T("lead.active", "", {
+        p.textContent = ma() === "vi" ? p.dataset.ctVi : T(laLumi() ? "lead.activeLumi" : "lead.active", "", {
           TYPE:type, AREA:area, TOWER:tower, ZONE:zone, FURN:furn, PRICE:price, DATE:updated
         });
       }
@@ -315,9 +346,11 @@
     var empty = q("main.khung > p:not(.bc):not(.tt)");
     if (empty && /Hiện chưa có căn trống tương tự/i.test(empty.textContent)) {
       if (ma() === "vi") {
-        empty.innerHTML = 'Hiện chưa có căn trống tương tự, mời xem <a href="/can-ho/">toàn bộ căn hộ đang cho thuê</a>.';
+        empty.innerHTML = laLumi()
+          ? 'Hiện chưa có căn trống tương tự, mời xem <a href="/lumi-hanoi/">toàn bộ căn Lumi Hanoi đang cho thuê</a>.'
+          : 'Hiện chưa có căn trống tương tự, mời xem <a href="/can-ho/">toàn bộ căn hộ đang cho thuê</a>.';
       } else {
-        empty.innerHTML = '<a href="/can-ho/">' + T("empty.similar", "") + "</a>";
+        empty.innerHTML = '<a href="' + (laLumi() ? "/lumi-hanoi/" : "/can-ho/") + '">' + T("empty.similar", "") + "</a>";
       }
     }
   }
@@ -394,7 +427,9 @@
     var foot = q("footer.chan > .khung p");
     if (foot) {
       var links=qa("a",foot);
-      if(links[0]) links[0].textContent=T("footer.find","Tìm căn hộ");
+      if (laLumi() && links.length === 2) {
+        if (links[1]) links[1].textContent = T("footer.backLumi", "Quay lại bảng hàng Lumi Hanoi");
+      } else if(links[0]) links[0].textContent=T("footer.find","Tìm căn hộ");
       if(links[1]) links[1].textContent=T("footer.guide","Cẩm nang thuê nhà");
       if(links[2]) links[2].textContent=T("footer.owner","Chủ nhà gửi căn");
       if(links[3]) links[3].textContent=T("footer.privacy","Chính sách quyền riêng tư");
