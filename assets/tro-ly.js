@@ -9,10 +9,10 @@
   });
 
   var files = [
-    "/assets/tro-ly-v2-i18n.js?v=20260915-2",
-    "/assets/tro-ly-v2-engine.js?v=20260915-2",
-    "/assets/tro-ly-v2-base.js?v=20260915-2",
-    "/assets/tro-ly-v2-flow.js?v=20260915-2"
+    "/assets/tro-ly-v2-i18n.js?v=20261004-lumi-1",
+    "/assets/tro-ly-v2-engine.js?v=20261004-lumi-1",
+    "/assets/tro-ly-v2-base.js?v=20261004-lumi-1",
+    "/assets/tro-ly-v2-flow.js?v=20261004-lumi-1"
   ];
   function load(i) {
     if (i >= files.length) return;

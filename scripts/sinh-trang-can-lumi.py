@@ -16,7 +16,7 @@ REGISTRY = BASE / "danh-sach-trang.json"
 SITEMAP = ROOT / "sitemap-lumi.xml"
 DOMAIN = "https://timthuesmartcity.com"
 ZALO = "0977923284"
-FALLBACK_OG = "https://www.capitaland.com/vn/en/stay/residential-development-listing/lumi-hanoi/_jcr_content/root/container/container/entitydetails.coreimg.jpeg/content/dam/capitaland-media-library/residential/Vietnam/Hanoi/lumi-hanoi/Lumi%20Hanoi_Overall%20Facade%20%28D%29_Final.jpg"
+FALLBACK_OG = "https://timthuesmartcity.com/assets/media/lumi-hero-desktop.jpeg"
 
 
 def txt(v):
@@ -263,6 +263,12 @@ def detail_html(row, page_slug, similar, slug_by_id):
       <a href="/">Smart City</a>
       <a href="/cam-nang-thue-nha.html">Cẩm nang</a>
     </nav>
+    <div class="doi-tieng" role="group" aria-label="Language / 언어 / 语言">
+      <button type="button" data-lang="vi" aria-pressed="true">VI</button>
+      <button type="button" data-lang="en" aria-pressed="false">EN</button>
+      <button type="button" data-lang="ko" aria-pressed="false">한</button>
+      <button type="button" data-lang="zh" aria-pressed="false" aria-label="简体中文" title="简体中文">中</button>
+    </div>
   </div>
 </header>
 
@@ -315,8 +321,11 @@ def detail_html(row, page_slug, similar, slug_by_id):
   </div>
 </footer>
 <a class="zalo-noi" href="https://zalo.me/%(zalo)s" target="_blank" rel="noopener">Nhắn Zalo tư vấn</a>
+<script src="/assets/ngon-ngu.js?v=20261004-lumi-1" defer></script>
 <script id="ct-gallery-js" src="/assets/gallery.js?v=20260830-6" defer></script>
-<script id="ct-detail-js" src="/assets/can-ho-detail.js?v=20261003-lumi-1" defer></script>
+<script id="ct-detail-js" src="/assets/can-ho-detail.js?v=20261004-lumi-2" defer></script>
+<script src="/assets/app-shell.js?v=20260901-1" defer></script>
+<script id="ct-detail-i18n-js" src="/assets/can-ho-detail-i18n.js?v=20261004-lumi-1" defer></script>
 </body>
 </html>
 """ % {

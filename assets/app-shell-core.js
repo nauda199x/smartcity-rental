@@ -336,7 +336,7 @@
      ================================================================ */
   function laTrangChiTietCan() {
     var p = duongDan();
-    return /^\/can-ho\/[^/]+\/?$/.test(p);
+    return /^\/can-ho\/[^/]+\/?$/.test(p) || /^\/lumi-hanoi\/can-ho\/[^/]+\/?$/.test(p);
   }
 
   function napScriptMotLan(id, src, xong) {
