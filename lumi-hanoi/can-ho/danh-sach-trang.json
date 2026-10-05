@@ -366,5 +366,13 @@
     "toa": "S2",
     "dien_tich": 74.0,
     "active": true
+  },
+  "cho-thue-can-ho-2-ngu-s5-62m2-thue2n-21": {
+    "id": "thue2N.21",
+    "ma": "thue2N.21",
+    "loai": "2 Ngủ",
+    "toa": "S5",
+    "dien_tich": 62.0,
+    "active": true
   }
 }
