@@ -374,5 +374,13 @@
     "toa": "S5",
     "dien_tich": 62.0,
     "active": true
+  },
+  "cho-thue-can-ho-3-ngu-s6-101m2-thue3n-14": {
+    "id": "thue3N.14",
+    "ma": "thue3N.14",
+    "loai": "3 Ngủ",
+    "toa": "S6",
+    "dien_tich": 101.0,
+    "active": true
   }
 }
