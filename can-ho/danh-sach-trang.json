@@ -4311,6 +4311,14 @@
   "phan_khu": "Imperia",
   "toa": "I2"
  },
+ "cho-thue-can-ho-studio-imperia-32m2-ct-stu-924": {
+  "dien_tich": 32,
+  "loai": "Studio",
+  "ma": "CT.Stu.924",
+  "ngay_xuat_hien": "2026-10-06",
+  "phan_khu": "Imperia",
+  "toa": "I5"
+ },
  "cho-thue-can-ho-studio-lumiere-30m2-cc12": {
   "dien_tich": 30,
   "loai": "Studio",
