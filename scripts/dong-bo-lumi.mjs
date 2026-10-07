@@ -175,10 +175,10 @@ async function fetchImageLinks(spec) {
 }
 
 function sourceRow(spec, c) {
-  /* CSV export trả đủ cột A:P. Mã căn thật ở cột E chỉ tồn tại trong bộ nhớ
+  /* CSV export trả đủ cột nguồn. Mã căn thật chỉ tồn tại trong bộ nhớ
      để migrate snapshot cũ; tuyệt đối không ghi vào data-lumi.json/public HTML. */
-  const stt = normalizeStt(c[x.stt]);
   const x = spec.cols;
+  const stt = normalizeStt(c[x.stt]);
   return {
     spec,
     stt,
