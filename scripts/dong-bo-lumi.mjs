@@ -8,13 +8,16 @@ const DATA = join(ROOT, "data-lumi.json");
 const SHEET = "1Buw_vjB_2x8KExje34lqmJKEFzCUM79LOmcvCVWw-yQ";
 const DRY = process.argv.includes("--thu") || process.argv.includes("--dry-run");
 
+const STANDARD_COLS = { tower: 3, sourceCode: 4, direction: 5, area: 6, price: 7, interior: 8, updated: 10, imageCell: 11, note: 12, move: 14 };
+const EXTENDED_COLS = { tower: 3, sourceCode: 4, direction: 5, area: 6, price: 8, interior: 9, updated: 11, imageCell: 12, note: 13, move: 15 };
+
 const TABS = [
-  { tab: "THUÊ 1PN", type: "1 Ngủ", publicPrefix: "thue1N", query: "select A,D,E,F,G,H,I,K,L,M,O", imageCol: "L" },
-  { tab: "THUÊ 2PN", type: "2 Ngủ", publicPrefix: "thue2N", query: "select A,D,E,F,G,H,I,K,L,M,O", imageCol: "L" },
-  { tab: "THUÊ 3PN", type: "3 Ngủ", publicPrefix: "thue3N", query: "select A,D,E,F,G,H,I,K,L,M,O", imageCol: "L" },
-  { tab: "THUÊ DUPLEX", type: "Duplex", publicPrefix: "thueDuplex", query: "select A,D,E,F,G,I,J,L,M,N,P", imageCol: "M" },
-  { tab: "THUÊ PENTHOUSE", type: "Penthouse", publicPrefix: "thuePenthouse", query: "select A,D,E,F,G,I,J,L,M,N,P", imageCol: "M" },
-  { tab: "THUÊ SHOP", type: "Shop", publicPrefix: "thueShop", query: "select A,D,E,F,G,I,J,L,M,N,P", imageCol: "M" },
+  { tab: "THUÊ 1PN", gid: 910003, type: "1 Ngủ", publicPrefix: "thue1N", cols: STANDARD_COLS, imageCol: "L" },
+  { tab: "THUÊ 2PN", gid: 910004, type: "2 Ngủ", publicPrefix: "thue2N", cols: STANDARD_COLS, imageCol: "L" },
+  { tab: "THUÊ 3PN", gid: 910005, type: "3 Ngủ", publicPrefix: "thue3N", cols: STANDARD_COLS, imageCol: "L" },
+  { tab: "THUÊ DUPLEX", gid: 910006, type: "Duplex", publicPrefix: "thueDuplex", cols: EXTENDED_COLS, imageCol: "M" },
+  { tab: "THUÊ PENTHOUSE", gid: 910007, type: "Penthouse", publicPrefix: "thuePenthouse", cols: EXTENDED_COLS, imageCol: "M" },
+  { tab: "THUÊ SHOP", gid: 910008, type: "Shop", publicPrefix: "thueShop", cols: EXTENDED_COLS, imageCol: "M" },
 ];
 
 const txt = v => String(v == null ? "" : v).trim();
@@ -113,14 +116,12 @@ function decodeHtml(s) {
 }
 
 async function fetchCsv(spec) {
-  const u = new URL("https://docs.google.com/spreadsheets/d/" + SHEET + "/gviz/tq");
-  u.searchParams.set("tqx", "out:csv");
-  u.searchParams.set("sheet", spec.tab);
-  u.searchParams.set("headers", "1");
+  // Dữ liệu chính đọc từ CSV export theo gid. Endpoint này phản ánh Sheet mới
+  // ổn định hơn GViz query, vốn đã từng trả snapshot cũ ở một vài dòng.
+  const u = new URL("https://docs.google.com/spreadsheets/d/" + SHEET + "/export");
+  u.searchParams.set("format", "csv");
+  u.searchParams.set("gid", String(spec.gid));
   u.searchParams.set("range", "A5:P");
-  u.searchParams.set("tq", spec.query);
-  // Google GViz có thể cache cùng một query trong lúc Sheet vừa được sửa.
-  // Cache-buster bắt buộc mỗi lần chạy để workflow luôn lấy snapshot mới nhất.
   u.searchParams.set("_", String(Date.now()) + "-" + spec.publicPrefix);
   const r = await fetch(u, {
     headers: {
@@ -174,23 +175,24 @@ async function fetchImageLinks(spec) {
 }
 
 function sourceRow(spec, c) {
-  /* Mã căn thật ở cột E chỉ tồn tại trong bộ nhớ để migrate snapshot cũ.
-     Tuyệt đối không ghi mã này vào data-lumi.json/public HTML. */
+  /* CSV export trả đủ cột A:P. Mã căn thật ở cột E chỉ tồn tại trong bộ nhớ
+     để migrate snapshot cũ; tuyệt đối không ghi vào data-lumi.json/public HTML. */
   const stt = normalizeStt(c[0]);
+  const x = spec.cols;
   return {
     spec,
     stt,
     publicCode: publicCode(spec, stt),
-    tower: txt(c[1]),
-    sourceCode: txt(c[2]),
-    direction: txt(c[3]),
-    area: area(c[4]),
-    price: money(c[5]),
-    interior: txt(c[6]),
-    updated: date(c[7]),
-    imageCell: txt(c[8]),
-    note: txt(c[9]),
-    move: publicMove(c[10], c[9])
+    tower: txt(c[x.tower]),
+    sourceCode: txt(c[x.sourceCode]),
+    direction: txt(c[x.direction]),
+    area: area(c[x.area]),
+    price: money(c[x.price]),
+    interior: txt(c[x.interior]),
+    updated: date(c[x.updated]),
+    imageCell: txt(c[x.imageCell]),
+    note: txt(c[x.note]),
+    move: publicMove(c[x.move], c[x.note])
   };
 }
 
@@ -203,7 +205,7 @@ async function loadSource() {
       const c = rows[i];
       if (!c || c.every(x => !txt(x))) continue;
       const src = sourceRow(spec, c);
-      /* CSV của GViz có lúc trả dòng label, có lúc không. Không dựa vào index;
+      /* CSV export có dòng tiêu đề ở đầu. Không dựa vào index;
          nhận diện header theo nội dung để không bao giờ bỏ mất căn đầu tiên. */
       if (!src.stt && deaccent(c[0]) === "stt") continue;
       nonEmpty++;
