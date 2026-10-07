@@ -8,16 +8,16 @@ const DATA = join(ROOT, "data-lumi.json");
 const SHEET = "1Buw_vjB_2x8KExje34lqmJKEFzCUM79LOmcvCVWw-yQ";
 const DRY = process.argv.includes("--thu") || process.argv.includes("--dry-run");
 
-const STANDARD_COLS = { tower: 3, sourceCode: 4, direction: 5, area: 6, price: 7, interior: 8, updated: 10, imageCell: 11, note: 12, move: 14 };
-const EXTENDED_COLS = { tower: 3, sourceCode: 4, direction: 5, area: 6, price: 8, interior: 9, updated: 11, imageCell: 12, note: 13, move: 15 };
+const STANDARD_COLS = { tower: 2, sourceCode: 3, direction: 4, area: 5, price: 6, interior: 7, updated: 9, imageCell: 10, note: 11, move: 13, stt: 14 };
+const EXTENDED_COLS = { tower: 2, sourceCode: 3, direction: 4, area: 5, price: 7, interior: 8, updated: 10, imageCell: 11, note: 12, move: 14, stt: 15 };
 
 const TABS = [
-  { tab: "THUÊ 1PN", gid: 910003, type: "1 Ngủ", publicPrefix: "thue1N", cols: STANDARD_COLS, imageCol: "L" },
-  { tab: "THUÊ 2PN", gid: 910004, type: "2 Ngủ", publicPrefix: "thue2N", cols: STANDARD_COLS, imageCol: "L" },
-  { tab: "THUÊ 3PN", gid: 910005, type: "3 Ngủ", publicPrefix: "thue3N", cols: STANDARD_COLS, imageCol: "L" },
-  { tab: "THUÊ DUPLEX", gid: 910006, type: "Duplex", publicPrefix: "thueDuplex", cols: EXTENDED_COLS, imageCol: "M" },
-  { tab: "THUÊ PENTHOUSE", gid: 910007, type: "Penthouse", publicPrefix: "thuePenthouse", cols: EXTENDED_COLS, imageCol: "M" },
-  { tab: "THUÊ SHOP", gid: 910008, type: "Shop", publicPrefix: "thueShop", cols: EXTENDED_COLS, imageCol: "M" },
+  { tab: "THUÊ 1PN", gid: 910003, type: "1 Ngủ", publicPrefix: "thue1N", cols: STANDARD_COLS, imageCol: "K", sttCol: "O", endCol: "O" },
+  { tab: "THUÊ 2PN", gid: 910004, type: "2 Ngủ", publicPrefix: "thue2N", cols: STANDARD_COLS, imageCol: "K", sttCol: "O", endCol: "O" },
+  { tab: "THUÊ 3PN", gid: 910005, type: "3 Ngủ", publicPrefix: "thue3N", cols: STANDARD_COLS, imageCol: "K", sttCol: "O", endCol: "O" },
+  { tab: "THUÊ DUPLEX", gid: 910006, type: "Duplex", publicPrefix: "thueDuplex", cols: EXTENDED_COLS, imageCol: "L", sttCol: "P", endCol: "P" },
+  { tab: "THUÊ PENTHOUSE", gid: 910007, type: "Penthouse", publicPrefix: "thuePenthouse", cols: EXTENDED_COLS, imageCol: "L", sttCol: "P", endCol: "P" },
+  { tab: "THUÊ SHOP", gid: 910008, type: "Shop", publicPrefix: "thueShop", cols: EXTENDED_COLS, imageCol: "L", sttCol: "P", endCol: "P" },
 ];
 
 const txt = v => String(v == null ? "" : v).trim();
@@ -121,7 +121,7 @@ async function fetchCsv(spec) {
   const u = new URL("https://docs.google.com/spreadsheets/d/" + SHEET + "/export");
   u.searchParams.set("format", "csv");
   u.searchParams.set("gid", String(spec.gid));
-  u.searchParams.set("range", "A5:P");
+  u.searchParams.set("range", "A5:" + spec.endCol);
   u.searchParams.set("_", String(Date.now()) + "-" + spec.publicPrefix);
   const r = await fetch(u, {
     headers: {
@@ -146,8 +146,8 @@ async function fetchImageLinks(spec) {
     u.searchParams.set("tqx", "out:html");
     u.searchParams.set("sheet", spec.tab);
     u.searchParams.set("headers", "1");
-    u.searchParams.set("range", "A5:P");
-    u.searchParams.set("tq", "select A," + spec.imageCol);
+    u.searchParams.set("range", "A5:" + spec.endCol);
+    u.searchParams.set("tq", "select " + spec.sttCol + "," + spec.imageCol);
     u.searchParams.set("_", String(Date.now()) + "-img-" + spec.publicPrefix);
     const r = await fetch(u, {
       headers: {
@@ -177,7 +177,7 @@ async function fetchImageLinks(spec) {
 function sourceRow(spec, c) {
   /* CSV export trả đủ cột A:P. Mã căn thật ở cột E chỉ tồn tại trong bộ nhớ
      để migrate snapshot cũ; tuyệt đối không ghi vào data-lumi.json/public HTML. */
-  const stt = normalizeStt(c[0]);
+  const stt = normalizeStt(c[x.stt]);
   const x = spec.cols;
   return {
     spec,
@@ -207,7 +207,7 @@ async function loadSource() {
       const src = sourceRow(spec, c);
       /* CSV export có dòng tiêu đề ở đầu. Không dựa vào index;
          nhận diện header theo nội dung để không bao giờ bỏ mất căn đầu tiên. */
-      if (!src.stt && deaccent(c[0]) === "stt") continue;
+      if (!src.stt && deaccent(c[spec.cols.stt]) === "stt") continue;
       nonEmpty++;
       /* Sheet có STT/formula điền sẵn xuống rất nhiều dòng trống.
          Chỉ coi là căn khi ngoài STT còn có dữ liệu căn thực tế. */
