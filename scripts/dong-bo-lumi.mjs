@@ -119,7 +119,16 @@ async function fetchCsv(spec) {
   u.searchParams.set("headers", "1");
   u.searchParams.set("range", "A5:P");
   u.searchParams.set("tq", spec.query);
-  const r = await fetch(u, { headers: { "user-agent": "Mozilla/5.0" } });
+  // Google GViz có thể cache cùng một query trong lúc Sheet vừa được sửa.
+  // Cache-buster bắt buộc mỗi lần chạy để workflow luôn lấy snapshot mới nhất.
+  u.searchParams.set("_", String(Date.now()) + "-" + spec.publicPrefix);
+  const r = await fetch(u, {
+    headers: {
+      "user-agent": "Mozilla/5.0",
+      "cache-control": "no-cache, no-store, max-age=0",
+      "pragma": "no-cache"
+    }
+  });
   if (!r.ok) throw new Error(spec.tab + ": HTTP " + r.status);
   const body = await r.text();
   const rows = parseCsv(body);
@@ -138,7 +147,14 @@ async function fetchImageLinks(spec) {
     u.searchParams.set("headers", "1");
     u.searchParams.set("range", "A5:P");
     u.searchParams.set("tq", "select A," + spec.imageCol);
-    const r = await fetch(u, { headers: { "user-agent": "Mozilla/5.0" } });
+    u.searchParams.set("_", String(Date.now()) + "-img-" + spec.publicPrefix);
+    const r = await fetch(u, {
+      headers: {
+        "user-agent": "Mozilla/5.0",
+        "cache-control": "no-cache, no-store, max-age=0",
+        "pragma": "no-cache"
+      }
+    });
     if (!r.ok) return { ok: false, map: new Map() };
     const html = await r.text();
     const map = new Map();

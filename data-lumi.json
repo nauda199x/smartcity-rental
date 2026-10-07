@@ -48,7 +48,7 @@
     "Ảnh thư mục": "",
     "Ảnh đại diện": "",
     "Danh sách ảnh": "",
-    "Hiển thị trên Web": "Không"
+    "Hiển thị trên Web": "Có"
   },
   {
     "Mã nội bộ": "thue1N.4",
@@ -260,15 +260,15 @@
     "Tòa": "S3",
     "Loại": "2 Ngủ",
     "Diện tích": 63,
-    "Nội thất": "Cơ bản",
+    "Nội thất": "Full nội thất",
     "Giá thuê": 11000000,
     "Hướng ban công": "Tây Bắc",
-    "Ngày vào ở": "Chưa xác nhận",
+    "Ngày vào ở": "vào luôn",
     "Ngày cập nhật": "",
     "Ngày thêm vào hệ thống": "03/10/2026",
-    "Ảnh thư mục": "https://drive.google.com/drive/folders/1hk1HBaaivuaeATTZsgQDSIA_Ye2gZ9Ay",
-    "Ảnh đại diện": "https://drive.google.com/thumbnail?id=1QShusoX9NYeG0f-QGtlQbITIOXMDGr-q&sz=w1000",
-    "Danh sách ảnh": "https://drive.google.com/thumbnail?id=1QShusoX9NYeG0f-QGtlQbITIOXMDGr-q&sz=w1000\nhttps://drive.google.com/thumbnail?id=1fEC_7ayoLRI-dFB1yZdPL5usIepgtb23&sz=w1000\nhttps://drive.google.com/thumbnail?id=1fWiSFQTUHOrH8sgZFvect3GWppUsV45f&sz=w1000\nhttps://drive.google.com/thumbnail?id=1UMysxEgM3jTH4GKxsGrWgwt2STniFwGh&sz=w1000\nhttps://drive.google.com/thumbnail?id=1Ujn5EGhY7BeH7ZqUTelbZk8BSkLh5az2&sz=w1000\nhttps://drive.google.com/thumbnail?id=1efrm67irh2d4xsMt0esIbfd413IgG035&sz=w1000\nhttps://drive.google.com/thumbnail?id=1Mf84dw9iXPz0Cs6zKDI1uZ2kujsCDh9Y&sz=w1000",
+    "Ảnh thư mục": "https://drive.google.com/drive/folders/1iLWm8gFwP5FkzJHKW9oETBSLtVZ0JJhL",
+    "Ảnh đại diện": "",
+    "Danh sách ảnh": "",
     "Hiển thị trên Web": "Có"
   },
   {
@@ -280,7 +280,7 @@
     "Nội thất": "Cơ bản",
     "Giá thuê": 10000000,
     "Hướng ban công": "Tây Bắc",
-    "Ngày vào ở": "tháng 10",
+    "Ngày vào ở": "Chưa xác nhận",
     "Ngày cập nhật": "",
     "Ngày thêm vào hệ thống": "03/10/2026",
     "Ảnh thư mục": "https://drive.google.com/drive/folders/1re0qMdyP-Penz3Ko-CHw_bXy2ClIV2Q2",
@@ -314,7 +314,7 @@
     "Nội thất": "Cơ bản",
     "Giá thuê": 9000000,
     "Hướng ban công": "Đông Nam",
-    "Ngày vào ở": "Tháng 10",
+    "Ngày vào ở": "Chưa xác nhận",
     "Ngày cập nhật": "",
     "Ngày thêm vào hệ thống": "03/10/2026",
     "Ảnh thư mục": "https://drive.google.com/drive/folders/1re0qMdyP-Penz3Ko-CHw_bXy2ClIV2Q2",
@@ -331,7 +331,7 @@
     "Nội thất": "Cơ bản",
     "Giá thuê": 10000000,
     "Hướng ban công": "Đông Nam",
-    "Ngày vào ở": "tháng 10",
+    "Ngày vào ở": "Chưa xác nhận",
     "Ngày cập nhật": "",
     "Ngày thêm vào hệ thống": "03/10/2026",
     "Ảnh thư mục": "https://drive.google.com/drive/folders/1re0qMdyP-Penz3Ko-CHw_bXy2ClIV2Q2",
@@ -345,7 +345,7 @@
     "Tòa": "S6",
     "Loại": "2 Ngủ",
     "Diện tích": 54,
-    "Nội thất": "Nguyên bản",
+    "Nội thất": "Cơ bản",
     "Giá thuê": 9000000,
     "Hướng ban công": "Đông Nam",
     "Ngày vào ở": "Chưa xác nhận",
@@ -354,7 +354,7 @@
     "Ảnh thư mục": "",
     "Ảnh đại diện": "",
     "Danh sách ảnh": "",
-    "Hiển thị trên Web": "Không"
+    "Hiển thị trên Web": "Có"
   },
   {
     "Mã nội bộ": "thue2N.10",
