@@ -14,13 +14,14 @@ on:
       - "scripts/quet-thu-muc-anh-lumi.py"
       - "scripts/sinh-trang-can-lumi.py"
       - ".github/workflows/dong-bo-lumi.yml"
-  # Trigger chính: chạy ngay sau workflow Smart City (workflow này đang chạy ổn định mỗi 30 phút).
+  # Fast path: chạy ngay sau workflow Smart City nếu workflow đó vừa hoàn tất.
   workflow_run:
     workflows: ["Đồng bộ quỹ căn từ Sheet CTV"]
     types: [completed]
-  # Fallback phòng trường hợp scheduler/workflow_run của GitHub bị trễ hoặc rớt.
+  # Lumi có lịch độc lập 10 phút/lần, không còn phụ thuộc vào workflow Smart City.
+  # Dùng phút lệch để giảm nguy cơ scheduler GitHub bị trễ vào mốc :00/:30.
   schedule:
-    - cron: "17 * * * *"
+    - cron: "7,17,27,37,47,57 * * * *"
   workflow_dispatch:
 
 permissions:
