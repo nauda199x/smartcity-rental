@@ -112,22 +112,28 @@ jobs:
           git commit -m "Tự động đồng bộ quỹ căn Lumi Hanoi"
 
           for lan in 1 2 3 4; do
-            if ! git pull --rebase origin main; then
-              git rebase --abort || true
-              echo "::error::Main thay đổi xung đột; dừng để không ghi đè dữ liệu mới."
+            # Main có thể vừa được workflow/PR khác cập nhật trong lúc job Lumi đang chạy.
+            # Các file Lumi ở commit hiện tại vừa được sinh từ Sheet mới nhất, nên khi
+            # xung đột ở output sinh tự động thì ưu tiên bản vừa sinh thay vì rebase rồi chết.
+            git fetch origin main
+            if ! git merge --no-edit -X ours origin/main; then
+              git merge --abort || true
+              echo "::error::Không thể hợp nhất main mới; dừng để không ghi đè code ngoài phạm vi Lumi."
               exit 1
             fi
+
             if git push origin HEAD:main; then
               echo "changed=true" >> "$GITHUB_OUTPUT"
               echo "Đã push dữ liệu Lumi lên main."
               exit 0
             fi
+
             cho=$((2 ** lan))
-            echo "Push thất bại; thử lại sau ${cho}s..."
+            echo "Main lại thay đổi trong lúc push; hợp nhất và thử lại sau ${cho}s..."
             sleep "$cho"
           done
 
-          echo "::error::Không push được sau 4 lần thử."
+          echo "::error::Không push được dữ liệu Lumi sau 4 lần thử."
           exit 1
 
       - name: Cập nhật website
