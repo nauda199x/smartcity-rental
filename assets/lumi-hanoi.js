@@ -703,41 +703,79 @@
     });
   }
 
-  fetch(DATA_URL, { cache: "no-cache" }).then(function (r) {
-    if (!r.ok) throw new Error("HTTP " + r.status);
-    return r.json();
-  }).then(function (rows) {
-    state.apartments = (Array.isArray(rows) ? rows : []).map(toApartment);
+  var dataSnapshot = "";
+  var initialized = false;
+  var refreshing = false;
 
-    /* Deep-link từ trang chi tiết quay lại đúng tòa/loại căn. */
-    try {
-      var params = new URLSearchParams(location.search);
-      var typeParam = params.get("type");
-      var towerParam = params.get("tower");
-      if (typeParam) {
-        var matchedType = TYPES.find(function (t) { return slug(t) === slug(typeParam) || key(t) === key(typeParam); });
-        if (matchedType) state.type = key(matchedType);
+  function refreshLumiData(force) {
+    if (refreshing) return Promise.resolve(false);
+    refreshing = true;
+
+    var separator = DATA_URL.indexOf("?") === -1 ? "?" : "&";
+    var freshUrl = DATA_URL + separator + "_=" + Date.now();
+
+    return fetch(freshUrl, { cache: "no-store" }).then(function (r) {
+      if (!r.ok) throw new Error("HTTP " + r.status);
+      return r.json();
+    }).then(function (rows) {
+      rows = Array.isArray(rows) ? rows : [];
+      var nextSnapshot = JSON.stringify(rows);
+
+      if (!force && initialized && nextSnapshot === dataSnapshot) return false;
+
+      dataSnapshot = nextSnapshot;
+      state.apartments = rows.map(toApartment);
+
+      if (!initialized) {
+        /* Deep-link từ trang chi tiết quay lại đúng tòa/loại căn. */
+        try {
+          var params = new URLSearchParams(location.search);
+          var typeParam = params.get("type");
+          var towerParam = params.get("tower");
+          if (typeParam) {
+            var matchedType = TYPES.find(function (t) { return slug(t) === slug(typeParam) || key(t) === key(typeParam); });
+            if (matchedType) state.type = key(matchedType);
+          }
+          if (towerParam) {
+            var matchedTower = TOWERS.find(function (t) { return key(t) === key(towerParam); });
+            if (matchedTower) state.tower = key(matchedTower);
+          }
+        } catch (e) { /* query lỗi không được ảnh hưởng trang */ }
+
+        bind();
+        initialized = true;
       }
-      if (towerParam) {
-        var matchedTower = TOWERS.find(function (t) { return key(t) === key(towerParam); });
-        if (matchedTower) state.tower = key(matchedTower);
+
+      buildFilters();
+      renderStats();
+      applyStaticLanguage();
+      render();
+
+      var assistantDetail = {
+        project: "Lumi Hanoi",
+        apartments: state.apartments.map(assistantUnit)
+      };
+      window.TROLY_V2_PENDING_DATA = assistantDetail;
+      document.dispatchEvent(new CustomEvent("quy-can-san-sang", { detail: assistantDetail }));
+      return true;
+    }).catch(function () {
+      if (!initialized) {
+        var grid = $("#lumiListingGrid");
+        if (grid) grid.innerHTML = '<div class="empty-state">' + T("l.loadErr", "Dữ liệu Lumi đang được đồng bộ. Vui lòng tải lại sau ít phút hoặc nhắn Zalo để nhận bảng hàng mới nhất.") + '</div>';
       }
-    } catch (e) { /* query lỗi không được ảnh hưởng trang */ }
+      return false;
+    }).finally(function () {
+      refreshing = false;
+    });
+  }
 
-    buildFilters();
-    renderStats();
-    bind();
-    applyStaticLanguage();
-    render();
-
-    var assistantDetail = {
-      project: "Lumi Hanoi",
-      apartments: state.apartments.map(assistantUnit)
-    };
-    window.TROLY_V2_PENDING_DATA = assistantDetail;
-    document.dispatchEvent(new CustomEvent("quy-can-san-sang", { detail: assistantDetail }));
-  }).catch(function () {
-    var grid = $("#lumiListingGrid");
-    if (grid) grid.innerHTML = '<div class="empty-state">' + T("l.loadErr", "Dữ liệu Lumi đang được đồng bộ. Vui lòng tải lại sau ít phút hoặc nhắn Zalo để nhận bảng hàng mới nhất.") + '</div>';
+  /* Lần đầu tải ngay; sau đó tự kiểm tra dữ liệu mới mỗi 2 phút.
+     Khi người dùng quay lại tab hoặc mạng vừa online lại thì kiểm tra ngay,
+     nên không cần F5 để thấy quỹ căn mới sau khi backend đồng bộ. */
+  refreshLumiData(true);
+  window.setInterval(function () { refreshLumiData(false); }, 120000);
+  document.addEventListener("visibilitychange", function () {
+    if (!document.hidden) refreshLumiData(false);
   });
+  window.addEventListener("online", function () { refreshLumiData(false); });
 }());
