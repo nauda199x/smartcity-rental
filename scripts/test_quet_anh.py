@@ -54,6 +54,25 @@ class PhotoSyncTest(unittest.TestCase):
             with self.assertRaises(ValueError):
                 scanner.parse_folder(text, FOLDER)
 
+    def test_retry_invalid_drive_html_without_losing_photo_list(self):
+        responses = iter(["Temporary Drive challenge", fixture([photo(A)])])
+        delays = []
+        files = scanner.fetch_folder_with_retry(
+            FOLDER, fetch_text=lambda _: next(responses),
+            sleep=delays.append, attempts=2,
+        )
+        self.assertEqual([f["id"] for f in files], [A])
+        self.assertEqual(len(delays), 1)
+
+    def test_retry_exhaustion_cannot_publish_empty_folder(self):
+        delays = []
+        with self.assertRaisesRegex(ValueError, "Đã thử 3 lần"):
+            scanner.fetch_folder_with_retry(
+                FOLDER, fetch_text=lambda _: "Google temporary login page",
+                sleep=delays.append, attempts=3,
+            )
+        self.assertEqual(len(delays), 2)
+
     def test_add_and_remove_preserve_cover_and_order(self):
         previous = {"folderId": FOLDER, "photos": [A, B]}
         item = scanner.build_item(self.row, self.source, [photo(C), photo(B), photo(A)], previous)
