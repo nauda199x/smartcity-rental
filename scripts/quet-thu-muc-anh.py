@@ -8,8 +8,10 @@ giữ snapshot gần nhất khi nguồn lỗi, và dừng nếu lỗi diện r�
 """
 import hashlib
 import json
+import random
 import re
 import sys
+import time
 from concurrent.futures import ThreadPoolExecutor, as_completed
 from urllib.parse import urlencode
 from urllib.request import Request, urlopen
@@ -56,6 +58,33 @@ def parse_folder(text, folder_id):
             result.append({"id": row[0], "name": str(row[2]), "modified": row[9], "size": row[13],
                            "kind": "video" if row[3].startswith("video/") else "image"})
     return result
+
+
+def fetch_folder_with_retry(folder, *, fetch_text=None, sleep=None, attempts=4):
+    """Retry both network errors and Drive HTML that lacks folder metadata.
+
+    Drive may respond with a consent/login/challenge page while returning HTTP
+    200. Retrying only urlopen() errors cannot recover from that transient case.
+    Never interpret an unreadable page as an empty folder.
+    """
+    fetch_text = fetch_text or get_text
+    sleep = sleep or time.sleep
+    if attempts < 1:
+        raise ValueError("attempts phải >= 1")
+    last_error = None
+    for attempt in range(attempts):
+        try:
+            return parse_folder(
+                fetch_text("https://drive.google.com/drive/folders/" + folder), folder
+            )
+        except (OSError, UnicodeError, ValueError) as error:
+            last_error = error
+            if attempt + 1 < attempts:
+                # Stagger concurrent retries instead of hammering Drive again.
+                sleep(min(4.0, 0.7 * (2 ** attempt)) + random.uniform(0, 0.4))
+    raise ValueError(
+        f"Đã thử {attempts} lần nhưng không quét được Drive: {last_error}"
+    ) from last_error
 
 
 def read_folders():
@@ -120,7 +149,7 @@ def scan(rows, sources, old, fetch_folder):
     errors = []
     folders = {sources[code]["folderId"] for code in work}
     results = {}
-    with ThreadPoolExecutor(max_workers=8) as pool:
+    with ThreadPoolExecutor(max_workers=4) as pool:
         pending = {pool.submit(fetch_folder, folder): folder for folder in folders}
         for future in as_completed(pending):
             folder = pending[future]
@@ -164,8 +193,7 @@ def main():
     rows = json.loads((ROOT / "data.json").read_text(encoding="utf-8"))
     old = json.loads(MANIFEST.read_text(encoding="utf-8")) if MANIFEST.exists() else {"version": 1, "items": {}, "revisions": {}}
     sources = read_folders()
-    result = scan(rows, sources, old, lambda folder: parse_folder(
-        get_text("https://drive.google.com/drive/folders/" + folder), folder))
+    result = scan(rows, sources, old, fetch_folder_with_retry)
     if result == old:
         print("Danh sách và phiên bản ảnh không đổi.")
         return
