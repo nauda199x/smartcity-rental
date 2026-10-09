@@ -199,5 +199,23 @@ jobs:
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git add index.html cam-nang-thue-nha.html
           git commit -m "SEO: tách intent landing thuê và cẩm nang Smart City"
-          git pull --rebase origin main
-          git push origin HEAD:main
+          # data.json và các pipeline ảnh/video có thể đẩy main đúng lúc job
+          # này vừa pull xong. Nếu GitHub từ chối vì ref đã đổi, lấy snapshot
+          # mới rồi rebase và thử lại; không force-push hoặc ghi đè thay đổi.
+          for lan in 1 2 3 4; do
+            if ! git pull --rebase origin main; then
+              git rebase --abort || true
+              echo "::error::Main thay đổi xung đột; dừng để giữ dữ liệu mới."
+              exit 1
+            fi
+            if git push origin HEAD:main; then
+              echo "Đã cập nhật SEO intent trang chủ và cẩm nang."
+              exit 0
+            fi
+            cho=$((2 ** lan))
+            echo "Main vừa thay đổi trong lúc push; thử lại sau ${cho}s..."
+            sleep "$cho"
+          done
+
+          echo "::error::Không push được SEO intent sau 4 lần thử."
+          exit 1
