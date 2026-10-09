@@ -5735,6 +5735,14 @@
   "phan_khu": "Tonkin",
   "toa": "TK2"
  },
+ "cho-thue-can-ho-studio-tonkin-29m2-ct-stu-942": {
+  "dien_tich": 28.7,
+  "loai": "Studio",
+  "ma": "CT.Stu.942",
+  "ngay_xuat_hien": "2026-10-09",
+  "phan_khu": "Tonkin",
+  "toa": "TK2"
+ },
  "cho-thue-can-ho-studio-tonkin-30m2-cc22": {
   "dien_tich": 30,
   "loai": "Studio",
