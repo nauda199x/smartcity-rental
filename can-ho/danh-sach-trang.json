@@ -351,6 +351,14 @@
   "phan_khu": "Lumiere",
   "toa": "A1"
  },
+ "cho-thue-can-ho-1-ngu-lumiere-42m2-ct-1n-209": {
+  "dien_tich": 42,
+  "loai": "1 Ngủ",
+  "ma": "CT.1N.209",
+  "ngay_xuat_hien": "2026-10-09",
+  "phan_khu": "Lumiere",
+  "toa": "A1"
+ },
  "cho-thue-can-ho-1-ngu-lumiere-42m2-ct-1n-455": {
   "dien_tich": 42,
   "loai": "1 Ngủ +",
@@ -3791,6 +3799,14 @@
   "phan_khu": "Sapphire",
   "toa": "S302"
  },
+ "cho-thue-can-ho-2-ngu-sapphire-64m2-ct-2n-338": {
+  "dien_tich": 64,
+  "loai": "2 Ngủ +",
+  "ma": "CT.2N+.338",
+  "ngay_xuat_hien": "2026-10-09",
+  "phan_khu": "Sapphire",
+  "toa": "S103"
+ },
  "cho-thue-can-ho-2-ngu-sapphire-64m2-ct-2n2-366": {
   "dien_tich": 64,
   "loai": "2 Ngủ",
@@ -4263,6 +4279,14 @@
   "phan_khu": "Sapphire",
   "toa": "S202"
  },
+ "cho-thue-can-ho-3-ngu-sapphire-75m2-ct-3n-188": {
+  "dien_tich": 75,
+  "loai": "3 Ngủ",
+  "ma": "CT.3N.188",
+  "ngay_xuat_hien": "2026-10-09",
+  "phan_khu": "Sapphire",
+  "toa": "S401"
+ },
  "cho-thue-can-ho-3-ngu-sapphire-76m2-ct-3n-133": {
   "dien_tich": 76,
   "loai": "3 Ngủ",
@@ -4340,6 +4364,14 @@
   "loai": "Studio",
   "ma": "CT.Stu.877",
   "ngay_xuat_hien": "2026-09-19",
+  "phan_khu": "Canopy",
+  "toa": "TC3"
+ },
+ "cho-thue-can-ho-studio-canopy-25m2-ct-stu-940": {
+  "dien_tich": 25,
+  "loai": "Studio",
+  "ma": "CT.Stu.940",
+  "ngay_xuat_hien": "2026-10-09",
   "phan_khu": "Canopy",
   "toa": "TC3"
  },
@@ -4470,6 +4502,14 @@
   "ngay_xuat_hien": "2026-09-26",
   "phan_khu": "Imperia",
   "toa": "I5"
+ },
+ "cho-thue-can-ho-studio-imperia-28m2-ct-stu-941": {
+  "dien_tich": 28,
+  "loai": "Studio",
+  "ma": "CT.Stu.941",
+  "ngay_xuat_hien": "2026-10-09",
+  "phan_khu": "Imperia",
+  "toa": "I4"
  },
  "cho-thue-can-ho-studio-imperia-31m2-ct-stu-782": {
   "dien_tich": 31,
