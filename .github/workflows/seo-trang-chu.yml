@@ -199,7 +199,6 @@ jobs:
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git add index.html cam-nang-thue-nha.html
           git commit -m "SEO: tách intent landing thuê và cẩm nang Smart City"
-
           # data.json và các pipeline ảnh/video có thể đẩy main đúng lúc job
           # này vừa pull xong. Nếu GitHub từ chối vì ref đã đổi, lấy snapshot
           # mới rồi rebase và thử lại; không force-push hoặc ghi đè thay đổi.
