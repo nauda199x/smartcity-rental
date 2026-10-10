@@ -729,7 +729,7 @@
       "area_max": 75,
       "area_min": 32,
       "code": "S103",
-      "count": 4,
+      "count": 5,
       "data_code": "S103",
       "district": "Sapphire",
       "first_seen": "2026-09-10",
@@ -740,6 +740,12 @@
       "price_max": 15000000,
       "price_min": 6000000,
       "types": [
+        {
+          "count": 1,
+          "name": "1 Ngủ +",
+          "price_max": 8500000,
+          "price_min": 8500000
+        },
         {
           "count": 1,
           "name": "2 Ngủ",
