@@ -1,14 +1,14 @@
 {
   "critical": [],
   "critical_count": 0,
-  "data_fingerprint": "d74c73dbe38faf3a",
-  "html_pages": 935,
-  "indexable_pages": 530,
-  "query_guard_pages": 935,
+  "data_fingerprint": "00218c5cf37b9476",
+  "html_pages": 936,
+  "indexable_pages": 528,
+  "query_guard_pages": 936,
   "tower_indexable": 40,
   "tower_registry": 40,
   "version": 2,
-  "warning_count": 29,
+  "warning_count": 30,
   "warnings": [
     {
       "count": 2,
@@ -249,6 +249,15 @@
         "can-ho/cho-thue-can-ho-1-ngu-masteri-43m2-cc27/index.html"
       ],
       "value": "Cho thuê căn hộ 1 Ngủ + MasA Vinhomes Smart City 43m² – 9,5 triệu/tháng"
+    },
+    {
+      "count": 2,
+      "issue": "duplicate title",
+      "pages": [
+        "lumi-hanoi/can-ho/cho-thue-can-ho-2-ngu-s1-54m2-thue2n-14/index.html",
+        "lumi-hanoi/can-ho/cho-thue-can-ho-2-ngu-s6-54m2-thue2n-13/index.html"
+      ],
+      "value": "Cho thuê căn hộ 2 Ngủ S6 Lumi Hanoi 54m² – 9 triệu/tháng"
     },
     {
       "count": 2,

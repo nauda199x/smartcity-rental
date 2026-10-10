@@ -238,7 +238,7 @@
       "area_max": 82,
       "area_min": 62,
       "code": "GS5",
-      "count": 7,
+      "count": 6,
       "data_code": "GS5",
       "district": "Miami",
       "first_seen": "2026-09-10",
@@ -256,9 +256,9 @@
           "price_min": 9000000
         },
         {
-          "count": 2,
+          "count": 1,
           "name": "3 Ngủ",
-          "price_max": 12500000,
+          "price_max": 12000000,
           "price_min": 12000000
         }
       ]
@@ -267,7 +267,7 @@
       "area_max": 80,
       "area_min": 27,
       "code": "GS6",
-      "count": 11,
+      "count": 10,
       "data_code": "GS6",
       "district": "Miami",
       "first_seen": "2026-09-10",
@@ -292,15 +292,15 @@
         },
         {
           "count": 2,
-          "name": "3 Ngủ",
-          "price_max": 18000000,
-          "price_min": 14000000
-        },
-        {
-          "count": 2,
           "name": "Studio",
           "price_max": 6000000,
           "price_min": 5500000
+        },
+        {
+          "count": 1,
+          "name": "3 Ngủ",
+          "price_max": 18000000,
+          "price_min": 18000000
         }
       ]
     },
@@ -697,10 +697,10 @@
       ]
     },
     "S102": {
-      "area_max": 75,
+      "area_max": 55,
       "area_min": 28,
       "code": "S102",
-      "count": 3,
+      "count": 2,
       "data_code": "S102",
       "district": "Sapphire",
       "first_seen": "2026-09-16",
@@ -708,7 +708,7 @@
       "last_seen": "2026-10-10",
       "name": "S1.02",
       "path": "/s1-02-vinhomes-smart-city/",
-      "price_max": 13500000,
+      "price_max": 10000000,
       "price_min": 5500000,
       "types": [
         {
@@ -716,12 +716,6 @@
           "name": "2 Ngủ",
           "price_max": 10000000,
           "price_min": 10000000
-        },
-        {
-          "count": 1,
-          "name": "3 Ngủ",
-          "price_max": 13500000,
-          "price_min": 13500000
         },
         {
           "count": 1,
@@ -1325,7 +1319,7 @@
       "area_max": 80,
       "area_min": 29,
       "code": "TC1",
-      "count": 14,
+      "count": 15,
       "data_code": "TC1",
       "district": "Canopy",
       "first_seen": "2026-09-10",
@@ -1343,16 +1337,16 @@
           "price_min": 7000000
         },
         {
+          "count": 4,
+          "name": "3 Ngủ",
+          "price_max": 14000000,
+          "price_min": 12000000
+        },
+        {
           "count": 3,
           "name": "2 Ngủ +",
           "price_max": 11000000,
           "price_min": 10000000
-        },
-        {
-          "count": 3,
-          "name": "3 Ngủ",
-          "price_max": 13000000,
-          "price_min": 12000000
         },
         {
           "count": 1,
