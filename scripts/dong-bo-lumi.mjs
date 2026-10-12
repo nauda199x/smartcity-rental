@@ -12,12 +12,12 @@ const STANDARD_COLS = { tower: 2, sourceCode: 3, direction: 4, area: 5, price: 6
 const EXTENDED_COLS = { tower: 2, sourceCode: 3, direction: 4, area: 5, price: 7, interior: 8, updated: 10, imageCell: 11, note: 12, move: 14, stt: 15 };
 
 const TABS = [
-  { tab: "THUÊ 1PN", gid: 910003, type: "1 Ngủ", publicPrefix: "thue1N", cols: STANDARD_COLS, imageCol: "K", sttCol: "O", endCol: "O" },
-  { tab: "THUÊ 2PN", gid: 910004, type: "2 Ngủ", publicPrefix: "thue2N", cols: STANDARD_COLS, imageCol: "K", sttCol: "O", endCol: "O" },
-  { tab: "THUÊ 3PN", gid: 910005, type: "3 Ngủ", publicPrefix: "thue3N", cols: STANDARD_COLS, imageCol: "K", sttCol: "O", endCol: "O" },
-  { tab: "THUÊ DUPLEX", gid: 910006, type: "Duplex", publicPrefix: "thueDuplex", cols: EXTENDED_COLS, imageCol: "L", sttCol: "P", endCol: "P" },
-  { tab: "THUÊ PENTHOUSE", gid: 910007, type: "Penthouse", publicPrefix: "thuePenthouse", cols: EXTENDED_COLS, imageCol: "L", sttCol: "P", endCol: "P" },
-  { tab: "THUÊ SHOP", gid: 910008, type: "Shop", publicPrefix: "thueShop", cols: EXTENDED_COLS, imageCol: "L", sttCol: "P", endCol: "P" },
+  { tab: "THUÊ 1PN", gid: 910003, type: "1 Ngủ", publicPrefix: "thue1N", cols: STANDARD_COLS, imageCol: "K", sttCol: "O", endCol: "S" },
+  { tab: "THUÊ 2PN", gid: 910004, type: "2 Ngủ", publicPrefix: "thue2N", cols: STANDARD_COLS, imageCol: "K", sttCol: "O", endCol: "S" },
+  { tab: "THUÊ 3PN", gid: 910005, type: "3 Ngủ", publicPrefix: "thue3N", cols: STANDARD_COLS, imageCol: "K", sttCol: "O", endCol: "S" },
+  { tab: "THUÊ DUPLEX", gid: 910006, type: "Duplex", publicPrefix: "thueDuplex", cols: EXTENDED_COLS, imageCol: "L", sttCol: "P", endCol: "S" },
+  { tab: "THUÊ PENTHOUSE", gid: 910007, type: "Penthouse", publicPrefix: "thuePenthouse", cols: EXTENDED_COLS, imageCol: "L", sttCol: "P", endCol: "S" },
+  { tab: "THUÊ SHOP", gid: 910008, type: "Shop", publicPrefix: "thueShop", cols: EXTENDED_COLS, imageCol: "L", sttCol: "P", endCol: "S" },
 ];
 
 const txt = v => String(v == null ? "" : v).trim();
@@ -183,6 +183,7 @@ function sourceRow(spec, c) {
     spec,
     stt,
     publicCode: publicCode(spec, stt),
+    syncFolder: txt(c[17]),
     tower: txt(c[x.tower]),
     sourceCode: txt(c[x.sourceCode]),
     direction: txt(c[x.direction]),
@@ -198,43 +199,95 @@ function sourceRow(spec, c) {
 
 async function loadSource() {
   const byId = new Map();
-  let nonEmpty = 0;
+  const byType = new Map();
+  let nonEmpty = 0, badStt = 0;
   for (const spec of TABS) {
     const [rows, links] = await Promise.all([fetchCsv(spec), fetchImageLinks(spec)]);
-    for (let i = 0; i < rows.length; i++) {
+    // CSV export may return A5:S or the entire tab. Locate the real header so
+    // the stable public ID is always its 1-based data-row ordinal (row 6 -> 1).
+    // The STT column is sometimes #REF!, blank or offset by five rows: never
+    // let that corrupt public IDs or deactivate otherwise valid apartments.
+    const header = rows.findIndex(c => deaccent(c?.[spec.cols.sourceCode]) === "ma can");
+    if (header < 0) throw new Error(spec.tab + ": không tìm thấy tiêu đề MÃ CĂN trong CSV");
+    let tabCount = 0;
+    for (let i = header + 1; i < rows.length; i++) {
       const c = rows[i];
       if (!c || c.every(x => !txt(x))) continue;
       const src = sourceRow(spec, c);
-      /* CSV export có dòng tiêu đề ở đầu. Không dựa vào index;
-         nhận diện header theo nội dung để không bao giờ bỏ mất căn đầu tiên. */
-      if (!src.stt && deaccent(c[spec.cols.stt]) === "stt") continue;
-      nonEmpty++;
-      /* Sheet có STT/formula điền sẵn xuống rất nhiều dòng trống.
-         Chỉ coi là căn khi ngoài STT còn có dữ liệu căn thực tế. */
+      // Skip preformatted empty rows; retain ordinal gaps to prevent ID reuse.
       if (!src.tower && !src.sourceCode && !src.area && !src.price) continue;
-      if (!src.stt || !src.publicCode) continue;
-      const directFolder = /^https:\/\/drive\.google\.com\/(?:drive\/(?:u\/\d+\/)?folders\/|open\?id=)[A-Za-z0-9_-]+/i.test(src.imageCell)
-        ? src.imageCell
-        : "";
-      src.folder = links.map.get(src.stt) || directFolder || "";
-      src.folderKnown = links.ok || Boolean(directFolder);
+      nonEmpty++;
+      const ordinal = String(i - header);
+      if (src.stt !== ordinal) badStt++;
+      const sheetStt = src.stt;
+      src.stt = ordinal;
+      src.publicCode = publicCode(spec, ordinal);
+      // R contains the exact URL of a rich-text "ảnh" hyperlink in column K.
+      // Prefer the explicit per-row URL, never infer an album from price/tower.
+      const validFolder = v => /^https:\/\/drive\.google\.com\/(?:drive\/(?:u\/\d+\/)?folders\/|open\?id=)[A-Za-z0-9_-]{12,}/i.test(v);
+      const directFolder = [src.syncFolder, src.imageCell].find(validFolder) || "";
+      const mappedFolder = links.map.get(sheetStt) || links.map.get(ordinal) || "";
+      src.folder = directFolder || mappedFolder;
+      // Blank K and R explicitly mean "no images"; do not retain stale media.
+      src.folderKnown = Boolean(directFolder) || !src.imageCell || links.ok;
       const id = src.publicCode;
-      if (byId.has(id)) throw new Error("Trùng STT trong " + spec.tab + ": " + src.stt);
+      if (byId.has(id)) throw new Error("Trùng mã công khai: " + id);
       byId.set(id, src);
+      tabCount++;
     }
+    byType.set(spec.publicPrefix, tabCount);
   }
-  if (byId.size < 10 || byId.size > 300)
-    throw new Error("Số căn Lumi bất thường: " + byId.size + " (ngưỡng 10-300)");
+  // A broken Sheet/export must never turn off the whole stock board again.
+  if (byId.size < 45 || byId.size > 300 ||
+      (byType.get("thue1N") || 0) < 10 ||
+      (byType.get("thue2N") || 0) < 20 ||
+      (byType.get("thue3N") || 0) < 12)
+    throw new Error("Quỹ Lumi bất thường, từ chối ghi snapshot thiếu căn: " +
+      byId.size + " " + JSON.stringify(Object.fromEntries(byType)));
+  console.log("Lumi: " + badStt + " STT nguồn sai/trống; mã công khai tính theo thứ tự dòng dữ liệu thực tế.");
   return { byId, nonEmpty };
 }
 
 function sync(old, source) {
-  /* Snapshot mới chỉ giữ mã public theo STT, tuyệt đối không giữ mã căn thật. */
   const next = old.filter(r => deaccent(r["Mã căn"]) !== "ma can").map(r => ({ ...r }));
   const oldById = new Map(next.map((r, i) => [txt(r["Mã nội bộ"]), i]));
+  // Albums may be intentionally shared; reuse photos ONLY for the exact same
+  // Drive folder URL. A stale public ID is not proof of media ownership.
+  const mediaByFolder = new Map();
+  for (const row of next) {
+    const folder = txt(row["Ảnh thư mục"]);
+    if (folder && !mediaByFolder.has(folder) &&
+        (txt(row["Ảnh đại diện"]) || txt(row["Danh sách ảnh"])))
+      mediaByFolder.set(folder, {
+        cover: txt(row["Ảnh đại diện"]),
+        gallery: txt(row["Danh sách ảnh"])
+      });
+  }
+  function reconcileMedia(out, src) {
+    const previousFolder = txt(out["Ảnh thư mục"]);
+    if (src.folderKnown) {
+      if (previousFolder !== src.folder) {
+        const matched = mediaByFolder.get(src.folder);
+        out["Ảnh thư mục"] = src.folder;
+        out["Ảnh đại diện"] = matched?.cover || "";
+        out["Danh sách ảnh"] = matched?.gallery || "";
+      }
+    } else {
+      // Rich-text cell could not be resolved on this run. Preserve its album
+      // only if all non-sensitive apartment descriptors match the old record.
+      const same = key(out["Tòa"]) === key(src.tower) &&
+        Math.abs(area(out["Diện tích"]) - src.area) < 0.01 &&
+        money(out["Giá thuê"]) === src.price &&
+        key(out["Hướng ban công"]) === key(src.direction);
+      if (!same) {
+        out["Ảnh thư mục"] = "";
+        out["Ảnh đại diện"] = "";
+        out["Danh sách ảnh"] = "";
+      }
+    }
+  }
   const touched = new Set();
   const stat = { updated: 0, added: 0, on: 0, off: 0, missing: 0 };
-
   for (const [id, src] of source.entries()) {
     const complete = Boolean(src.stt && src.tower && src.area > 0 && src.price > 0);
     const show = complete && !inactive(src.note);
@@ -251,38 +304,29 @@ function sync(old, source) {
       "Ngày cập nhật": src.updated,
       "Hiển thị trên Web": show ? "Có" : "Không",
     };
-
     let pos = oldById.get(id);
-    /* One-time migrate snapshot cũ: dùng mã căn thật CHỈ để tìm dòng cũ trong
-       bộ nhớ, sau đó payload bên trên ghi đè thành mã public thue1N.<STT>.
-       Sau lần chạy đầu, data-lumi.json không còn lưu mã căn thật nữa. */
-    if (pos == null && src.sourceCode) {
-      const legacy = next.findIndex(r => txt(r["Mã căn"]) === src.sourceCode &&
-        key(r["Loại"]) === key(src.spec.type) &&
-        Math.abs(area(r["Diện tích"]) - src.area) < 0.01);
-      if (legacy >= 0 && !touched.has(legacy)) pos = legacy;
-    }
-
     if (pos == null) {
+      const album = mediaByFolder.get(src.folder);
       const row = {
         ...payload,
         "Ngày thêm vào hệ thống": src.updated || todayVN(),
         "Ảnh thư mục": src.folderKnown ? src.folder : "",
-        "Ảnh đại diện": "",
-        "Danh sách ảnh": ""
+        "Ảnh đại diện": src.folderKnown ? album?.cover || "" : "",
+        "Danh sách ảnh": src.folderKnown ? album?.gallery || "" : "",
       };
       next.push(row);
       oldById.set(id, next.length - 1);
       touched.add(next.length - 1);
-      stat.added++; show ? stat.on++ : stat.off++;
+      stat.added++;
+      show ? stat.on++ : stat.off++;
       continue;
     }
-
     const out = next[pos];
     const was = key(out["Hiển thị trên Web"]) === "có";
+    reconcileMedia(out, src);
     Object.assign(out, payload);
-    if (!txt(out["Ngày thêm vào hệ thống"])) out["Ngày thêm vào hệ thống"] = src.updated || todayVN();
-    if (src.folderKnown) out["Ảnh thư mục"] = src.folder;
+    if (!txt(out["Ngày thêm vào hệ thống"]))
+      out["Ngày thêm vào hệ thống"] = src.updated || todayVN();
     if (!("Ảnh đại diện" in out)) out["Ảnh đại diện"] = "";
     if (!("Danh sách ảnh" in out)) out["Danh sách ảnh"] = "";
     touched.add(pos);
@@ -290,23 +334,17 @@ function sync(old, source) {
     if (!was && show) stat.on++;
     if (was && !show) stat.off++;
   }
-
+  // Keep historical URLs as inactive, never publicly invent stock from old
+  // cache rows. A missing ID cannot be used to remove a current Sheet row.
   for (let i = 0; i < next.length; i++) {
     if (touched.has(i)) continue;
-    if (!/^thue(?:1N|2N|3N|Duplex|Penthouse|Shop)\.\d+$/.test(txt(next[i]["Mã nội bộ"]))) {
-      /* Dòng legacy chứa mã căn thật: không giữ lại sau migration. */
-      continue;
-    }
     if (key(next[i]["Hiển thị trên Web"]) === "có") {
       next[i]["Hiển thị trên Web"] = "Không";
       stat.missing++;
     }
   }
-
-  const cleaned = next.filter((row, index) => {
-    if (touched.has(index)) return true;
-    return /^thue(?:1N|2N|3N|Duplex|Penthouse|Shop)\.\d+$/.test(txt(row["Mã nội bộ"]));
-  });
+  const cleaned = next.filter(row =>
+    /^thue(?:1N|2N|3N|Duplex|Penthouse|Shop)\.\d+$/.test(txt(row["Mã nội bộ"])));
   return { next: cleaned, stat };
 }
 
