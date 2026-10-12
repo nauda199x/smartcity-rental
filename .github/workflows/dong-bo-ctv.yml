@@ -15,6 +15,7 @@ on:
 
 permissions:
   contents: write
+  actions: write
 
 concurrency:
   group: smartcity-ctv-sync
@@ -37,6 +38,7 @@ jobs:
           node-version: "24"
 
       - name: Đồng bộ CTV và đẩy data.json
+        id: save
         run: |
           set -euo pipefail
           git config user.name "github-actions[bot]"
@@ -50,12 +52,14 @@ jobs:
             git add data.json
 
             if git diff --cached --quiet; then
+              echo "changed=false" >> "$GITHUB_OUTPUT"
               echo "data.json đã khớp Sheet CTV — không cần commit."
               exit 0
             fi
 
             git commit -m "Tự động đồng bộ quỹ căn từ Sheet CTV"
             if git push origin HEAD:main; then
+              echo "changed=true" >> "$GITHUB_OUTPUT"
               echo "Đã cập nhật data.json từ Sheet CTV."
               exit 0
             fi
@@ -67,3 +71,13 @@ jobs:
 
           echo "::error::Không push được data.json sau 4 lần thử."
           exit 1
+
+
+      # Push bằng GITHUB_TOKEN không tự kích hoạt workflow push khác. Gọi
+      # workflow sinh HTML qua workflow_dispatch để số căn tĩnh, sitemap và
+      # trang danh mục bám đúng data.json vừa đồng bộ.
+      - name: Cập nhật HTML và sitemap theo dữ liệu mới
+        if: steps.save.outputs.changed == 'true'
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: gh workflow run cap-nhat-so-can.yml --ref main
