@@ -1,13 +1,13 @@
 {
   "updated": "2026-10-12",
   "source": "data.json",
-  "active_count": 353,
+  "active_count": 354,
   "min_sample": 3,
   "overall": {
-    "n": 353,
+    "n": 354,
     "min": 4000000,
     "max": 25000000,
-    "median": 10500000
+    "median": 10500000.0
   },
   "by_type": {
     "1 Ngủ": {
@@ -41,10 +41,10 @@
       "median": 13000000
     },
     "Studio": {
-      "n": 67,
+      "n": 68,
       "min": 5500000,
       "max": 10000000,
-      "median": 7500000
+      "median": 7500000.0
     }
   },
   "by_zone": {
@@ -73,10 +73,10 @@
       "median": 11750000.0
     },
     "Miami": {
-      "n": 41,
+      "n": 42,
       "min": 5500000,
       "max": 18000000,
-      "median": 10000000
+      "median": 10000000.0
     },
     "Sakura": {
       "n": 29,
@@ -99,7 +99,7 @@
   },
   "by_interior": {
     "Full nội thất": {
-      "n": 201,
+      "n": 203,
       "min": 5800000,
       "max": 25000000,
       "median": 11000000
@@ -111,10 +111,10 @@
       "median": 9000000
     },
     "Đồ Cơ bản": {
-      "n": 57,
+      "n": 56,
       "min": 5500000,
       "max": 17000000,
-      "median": 10500000
+      "median": 10500000.0
     }
   },
   "zone_type_interior": [
@@ -599,10 +599,10 @@
       "zone": "Miami",
       "type": "2 Ngủ",
       "interior": "Full nội thất",
-      "n": 9,
+      "n": 10,
       "min": 10000000,
       "max": 14000000,
-      "median": 12000000
+      "median": 11500000.0
     },
     {
       "zone": "Miami",
@@ -611,15 +611,6 @@
       "n": 3,
       "min": 9000000,
       "max": 10500000,
-      "median": 10000000
-    },
-    {
-      "zone": "Miami",
-      "type": "2 Ngủ",
-      "interior": "Đồ Cơ bản",
-      "n": 1,
-      "min": 10000000,
-      "max": 10000000,
       "median": 10000000
     },
     {
@@ -680,10 +671,10 @@
       "zone": "Miami",
       "type": "Studio",
       "interior": "Full nội thất",
-      "n": 4,
+      "n": 5,
       "min": 7000000,
-      "max": 7500000,
-      "median": 7250000.0
+      "max": 8500000,
+      "median": 7500000
     },
     {
       "zone": "Miami",
@@ -790,7 +781,7 @@
       "interior": "Nhà Nguyên Bản",
       "n": 3,
       "min": 4000000,
-      "max": 7500000,
+      "max": 7000000,
       "median": 7000000
     },
     {
