@@ -2845,7 +2845,7 @@
   "ma": "CT.2N+.319",
   "ngay_xuat_hien": "2026-09-22",
   "phan_khu": "Miami",
-  "toa": "GS3"
+  "toa": "GS2"
  },
  "cho-thue-can-ho-2-ngu-miami-62m2-ct-2n2-373": {
   "dien_tich": 62.5,
@@ -3831,6 +3831,14 @@
   "phan_khu": "Sapphire",
   "toa": "S303"
  },
+ "cho-thue-can-ho-2-ngu-sapphire-63m2-ct-2n-340": {
+  "dien_tich": 63,
+  "loai": "2 Ngủ +",
+  "ma": "CT.2N+.340",
+  "ngay_xuat_hien": "2026-10-13",
+  "phan_khu": "Sapphire",
+  "toa": "S105"
+ },
  "cho-thue-can-ho-2-ngu-sapphire-64m2-cc25": {
   "dien_tich": 64,
   "loai": "2 Ngủ +",
@@ -4094,6 +4102,14 @@
   "ngay_xuat_hien": "2026-10-10",
   "phan_khu": "Canopy",
   "toa": "TC1"
+ },
+ "cho-thue-can-ho-3-ngu-canopy-80m2-ct-3n-193": {
+  "dien_tich": 80,
+  "loai": "3 Ngủ",
+  "ma": "CT.3N.193",
+  "ngay_xuat_hien": "2026-10-13",
+  "phan_khu": "Canopy",
+  "toa": "TC3"
  },
  "cho-thue-can-ho-3-ngu-canopy-83m2-ct-3n-184": {
   "dien_tich": 83,
