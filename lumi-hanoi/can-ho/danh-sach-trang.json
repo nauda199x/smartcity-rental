@@ -483,9 +483,9 @@
     "id": "thue3N.17",
     "ma": "thue3N.17",
     "loai": "3 Ngủ",
-    "toa": "S1",
-    "dien_tich": 81.0,
-    "active": false
+    "toa": "S3",
+    "dien_tich": 117.0,
+    "active": true
   },
   "cho-thue-can-ho-3-ngu-s2-106m2-thue3n-18": {
     "id": "thue3N.18",
