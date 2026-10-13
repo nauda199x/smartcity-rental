@@ -15,6 +15,7 @@ on:
 
 permissions:
   contents: write
+  actions: write
 
 concurrency:
   group: smartcity-ctv-sync
@@ -37,6 +38,8 @@ jobs:
           node-version: "24"
 
       - name: Đồng bộ CTV và đẩy data.json
+        env:
+          GH_TOKEN: ${{ github.token }}
         run: |
           set -euo pipefail
           git config user.name "github-actions[bot]"
@@ -57,6 +60,11 @@ jobs:
             git commit -m "Tự động đồng bộ quỹ căn từ Sheet CTV"
             if git push origin HEAD:main; then
               echo "Đã cập nhật data.json từ Sheet CTV."
+              # GITHUB_TOKEN push khong kich hoat workflow push khac.
+              # workflow_dispatch duoc GitHub cho phep: dung HTML chi tiet ngay
+              # sau khi gia, tinh trang can ho trong data.json thay doi.
+              gh workflow run cap-nhat-so-can.yml --ref main
+              echo "Đã yêu cầu sinh lại HTML chi tiết theo data.json mới."
               exit 0
             fi
 
