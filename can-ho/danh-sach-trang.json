@@ -3247,6 +3247,14 @@
   "phan_khu": "Sakura",
   "toa": "SA1"
  },
+ "cho-thue-can-ho-2-ngu-sakura-54m2-ct-2n2-484": {
+  "dien_tich": 54,
+  "loai": "2 Ngủ",
+  "ma": "CT.2N2.484",
+  "ngay_xuat_hien": "2026-10-14",
+  "phan_khu": "Sakura",
+  "toa": "SA5"
+ },
  "cho-thue-can-ho-2-ngu-sakura-55m2-ct-2n2-395": {
   "dien_tich": 55,
   "loai": "2 Ngủ",
@@ -3470,6 +3478,14 @@
   "ngay_xuat_hien": "2026-10-14",
   "phan_khu": "Sapphire",
   "toa": "S301"
+ },
+ "cho-thue-can-ho-2-ngu-sapphire-54m2-ct-2n1-277": {
+  "dien_tich": 54,
+  "loai": "2 Ngủ",
+  "ma": "CT.2N1.277",
+  "ngay_xuat_hien": "2026-10-14",
+  "phan_khu": "Sapphire",
+  "toa": "S205"
  },
  "cho-thue-can-ho-2-ngu-sapphire-55m2-ct-2n1-150": {
   "dien_tich": 55,

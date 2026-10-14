@@ -941,6 +941,35 @@
         }
       ]
     },
+    "S205": {
+      "area_max": 55,
+      "area_min": 28,
+      "code": "S205",
+      "count": 3,
+      "data_code": "S205",
+      "district": "Sapphire",
+      "first_seen": "2026-10-14",
+      "indexable": true,
+      "last_seen": "2026-10-14",
+      "name": "S2.05",
+      "path": "/s2-05-vinhomes-smart-city/",
+      "price_max": 10000000,
+      "price_min": 7500000,
+      "types": [
+        {
+          "count": 2,
+          "name": "2 Ngủ",
+          "price_max": 10000000,
+          "price_min": 9500000
+        },
+        {
+          "count": 1,
+          "name": "Studio",
+          "price_max": 7500000,
+          "price_min": 7500000
+        }
+      ]
+    },
     "S301": {
       "area_max": 63,
       "area_min": 25,
@@ -1278,7 +1307,7 @@
       "area_max": 64,
       "area_min": 36,
       "code": "SA5",
-      "count": 4,
+      "count": 5,
       "data_code": "SA5",
       "district": "Sakura",
       "first_seen": "2026-09-10",
@@ -1286,13 +1315,13 @@
       "last_seen": "2026-10-14",
       "name": "SA5 The Sakura",
       "path": "/sa5-the-sakura-smart-city/",
-      "price_max": 11500000,
+      "price_max": 12000000,
       "price_min": 8000000,
       "types": [
         {
-          "count": 2,
+          "count": 3,
           "name": "2 Ngủ",
-          "price_max": 11000000,
+          "price_max": 12000000,
           "price_min": 10000000
         },
         {

@@ -1,10 +1,10 @@
 {
   "updated": "2026-10-14",
   "source": "data.json",
-  "active_count": 332,
+  "active_count": 334,
   "min_sample": 3,
   "overall": {
-    "n": 332,
+    "n": 334,
     "min": 4000000,
     "max": 25000000,
     "median": 10500000.0
@@ -23,7 +23,7 @@
       "median": 9500000.0
     },
     "2 Ngủ": {
-      "n": 99,
+      "n": 101,
       "min": 8000000,
       "max": 17000000,
       "median": 11500000
@@ -79,16 +79,16 @@
       "median": 10000000.0
     },
     "Sakura": {
-      "n": 23,
+      "n": 24,
       "min": 5800000,
       "max": 15000000,
-      "median": 10500000
+      "median": 10750000.0
     },
     "Sapphire": {
-      "n": 77,
+      "n": 78,
       "min": 4000000,
       "max": 18000000,
-      "median": 9500000
+      "median": 9500000.0
     },
     "Tonkin": {
       "n": 12,
@@ -99,7 +99,7 @@
   },
   "by_interior": {
     "Full nội thất": {
-      "n": 195,
+      "n": 197,
       "min": 5800000,
       "max": 25000000,
       "median": 11000000
@@ -671,10 +671,10 @@
       "zone": "Sakura",
       "type": "2 Ngủ",
       "interior": "Full nội thất",
-      "n": 9,
+      "n": 10,
       "min": 10000000,
       "max": 12000000,
-      "median": 11000000
+      "median": 11000000.0
     },
     {
       "zone": "Sakura",
@@ -770,10 +770,10 @@
       "zone": "Sapphire",
       "type": "2 Ngủ",
       "interior": "Full nội thất",
-      "n": 15,
+      "n": 16,
       "min": 9000000,
       "max": 11000000,
-      "median": 10000000
+      "median": 10000000.0
     },
     {
       "zone": "Sapphire",
