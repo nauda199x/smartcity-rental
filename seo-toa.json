@@ -595,7 +595,7 @@
       "area_max": 74,
       "area_min": 42,
       "code": "MASC",
-      "count": 8,
+      "count": 7,
       "data_code": "MasC",
       "district": "Masteri",
       "first_seen": "2026-09-10",
@@ -604,13 +604,13 @@
       "name": "West C Masteri",
       "path": "/west-c-masteri-smart-city/",
       "price_max": 13000000,
-      "price_min": 10000000,
+      "price_min": 10500000,
       "types": [
         {
-          "count": 4,
+          "count": 3,
           "name": "1 Ngủ +",
           "price_max": 12500000,
-          "price_min": 10000000
+          "price_min": 10500000
         },
         {
           "count": 3,
