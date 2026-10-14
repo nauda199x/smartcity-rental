@@ -1,14 +1,14 @@
 {
   "critical": [],
   "critical_count": 0,
-  "data_fingerprint": "1bb759a15cbd1bed",
-  "html_pages": 976,
-  "indexable_pages": 522,
-  "query_guard_pages": 976,
+  "data_fingerprint": "b8df58055b7c7cdf",
+  "html_pages": 979,
+  "indexable_pages": 524,
+  "query_guard_pages": 979,
   "tower_indexable": 41,
   "tower_registry": 41,
   "version": 2,
-  "warning_count": 31,
+  "warning_count": 32,
   "warnings": [
     {
       "count": 2,
@@ -237,6 +237,15 @@
         "can-ho/cho-thue-can-ho-studio-lumiere-30m2-ct-stu-926/index.html"
       ],
       "value": "Cho thuê căn hộ Studio A2 Vinhomes Smart City 30m² – 8,5 triệu/tháng"
+    },
+    {
+      "count": 2,
+      "issue": "duplicate title",
+      "pages": [
+        "can-ho/cho-thue-can-ho-studio-sakura-26m2-ct-stu-951/index.html",
+        "can-ho/cho-thue-can-ho-studio-sakura-26m2-ct-stu-894/index.html"
+      ],
+      "value": "Cho thuê căn hộ Studio SA3 Vinhomes Smart City 26m² – 7,5 triệu/tháng"
     },
     {
       "count": 2,
