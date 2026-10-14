@@ -1,13 +1,13 @@
 {
   "updated": "2026-10-14",
   "source": "data.json",
-  "active_count": 335,
+  "active_count": 336,
   "min_sample": 3,
   "overall": {
-    "n": 335,
+    "n": 336,
     "min": 4000000,
     "max": 25000000,
-    "median": 10500000
+    "median": 10500000.0
   },
   "by_type": {
     "1 Ngủ": {
@@ -17,16 +17,16 @@
       "median": 9750000.0
     },
     "1 Ngủ +": {
-      "n": 55,
+      "n": 54,
       "min": 4000000,
       "max": 14000000,
-      "median": 9500000
+      "median": 9500000.0
     },
     "2 Ngủ": {
-      "n": 101,
+      "n": 102,
       "min": 8000000,
       "max": 17000000,
-      "median": 11500000
+      "median": 11500000.0
     },
     "2 Ngủ +": {
       "n": 59,
@@ -41,10 +41,10 @@
       "median": 13000000.0
     },
     "Studio": {
-      "n": 60,
+      "n": 61,
       "min": 5500000,
       "max": 10000000,
-      "median": 7500000.0
+      "median": 7500000
     }
   },
   "by_zone": {
@@ -61,7 +61,7 @@
       "median": 10500000
     },
     "Lumiere": {
-      "n": 58,
+      "n": 60,
       "min": 8000000,
       "max": 25000000,
       "median": 12000000.0
@@ -85,10 +85,10 @@
       "median": 10750000.0
     },
     "Sapphire": {
-      "n": 78,
+      "n": 77,
       "min": 4000000,
       "max": 18000000,
-      "median": 9500000.0
+      "median": 9500000
     },
     "Tonkin": {
       "n": 12,
@@ -99,22 +99,22 @@
   },
   "by_interior": {
     "Full nội thất": {
-      "n": 197,
+      "n": 196,
       "min": 5800000,
       "max": 25000000,
-      "median": 11000000
+      "median": 11000000.0
     },
     "Nhà Nguyên Bản": {
-      "n": 88,
+      "n": 89,
       "min": 4000000,
       "max": 13500000,
-      "median": 9000000.0
+      "median": 9000000
     },
     "Đồ Cơ bản": {
-      "n": 50,
+      "n": 51,
       "min": 6000000,
       "max": 17000000,
-      "median": 10250000.0
+      "median": 10500000
     }
   },
   "zone_type_interior": [
@@ -374,10 +374,10 @@
       "zone": "Lumiere",
       "type": "2 Ngủ",
       "interior": "Đồ Cơ bản",
-      "n": 5,
+      "n": 6,
       "min": 12000000,
       "max": 14000000,
-      "median": 12000000
+      "median": 12000000.0
     },
     {
       "zone": "Lumiere",
@@ -437,10 +437,10 @@
       "zone": "Lumiere",
       "type": "Studio",
       "interior": "Nhà Nguyên Bản",
-      "n": 4,
+      "n": 5,
       "min": 8000000,
       "max": 8500000,
-      "median": 8500000.0
+      "median": 8500000
     },
     {
       "zone": "Lumiere",
@@ -743,10 +743,10 @@
       "zone": "Sapphire",
       "type": "1 Ngủ +",
       "interior": "Full nội thất",
-      "n": 9,
-      "min": 8000000,
+      "n": 8,
+      "min": 8500000,
       "max": 9500000,
-      "median": 9000000
+      "median": 9000000.0
     },
     {
       "zone": "Sapphire",
