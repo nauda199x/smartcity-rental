@@ -548,7 +548,7 @@
       "area_max": 79,
       "area_min": 29,
       "code": "MASB",
-      "count": 20,
+      "count": 21,
       "data_code": "MasB",
       "district": "Masteri",
       "first_seen": "2026-09-10",
@@ -560,10 +560,10 @@
       "price_min": 7800000,
       "types": [
         {
-          "count": 9,
+          "count": 10,
           "name": "1 Ngủ +",
           "price_max": 14000000,
-          "price_min": 9500000
+          "price_min": 9000000
         },
         {
           "count": 5,
