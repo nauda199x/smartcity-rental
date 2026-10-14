@@ -1,14 +1,14 @@
 {
   "critical": [],
   "critical_count": 0,
-  "data_fingerprint": "2aa3e411ccbbfec2",
-  "html_pages": 965,
-  "indexable_pages": 511,
-  "query_guard_pages": 965,
+  "data_fingerprint": "945565dffb02b899",
+  "html_pages": 970,
+  "indexable_pages": 517,
+  "query_guard_pages": 970,
   "tower_indexable": 40,
   "tower_registry": 40,
   "version": 2,
-  "warning_count": 30,
+  "warning_count": 31,
   "warnings": [
     {
       "count": 2,
@@ -110,6 +110,15 @@
         "can-ho/cho-thue-can-ho-2-ngu-sapphire-64m2-ct-2n-260/index.html"
       ],
       "value": "Cho thuê căn hộ 2 Ngủ + S202 Vinhomes Smart City 64m² – 11 triệu/tháng"
+    },
+    {
+      "count": 2,
+      "issue": "duplicate title",
+      "pages": [
+        "can-ho/cho-thue-can-ho-studio-miami-27m2-ct-stu-937/index.html",
+        "can-ho/cho-thue-can-ho-studio-miami-27m2-ct-stu-949/index.html"
+      ],
+      "value": "Cho thuê căn hộ Studio GS6 Vinhomes Smart City 27m² – 5,5 triệu/tháng"
     },
     {
       "count": 2,
