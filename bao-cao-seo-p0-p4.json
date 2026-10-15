@@ -1,14 +1,14 @@
 {
   "critical": [],
   "critical_count": 0,
-  "data_fingerprint": "241b031e65b5513f",
+  "data_fingerprint": "d2785cb372563625",
   "html_pages": 982,
-  "indexable_pages": 525,
+  "indexable_pages": 523,
   "query_guard_pages": 982,
   "tower_indexable": 41,
   "tower_registry": 41,
   "version": 2,
-  "warning_count": 30,
+  "warning_count": 29,
   "warnings": [
     {
       "count": 2,
@@ -37,15 +37,6 @@
         "can-ho/cho-thue-can-ho-2-ngu-lumiere-66m2-ct-2n2-440/index.html"
       ],
       "value": "Cho thuê căn hộ 2 Ngủ A2 Vinhomes Smart City 66m² – 13 triệu/tháng"
-    },
-    {
-      "count": 2,
-      "issue": "duplicate title",
-      "pages": [
-        "can-ho/cho-thue-can-ho-2-ngu-masteri-54m2-ct-2n2-483/index.html",
-        "can-ho/cho-thue-can-ho-2-ngu-masteri-54m2-ct-2n2-482/index.html"
-      ],
-      "value": "Cho thuê căn hộ 2 Ngủ MasC Vinhomes Smart City 54m² – 12 triệu/tháng"
     },
     {
       "count": 2,
