@@ -174,6 +174,22 @@ async function fetchImageLinks(spec) {
   }
 }
 
+function parseSheetMedia(value) {
+  try {
+    const obj = JSON.parse(txt(value));
+    if (!obj || typeof obj !== "object" || !Array.isArray(obj.images) || !Array.isArray(obj.videos)) return null;
+    const valid = items => [...new Set(items.filter(id => typeof id === "string" && /^[A-Za-z0-9_-]{10,}$/.test(id)))];
+    const images = valid(obj.images);
+    const videos = valid(obj.videos);
+    const thumbs = images.map(id => "https://drive.google.com/thumbnail?id=" + id + "&sz=w1000");
+    return {
+      cover: thumbs[0] || "",
+      gallery: thumbs.join("\n"),
+      videos: videos.map(id => "https://drive.google.com/file/d/" + id + "/preview").join("\n")
+    };
+  } catch { return null; }
+}
+
 function sourceRow(spec, c) {
   /* CSV export trả đủ cột nguồn. Mã căn thật chỉ tồn tại trong bộ nhớ
      để migrate snapshot cũ; tuyệt đối không ghi vào data-lumi.json/public HTML. */
@@ -184,6 +200,7 @@ function sourceRow(spec, c) {
     stt,
     publicCode: publicCode(spec, stt),
     syncFolder: txt(c[17]),
+    sheetMedia: parseSheetMedia(c[18]),
     tower: txt(c[x.tower]),
     sourceCode: txt(c[x.sourceCode]),
     direction: txt(c[x.direction]),
@@ -263,18 +280,27 @@ function sync(old, source) {
         gallery: txt(row["Danh sách ảnh"])
       });
   }
+  function sourceAlbum(src) {
+    // R/S là link + media JSON của đúng dòng, tuyệt đối không ghép media theo mã căn.
+    return src.sheetMedia && src.syncFolder && src.syncFolder === src.folder ? src.sheetMedia : null;
+  }
   function reconcileMedia(out, src) {
     const previousFolder = txt(out["Ảnh thư mục"]);
+    const fromSheet = sourceAlbum(src);
     if (src.folderKnown) {
       if (previousFolder !== src.folder) {
         const matched = mediaByFolder.get(src.folder);
         out["Ảnh thư mục"] = src.folder;
-        out["Ảnh đại diện"] = matched?.cover || "";
-        out["Danh sách ảnh"] = matched?.gallery || "";
+        out["Ảnh đại diện"] = fromSheet ? fromSheet.cover : matched?.cover || "";
+        out["Danh sách ảnh"] = fromSheet ? fromSheet.gallery : matched?.gallery || "";
+        out["Danh sách video"] = fromSheet ? fromSheet.videos : "";
+      } else if (fromSheet) {
+        out["Ảnh đại diện"] = fromSheet.cover;
+        out["Danh sách ảnh"] = fromSheet.gallery;
+        out["Danh sách video"] = fromSheet.videos;
       }
     } else {
-      // Rich-text cell could not be resolved on this run. Preserve its album
-      // only if all non-sensitive apartment descriptors match the old record.
+      // Nếu chưa đọc được link rich-text, chỉ giữ media khi căn vẫn đúng đặc điểm.
       const same = key(out["Tòa"]) === key(src.tower) &&
         Math.abs(area(out["Diện tích"]) - src.area) < 0.01 &&
         money(out["Giá thuê"]) === src.price &&
@@ -283,6 +309,7 @@ function sync(old, source) {
         out["Ảnh thư mục"] = "";
         out["Ảnh đại diện"] = "";
         out["Danh sách ảnh"] = "";
+        out["Danh sách video"] = "";
       }
     }
   }
@@ -306,13 +333,14 @@ function sync(old, source) {
     };
     let pos = oldById.get(id);
     if (pos == null) {
-      const album = mediaByFolder.get(src.folder);
+      const album = sourceAlbum(src) || mediaByFolder.get(src.folder);
       const row = {
         ...payload,
         "Ngày thêm vào hệ thống": src.updated || todayVN(),
         "Ảnh thư mục": src.folderKnown ? src.folder : "",
         "Ảnh đại diện": src.folderKnown ? album?.cover || "" : "",
         "Danh sách ảnh": src.folderKnown ? album?.gallery || "" : "",
+        "Danh sách video": src.folderKnown ? album?.videos || "" : "",
       };
       next.push(row);
       oldById.set(id, next.length - 1);
@@ -329,6 +357,7 @@ function sync(old, source) {
       out["Ngày thêm vào hệ thống"] = src.updated || todayVN();
     if (!("Ảnh đại diện" in out)) out["Ảnh đại diện"] = "";
     if (!("Danh sách ảnh" in out)) out["Danh sách ảnh"] = "";
+    if (!("Danh sách video" in out)) out["Danh sách video"] = "";
     touched.add(pos);
     stat.updated++;
     if (!was && show) stat.on++;
@@ -345,6 +374,9 @@ function sync(old, source) {
   }
   const cleaned = next.filter(row =>
     /^thue(?:1N|2N|3N|Duplex|Penthouse|Shop)\.\d+$/.test(txt(row["Mã nội bộ"])));
+  for (const row of cleaned) {
+    if (!("Danh sách video" in row)) row["Danh sách video"] = "";
+  }
   return { next: cleaned, stat };
 }
 
