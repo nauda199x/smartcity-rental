@@ -14,14 +14,10 @@ on:
       - "scripts/quet-thu-muc-anh-lumi.py"
       - "scripts/sinh-trang-can-lumi.py"
       - ".github/workflows/dong-bo-lumi.yml"
-  # Fast path: chạy ngay sau workflow Smart City nếu workflow đó vừa hoàn tất.
-  workflow_run:
-    workflows: ["Đồng bộ quỹ căn từ Sheet CTV"]
-    types: [completed]
-  # Lumi có lịch độc lập 10 phút/lần, không còn phụ thuộc vào workflow Smart City.
-  # Dùng phút lệch để giảm nguy cơ scheduler GitHub bị trễ vào mốc :00/:30.
+  # Lumi có lịch độc lập 30 phút/lần, tách khỏi workflow Smart City.
+  # Tránh mốc :00/:30 thường trễ vì tải GitHub Actions.
   schedule:
-    - cron: "7,17,27,37,47,57 * * * *"
+    - cron: "7,37 * * * *"
   workflow_dispatch:
 
 permissions:
@@ -34,7 +30,7 @@ concurrency:
 
 jobs:
   dong-bo:
-    if: ${{ (github.event_name != 'push' || github.actor != 'github-actions[bot]') && (github.event_name != 'workflow_run' || github.event.workflow_run.conclusion == 'success') }}
+    if: ${{ github.event_name != 'push' || github.actor != 'github-actions[bot]' }}
     runs-on: ubuntu-latest
     steps:
       - name: Lấy code
