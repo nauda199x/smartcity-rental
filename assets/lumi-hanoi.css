@@ -23,3 +23,13 @@ body.lumi-page{background:#f6f7f9}
   .lumi-page .hero-v4__anh img{object-position:center}
   .lumi-page .lumi-note{margin-top:24px;padding:18px}
 }
+
+/* Căn chỉ có video Drive: không dùng ô 'chưa có ảnh' và không phụ thuộc thumbnail video. */
+.lumi-page .media.lumi-video-only{position:relative;display:block;overflow:hidden;background:linear-gradient(145deg,#193453,#426988);color:#fff}
+.lumi-page .lumi-video-preview{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:9px;padding:32px 20px;color:#fff;text-align:center;background:linear-gradient(150deg,#254663,#102439)}
+.lumi-page .lumi-video-poster{position:absolute;inset:0;background-size:cover;background-position:center;opacity:.5}
+.lumi-page .lumi-video-preview strong,.lumi-page .lumi-video-preview small,.lumi-page .lumi-video-play{position:relative;z-index:1}
+.lumi-page .lumi-video-preview strong{font-size:1.1rem;text-shadow:0 1px 6px #182c3f}
+.lumi-page .lumi-video-preview small{font-size:.82rem;color:#f2f6ff}
+.lumi-page .lumi-video-play{display:grid;place-items:center;width:62px;height:62px;border-radius:50%;background:#fff;color:#1254da;font-size:25px;box-shadow:0 8px 25px #05192f66;padding-left:3px}
+.lumi-page .media.lumi-video-only>.badge,.lumi-page .media.lumi-video-only>.pcount{position:absolute;z-index:3}
