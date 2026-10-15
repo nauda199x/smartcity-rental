@@ -1,14 +1,14 @@
 {
   "critical": [],
   "critical_count": 0,
-  "data_fingerprint": "1d71aaccdf5a2270",
-  "html_pages": 979,
-  "indexable_pages": 523,
-  "query_guard_pages": 979,
+  "data_fingerprint": "241b031e65b5513f",
+  "html_pages": 982,
+  "indexable_pages": 525,
+  "query_guard_pages": 982,
   "tower_indexable": 41,
   "tower_registry": 41,
   "version": 2,
-  "warning_count": 32,
+  "warning_count": 30,
   "warnings": [
     {
       "count": 2,
@@ -188,15 +188,6 @@
       "count": 2,
       "issue": "duplicate title",
       "pages": [
-        "can-ho/cho-thue-can-ho-2-ngu-miami-63m2-ct-2n2-474/index.html",
-        "can-ho/cho-thue-can-ho-2-ngu-miami-63m2-ct-2n2-463/index.html"
-      ],
-      "value": "Cho thuê căn hộ 2 Ngủ GS6 Vinhomes Smart City 63m² – 12,5 triệu/tháng"
-    },
-    {
-      "count": 2,
-      "issue": "duplicate title",
-      "pages": [
         "can-ho/cho-thue-can-ho-1-ngu-sapphire-43m2-ct-1n-614/index.html",
         "can-ho/cho-thue-can-ho-1-ngu-sapphire-43m2-ct-1n-609/index.html"
       ],
@@ -228,15 +219,6 @@
         "can-ho/cho-thue-can-ho-2-ngu-sakura-54m2-ct-2n2-205/index.html"
       ],
       "value": "Cho thuê căn hộ 2 Ngủ SA1 Vinhomes Smart City 54m² – 11 triệu/tháng"
-    },
-    {
-      "count": 2,
-      "issue": "duplicate title",
-      "pages": [
-        "can-ho/cho-thue-can-ho-studio-lumiere-30m2-ct-stu-902/index.html",
-        "can-ho/cho-thue-can-ho-studio-lumiere-30m2-ct-stu-926/index.html"
-      ],
-      "value": "Cho thuê căn hộ Studio A2 Vinhomes Smart City 30m² – 8,5 triệu/tháng"
     },
     {
       "count": 2,
