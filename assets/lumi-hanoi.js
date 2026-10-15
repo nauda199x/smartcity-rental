@@ -123,6 +123,11 @@
     return m ? "https://drive.google.com/thumbnail?id=" + m[1] + "&sz=w1000" : u;
   }
 
+  function videoThumbnail(url) {
+    var m = text(url).match(/\/file\/d\/([A-Za-z0-9_-]{10,})\/preview/);
+    return m ? "https://drive.google.com/thumbnail?id=" + m[1] + "&sz=w1000" : "";
+  }
+
   function parseDate(s) {
     var m = text(s).match(/^(\d{1,2})\/(\d{1,2})\/(\d{4})$/);
     if (!m) return null;
@@ -166,7 +171,8 @@
 
   function toApartment(r) {
     var photos = links(r["Danh sách ảnh"]).map(driveImage);
-    var cover = driveImage(r["Ảnh đại diện"]) || photos[0] || "";
+    var videos = links(r["Danh sách video"]);
+    var cover = driveImage(r["Ảnh đại diện"]) || photos[0] || videoThumbnail(videos[0]) || "";
     return {
       id: text(r["Mã nội bộ"]),
       code: text(r["Mã căn"]) || text(r["Mã nội bộ"]).replace(/^LH\./, ""),
@@ -181,7 +187,8 @@
       added: text(r["Ngày thêm vào hệ thống"]),
       show: key(r["Hiển thị trên Web"]) === "có",
       cover: cover,
-      photos: photos
+      photos: photos,
+      videos: videos
     };
   }
 
@@ -464,12 +471,14 @@
     var media;
     var typeLabel = D(a.type);
     var furnLabel = D(a.interior);
-    var photoCount = Math.max(1, a.photos.length || 1);
+    var photoCount = a.photos.length;
+    var mediaLabel = (photoCount ? T("l.photos", "{N} ảnh", { N: photoCount }) : "") +
+      (a.videos.length ? (photoCount ? " · " : "") + a.videos.length + " video" : "");
     if (a.cover) {
       media = '<a class="media" href="' + href + '" aria-label="' + T("l.detail", "Xem chi tiết") + ' ' + a.code + '">' +
         '<span class="badge">' + availabilityLabel(a) + '</span>' +
         (a.interior ? '<span class="badge-nt' + furnitureClass(a.interior) + '">' + furnLabel + '</span>' : '') +
-        '<span class="pcount">' + T("l.photos", "{N} ảnh", { N: photoCount }) + '</span>' +
+        '<span class="pcount">' + mediaLabel + '</span>' +
         '<img src="' + a.cover + '" width="800" height="600" loading="lazy" decoding="async" alt="' +
         typeLabel + ' ' + a.tower + ' Lumi Hanoi">' +
         '</a>';
