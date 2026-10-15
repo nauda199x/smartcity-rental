@@ -13,6 +13,7 @@ ROOT = Path(__file__).resolve().parent.parent
 DATA = ROOT / "data-lumi.json"
 BASE = ROOT / "lumi-hanoi" / "can-ho"
 REGISTRY = BASE / "danh-sach-trang.json"
+REDIRECTS = BASE / "chuyen-huong.json"
 SITEMAP = ROOT / "sitemap-lumi.xml"
 DOMAIN = "https://timthuesmartcity.com"
 ZALO = "0977923284"
@@ -117,6 +118,29 @@ def read_registry():
         return value if isinstance(value, dict) else {}
     except Exception:
         return {}
+
+
+def read_redirects():
+    if not REDIRECTS.exists():
+        return {}
+    try:
+        redirects = json.loads(REDIRECTS.read_text(encoding="utf-8"))
+        return redirects if isinstance(redirects, dict) else {}
+    except Exception:
+        return {}
+
+
+def redirect_html(target_slug):
+    url = DOMAIN + "/lumi-hanoi/can-ho/" + target_slug + "/"
+    safe_url = h(url)
+    return ("""<!doctype html><html lang="vi"><head><meta charset="utf-8">
+<meta name="robots" content="noindex,follow">
+<link rel="canonical" href="%s">
+<meta http-equiv="refresh" content="0;url=%s">
+<title>Địa chỉ căn hộ đã thay đổi – Lumi Hanoi</title></head>
+<body><p>Thông tin căn đã cập nhật.
+<a href="%s">Xem căn hộ tại địa chỉ mới</a>.</p></body></html>""" %
+            (safe_url, safe_url, safe_url))
 
 
 def json_safe(obj):
@@ -395,7 +419,7 @@ def main():
 
     BASE.mkdir(parents=True, exist_ok=True)
     old = read_registry()
-    old_by_id = {txt(v.get("id")): s for s, v in old.items() if isinstance(v, dict) and v.get("id")}
+    historical_redirects = read_redirects()
     used = {}
     registry = {}
     slug_by_id = {}
@@ -404,7 +428,9 @@ def main():
         ident = txt(r.get("Mã nội bộ"))
         if not ident or not txt(r.get("Mã căn")) or not txt(r.get("Tòa")) or number(r.get("Diện tích")) <= 0:
             continue
-        candidate = old_by_id.get(ident) or proposed_slug(r)
+        # URL trang chi tiết phải trùng slug mà JS tạo ra từ dữ liệu hiện tại.
+        # Không giữ slug cũ khi tòa/diện tích trong Google Sheet đã thay đổi.
+        candidate = proposed_slug(r)
         base = candidate
         n = 2
         while candidate in used and used[candidate] != ident:
@@ -418,10 +444,26 @@ def main():
             "active": active(r),
         }
 
-    # Dọn toàn bộ URL legacy từng chứa mã căn thật. Chỉ giữ thư mục tương ứng
-    # với registry public hiện tại (mã dạng thue1N.<STT>, thue2N.<STT>...).
+    # Giữ link cũ dưới dạng trang chuyển hướng khi căn thay đổi tòa/diện tích.
+    # Không lưu mã căn thật hay thông tin chủ nhà trong redirect.
+    redirects = {}
+    for old_slug, meta in old.items():
+        ident = txt(meta.get("id")) if isinstance(meta, dict) else ""
+        target = slug_by_id.get(ident)
+        if target and old_slug != target and old_slug not in registry:
+            redirects[old_slug] = target
+    for old_slug, old_target in historical_redirects.items():
+        target = old_target if old_target in registry else ""
+        if not target:
+            old_meta = old.get(old_target, {})
+            if isinstance(old_meta, dict):
+                target = slug_by_id.get(txt(old_meta.get("id")), "")
+        if target and old_slug != target and old_slug not in registry:
+            redirects[old_slug] = target
+
+    # Xóa URL legacy không thuộc danh sách hiện tại hay chuyển hướng đã biết.
     for child in BASE.iterdir():
-        if child.is_dir() and child.name not in registry:
+        if child.is_dir() and child.name not in registry and child.name not in redirects:
             shutil.rmtree(child)
 
     for r in rows:
@@ -441,6 +483,12 @@ def main():
             detail_html(r, page_slug, candidates[:6], slug_by_id), encoding="utf-8"
         )
 
+    for old_slug, target_slug in redirects.items():
+        redirect_dir = BASE / old_slug
+        redirect_dir.mkdir(parents=True, exist_ok=True)
+        (redirect_dir / "index.html").write_text(redirect_html(target_slug), encoding="utf-8")
+
+    REDIRECTS.write_text(json.dumps(redirects, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
     REGISTRY.write_text(json.dumps(registry, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
     (BASE / "index.html").write_text(list_index(rows, slug_by_id), encoding="utf-8")
 
