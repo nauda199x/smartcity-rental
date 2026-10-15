@@ -519,6 +519,44 @@
       '</div><p class="ma-can">' + T("l.code", "Mã căn:") + ' <b>' + a.code + '</b></p></div></article>';
   }
 
+  // Thumbnails Google Drive có thể lỗi 403/404 dù Sheet có link.
+  // Thử ảnh tiếp theo của đúng căn, sau đó báo ảnh không truy cập được;
+  // tuyệt đối không mượn ảnh của một căn khác.
+  function handlePhotoError(event) {
+    var img = event.target;
+    if (!img || img.tagName !== "IMG") return;
+    var media = img.closest(".media");
+    var article = img.closest("article[data-ma-noi-bo]");
+    if (!media || !article) return;
+    var id = article.getAttribute("data-ma-noi-bo");
+    var apartment = state.apartments.find(function (a) { return a.id === id; });
+    if (!apartment) return;
+    var candidates = [apartment.cover].concat(apartment.photos).filter(function (url, i, arr) {
+      return url && arr.indexOf(url) === i;
+    });
+    var index = Number(img.dataset.mediaTry || 0);
+    if (index + 1 < candidates.length) {
+      img.dataset.mediaTry = String(index + 1);
+      img.src = candidates[index + 1];
+      return;
+    }
+    img.remove();
+    media.classList.add("empty");
+    var note = document.createElement("div");
+    note.className = "lumi-no-photo";
+    var heading = document.createElement("strong");
+    heading.textContent = apartment.tower + " · " + apartment.code;
+    var detail = document.createElement("span");
+    detail.textContent = "Ảnh Drive hiện không tải được";
+    var hint = document.createElement("span");
+    hint.className = "lumi-source";
+    hint.textContent = "Bấm để xem thông tin căn";
+    note.appendChild(heading);
+    note.appendChild(detail);
+    note.appendChild(hint);
+    media.appendChild(note);
+  }
+
   function renderPagination(total) {
     var box = $("#lumiPagination");
     if (!box) return;
@@ -671,6 +709,9 @@
   }
 
   function bind() {
+    var listingGrid = $("#lumiListingGrid");
+    if (listingGrid) listingGrid.addEventListener("error", handlePhotoError, true);
+
     [["#lumiType","type"],["#lumiTower","tower"],["#lumiPrice","price"],["#lumiInterior","interior"]].forEach(function (pair) {
       var el = $(pair[0]); if (!el) return;
       el.addEventListener("change", function () { state[pair[1]] = el.value; state.page = 1; render(); });
