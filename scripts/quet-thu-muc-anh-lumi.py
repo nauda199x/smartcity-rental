@@ -47,7 +47,7 @@ def parse_folder(html, fid):
         raise ValueError("Cấu trúc Drive thay đổi")
     if len(data[0]) >= 100:
         raise ValueError("Thư mục có thể bị phân trang; dừng để không mất ảnh")
-    out = []
+    images, videos = [], []
     for row in data[0]:
         if not isinstance(row, list) or len(row) < 4:
             continue
@@ -58,8 +58,11 @@ def parse_folder(html, fid):
         if mime == "application/vnd.google-apps.folder":
             raise ValueError("Có thư mục con; chưa quét đệ quy")
         if mime.startswith("image/"):
-            out.append(ident)
-    return list(dict.fromkeys(out))
+            images.append(ident)
+        elif mime.startswith("video/"):
+            videos.append(ident)
+    return {"images": list(dict.fromkeys(images)),
+            "videos": list(dict.fromkeys(videos))}
 
 
 def thumb(ident):
@@ -115,14 +118,19 @@ def main():
     for fid, indices in work.items():
         if fid not in results:
             continue
-        ids = results[fid]
+        media = results[fid]
+        ids, video_ids = media["images"], media["videos"]
         cover = thumb(ids[0]) if ids else ""
         gallery = "\n".join(thumb(x) for x in ids)
+        videos = "\n".join("https://drive.google.com/file/d/%s/preview" % ident for ident in video_ids)
         for i in indices:
             row = rows[i]
-            if text(row.get("Ảnh đại diện")) != cover or text(row.get("Danh sách ảnh")) != gallery:
+            if (text(row.get("Ảnh đại diện")) != cover or
+                    text(row.get("Danh sách ảnh")) != gallery or
+                    text(row.get("Danh sách video")) != videos):
                 row["Ảnh đại diện"] = cover
                 row["Danh sách ảnh"] = gallery
+                row["Danh sách video"] = videos
                 changed += 1
 
     if changed:
