@@ -66,6 +66,12 @@ def thumb(ident):
     return "https://drive.google.com/thumbnail?id=%s&sz=w1000" % ident
 
 
+def scan_folder(fid):
+    # Đọc HTTP bên trong thread: thư mục 404/không public chỉ lỗi riêng
+    # thư mục đó, không làm dừng toàn bộ đồng bộ Sheet.
+    return parse_folder(get_text("https://drive.google.com/drive/folders/" + fid), fid)
+
+
 def main():
     rows = json.loads(DATA.read_text(encoding="utf-8"))
     if not isinstance(rows, list):
@@ -88,7 +94,7 @@ def main():
     results, errors = {}, {}
     with ThreadPoolExecutor(max_workers=min(8, len(work))) as pool:
         pending = {
-            pool.submit(parse_folder, get_text("https://drive.google.com/drive/folders/" + fid), fid): fid
+            pool.submit(scan_folder, fid): fid
             for fid in work
         }
         for future in as_completed(pending):
@@ -100,7 +106,10 @@ def main():
                 print("::warning::Giữ album Lumi cũ cho %s: %s" % (fid, error), flush=True)
 
     if len(errors) > max(2, int(len(work) * .4)):
-        raise ValueError("Drive lỗi diện rộng: %d/%d thư mục" % (len(errors), len(work)))
+        # Dữ liệu giá/trạng thái phải được publish dù Drive tạm lỗi.
+        # Không xóa album cũ của các folder quét thất bại.
+        print("::warning::Drive lỗi diện rộng %d/%d thư mục; giữ ảnh cũ, tiếp tục đồng bộ quỹ căn." %
+              (len(errors), len(work)), flush=True)
 
     changed = 0
     for fid, indices in work.items():
