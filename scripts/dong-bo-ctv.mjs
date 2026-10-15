@@ -40,11 +40,35 @@ function parseCsv(s) {
 async function fetchTab(tab) {
   const url = "https://docs.google.com/spreadsheets/d/" + SHEET +
     "/gviz/tq?tqx=out:csv&sheet=" + encodeURIComponent(tab);
-  const r = await fetch(url, { headers: { "user-agent": "Mozilla/5.0" } });
-  if (!r.ok) throw new Error(tab + ": HTTP " + r.status);
-  const body = await r.text();
-  if (!body.includes("ID CĂN")) throw new Error(tab + ": phản hồi không phải Sheet CTV");
-  return parseCsv(body);
+  const maxAttempts = 4;
+  for (let attempt = 1; attempt <= maxAttempts; attempt++) {
+    try {
+      const r = await fetch(url, {
+        headers: { "user-agent": "Mozilla/5.0", "cache-control": "no-cache" },
+        signal: AbortSignal.timeout(25000),
+      });
+      // 4xx (trừ 429) thường là quyền truy cập hoặc tên tab sai: không thử lại.
+      if (!r.ok && r.status !== 429 && r.status < 500)
+        throw new Error(tab + ": HTTP " + r.status);
+      if (!r.ok) throw new Error(tab + ": HTTP " + r.status + " (tạm thời)");
+      const body = await r.text();
+      if (!body.includes("ID CĂN"))
+        throw new Error(tab + ": phản hồi không phải Sheet CTV");
+      const rows = parseCsv(body);
+      if (rows.length < 2)
+        throw new Error(tab + ": dữ liệu tab rỗng/bất thường");
+      return rows;
+    } catch (err) {
+      const retryable = err.name === "TimeoutError" ||
+        /HTTP (?:429|5\d\d)|fetch failed|network|socket/i.test(err.message);
+      if (!retryable || attempt === maxAttempts) throw err;
+      const delay = 1500 * 2 ** (attempt - 1);
+      console.warn("::warning::" + tab + ": " + err.message +
+        " — thử lại " + (attempt + 1) + "/" + maxAttempts +
+        " sau " + delay + "ms");
+      await new Promise(resolve => setTimeout(resolve, delay));
+    }
+  }
 }
 
 function money(v) {
