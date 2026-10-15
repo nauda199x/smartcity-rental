@@ -172,7 +172,7 @@
   function toApartment(r) {
     var photos = links(r["Danh sách ảnh"]).map(driveImage);
     var videos = links(r["Danh sách video"]);
-    var cover = driveImage(r["Ảnh đại diện"]) || photos[0] || videoThumbnail(videos[0]) || "";
+    var cover = driveImage(r["Ảnh đại diện"]) || photos[0] || "";
     return {
       id: text(r["Mã nội bộ"]),
       code: text(r["Mã căn"]) || text(r["Mã nội bộ"]).replace(/^LH\./, ""),
@@ -188,7 +188,8 @@
       show: key(r["Hiển thị trên Web"]) === "có",
       cover: cover,
       photos: photos,
-      videos: videos
+      videos: videos,
+      videoPoster: videoThumbnail(videos[0])
     };
   }
 
@@ -482,6 +483,17 @@
         '<img src="' + a.cover + '" width="800" height="600" loading="lazy" decoding="async" alt="' +
         typeLabel + ' ' + a.tower + ' Lumi Hanoi">' +
         '</a>';
+    } else if (a.videos.length) {
+      // Căn chỉ có video phải được giới thiệu là có video, không báo thiếu media.
+      // Poster là tùy chọn: vẫn hiện nút phát khi Google Drive chưa có thumbnail.
+      media = '<a class="media lumi-video-only" href="' + href + '" aria-label="Xem video thực tế căn ' + a.code + '">' +
+        '<span class="badge">' + availabilityLabel(a) + '</span>' +
+        '<span class="pcount">' + a.videos.length + ' video</span>' +
+        '<div class="lumi-video-preview">' +
+        (a.videoPoster ? '<span class="lumi-video-poster" style="background-image:url(' + a.videoPoster + ')"></span>' : '') +
+        '<span class="lumi-video-play" aria-hidden="true">▶</span>' +
+        '<strong>Video thực tế căn hộ</strong><small>Bấm để xem video</small>' +
+        '</div></a>';
     } else {
       media = '<a class="media empty" href="' + href + '">' +
         '<span class="badge">' + availabilityLabel(a) + '</span>' +
