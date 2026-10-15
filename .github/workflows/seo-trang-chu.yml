@@ -15,6 +15,7 @@ permissions:
 
 concurrency:
   group: smartcity-generated-main
+  queue: max
   cancel-in-progress: false
 
 jobs:
@@ -199,5 +200,22 @@ jobs:
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git add index.html cam-nang-thue-nha.html
           git commit -m "SEO: tách intent landing thuê và cẩm nang Smart City"
-          git pull --rebase origin main
-          git push origin HEAD:main
+          # Những workflow khác cũng commit vào main; tránh race sau khi fetch.
+          # Chỉ rebase trên main mới nhất, KHÔNG force push hoặc ghi đè dữ liệu quỹ căn.
+          for lan in 1 2 3 4 5 6; do
+            git fetch origin main
+            if ! git rebase origin/main; then
+              git rebase --abort || true
+              echo "::error::SEO trùng thay đổi với workflow khác; dừng an toàn."
+              exit 1
+            fi
+            if git push origin HEAD:main; then
+              echo "Đã cập nhật SEO intent lên main."
+              exit 0
+            fi
+            cho=$((2 ** lan))
+            echo "::warning::Main thay đổi đồng thời (lần $lan); thử lại sau ${cho}s."
+            sleep "$cho"
+          done
+          echo "::error::Không push được SEO intent sau 6 lần thử."
+          exit 1
