@@ -1167,6 +1167,14 @@
   "phan_khu": "Sakura",
   "toa": "SA5"
  },
+ "cho-thue-can-ho-1-ngu-sakura-47m2-ct-1n-215": {
+  "dien_tich": 47,
+  "loai": "1 Ngủ",
+  "ma": "CT.1N.215",
+  "ngay_xuat_hien": "2026-10-15",
+  "phan_khu": "Sakura",
+  "toa": "SA5"
+ },
  "cho-thue-can-ho-1-ngu-sakura-47m2-ct-1n-519": {
   "dien_tich": 47,
   "loai": "1 Ngủ +",
@@ -6118,6 +6126,14 @@
   "ngay_xuat_hien": "2026-10-08",
   "phan_khu": "Tonkin",
   "toa": "TK1"
+ },
+ "cho-thue-can-ho-studio-tonkin-25m2-ct-stu-952": {
+  "dien_tich": 25,
+  "loai": "Studio",
+  "ma": "CT.Stu.952",
+  "ngay_xuat_hien": "2026-10-15",
+  "phan_khu": "Tonkin",
+  "toa": "TK2"
  },
  "cho-thue-can-ho-studio-tonkin-28m2-ct-stu-809": {
   "dien_tich": 28,

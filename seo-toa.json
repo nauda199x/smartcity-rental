@@ -1307,7 +1307,7 @@
       "area_max": 64,
       "area_min": 36,
       "code": "SA5",
-      "count": 6,
+      "count": 7,
       "data_code": "SA5",
       "district": "Sakura",
       "first_seen": "2026-09-10",
@@ -1325,7 +1325,7 @@
           "price_min": 10000000
         },
         {
-          "count": 1,
+          "count": 2,
           "name": "1 Ngủ",
           "price_max": 7000000,
           "price_min": 7000000
@@ -1506,7 +1506,7 @@
       "area_max": 72,
       "area_min": 25,
       "code": "TK2",
-      "count": 7,
+      "count": 8,
       "data_code": "TK2",
       "district": "Tonkin",
       "first_seen": "2026-09-10",
@@ -1515,13 +1515,13 @@
       "name": "TK2 Tonkin",
       "path": "/tk2-tonkin-smart-city/",
       "price_max": 13000000,
-      "price_min": 8000000,
+      "price_min": 7000000,
       "types": [
         {
-          "count": 3,
+          "count": 4,
           "name": "Studio",
           "price_max": 8000000,
-          "price_min": 8000000
+          "price_min": 7000000
         },
         {
           "count": 2,

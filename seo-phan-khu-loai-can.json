@@ -64,7 +64,7 @@
     "updated": "2026-10-15"
   },
   "cho-thue-1pn-sakura-smart-city": {
-    "count": 1,
+    "count": 2,
     "created": "2026-09-04",
     "indexable": false,
     "loai": "1 Ngủ",
@@ -288,7 +288,7 @@
     "updated": "2026-10-15"
   },
   "cho-thue-studio-tonkin-smart-city": {
-    "count": 6,
+    "count": 7,
     "created": "2026-09-04",
     "indexable": true,
     "loai": "Studio",
