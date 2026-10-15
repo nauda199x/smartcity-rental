@@ -77,6 +77,15 @@ def images(row):
     return out
 
 
+def videos(row):
+    out = []
+    for value in txt(row.get("Danh sách video")).splitlines():
+        u = value.strip()
+        if re.fullmatch(r"https://drive\.google\.com/file/d/[A-Za-z0-9_-]{10,}/preview", u) and u not in out:
+            out.append(u)
+    return out
+
+
 def available(row):
     s = txt(row.get("Ngày vào ở"))
     if not s or key(s) in ("vào luôn", "vào ngay", "ở ngay", "ngay"):
@@ -131,6 +140,7 @@ def detail_html(row, page_slug, similar, slug_by_id):
     move = available(row)
     updated = txt(row.get("Ngày cập nhật")) or txt(row.get("Ngày thêm vào hệ thống"))
     imgs = images(row)
+    vids = videos(row)
     url = DOMAIN + "/lumi-hanoi/can-ho/" + page_slug + "/"
 
     if is_active:
@@ -179,11 +189,23 @@ def detail_html(row, page_slug, similar, slug_by_id):
                         'loading="%s" decoding="async" width="800" height="600">\n' %
                         (h(u), i + 1, h(typ), h(tower), h(area_text), "eager" if i == 0 else "lazy"))
         gallery += "  </section>"
+    elif vids:
+        gallery = ""
     else:
         gallery = ('<section class="gallery ct-gallery-empty-source">\n'
                    '    <div class="ct-no-photo"><b>Căn này đang cập nhật ảnh</b>'
                    '<span>Nhắn Zalo để nhận ảnh và video thực tế.</span></div>\n'
                    '  </section>')
+
+    if vids:
+        gallery += '<section class="ct-video-gallery" aria-label="Video thực tế căn hộ">\n'
+        for i, u in enumerate(vids):
+            gallery += ('<iframe src="%s" loading="lazy" title="Video %d căn hộ Lumi Hanoi" '
+                        'allow="autoplay; fullscreen" allowfullscreen '
+                        'style="display:block;width:100%%;max-width:900px;aspect-ratio:16/9;'
+                        'border:0;border-radius:14px;margin:12px auto;"></iframe>\n' %
+                        (h(u), i + 1))
+        gallery += '</section>'
 
     if is_active:
         body_top = (
