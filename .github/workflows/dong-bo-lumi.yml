@@ -66,7 +66,7 @@ jobs:
           allowed={
             "Mã nội bộ","Mã căn","Tòa","Loại","Diện tích","Nội thất","Giá thuê",
             "Hướng ban công","Ngày vào ở","Ngày cập nhật","Ngày thêm vào hệ thống",
-            "Ảnh thư mục","Ảnh đại diện","Danh sách ảnh","Hiển thị trên Web"
+            "Ảnh thư mục","Ảnh đại diện","Danh sách ảnh","Danh sách video","Hiển thị trên Web"
           }
           code_re=re.compile(r"^thue(?:1N|2N|3N|Duplex|Penthouse|Shop)\.\d+$")
           for i,row in enumerate(data):
