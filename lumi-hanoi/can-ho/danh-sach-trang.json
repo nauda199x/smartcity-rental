@@ -347,9 +347,9 @@
     "id": "thue1N.14",
     "ma": "thue1N.14",
     "loai": "1 Ngủ",
-    "toa": "S2",
-    "dien_tich": 42.0,
-    "active": false
+    "toa": "S6",
+    "dien_tich": 43.0,
+    "active": true
   },
   "cho-thue-can-ho-3-ngu-s2-106m2-thue3n-13": {
     "id": "thue3N.13",
