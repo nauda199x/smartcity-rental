@@ -1,10 +1,10 @@
 {
   "critical": [],
   "critical_count": 0,
-  "data_fingerprint": "52bf4872447c5ac6",
-  "html_pages": 1016,
-  "indexable_pages": 541,
-  "query_guard_pages": 1016,
+  "data_fingerprint": "ccc9785090489c57",
+  "html_pages": 1018,
+  "indexable_pages": 543,
+  "query_guard_pages": 1018,
   "tower_indexable": 41,
   "tower_registry": 41,
   "version": 2,
@@ -94,11 +94,12 @@
       "value": "Cho thuê căn hộ 2 Ngủ A2 Vinhomes Smart City 65m² – 12 triệu/tháng"
     },
     {
-      "count": 2,
+      "count": 3,
       "issue": "duplicate title",
       "pages": [
         "can-ho/cho-thue-can-ho-2-ngu-sapphire-64m2-ct-2n-330/index.html",
-        "can-ho/cho-thue-can-ho-2-ngu-sapphire-64m2-ct-2n-260/index.html"
+        "can-ho/cho-thue-can-ho-2-ngu-sapphire-64m2-ct-2n-260/index.html",
+        "can-ho/cho-thue-can-ho-2-ngu-sapphire-64m2-ct-2n-345/index.html"
       ],
       "value": "Cho thuê căn hộ 2 Ngủ + S202 Vinhomes Smart City 64m² – 11 triệu/tháng"
     },
