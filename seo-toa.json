@@ -548,7 +548,7 @@
       "area_max": 79,
       "area_min": 29,
       "code": "MASB",
-      "count": 24,
+      "count": 25,
       "data_code": "MasB",
       "district": "Masteri",
       "first_seen": "2026-09-10",
@@ -556,7 +556,7 @@
       "last_seen": "2026-10-16",
       "name": "West B Masteri",
       "path": "/west-b-masteri-smart-city/",
-      "price_max": 18000000,
+      "price_max": 18500000,
       "price_min": 7800000,
       "types": [
         {
@@ -584,9 +584,9 @@
           "price_min": 7800000
         },
         {
-          "count": 1,
+          "count": 2,
           "name": "3 Ngủ",
-          "price_max": 16000000,
+          "price_max": 18500000,
           "price_min": 16000000
         }
       ]
@@ -1348,7 +1348,7 @@
       "area_max": 80,
       "area_min": 29,
       "code": "TC1",
-      "count": 11,
+      "count": 12,
       "data_code": "TC1",
       "district": "Canopy",
       "first_seen": "2026-09-10",
@@ -1378,10 +1378,10 @@
           "price_min": 12000000
         },
         {
-          "count": 1,
+          "count": 2,
           "name": "2 Ngủ",
           "price_max": 14000000,
-          "price_min": 14000000
+          "price_min": 12000000
         },
         {
           "count": 1,
