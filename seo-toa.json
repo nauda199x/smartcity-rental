@@ -1,10 +1,10 @@
 {
   "towers": {
     "A1": {
-      "area_max": 74,
+      "area_max": 85,
       "area_min": 30,
       "code": "A1",
-      "count": 28,
+      "count": 29,
       "data_code": "A1",
       "district": "Lumiere",
       "first_seen": "2026-09-16",
@@ -12,7 +12,7 @@
       "last_seen": "2026-10-16",
       "name": "A1 Lumière",
       "path": "/a1-lumiere-evergreen/",
-      "price_max": 13000000,
+      "price_max": 16000000,
       "price_min": 8000000,
       "types": [
         {
@@ -25,7 +25,7 @@
           "count": 6,
           "name": "2 Ngủ",
           "price_max": 13000000,
-          "price_min": 12000000
+          "price_min": 11000000
         },
         {
           "count": 4,
@@ -44,6 +44,12 @@
           "name": "1 Ngủ +",
           "price_max": 10500000,
           "price_min": 10500000
+        },
+        {
+          "count": 1,
+          "name": "3 Ngủ",
+          "price_max": 16000000,
+          "price_min": 16000000
         }
       ]
     },
@@ -1301,7 +1307,7 @@
       "area_max": 64,
       "area_min": 36,
       "code": "SA5",
-      "count": 7,
+      "count": 8,
       "data_code": "SA5",
       "district": "Sakura",
       "first_seen": "2026-09-10",
@@ -1309,7 +1315,7 @@
       "last_seen": "2026-10-16",
       "name": "SA5 The Sakura",
       "path": "/sa5-the-sakura-smart-city/",
-      "price_max": 12000000,
+      "price_max": 12500000,
       "price_min": 7000000,
       "types": [
         {
@@ -1325,9 +1331,9 @@
           "price_min": 7000000
         },
         {
-          "count": 1,
+          "count": 2,
           "name": "2 Ngủ +",
-          "price_max": 11500000,
+          "price_max": 12500000,
           "price_min": 11500000
         },
         {

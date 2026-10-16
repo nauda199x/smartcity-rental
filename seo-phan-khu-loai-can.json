@@ -152,9 +152,9 @@
     "updated": "2026-10-16"
   },
   "cho-thue-2pn-plus-sakura-smart-city": {
-    "count": 3,
+    "count": 4,
     "created": "2026-09-12",
-    "indexable": false,
+    "indexable": true,
     "loai": "2 Ngủ +",
     "phanKhu": "Sakura",
     "updated": "2026-10-16"
@@ -208,9 +208,9 @@
     "updated": "2026-10-16"
   },
   "cho-thue-3pn-lumiere-smart-city": {
-    "count": 3,
+    "count": 4,
     "created": "2026-08-30",
-    "indexable": false,
+    "indexable": true,
     "loai": "3 Ngủ",
     "phanKhu": "Lumiere",
     "updated": "2026-10-16"
