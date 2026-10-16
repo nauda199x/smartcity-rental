@@ -10,7 +10,7 @@
       "url": "/",
       "label": "Trang thuê Smart City",
       "reason": "landing chính cho cụm từ khóa thuê Smart City",
-      "inbound_pages": 538,
+      "inbound_pages": 541,
       "exists": true,
       "indexable": true,
       "self_canonical": true,
@@ -20,7 +20,7 @@
       "url": "/can-ho/",
       "label": "Căn hộ đang cho thuê",
       "reason": "hub URL chi tiết căn active",
-      "inbound_pages": 431,
+      "inbound_pages": 434,
       "exists": true,
       "indexable": true,
       "self_canonical": true,
@@ -30,7 +30,7 @@
       "url": "/studio/",
       "label": "Thuê Studio",
       "reason": "intent theo loại căn",
-      "inbound_pages": 471,
+      "inbound_pages": 474,
       "exists": true,
       "indexable": true,
       "self_canonical": true,
@@ -50,7 +50,7 @@
       "url": "/1pn-plus/",
       "label": "Thuê 1PN+",
       "reason": "intent theo loại căn",
-      "inbound_pages": 471,
+      "inbound_pages": 474,
       "exists": true,
       "indexable": true,
       "self_canonical": true,
@@ -60,7 +60,7 @@
       "url": "/2pn/",
       "label": "Thuê 2PN",
       "reason": "intent theo loại căn",
-      "inbound_pages": 471,
+      "inbound_pages": 474,
       "exists": true,
       "indexable": true,
       "self_canonical": true,
@@ -80,7 +80,7 @@
       "url": "/3pn/",
       "label": "Thuê 3PN",
       "reason": "intent theo loại căn",
-      "inbound_pages": 471,
+      "inbound_pages": 474,
       "exists": true,
       "indexable": true,
       "self_canonical": true,
@@ -90,7 +90,7 @@
       "url": "/bang-gia-thue-vinhomes-smart-city.html",
       "label": "Bảng giá thuê",
       "reason": "intent giá thuê có dữ liệu thực tế",
-      "inbound_pages": 473,
+      "inbound_pages": 476,
       "exists": true,
       "indexable": true,
       "self_canonical": true,
@@ -120,7 +120,7 @@
       "url": "/masteri/",
       "label": "Thuê Masteri West Heights",
       "reason": "phân khu có quỹ căn active lớn",
-      "inbound_pages": 113,
+      "inbound_pages": 114,
       "exists": true,
       "indexable": true,
       "self_canonical": true,
@@ -130,7 +130,7 @@
       "url": "/miami/",
       "label": "Thuê The Miami",
       "reason": "phân khu có quỹ căn active lớn",
-      "inbound_pages": 100,
+      "inbound_pages": 101,
       "exists": true,
       "indexable": true,
       "self_canonical": true,
@@ -169,8 +169,8 @@
       "url": "/west-b-masteri-smart-city/",
       "label": "West B Masteri",
       "district": "Masteri",
-      "inventory": 25,
-      "inbound_pages": 35
+      "inventory": 26,
+      "inbound_pages": 36
     },
     {
       "url": "/a2-lumiere-evergreen/",
@@ -194,18 +194,18 @@
       "inbound_pages": 24
     },
     {
+      "url": "/gs1-the-miami-smart-city/",
+      "label": "GS1 The Miami",
+      "district": "Miami",
+      "inventory": 12,
+      "inbound_pages": 11
+    },
+    {
       "url": "/tc1-canopy-smart-city/",
       "label": "TC1 The Canopy",
       "district": "Canopy",
       "inventory": 12,
       "inbound_pages": 21
-    },
-    {
-      "url": "/gs1-the-miami-smart-city/",
-      "label": "GS1 The Miami",
-      "district": "Miami",
-      "inventory": 11,
-      "inbound_pages": 11
     },
     {
       "url": "/i2-imperia-smart-city/",
@@ -245,6 +245,15 @@
   ],
   "tier_3": [
     {
+      "url": "/can-ho/cho-thue-can-ho-studio-sakura-32m2-ct-stu-953/",
+      "first_seen": "2026-10-16",
+      "code": "CT.Stu.953",
+      "tower": "SA3",
+      "type": "Studio",
+      "district": "Sakura",
+      "inbound_pages": 8
+    },
+    {
       "url": "/can-ho/cho-thue-can-ho-3-ngu-masteri-73m2-ct-3n-195/",
       "first_seen": "2026-10-16",
       "code": "CT.3N.195",
@@ -272,6 +281,15 @@
       "inbound_pages": 13
     },
     {
+      "url": "/can-ho/cho-thue-can-ho-2-ngu-miami-62m2-ct-2n2-489/",
+      "first_seen": "2026-10-16",
+      "code": "CT.2N2.489",
+      "tower": "GS1",
+      "type": "2 Ngủ",
+      "district": "Miami",
+      "inbound_pages": 18
+    },
+    {
       "url": "/can-ho/cho-thue-can-ho-2-ngu-canopy-63m2-ct-2n2-488/",
       "first_seen": "2026-10-16",
       "code": "CT.2N2.488",
@@ -279,6 +297,15 @@
       "type": "2 Ngủ",
       "district": "Canopy",
       "inbound_pages": 18
+    },
+    {
+      "url": "/can-ho/cho-thue-can-ho-1-ngu-masteri-54m2-ct-1n-622/",
+      "first_seen": "2026-10-16",
+      "code": "CT.1N+.622",
+      "tower": "MasB",
+      "type": "1 Ngủ +",
+      "district": "Masteri",
+      "inbound_pages": 8
     },
     {
       "url": "/can-ho/cho-thue-can-ho-1-ngu-imperia-43m2-ct-1n-621/",
@@ -395,44 +422,17 @@
       "tower": "MasB",
       "type": "1 Ngủ +",
       "district": "Masteri",
-      "inbound_pages": 31
-    },
-    {
-      "url": "/can-ho/cho-thue-can-ho-studio-sapphire-31m2-ct-stu-948/",
-      "first_seen": "2026-10-14",
-      "code": "CT.Stu.948",
-      "tower": "S101",
-      "type": "Studio",
-      "district": "Sapphire",
-      "inbound_pages": 10
-    },
-    {
-      "url": "/can-ho/cho-thue-can-ho-studio-sakura-26m2-ct-stu-951/",
-      "first_seen": "2026-10-14",
-      "code": "CT.Stu.951",
-      "tower": "SA3",
-      "type": "Studio",
-      "district": "Sakura",
-      "inbound_pages": 17
-    },
-    {
-      "url": "/can-ho/cho-thue-can-ho-studio-miami-27m2-ct-stu-949/",
-      "first_seen": "2026-10-14",
-      "code": "CT.Stu.949",
-      "tower": "GS6",
-      "type": "Studio",
-      "district": "Miami",
-      "inbound_pages": 8
+      "inbound_pages": 32
     }
   ],
   "district_inventory": {
     "Sapphire": 78,
     "Lumiere": 60,
-    "Masteri": 59,
-    "Miami": 45,
+    "Masteri": 60,
+    "Miami": 46,
     "Imperia": 34,
     "Canopy": 32,
-    "Sakura": 28,
+    "Sakura": 29,
     "Tonkin": 12
   },
   "summary": {
