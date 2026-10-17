@@ -710,9 +710,9 @@
     },
     "S102": {
       "area_max": 55,
-      "area_min": 55,
+      "area_min": 54,
       "code": "S102",
-      "count": 1,
+      "count": 2,
       "data_code": "S102",
       "district": "Sapphire",
       "first_seen": "2026-09-16",
@@ -724,7 +724,7 @@
       "price_min": 10000000,
       "types": [
         {
-          "count": 1,
+          "count": 2,
           "name": "2 Ngủ",
           "price_max": 10000000,
           "price_min": 10000000
@@ -881,7 +881,7 @@
       "area_max": 75,
       "area_min": 43,
       "code": "S202",
-      "count": 7,
+      "count": 8,
       "data_code": "S202",
       "district": "Sapphire",
       "first_seen": "2026-09-10",
@@ -899,9 +899,9 @@
           "price_min": 11000000
         },
         {
-          "count": 1,
+          "count": 2,
           "name": "1 Ngủ +",
-          "price_max": 7000000,
+          "price_max": 8500000,
           "price_min": 7000000
         },
         {
@@ -1006,8 +1006,8 @@
         {
           "count": 1,
           "name": "1 Ngủ +",
-          "price_max": 9000000,
-          "price_min": 9000000
+          "price_max": 8500000,
+          "price_min": 8500000
         },
         {
           "count": 1,
@@ -1249,7 +1249,7 @@
       "area_max": 78,
       "area_min": 26,
       "code": "SA2",
-      "count": 3,
+      "count": 4,
       "data_code": "SA2",
       "district": "Sakura",
       "first_seen": "2026-09-18",
@@ -1261,7 +1261,7 @@
       "price_min": 6000000,
       "types": [
         {
-          "count": 2,
+          "count": 3,
           "name": "Studio",
           "price_max": 8500000,
           "price_min": 6000000
@@ -1442,7 +1442,7 @@
       "area_max": 83,
       "area_min": 25,
       "code": "TC3",
-      "count": 10,
+      "count": 11,
       "data_code": "TC3",
       "district": "Canopy",
       "first_seen": "2026-09-10",
@@ -1454,7 +1454,7 @@
       "price_min": 7500000,
       "types": [
         {
-          "count": 4,
+          "count": 5,
           "name": "2 Ngủ",
           "price_max": 13000000,
           "price_min": 8000000
