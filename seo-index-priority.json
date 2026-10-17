@@ -10,7 +10,7 @@
       "url": "/",
       "label": "Trang thuê Smart City",
       "reason": "landing chính cho cụm từ khóa thuê Smart City",
-      "inbound_pages": 550,
+      "inbound_pages": 549,
       "exists": true,
       "indexable": true,
       "self_canonical": true,
@@ -20,7 +20,7 @@
       "url": "/can-ho/",
       "label": "Căn hộ đang cho thuê",
       "reason": "hub URL chi tiết căn active",
-      "inbound_pages": 445,
+      "inbound_pages": 444,
       "exists": true,
       "indexable": true,
       "self_canonical": true,
@@ -30,7 +30,7 @@
       "url": "/studio/",
       "label": "Thuê Studio",
       "reason": "intent theo loại căn",
-      "inbound_pages": 485,
+      "inbound_pages": 484,
       "exists": true,
       "indexable": true,
       "self_canonical": true,
@@ -50,7 +50,7 @@
       "url": "/1pn-plus/",
       "label": "Thuê 1PN+",
       "reason": "intent theo loại căn",
-      "inbound_pages": 485,
+      "inbound_pages": 484,
       "exists": true,
       "indexable": true,
       "self_canonical": true,
@@ -60,7 +60,7 @@
       "url": "/2pn/",
       "label": "Thuê 2PN",
       "reason": "intent theo loại căn",
-      "inbound_pages": 485,
+      "inbound_pages": 484,
       "exists": true,
       "indexable": true,
       "self_canonical": true,
@@ -80,7 +80,7 @@
       "url": "/3pn/",
       "label": "Thuê 3PN",
       "reason": "intent theo loại căn",
-      "inbound_pages": 485,
+      "inbound_pages": 484,
       "exists": true,
       "indexable": true,
       "self_canonical": true,
@@ -90,7 +90,7 @@
       "url": "/bang-gia-thue-vinhomes-smart-city.html",
       "label": "Bảng giá thuê",
       "reason": "intent giá thuê có dữ liệu thực tế",
-      "inbound_pages": 487,
+      "inbound_pages": 486,
       "exists": true,
       "indexable": true,
       "self_canonical": true,
@@ -422,7 +422,7 @@
       "tower": "TK2",
       "type": "Studio",
       "district": "Tonkin",
-      "inbound_pages": 19
+      "inbound_pages": 18
     }
   ],
   "district_inventory": {
@@ -433,7 +433,7 @@
     "Imperia": 34,
     "Canopy": 33,
     "Sakura": 30,
-    "Tonkin": 12
+    "Tonkin": 11
   },
   "summary": {
     "tier_1_count": 15,

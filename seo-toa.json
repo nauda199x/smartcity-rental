@@ -1512,7 +1512,7 @@
       "area_max": 72,
       "area_min": 25,
       "code": "TK2",
-      "count": 8,
+      "count": 7,
       "data_code": "TK2",
       "district": "Tonkin",
       "first_seen": "2026-09-10",
@@ -1534,12 +1534,6 @@
           "name": "1 Ngủ",
           "price_max": 10000000,
           "price_min": 8000000
-        },
-        {
-          "count": 1,
-          "name": "2 Ngủ",
-          "price_max": 11500000,
-          "price_min": 11500000
         },
         {
           "count": 1,

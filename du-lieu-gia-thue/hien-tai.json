@@ -1,13 +1,13 @@
 {
   "updated": "2026-10-17",
   "source": "data.json",
-  "active_count": 362,
+  "active_count": 361,
   "min_sample": 3,
   "overall": {
-    "n": 362,
+    "n": 361,
     "min": 5500000,
     "max": 25000000,
-    "median": 10500000.0
+    "median": 10500000
   },
   "by_type": {
     "1 Ngủ": {
@@ -23,10 +23,10 @@
       "median": 9500000.0
     },
     "2 Ngủ": {
-      "n": 108,
+      "n": 107,
       "min": 7500000,
       "max": 17000000,
-      "median": 11000000.0
+      "median": 11000000
     },
     "2 Ngủ +": {
       "n": 64,
@@ -91,18 +91,18 @@
       "median": 9500000
     },
     "Tonkin": {
-      "n": 12,
+      "n": 11,
       "min": 7000000,
       "max": 14000000,
-      "median": 8000000.0
+      "median": 8000000
     }
   },
   "by_interior": {
     "Full nội thất": {
-      "n": 214,
+      "n": 213,
       "min": 5800000,
       "max": 25000000,
-      "median": 11000000.0
+      "median": 11000000
     },
     "Nhà Nguyên Bản": {
       "n": 97,
@@ -914,10 +914,10 @@
       "zone": "Tonkin",
       "type": "2 Ngủ",
       "interior": "Full nội thất",
-      "n": 2,
-      "min": 11500000,
+      "n": 1,
+      "min": 14000000,
       "max": 14000000,
-      "median": 12750000.0
+      "median": 14000000
     },
     {
       "zone": "Tonkin",
