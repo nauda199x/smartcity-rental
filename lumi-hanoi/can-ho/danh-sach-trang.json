@@ -455,13 +455,13 @@
     "dien_tich": 54.0,
     "active": true
   },
-  "cho-thue-can-ho-2-ngu-s6-54m2-thue2n-27": {
+  "cho-thue-can-ho-2-ngu-s1-54m2-thue2n-27": {
     "id": "thue2N.27",
     "ma": "thue2N.27",
     "loai": "2 Ngủ",
-    "toa": "S6",
+    "toa": "S1",
     "dien_tich": 54.0,
-    "active": false
+    "active": true
   },
   "cho-thue-can-ho-3-ngu-s6-96m2-thue3n-15": {
     "id": "thue3N.15",
