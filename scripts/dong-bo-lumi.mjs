@@ -210,6 +210,8 @@ function sourceRow(spec, c) {
     updated: date(c[x.updated]),
     imageCell: txt(c[x.imageCell]),
     note: txt(c[x.note]),
+    // Q: operator-controlled visibility; CSV includes cell values, not row colors.
+    visibility: txt(c[16]),
     move: publicMove(c[x.move], c[x.note])
   };
 }
@@ -231,6 +233,10 @@ async function loadSource() {
       const c = rows[i];
       if (!c || c.every(x => !txt(x))) continue;
       const src = sourceRow(spec, c);
+      const visibility = deaccent(src.visibility);
+      if (visibility && visibility !== "co" && visibility !== "khong") {
+        throw new Error(spec.tab + ": giá trị cột Q không hợp lệ ở dòng " + (i + 1) + ": " + src.visibility);
+      }
       // Skip preformatted empty rows; retain ordinal gaps to prevent ID reuse.
       if (!src.tower && !src.sourceCode && !src.area && !src.price) continue;
       nonEmpty++;
@@ -317,7 +323,10 @@ function sync(old, source) {
   const stat = { updated: 0, added: 0, on: 0, off: 0, missing: 0 };
   for (const [id, src] of source.entries()) {
     const complete = Boolean(src.stt && src.tower && src.area > 0 && src.price > 0);
-    const show = complete && !inactive(src.note);
+    // Explicit Có/Không in Sheet column Q takes precedence. When Q is blank,
+    // preserve legacy note-based behavior for newly submitted/unmigrated rows.
+    const visibility = deaccent(src.visibility);
+    const show = complete && (visibility === "co" || (!visibility && !inactive(src.note)));
     const payload = {
       "Mã nội bộ": id,
       "Mã căn": src.publicCode,
