@@ -1,14 +1,14 @@
 {
   "critical": [],
   "critical_count": 0,
-  "data_fingerprint": "88dc93fefbc5773d",
-  "html_pages": 1021,
-  "indexable_pages": 546,
-  "query_guard_pages": 1021,
+  "data_fingerprint": "a4998ba186c78bad",
+  "html_pages": 1023,
+  "indexable_pages": 548,
+  "query_guard_pages": 1023,
   "tower_indexable": 41,
   "tower_registry": 41,
   "version": 2,
-  "warning_count": 29,
+  "warning_count": 30,
   "warnings": [
     {
       "count": 2,
@@ -83,6 +83,15 @@
         "can-ho/cho-thue-can-ho-studio-lumiere-30m2-ct-stu-847/index.html"
       ],
       "value": "Cho thuê căn hộ Studio A1 Vinhomes Smart City 30m² – 8,5 triệu/tháng"
+    },
+    {
+      "count": 2,
+      "issue": "duplicate title",
+      "pages": [
+        "can-ho/cho-thue-can-ho-3-ngu-miami-80m2-ct-3n-197/index.html",
+        "can-ho/cho-thue-can-ho-3-ngu-miami-80m2-ct-3n-196/index.html"
+      ],
+      "value": "Cho thuê căn hộ 3 Ngủ GS6 Vinhomes Smart City 80m² – 11,5 triệu/tháng"
     },
     {
       "count": 2,

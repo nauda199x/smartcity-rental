@@ -285,7 +285,7 @@
       "area_max": 80,
       "area_min": 27,
       "code": "GS6",
-      "count": 14,
+      "count": 16,
       "data_code": "GS6",
       "district": "Miami",
       "first_seen": "2026-09-10",
@@ -303,16 +303,16 @@
           "price_min": 11000000
         },
         {
+          "count": 5,
+          "name": "3 Ngủ",
+          "price_max": 18000000,
+          "price_min": 10000000
+        },
+        {
           "count": 3,
           "name": "1 Ngủ +",
           "price_max": 10000000,
           "price_min": 7500000
-        },
-        {
-          "count": 3,
-          "name": "3 Ngủ",
-          "price_max": 18000000,
-          "price_min": 11500000
         },
         {
           "count": 3,
