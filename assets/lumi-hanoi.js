@@ -18,11 +18,24 @@
     { value: "15to20", label: "15 - 20 triệu", short: "15-20tr" },
     { value: "over20", label: "Trên 20 triệu", short: "> 20tr" }
   ];
-  var INTERIORS = ["Nguyên bản", "Đồ cơ bản", "Full nội thất"];
+  var INTERIORS = ["Cơ bản", "Full nội thất"];
 
   var $ = function (s) { return document.querySelector(s); };
   var text = function (v) { return String(v == null ? "" : v).trim(); };
   var key = function (v) { return text(v).toLowerCase(); };
+
+  // Bảng hàng Lumi chỉ sử dụng hai mức nội thất. "Cơ bản" trên Sheet
+  // được hiển thị thân thiện là "Đồ cơ bản" mà không đổi giá trị bộ lọc.
+  function normalizeInterior(value) {
+    var v = key(value);
+    if (v === "cơ bản" || v === "đồ cơ bản") return "Cơ bản";
+    if (v === "full nội thất") return "Full nội thất";
+    return ""; // Chưa xác nhận: không gán sai thành một loại nội thất.
+  }
+
+  function interiorLabel(value) {
+    return D(key(value) === "cơ bản" ? "Đồ cơ bản" : value);
+  }
 
   function T(k, vi, vars) {
     var out = vi;
@@ -75,9 +88,7 @@
   }
 
   function assistantUnit(a) {
-    var furn = a.interior;
-    if (key(furn) === "nguyên bản") furn = "Nhà Nguyên Bản";
-    if (key(furn) === "đồ cơ bản") furn = "Đồ Cơ bản";
+    var furn = key(a.interior) === "cơ bản" ? "Đồ cơ bản" : a.interior;
     return {
       apartmentId: a.id || a.code,
       type: a.type,
@@ -179,7 +190,7 @@
       tower: text(r["Tòa"]),
       type: text(r["Loại"]),
       area: area(r["Diện tích"]),
-      interior: text(r["Nội thất"]),
+      interior: normalizeInterior(r["Nội thất"]),
       price: money(r["Giá thuê"]),
       direction: text(r["Hướng ban công"]),
       available: text(r["Ngày vào ở"]),
@@ -286,7 +297,7 @@
     });
     var furnRows = INTERIORS.map(function (t) {
       var n = active.filter(function (a) { return key(a.interior) === key(t); }).length;
-      return { value: key(t), label: D(t), full: D(t), raw: t, count: n };
+      return { value: key(t), label: interiorLabel(t), full: interiorLabel(t), raw: t, count: n };
     });
 
     setOptions($("#lumiType"), typeRows.map(function (r) {
@@ -377,7 +388,7 @@
     }
     if (group === "interior") {
       var i = INTERIORS.find(function (x) { return key(x) === value; });
-      return i ? D(i) : value;
+      return i ? interiorLabel(i) : value;
     }
     return value;
   }
@@ -471,7 +482,7 @@
     var href = "/lumi-hanoi/can-ho/" + detailSlug(a) + "/";
     var media;
     var typeLabel = D(a.type);
-    var furnLabel = D(a.interior);
+    var furnLabel = interiorLabel(a.interior);
     var photoCount = a.photos.length;
     var mediaLabel = (photoCount ? T("l.photos", "{N} ảnh", { N: photoCount }) : "") +
       (a.videos.length ? (photoCount ? " · " : "") + a.videos.length + " video" : "");
