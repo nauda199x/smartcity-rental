@@ -361,7 +361,7 @@
       "area_max": 63,
       "area_min": 43,
       "code": "I2",
-      "count": 10,
+      "count": 9,
       "data_code": "I2",
       "district": "Imperia",
       "first_seen": "2026-09-10",
@@ -373,9 +373,9 @@
       "price_min": 8000000,
       "types": [
         {
-          "count": 6,
+          "count": 5,
           "name": "1 Ngủ +",
-          "price_max": 10500000,
+          "price_max": 10000000,
           "price_min": 8500000
         },
         {
