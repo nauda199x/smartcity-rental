@@ -247,6 +247,14 @@
   "phan_khu": "Imperia",
   "toa": "I2"
  },
+ "cho-thue-can-ho-1-ngu-imperia-43m2-ct-1n-624": {
+  "dien_tich": 43,
+  "loai": "1 Ngủ +",
+  "ma": "CT.1N+.624",
+  "ngay_xuat_hien": "2026-10-18",
+  "phan_khu": "Imperia",
+  "toa": "I4"
+ },
  "cho-thue-can-ho-1-ngu-imperia-47m2-ct-1n-505": {
   "dien_tich": 47,
   "loai": "1 Ngủ +",
@@ -3679,6 +3687,14 @@
   "phan_khu": "Sapphire",
   "toa": "S102"
  },
+ "cho-thue-can-ho-2-ngu-sapphire-54m2-ct-2n1-282": {
+  "dien_tich": 54,
+  "loai": "2 Ngủ",
+  "ma": "CT.2N1.282",
+  "ngay_xuat_hien": "2026-10-18",
+  "phan_khu": "Sapphire",
+  "toa": "S301"
+ },
  "cho-thue-can-ho-2-ngu-sapphire-55m2-ct-2n1-150": {
   "dien_tich": 55,
   "loai": "2 Ngủ",
@@ -4343,6 +4359,14 @@
   "phan_khu": "Tonkin",
   "toa": "TK2"
  },
+ "cho-thue-can-ho-2-ngu-tonkin-70m2-ct-2n-347": {
+  "dien_tich": 70,
+  "loai": "2 Ngủ +",
+  "ma": "CT.2N+.347",
+  "ngay_xuat_hien": "2026-10-18",
+  "phan_khu": "Tonkin",
+  "toa": "TK2"
+ },
  "cho-thue-can-ho-2-ngu-tonkin-72m2-ct-2n-223": {
   "dien_tich": 72,
   "loai": "2 Ngủ +",
@@ -4398,6 +4422,14 @@
   "ngay_xuat_hien": "2026-10-13",
   "phan_khu": "Canopy",
   "toa": "TC3"
+ },
+ "cho-thue-can-ho-3-ngu-canopy-80m2-ct-3n-199": {
+  "dien_tich": 80,
+  "loai": "3 Ngủ",
+  "ma": "CT.3N.199",
+  "ngay_xuat_hien": "2026-10-18",
+  "phan_khu": "Canopy",
+  "toa": "TC1"
  },
  "cho-thue-can-ho-3-ngu-canopy-83m2-ct-3n-184": {
   "dien_tich": 83,
@@ -5022,6 +5054,14 @@
   "ngay_xuat_hien": "2026-10-13",
   "phan_khu": "Canopy",
   "toa": "TC2"
+ },
+ "cho-thue-can-ho-studio-canopy-30m2-ct-stu-956": {
+  "dien_tich": 30,
+  "loai": "Studio",
+  "ma": "CT.Stu.956",
+  "ngay_xuat_hien": "2026-10-18",
+  "phan_khu": "Canopy",
+  "toa": "TC1"
  },
  "cho-thue-can-ho-studio-canopy-32m2-cc33": {
   "dien_tich": 32,
@@ -6340,6 +6380,14 @@
   "loai": "Studio",
   "ma": "CT.Stu.952",
   "ngay_xuat_hien": "2026-10-15",
+  "phan_khu": "Tonkin",
+  "toa": "TK2"
+ },
+ "cho-thue-can-ho-studio-tonkin-25m2-ct-stu-957": {
+  "dien_tich": 25,
+  "loai": "Studio",
+  "ma": "CT.Stu.957",
+  "ngay_xuat_hien": "2026-10-18",
   "phan_khu": "Tonkin",
   "toa": "TK2"
  },

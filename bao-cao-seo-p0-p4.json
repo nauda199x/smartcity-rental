@@ -1,14 +1,14 @@
 {
   "critical": [],
   "critical_count": 0,
-  "data_fingerprint": "22ac0b1be51c427a",
-  "html_pages": 1028,
-  "indexable_pages": 546,
-  "query_guard_pages": 1028,
+  "data_fingerprint": "3f277f16de12787f",
+  "html_pages": 1034,
+  "indexable_pages": 552,
+  "query_guard_pages": 1034,
   "tower_indexable": 41,
   "tower_registry": 41,
   "version": 2,
-  "warning_count": 30,
+  "warning_count": 32,
   "warnings": [
     {
       "count": 2,
@@ -198,6 +198,15 @@
       "count": 2,
       "issue": "duplicate title",
       "pages": [
+        "can-ho/cho-thue-can-ho-1-ngu-imperia-43m2-ct-1n-624/index.html",
+        "can-ho/cho-thue-can-ho-1-ngu-imperia-43m2-ct-1n-557/index.html"
+      ],
+      "value": "Cho thuê căn hộ 1 Ngủ + I4 Vinhomes Smart City 43m² – 9 triệu/tháng"
+    },
+    {
+      "count": 2,
+      "issue": "duplicate title",
+      "pages": [
         "can-ho/cho-thue-can-ho-1-ngu-sapphire-43m2-ct-1n-614/index.html",
         "can-ho/cho-thue-can-ho-1-ngu-sapphire-43m2-ct-1n-609/index.html"
       ],
@@ -238,6 +247,15 @@
         "can-ho/cho-thue-can-ho-studio-sakura-26m2-ct-stu-894/index.html"
       ],
       "value": "Cho thuê căn hộ Studio SA3 Vinhomes Smart City 26m² – 7,5 triệu/tháng"
+    },
+    {
+      "count": 2,
+      "issue": "duplicate title",
+      "pages": [
+        "can-ho/cho-thue-can-ho-studio-tonkin-25m2-ct-stu-934/index.html",
+        "can-ho/cho-thue-can-ho-studio-tonkin-25m2-ct-stu-957/index.html"
+      ],
+      "value": "Cho thuê căn hộ Studio TK2 Vinhomes Smart City 25m² – 8 triệu/tháng"
     },
     {
       "count": 2,

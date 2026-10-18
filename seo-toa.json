@@ -425,7 +425,7 @@
       "area_max": 64,
       "area_min": 28,
       "code": "I4",
-      "count": 7,
+      "count": 8,
       "data_code": "I4",
       "district": "Imperia",
       "first_seen": "2026-09-10",
@@ -444,15 +444,15 @@
         },
         {
           "count": 2,
-          "name": "2 Ngủ +",
-          "price_max": 11500000,
-          "price_min": 10000000
-        },
-        {
-          "count": 1,
           "name": "1 Ngủ +",
           "price_max": 9000000,
           "price_min": 9000000
+        },
+        {
+          "count": 2,
+          "name": "2 Ngủ +",
+          "price_max": 11500000,
+          "price_min": 10000000
         },
         {
           "count": 1,
@@ -980,7 +980,7 @@
       "area_max": 63,
       "area_min": 25,
       "code": "S301",
-      "count": 7,
+      "count": 8,
       "data_code": "S301",
       "district": "Sapphire",
       "first_seen": "2026-09-10",
@@ -993,15 +993,15 @@
       "types": [
         {
           "count": 3,
+          "name": "2 Ngủ",
+          "price_max": 10000000,
+          "price_min": 9000000
+        },
+        {
+          "count": 3,
           "name": "Studio",
           "price_max": 7000000,
           "price_min": 6700000
-        },
-        {
-          "count": 2,
-          "name": "2 Ngủ",
-          "price_max": 10000000,
-          "price_min": 9500000
         },
         {
           "count": 1,
@@ -1354,7 +1354,7 @@
       "area_max": 80,
       "area_min": 29,
       "code": "TC1",
-      "count": 12,
+      "count": 14,
       "data_code": "TC1",
       "district": "Canopy",
       "first_seen": "2026-09-10",
@@ -1362,9 +1362,15 @@
       "last_seen": "2026-10-18",
       "name": "TC1 The Canopy",
       "path": "/tc1-canopy-smart-city/",
-      "price_max": 14000000,
-      "price_min": 7000000,
+      "price_max": 16000000,
+      "price_min": 6500000,
       "types": [
+        {
+          "count": 4,
+          "name": "3 Ngủ",
+          "price_max": 16000000,
+          "price_min": 12000000
+        },
         {
           "count": 3,
           "name": "1 Ngủ",
@@ -1378,22 +1384,16 @@
           "price_min": 10000000
         },
         {
-          "count": 3,
-          "name": "3 Ngủ",
-          "price_max": 14000000,
-          "price_min": 12000000
-        },
-        {
           "count": 2,
           "name": "2 Ngủ",
           "price_max": 14000000,
           "price_min": 12000000
         },
         {
-          "count": 1,
+          "count": 2,
           "name": "Studio",
           "price_max": 8000000,
-          "price_min": 8000000
+          "price_min": 6500000
         }
       ]
     },
@@ -1512,7 +1512,7 @@
       "area_max": 72,
       "area_min": 25,
       "code": "TK2",
-      "count": 7,
+      "count": 9,
       "data_code": "TK2",
       "district": "Tonkin",
       "first_seen": "2026-09-10",
@@ -1520,11 +1520,11 @@
       "last_seen": "2026-10-18",
       "name": "TK2 Tonkin",
       "path": "/tk2-tonkin-smart-city/",
-      "price_max": 13000000,
+      "price_max": 14500000,
       "price_min": 7000000,
       "types": [
         {
-          "count": 4,
+          "count": 5,
           "name": "Studio",
           "price_max": 8000000,
           "price_min": 7000000
@@ -1536,9 +1536,9 @@
           "price_min": 8000000
         },
         {
-          "count": 1,
+          "count": 2,
           "name": "2 Ngủ +",
-          "price_max": 13000000,
+          "price_max": 14500000,
           "price_min": 13000000
         }
       ]
