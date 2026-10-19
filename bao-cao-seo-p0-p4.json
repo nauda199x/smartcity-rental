@@ -1,14 +1,14 @@
 {
   "critical": [],
   "critical_count": 0,
-  "data_fingerprint": "7649572314f08c25",
-  "html_pages": 1035,
-  "indexable_pages": 552,
-  "query_guard_pages": 1035,
+  "data_fingerprint": "72c0ebb91f8b7034",
+  "html_pages": 1038,
+  "indexable_pages": 555,
+  "query_guard_pages": 1038,
   "tower_indexable": 41,
   "tower_registry": 41,
   "version": 2,
-  "warning_count": 32,
+  "warning_count": 31,
   "warnings": [
     {
       "count": 2,
@@ -46,15 +46,6 @@
         "can-ho/cho-thue-can-ho-2-ngu-sapphire-55m2-ct-2n1-251/index.html"
       ],
       "value": "Cho thuê căn hộ 2 Ngủ S302 Vinhomes Smart City 55m² – 9 triệu/tháng"
-    },
-    {
-      "count": 2,
-      "issue": "duplicate title",
-      "pages": [
-        "can-ho/cho-thue-can-ho-2-ngu-masteri-63m2-ct-2n-346/index.html",
-        "can-ho/cho-thue-can-ho-2-ngu-masteri-63m2-ct-2n-264/index.html"
-      ],
-      "value": "Cho thuê căn hộ 2 Ngủ + MasB Vinhomes Smart City 63m² – 15 triệu/tháng"
     },
     {
       "count": 2,
