@@ -10,7 +10,7 @@
       "url": "/",
       "label": "Trang thuê Smart City",
       "reason": "landing chính cho cụm từ khóa thuê Smart City",
-      "inbound_pages": 562,
+      "inbound_pages": 563,
       "exists": true,
       "indexable": true,
       "self_canonical": true,
@@ -20,7 +20,7 @@
       "url": "/can-ho/",
       "label": "Căn hộ đang cho thuê",
       "reason": "hub URL chi tiết căn active",
-      "inbound_pages": 454,
+      "inbound_pages": 455,
       "exists": true,
       "indexable": true,
       "self_canonical": true,
@@ -30,7 +30,7 @@
       "url": "/studio/",
       "label": "Thuê Studio",
       "reason": "intent theo loại căn",
-      "inbound_pages": 494,
+      "inbound_pages": 495,
       "exists": true,
       "indexable": true,
       "self_canonical": true,
@@ -50,7 +50,7 @@
       "url": "/1pn-plus/",
       "label": "Thuê 1PN+",
       "reason": "intent theo loại căn",
-      "inbound_pages": 494,
+      "inbound_pages": 495,
       "exists": true,
       "indexable": true,
       "self_canonical": true,
@@ -60,7 +60,7 @@
       "url": "/2pn/",
       "label": "Thuê 2PN",
       "reason": "intent theo loại căn",
-      "inbound_pages": 494,
+      "inbound_pages": 495,
       "exists": true,
       "indexable": true,
       "self_canonical": true,
@@ -80,7 +80,7 @@
       "url": "/3pn/",
       "label": "Thuê 3PN",
       "reason": "intent theo loại căn",
-      "inbound_pages": 494,
+      "inbound_pages": 495,
       "exists": true,
       "indexable": true,
       "self_canonical": true,
@@ -90,7 +90,7 @@
       "url": "/bang-gia-thue-vinhomes-smart-city.html",
       "label": "Bảng giá thuê",
       "reason": "intent giá thuê có dữ liệu thực tế",
-      "inbound_pages": 496,
+      "inbound_pages": 497,
       "exists": true,
       "indexable": true,
       "self_canonical": true,
@@ -110,7 +110,7 @@
       "url": "/masteri/",
       "label": "Thuê Masteri West Heights",
       "reason": "phân khu có quỹ căn active lớn",
-      "inbound_pages": 119,
+      "inbound_pages": 120,
       "exists": true,
       "indexable": true,
       "self_canonical": true,
@@ -169,8 +169,8 @@
       "url": "/west-b-masteri-smart-city/",
       "label": "West B Masteri",
       "district": "Masteri",
-      "inventory": 28,
-      "inbound_pages": 38
+      "inventory": 30,
+      "inbound_pages": 40
     },
     {
       "url": "/a2-lumiere-evergreen/",
@@ -183,8 +183,8 @@
       "url": "/west-a-masteri-smart-city/",
       "label": "West A Masteri",
       "district": "Masteri",
-      "inventory": 18,
-      "inbound_pages": 28
+      "inventory": 17,
+      "inbound_pages": 27
     },
     {
       "url": "/gs6-the-miami-smart-city/",
@@ -335,6 +335,24 @@
       "inbound_pages": 12
     },
     {
+      "url": "/can-ho/cho-thue-can-ho-1-ngu-masteri-47m2-ct-1n-625/",
+      "first_seen": "2026-10-19",
+      "code": "CT.1N+.625",
+      "tower": "MasB",
+      "type": "1 Ngủ +",
+      "district": "Masteri",
+      "inbound_pages": 7
+    },
+    {
+      "url": "/can-ho/cho-thue-can-ho-1-ngu-masteri-42m2-ct-1n-626/",
+      "first_seen": "2026-10-19",
+      "code": "CT.1N+.626",
+      "tower": "MasB",
+      "type": "1 Ngủ +",
+      "district": "Masteri",
+      "inbound_pages": 37
+    },
+    {
       "url": "/can-ho/cho-thue-can-ho-studio-tonkin-25m2-ct-stu-957/",
       "first_seen": "2026-10-18",
       "code": "CT.Stu.957",
@@ -405,29 +423,11 @@
       "type": "Studio",
       "district": "Sakura",
       "inbound_pages": 11
-    },
-    {
-      "url": "/can-ho/cho-thue-can-ho-3-ngu-miami-80m2-ct-3n-198/",
-      "first_seen": "2026-10-17",
-      "code": "CT.3N.198",
-      "tower": "GS6",
-      "type": "3 Ngủ",
-      "district": "Miami",
-      "inbound_pages": 5
-    },
-    {
-      "url": "/can-ho/cho-thue-can-ho-3-ngu-miami-80m2-ct-3n-197/",
-      "first_seen": "2026-10-17",
-      "code": "CT.3N.197",
-      "tower": "GS6",
-      "type": "3 Ngủ",
-      "district": "Miami",
-      "inbound_pages": 6
     }
   ],
   "district_inventory": {
     "Sapphire": 87,
-    "Masteri": 65,
+    "Masteri": 66,
     "Lumiere": 61,
     "Miami": 48,
     "Canopy": 34,
