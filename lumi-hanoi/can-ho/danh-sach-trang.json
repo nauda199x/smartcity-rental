@@ -558,5 +558,93 @@
     "toa": "S1",
     "dien_tich": 106.0,
     "active": true
+  },
+  "cho-thue-can-ho-2-ngu-s1-54m2-thue2n-29": {
+    "id": "thue2N.29",
+    "ma": "thue2N.29",
+    "loai": "2 Ngủ",
+    "toa": "S1",
+    "dien_tich": 54.0,
+    "active": true
+  },
+  "cho-thue-can-ho-2-ngu-s1-54m2-thue2n-30": {
+    "id": "thue2N.30",
+    "ma": "thue2N.30",
+    "loai": "2 Ngủ",
+    "toa": "S1",
+    "dien_tich": 54.0,
+    "active": true
+  },
+  "cho-thue-can-ho-2-ngu-s1-54m2-thue2n-31": {
+    "id": "thue2N.31",
+    "ma": "thue2N.31",
+    "loai": "2 Ngủ",
+    "toa": "S1",
+    "dien_tich": 54.0,
+    "active": true
+  },
+  "cho-thue-can-ho-2-ngu-s1-54m2-thue2n-32": {
+    "id": "thue2N.32",
+    "ma": "thue2N.32",
+    "loai": "2 Ngủ",
+    "toa": "S1",
+    "dien_tich": 54.0,
+    "active": true
+  },
+  "cho-thue-can-ho-2-ngu-s1-62m2-thue2n-33": {
+    "id": "thue2N.33",
+    "ma": "thue2N.33",
+    "loai": "2 Ngủ",
+    "toa": "S1",
+    "dien_tich": 62.0,
+    "active": true
+  },
+  "cho-thue-can-ho-2-ngu-s1-62m2-thue2n-34": {
+    "id": "thue2N.34",
+    "ma": "thue2N.34",
+    "loai": "2 Ngủ",
+    "toa": "S1",
+    "dien_tich": 62.0,
+    "active": true
+  },
+  "cho-thue-can-ho-2-ngu-s1-62m2-thue2n-35": {
+    "id": "thue2N.35",
+    "ma": "thue2N.35",
+    "loai": "2 Ngủ",
+    "toa": "S1",
+    "dien_tich": 62.0,
+    "active": true
+  },
+  "cho-thue-can-ho-2-ngu-s1-62m2-thue2n-36": {
+    "id": "thue2N.36",
+    "ma": "thue2N.36",
+    "loai": "2 Ngủ",
+    "toa": "S1",
+    "dien_tich": 62.0,
+    "active": true
+  },
+  "cho-thue-can-ho-2-ngu-s1-62m2-thue2n-37": {
+    "id": "thue2N.37",
+    "ma": "thue2N.37",
+    "loai": "2 Ngủ",
+    "toa": "S1",
+    "dien_tich": 62.0,
+    "active": true
+  },
+  "cho-thue-can-ho-2-ngu-s1-62m2-thue2n-38": {
+    "id": "thue2N.38",
+    "ma": "thue2N.38",
+    "loai": "2 Ngủ",
+    "toa": "S1",
+    "dien_tich": 62.0,
+    "active": true
+  },
+  "cho-thue-can-ho-2-ngu-s1-74m2-thue2n-39": {
+    "id": "thue2N.39",
+    "ma": "thue2N.39",
+    "loai": "2 Ngủ",
+    "toa": "S1",
+    "dien_tich": 74.0,
+    "active": true
   }
 }
