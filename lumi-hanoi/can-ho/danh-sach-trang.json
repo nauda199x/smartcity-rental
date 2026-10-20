@@ -646,5 +646,29 @@
     "toa": "S1",
     "dien_tich": 74.0,
     "active": true
+  },
+  "cho-thue-can-ho-1-ngu-s2-43m2-thue1n-21": {
+    "id": "thue1N.21",
+    "ma": "thue1N.21",
+    "loai": "1 Ngủ",
+    "toa": "S2",
+    "dien_tich": 43.0,
+    "active": true
+  },
+  "cho-thue-can-ho-2-ngu-s1-74m2-thue2n-40": {
+    "id": "thue2N.40",
+    "ma": "thue2N.40",
+    "loai": "2 Ngủ",
+    "toa": "S1",
+    "dien_tich": 74.0,
+    "active": true
+  },
+  "cho-thue-can-ho-2-ngu-s1-74m2-thue2n-41": {
+    "id": "thue2N.41",
+    "ma": "thue2N.41",
+    "loai": "2 Ngủ",
+    "toa": "S1",
+    "dien_tich": 74.0,
+    "active": true
   }
 }
