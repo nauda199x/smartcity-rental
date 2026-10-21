@@ -1,10 +1,10 @@
 {
   "critical": [],
   "critical_count": 0,
-  "data_fingerprint": "dd5c2f07ecb3c2fb",
-  "html_pages": 1082,
-  "indexable_pages": 591,
-  "query_guard_pages": 1082,
+  "data_fingerprint": "8f9a1246fd44eebc",
+  "html_pages": 1086,
+  "indexable_pages": 594,
+  "query_guard_pages": 1086,
   "tower_indexable": 41,
   "tower_registry": 41,
   "version": 2,
@@ -37,6 +37,16 @@
         "can-ho/cho-thue-can-ho-2-ngu-lumiere-66m2-ct-2n2-438/index.html"
       ],
       "value": "Cho thuê căn hộ 2 Ngủ A2 Vinhomes Smart City 66m² – 13 triệu/tháng"
+    },
+    {
+      "count": 3,
+      "issue": "duplicate title",
+      "pages": [
+        "can-ho/cho-thue-can-ho-1-ngu-masteri-42m2-ct-1n-628/index.html",
+        "can-ho/cho-thue-can-ho-1-ngu-masteri-42m2-ct-1n-522/index.html",
+        "can-ho/cho-thue-can-ho-1-ngu-masteri-42m2-ct-1n-556/index.html"
+      ],
+      "value": "Cho thuê căn hộ 1 Ngủ + MasA Vinhomes Smart City 42m² – 11 triệu/tháng"
     },
     {
       "count": 2,
@@ -249,22 +259,14 @@
       "value": "Cho thuê căn hộ 1 Ngủ + S402 Vinhomes Smart City 43m² – 8,5 triệu/tháng"
     },
     {
-      "count": 2,
+      "count": 3,
       "issue": "duplicate title",
       "pages": [
         "can-ho/cho-thue-can-ho-1-ngu-imperia-43m2-ct-1n-602/index.html",
+        "can-ho/cho-thue-can-ho-1-ngu-imperia-43m2-ct-1n-629/index.html",
         "can-ho/cho-thue-can-ho-1-ngu-imperia-43m2-ct-1n-606/index.html"
       ],
       "value": "Cho thuê căn hộ 1 Ngủ + I2 Vinhomes Smart City 43m² – 8,5 triệu/tháng"
-    },
-    {
-      "count": 2,
-      "issue": "duplicate title",
-      "pages": [
-        "can-ho/cho-thue-can-ho-1-ngu-masteri-42m2-ct-1n-522/index.html",
-        "can-ho/cho-thue-can-ho-1-ngu-masteri-42m2-ct-1n-556/index.html"
-      ],
-      "value": "Cho thuê căn hộ 1 Ngủ + MasA Vinhomes Smart City 42m² – 11 triệu/tháng"
     },
     {
       "count": 2,

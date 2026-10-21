@@ -255,6 +255,14 @@
   "phan_khu": "Imperia",
   "toa": "I4"
  },
+ "cho-thue-can-ho-1-ngu-imperia-43m2-ct-1n-629": {
+  "dien_tich": 43,
+  "loai": "1 Ngủ +",
+  "ma": "CT.1N+.629",
+  "ngay_xuat_hien": "2026-10-21",
+  "phan_khu": "Imperia",
+  "toa": "I2"
+ },
  "cho-thue-can-ho-1-ngu-imperia-47m2-ct-1n-505": {
   "dien_tich": 47,
   "loai": "1 Ngủ +",
@@ -791,6 +799,14 @@
   "phan_khu": "Masteri",
   "toa": "MasB"
  },
+ "cho-thue-can-ho-1-ngu-masteri-42m2-ct-1n-628": {
+  "dien_tich": 42,
+  "loai": "1 Ngủ +",
+  "ma": "CT.1N+.628",
+  "ngay_xuat_hien": "2026-10-21",
+  "phan_khu": "Masteri",
+  "toa": "MasA"
+ },
  "cho-thue-can-ho-1-ngu-masteri-43m2-327": {
   "dien_tich": 43,
   "loai": "1 Ngủ +",
@@ -1076,6 +1092,14 @@
   "loai": "1 Ngủ",
   "ma": "CT.1N.175",
   "ngay_xuat_hien": "2026-09-09",
+  "phan_khu": "Miami",
+  "toa": "GS5"
+ },
+ "cho-thue-can-ho-1-ngu-miami-45m2-ct-1n-217": {
+  "dien_tich": 45,
+  "loai": "1 Ngủ",
+  "ma": "CT.1N.217",
+  "ngay_xuat_hien": "2026-10-21",
   "phan_khu": "Miami",
   "toa": "GS5"
  },
@@ -4038,6 +4062,14 @@
   "ngay_xuat_hien": "2026-10-20",
   "phan_khu": "Sapphire",
   "toa": "S202"
+ },
+ "cho-thue-can-ho-2-ngu-sapphire-55m2-ct-2n1-286": {
+  "dien_tich": 55,
+  "loai": "2 Ngủ",
+  "ma": "CT.2N1.286",
+  "ngay_xuat_hien": "2026-10-21",
+  "phan_khu": "Sapphire",
+  "toa": "S205"
  },
  "cho-thue-can-ho-2-ngu-sapphire-55m2-ct-2n2-329": {
   "dien_tich": 55,
