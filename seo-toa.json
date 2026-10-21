@@ -4,7 +4,7 @@
       "area_max": 85,
       "area_min": 30,
       "code": "A1",
-      "count": 31,
+      "count": 32,
       "data_code": "A1",
       "district": "Lumiere",
       "first_seen": "2026-09-16",
@@ -16,9 +16,9 @@
       "price_min": 8000000,
       "types": [
         {
-          "count": 15,
+          "count": 16,
           "name": "1 Ngủ",
-          "price_max": 12500000,
+          "price_max": 14000000,
           "price_min": 9000000
         },
         {
