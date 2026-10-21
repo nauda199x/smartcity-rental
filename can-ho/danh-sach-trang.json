@@ -815,6 +815,30 @@
   "phan_khu": "Masteri",
   "toa": "MasA"
  },
+ "cho-thue-can-ho-1-ngu-masteri-42m2-ct-1n-632": {
+  "dien_tich": 42,
+  "loai": "1 Ngủ +",
+  "ma": "CT.1N+.632",
+  "ngay_xuat_hien": "2026-10-21",
+  "phan_khu": "Masteri",
+  "toa": "MasD"
+ },
+ "cho-thue-can-ho-1-ngu-masteri-42m2-ct-1n-633": {
+  "dien_tich": 42,
+  "loai": "1 Ngủ +",
+  "ma": "CT.1N+.633",
+  "ngay_xuat_hien": "2026-10-21",
+  "phan_khu": "Masteri",
+  "toa": "MasA"
+ },
+ "cho-thue-can-ho-1-ngu-masteri-42m2-ct-1n-634": {
+  "dien_tich": 42,
+  "loai": "1 Ngủ +",
+  "ma": "CT.1N+.634",
+  "ngay_xuat_hien": "2026-10-21",
+  "phan_khu": "Masteri",
+  "toa": "MasB"
+ },
  "cho-thue-can-ho-1-ngu-masteri-43m2-327": {
   "dien_tich": 43,
   "loai": "1 Ngủ +",
@@ -1319,6 +1343,14 @@
   "phan_khu": "Sapphire",
   "toa": "S303"
  },
+ "cho-thue-can-ho-1-ngu-sapphire-34m2-ct-1n-219": {
+  "dien_tich": 34,
+  "loai": "1 Ngủ",
+  "ma": "CT.1N.219",
+  "ngay_xuat_hien": "2026-10-21",
+  "phan_khu": "Sapphire",
+  "toa": "S303"
+ },
  "cho-thue-can-ho-1-ngu-sapphire-37m2-ct-1n-172": {
   "dien_tich": 37.3,
   "loai": "1 Ngủ",
@@ -1646,6 +1678,14 @@
   "ngay_xuat_hien": "2026-10-17",
   "phan_khu": "Sapphire",
   "toa": "S202"
+ },
+ "cho-thue-can-ho-1-ngu-sapphire-43m2-ct-1n-635": {
+  "dien_tich": 43,
+  "loai": "1 Ngủ +",
+  "ma": "CT.1N+.635",
+  "ngay_xuat_hien": "2026-10-21",
+  "phan_khu": "Sapphire",
+  "toa": "S402"
  },
  "cho-thue-can-ho-1-ngu-sapphire-48m2-cc29": {
   "dien_tich": 48,
@@ -3062,6 +3102,14 @@
   "ngay_xuat_hien": "2026-10-17",
   "phan_khu": "Masteri",
   "toa": "MasB"
+ },
+ "cho-thue-can-ho-2-ngu-masteri-63m2-ct-2n-353": {
+  "dien_tich": 63,
+  "loai": "2 Ngủ +",
+  "ma": "CT.2N+.353",
+  "ngay_xuat_hien": "2026-10-21",
+  "phan_khu": "Masteri",
+  "toa": "MasD"
  },
  "cho-thue-can-ho-2-ngu-masteri-64m2-ct-2n-274": {
   "dien_tich": 64,
