@@ -570,8 +570,10 @@ def dung_trang_can(can, s, active, hom_nay):
         active["ban_do"][s].get("ngay_xuat_hien")) or ngay_str
     url = "%s/can-ho/%s/" % (TEN_MIEN, s)
 
-    tieu_de = "Cho thuê căn hộ %s %s Vinhomes Smart City %dm² – %s/tháng" % (
-        loai, toa, dt, gia)
+    # Đặt mã căn trong title để các căn cùng tòa/giá/diện tích không trùng SEO.
+    # Giữ từ khóa "thuê căn hộ" và "Vinhomes Smart City", ưu tiên title gọn.
+    tieu_de = "Thuê căn hộ %s %s Vinhomes Smart City %dm² – %s | %s" % (
+        loai, toa, dt, gia, ma)
     mo_ta = ("Cho thuê căn hộ %s tòa %s phân khu %s Vinhomes Smart City, diện tích "
               "%dm², %s, giá %s/tháng. %s. Cập nhật %s." % (
                   loai, toa, phan_khu or toa, dt,
@@ -581,8 +583,9 @@ def dung_trang_can(can, s, active, hom_nay):
                   if ngay_vao_o_hien_thi(can, hom_nay) != "Vào ngay"
                   else "Vào ở ngay",
                   ngay_xuat_hien_str))
+    mo_ta += " Mã căn %s." % ma
 
-    the_can_ten = "Căn hộ %s %s %dm²" % (loai, toa, dt)
+    the_can_ten = "Căn hộ %s %s %dm² – mã %s" % (loai, toa, dt, ma)
 
     bua = json.dumps({
         "@context": "https://schema.org",
@@ -691,7 +694,7 @@ def dung_trang_can(can, s, active, hom_nay):
             '  <h2 style="font-size:19px;margin-bottom:2px">Căn tương tự</h2>\n'
             '  <div class="lq">%s</div>\n' % the_list)
 
-    than = """  <h1>Cho thuê căn hộ %(loai)s %(dt)dm² tòa %(toa)s – Vinhomes Smart City</h1>
+    than = """  <h1>Cho thuê căn hộ %(loai)s %(dt)dm² tòa %(toa)s – Vinhomes Smart City · Mã %(ma)s</h1>
   <p class="tt">Căn hộ %(loai)s diện tích %(dt)dm² tại tòa %(toa)s, phân khu %(phan_khu)s,
 Vinhomes Smart City. %(noi_that_cau)s Giá thuê %(gia)s/tháng. Cập nhật %(ngay)s.</p>
 
