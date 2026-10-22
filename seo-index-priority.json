@@ -236,11 +236,11 @@
       "inbound_pages": 9
     },
     {
-      "url": "/gs5-the-miami-smart-city/",
-      "label": "GS5 The Miami",
-      "district": "Miami",
+      "url": "/s4-02-vinhomes-smart-city/",
+      "label": "S4.02",
+      "district": "Sapphire",
       "inventory": 10,
-      "inbound_pages": 20
+      "inbound_pages": 21
     }
   ],
   "tier_3": [
@@ -429,7 +429,7 @@
     "Sapphire": 96,
     "Masteri": 75,
     "Lumiere": 67,
-    "Miami": 51,
+    "Miami": 50,
     "Imperia": 36,
     "Canopy": 34,
     "Sakura": 33,

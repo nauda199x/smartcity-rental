@@ -262,7 +262,7 @@
       "area_max": 82,
       "area_min": 45,
       "code": "GS5",
-      "count": 10,
+      "count": 9,
       "data_code": "GS5",
       "district": "Miami",
       "first_seen": "2026-09-10",
@@ -274,7 +274,7 @@
       "price_min": 6700000,
       "types": [
         {
-          "count": 8,
+          "count": 7,
           "name": "2 Ngủ",
           "price_max": 14000000,
           "price_min": 9000000
