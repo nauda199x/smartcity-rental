@@ -11,6 +11,7 @@ on:
     paths:
       - ".github/workflows/tai-anh-can-ho.yml"
       - "scripts/sinh-danh-sach-anh.py"
+      - "scripts/sinh-trang-can.py"
       - "scripts/tai-anh-can-ho.py"
       - "scripts/thay-anh-trong-html.py"
       - "scripts/quet-thu-muc-anh.py"
