@@ -4,7 +4,7 @@
       "area_max": 85,
       "area_min": 30,
       "code": "A1",
-      "count": 33,
+      "count": 34,
       "data_code": "A1",
       "district": "Lumiere",
       "first_seen": "2026-09-16",
@@ -28,9 +28,9 @@
           "price_min": 11000000
         },
         {
-          "count": 4,
+          "count": 5,
           "name": "Studio",
-          "price_max": 8500000,
+          "price_max": 10500000,
           "price_min": 8000000
         },
         {
@@ -950,9 +950,9 @@
     },
     "S203": {
       "area_max": 75,
-      "area_min": 75,
+      "area_min": 64,
       "code": "S203",
-      "count": 1,
+      "count": 2,
       "data_code": "S203",
       "district": "Sapphire",
       "first_seen": "2026-09-18",
@@ -960,9 +960,15 @@
       "last_seen": "2026-10-22",
       "name": "S2.03",
       "path": "/s2-03-vinhomes-smart-city/",
-      "price_max": 9500000,
+      "price_max": 10200000,
       "price_min": 9500000,
       "types": [
+        {
+          "count": 1,
+          "name": "2 Ngủ +",
+          "price_max": 10200000,
+          "price_min": 10200000
+        },
         {
           "count": 1,
           "name": "3 Ngủ",
@@ -1318,9 +1324,9 @@
     },
     "SA3": {
       "area_max": 75,
-      "area_min": 26,
+      "area_min": 25,
       "code": "SA3",
-      "count": 8,
+      "count": 11,
       "data_code": "SA3",
       "district": "Sakura",
       "first_seen": "2026-09-10",
@@ -1332,13 +1338,13 @@
       "price_min": 6000000,
       "types": [
         {
-          "count": 4,
+          "count": 6,
           "name": "Studio",
           "price_max": 7500000,
           "price_min": 6000000
         },
         {
-          "count": 3,
+          "count": 4,
           "name": "2 Ngủ",
           "price_max": 12000000,
           "price_min": 10500000
@@ -1355,7 +1361,7 @@
       "area_max": 75,
       "area_min": 32,
       "code": "SA5",
-      "count": 10,
+      "count": 11,
       "data_code": "SA5",
       "district": "Sakura",
       "first_seen": "2026-09-10",
@@ -1367,10 +1373,10 @@
       "price_min": 6000000,
       "types": [
         {
-          "count": 4,
+          "count": 5,
           "name": "2 Ngủ",
           "price_max": 12500000,
-          "price_min": 10000000
+          "price_min": 9000000
         },
         {
           "count": 2,

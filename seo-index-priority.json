@@ -70,7 +70,7 @@
       "url": "/2pn-plus/",
       "label": "Thuê 2PN+",
       "reason": "intent theo loại căn",
-      "inbound_pages": 117,
+      "inbound_pages": 118,
       "exists": true,
       "indexable": true,
       "self_canonical": true,
@@ -137,20 +137,20 @@
       "in_sitemap": true
     },
     {
-      "url": "/imperia/",
-      "label": "Thuê Imperia Smart City",
+      "url": "/sakura/",
+      "label": "Thuê The Sakura",
       "reason": "phân khu có quỹ căn active lớn",
-      "inbound_pages": 88,
+      "inbound_pages": 84,
       "exists": true,
       "indexable": true,
       "self_canonical": true,
       "in_sitemap": true
     },
     {
-      "url": "/canopy/",
-      "label": "Thuê The Canopy",
+      "url": "/imperia/",
+      "label": "Thuê Imperia Smart City",
       "reason": "phân khu có quỹ căn active lớn",
-      "inbound_pages": 85,
+      "inbound_pages": 88,
       "exists": true,
       "indexable": true,
       "self_canonical": true,
@@ -162,7 +162,7 @@
       "url": "/a1-lumiere-evergreen/",
       "label": "A1 Lumière",
       "district": "Lumiere",
-      "inventory": 33,
+      "inventory": 34,
       "inbound_pages": 9
     },
     {
@@ -236,11 +236,11 @@
       "inbound_pages": 9
     },
     {
-      "url": "/s4-02-vinhomes-smart-city/",
-      "label": "S4.02",
-      "district": "Sapphire",
-      "inventory": 10,
-      "inbound_pages": 21
+      "url": "/sa3-the-sakura-smart-city/",
+      "label": "SA3 The Sakura",
+      "district": "Sakura",
+      "inventory": 11,
+      "inbound_pages": 16
     }
   ],
   "tier_3": [
@@ -426,13 +426,13 @@
     }
   ],
   "district_inventory": {
-    "Sapphire": 97,
+    "Sapphire": 98,
     "Masteri": 75,
-    "Lumiere": 67,
+    "Lumiere": 68,
     "Miami": 50,
+    "Sakura": 37,
     "Imperia": 36,
     "Canopy": 34,
-    "Sakura": 33,
     "Tonkin": 14
   },
   "summary": {
