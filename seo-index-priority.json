@@ -162,7 +162,7 @@
       "url": "/a1-lumiere-evergreen/",
       "label": "A1 Lumière",
       "district": "Lumiere",
-      "inventory": 32,
+      "inventory": 33,
       "inbound_pages": 9
     },
     {
@@ -173,6 +173,13 @@
       "inbound_pages": 41
     },
     {
+      "url": "/a2-lumiere-evergreen/",
+      "label": "A2 Lumière",
+      "district": "Lumiere",
+      "inventory": 22,
+      "inbound_pages": 30
+    },
+    {
       "url": "/west-a-masteri-smart-city/",
       "label": "West A Masteri",
       "district": "Masteri",
@@ -180,17 +187,10 @@
       "inbound_pages": 32
     },
     {
-      "url": "/a2-lumiere-evergreen/",
-      "label": "A2 Lumière",
-      "district": "Lumiere",
-      "inventory": 21,
-      "inbound_pages": 30
-    },
-    {
       "url": "/gs6-the-miami-smart-city/",
       "label": "GS6 The Miami",
       "district": "Miami",
-      "inventory": 15,
+      "inventory": 14,
       "inbound_pages": 26
     },
     {
@@ -201,10 +201,10 @@
       "inbound_pages": 23
     },
     {
-      "url": "/a3-lumiere-evergreen/",
-      "label": "A3 Lumière",
-      "district": "Lumiere",
-      "inventory": 13,
+      "url": "/west-d-masteri-smart-city/",
+      "label": "West D Masteri",
+      "district": "Masteri",
+      "inventory": 14,
       "inbound_pages": 22
     },
     {
@@ -215,32 +215,32 @@
       "inbound_pages": 11
     },
     {
-      "url": "/west-d-masteri-smart-city/",
-      "label": "West D Masteri",
-      "district": "Masteri",
-      "inventory": 13,
+      "url": "/a3-lumiere-evergreen/",
+      "label": "A3 Lumière",
+      "district": "Lumiere",
+      "inventory": 12,
       "inbound_pages": 22
     },
     {
       "url": "/s3-02-vinhomes-smart-city/",
       "label": "S3.02",
       "district": "Sapphire",
-      "inventory": 11,
+      "inventory": 12,
       "inbound_pages": 21
     },
     {
       "url": "/tc2-canopy-smart-city/",
       "label": "TC2 The Canopy",
       "district": "Canopy",
-      "inventory": 11,
+      "inventory": 12,
       "inbound_pages": 9
     },
     {
-      "url": "/s4-02-vinhomes-smart-city/",
-      "label": "S4.02",
-      "district": "Sapphire",
+      "url": "/gs5-the-miami-smart-city/",
+      "label": "GS5 The Miami",
+      "district": "Miami",
       "inventory": 10,
-      "inbound_pages": 21
+      "inbound_pages": 20
     }
   ],
   "tier_3": [
@@ -426,12 +426,12 @@
     }
   ],
   "district_inventory": {
-    "Sapphire": 94,
-    "Masteri": 74,
-    "Lumiere": 66,
+    "Sapphire": 96,
+    "Masteri": 75,
+    "Lumiere": 67,
     "Miami": 51,
-    "Imperia": 35,
-    "Canopy": 33,
+    "Imperia": 36,
+    "Canopy": 34,
     "Sakura": 33,
     "Tonkin": 14
   },
