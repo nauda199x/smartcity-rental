@@ -678,5 +678,45 @@
     "toa": "S6",
     "dien_tich": 81.0,
     "active": true
+  },
+  "cho-thue-can-ho-1-ngu-s6-43m2-thue1n-22": {
+    "id": "thue1N.22",
+    "ma": "thue1N.22",
+    "loai": "1 Ngủ",
+    "toa": "S6",
+    "dien_tich": 43.0,
+    "active": true
+  },
+  "cho-thue-can-ho-1-ngu-s6-43m2-thue1n-23": {
+    "id": "thue1N.23",
+    "ma": "thue1N.23",
+    "loai": "1 Ngủ",
+    "toa": "S6",
+    "dien_tich": 43.0,
+    "active": true
+  },
+  "cho-thue-can-ho-1-ngu-s3-43m2-thue1n-24": {
+    "id": "thue1N.24",
+    "ma": "thue1N.24",
+    "loai": "1 Ngủ",
+    "toa": "S3",
+    "dien_tich": 43.0,
+    "active": true
+  },
+  "cho-thue-can-ho-2-ngu-s6-54m2-thue2n-42": {
+    "id": "thue2N.42",
+    "ma": "thue2N.42",
+    "loai": "2 Ngủ",
+    "toa": "S6",
+    "dien_tich": 54.0,
+    "active": true
+  },
+  "cho-thue-can-ho-2-ngu-s1-62m2-thue2n-43": {
+    "id": "thue2N.43",
+    "ma": "thue2N.43",
+    "loai": "2 Ngủ",
+    "toa": "S1",
+    "dien_tich": 62.0,
+    "active": true
   }
 }
