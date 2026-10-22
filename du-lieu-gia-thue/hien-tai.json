@@ -1,20 +1,20 @@
 {
   "updated": "2026-10-22",
   "source": "data.json",
-  "active_count": 399,
+  "active_count": 400,
   "min_sample": 3,
   "overall": {
-    "n": 399,
+    "n": 400,
     "min": 5500000,
     "max": 25000000,
-    "median": 10500000
+    "median": 10500000.0
   },
   "by_type": {
     "1 Ngủ": {
-      "n": 32,
+      "n": 33,
       "min": 6700000,
       "max": 14000000,
-      "median": 9500000.0
+      "median": 9500000
     },
     "1 Ngủ +": {
       "n": 67,
@@ -61,22 +61,22 @@
       "median": 10000000
     },
     "Lumiere": {
-      "n": 65,
+      "n": 66,
       "min": 8000000,
       "max": 25000000,
-      "median": 12000000
+      "median": 12000000.0
     },
     "Masteri": {
-      "n": 73,
+      "n": 74,
       "min": 7500000,
       "max": 18500000,
-      "median": 11500000
+      "median": 11250000.0
     },
     "Miami": {
-      "n": 52,
+      "n": 51,
       "min": 5500000,
       "max": 18000000,
-      "median": 10000000.0
+      "median": 10000000
     },
     "Sakura": {
       "n": 33,
@@ -99,22 +99,22 @@
   },
   "by_interior": {
     "Full nội thất": {
-      "n": 235,
+      "n": 236,
       "min": 5800000,
       "max": 25000000,
-      "median": 11000000
+      "median": 11000000.0
     },
     "Nhà Nguyên Bản": {
-      "n": 108,
+      "n": 109,
       "min": 5500000,
       "max": 16000000,
-      "median": 9000000.0
+      "median": 9000000
     },
     "Đồ Cơ bản": {
-      "n": 56,
+      "n": 55,
       "min": 6000000,
       "max": 17000000,
-      "median": 10250000.0
+      "median": 10500000
     }
   },
   "zone_type_interior": [
@@ -338,10 +338,10 @@
       "zone": "Lumiere",
       "type": "1 Ngủ",
       "interior": "Nhà Nguyên Bản",
-      "n": 8,
-      "min": 9000000,
+      "n": 9,
+      "min": 8000000,
       "max": 10000000,
-      "median": 9500000.0
+      "median": 9500000
     },
     {
       "zone": "Lumiere",
@@ -464,10 +464,10 @@
       "zone": "Masteri",
       "type": "1 Ngủ +",
       "interior": "Full nội thất",
-      "n": 28,
+      "n": 29,
       "min": 10000000,
       "max": 14000000,
-      "median": 11000000.0
+      "median": 11000000
     },
     {
       "zone": "Masteri",
@@ -603,15 +603,6 @@
       "min": 7000000,
       "max": 7000000,
       "median": 7000000
-    },
-    {
-      "zone": "Miami",
-      "type": "1 Ngủ +",
-      "interior": "Đồ Cơ bản",
-      "n": 1,
-      "min": 7500000,
-      "max": 7500000,
-      "median": 7500000
     },
     {
       "zone": "Miami",
