@@ -10,7 +10,7 @@
       "url": "/",
       "label": "Trang thuê Smart City",
       "reason": "landing chính cho cụm từ khóa thuê Smart City",
-      "inbound_pages": 638,
+      "inbound_pages": 639,
       "exists": true,
       "indexable": true,
       "self_canonical": true,
@@ -100,7 +100,7 @@
       "url": "/sapphire/",
       "label": "Thuê Sapphire",
       "reason": "phân khu có quỹ căn active lớn",
-      "inbound_pages": 167,
+      "inbound_pages": 166,
       "exists": true,
       "indexable": true,
       "self_canonical": true,
@@ -120,7 +120,7 @@
       "url": "/lumiere/",
       "label": "Thuê Lumière Evergreen",
       "reason": "phân khu có quỹ căn active lớn",
-      "inbound_pages": 123,
+      "inbound_pages": 124,
       "exists": true,
       "indexable": true,
       "self_canonical": true,
@@ -208,18 +208,18 @@
       "inbound_pages": 23
     },
     {
+      "url": "/a3-lumiere-evergreen/",
+      "label": "A3 Lumière",
+      "district": "Lumiere",
+      "inventory": 13,
+      "inbound_pages": 22
+    },
+    {
       "url": "/gs1-the-miami-smart-city/",
       "label": "GS1 The Miami",
       "district": "Miami",
       "inventory": 13,
       "inbound_pages": 11
-    },
-    {
-      "url": "/a3-lumiere-evergreen/",
-      "label": "A3 Lumière",
-      "district": "Lumiere",
-      "inventory": 12,
-      "inbound_pages": 21
     },
     {
       "url": "/s3-02-vinhomes-smart-city/",
@@ -288,6 +288,15 @@
       "type": "2 Ngủ +",
       "district": "Masteri",
       "inbound_pages": 6
+    },
+    {
+      "url": "/can-ho/cho-thue-can-ho-2-ngu-lumiere-62m2-ct-2n2-500/",
+      "first_seen": "2026-10-23",
+      "code": "CT.2N2.500",
+      "tower": "A3",
+      "type": "2 Ngủ",
+      "district": "Lumiere",
+      "inbound_pages": 7
     },
     {
       "url": "/can-ho/cho-thue-can-ho-1-ngu-sapphire-43m2-ct-1n-640/",
@@ -359,7 +368,7 @@
       "tower": "S103",
       "type": "3 Ngủ",
       "district": "Sapphire",
-      "inbound_pages": 11
+      "inbound_pages": 12
     },
     {
       "url": "/can-ho/cho-thue-can-ho-2-ngu-sapphire-64m2-ct-2n-356/",
@@ -414,21 +423,12 @@
       "type": "2 Ngủ",
       "district": "Imperia",
       "inbound_pages": 13
-    },
-    {
-      "url": "/can-ho/cho-thue-can-ho-1-ngu-masteri-47m2-ct-1n-639/",
-      "first_seen": "2026-10-22",
-      "code": "CT.1N+.639",
-      "tower": "MasD",
-      "type": "1 Ngủ +",
-      "district": "Masteri",
-      "inbound_pages": 19
     }
   ],
   "district_inventory": {
-    "Sapphire": 101,
+    "Sapphire": 100,
     "Masteri": 76,
-    "Lumiere": 68,
+    "Lumiere": 69,
     "Miami": 52,
     "Sakura": 37,
     "Imperia": 36,
