@@ -750,5 +750,13 @@
     "toa": "S3",
     "dien_tich": 74.0,
     "active": true
+  },
+  "cho-thue-can-ho-2-ngu-s6-62m2-thue2n-47": {
+    "id": "thue2N.47",
+    "ma": "thue2N.47",
+    "loai": "2 Ngủ",
+    "toa": "S6",
+    "dien_tich": 62.0,
+    "active": true
   }
 }
