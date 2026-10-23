@@ -1103,6 +1103,14 @@
   "phan_khu": "Masteri",
   "toa": "MasD"
  },
+ "cho-thue-can-ho-1-ngu-masteri-47m2-ct-1n-642": {
+  "dien_tich": 47,
+  "loai": "1 Ngủ +",
+  "ma": "CT.1N+.642",
+  "ngay_xuat_hien": "2026-10-23",
+  "phan_khu": "Masteri",
+  "toa": "MasA"
+ },
  "cho-thue-can-ho-1-ngu-masteri-48m2-ct-1n-447": {
   "dien_tich": 48,
   "loai": "1 Ngủ +",
@@ -1774,6 +1782,14 @@
   "ngay_xuat_hien": "2026-10-21",
   "phan_khu": "Sapphire",
   "toa": "S402"
+ },
+ "cho-thue-can-ho-1-ngu-sapphire-48m2-ct-1n-641": {
+  "dien_tich": 48,
+  "loai": "1 Ngủ +",
+  "ma": "CT.1N+.641",
+  "ngay_xuat_hien": "2026-10-23",
+  "phan_khu": "Sapphire",
+  "toa": "S401"
  },
  "cho-thue-can-ho-1-ngu-tonkin-40m2-ct-1n-545": {
   "dien_tich": 40,
@@ -3103,6 +3119,14 @@
   "phan_khu": "Masteri",
   "toa": "MasC"
  },
+ "cho-thue-can-ho-2-ngu-masteri-62m2-ct-2n-359": {
+  "dien_tich": 62,
+  "loai": "2 Ngủ +",
+  "ma": "CT.2N+.359",
+  "ngay_xuat_hien": "2026-10-23",
+  "phan_khu": "Masteri",
+  "toa": "MasC"
+ },
  "cho-thue-can-ho-2-ngu-masteri-62m2-ct-2n2-320": {
   "dien_tich": 62,
   "loai": "2 Ngủ",
@@ -3309,7 +3333,7 @@
   "ma": "CT.2N+.319",
   "ngay_xuat_hien": "2026-09-22",
   "phan_khu": "Miami",
-  "toa": "GS3"
+  "toa": "GS2"
  },
  "cho-thue-can-ho-2-ngu-miami-62m2-ct-2n2-373": {
   "dien_tich": 62.5,
@@ -4022,6 +4046,14 @@
   "ngay_xuat_hien": "2026-10-18",
   "phan_khu": "Sapphire",
   "toa": "S301"
+ },
+ "cho-thue-can-ho-2-ngu-sapphire-54m2-ct-2n1-288": {
+  "dien_tich": 54,
+  "loai": "2 Ngủ",
+  "ma": "CT.2N1.288",
+  "ngay_xuat_hien": "2026-10-23",
+  "phan_khu": "Sapphire",
+  "toa": "S101"
  },
  "cho-thue-can-ho-2-ngu-sapphire-55m2-ct-2n1-150": {
   "dien_tich": 55,
