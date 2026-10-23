@@ -950,9 +950,9 @@
     },
     "S203": {
       "area_max": 75,
-      "area_min": 64,
+      "area_min": 43,
       "code": "S203",
-      "count": 2,
+      "count": 3,
       "data_code": "S203",
       "district": "Sapphire",
       "first_seen": "2026-09-18",
@@ -961,8 +961,14 @@
       "name": "S2.03",
       "path": "/s2-03-vinhomes-smart-city/",
       "price_max": 10200000,
-      "price_min": 9500000,
+      "price_min": 8500000,
       "types": [
+        {
+          "count": 1,
+          "name": "1 Ngủ +",
+          "price_max": 8500000,
+          "price_min": 8500000
+        },
         {
           "count": 1,
           "name": "2 Ngủ +",
