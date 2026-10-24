@@ -822,9 +822,9 @@
     },
     "S105": {
       "area_max": 64,
-      "area_min": 43,
+      "area_min": 31,
       "code": "S105",
-      "count": 5,
+      "count": 6,
       "data_code": "S105",
       "district": "Sapphire",
       "first_seen": "2026-09-14",
@@ -833,7 +833,7 @@
       "name": "S1.05",
       "path": "/s1-05-vinhomes-smart-city/",
       "price_max": 10000000,
-      "price_min": 8000000,
+      "price_min": 7500000,
       "types": [
         {
           "count": 2,
@@ -852,6 +852,12 @@
           "name": "1 Ngủ +",
           "price_max": 9500000,
           "price_min": 9500000
+        },
+        {
+          "count": 1,
+          "name": "Studio",
+          "price_max": 7500000,
+          "price_min": 7500000
         }
       ]
     },

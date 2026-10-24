@@ -1,13 +1,13 @@
 {
   "updated": "2026-10-24",
   "source": "data.json",
-  "active_count": 422,
+  "active_count": 423,
   "min_sample": 3,
   "overall": {
-    "n": 422,
+    "n": 423,
     "min": 5500000,
     "max": 25000000,
-    "median": 10500000.0
+    "median": 10500000
   },
   "by_type": {
     "1 Ngủ": {
@@ -41,10 +41,10 @@
       "median": 13000000
     },
     "Studio": {
-      "n": 78,
+      "n": 79,
       "min": 5500000,
       "max": 10500000,
-      "median": 7500000.0
+      "median": 7500000
     }
   },
   "by_zone": {
@@ -85,10 +85,10 @@
       "median": 10000000
     },
     "Sapphire": {
-      "n": 98,
+      "n": 99,
       "min": 5500000,
       "max": 18000000,
-      "median": 9500000.0
+      "median": 9500000
     },
     "Tonkin": {
       "n": 12,
@@ -99,10 +99,10 @@
   },
   "by_interior": {
     "Full nội thất": {
-      "n": 250,
+      "n": 251,
       "min": 5800000,
       "max": 25000000,
-      "median": 11000000.0
+      "median": 11000000
     },
     "Nhà Nguyên Bản": {
       "n": 111,
@@ -941,10 +941,10 @@
       "zone": "Sapphire",
       "type": "Studio",
       "interior": "Full nội thất",
-      "n": 11,
+      "n": 12,
       "min": 5800000,
       "max": 7500000,
-      "median": 7000000
+      "median": 7000000.0
     },
     {
       "zone": "Sapphire",
