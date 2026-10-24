@@ -344,7 +344,7 @@
       "area_max": 76,
       "area_min": 43,
       "code": "I1",
-      "count": 7,
+      "count": 8,
       "data_code": "I1",
       "district": "Imperia",
       "first_seen": "2026-09-10",
@@ -353,7 +353,7 @@
       "name": "I1 Imperia",
       "path": "/i1-imperia-smart-city/",
       "price_max": 17500000,
-      "price_min": 8500000,
+      "price_min": 8000000,
       "types": [
         {
           "count": 4,
@@ -363,15 +363,15 @@
         },
         {
           "count": 2,
+          "name": "1 Ngủ +",
+          "price_max": 8500000,
+          "price_min": 8000000
+        },
+        {
+          "count": 2,
           "name": "3 Ngủ",
           "price_max": 17500000,
           "price_min": 13000000
-        },
-        {
-          "count": 1,
-          "name": "1 Ngủ +",
-          "price_max": 8500000,
-          "price_min": 8500000
         }
       ]
     },
@@ -857,9 +857,9 @@
     },
     "S106": {
       "area_max": 64,
-      "area_min": 63,
+      "area_min": 62,
       "code": "S106",
-      "count": 2,
+      "count": 3,
       "data_code": "S106",
       "district": "Sapphire",
       "first_seen": "2026-09-10",
@@ -868,13 +868,13 @@
       "name": "S1.06",
       "path": "/s1-06-vinhomes-smart-city/",
       "price_max": 11500000,
-      "price_min": 11000000,
+      "price_min": 9000000,
       "types": [
         {
-          "count": 2,
+          "count": 3,
           "name": "2 Ngủ +",
           "price_max": 11500000,
-          "price_min": 11000000
+          "price_min": 9000000
         }
       ]
     },
@@ -1268,7 +1268,7 @@
       "area_max": 75,
       "area_min": 28,
       "code": "SA1",
-      "count": 10,
+      "count": 11,
       "data_code": "SA1",
       "district": "Sakura",
       "first_seen": "2026-09-10",
@@ -1287,15 +1287,15 @@
         },
         {
           "count": 3,
-          "name": "Studio",
-          "price_max": 6000000,
-          "price_min": 5800000
-        },
-        {
-          "count": 2,
           "name": "2 Ngủ +",
           "price_max": 13500000,
           "price_min": 10000000
+        },
+        {
+          "count": 3,
+          "name": "Studio",
+          "price_max": 6000000,
+          "price_min": 5800000
         },
         {
           "count": 1,
@@ -1467,7 +1467,7 @@
       "area_max": 75,
       "area_min": 25,
       "code": "TC2",
-      "count": 12,
+      "count": 13,
       "data_code": "TC2",
       "district": "Canopy",
       "first_seen": "2026-09-10",
@@ -1479,7 +1479,7 @@
       "price_min": 6000000,
       "types": [
         {
-          "count": 5,
+          "count": 6,
           "name": "2 Ngủ",
           "price_max": 14000000,
           "price_min": 8000000

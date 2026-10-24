@@ -263,6 +263,14 @@
   "phan_khu": "Imperia",
   "toa": "I2"
  },
+ "cho-thue-can-ho-1-ngu-imperia-43m2-ct-1n-644": {
+  "dien_tich": 43,
+  "loai": "1 Ngủ +",
+  "ma": "CT.1N+.644",
+  "ngay_xuat_hien": "2026-10-24",
+  "phan_khu": "Imperia",
+  "toa": "I1"
+ },
  "cho-thue-can-ho-1-ngu-imperia-47m2-ct-1n-505": {
   "dien_tich": 47,
   "loai": "1 Ngủ +",
@@ -1942,6 +1950,14 @@
   "ngay_xuat_hien": "2026-10-17",
   "phan_khu": "Canopy",
   "toa": "TC3"
+ },
+ "cho-thue-can-ho-2-ngu-canopy-62m2-ct-2n2-501": {
+  "dien_tich": 62,
+  "loai": "2 Ngủ",
+  "ma": "CT.2N2.501",
+  "ngay_xuat_hien": "2026-10-24",
+  "phan_khu": "Canopy",
+  "toa": "TC2"
  },
  "cho-thue-can-ho-2-ngu-canopy-63m2-ct-2n2-342": {
   "dien_tich": 63.4,
@@ -3863,6 +3879,14 @@
   "phan_khu": "Sakura",
   "toa": "SA5"
  },
+ "cho-thue-can-ho-2-ngu-sakura-63m2-ct-2n-361": {
+  "dien_tich": 63,
+  "loai": "2 Ngủ +",
+  "ma": "CT.2N+.361",
+  "ngay_xuat_hien": "2026-10-24",
+  "phan_khu": "Sakura",
+  "toa": "SA1"
+ },
  "cho-thue-can-ho-2-ngu-sakura-63m2-ct-2n2-393": {
   "dien_tich": 63,
   "loai": "2 Ngủ",
@@ -4414,6 +4438,14 @@
   "ngay_xuat_hien": "2026-10-15",
   "phan_khu": "Sapphire",
   "toa": "S302"
+ },
+ "cho-thue-can-ho-2-ngu-sapphire-62m2-ct-2n-360": {
+  "dien_tich": 62.5,
+  "loai": "2 Ngủ +",
+  "ma": "CT.2N+.360",
+  "ngay_xuat_hien": "2026-10-24",
+  "phan_khu": "Sapphire",
+  "toa": "S106"
  },
  "cho-thue-can-ho-2-ngu-sapphire-62m2-ct-2n2-309": {
   "dien_tich": 62,
