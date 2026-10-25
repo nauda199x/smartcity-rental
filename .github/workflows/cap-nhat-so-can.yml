@@ -12,7 +12,9 @@ on:
     branches:
       - main
     paths:
-      - "data.json"
+      # data.json trực tiếp từ Apps Script CHƯA hợp nhất CTV.
+      # Chỉ workflow dong-bo-ctv.yml dispatch SEO sau khi ghép dữ liệu.
+      - "scripts/kiem-tra-nguon-seo.mjs"
       - "scripts/sinh-trang-can.py"
       - "scripts/toi-uu-chat-luong-can.py"
       - "scripts/audit-indexability-can-ho.py"
@@ -89,6 +91,9 @@ jobs:
 
       # Khóa snapshot nguồn: không được push HTML cũ nếu data.json đổi
       # trong lúc generator đang chạy (CTV có thể cập nhật mỗi 30 phút).
+      - name: Chặn snapshot nguồn chưa ghép CTV
+        run: node scripts/kiem-tra-nguon-seo.mjs
+
       - name: Chốt phiên bản dữ liệu để dựng trang
         run: echo "DATA_HASH_INITIAL=$(sha256sum data.json | cut -d ' ' -f1)" >> "$GITHUB_ENV"
 
