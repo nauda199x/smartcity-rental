@@ -766,5 +766,21 @@
     "toa": "S6",
     "dien_tich": 43.0,
     "active": true
+  },
+  "cho-thue-can-ho-1-ngu-s6-43m2-thue1n-27": {
+    "id": "thue1N.27",
+    "ma": "thue1N.27",
+    "loai": "1 Ngủ",
+    "toa": "S6",
+    "dien_tich": 43.0,
+    "active": true
+  },
+  "cho-thue-can-ho-1-ngu-s3-54m2-thue1n-28": {
+    "id": "thue1N.28",
+    "ma": "thue1N.28",
+    "loai": "1 Ngủ",
+    "toa": "S3",
+    "dien_tich": 54.0,
+    "active": true
   }
 }
