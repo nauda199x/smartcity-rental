@@ -262,13 +262,13 @@ def quick_rent_block(rows):
             % (esc(url), esc(label), record["count"], gia_trieu(record["min_price"]))
         )
     return (
-        QUICK_START + '\\n'
+        QUICK_START + '\n'
         '<nav class="seo-rent-shortcuts" aria-label="Tìm căn hộ thuê theo số phòng">'
         '<div class="seo-rent-shortcuts__head">'
         '<h2>Tìm căn hộ Smart City theo số phòng ngủ</h2>'
         '<p>Chọn loại căn để xem giá, tòa và ảnh thực tế trong quỹ đang cho thuê.</p>'
         '</div><div class="seo-rent-shortcuts__grid">%s</div>'
-        '</nav>\\n' + QUICK_END
+        '</nav>\n' + QUICK_END
     ) % "".join(cards)
 
 
@@ -314,6 +314,9 @@ def apply(raw, stats, rows):
             raw = raw.replace(anchor, quick + "\n\n" + anchor, 1)
         else:
             raise RuntimeError("Không tìm thấy chỗ gắn liên kết loại căn trên trang chủ")
+
+    # Đổi CSS cache key để dải điều hướng mobile không nhận CSS cũ.
+    raw = raw.replace("/assets/v3.css?v=20260830-14", "/assets/v3.css?v=20261025-rent1")
 
     # Đồng bộ schema WebPage ảnh ưu tiên nếu block đó đang tồn tại.
     pat = re.compile(r'(<script[^>]+id=["\']google-image-preview-data["\'][^>]*>)(.*?)(</script>)', re.I | re.S)
