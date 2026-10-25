@@ -36,6 +36,8 @@ HEAD_START = "<!-- P8-MAIN-COLLECTION:START -->"
 HEAD_END = "<!-- P8-MAIN-COLLECTION:END -->"
 BODY_START = "<!-- P8-MAIN-INTENT:START -->"
 BODY_END = "<!-- P8-MAIN-INTENT:END -->"
+QUICK_START = "<!-- SEO-QUICK-RENT:START -->"
+QUICK_END = "<!-- SEO-QUICK-RENT:END -->"
 
 
 def nap_danh_muc():
@@ -219,7 +221,58 @@ def body_block(stats):
     ) % (esc(thang_hien_tai()), stats["total"], esc(zone_text), esc(price_text)) + "\n" + BODY_END
 
 
-def apply(raw, stats):
+
+# Liên kết giao dịch quan trọng nhất: chỉ tạo từ số liệu quỹ căn đang công khai.
+# HTML thô đọc được, không cần JavaScript, không sinh landing/URL mới.
+TYPE_ROUTES = (
+    ("Studio", "/studio/", "Studio"),
+    ("1 Ngủ", "/1pn/", "1 phòng ngủ"),
+    ("1 Ngủ +", "/1pn-plus/", "1 phòng ngủ +"),
+    ("2 Ngủ", "/2pn/", "2 phòng ngủ"),
+    ("2 Ngủ +", "/2pn-plus/", "2 phòng ngủ +"),
+    ("3 Ngủ", "/3pn/", "3 phòng ngủ"),
+)
+
+
+def quick_rent_block(rows):
+    grouped = {}
+    for row in rows:
+        typ = " ".join(str(row.get("Loại", "")).split())
+        if not str(row.get("Tòa", "")).strip():
+            continue
+        try:
+            price = so_tien(row.get("Giá thuê"))
+        except Exception:
+            price = 0
+        if price <= 0:
+            continue
+        entry = grouped.setdefault(typ, {"count": 0, "min_price": price})
+        entry["count"] += 1
+        entry["min_price"] = min(price, entry["min_price"])
+
+    cards = []
+    for typ, url, label in TYPE_ROUTES:
+        record = grouped.get(typ)
+        if not record or record["count"] < 1:
+            continue
+        cards.append(
+            '<a href="%s" class="seo-rent-shortcuts__card">'
+            '<strong>Thuê %s Smart City</strong>'
+            '<span>%d căn đang hiển thị · giá từ %s triệu/tháng</span></a>'
+            % (esc(url), esc(label), record["count"], gia_trieu(record["min_price"]))
+        )
+    return (
+        QUICK_START + '\\n'
+        '<nav class="seo-rent-shortcuts" aria-label="Tìm căn hộ thuê theo số phòng">'
+        '<div class="seo-rent-shortcuts__head">'
+        '<h2>Tìm căn hộ Smart City theo số phòng ngủ</h2>'
+        '<p>Chọn loại căn để xem giá, tòa và ảnh thực tế trong quỹ đang cho thuê.</p>'
+        '</div><div class="seo-rent-shortcuts__grid">%s</div>'
+        '</nav>\\n' + QUICK_END
+    ) % "".join(cards)
+
+
+def apply(raw, stats, rows):
     title = title_text()
     desc = description_text(stats)
 
@@ -250,6 +303,17 @@ def apply(raw, stats):
             raw = raw.replace(anchor, "    " + body + "\n\n" + anchor, 1)
         else:
             raw = raw.replace("</main>", body + "\n</main>", 1)
+
+    # Liên kết trực tiếp từ trang chủ tới các landing loại căn, giá/số căn tính từ data thật.
+    quick = quick_rent_block(rows)
+    if QUICK_START in raw:
+        raw = replace_marker(raw, QUICK_START, QUICK_END, quick)
+    else:
+        anchor = '    <div class="list-head">'
+        if anchor in raw:
+            raw = raw.replace(anchor, quick + "\n\n" + anchor, 1)
+        else:
+            raise RuntimeError("Không tìm thấy chỗ gắn liên kết loại căn trên trang chủ")
 
     # Đồng bộ schema WebPage ảnh ưu tiên nếu block đó đang tồn tại.
     pat = re.compile(r'(<script[^>]+id=["\']google-image-preview-data["\'][^>]*>)(.*?)(</script>)', re.I | re.S)
@@ -297,6 +361,11 @@ def audit(raw, stats):
         problems.append("thiếu CollectionPage schema P8")
     if stats["total"] <= 0:
         problems.append("không đọc được quỹ căn active")
+    if raw.count(QUICK_START) != 1 or raw.count(QUICK_END) != 1:
+        problems.append("thiếu hoặc nhân đôi dải liên kết loại căn")
+    for _typ, route, _label in TYPE_ROUTES:
+        if ('href="%s"' % route) not in raw:
+            problems.append("thiếu liên kết loại căn %s" % route)
     if ("%d căn hộ cho thuê" % stats["total"]) not in raw:
         problems.append("khối P8 chưa đồng bộ tổng quỹ căn")
     return problems
@@ -317,7 +386,7 @@ def main():
     raw = open(INDEX, encoding="utf-8").read()
 
     if not args.kiem_tra:
-        new = apply(raw, stats)
+        new = apply(raw, stats, rows)
         changed = new != raw
         if changed and not args.thu:
             with open(INDEX, "w", encoding="utf-8", newline="") as f:
