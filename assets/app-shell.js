@@ -186,3 +186,37 @@ if (location.pathname.replace(/\/+$/, "") === "/gui-thue") {
   videoFast.async = false;
   document.head.appendChild(videoFast);
 }
+
+/* Funnel SEO: đo mở trang căn và bấm liên hệ ở trang chi tiết.
+ * Trang chủ/danh mục đã có tracker riêng. Không gắn liên hệ thêm lần hai.
+ * Chỉ gửi sự kiện click, không coi đây là lead đã xác nhận. */
+(function () {
+  "use strict";
+  function send(eventName, params) {
+    try {
+      if (typeof window.gtag === "function") window.gtag("event", eventName, params);
+    } catch (e) { /* analytics không được cản điều hướng */ }
+  }
+  document.addEventListener("click", function (event) {
+    var a = event.target && event.target.closest && event.target.closest("a[href]");
+    if (!a) return;
+    var raw = a.getAttribute("href") || "";
+    var target;
+    try { target = new URL(raw, window.location.href); } catch (e) { return; }
+
+    if (target.origin === window.location.origin
+        && /^\/can-ho\/[^\/]+\/?$/.test(target.pathname)) {
+      send("xem_chi_tiet_can", { nguon_trang: location.pathname, dich_trang: target.pathname });
+      return;
+    }
+
+    // Chỉ trên URL căn hộ: trang chủ và danh mục tự đo các nút liên hệ.
+    if (!/^\/can-ho\/[^\/]+\/?$/.test(location.pathname)) return;
+    if (target.hostname === "zalo.me" || target.hostname.endsWith(".zalo.me")) {
+      send("lien_he_zalo", { vi_tri: "trang_chi_tiet_can", trang: location.pathname });
+    } else if (target.protocol === "tel:") {
+      send("goi_dien", { vi_tri: "trang_chi_tiet_can", trang: location.pathname });
+    }
+  }, true);
+})();
+
