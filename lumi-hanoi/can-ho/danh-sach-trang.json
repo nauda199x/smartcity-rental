@@ -775,13 +775,13 @@
     "dien_tich": 43.0,
     "active": true
   },
-  "cho-thue-can-ho-1-ngu-s3-54m2-thue1n-28": {
+  "cho-thue-can-ho-1-ngu-s1-43m2-thue1n-28": {
     "id": "thue1N.28",
     "ma": "thue1N.28",
     "loai": "1 Ngủ",
-    "toa": "S3",
-    "dien_tich": 54.0,
-    "active": false
+    "toa": "S1",
+    "dien_tich": 43.0,
+    "active": true
   },
   "cho-thue-can-ho-2-ngu-s5-54m2-thue2n-48": {
     "id": "thue2N.48",
@@ -893,7 +893,7 @@
     "loai": "2 Ngủ",
     "toa": "S1",
     "dien_tich": 62.0,
-    "active": true
+    "active": false
   },
   "cho-thue-can-ho-2-ngu-s2-54m2-thue2n-61": {
     "id": "thue2N.61",
@@ -918,5 +918,85 @@
     "toa": "S5",
     "dien_tich": 62.0,
     "active": true
+  },
+  "cho-thue-can-ho-2-ngu-s1-62m2-thue2n-64": {
+    "id": "thue2N.64",
+    "ma": "thue2N.64",
+    "loai": "2 Ngủ",
+    "toa": "S1",
+    "dien_tich": 62.0,
+    "active": true
+  },
+  "cho-thue-can-ho-2-ngu-s5-62m2-thue2n-65": {
+    "id": "thue2N.65",
+    "ma": "thue2N.65",
+    "loai": "2 Ngủ",
+    "toa": "S5",
+    "dien_tich": 62.0,
+    "active": true
+  },
+  "cho-thue-can-ho-2-ngu-s5-74m2-thue2n-66": {
+    "id": "thue2N.66",
+    "ma": "thue2N.66",
+    "loai": "2 Ngủ",
+    "toa": "S5",
+    "dien_tich": 73.9,
+    "active": true
+  },
+  "cho-thue-can-ho-2-ngu-s5-54m2-thue2n-67": {
+    "id": "thue2N.67",
+    "ma": "thue2N.67",
+    "loai": "2 Ngủ",
+    "toa": "S5",
+    "dien_tich": 53.8,
+    "active": true
+  },
+  "cho-thue-can-ho-2-ngu-s5-54m2-thue2n-68": {
+    "id": "thue2N.68",
+    "ma": "thue2N.68",
+    "loai": "2 Ngủ",
+    "toa": "S5",
+    "dien_tich": 53.8,
+    "active": true
+  },
+  "cho-thue-can-ho-2-ngu-s6-64m2-thue2n-69": {
+    "id": "thue2N.69",
+    "ma": "thue2N.69",
+    "loai": "2 Ngủ",
+    "toa": "S6",
+    "dien_tich": 63.7,
+    "active": false
+  },
+  "cho-thue-can-ho-2-ngu-s2-54m2-thue2n-70": {
+    "id": "thue2N.70",
+    "ma": "thue2N.70",
+    "loai": "2 Ngủ",
+    "toa": "S2",
+    "dien_tich": 53.8,
+    "active": false
+  },
+  "cho-thue-can-ho-2-ngu-s3-62m2-thue2n-71": {
+    "id": "thue2N.71",
+    "ma": "thue2N.71",
+    "loai": "2 Ngủ",
+    "toa": "S3",
+    "dien_tich": 62.2,
+    "active": true
+  },
+  "cho-thue-can-ho-2-ngu-s3-54m2-thue2n-72": {
+    "id": "thue2N.72",
+    "ma": "thue2N.72",
+    "loai": "2 Ngủ",
+    "toa": "S3",
+    "dien_tich": 53.8,
+    "active": false
+  },
+  "cho-thue-can-ho-2-ngu-s5-54m2-thue2n-73": {
+    "id": "thue2N.73",
+    "ma": "thue2N.73",
+    "loai": "2 Ngủ",
+    "toa": "S5",
+    "dien_tich": 53.8,
+    "active": false
   }
 }
