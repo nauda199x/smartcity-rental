@@ -124,35 +124,44 @@ function date(v, immediate = true) {
   return pad2(+m[1]) + "/" + pad2(+m[2]) + "/" + y;
 }
 
-// Đọc ghi chú theo lần cập nhật đầu chủ MỚI NHẤT, tránh trạng thái cũ
-// "đã thuê" ghi đè thông tin "còn" mới hơn (và ngược lại).
-function latestOwnerNote(note) {
-  const s = txt(note);
-  const matches = [...s.matchAll(/\b(\d{1,2})\/(\d{1,2})(?:\/(\d{4}))?\b/g)];
-  if (!matches.length) return s;
-  let bestScore = -1;
-  let latest = "";
-  for (let i = 0; i < matches.length; i++) {
-    const m = matches[i], day = Number(m[1]), month = Number(m[2]);
-    if (day < 1 || day > 31 || month < 1 || month > 12) continue;
-    const year = Number(m[3] || nowVN().y);
-    const score = year * 10000 + month * 100 + day;
-    if (score >= bestScore) {
-      bestScore = score;
-      latest = s.slice(m.index + m[0].length,
-        i + 1 < matches.length ? matches[i + 1].index : s.length).trim();
+// Mỗi lần liên lạc tạo thêm một ghi chú. Chỉ cập nhật trạng thái khi đầu
+// chủ nói rõ "còn" hoặc "đã thuê/không cho thuê". KNM/tắt máy không được
+// xóa đi kết luận "không cho thuê" đã được xác nhận trước đó.
+function ownerStatus(note) {
+  const s = txt(note).normalize("NFC").toLocaleLowerCase("vi");
+  const dated = [...s.matchAll(/\b(\d{1,2})\/(\d{1,2})(?:\/(\d{4}))?\b/g)];
+  const parts = [];
+  if (dated.length === 0) parts.push({ score: 0, text: s });
+  else {
+    const preface = s.slice(0, dated[0].index).trim();
+    if (preface) parts.push({ score: 0, text: preface });
+    for (let i = 0; i < dated.length; i++) {
+      const m = dated[i], day = Number(m[1]), month = Number(m[2]);
+      if (day < 1 || day > 31 || month < 1 || month > 12) continue;
+      const year = Number(m[3] || nowVN().y);
+      parts.push({
+        score: year * 10000 + month * 100 + day,
+        text: s.slice(m.index + m[0].length,
+          i + 1 < dated.length ? dated[i + 1].index : s.length).trim(),
+      });
     }
   }
-  return bestScore >= 0 ? latest : s;
+  // 2 người gọi cùng ngày: ghi chú phía sau là thông tin mới hơn.
+  parts.sort((a, b) => a.score - b.score);
+  let state = null;
+  for (const part of parts) {
+    const t = part.text.replace(/\bc\s+ho\s+thuê\b/g, "cho thuê")
+      .replace(/\s+/g, " ").trim();
+    const unavailable =
+      /cho\s*thuê\s*rồi|cho\s*thuê\s*xong|đã\s*cho\s*thuê|đã\s*thuê|thuê\s*rồi|đã\s*chốt|chốt\s*thuê|có\s*khách\s*thuê|đã\s*có\s*khách|(?:không|kh|k)\s*cho\s*thuê(?:\s*nữa)?|không\s*còn\s*cho\s*thuê|dừng\s*(?:cho\s*)?thuê|ngừng\s*(?:cho\s*)?thuê|chỉ\s*bán|để\s*ở[^\n]*?(?:không|k)\s*cho\s*thuê/.test(t);
+    const available = /(?:^|\s)(?:vẫn\s*)?còn(?:\b|\s|$)|chưa\s*cho\s*thuê|còn\s*trống/.test(t);
+    if (unavailable) state = "unavailable";
+    else if (available) state = "available";
+  }
+  return state;
 }
-
 function inactive(note) {
-  const s = latestOwnerNote(note).normalize("NFC").toLocaleLowerCase("vi")
-    .replace(/\bc\s+ho\s+thuê\b/g, "cho thuê") // lỗi gõ "c ho thuê rồi"
-    .replace(/\s+/g, " ").trim();
-  // "KNM", "không nghe máy", "tắt máy", "tắt ngang" không có nghĩa đã thuê.
-  // Chỉ tắt khi đầu chủ XÁC NHẬN căn đã thuê hoặc không còn cho thuê.
-  return /cho\s*thuê\s*rồi|cho\s*thuê\s*xong|đã\s*cho\s*thuê|đã\s*thuê|thuê\s*rồi|đã\s*chốt|chốt\s*thuê|có\s*khách\s*thuê|đã\s*có\s*khách|(?:không|kh|k)\s*cho\s*thuê\s*nữa|không\s*còn\s*cho\s*thuê|dừng\s*(?:cho\s*)?thuê|ngừng\s*(?:cho\s*)?thuê|chỉ\s*bán|để\s*ở[^\n]*?(?:không|k)\s*cho\s*thuê/.test(s);
+  return ownerStatus(note) === "unavailable";
 }
 
 function sourceRow(tab, type, c, row) {
