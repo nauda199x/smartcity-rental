@@ -1030,5 +1030,13 @@
     "toa": "S5",
     "dien_tich": 81.0,
     "active": true
+  },
+  "cho-thue-can-ho-1-ngu-s3-81m2-thue1n-29": {
+    "id": "thue1N.29",
+    "ma": "thue1N.29",
+    "loai": "1 Ngủ",
+    "toa": "S3",
+    "dien_tich": 81.0,
+    "active": false
   }
 }
