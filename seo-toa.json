@@ -1165,7 +1165,7 @@
       "last_seen": "2026-10-28",
       "name": "S4.01",
       "path": "/s4-01-vinhomes-smart-city/",
-      "price_max": 15000000,
+      "price_max": 14000000,
       "price_min": 6500000,
       "types": [
         {
@@ -1195,8 +1195,8 @@
         {
           "count": 1,
           "name": "3 Ngủ",
-          "price_max": 15000000,
-          "price_min": 15000000
+          "price_max": 14000000,
+          "price_min": 14000000
         }
       ]
     },
