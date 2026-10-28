@@ -4095,6 +4095,14 @@
   "phan_khu": "Sakura",
   "toa": "SA5"
  },
+ "cho-thue-can-ho-2-ngu-sakura-62m2-ct-2n2-514": {
+  "dien_tich": 62,
+  "loai": "2 Ngủ",
+  "ma": "CT.2N2.514",
+  "ngay_xuat_hien": "2026-10-28",
+  "phan_khu": "Sakura",
+  "toa": "SA3"
+ },
  "cho-thue-can-ho-2-ngu-sakura-63m2-ct-2n-300": {
   "dien_tich": 63,
   "loai": "2 Ngủ +",
@@ -5679,6 +5687,14 @@
   "phan_khu": "Sapphire",
   "toa": "S401"
  },
+ "cho-thue-can-ho-3-ngu-sapphire-75m2-ct-3n-207": {
+  "dien_tich": 75,
+  "loai": "3 Ngủ",
+  "ma": "CT.3N.207",
+  "ngay_xuat_hien": "2026-10-28",
+  "phan_khu": "Sapphire",
+  "toa": "S401"
+ },
  "cho-thue-can-ho-3-ngu-sapphire-76m2-ct-3n-133": {
   "dien_tich": 76,
   "loai": "3 Ngủ",
@@ -5974,6 +5990,14 @@
   "ngay_xuat_hien": "2026-10-06",
   "phan_khu": "Imperia",
   "toa": "I5"
+ },
+ "cho-thue-can-ho-studio-imperia-32m2-ct-stu-984": {
+  "dien_tich": 32,
+  "loai": "Studio",
+  "ma": "CT.Stu.984",
+  "ngay_xuat_hien": "2026-10-28",
+  "phan_khu": "Imperia",
+  "toa": "I1"
  },
  "cho-thue-can-ho-studio-lumiere-30m2-cc12": {
   "dien_tich": 30,
