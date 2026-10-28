@@ -2943,6 +2943,14 @@
   "phan_khu": "Lumiere",
   "toa": "A2"
  },
+ "cho-thue-can-ho-2-ngu-lumiere-65m2-ct-2n2-516": {
+  "dien_tich": 65,
+  "loai": "2 Ngủ",
+  "ma": "CT.2N2.516",
+  "ngay_xuat_hien": "2026-10-28",
+  "phan_khu": "Lumiere",
+  "toa": "A2"
+ },
  "cho-thue-can-ho-2-ngu-lumiere-66m2-ct-2n2-377": {
   "dien_tich": 66,
   "loai": "2 Ngủ",
@@ -4028,6 +4036,14 @@
   "loai": "2 Ngủ",
   "ma": "CT.2N2.505",
   "ngay_xuat_hien": "2026-10-26",
+  "phan_khu": "Sakura",
+  "toa": "SA3"
+ },
+ "cho-thue-can-ho-2-ngu-sakura-54m2-ct-2n2-515": {
+  "dien_tich": 54,
+  "loai": "2 Ngủ",
+  "ma": "CT.2N2.515",
+  "ngay_xuat_hien": "2026-10-28",
   "phan_khu": "Sakura",
   "toa": "SA3"
  },
