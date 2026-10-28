@@ -88,7 +88,7 @@
     "updated": "2026-10-28"
   },
   "cho-thue-2pn-lumiere-smart-city": {
-    "count": 31,
+    "count": 33,
     "created": "2026-08-30",
     "indexable": true,
     "loai": "2 Ngủ",
@@ -264,7 +264,7 @@
     "updated": "2026-10-28"
   },
   "cho-thue-studio-masteri-smart-city": {
-    "count": 10,
+    "count": 11,
     "created": "2026-08-30",
     "indexable": true,
     "loai": "Studio",

@@ -5039,6 +5039,14 @@
   "phan_khu": "Sapphire",
   "toa": "S103"
  },
+ "cho-thue-can-ho-2-ngu-sola-park-64m2-ct-2n-370": {
+  "dien_tich": 64,
+  "loai": "2 Ngủ +",
+  "ma": "CT.2N+.370",
+  "ngay_xuat_hien": "2026-10-28",
+  "phan_khu": "Sola Park",
+  "toa": "G2"
+ },
  "cho-thue-can-ho-2-ngu-tonkin-60m2-ct-2n2-408": {
   "dien_tich": 60,
   "loai": "2 Ngủ",
@@ -6124,6 +6132,14 @@
   "loai": "Studio",
   "ma": "CT.Stu.839",
   "ngay_xuat_hien": "2026-09-09",
+  "phan_khu": "Masteri",
+  "toa": "MasC"
+ },
+ "cho-thue-can-ho-studio-masteri-27m2-ct-stu-983": {
+  "dien_tich": 27,
+  "loai": "Studio",
+  "ma": "CT.Stu.983",
+  "ngay_xuat_hien": "2026-10-28",
   "phan_khu": "Masteri",
   "toa": "MasC"
  },

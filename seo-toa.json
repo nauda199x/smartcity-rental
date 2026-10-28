@@ -57,7 +57,7 @@
       "area_max": 94,
       "area_min": 30,
       "code": "A2",
-      "count": 22,
+      "count": 24,
       "data_code": "A2",
       "district": "Lumiere",
       "first_seen": "2026-09-10",
@@ -69,7 +69,7 @@
       "price_min": 8000000,
       "types": [
         {
-          "count": 16,
+          "count": 18,
           "name": "2 Ngủ",
           "price_max": 16000000,
           "price_min": 11500000
@@ -617,9 +617,9 @@
     },
     "MASC": {
       "area_max": 74,
-      "area_min": 30,
+      "area_min": 27,
       "code": "MASC",
-      "count": 11,
+      "count": 12,
       "data_code": "MasC",
       "district": "Masteri",
       "first_seen": "2026-09-10",
@@ -649,16 +649,16 @@
           "price_min": 12000000
         },
         {
+          "count": 2,
+          "name": "Studio",
+          "price_max": 9000000,
+          "price_min": 9000000
+        },
+        {
           "count": 1,
           "name": "3 Ngủ",
           "price_max": 13000000,
           "price_min": 13000000
-        },
-        {
-          "count": 1,
-          "name": "Studio",
-          "price_max": 9000000,
-          "price_min": 9000000
         }
       ]
     },
