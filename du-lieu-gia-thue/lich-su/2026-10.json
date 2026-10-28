@@ -1,13 +1,13 @@
 {
   "updated": "2026-10-28",
   "source": "data.json",
-  "active_count": 424,
+  "active_count": 406,
   "min_sample": 3,
   "overall": {
-    "n": 424,
+    "n": 406,
     "min": 5500000,
     "max": 25000000,
-    "median": 10500000.0
+    "median": 10000000.0
   },
   "by_type": {
     "1 Ngủ": {
@@ -23,16 +23,16 @@
       "median": 9000000
     },
     "2 Ngủ": {
-      "n": 131,
+      "n": 116,
       "min": 7500000,
-      "max": 17000000,
-      "median": 11500000
+      "max": 16000000,
+      "median": 11250000.0
     },
     "2 Ngủ +": {
-      "n": 82,
+      "n": 79,
       "min": 7500000,
       "max": 20000000,
-      "median": 12000000.0
+      "median": 12000000
     },
     "3 Ngủ": {
       "n": 43,
@@ -49,7 +49,7 @@
   },
   "by_zone": {
     "Canopy": {
-      "n": 38,
+      "n": 36,
       "min": 6000000,
       "max": 16000000,
       "median": 10750000.0
@@ -61,10 +61,10 @@
       "median": 10000000.0
     },
     "Lumiere": {
-      "n": 70,
+      "n": 63,
       "min": 8000000,
       "max": 25000000,
-      "median": 12000000.0
+      "median": 12000000
     },
     "Masteri": {
       "n": 68,
@@ -73,19 +73,19 @@
       "median": 12000000.0
     },
     "Miami": {
-      "n": 50,
+      "n": 48,
       "min": 5500000,
-      "max": 14000000,
-      "median": 10000000.0
+      "max": 13500000,
+      "median": 9750000.0
     },
     "Sakura": {
-      "n": 42,
+      "n": 38,
       "min": 5800000,
       "max": 15000000,
       "median": 10500000.0
     },
     "Sapphire": {
-      "n": 108,
+      "n": 106,
       "min": 5500000,
       "max": 18000000,
       "median": 9000000.0
@@ -97,27 +97,27 @@
       "median": 8000000.0
     },
     "Tonkin": {
-      "n": 10,
+      "n": 9,
       "min": 7500000,
       "max": 14500000,
-      "median": 8000000.0
+      "median": 8000000
     }
   },
   "by_interior": {
     "Full nội thất": {
-      "n": 254,
+      "n": 244,
       "min": 5800000,
       "max": 25000000,
       "median": 11000000.0
     },
     "Nhà Nguyên Bản": {
-      "n": 111,
+      "n": 105,
       "min": 5500000,
       "max": 15000000,
-      "median": 9000000
+      "median": 8500000
     },
     "Đồ Cơ bản": {
-      "n": 59,
+      "n": 57,
       "min": 6000000,
       "max": 17000000,
       "median": 10000000
@@ -155,10 +155,10 @@
       "zone": "Canopy",
       "type": "2 Ngủ",
       "interior": "Full nội thất",
-      "n": 8,
+      "n": 7,
       "min": 12000000,
       "max": 14000000,
-      "median": 13000000.0
+      "median": 13000000
     },
     {
       "zone": "Canopy",
@@ -182,10 +182,10 @@
       "zone": "Canopy",
       "type": "2 Ngủ +",
       "interior": "Nhà Nguyên Bản",
-      "n": 3,
-      "min": 10000000,
+      "n": 2,
+      "min": 10500000,
       "max": 11000000,
-      "median": 10500000
+      "median": 10750000.0
     },
     {
       "zone": "Canopy",
@@ -390,27 +390,27 @@
       "type": "2 Ngủ",
       "interior": "Full nội thất",
       "n": 7,
-      "min": 14000000,
-      "max": 17000000,
+      "min": 13000000,
+      "max": 15000000,
       "median": 15000000
     },
     {
       "zone": "Lumiere",
       "type": "2 Ngủ",
       "interior": "Nhà Nguyên Bản",
-      "n": 18,
-      "min": 11500000,
-      "max": 14000000,
-      "median": 12500000.0
+      "n": 13,
+      "min": 12000000,
+      "max": 13000000,
+      "median": 12500000
     },
     {
       "zone": "Lumiere",
       "type": "2 Ngủ",
       "interior": "Đồ Cơ bản",
-      "n": 8,
-      "min": 11000000,
-      "max": 14000000,
-      "median": 12500000.0
+      "n": 6,
+      "min": 11500000,
+      "max": 13000000,
+      "median": 12000000.0
     },
     {
       "zone": "Lumiere",
@@ -518,7 +518,7 @@
       "n": 10,
       "min": 12000000,
       "max": 16000000,
-      "median": 13250000.0
+      "median": 13000000.0
     },
     {
       "zone": "Masteri",
@@ -623,10 +623,10 @@
       "zone": "Miami",
       "type": "2 Ngủ",
       "interior": "Full nội thất",
-      "n": 10,
+      "n": 8,
       "min": 10000000,
-      "max": 14000000,
-      "median": 11250000.0
+      "max": 13500000,
+      "median": 11500000.0
     },
     {
       "zone": "Miami",
@@ -634,7 +634,7 @@
       "interior": "Nhà Nguyên Bản",
       "n": 3,
       "min": 9000000,
-      "max": 10000000,
+      "max": 9000000,
       "median": 9000000
     },
     {
@@ -662,7 +662,7 @@
       "n": 5,
       "min": 7500000,
       "max": 9000000,
-      "median": 8500000
+      "median": 8000000
     },
     {
       "zone": "Miami",
@@ -731,7 +731,7 @@
       "zone": "Sakura",
       "type": "2 Ngủ",
       "interior": "Full nội thất",
-      "n": 17,
+      "n": 13,
       "min": 10000000,
       "max": 13000000,
       "median": 11000000
@@ -884,7 +884,7 @@
       "zone": "Sapphire",
       "type": "2 Ngủ +",
       "interior": "Full nội thất",
-      "n": 21,
+      "n": 19,
       "min": 10000000,
       "max": 12500000,
       "median": 11000000
@@ -978,15 +978,6 @@
       "min": 10000000,
       "max": 10000000,
       "median": 10000000
-    },
-    {
-      "zone": "Tonkin",
-      "type": "2 Ngủ",
-      "interior": "Full nội thất",
-      "n": 1,
-      "min": 14000000,
-      "max": 14000000,
-      "median": 14000000
     },
     {
       "zone": "Tonkin",
