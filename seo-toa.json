@@ -1092,7 +1092,7 @@
       "area_max": 94,
       "area_min": 28,
       "code": "S303",
-      "count": 11,
+      "count": 10,
       "data_code": "S303",
       "district": "Sapphire",
       "first_seen": "2026-09-10",
@@ -1110,16 +1110,16 @@
           "price_min": 7500000
         },
         {
-          "count": 3,
-          "name": "Studio",
-          "price_max": 7500000,
-          "price_min": 5500000
-        },
-        {
           "count": 2,
           "name": "2 Ngủ +",
           "price_max": 11500000,
           "price_min": 11000000
+        },
+        {
+          "count": 2,
+          "name": "Studio",
+          "price_max": 7500000,
+          "price_min": 5500000
         },
         {
           "count": 1,
