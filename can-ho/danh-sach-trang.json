@@ -2007,6 +2007,14 @@
   "phan_khu": "Sola Park",
   "toa": "G3"
  },
+ "cho-thue-can-ho-1-ngu-sola-park-43m2-ct-1n-669": {
+  "dien_tich": 43,
+  "loai": "1 Ngủ +",
+  "ma": "CT.1N+.669",
+  "ngay_xuat_hien": "2026-10-29",
+  "phan_khu": "Sola Park",
+  "toa": "G3"
+ },
  "cho-thue-can-ho-1-ngu-sola-park-48m2-ct-1n-649": {
   "dien_tich": 48,
   "loai": "1 Ngủ +",
@@ -2027,6 +2035,14 @@
   "dien_tich": 48,
   "loai": "1 Ngủ +",
   "ma": "CT.1N+.664",
+  "ngay_xuat_hien": "2026-10-29",
+  "phan_khu": "Sola Park",
+  "toa": "G3"
+ },
+ "cho-thue-can-ho-1-ngu-sola-park-48m2-ct-1n-668": {
+  "dien_tich": 48,
+  "loai": "1 Ngủ +",
+  "ma": "CT.1N+.668",
   "ngay_xuat_hien": "2026-10-29",
   "phan_khu": "Sola Park",
   "toa": "G3"
@@ -5246,6 +5262,14 @@
   "ngay_xuat_hien": "2026-10-29",
   "phan_khu": "Sola Park",
   "toa": "G2"
+ },
+ "cho-thue-can-ho-2-ngu-sola-park-64m2-ct-2n-374": {
+  "dien_tich": 64,
+  "loai": "2 Ngủ +",
+  "ma": "CT.2N+.374",
+  "ngay_xuat_hien": "2026-10-29",
+  "phan_khu": "Sola Park",
+  "toa": "G3"
  },
  "cho-thue-can-ho-2-ngu-tonkin-60m2-ct-2n2-408": {
   "dien_tich": 60,
