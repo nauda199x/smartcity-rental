@@ -888,7 +888,7 @@
       "area_max": 75,
       "area_min": 55,
       "code": "S201",
-      "count": 4,
+      "count": 5,
       "data_code": "S201",
       "district": "Sapphire",
       "first_seen": "2026-09-12",
@@ -904,6 +904,12 @@
           "name": "2 Ngủ",
           "price_max": 10000000,
           "price_min": 7500000
+        },
+        {
+          "count": 1,
+          "name": "2 Ngủ +",
+          "price_max": 11000000,
+          "price_min": 11000000
         },
         {
           "count": 1,
@@ -1227,7 +1233,7 @@
       "area_max": 95,
       "area_min": 34,
       "code": "S403",
-      "count": 5,
+      "count": 6,
       "data_code": "S403",
       "district": "Sapphire",
       "first_seen": "2026-09-10",
@@ -1240,15 +1246,15 @@
       "types": [
         {
           "count": 2,
+          "name": "1 Ngủ +",
+          "price_max": 7500000,
+          "price_min": 7000000
+        },
+        {
+          "count": 2,
           "name": "3 Ngủ",
           "price_max": 17000000,
           "price_min": 17000000
-        },
-        {
-          "count": 1,
-          "name": "1 Ngủ +",
-          "price_max": 7000000,
-          "price_min": 7000000
         },
         {
           "count": 1,
