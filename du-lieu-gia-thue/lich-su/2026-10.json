@@ -1,13 +1,13 @@
 {
   "updated": "2026-10-29",
   "source": "data.json",
-  "active_count": 391,
+  "active_count": 392,
   "min_sample": 3,
   "overall": {
-    "n": 391,
+    "n": 392,
     "min": 5500000,
     "max": 18000000,
-    "median": 10000000
+    "median": 10000000.0
   },
   "by_type": {
     "1 Ngủ": {
@@ -17,7 +17,7 @@
       "median": 9000000
     },
     "1 Ngủ +": {
-      "n": 63,
+      "n": 65,
       "min": 7000000,
       "max": 13000000,
       "median": 9000000
@@ -41,10 +41,10 @@
       "median": 13000000.0
     },
     "Studio": {
-      "n": 72,
+      "n": 71,
       "min": 5500000,
       "max": 10500000,
-      "median": 7000000.0
+      "median": 7000000
     }
   },
   "by_zone": {
@@ -85,13 +85,13 @@
       "median": 10500000
     },
     "Sapphire": {
-      "n": 100,
+      "n": 99,
       "min": 5500000,
       "max": 18000000,
-      "median": 9000000.0
+      "median": 9000000
     },
     "Sola Park": {
-      "n": 4,
+      "n": 6,
       "min": 7000000,
       "max": 12000000,
       "median": 8000000.0
@@ -111,10 +111,10 @@
       "median": 11000000
     },
     "Nhà Nguyên Bản": {
-      "n": 103,
+      "n": 104,
       "min": 5500000,
       "max": 15000000,
-      "median": 8500000
+      "median": 8500000.0
     },
     "Đồ Cơ bản": {
       "n": 57,
@@ -929,10 +929,10 @@
       "zone": "Sapphire",
       "type": "Studio",
       "interior": "Full nội thất",
-      "n": 16,
+      "n": 15,
       "min": 5800000,
       "max": 7500000,
-      "median": 7000000.0
+      "median": 7000000
     },
     {
       "zone": "Sapphire",
@@ -946,11 +946,20 @@
     {
       "zone": "Sola Park",
       "type": "1 Ngủ +",
+      "interior": "Full nội thất",
+      "n": 1,
+      "min": 9500000,
+      "max": 9500000,
+      "median": 9500000
+    },
+    {
+      "zone": "Sola Park",
+      "type": "1 Ngủ +",
       "interior": "Nhà Nguyên Bản",
-      "n": 3,
+      "n": 4,
       "min": 7000000,
       "max": 8000000,
-      "median": 8000000
+      "median": 8000000.0
     },
     {
       "zone": "Sola Park",

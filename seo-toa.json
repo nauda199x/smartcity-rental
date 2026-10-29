@@ -1145,7 +1145,7 @@
       "area_max": 75,
       "area_min": 32,
       "code": "S401",
-      "count": 8,
+      "count": 7,
       "data_code": "S401",
       "district": "Sapphire",
       "first_seen": "2026-09-10",
@@ -1157,12 +1157,6 @@
       "price_min": 6500000,
       "types": [
         {
-          "count": 3,
-          "name": "Studio",
-          "price_max": 7000000,
-          "price_min": 6500000
-        },
-        {
           "count": 2,
           "name": "1 Ngủ +",
           "price_max": 9500000,
@@ -1173,6 +1167,12 @@
           "name": "3 Ngủ",
           "price_max": 14000000,
           "price_min": 8500000
+        },
+        {
+          "count": 2,
+          "name": "Studio",
+          "price_max": 7000000,
+          "price_min": 6500000
         },
         {
           "count": 1,
