@@ -268,7 +268,7 @@
       "area_max": 82,
       "area_min": 45,
       "code": "GS5",
-      "count": 9,
+      "count": 10,
       "data_code": "GS5",
       "district": "Miami",
       "first_seen": "2026-09-10",
@@ -277,7 +277,7 @@
       "name": "GS5 The Miami",
       "path": "/gs5-the-miami-smart-city/",
       "price_max": 13500000,
-      "price_min": 7500000,
+      "price_min": 7000000,
       "types": [
         {
           "count": 6,
@@ -286,10 +286,10 @@
           "price_min": 9000000
         },
         {
-          "count": 1,
+          "count": 2,
           "name": "1 Ngủ",
           "price_max": 7500000,
-          "price_min": 7500000
+          "price_min": 7000000
         },
         {
           "count": 1,
@@ -525,7 +525,7 @@
       "area_max": 73,
       "area_min": 29,
       "code": "MASA",
-      "count": 17,
+      "count": 18,
       "data_code": "MasA",
       "district": "Masteri",
       "first_seen": "2026-09-10",
@@ -537,7 +537,7 @@
       "price_min": 7500000,
       "types": [
         {
-          "count": 9,
+          "count": 10,
           "name": "1 Ngủ +",
           "price_max": 12000000,
           "price_min": 10000000
@@ -1373,7 +1373,7 @@
       "area_max": 75,
       "area_min": 32,
       "code": "SA5",
-      "count": 12,
+      "count": 13,
       "data_code": "SA5",
       "district": "Sakura",
       "first_seen": "2026-09-10",
@@ -1398,15 +1398,15 @@
         },
         {
           "count": 2,
+          "name": "2 Ngủ +",
+          "price_max": 12000000,
+          "price_min": 11500000
+        },
+        {
+          "count": 2,
           "name": "Studio",
           "price_max": 8000000,
           "price_min": 6000000
-        },
-        {
-          "count": 1,
-          "name": "2 Ngủ +",
-          "price_max": 11500000,
-          "price_min": 11500000
         },
         {
           "count": 1,
@@ -1546,10 +1546,10 @@
       ]
     },
     "TK1": {
-      "area_max": 25,
+      "area_max": 66,
       "area_min": 25,
       "code": "TK1",
-      "count": 1,
+      "count": 3,
       "data_code": "TK1",
       "district": "Tonkin",
       "first_seen": "2026-09-10",
@@ -1557,14 +1557,20 @@
       "last_seen": "2026-10-29",
       "name": "TK1 Tonkin",
       "path": "/tk1-tonkin-smart-city/",
-      "price_max": 8000000,
-      "price_min": 8000000,
+      "price_max": 13500000,
+      "price_min": 7500000,
       "types": [
         {
-          "count": 1,
+          "count": 2,
           "name": "Studio",
           "price_max": 8000000,
-          "price_min": 8000000
+          "price_min": 7500000
+        },
+        {
+          "count": 1,
+          "name": "2 Ngủ",
+          "price_max": 13500000,
+          "price_min": 13500000
         }
       ]
     },
