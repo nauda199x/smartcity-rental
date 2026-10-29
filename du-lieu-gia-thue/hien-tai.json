@@ -1,13 +1,13 @@
 {
   "updated": "2026-10-29",
   "source": "data.json",
-  "active_count": 407,
+  "active_count": 408,
   "min_sample": 3,
   "overall": {
-    "n": 407,
+    "n": 408,
     "min": 5500000,
     "max": 18000000,
-    "median": 10000000
+    "median": 10000000.0
   },
   "by_type": {
     "1 Ngủ": {
@@ -17,10 +17,10 @@
       "median": 9000000.0
     },
     "1 Ngủ +": {
-      "n": 73,
+      "n": 74,
       "min": 7000000,
       "max": 13000000,
-      "median": 9000000
+      "median": 9000000.0
     },
     "2 Ngủ": {
       "n": 120,
@@ -91,10 +91,10 @@
       "median": 9000000
     },
     "Sola Park": {
-      "n": 16,
+      "n": 17,
       "min": 7000000,
       "max": 12000000,
-      "median": 8000000.0
+      "median": 8000000
     },
     "Tonkin": {
       "n": 9,
@@ -111,10 +111,10 @@
       "median": 11000000.0
     },
     "Nhà Nguyên Bản": {
-      "n": 114,
+      "n": 115,
       "min": 5500000,
       "max": 15000000,
-      "median": 8500000.0
+      "median": 8500000
     },
     "Đồ Cơ bản": {
       "n": 57,
@@ -965,10 +965,10 @@
       "zone": "Sola Park",
       "type": "1 Ngủ +",
       "interior": "Nhà Nguyên Bản",
-      "n": 10,
+      "n": 11,
       "min": 7000000,
       "max": 8000000,
-      "median": 7750000.0
+      "median": 7500000
     },
     {
       "zone": "Sola Park",
