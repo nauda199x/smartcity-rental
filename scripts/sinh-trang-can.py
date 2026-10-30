@@ -32,6 +32,7 @@ import shutil
 import sys
 from media_anh import ap_dung_anh
 from media_can_ho import bia_video, media_video
+from ma_can_hien_thi import ma_can_hien_thi, ma_can_tu_ma
 
 GOC = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 THU_MUC_SCRIPT = os.path.dirname(os.path.abspath(__file__))
@@ -557,6 +558,7 @@ def lien_ket_noi_bo(phan_khu, loai, ma_toa, gia=0, noi_that=""):
 def dung_trang_can(can, s, active, hom_nay):
     """Trang căn ĐANG hiển thị — nội dung đầy đủ từ data.json."""
     ma = str(can.get("Mã nội bộ", "")).strip()
+    ma_hien_thi = ma_can_hien_thi(can)
     loai = str(can.get("Loại", "")).strip()
     toa = str(can.get("Tòa", "")).strip()
     noi_that = str(can.get("Nội thất", "")).strip()
@@ -575,7 +577,7 @@ def dung_trang_can(can, s, active, hom_nay):
     # Đặt mã căn trong title để các căn cùng tòa/giá/diện tích không trùng SEO.
     # Giữ từ khóa "thuê căn hộ" và "Vinhomes Smart City", ưu tiên title gọn.
     tieu_de = "Thuê căn hộ %s %s Vinhomes Smart City %dm² – %s | %s" % (
-        loai, toa, dt, gia, ma)
+        loai, toa, dt, gia, ma_hien_thi)
     mo_ta = ("Cho thuê căn hộ %s tòa %s phân khu %s Vinhomes Smart City, diện tích "
               "%dm², %s, giá %s/tháng. %s. Cập nhật %s." % (
                   loai, toa, phan_khu or toa, dt,
@@ -585,9 +587,9 @@ def dung_trang_can(can, s, active, hom_nay):
                   if ngay_vao_o_hien_thi(can, hom_nay) != "Vào ngay"
                   else "Vào ở ngay",
                   ngay_xuat_hien_str))
-    mo_ta += " Mã căn %s." % ma
+    mo_ta += " Mã căn %s." % ma_hien_thi
 
-    the_can_ten = "Căn hộ %s %s %dm² – mã %s" % (loai, toa, dt, ma)
+    the_can_ten = "Căn hộ %s %s %dm² – mã %s" % (loai, toa, dt, ma_hien_thi)
 
     bua = json.dumps({
         "@context": "https://schema.org",
@@ -683,7 +685,7 @@ def dung_trang_can(can, s, active, hom_nay):
             "<tr><td>Ngày vào ở</td><td>%s</td></tr>"
             "<tr><td>Ngày cập nhật</td><td>%s</td></tr>"
             "</tbody></table>") % (
-        esc(ma), esc(loai), dt, esc(toa), esc(phan_khu or toa), esc(noi_that or "Liên hệ"),
+        esc(ma_hien_thi), esc(loai), dt, esc(toa), esc(phan_khu or toa), esc(noi_that or "Liên hệ"),
         esc(gia), esc(ngay_vao_o_hien_thi(can, hom_nay)), ngay_xuat_hien_str)
 
     lien_ket = lien_ket_noi_bo(phan_khu, loai, toa, gia_so, noi_that)
@@ -725,7 +727,7 @@ Vinhomes Smart City. %(noi_that_cau)s Giá thuê %(gia)s/tháng. Cập nhật %(
         "gia": esc(gia), "ngay": ngay_xuat_hien_str, "gallery": gallery,
         "noi_that": esc(noi_that or "Liên hệ"),
         "vao_o": esc(ngay_vao_o_hien_thi(can, hom_nay)),
-        "bang": bang, "sdt": SDT, "ma": esc(ma), "lien_ket": lien_ket,
+        "bang": bang, "sdt": SDT, "ma": esc(ma_hien_thi), "lien_ket": lien_ket,
         "tuong_tu": tuong_tu_html,
     }
 
@@ -735,7 +737,7 @@ Vinhomes Smart City. %(noi_that_cau)s Giá thuê %(gia)s/tháng. Cập nhật %(
 def dung_trang_da_thue(s, ho_so, active, hom_nay):
     """Trang căn đã hết hạn hiển thị — 200, noindex,follow, không offers, gợi ý
     căn tương tự còn trống. Chỉ dùng dữ liệu đóng băng trong sổ đăng ký."""
-    ma = ho_so["ma"]
+    ma = ma_can_tu_ma(ho_so["ma"])
     loai = ho_so["loai"]
     toa = ho_so["toa"]
     phan_khu = ho_so["phan_khu"]
