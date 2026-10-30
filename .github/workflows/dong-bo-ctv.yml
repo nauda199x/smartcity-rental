@@ -1,6 +1,13 @@
 name: Đồng bộ quỹ căn từ Sheet CTV
 
 on:
+  pull_request:
+    paths:
+      - "scripts/dong-bo-ctv.mjs"
+      - "dong-bo-can.js"
+      - "scripts/cap-nhat-so-can.mjs"
+      - "scripts/sinh-danh-sach-anh.py"
+      - ".github/workflows/dong-bo-ctv.yml"
   push:
     branches:
       - main
@@ -22,8 +29,28 @@ concurrency:
   cancel-in-progress: false
 
 jobs:
+  kiem-tra-nguon:
+    if: ${{ github.event_name == 'pull_request' }}
+    runs-on: ubuntu-latest
+    steps:
+      - name: Lấy mã nguồn PR
+        uses: actions/checkout@v7
+      - name: Chuẩn bị Node
+        uses: actions/setup-node@v7
+        with:
+          node-version: "24"
+      - name: Kiểm tra cú pháp và đối soát 2 bảng hàng (không ghi data.json)
+        env:
+          REQUIRE_THAO: "1"
+        run: |
+          node --check scripts/dong-bo-ctv.mjs
+          node --check dong-bo-can.js
+          node --check scripts/cap-nhat-so-can.mjs
+          python3 -m py_compile scripts/sinh-danh-sach-anh.py
+          node scripts/dong-bo-ctv.mjs --thu
+
   dong-bo:
-    if: ${{ github.event_name != 'push' || github.actor != 'github-actions[bot]' }}
+    if: ${{ github.event_name != 'pull_request' && (github.event_name != 'push' || github.actor != 'github-actions[bot]') }}
     runs-on: ubuntu-latest
     steps:
       - name: Lấy code
