@@ -210,7 +210,7 @@ function sync(old, ctv) {
       if (!complete(src)) continue;
       const n = nowVN();
       next.push({
-        "Mã nội bộ": id, "Tòa": src.tower, "Loại": src.type,
+        "Mã nội bộ": id, "Mã căn": src.stt, "Tòa": src.tower, "Loại": src.type,
         "Diện tích": src.area, "Nội thất": src.furniture, "Giá thuê": src.price,
         "Ngày vào ở": src.moveIn, "Ảnh đại diện": "", "Danh sách ảnh": "", "Video": "",
         "Ngày thêm vào hệ thống": src.first || (pad2(n.d) + "/" + pad2(n.m) + "/" + n.y),
@@ -355,6 +355,7 @@ async function loadThao() {
       if (key(stt) === "stt" || !stt) continue;
       if (!/^\d{3,6}$/.test(stt)) continue;
       const id = "TT." + tab.prefix + "." + stt;
+      // STT là mã căn công khai; TT.* là khóa kỹ thuật để tránh trùng tab/nguồn.
       const region = txt(c[2]);
       if (key(region).replace(/\s+/g, "") === "lumihn") {
         stats.excludedLumi++;
@@ -365,7 +366,7 @@ async function loadThao() {
       }
       if (map.has(id)) throw new Error("Thu Thảo: trùng mã " + id);
       const src = {
-        id, type: tab.type, tower: region, area: area(c[3]),
+        id, stt, type: tab.type, tower: region, area: area(c[3]),
         furniture: thaoFurniture(c[4]), moveIn: thaoMove(c[5]),
         price: thaoPrice(c[6]), updated: thaoDate(c[1]),
         folder: thaoFolder(c[8]),
@@ -413,6 +414,8 @@ function syncThao(rows, source) {
       continue;
     }
     const row = rows[pos];
+    // Cả căn đã đồng bộ trước đây cũng phải nhận STT hiển thị mới.
+    row["Mã căn"] = src.stt;
     if (show) {
       row["Tòa"] = src.tower;
       row["Loại"] = src.type;
