@@ -1,0 +1,68 @@
+name: Công bố ảnh Drive CTV nhanh (không đợi tải WebP)
+
+# Publish the verified Drive folder snapshot separately from the heavyweight
+# 4k+ WebP download. Frontend uses this manifest for Drive thumbnails if local
+# WebP files are not available yet. Do not write data.json or override CTV data.
+on:
+  push:
+    branches: [main]
+    paths:
+      - ".github/workflows/cong-bo-anh-ctv-nhanh.yml"
+  schedule:
+    # Seven minutes after both 00/30 source syncs, Vietnam time.
+    - cron: "7,37 * * * *"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+  pages: write
+
+concurrency:
+  group: smartcity-photo-manifest-only
+  cancel-in-progress: false
+
+jobs:
+  cong-bo:
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    steps:
+      - name: Lấy snapshot hiện tại từ main
+        uses: actions/checkout@v7
+        with:
+          ref: main
+          fetch-depth: 0
+
+      - name: Quét Drive, phát hiện ảnh căn An Việt và Thu Thảo
+        run: |
+          set -euo pipefail
+          python3 -u scripts/quet-thu-muc-anh.py
+
+      - name: Công bố snapshot ảnh và kích hoạt Pages
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          set -euo pipefail
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add anh-can-ho/nguon-anh.json
+          if git diff --cached --quiet; then
+            echo "Snapshot ảnh không đổi. Không cần commit."
+            exit 0
+          fi
+          git commit -m "Đồng bộ nhanh manifest ảnh Drive CTV"
+          # Never overwrite changes made by data sync or heavyweight image job.
+          for lan in 1 2 3; do
+            if ! git pull --rebase origin main; then
+              git rebase --abort || true
+              echo "::error::Manifest xung đột với bản mới. Chạy lại lượt tiếp theo."
+              exit 1
+            fi
+            if git push origin HEAD:main; then
+              echo "Đã công bố ảnh từ Drive vào manifest."
+              gh api --method POST "repos/$GITHUB_REPOSITORY/pages/builds" --jq '.status'
+              exit 0
+            fi
+            sleep $((2 ** lan))
+          done
+          echo "::error::Không push được manifest ảnh."
+          exit 1
