@@ -16,7 +16,7 @@
     "updated": "2026-10-30"
   },
   "cho-thue-1pn-plus-imperia-smart-city": {
-    "count": 8,
+    "count": 9,
     "created": "2026-08-30",
     "indexable": true,
     "loai": "1 Ngủ +",
@@ -280,7 +280,7 @@
     "updated": "2026-10-30"
   },
   "cho-thue-studio-sakura-smart-city": {
-    "count": 13,
+    "count": 14,
     "created": "2026-08-30",
     "indexable": true,
     "loai": "Studio",
@@ -288,7 +288,7 @@
     "updated": "2026-10-30"
   },
   "cho-thue-studio-sapphire-smart-city": {
-    "count": 20,
+    "count": 21,
     "created": "2026-08-30",
     "indexable": true,
     "loai": "Studio",
