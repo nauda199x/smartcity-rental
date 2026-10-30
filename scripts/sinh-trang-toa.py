@@ -33,6 +33,7 @@ import re
 import sys
 from media_anh import ap_dung_anh
 from media_can_ho import bia_video
+from ma_can_hien_thi import ma_can_hien_thi
 
 GOC = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 THU_MUC_SCRIPT = os.path.dirname(os.path.abspath(__file__))
@@ -367,6 +368,7 @@ def dung_the_can(can, phan_khu, map_anh, hom_nay):
     """Một thẻ căn. Cấu trúc thẻ và class lấy nguyên từ sapphire/index.html để
     dùng chung assets/v3.css, không thêm CSS mới."""
     ma = str(can.get("Mã nội bộ", "")).strip()
+    ma_hien_thi = ma_can_hien_thi(can)
     loai = str(can.get("Loại", "")).strip()
     toa = str(can.get("Tòa", "")).strip()
     noi_that = str(can.get("Nội thất", "")).strip()
@@ -399,7 +401,7 @@ rel="noopener">Nhắn Zalo</a>
         </div>
       </article>""" % {
         "ma_thuoc_tinh": esc(ma),
-        "ma": esc(ma),
+        "ma": esc(ma_hien_thi),
         "anh": esc(anh),
         "alt": esc(alt),
         "tinh_trang": esc(nhan_tinh_trang(can, hom_nay)),

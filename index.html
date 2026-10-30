@@ -1626,9 +1626,19 @@
       });
     }
 
+    // STT của Thu Thảo là mã khách nhìn thấy; TT.* là khóa kỹ thuật ổn định.
+    function maCanHienThi(row) {
+      const id = normalizeText(row["Mã nội bộ"]);
+      const thuThao = id.match(/^TT\.(?:ST|1N|2N|2NP|3N)\.(\d{3,6})$/);
+      if (!thuThao) return id;
+      const stt = normalizeText(row["Mã căn"]);
+      return /^\d{3,6}$/.test(stt) ? stt : thuThao[1];
+    }
+
     function toApartment(row) {
       row = apDungAnh(row);
       const apartmentId = normalizeText(row["Mã nội bộ"]);
+      const displayId = maCanHienThi(row);
       const visible = normalizeKey(row["Hiển thị trên Web"] || row["Hiển thị trên web"] || row["Hiển thị"]);
       const status = normalizeText(row["Trạng thái căn"] || row["Trạng thái"]);
       const tower = normalizeText(row["Tòa"]);
@@ -1665,6 +1675,7 @@
       // Dung san chuoi tim kiem MOT LAN luc nap du lieu, khong dung lai moi lan go phim.
       const blobTim = boDau([
         apartmentId,
+        displayId,
         tower,
         String(tower).replace(/[\s.\-_]/g, ""),
         phanKhu,
@@ -1680,6 +1691,7 @@
 
       return {
         apartmentId,
+        displayId,
         tower,
         phanKhu,
         phanKhuKey: normalizeKey(phanKhu),
@@ -1766,8 +1778,8 @@
 
     /** Câu tin nhắn sao chép sẵn cho khách. Ưu tiên mã căn; không có thì mô tả loại + tòa. */
     function tinNhanHoiCan(apartment) {
-      const moTa = apartment.apartmentId
-        ? `căn ${apartment.apartmentId}`
+      const moTa = apartment.displayId
+        ? `căn mã ${apartment.displayId}`
         : `căn ${apartment.type}${apartment.tower ? ` tòa ${apartment.tower}` : ""}`;
       return `Mình hỏi ${moTa} đã cho thuê chưa? Mình muốn đặt lịch xem căn.`;
     }
@@ -2221,7 +2233,7 @@
             </span>
             <div class="card-chips">
               ${chipNoiThatHtml(apartment)}
-              ${apartment.apartmentId ? `<span class="cc-ma">${apartment.apartmentId}</span>` : ""}
+              ${apartment.displayId ? `<span class="cc-ma">${apartment.displayId}</span>` : ""}
             </div>
             <div class="card-foot${slugChiTiet ? " co-chi-tiet" : ""}">
               ${slugChiTiet ? `<a class="detail-card-link" href="/can-ho/${slugChiTiet}/">${T("l.detail", "Xem chi tiết")}</a>` : ""}
@@ -2232,7 +2244,7 @@
                 ${T("l.ask", "Hỏi căn này")}
               </a>
             </div>
-            ${apartment.apartmentId ? `<p class="ma-can">${T("l.code", "Mã căn:")} <b>${apartment.apartmentId}</b></p>` : ""}
+            ${apartment.displayId ? `<p class="ma-can">${T("l.code", "Mã căn:")} <b>${apartment.displayId}</b></p>` : ""}
           </div>
         </article>
       `;
