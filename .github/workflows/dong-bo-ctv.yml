@@ -23,6 +23,7 @@ on:
 permissions:
   contents: write
   actions: write
+  pages: write
 
 concurrency:
   group: smartcity-ctv-sync
@@ -81,12 +82,20 @@ jobs:
 
             if git diff --cached --quiet; then
               echo "data.json đã khớp Sheet CTV — không cần commit."
+              # GITHUB_TOKEN và Apps Script không đảm bảo Pages tự build.
+              # Khi workflow vừa được chỉnh hoặc chạy thủ công, yêu cầu Pages
+              # phục vụ snapshot main hiện tại dù data.json đã khớp.
+              if [ "$GITHUB_EVENT_NAME" = "push" ] || [ "$GITHUB_EVENT_NAME" = "workflow_dispatch" ]; then
+                gh api --method POST "repos/$GITHUB_REPOSITORY/pages/builds" --jq '.status'
+              fi
               exit 0
             fi
 
             git commit -m "Tự động đồng bộ quỹ căn từ Sheet CTV"
             if git push origin HEAD:main; then
               echo "Đã cập nhật data.json từ Sheet CTV."
+              # GITHUB_TOKEN push không tự kích hoạt GitHub Pages.
+              gh api --method POST "repos/$GITHUB_REPOSITORY/pages/builds" --jq '.status'
               # GITHUB_TOKEN push khong kich hoat workflow push khac.
               # workflow_dispatch duoc GitHub cho phep: dung HTML chi tiet ngay
               # sau khi gia, tinh trang can ho trong data.json thay doi.
