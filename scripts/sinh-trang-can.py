@@ -72,11 +72,12 @@ ANH_MAC_DINH = "https://timthuesmartcity.com/og-smartcity.jpg"
 NGUONG_TOI_THIEU = 150
 
 # Trần cứng số căn đủ điều kiện sinh trang trong MỘT lần chạy.
-# 22/10/2026: log production xác nhận 412 căn hợp lệ / 1563 bản ghi,
-# vượt giới hạn 400 cũ, khiến pipeline ảnh dừng dù tải ảnh thành công.
-# Nâng lên 500, vẫn giữ ngưỡng tối thiểu, kiểm tra slug trùng/rác và
-# cảnh báo từ 80% trần để chặn các lần đồng bộ dữ liệu bất thường.
-TOI_DA = 500
+# 30/10/2026: sau khi nối quỹ An Việt + Thu Thảo, pipeline thực tế có
+# 1.105 căn đủ điều kiện / 2.313 bản ghi. Trần 500 cũ đã chặn toàn bộ
+# bước dựng album mặc dù tải 4.239 ảnh WebP thành công. Nâng lên 1.500
+# để hỗ trợ hai nguồn; vẫn giữ giới hạn trên, ngưỡng data tối thiểu,
+# kiểm tra slug trùng/rác và cảnh báo từ 80% trần.
+TOI_DA = 1500
 
 # Từ ngưỡng này (tỷ lệ trên TOI_DA) trở lên script vẫn sinh trang bình
 # thường (exit 0) nhưng in thêm một dòng CẢNH BÁO, để thấy trước lúc còn dư
