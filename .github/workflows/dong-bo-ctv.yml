@@ -62,6 +62,8 @@ jobs:
           node --check scripts/cap-nhat-so-can.mjs
           python3 -m py_compile scripts/sinh-danh-sach-anh.py scripts/dung-lai-trang-chu.py scripts/sinh-trang-toa.py scripts/sinh-trang-can.py scripts/ma_can_hien_thi.py
           python3 scripts/test-ma-can-thu-thao.py
+          # Phải dựng được toàn bộ quỹ hai nguồn trước khi tải hàng nghìn ảnh.
+          python3 scripts/sinh-trang-can.py --thu
           node scripts/dong-bo-ctv.mjs --thu
 
   dong-bo:
