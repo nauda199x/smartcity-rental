@@ -2463,6 +2463,14 @@
   "phan_khu": "Imperia",
   "toa": "I1"
  },
+ "cho-thue-can-ho-2-ngu-imperia-54m2-ct-2n1-292": {
+  "dien_tich": 54,
+  "loai": "2 Ngủ",
+  "ma": "CT.2N1.292",
+  "ngay_xuat_hien": "2026-10-30",
+  "phan_khu": "Imperia",
+  "toa": "I1"
+ },
  "cho-thue-can-ho-2-ngu-imperia-55m2-30": {
   "dien_tich": 55,
   "loai": "2 Ngủ",
@@ -6075,6 +6083,14 @@
   "dien_tich": 74,
   "loai": "3 Ngủ",
   "ma": "CT.3N.208",
+  "ngay_xuat_hien": "2026-10-30",
+  "phan_khu": "Sola Park",
+  "toa": "G3"
+ },
+ "cho-thue-can-ho-3-ngu-sola-park-74m2-ct-3n-209": {
+  "dien_tich": 74,
+  "loai": "3 Ngủ",
+  "ma": "CT.3N.209",
   "ngay_xuat_hien": "2026-10-30",
   "phan_khu": "Sola Park",
   "toa": "G3"
