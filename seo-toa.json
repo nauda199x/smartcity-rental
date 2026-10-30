@@ -1584,7 +1584,7 @@
       "area_max": 70,
       "area_min": 25,
       "code": "TK2",
-      "count": 6,
+      "count": 5,
       "data_code": "TK2",
       "district": "Tonkin",
       "first_seen": "2026-09-10",
@@ -1596,7 +1596,7 @@
       "price_min": 8000000,
       "types": [
         {
-          "count": 4,
+          "count": 3,
           "name": "Studio",
           "price_max": 8000000,
           "price_min": 8000000

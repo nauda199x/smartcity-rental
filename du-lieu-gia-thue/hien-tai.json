@@ -1,13 +1,13 @@
 {
   "updated": "2026-10-30",
   "source": "data.json",
-  "active_count": 435,
+  "active_count": 434,
   "min_sample": 3,
   "overall": {
-    "n": 435,
+    "n": 434,
     "min": 5500000,
     "max": 18000000,
-    "median": 10000000
+    "median": 10000000.0
   },
   "by_type": {
     "1 Ngủ": {
@@ -41,10 +41,10 @@
       "median": 13000000.0
     },
     "Studio": {
-      "n": 77,
+      "n": 76,
       "min": 5500000,
       "max": 10500000,
-      "median": 7000000
+      "median": 7000000.0
     }
   },
   "by_zone": {
@@ -97,18 +97,18 @@
       "median": 8000000
     },
     "Tonkin": {
-      "n": 9,
+      "n": 8,
       "min": 7500000,
       "max": 14500000,
-      "median": 8000000
+      "median": 8000000.0
     }
   },
   "by_interior": {
     "Full nội thất": {
-      "n": 246,
+      "n": 245,
       "min": 5800000,
       "max": 18000000,
-      "median": 11000000.0
+      "median": 11000000
     },
     "Nhà Nguyên Bản": {
       "n": 131,
@@ -1055,10 +1055,10 @@
       "zone": "Tonkin",
       "type": "Studio",
       "interior": "Full nội thất",
-      "n": 6,
+      "n": 5,
       "min": 7500000,
       "max": 8000000,
-      "median": 8000000.0
+      "median": 8000000
     }
   ]
 }
