@@ -245,15 +245,196 @@ function sync(old, ctv) {
 
   for (const r of next) {
     const id = txt(r["Mã nội bộ"]);
-    // Chỉ ID có mặt trong bảng An Việt mới được xuất hiện trên web.
-    // Áp dụng cho mọi mã, kể cả ID thủ công/nguồn khác, không chỉ CT.*.
-    if (touched.has(id)) continue;
+    // Giữ nguyên quy tắc An Việt cho nguồn cũ, nhưng KHÔNG tắt TT.* của Thu Thảo.
+    // TT.* được đối soát độc lập sau khi tải đủ cả 5 tab nguồn thứ hai.
+    if (touched.has(id) || id.startsWith("TT.")) continue;
     if (key(r["Hiển thị trên Web"]) === "có") {
       r["Hiển thị trên Web"] = "Không";
       stat.missing++;
     }
   }
   return { next, stat };
+}
+
+
+// ===== NGUỒN THỨ HAI: THU THẢO / MD HOMES (Smart City) =====
+// Bảng có tiêu đề ở hàng 4-6, cột A=STT, B=Ngày cập nhật,
+// C=Khu/phân khu, D=Diện tích, E=Đồ đạc, F=Ngày vào, G=Giá,
+// H=Hoa hồng, I=Thư mục ảnh. Không đọc/hiển thị hoa hồng hoặc SĐT đối tác.
+// Dùng gid cố định vì tab Studio có BỐN dấu cách cuối tên.
+const THAO_SHEET = "1iZ6_Oy2AASaUbzFOtXbOd-yx93F2kTIVPnc3we4jgM0";
+const THAO_TABS = [
+  { gid: 0, name: "Studio", prefix: "ST", type: "Studio" },
+  { gid: 849168037, name: "1PN", prefix: "1N", type: "1 Ngủ" },
+  { gid: 1103219392, name: "2PN", prefix: "2N", type: "2 Ngủ" },
+  { gid: 1789817511, name: "2PN+1", prefix: "2NP", type: "2 Ngủ +" },
+  { gid: 26713528, name: "3PN", prefix: "3N", type: "3 Ngủ" },
+];
+const THAO_ID = /^TT\.(?:ST|1N|2N|2NP|3N)\.\d{3,6}$/;
+
+function thaoPrice(v) {
+  const s = txt(v).toLowerCase().replace(/\s+/g, " ");
+  // Khoảng giá và hai phương án giá không phải một giá chắc chắn: không đoán.
+  if (/(?:\d\s*[-–]\s*\d)|\(\s*[^)]*\d+(?:[,.]\d+)?\s*tr/i.test(s)) return 0;
+  const m = s.match(/^(\d+(?:[,.]\d{1,2})?)\s*(?:tr|triệu)\b/i) ||
+            s.match(/^(\d+(?:[,.]\d{1,2})?)\s*tr/i);
+  if (!m) return 0;
+  const n = Number(m[1].replace(",", "."));
+  return n >= 3 && n <= 100 ? Math.round(n * 1000000) : 0;
+}
+
+function thaoDate(v) {
+  const s = txt(v).trim();
+  if (!s) return "";
+  if (/^\d{5}$/.test(s)) {
+    const d = new Date(Date.UTC(1899, 11, 30) + Number(s) * 86400000);
+    return pad2(d.getUTCDate()) + "/" + pad2(d.getUTCMonth() + 1) + "/" + d.getUTCFullYear();
+  }
+  const m = s.match(/^(\d{1,2})[./-](\d{1,2})[./-](20\d{2})$/);
+  if (m) return pad2(Number(m[1])) + "/" + pad2(Number(m[2])) + "/" + m[3];
+  return "";
+}
+
+function thaoMove(v) {
+  const s = txt(v);
+  if (!s || /^(?:vào\s*luôn|vào\s*ngay|ở\s*ngay|luôn)$/i.test(s)) return "";
+  return thaoDate(s) || s; // T10 / T12 giữ nguyên, KHÔNG phán đoán ngày.
+}
+
+function thaoFurniture(v) {
+  const s = key(v);
+  if (s === "đcb" || /đồ\s*cơ\s*bản/.test(s)) return "Đồ Cơ bản";
+  if (s === "nb" || /nguyên\s*bản/.test(s)) return "Nhà Nguyên Bản";
+  if (/full\s*đồ|full\s*nội\s*thất/.test(s)) return "Full nội thất";
+  if (/full\s*gỗ/.test(s)) return "Full gỗ"; // KHÔNG quảng cáo nhầm thành full nội thất
+  return txt(v);
+}
+
+function thaoFolder(v) {
+  const s = txt(v);
+  const m = s.match(/^https:\/\/drive\.google\.com\/drive\/folders\/[A-Za-z0-9_-]{10,}(?:[?&#].*)?$/);
+  return m ? s : "";
+}
+
+async function fetchThaoTab(tab) {
+  const url = "https://docs.google.com/spreadsheets/d/" + THAO_SHEET +
+    "/gviz/tq?tqx=out:csv&headers=0&gid=" + tab.gid;
+  for (let attempt = 1; attempt <= 4; attempt++) {
+    try {
+      const res = await fetch(url, {
+        headers: { "user-agent": "Mozilla/5.0", "cache-control": "no-cache" },
+        signal: AbortSignal.timeout(25000),
+      });
+      if (!res.ok) throw new Error(tab.name + " HTTP " + res.status);
+      const body = await res.text();
+      if (/<!doctype|<html|accounts\.google\.com/i.test(body.slice(0, 1000)))
+        throw new Error(tab.name + ": nguồn yêu cầu đăng nhập Google");
+      const rows = parseCsv(body);
+      // GViz có thể tự bỏ các dòng tiêu đề nhiều tầng; nhận diện dòng căn bằng
+      // STT số ở cột A, không dựa vào vị trí/dòng header của từng tab.
+      const candidates = rows.filter(c => /^\d{3,6}$/.test(txt(c[0])));
+      if (candidates.length < 15)
+        throw new Error(tab.name + ": chỉ nhận được " + candidates.length + " STT hợp lệ");
+      return candidates;
+    } catch (e) {
+      const retry = /HTTP (?:429|5\d\d)|timeout|fetch failed|network|socket/i.test(e.message);
+      if (!retry || attempt === 4) throw e;
+      await new Promise(resolve => setTimeout(resolve, 1200 * 2 ** (attempt - 1)));
+    }
+  }
+}
+
+async function loadThao() {
+  const map = new Map();
+  const stats = { rows: 0, excludedLumi: 0, badPrice: 0, incomplete: 0, photos: 0 };
+  for (const tab of THAO_TABS) {
+    const rows = await fetchThaoTab(tab);
+    let tabCount = 0;
+    for (const c of rows) {
+      const stt = txt(c[0]);
+      if (key(stt) === "stt" || !stt) continue;
+      if (!/^\d{3,6}$/.test(stt)) continue;
+      const id = "TT." + tab.prefix + "." + stt;
+      const region = txt(c[2]);
+      if (key(region).replace(/\s+/g, "") === "lumihn") {
+        stats.excludedLumi++;
+        continue; // Lumi Hanoi là dự án riêng, không lẫn vào Smart City.
+      }
+      if (!region || !/^(?:lumiere|solapark|gs|imperia|mas|s[1-4]|sa|tc|tk)$/i.test(region)) {
+        throw new Error("Thu Thảo: khu/tòa chưa nhận diện tại " + tab.name + " STT " + stt);
+      }
+      if (map.has(id)) throw new Error("Thu Thảo: trùng mã " + id);
+      const src = {
+        id, type: tab.type, tower: region, area: area(c[3]),
+        furniture: thaoFurniture(c[4]), moveIn: thaoMove(c[5]),
+        price: thaoPrice(c[6]), updated: thaoDate(c[1]),
+        folder: thaoFolder(c[8]),
+      };
+      if (!src.price) stats.badPrice++;
+      if (!src.area || !src.furniture) stats.incomplete++;
+      if (src.folder) stats.photos++;
+      map.set(id, src);
+      tabCount++;
+    }
+    if (tabCount < 15) throw new Error("Thu Thảo: tab " + tab.name + " chỉ có " + tabCount + " căn");
+    stats.rows += tabCount;
+  }
+  if (map.size < 500 || map.size > 1200)
+    throw new Error("Thu Thảo: số căn bất thường " + map.size + " (giữ snapshot cũ)");
+  return { map, stats };
+}
+
+function syncThao(rows, source) {
+  const index = new Map();
+  rows.forEach((r, i) => {
+    const id = txt(r["Mã nội bộ"]);
+    if (THAO_ID.test(id) && index.has(id)) throw new Error("Trùng mã Thu Thảo trong data.json: " + id);
+    if (id && !index.has(id)) index.set(id, i);
+  });
+  const stat = { added: 0, updated: 0, hidden: 0, incomplete: 0 };
+  for (const [id, src] of source.entries()) {
+    const completeRow = src.tower && src.area > 0 && src.price > 0 && src.furniture;
+    const show = Boolean(completeRow);
+    if (!show) stat.incomplete++;
+    const pos = index.get(id);
+    if (pos == null) {
+      if (!show) continue;
+      const n = nowVN();
+      rows.push({
+        "Mã nội bộ": id, "Tòa": src.tower, "Loại": src.type,
+        "Diện tích": src.area, "Nội thất": src.furniture,
+        "Giá thuê": src.price, "Ngày vào ở": src.moveIn,
+        "Ảnh đại diện": "", "Danh sách ảnh": "", "Video": "",
+        "Ngày thêm vào hệ thống": src.updated || (pad2(n.d) + "/" + pad2(n.m) + "/" + n.y),
+        "Hiển thị trên Web": "Có", "Nguồn CTV": "Thu Thảo",
+        "Thư mục ảnh CTV": src.folder,
+      });
+      stat.added++;
+      continue;
+    }
+    const row = rows[pos];
+    if (show) {
+      row["Tòa"] = src.tower;
+      row["Loại"] = src.type;
+      row["Diện tích"] = src.area;
+      row["Nội thất"] = src.furniture;
+      row["Giá thuê"] = src.price;
+      row["Ngày vào ở"] = src.moveIn;
+      row["Thư mục ảnh CTV"] = src.folder;
+      row["Nguồn CTV"] = "Thu Thảo";
+    }
+    row["Hiển thị trên Web"] = show ? "Có" : "Không";
+    stat.updated++;
+  }
+  for (const row of rows) {
+    const id = txt(row["Mã nội bộ"]);
+    if (!THAO_ID.test(id) || source.has(id)) continue;
+    if (key(row["Hiển thị trên Web"]) === "có") {
+      row["Hiển thị trên Web"] = "Không";
+      stat.hidden++;
+    }
+  }
+  return stat;
 }
 
 const stable = x => JSON.stringify(x) + "\n";
@@ -266,12 +447,27 @@ async function main() {
 
   const src = await loadCtv();
   const result = sync(old, src.map);
+  // Không xoá/ẩn TT.* nếu Sheet mới mất mạng hoặc bị đổi quyền: giữ bản đang có.
+  let thaoStat = null, thaoSync = null;
+  try {
+    const thao = await loadThao();
+    thaoStat = thao.stats;
+    thaoSync = syncThao(result.next, thao.map);
+  } catch (err) {
+    if (process.env.REQUIRE_THAO === "1") throw err; // PR kiểm thử phải đọc được nguồn thật.
+    console.warn("::warning::Không đọc được toàn bộ Sheet Thu Thảo, giữ dữ liệu TT cũ: " + err.message);
+  }
   const before = raw, after = stable(result.next);
 
   console.log("CTV: " + src.nonEmpty + " dòng, " + src.map.size + " ID hợp lệ.");
   for (const r of src.invalid)
     console.log("::warning::Bỏ qua ID không hợp lệ " + (r.id || "(trống)") +
       " tại " + r.tab + "!" + r.row);
+  if (thaoStat)
+    console.log("Thu Thảo: " + thaoStat.rows + " căn Smart City, bỏ qua " +
+      thaoStat.excludedLumi + " Lumi HN, " + thaoStat.badPrice + " giá chưa rõ, " +
+      thaoStat.photos + " link thư mục ảnh; thêm " + thaoSync.added +
+      ", cập nhật " + thaoSync.updated + ", ẩn căn rời nguồn " + thaoSync.hidden + ".");
   console.log("Đối chiếu: cập nhật " + result.stat.updated +
     ", thêm " + result.stat.added + ", bật " + result.stat.on +
     ", tắt " + result.stat.off + ", tắt vì rời CTV " + result.stat.missing + ".");

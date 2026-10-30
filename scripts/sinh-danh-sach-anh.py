@@ -59,6 +59,12 @@ def phan_khu_tu_toa(toa):
     Thứ tự xét quan trọng: tiền tố dài phải đứng trước tiền tố ngắn, nếu không
     SA5 (Sakura) sẽ rơi nhầm vào nhánh ^S\\d của Sapphire."""
     t = re.sub(r'[\s._-]', '', str(toa)).upper()
+    if t == "LUMIERE":
+        return "Lumiere"
+    if t == "SOLAPARK":
+        return "Sola Park"
+    if t == "IMPERIA":
+        return "Imperia"
     if t.startswith("MAS") or t.startswith("WEST"):
         return "Masteri"
     if t.startswith("SA"):

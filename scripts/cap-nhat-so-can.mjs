@@ -68,6 +68,9 @@ function dienTich(v) {
 function tenPhanKhu(toa) {
   const t = chuan(toa).toUpperCase().replace(/[\s.\-_]/g, "");
   if (!t) return "";
+  if (t === "LUMIERE") return "Lumiere";
+  if (t === "SOLAPARK") return "Sola Park";
+  if (t === "IMPERIA") return "Imperia";
   if (t.indexOf("MAS") === 0 || t.indexOf("WEST") === 0) return "Masteri";
   if (t.indexOf("SA") === 0) return "Sakura";
   if (t.indexOf("GS") === 0) return "Miami";

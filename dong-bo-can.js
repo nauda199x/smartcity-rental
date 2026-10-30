@@ -220,6 +220,9 @@
   function tenPhanKhu(toa) {
     var t = chuan(toa).toUpperCase().replace(/[\s.\-_]/g, "");
     if (!t) return "";
+    if (t === "LUMIERE") return "Lumiere";
+    if (t === "SOLAPARK") return "Sola Park";
+    if (t === "IMPERIA") return "Imperia";
     if (t.indexOf("MAS") === 0 || t.indexOf("WEST") === 0) return "Masteri";
     if (t.indexOf("SA") === 0) return "Sakura";
     if (t.indexOf("GS") === 0) return "Miami";
@@ -554,6 +557,8 @@
     var noiThat = chuan(r["Nội thất"]);
     var pk = tenPhanKhu(toa);
     var anh = anhBia(r);
+    var folderCTV = chuan(r["Thư mục ảnh CTV"]);
+    if (!/^https:\/\/drive\.google\.com\/drive\/folders\/[A-Za-z0-9_-]{10,}(?:[?&#].*)?$/.test(folderCTV)) folderCTV = "";
     var huyHieuTinhTrang = '<span class="tinh-trang">' + esc(nhanTinhTrang(r)) + "</span>";
 
     /* Thứ tự thông tin theo đúng cái khách thuê cân nhắc: loại căn + diện tích
@@ -616,8 +621,10 @@
         "</div>" +
         '<div class="chan-the">' +
           '<div class="gia">' + esc(dinhDangGia(soTien(r["Giá thuê"]))) + "<small>/tháng</small></div>" +
-          '<div class="the-actions' + (slugCT ? ' co-chi-tiet' : '') + '">' +
-            (slugCT ? '<a class="detail-card-link" href="/can-ho/' + esc(slugCT) + '/">Xem chi tiết</a>' : '') +
+          '<div class="the-actions' + ((slugCT || folderCTV) ? ' co-chi-tiet' : '') + '">' +
+            (slugCT ? '<a class="detail-card-link" href="/can-ho/' + esc(slugCT) + '/">Xem chi tiết</a>' :
+              folderCTV ? '<a class="detail-card-link" href="' + esc(folderCTV) +
+              '" target="_blank" rel="noopener noreferrer">Xem ảnh</a>' : '') +
             '<a class="zalo" href="https://zalo.me/' + SDT + '" target="_blank" rel="noopener">Nhắn Zalo</a>' +
           "</div>" +
         "</div>" +
