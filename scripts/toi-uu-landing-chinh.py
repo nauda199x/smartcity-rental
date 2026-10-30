@@ -222,8 +222,8 @@ def body_block(stats):
 
 
 
-# Liên kết giao dịch quan trọng nhất: chỉ tạo từ số liệu quỹ căn đang công khai.
-# HTML thô đọc được, không cần JavaScript, không sinh landing/URL mới.
+# Các liên kết loại căn vẫn giữ ở phần khám phá và điều hướng của homepage.
+# Không tạo thêm hộp 6 card chiếm diện tích màn hình trước danh sách căn.
 TYPE_ROUTES = (
     ("Studio", "/studio/", "Studio"),
     ("1 Ngủ", "/1pn/", "1 phòng ngủ"),
@@ -234,42 +234,17 @@ TYPE_ROUTES = (
 )
 
 
-def quick_rent_block(rows):
-    grouped = {}
-    for row in rows:
-        typ = " ".join(str(row.get("Loại", "")).split())
-        if not str(row.get("Tòa", "")).strip():
-            continue
-        try:
-            price = so_tien(row.get("Giá thuê"))
-        except Exception:
-            price = 0
-        if price <= 0:
-            continue
-        entry = grouped.setdefault(typ, {"count": 0, "min_price": price})
-        entry["count"] += 1
-        entry["min_price"] = min(price, entry["min_price"])
+def remove_quick_rent_block(raw):
+    """Xóa khối UI loại căn cũ nếu còn sót — không bao giờ chèn lại.
 
-    cards = []
-    for typ, url, label in TYPE_ROUTES:
-        record = grouped.get(typ)
-        if not record or record["count"] < 1:
-            continue
-        cards.append(
-            '<a href="%s" class="seo-rent-shortcuts__card">'
-            '<strong>Thuê %s Smart City</strong>'
-            '<span>%d căn đang hiển thị · giá từ %s triệu/tháng</span></a>'
-            % (esc(url), esc(label), record["count"], gia_trieu(record["min_price"]))
-        )
-    return (
-        QUICK_START + '\n'
-        '<nav class="seo-rent-shortcuts" aria-label="Tìm căn hộ thuê theo số phòng">'
-        '<div class="seo-rent-shortcuts__head">'
-        '<h2>Tìm căn hộ Smart City theo số phòng ngủ</h2>'
-        '<p>Chọn loại căn để xem giá, tòa và ảnh thực tế trong quỹ đang cho thuê.</p>'
-        '</div><div class="seo-rent-shortcuts__grid">%s</div>'
-        '</nav>\n' + QUICK_END
-    ) % "".join(cards)
+    Homepage đã có bộ lọc loại căn và các link danh mục riêng bên dưới.
+    Dọn cả hai marker để lần chạy SEO tiếp theo không tái tạo khối.
+    """
+    pattern = re.compile(
+        re.escape(QUICK_START) + r".*?" + re.escape(QUICK_END) + r"\\s*",
+        re.S,
+    )
+    return pattern.sub("", raw)
 
 
 def apply(raw, stats, rows):
@@ -304,19 +279,9 @@ def apply(raw, stats, rows):
         else:
             raw = raw.replace("</main>", body + "\n</main>", 1)
 
-    # Liên kết trực tiếp từ trang chủ tới các landing loại căn, giá/số căn tính từ data thật.
-    quick = quick_rent_block(rows)
-    if QUICK_START in raw:
-        raw = replace_marker(raw, QUICK_START, QUICK_END, quick)
-    else:
-        anchor = '    <div class="list-head">'
-        if anchor in raw:
-            raw = raw.replace(anchor, quick + "\n\n" + anchor, 1)
-        else:
-            raise RuntimeError("Không tìm thấy chỗ gắn liên kết loại căn trên trang chủ")
-
-    # Đổi CSS cache key để dải điều hướng mobile không nhận CSS cũ.
-    raw = raw.replace("/assets/v3.css?v=20260830-14", "/assets/v3.css?v=20261025-rent1")
+    # Theo yêu cầu UI: bỏ hoàn toàn khối shortcut 6 thẻ nằm trước danh sách căn.
+    # Phải dọn ở generator để các workflow SEO chạy lại không sinh nó nữa.
+    raw = remove_quick_rent_block(raw)
 
     # Đồng bộ schema WebPage ảnh ưu tiên nếu block đó đang tồn tại.
     pat = re.compile(r'(<script[^>]+id=["\']google-image-preview-data["\'][^>]*>)(.*?)(</script>)', re.I | re.S)
@@ -364,8 +329,8 @@ def audit(raw, stats):
         problems.append("thiếu CollectionPage schema P8")
     if stats["total"] <= 0:
         problems.append("không đọc được quỹ căn active")
-    if raw.count(QUICK_START) != 1 or raw.count(QUICK_END) != 1:
-        problems.append("thiếu hoặc nhân đôi dải liên kết loại căn")
+    if QUICK_START in raw or QUICK_END in raw or "seo-rent-shortcuts" in raw:
+        problems.append("khối shortcut phòng ngủ đã gỡ nhưng xuất hiện lại")
     for _typ, route, _label in TYPE_ROUTES:
         if ('href="%s"' % route) not in raw:
             problems.append("thiếu liên kết loại căn %s" % route)
