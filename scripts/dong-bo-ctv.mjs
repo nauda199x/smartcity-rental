@@ -454,6 +454,7 @@ async function main() {
     thaoStat = thao.stats;
     thaoSync = syncThao(result.next, thao.map);
   } catch (err) {
+    if (process.env.REQUIRE_THAO === "1") throw err; // PR kiểm thử phải đọc được nguồn thật.
     console.warn("::warning::Không đọc được toàn bộ Sheet Thu Thảo, giữ dữ liệu TT cũ: " + err.message);
   }
   const before = raw, after = stable(result.next);
