@@ -5,7 +5,7 @@
     "indexable": true,
     "loai": "1 Ngủ",
     "nganSach": "10-12-trieu",
-    "updated": "2026-10-30"
+    "updated": "2026-10-31"
   },
   "1pn-12-15-trieu": {
     "count": 15,
@@ -13,7 +13,7 @@
     "indexable": true,
     "loai": "1 Ngủ",
     "nganSach": "12-15-trieu",
-    "updated": "2026-10-30"
+    "updated": "2026-10-31"
   },
   "1pn-7-10-trieu": {
     "count": 119,
@@ -21,7 +21,7 @@
     "indexable": true,
     "loai": "1 Ngủ",
     "nganSach": "7-10-trieu",
-    "updated": "2026-10-30"
+    "updated": "2026-10-31"
   },
   "1pn-plus-10-12-trieu": {
     "count": 19,
@@ -29,7 +29,7 @@
     "indexable": true,
     "loai": "1 Ngủ +",
     "nganSach": "10-12-trieu",
-    "updated": "2026-10-30"
+    "updated": "2026-10-31"
   },
   "1pn-plus-12-15-trieu": {
     "count": 3,
@@ -37,7 +37,7 @@
     "indexable": false,
     "loai": "1 Ngủ +",
     "nganSach": "12-15-trieu",
-    "updated": "2026-10-30"
+    "updated": "2026-10-31"
   },
   "2pn-12-15-trieu": {
     "count": 100,
@@ -45,7 +45,7 @@
     "indexable": true,
     "loai": "2 Ngủ",
     "nganSach": "12-15-trieu",
-    "updated": "2026-10-30"
+    "updated": "2026-10-31"
   },
   "2pn-plus-10-12-trieu": {
     "count": 83,
@@ -53,7 +53,7 @@
     "indexable": true,
     "loai": "2 Ngủ +",
     "nganSach": "10-12-trieu",
-    "updated": "2026-10-30"
+    "updated": "2026-10-31"
   },
   "2pn-plus-tren-15-trieu": {
     "count": 15,
@@ -61,7 +61,7 @@
     "indexable": true,
     "loai": "2 Ngủ +",
     "nganSach": "tren-15-trieu",
-    "updated": "2026-10-30"
+    "updated": "2026-10-31"
   },
   "2pn-tren-15-trieu": {
     "count": 17,
@@ -69,7 +69,7 @@
     "indexable": true,
     "loai": "2 Ngủ",
     "nganSach": "tren-15-trieu",
-    "updated": "2026-10-30"
+    "updated": "2026-10-31"
   },
   "3pn-10-12-trieu": {
     "count": 37,
@@ -77,7 +77,7 @@
     "indexable": true,
     "loai": "3 Ngủ",
     "nganSach": "10-12-trieu",
-    "updated": "2026-10-30"
+    "updated": "2026-10-31"
   },
   "3pn-tren-15-trieu": {
     "count": 27,
@@ -85,7 +85,7 @@
     "indexable": true,
     "loai": "3 Ngủ",
     "nganSach": "tren-15-trieu",
-    "updated": "2026-10-30"
+    "updated": "2026-10-31"
   },
   "studio-10-12-trieu": {
     "count": 15,
@@ -93,6 +93,6 @@
     "indexable": true,
     "loai": "Studio",
     "nganSach": "10-12-trieu",
-    "updated": "2026-10-30"
+    "updated": "2026-10-31"
   }
 }
