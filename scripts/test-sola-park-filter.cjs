@@ -29,7 +29,7 @@ const apartments = [
 const state = { apartments };
 const normalizeKey = s => String(s || "").trim().toLowerCase();
 const getZones = new Function("state", "normalizeKey",
-  "return (function() {" + layThanHam("danhSachPhanKhu") + "\\n})();");
+  "return (function() {" + layThanHam("danhSachPhanKhu") + "})();");
 const zones = getZones(state, normalizeKey);
 assert.ok(zones.some(z => z.label === "Sola Park" && z.key === "sola park"),
   "Bộ lọc không có Sola Park");
