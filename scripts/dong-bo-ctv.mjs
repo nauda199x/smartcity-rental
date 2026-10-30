@@ -210,7 +210,7 @@ function sync(old, ctv) {
       if (!complete(src)) continue;
       const n = nowVN();
       next.push({
-        "Mã nội bộ": id, "Mã căn": src.stt, "Tòa": src.tower, "Loại": src.type,
+        "Mã nội bộ": id, "Tòa": src.tower, "Loại": src.type,
         "Diện tích": src.area, "Nội thất": src.furniture, "Giá thuê": src.price,
         "Ngày vào ở": src.moveIn, "Ảnh đại diện": "", "Danh sách ảnh": "", "Video": "",
         "Ngày thêm vào hệ thống": src.first || (pad2(n.d) + "/" + pad2(n.m) + "/" + n.y),
@@ -402,7 +402,7 @@ function syncThao(rows, source) {
       if (!show) continue;
       const n = nowVN();
       rows.push({
-        "Mã nội bộ": id, "Tòa": src.tower, "Loại": src.type,
+        "Mã nội bộ": id, "Mã căn": src.stt, "Tòa": src.tower, "Loại": src.type,
         "Diện tích": src.area, "Nội thất": src.furniture,
         "Giá thuê": src.price, "Ngày vào ở": src.moveIn,
         "Ảnh đại diện": "", "Danh sách ảnh": "", "Video": "",
