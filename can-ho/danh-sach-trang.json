@@ -7007,6 +7007,14 @@
   "phan_khu": "Sakura",
   "toa": "SA1"
  },
+ "cho-thue-can-ho-studio-sakura-28m2-ct-stu-990": {
+  "dien_tich": 28,
+  "loai": "Studio",
+  "ma": "CT.Stu.990",
+  "ngay_xuat_hien": "2026-10-30",
+  "phan_khu": "Sakura",
+  "toa": "SA2"
+ },
  "cho-thue-can-ho-studio-sakura-30m2-ct-stu-660": {
   "dien_tich": 30,
   "loai": "Studio",

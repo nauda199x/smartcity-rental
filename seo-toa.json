@@ -1315,7 +1315,7 @@
       "area_max": 80,
       "area_min": 26,
       "code": "SA2",
-      "count": 5,
+      "count": 6,
       "data_code": "SA2",
       "district": "Sakura",
       "first_seen": "2026-09-18",
@@ -1327,7 +1327,7 @@
       "price_min": 7000000,
       "types": [
         {
-          "count": 3,
+          "count": 4,
           "name": "Studio",
           "price_max": 8500000,
           "price_min": 7000000
