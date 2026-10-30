@@ -112,6 +112,14 @@
   }
 
   function chuan(v) { return String(v == null ? "" : v).trim(); }
+  // Thu Thảo: mã hiện cho khách là STT (4127), không phải khóa TT.2N.4127.
+  function maCanHienThi(r) {
+    var id = chuan(r["Mã nội bộ"]);
+    var m = /^TT\.(?:ST|1N|2N|2NP|3N)\.(\d{3,6})$/.exec(id);
+    if (!m) return id;
+    var stt = chuan(r["Mã căn"]);
+    return /^\d{3,6}$/.test(stt) ? stt : m[1];
+  }
   function khoa(v) { return chuan(v).toLowerCase(); }
   function esc(v) {
     return chuan(v).replace(/&/g, "&amp;").replace(/</g, "&lt;")
@@ -551,6 +559,7 @@
   /* ---------- Dựng thẻ căn hộ, đúng markup sẵn có của trang tĩnh ---------- */
   function dungThe(r) {
     var ma = chuan(r["Mã nội bộ"]);
+    var maHienThi = maCanHienThi(r);
     var toa = chuan(r["Tòa"]);
     var loai = chuan(r["Loại"]);
     var dt = dienTich(r["Diện tích"]);
@@ -617,7 +626,7 @@
           (noiThat
             ? '<span class="cc-nt' + (khoa(noiThat) === "full nội thất" ? "" : " thuong") + '">' + esc(noiThat) + "</span>"
             : "") +
-          (ma ? '<span class="cc-ma">' + esc(ma) + "</span>" : "") +
+          (maHienThi ? '<span class="cc-ma">' + esc(maHienThi) + "</span>" : "") +
         "</div>" +
         '<div class="chan-the">' +
           '<div class="gia">' + esc(dinhDangGia(soTien(r["Giá thuê"]))) + "<small>/tháng</small></div>" +
@@ -629,7 +638,7 @@
           "</div>" +
         "</div>" +
         /* Căn chưa có mã nội bộ thì ẩn hẳn dòng này, không hiện nhãn rỗng. */
-        (ma ? '<p class="ma-can">Mã căn: <b>' + esc(ma) + "</b></p>" : "") +
+        (maHienThi ? '<p class="ma-can">Mã căn: <b>' + esc(maHienThi) + "</b></p>" : "") +
       "</div>";
 
     /* Vuốt ảnh trực tiếp trên card ở điện thoại. Không thay đổi dữ liệu và
