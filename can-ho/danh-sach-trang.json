@@ -2087,6 +2087,14 @@
   "phan_khu": "Sola Park",
   "toa": "G3"
  },
+ "cho-thue-can-ho-1-ngu-sola-park-48m2-ct-1n-675": {
+  "dien_tich": 48,
+  "loai": "1 Ngủ +",
+  "ma": "CT.1N+.675",
+  "ngay_xuat_hien": "2026-10-30",
+  "phan_khu": "Sola Park",
+  "toa": "G3"
+ },
  "cho-thue-can-ho-1-ngu-tonkin-40m2-ct-1n-545": {
   "dien_tich": 40,
   "loai": "1 Ngủ +",
@@ -3380,6 +3388,14 @@
   "loai": "2 Ngủ",
   "ma": "CT.2N2.509",
   "ngay_xuat_hien": "2026-10-28",
+  "phan_khu": "Masteri",
+  "toa": "MasB"
+ },
+ "cho-thue-can-ho-2-ngu-masteri-54m2-ct-2n2-521": {
+  "dien_tich": 54,
+  "loai": "2 Ngủ",
+  "ma": "CT.2N2.521",
+  "ngay_xuat_hien": "2026-10-30",
   "phan_khu": "Masteri",
   "toa": "MasB"
  },

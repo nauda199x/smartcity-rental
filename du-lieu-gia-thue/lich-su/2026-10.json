@@ -1,10 +1,10 @@
 {
   "updated": "2026-10-30",
   "source": "data.json",
-  "active_count": 425,
+  "active_count": 427,
   "min_sample": 3,
   "overall": {
-    "n": 425,
+    "n": 427,
     "min": 5500000,
     "max": 18000000,
     "median": 10000000
@@ -17,16 +17,16 @@
       "median": 9000000.0
     },
     "1 Ngủ +": {
-      "n": 83,
+      "n": 84,
       "min": 7000000,
       "max": 13000000,
-      "median": 9000000
+      "median": 8900000.0
     },
     "2 Ngủ": {
-      "n": 121,
+      "n": 122,
       "min": 7500000,
       "max": 16000000,
-      "median": 11000000
+      "median": 11250000.0
     },
     "2 Ngủ +": {
       "n": 73,
@@ -67,10 +67,10 @@
       "median": 12000000.0
     },
     "Masteri": {
-      "n": 67,
+      "n": 68,
       "min": 7000000,
       "max": 18000000,
-      "median": 12000000
+      "median": 12000000.0
     },
     "Miami": {
       "n": 48,
@@ -91,10 +91,10 @@
       "median": 9000000.0
     },
     "Sola Park": {
-      "n": 28,
+      "n": 29,
       "min": 6000000,
       "max": 13000000,
-      "median": 8000000.0
+      "median": 8000000
     },
     "Tonkin": {
       "n": 9,
@@ -105,16 +105,16 @@
   },
   "by_interior": {
     "Full nội thất": {
-      "n": 243,
+      "n": 244,
       "min": 5800000,
       "max": 18000000,
-      "median": 11000000
+      "median": 11000000.0
     },
     "Nhà Nguyên Bản": {
-      "n": 124,
+      "n": 125,
       "min": 5500000,
       "max": 15000000,
-      "median": 8000000.0
+      "median": 8000000
     },
     "Đồ Cơ bản": {
       "n": 58,
@@ -506,10 +506,10 @@
       "zone": "Masteri",
       "type": "2 Ngủ",
       "interior": "Full nội thất",
-      "n": 10,
+      "n": 11,
       "min": 12000000,
       "max": 16000000,
-      "median": 13000000.0
+      "median": 13500000
     },
     {
       "zone": "Masteri",
@@ -965,10 +965,10 @@
       "zone": "Sola Park",
       "type": "1 Ngủ +",
       "interior": "Nhà Nguyên Bản",
-      "n": 17,
+      "n": 18,
       "min": 7000000,
       "max": 8500000,
-      "median": 8000000
+      "median": 8000000.0
     },
     {
       "zone": "Sola Park",
