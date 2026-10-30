@@ -374,8 +374,8 @@
           <div class="stat"><strong id="totalCount">1105</strong><span data-i18n="hero.total">Tổng căn</span></div>
           <div class="stat"><strong id="readyCount">758</strong><span data-i18n="hero.ready">Ở ngay</span></div>
           <!-- Số phân khu ĐANG CÓ CĂN — JS đếm từ data.json, không ghi cứng.
-               Hôm nay là 8 (Sola Park và Victoria chưa có căn nào), nhưng có căn
-               là con số tự nhảy lên 9-10, không phải sửa tay. -->
+               Bộ đếm tự thay đổi theo phân khu có căn trong data.json,
+               bao gồm Sola Park khi bảng CTV đang có căn. -->
           <div class="stat"><strong id="phanKhuCount">9</strong><span data-i18n="hero.zone">Phân khu</span></div>
         </div>
       </div>
@@ -954,7 +954,7 @@
          từ khóa "thuê chung cư Smart City", vốn là từ khóa giá trị nhất. -->
     <section class="seo-block" aria-label="Giới thiệu">
       <h2 data-i18n="seo.h2">Thuê chung cư Smart City — cho thuê căn hộ Vinhomes Smart City</h2>
-      <p data-i18n-html="seo.p1"><strong>Cho thuê chung cư Smart City</strong> tổng hợp căn hộ cho thuê tại Vinhomes Smart City (phường Tây Mỗ, Hà Nội) với dữ liệu đồng bộ tự động nhiều lần mỗi ngày, phản ánh đúng tình trạng còn trống, giá thuê và ảnh thật của từng căn. Đủ loại hình từ Studio, 1 phòng ngủ, 2 phòng ngủ đến 3 phòng ngủ, trải trên các phân khu Sapphire, Miami, Sakura, Masteri West Heights, Imperia, Lumière, Canopy và Tonkin.</p>
+      <p data-i18n-html="seo.p1"><strong>Cho thuê chung cư Smart City</strong> tổng hợp căn hộ cho thuê tại Vinhomes Smart City (phường Tây Mỗ, Hà Nội) với dữ liệu đồng bộ tự động nhiều lần mỗi ngày, phản ánh đúng tình trạng còn trống, giá thuê và ảnh thật của từng căn. Đủ loại hình từ Studio, 1 phòng ngủ, 2 phòng ngủ đến 3 phòng ngủ, trải trên các phân khu Sapphire, Miami, Sakura, Masteri West Heights, Imperia, Sola Park, Lumière, Canopy và Tonkin.</p>
       <p data-i18n-html="seo.p2">Giá <strong>thuê nhà Smart City</strong> hiện dao động phổ biến từ khoảng 5,5 triệu/tháng với căn Studio, tăng dần theo diện tích, phân khu và tình trạng nội thất. Anh/chị xem chi tiết tại <a href="/bang-gia-thue-vinhomes-smart-city.html">bảng giá thuê theo từng phân khu</a>, hoặc dùng bộ lọc phía trên để lọc nhanh theo ngân sách và loại căn.</p>
       <p data-i18n-html="seo.p3">Mỗi tin <strong>cho thuê Vinhomes Smart City</strong> đều ghi rõ giá, diện tích, hướng và tình trạng nội thất (Full nội thất / Cơ bản / Nguyên bản). Anh/chị xem theo <a href="#mucLucKhoDuLieu">danh mục</a>, sau đó nhắn Zalo để được dẫn xem nhà trực tiếp.</p>
     </section>
@@ -1047,6 +1047,7 @@
       <a href="/miami/">The Miami</a> ·
       <a href="/sakura/">The Sakura</a> ·
       <a href="/imperia/">Imperia</a> ·
+      <a href="/?pk=sola-park">Sola Park</a> ·
       <a href="/masteri/">Masteri West Heights</a> ·
       <a href="/lumiere/">Lumière Evergreen</a> ·
       <a href="/tonkin/">The Tonkin</a> ·
@@ -2060,6 +2061,10 @@
     function tenPhanKhu(toa) {
       const t = String(toa || "").toUpperCase().replace(/[\s.\-_]/g, "");
       if (!t) return "";
+      // Tên khu của CTV mới có thể là SolaPark thay vì G1/G2; GS* vẫn là Miami.
+      if (t === "SOLAPARK") return "Sola Park";
+      if (t === "LUMIERE") return "Lumiere";
+      if (t === "IMPERIA") return "Imperia";
       if (t.startsWith("MAS") || t.startsWith("WEST")) return "Masteri";
       if (t.startsWith("SA")) return "Sakura";
       if (t.startsWith("GS")) return "Miami";
@@ -2550,6 +2555,7 @@
       { key: "Miami", label: "The Miami", href: "/miami/" },
       { key: "Sakura", label: "The Sakura", href: "/sakura/" },
       { key: "Imperia", label: "Imperia Smart City", href: "/imperia/" },
+      { key: "Sola Park", label: "Sola Park", href: "/?pk=sola-park" },
       { key: "Canopy", label: "The Canopy", href: "/canopy/" },
       { key: "Tonkin", label: "The Tonkin", href: "/tonkin/" }
     ];
@@ -2698,7 +2704,7 @@
             "sapphire": "sapphire", "masteri": "masteri", "masteris": "masteri",
             "miami": "miami", "sakura": "sakura", "imperia": "imperia",
             "canopy": "canopy", "lumiere": "lumiere", "tonkin": "tonkin",
-            "sola": "sola park", "sola-park": "sola park", "victoria": "victoria"
+            "sola": "sola park", "sola-park": "sola park", "solapark": "sola park", "victoria": "victoria"
           }
         };
 

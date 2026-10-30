@@ -110,6 +110,7 @@ THI_TRUONG_KHU = [
     ("Miami", "The Miami", "/miami/"),
     ("Sakura", "The Sakura", "/sakura/"),
     ("Imperia", "Imperia Smart City", "/imperia/"),
+    ("Sola Park", "Sola Park", "/?pk=sola-park"),
     ("Canopy", "The Canopy", "/canopy/"),
     ("Tonkin", "The Tonkin", "/tonkin/"),
 ]
@@ -301,7 +302,7 @@ def o_chi_tiet_bang_gia(ds_gia):
 
 
 def dong_chi_tiet_bang_gia(cac_can):
-    """Dựng các hàng của ma trận 8 phân khu × 6 loại căn trên trang bảng giá."""
+    """Dựng các hàng của ma trận phân khu × 6 loại căn trên trang bảng giá."""
     theo = {}
     tong_khu = {}
     for r in cac_can:
