@@ -448,32 +448,52 @@ async function main() {
   if (!Array.isArray(old) || old.length < 150)
     throw new Error("data.json rỗng/bất thường; dừng an toàn");
 
-  const src = await loadCtv();
-  const result = sync(old, src.map);
-  // Không xoá/ẩn TT.* nếu Sheet mới mất mạng hoặc bị đổi quyền: giữ bản đang có.
-  let thaoStat = null, thaoSync = null;
+  // Hai bảng hàng độc lập: nguồn nào lỗi chỉ giữ snapshot CỦA NGUỒN ĐÓ.
+  // Không vì An Việt tạm mất mạng mà ngừng cập nhật Thu Thảo (và ngược lại).
+  const result = {next: old.map(row => ({...row})), stat: null};
+  let ctvStat = null, thaoStat = null, thaoSync = null;
+  let ctvFailed = false, thaoFailed = false;
+  try {
+    const src = await loadCtv();
+    const synced = sync(result.next, src.map);
+    result.next = synced.next;
+    result.stat = synced.stat;
+    ctvStat = {nonEmpty: src.nonEmpty, count: src.map.size, invalid: src.invalid};
+  } catch (err) {
+    ctvFailed = true;
+    if (process.env.REQUIRE_CTV === "1") throw err;
+    console.warn("::warning::An Việt lỗi; giữ nguyên dữ liệu An Việt cũ: " + err.message);
+  }
+
   try {
     const thao = await loadThao();
     thaoStat = thao.stats;
     thaoSync = syncThao(result.next, thao.map);
   } catch (err) {
-    if (process.env.REQUIRE_THAO === "1") throw err; // PR kiểm thử phải đọc được nguồn thật.
-    console.warn("::warning::Không đọc được toàn bộ Sheet Thu Thảo, giữ dữ liệu TT cũ: " + err.message);
+    thaoFailed = true;
+    if (process.env.REQUIRE_THAO === "1") throw err;
+    console.warn("::warning::Thu Thảo lỗi; giữ nguyên dữ liệu Thu Thảo cũ: " + err.message);
   }
-  const before = raw, after = stable(result.next);
 
-  console.log("CTV: " + src.nonEmpty + " dòng, " + src.map.size + " ID hợp lệ.");
-  for (const r of src.invalid)
-    console.log("::warning::Bỏ qua ID không hợp lệ " + (r.id || "(trống)") +
-      " tại " + r.tab + "!" + r.row);
+  // Không bao giờ xuất bản một snapshot mới khi cả hai nguồn đều không đọc được.
+  if (ctvFailed && thaoFailed)
+    throw new Error("Cả An Việt và Thu Thảo đều không đọc được; giữ data.json cũ.");
+
+  const before = raw, after = stable(result.next);
+  if (ctvStat) {
+    console.log("CTV: " + ctvStat.nonEmpty + " dòng, " + ctvStat.count + " ID hợp lệ.");
+    for (const r of ctvStat.invalid)
+      console.log("::warning::Bỏ qua ID không hợp lệ " + (r.id || "(trống)") +
+        " tại " + r.tab + "!" + r.row);
+    console.log("Đối chiếu An Việt: cập nhật " + result.stat.updated +
+      ", thêm " + result.stat.added + ", bật " + result.stat.on +
+      ", tắt " + result.stat.off + ", tắt vì rời CTV " + result.stat.missing + ".");
+  }
   if (thaoStat)
     console.log("Thu Thảo: " + thaoStat.rows + " căn Smart City, bỏ qua " +
       thaoStat.excludedLumi + " Lumi HN, " + thaoStat.badPrice + " giá chưa rõ, " +
       thaoStat.photos + " link thư mục ảnh; thêm " + thaoSync.added +
       ", cập nhật " + thaoSync.updated + ", ẩn căn rời nguồn " + thaoSync.hidden + ".");
-  console.log("Đối chiếu: cập nhật " + result.stat.updated +
-    ", thêm " + result.stat.added + ", bật " + result.stat.on +
-    ", tắt " + result.stat.off + ", tắt vì rời CTV " + result.stat.missing + ".");
 
   if (before === after) {
     console.log("data.json đã khớp Sheet CTV; không có thay đổi.");
