@@ -9,6 +9,7 @@ on:
       - "scripts/dung-lai-trang-chu.py"
       - "scripts/test-sola-park-filter.cjs"
       - "scripts/test-ma-can-thu-thao.cjs"
+      - "scripts/test-independent-ctv-sync.cjs"
       - "scripts/test-ma-can-thu-thao.py"
       - "scripts/ma_can_hien_thi.py"
       - "scripts/sinh-trang-toa.py"
@@ -51,11 +52,13 @@ jobs:
       - name: Kiểm tra cú pháp và đối soát 2 bảng hàng (không ghi data.json)
         env:
           REQUIRE_THAO: "1"
+          REQUIRE_CTV: "1"
         run: |
           node --check scripts/dong-bo-ctv.mjs
           node --check dong-bo-can.js
           node scripts/test-sola-park-filter.cjs
           node scripts/test-ma-can-thu-thao.cjs
+          node scripts/test-independent-ctv-sync.cjs
           node --check scripts/cap-nhat-so-can.mjs
           python3 -m py_compile scripts/sinh-danh-sach-anh.py scripts/dung-lai-trang-chu.py scripts/sinh-trang-toa.py scripts/sinh-trang-can.py scripts/ma_can_hien_thi.py
           python3 scripts/test-ma-can-thu-thao.py
