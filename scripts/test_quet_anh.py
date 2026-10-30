@@ -140,6 +140,78 @@ class PhotoSyncTest(unittest.TestCase):
         result = module.dung_ban_ghi_gallery(row, "test", {A: "cover.webp", C: "test-a3-v123456abcdef.webp"}, records, [])
         self.assertEqual(result[0]["ten_file"], "test-a4.webp")
 
+    def test_thao_folders_keep_namespace_and_skip_rows_without_photos(self):
+        url = "https://drive.google.com/drive/folders/" + FOLDER + "?usp=drive_link"
+        rows = [{"Mã nội bộ": "TT.2N.4127", "Thư mục ảnh CTV": url},
+                {"Mã nội bộ": "TT.ST.4127", "Thư mục ảnh CTV": url},
+                {"Mã nội bộ": "TT.ST.5207", "Thư mục ảnh CTV": ""},
+                {"Mã nội bộ": "CT.2N.4127", "Thư mục ảnh CTV": url}]
+        sources = scanner.read_thao_folders(rows)
+        self.assertEqual(set(sources), {"TT.2N.4127", "TT.ST.4127"})
+        self.assertEqual(sources["TT.2N.4127"]["folderId"], FOLDER)
+
+    def test_both_sources_scan_above_old_400_limit_and_dedupe_folders(self):
+        rows = [{"Mã nội bộ": "CT.2N." + str(i), "Hiển thị trên Web": "Có"}
+                for i in range(339)]
+        rows += [{"Mã nội bộ": "TT.2N." + str(i), "Hiển thị trên Web": "Có",
+                  "Thư mục ảnh CTV": "https://drive.google.com/drive/folders/" + FOLDER}
+                 for i in range(1000, 1452)]
+        sources = {r["Mã nội bộ"]: self.source for r in rows}
+        calls = []
+        def fetch(folder):
+            calls.append(folder)
+            return [photo(A), photo(B)]
+        with contextlib.redirect_stdout(io.StringIO()):
+            result = scanner.scan(rows, sources, {}, fetch)
+        self.assertEqual(len(result["items"]), 791)
+        self.assertEqual(calls, [FOLDER])
+        item = result["items"]["TT.2N.1000"]
+        with patch.object(media_anh, "photo_manifest", return_value=result):
+            self.assertIn(A, media_anh.ap_dung_anh(rows[339])["Ảnh đại diện"])
+        self.assertEqual(item["photos"], [A, B])
+
+    def test_thao_folder_change_or_removal_rejects_old_album(self):
+        row = {**self.row, "Mã nội bộ": "TT.2N.4127", "Ảnh đại diện": "",
+               "Danh sách ảnh": "", "Thư mục ảnh CTV":
+               "https://drive.google.com/drive/folders/" + FOLDER}
+        item = scanner.build_item(row, self.source, [photo(A)], None)
+        manifest = {"items": {row["Mã nội bộ"]: item}}
+        with patch.object(media_anh, "photo_manifest", return_value=manifest):
+            self.assertIn(A, media_anh.ap_dung_anh(row)["Ảnh đại diện"])
+            for folder in ["", row["Thư mục ảnh CTV"] + "_new"]:
+                changed = {**row, "Thư mục ảnh CTV": folder}
+                self.assertIs(media_anh.ap_dung_anh(changed), changed)
+        with contextlib.redirect_stdout(io.StringIO()):
+            def fail(_):
+                raise OSError("unavailable")
+            result = scanner.scan([row], {row["Mã nội bộ"]: {**self.source, "folderId": "new_folder_12345"}}, manifest, fail)
+        self.assertNotIn(row["Mã nội bộ"], result["items"])
+
+
+class DownloadCacheTest(unittest.TestCase):
+    @classmethod
+    def setUpClass(cls):
+        spec = importlib.util.spec_from_file_location("download_photos", Path(__file__).with_name("tai-anh-can-ho.py"))
+        cls.module = importlib.util.module_from_spec(spec)
+        spec.loader.exec_module(cls.module)
+
+    def test_cached_cover_skips_network_and_missing_mobile_is_retried(self):
+        bg = {"ten_file": "cover.webp", "loai_anh": "bia"}
+        m = self.module
+        with patch.object(m, "da_du_hai_ban", return_value=True), patch.object(m, "tai_mot_anh") as fetch:
+            self.assertEqual(m.xu_ly_anh(bg)[0], "skip")
+            fetch.assert_not_called()
+        with patch.object(m, "da_du_hai_ban", return_value=False), patch.object(m, "tai_mot_anh", return_value=(True, "ok")) as fetch:
+            self.assertEqual(m.xu_ly_anh(bg, True)[0], "ok")
+            fetch.assert_called_once_with(bg, True, True)
+
+    def test_failed_gallery_is_not_reported_as_downloaded(self):
+        bg = {"ten_file": "gallery.webp", "loai_anh": "gallery"}
+        m = self.module
+        with patch.object(m, "da_du_mot_ban", return_value=False), patch.object(m, "tai_mot_anh", return_value=(False, "404")) as fetch:
+            self.assertEqual(m.xu_ly_anh(bg, True), ("error", "404"))
+            fetch.assert_called_once_with(bg, False, True)
+
 
 if __name__ == "__main__":
     unittest.main()

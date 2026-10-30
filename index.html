@@ -1571,8 +1571,10 @@
         const url = text(value), match = url.match(/(?:[?&]id=|\/file\/d\/)([A-Za-z0-9_-]+)/);
         return match ? match[1] : url;
       };
-      const source = [ident(row["Ảnh đại diện"])].concat(
-        text(row["Danh sách ảnh"]).split(/\r?\n/).filter(x => x.trim()).map(ident)).join("|");
+      const parts = [ident(row["Ảnh đại diện"])].concat(
+        text(row["Danh sách ảnh"]).split(/\r?\n/).filter(x => x.trim()).map(ident));
+      if (text(row["Thư mục ảnh CTV"])) parts.push("folder:" + text(row["Thư mục ảnh CTV"]));
+      const source = parts.join("|");
       const item = anhTheoMa[text(row["Mã nội bộ"])];
       if (!item || item.source !== source || !Array.isArray(item.photos) ||
           item.photos.some(id => typeof id !== "string" || !/^[A-Za-z0-9_-]{10,}$/.test(id)) ||
