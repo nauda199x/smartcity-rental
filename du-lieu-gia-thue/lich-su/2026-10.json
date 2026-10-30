@@ -1,10 +1,10 @@
 {
   "updated": "2026-10-30",
   "source": "data.json",
-  "active_count": 427,
+  "active_count": 429,
   "min_sample": 3,
   "overall": {
-    "n": 427,
+    "n": 429,
     "min": 5500000,
     "max": 18000000,
     "median": 10000000
@@ -23,10 +23,10 @@
       "median": 8900000.0
     },
     "2 Ngủ": {
-      "n": 122,
+      "n": 124,
       "min": 7500000,
       "max": 16000000,
-      "median": 11250000.0
+      "median": 11000000.0
     },
     "2 Ngủ +": {
       "n": 73,
@@ -91,7 +91,7 @@
       "median": 9000000.0
     },
     "Sola Park": {
-      "n": 29,
+      "n": 31,
       "min": 6000000,
       "max": 13000000,
       "median": 8000000
@@ -111,7 +111,7 @@
       "median": 11000000.0
     },
     "Nhà Nguyên Bản": {
-      "n": 125,
+      "n": 127,
       "min": 5500000,
       "max": 15000000,
       "median": 8000000
@@ -974,7 +974,7 @@
       "zone": "Sola Park",
       "type": "2 Ngủ",
       "interior": "Nhà Nguyên Bản",
-      "n": 3,
+      "n": 5,
       "min": 8000000,
       "max": 9000000,
       "median": 9000000
