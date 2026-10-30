@@ -1,4 +1,12 @@
 {
+ "cho-thue-can-ho-1-ngu-canopy-40m2-tt-1n-5230": {
+  "dien_tich": 40,
+  "loai": "1 Ngủ",
+  "ma": "TT.1N.5230",
+  "ngay_xuat_hien": "2026-10-30",
+  "phan_khu": "Canopy",
+  "toa": "TC"
+ },
  "cho-thue-can-ho-1-ngu-canopy-42m2-ct-1n-159": {
   "dien_tich": 42,
   "loai": "1 Ngủ",
@@ -15,6 +23,14 @@
   "phan_khu": "Canopy",
   "toa": "TC1"
  },
+ "cho-thue-can-ho-1-ngu-canopy-42m2-tt-1n-5513": {
+  "dien_tich": 42,
+  "loai": "1 Ngủ",
+  "ma": "TT.1N.5513",
+  "ngay_xuat_hien": "2026-10-30",
+  "phan_khu": "Canopy",
+  "toa": "TC"
+ },
  "cho-thue-can-ho-1-ngu-canopy-43m2-ct-1n-171": {
   "dien_tich": 43,
   "loai": "1 Ngủ",
@@ -30,6 +46,54 @@
   "ngay_xuat_hien": "2026-09-24",
   "phan_khu": "Canopy",
   "toa": "TC2"
+ },
+ "cho-thue-can-ho-1-ngu-canopy-43m2-tt-1n-4554": {
+  "dien_tich": 43,
+  "loai": "1 Ngủ",
+  "ma": "TT.1N.4554",
+  "ngay_xuat_hien": "2026-10-30",
+  "phan_khu": "Canopy",
+  "toa": "TC"
+ },
+ "cho-thue-can-ho-1-ngu-canopy-43m2-tt-1n-4664": {
+  "dien_tich": 43,
+  "loai": "1 Ngủ",
+  "ma": "TT.1N.4664",
+  "ngay_xuat_hien": "2026-10-30",
+  "phan_khu": "Canopy",
+  "toa": "TC"
+ },
+ "cho-thue-can-ho-1-ngu-canopy-43m2-tt-1n-4944": {
+  "dien_tich": 43,
+  "loai": "1 Ngủ",
+  "ma": "TT.1N.4944",
+  "ngay_xuat_hien": "2026-10-30",
+  "phan_khu": "Canopy",
+  "toa": "TC"
+ },
+ "cho-thue-can-ho-1-ngu-canopy-43m2-tt-1n-5148": {
+  "dien_tich": 43,
+  "loai": "1 Ngủ",
+  "ma": "TT.1N.5148",
+  "ngay_xuat_hien": "2026-10-30",
+  "phan_khu": "Canopy",
+  "toa": "TC"
+ },
+ "cho-thue-can-ho-1-ngu-canopy-43m2-tt-1n-5524": {
+  "dien_tich": 43,
+  "loai": "1 Ngủ",
+  "ma": "TT.1N.5524",
+  "ngay_xuat_hien": "2026-10-30",
+  "phan_khu": "Canopy",
+  "toa": "TC"
+ },
+ "cho-thue-can-ho-1-ngu-canopy-43m2-tt-1n-5725": {
+  "dien_tich": 43,
+  "loai": "1 Ngủ",
+  "ma": "TT.1N.5725",
+  "ngay_xuat_hien": "2026-10-30",
+  "phan_khu": "Canopy",
+  "toa": "TC"
  },
  "cho-thue-can-ho-1-ngu-canopy-44m2-ct-1n-146": {
   "dien_tich": 44,
@@ -71,6 +135,30 @@
   "phan_khu": "Canopy",
   "toa": "TC1"
  },
+ "cho-thue-can-ho-1-ngu-canopy-45m2-tt-1n-5496": {
+  "dien_tich": 45,
+  "loai": "1 Ngủ",
+  "ma": "TT.1N.5496",
+  "ngay_xuat_hien": "2026-10-30",
+  "phan_khu": "Canopy",
+  "toa": "TC"
+ },
+ "cho-thue-can-ho-1-ngu-canopy-45m2-tt-1n-5650": {
+  "dien_tich": 45,
+  "loai": "1 Ngủ",
+  "ma": "TT.1N.5650",
+  "ngay_xuat_hien": "2026-10-30",
+  "phan_khu": "Canopy",
+  "toa": "TC"
+ },
+ "cho-thue-can-ho-1-ngu-canopy-45m2-tt-1n-5698": {
+  "dien_tich": 45,
+  "loai": "1 Ngủ",
+  "ma": "TT.1N.5698",
+  "ngay_xuat_hien": "2026-10-30",
+  "phan_khu": "Canopy",
+  "toa": "TC"
+ },
  "cho-thue-can-ho-1-ngu-canopy-46m2-ct-1n-188": {
   "dien_tich": 46,
   "loai": "1 Ngủ",
@@ -94,6 +182,30 @@
   "ngay_xuat_hien": "2026-10-28",
   "phan_khu": "Canopy",
   "toa": "TC2"
+ },
+ "cho-thue-can-ho-1-ngu-canopy-46m2-tt-1n-4630": {
+  "dien_tich": 46,
+  "loai": "1 Ngủ",
+  "ma": "TT.1N.4630",
+  "ngay_xuat_hien": "2026-10-30",
+  "phan_khu": "Canopy",
+  "toa": "TC"
+ },
+ "cho-thue-can-ho-1-ngu-canopy-46m2-tt-1n-4648": {
+  "dien_tich": 46,
+  "loai": "1 Ngủ",
+  "ma": "TT.1N.4648",
+  "ngay_xuat_hien": "2026-10-30",
+  "phan_khu": "Canopy",
+  "toa": "TC"
+ },
+ "cho-thue-can-ho-1-ngu-canopy-46m2-tt-1n-5775": {
+  "dien_tich": 46,
+  "loai": "1 Ngủ",
+  "ma": "TT.1N.5775",
+  "ngay_xuat_hien": "2026-10-30",
+  "phan_khu": "Canopy",
+  "toa": "TC"
  },
  "cho-thue-can-ho-1-ngu-canopy-47m2-ct-1n-176": {
   "dien_tich": 47,
@@ -126,6 +238,22 @@
   "ngay_xuat_hien": "2026-10-26",
   "phan_khu": "Canopy",
   "toa": "TC2"
+ },
+ "cho-thue-can-ho-1-ngu-canopy-50m2-tt-1n-5652": {
+  "dien_tich": 50,
+  "loai": "1 Ngủ",
+  "ma": "TT.1N.5652",
+  "ngay_xuat_hien": "2026-10-30",
+  "phan_khu": "Canopy",
+  "toa": "TC"
+ },
+ "cho-thue-can-ho-1-ngu-imperia-42m2-tt-1n-5248": {
+  "dien_tich": 42,
+  "loai": "1 Ngủ",
+  "ma": "TT.1N.5248",
+  "ngay_xuat_hien": "2026-10-30",
+  "phan_khu": "Imperia",
+  "toa": "Imperia"
  },
  "cho-thue-can-ho-1-ngu-imperia-43m2-ct-1n-495": {
   "dien_tich": 43,
@@ -303,6 +431,70 @@
   "phan_khu": "Imperia",
   "toa": "I2"
  },
+ "cho-thue-can-ho-1-ngu-imperia-43m2-tt-1n-2603": {
+  "dien_tich": 43,
+  "loai": "1 Ngủ",
+  "ma": "TT.1N.2603",
+  "ngay_xuat_hien": "2026-10-30",
+  "phan_khu": "Imperia",
+  "toa": "Imperia"
+ },
+ "cho-thue-can-ho-1-ngu-imperia-43m2-tt-1n-3912": {
+  "dien_tich": 43,
+  "loai": "1 Ngủ",
+  "ma": "TT.1N.3912",
+  "ngay_xuat_hien": "2026-10-30",
+  "phan_khu": "Imperia",
+  "toa": "Imperia"
+ },
+ "cho-thue-can-ho-1-ngu-imperia-43m2-tt-1n-4887": {
+  "dien_tich": 43,
+  "loai": "1 Ngủ",
+  "ma": "TT.1N.4887",
+  "ngay_xuat_hien": "2026-10-30",
+  "phan_khu": "Imperia",
+  "toa": "Imperia"
+ },
+ "cho-thue-can-ho-1-ngu-imperia-43m2-tt-1n-5005": {
+  "dien_tich": 43,
+  "loai": "1 Ngủ",
+  "ma": "TT.1N.5005",
+  "ngay_xuat_hien": "2026-10-30",
+  "phan_khu": "Imperia",
+  "toa": "Imperia"
+ },
+ "cho-thue-can-ho-1-ngu-imperia-43m2-tt-1n-5304": {
+  "dien_tich": 43,
+  "loai": "1 Ngủ",
+  "ma": "TT.1N.5304",
+  "ngay_xuat_hien": "2026-10-30",
+  "phan_khu": "Imperia",
+  "toa": "Imperia"
+ },
+ "cho-thue-can-ho-1-ngu-imperia-43m2-tt-1n-5463": {
+  "dien_tich": 43,
+  "loai": "1 Ngủ",
+  "ma": "TT.1N.5463",
+  "ngay_xuat_hien": "2026-10-30",
+  "phan_khu": "Imperia",
+  "toa": "Imperia"
+ },
+ "cho-thue-can-ho-1-ngu-imperia-43m2-tt-1n-5646": {
+  "dien_tich": 43,
+  "loai": "1 Ngủ",
+  "ma": "TT.1N.5646",
+  "ngay_xuat_hien": "2026-10-30",
+  "phan_khu": "Imperia",
+  "toa": "Imperia"
+ },
+ "cho-thue-can-ho-1-ngu-imperia-43m2-tt-1n-5766": {
+  "dien_tich": 43,
+  "loai": "1 Ngủ",
+  "ma": "TT.1N.5766",
+  "ngay_xuat_hien": "2026-10-30",
+  "phan_khu": "Imperia",
+  "toa": "Imperia"
+ },
  "cho-thue-can-ho-1-ngu-imperia-47m2-ct-1n-505": {
   "dien_tich": 47,
   "loai": "1 Ngủ +",
@@ -407,6 +599,54 @@
   "phan_khu": "Lumiere",
   "toa": "A2"
  },
+ "cho-thue-can-ho-1-ngu-lumiere-40m2-tt-1n-4401": {
+  "dien_tich": 40,
+  "loai": "1 Ngủ",
+  "ma": "TT.1N.4401",
+  "ngay_xuat_hien": "2026-10-30",
+  "phan_khu": "Lumiere",
+  "toa": "Lumiere"
+ },
+ "cho-thue-can-ho-1-ngu-lumiere-40m2-tt-1n-4842": {
+  "dien_tich": 40,
+  "loai": "1 Ngủ",
+  "ma": "TT.1N.4842",
+  "ngay_xuat_hien": "2026-10-30",
+  "phan_khu": "Lumiere",
+  "toa": "Lumiere"
+ },
+ "cho-thue-can-ho-1-ngu-lumiere-40m2-tt-1n-5469": {
+  "dien_tich": 40,
+  "loai": "1 Ngủ",
+  "ma": "TT.1N.5469",
+  "ngay_xuat_hien": "2026-10-30",
+  "phan_khu": "Lumiere",
+  "toa": "Lumiere"
+ },
+ "cho-thue-can-ho-1-ngu-lumiere-40m2-tt-1n-5470": {
+  "dien_tich": 40,
+  "loai": "1 Ngủ",
+  "ma": "TT.1N.5470",
+  "ngay_xuat_hien": "2026-10-30",
+  "phan_khu": "Lumiere",
+  "toa": "Lumiere"
+ },
+ "cho-thue-can-ho-1-ngu-lumiere-40m2-tt-1n-5471": {
+  "dien_tich": 40,
+  "loai": "1 Ngủ",
+  "ma": "TT.1N.5471",
+  "ngay_xuat_hien": "2026-10-30",
+  "phan_khu": "Lumiere",
+  "toa": "Lumiere"
+ },
+ "cho-thue-can-ho-1-ngu-lumiere-40m2-tt-1n-5609": {
+  "dien_tich": 40,
+  "loai": "1 Ngủ",
+  "ma": "TT.1N.5609",
+  "ngay_xuat_hien": "2026-10-30",
+  "phan_khu": "Lumiere",
+  "toa": "Lumiere"
+ },
  "cho-thue-can-ho-1-ngu-lumiere-42m2-ct-1n-194": {
   "dien_tich": 42,
   "loai": "1 Ngủ",
@@ -479,6 +719,14 @@
   "phan_khu": "Lumiere",
   "toa": "A3"
  },
+ "cho-thue-can-ho-1-ngu-lumiere-42m2-tt-1n-5647": {
+  "dien_tich": 42,
+  "loai": "1 Ngủ",
+  "ma": "TT.1N.5647",
+  "ngay_xuat_hien": "2026-10-30",
+  "phan_khu": "Lumiere",
+  "toa": "Lumiere"
+ },
  "cho-thue-can-ho-1-ngu-lumiere-43m2-ct-1n-186": {
   "dien_tich": 43,
   "loai": "1 Ngủ",
@@ -550,6 +798,142 @@
   "ngay_xuat_hien": "2026-10-02",
   "phan_khu": "Lumiere",
   "toa": "A1"
+ },
+ "cho-thue-can-ho-1-ngu-lumiere-43m2-tt-1n-4155": {
+  "dien_tich": 43,
+  "loai": "1 Ngủ",
+  "ma": "TT.1N.4155",
+  "ngay_xuat_hien": "2026-10-30",
+  "phan_khu": "Lumiere",
+  "toa": "Lumiere"
+ },
+ "cho-thue-can-ho-1-ngu-lumiere-43m2-tt-1n-4182": {
+  "dien_tich": 43,
+  "loai": "1 Ngủ",
+  "ma": "TT.1N.4182",
+  "ngay_xuat_hien": "2026-10-30",
+  "phan_khu": "Lumiere",
+  "toa": "Lumiere"
+ },
+ "cho-thue-can-ho-1-ngu-lumiere-43m2-tt-1n-4339": {
+  "dien_tich": 43,
+  "loai": "1 Ngủ",
+  "ma": "TT.1N.4339",
+  "ngay_xuat_hien": "2026-10-30",
+  "phan_khu": "Lumiere",
+  "toa": "Lumiere"
+ },
+ "cho-thue-can-ho-1-ngu-lumiere-43m2-tt-1n-4340": {
+  "dien_tich": 43,
+  "loai": "1 Ngủ",
+  "ma": "TT.1N.4340",
+  "ngay_xuat_hien": "2026-10-30",
+  "phan_khu": "Lumiere",
+  "toa": "Lumiere"
+ },
+ "cho-thue-can-ho-1-ngu-lumiere-43m2-tt-1n-4725": {
+  "dien_tich": 43,
+  "loai": "1 Ngủ",
+  "ma": "TT.1N.4725",
+  "ngay_xuat_hien": "2026-10-30",
+  "phan_khu": "Lumiere",
+  "toa": "Lumiere"
+ },
+ "cho-thue-can-ho-1-ngu-lumiere-43m2-tt-1n-4794": {
+  "dien_tich": 43,
+  "loai": "1 Ngủ",
+  "ma": "TT.1N.4794",
+  "ngay_xuat_hien": "2026-10-30",
+  "phan_khu": "Lumiere",
+  "toa": "Lumiere"
+ },
+ "cho-thue-can-ho-1-ngu-lumiere-43m2-tt-1n-5066": {
+  "dien_tich": 43,
+  "loai": "1 Ngủ",
+  "ma": "TT.1N.5066",
+  "ngay_xuat_hien": "2026-10-30",
+  "phan_khu": "Lumiere",
+  "toa": "Lumiere"
+ },
+ "cho-thue-can-ho-1-ngu-lumiere-43m2-tt-1n-5078": {
+  "dien_tich": 43,
+  "loai": "1 Ngủ",
+  "ma": "TT.1N.5078",
+  "ngay_xuat_hien": "2026-10-30",
+  "phan_khu": "Lumiere",
+  "toa": "Lumiere"
+ },
+ "cho-thue-can-ho-1-ngu-lumiere-43m2-tt-1n-5079": {
+  "dien_tich": 43,
+  "loai": "1 Ngủ",
+  "ma": "TT.1N.5079",
+  "ngay_xuat_hien": "2026-10-30",
+  "phan_khu": "Lumiere",
+  "toa": "Lumiere"
+ },
+ "cho-thue-can-ho-1-ngu-lumiere-43m2-tt-1n-5203": {
+  "dien_tich": 43,
+  "loai": "1 Ngủ",
+  "ma": "TT.1N.5203",
+  "ngay_xuat_hien": "2026-10-30",
+  "phan_khu": "Lumiere",
+  "toa": "Lumiere"
+ },
+ "cho-thue-can-ho-1-ngu-lumiere-43m2-tt-1n-5258": {
+  "dien_tich": 43,
+  "loai": "1 Ngủ",
+  "ma": "TT.1N.5258",
+  "ngay_xuat_hien": "2026-10-30",
+  "phan_khu": "Lumiere",
+  "toa": "Lumiere"
+ },
+ "cho-thue-can-ho-1-ngu-lumiere-43m2-tt-1n-5297": {
+  "dien_tich": 43,
+  "loai": "1 Ngủ",
+  "ma": "TT.1N.5297",
+  "ngay_xuat_hien": "2026-10-30",
+  "phan_khu": "Lumiere",
+  "toa": "Lumiere"
+ },
+ "cho-thue-can-ho-1-ngu-lumiere-43m2-tt-1n-5298": {
+  "dien_tich": 43,
+  "loai": "1 Ngủ",
+  "ma": "TT.1N.5298",
+  "ngay_xuat_hien": "2026-10-30",
+  "phan_khu": "Lumiere",
+  "toa": "Lumiere"
+ },
+ "cho-thue-can-ho-1-ngu-lumiere-43m2-tt-1n-5310": {
+  "dien_tich": 43,
+  "loai": "1 Ngủ",
+  "ma": "TT.1N.5310",
+  "ngay_xuat_hien": "2026-10-30",
+  "phan_khu": "Lumiere",
+  "toa": "Lumiere"
+ },
+ "cho-thue-can-ho-1-ngu-lumiere-43m2-tt-1n-5311": {
+  "dien_tich": 43,
+  "loai": "1 Ngủ",
+  "ma": "TT.1N.5311",
+  "ngay_xuat_hien": "2026-10-30",
+  "phan_khu": "Lumiere",
+  "toa": "Lumiere"
+ },
+ "cho-thue-can-ho-1-ngu-lumiere-43m2-tt-1n-5400": {
+  "dien_tich": 43,
+  "loai": "1 Ngủ",
+  "ma": "TT.1N.5400",
+  "ngay_xuat_hien": "2026-10-30",
+  "phan_khu": "Lumiere",
+  "toa": "Lumiere"
+ },
+ "cho-thue-can-ho-1-ngu-lumiere-43m2-tt-1n-5454": {
+  "dien_tich": 43,
+  "loai": "1 Ngủ",
+  "ma": "TT.1N.5454",
+  "ngay_xuat_hien": "2026-10-30",
+  "phan_khu": "Lumiere",
+  "toa": "Lumiere"
  },
  "cho-thue-can-ho-1-ngu-lumiere-44m2-ct-1n-127": {
   "dien_tich": 44.5,
@@ -638,6 +1022,22 @@
   "ngay_xuat_hien": "2026-10-21",
   "phan_khu": "Lumiere",
   "toa": "A1"
+ },
+ "cho-thue-can-ho-1-ngu-lumiere-44m2-tt-1n-5580": {
+  "dien_tich": 44,
+  "loai": "1 Ngủ",
+  "ma": "TT.1N.5580",
+  "ngay_xuat_hien": "2026-10-30",
+  "phan_khu": "Lumiere",
+  "toa": "Lumiere"
+ },
+ "cho-thue-can-ho-1-ngu-lumiere-46m2-tt-1n-3757": {
+  "dien_tich": 46,
+  "loai": "1 Ngủ",
+  "ma": "TT.1N.3757",
+  "ngay_xuat_hien": "2026-10-30",
+  "phan_khu": "Lumiere",
+  "toa": "Lumiere"
  },
  "cho-thue-can-ho-1-ngu-lumiere-47m2-cc10": {
   "dien_tich": 47,
@@ -927,6 +1327,102 @@
   "phan_khu": "Masteri",
   "toa": "MasA"
  },
+ "cho-thue-can-ho-1-ngu-masteri-42m2-tt-1n-4345": {
+  "dien_tich": 42,
+  "loai": "1 Ngủ",
+  "ma": "TT.1N.4345",
+  "ngay_xuat_hien": "2026-10-30",
+  "phan_khu": "Masteri",
+  "toa": "MAS"
+ },
+ "cho-thue-can-ho-1-ngu-masteri-42m2-tt-1n-4709": {
+  "dien_tich": 42,
+  "loai": "1 Ngủ",
+  "ma": "TT.1N.4709",
+  "ngay_xuat_hien": "2026-10-30",
+  "phan_khu": "Masteri",
+  "toa": "MAS"
+ },
+ "cho-thue-can-ho-1-ngu-masteri-42m2-tt-1n-5149": {
+  "dien_tich": 42,
+  "loai": "1 Ngủ",
+  "ma": "TT.1N.5149",
+  "ngay_xuat_hien": "2026-10-30",
+  "phan_khu": "Masteri",
+  "toa": "MAS"
+ },
+ "cho-thue-can-ho-1-ngu-masteri-42m2-tt-1n-5181": {
+  "dien_tich": 42,
+  "loai": "1 Ngủ",
+  "ma": "TT.1N.5181",
+  "ngay_xuat_hien": "2026-10-30",
+  "phan_khu": "Masteri",
+  "toa": "MAS"
+ },
+ "cho-thue-can-ho-1-ngu-masteri-42m2-tt-1n-5184": {
+  "dien_tich": 42,
+  "loai": "1 Ngủ",
+  "ma": "TT.1N.5184",
+  "ngay_xuat_hien": "2026-10-30",
+  "phan_khu": "Masteri",
+  "toa": "MAS"
+ },
+ "cho-thue-can-ho-1-ngu-masteri-42m2-tt-1n-5222": {
+  "dien_tich": 42,
+  "loai": "1 Ngủ",
+  "ma": "TT.1N.5222",
+  "ngay_xuat_hien": "2026-10-30",
+  "phan_khu": "Masteri",
+  "toa": "MAS"
+ },
+ "cho-thue-can-ho-1-ngu-masteri-42m2-tt-1n-5361": {
+  "dien_tich": 42,
+  "loai": "1 Ngủ",
+  "ma": "TT.1N.5361",
+  "ngay_xuat_hien": "2026-10-30",
+  "phan_khu": "Masteri",
+  "toa": "MAS"
+ },
+ "cho-thue-can-ho-1-ngu-masteri-42m2-tt-1n-5503": {
+  "dien_tich": 42,
+  "loai": "1 Ngủ",
+  "ma": "TT.1N.5503",
+  "ngay_xuat_hien": "2026-10-30",
+  "phan_khu": "Masteri",
+  "toa": "MAS"
+ },
+ "cho-thue-can-ho-1-ngu-masteri-42m2-tt-1n-5505": {
+  "dien_tich": 42,
+  "loai": "1 Ngủ",
+  "ma": "TT.1N.5505",
+  "ngay_xuat_hien": "2026-10-30",
+  "phan_khu": "Masteri",
+  "toa": "MAS"
+ },
+ "cho-thue-can-ho-1-ngu-masteri-42m2-tt-1n-5593": {
+  "dien_tich": 42,
+  "loai": "1 Ngủ",
+  "ma": "TT.1N.5593",
+  "ngay_xuat_hien": "2026-10-30",
+  "phan_khu": "Masteri",
+  "toa": "MAS"
+ },
+ "cho-thue-can-ho-1-ngu-masteri-42m2-tt-1n-5657": {
+  "dien_tich": 42,
+  "loai": "1 Ngủ",
+  "ma": "TT.1N.5657",
+  "ngay_xuat_hien": "2026-10-30",
+  "phan_khu": "Masteri",
+  "toa": "MAS"
+ },
+ "cho-thue-can-ho-1-ngu-masteri-42m2-tt-1n-5694": {
+  "dien_tich": 42,
+  "loai": "1 Ngủ",
+  "ma": "TT.1N.5694",
+  "ngay_xuat_hien": "2026-10-30",
+  "phan_khu": "Masteri",
+  "toa": "MAS"
+ },
  "cho-thue-can-ho-1-ngu-masteri-43m2-327": {
   "dien_tich": 43,
   "loai": "1 Ngủ +",
@@ -1007,6 +1503,70 @@
   "phan_khu": "Masteri",
   "toa": "MasA"
  },
+ "cho-thue-can-ho-1-ngu-masteri-43m2-tt-1n-3484": {
+  "dien_tich": 43,
+  "loai": "1 Ngủ",
+  "ma": "TT.1N.3484",
+  "ngay_xuat_hien": "2026-10-30",
+  "phan_khu": "Masteri",
+  "toa": "MAS"
+ },
+ "cho-thue-can-ho-1-ngu-masteri-43m2-tt-1n-4150": {
+  "dien_tich": 43,
+  "loai": "1 Ngủ",
+  "ma": "TT.1N.4150",
+  "ngay_xuat_hien": "2026-10-30",
+  "phan_khu": "Masteri",
+  "toa": "MAS"
+ },
+ "cho-thue-can-ho-1-ngu-masteri-43m2-tt-1n-4229": {
+  "dien_tich": 43,
+  "loai": "1 Ngủ",
+  "ma": "TT.1N.4229",
+  "ngay_xuat_hien": "2026-10-30",
+  "phan_khu": "Masteri",
+  "toa": "MAS"
+ },
+ "cho-thue-can-ho-1-ngu-masteri-43m2-tt-1n-4488": {
+  "dien_tich": 43,
+  "loai": "1 Ngủ",
+  "ma": "TT.1N.4488",
+  "ngay_xuat_hien": "2026-10-30",
+  "phan_khu": "Masteri",
+  "toa": "MAS"
+ },
+ "cho-thue-can-ho-1-ngu-masteri-43m2-tt-1n-4967": {
+  "dien_tich": 43,
+  "loai": "1 Ngủ",
+  "ma": "TT.1N.4967",
+  "ngay_xuat_hien": "2026-10-30",
+  "phan_khu": "Masteri",
+  "toa": "MAS"
+ },
+ "cho-thue-can-ho-1-ngu-masteri-43m2-tt-1n-5240": {
+  "dien_tich": 43,
+  "loai": "1 Ngủ",
+  "ma": "TT.1N.5240",
+  "ngay_xuat_hien": "2026-10-30",
+  "phan_khu": "Masteri",
+  "toa": "MAS"
+ },
+ "cho-thue-can-ho-1-ngu-masteri-43m2-tt-1n-5515": {
+  "dien_tich": 43,
+  "loai": "1 Ngủ",
+  "ma": "TT.1N.5515",
+  "ngay_xuat_hien": "2026-10-30",
+  "phan_khu": "Masteri",
+  "toa": "MAS"
+ },
+ "cho-thue-can-ho-1-ngu-masteri-45m2-tt-1n-4710": {
+  "dien_tich": 45,
+  "loai": "1 Ngủ",
+  "ma": "TT.1N.4710",
+  "ngay_xuat_hien": "2026-10-30",
+  "phan_khu": "Masteri",
+  "toa": "MAS"
+ },
  "cho-thue-can-ho-1-ngu-masteri-46m2-ct-1n-427": {
   "dien_tich": 46,
   "loai": "1 Ngủ +",
@@ -1038,6 +1598,94 @@
   "ngay_xuat_hien": "2026-10-15",
   "phan_khu": "Masteri",
   "toa": "MasB"
+ },
+ "cho-thue-can-ho-1-ngu-masteri-46m2-tt-1n-4213": {
+  "dien_tich": 46,
+  "loai": "1 Ngủ",
+  "ma": "TT.1N.4213",
+  "ngay_xuat_hien": "2026-10-30",
+  "phan_khu": "Masteri",
+  "toa": "MAS"
+ },
+ "cho-thue-can-ho-1-ngu-masteri-46m2-tt-1n-4344": {
+  "dien_tich": 46,
+  "loai": "1 Ngủ",
+  "ma": "TT.1N.4344",
+  "ngay_xuat_hien": "2026-10-30",
+  "phan_khu": "Masteri",
+  "toa": "MAS"
+ },
+ "cho-thue-can-ho-1-ngu-masteri-46m2-tt-1n-4590": {
+  "dien_tich": 46,
+  "loai": "1 Ngủ",
+  "ma": "TT.1N.4590",
+  "ngay_xuat_hien": "2026-10-30",
+  "phan_khu": "Masteri",
+  "toa": "MAS"
+ },
+ "cho-thue-can-ho-1-ngu-masteri-46m2-tt-1n-4594": {
+  "dien_tich": 46,
+  "loai": "1 Ngủ",
+  "ma": "TT.1N.4594",
+  "ngay_xuat_hien": "2026-10-30",
+  "phan_khu": "Masteri",
+  "toa": "MAS"
+ },
+ "cho-thue-can-ho-1-ngu-masteri-46m2-tt-1n-4853": {
+  "dien_tich": 46,
+  "loai": "1 Ngủ",
+  "ma": "TT.1N.4853",
+  "ngay_xuat_hien": "2026-10-30",
+  "phan_khu": "Masteri",
+  "toa": "MAS"
+ },
+ "cho-thue-can-ho-1-ngu-masteri-46m2-tt-1n-4952": {
+  "dien_tich": 46,
+  "loai": "1 Ngủ",
+  "ma": "TT.1N.4952",
+  "ngay_xuat_hien": "2026-10-30",
+  "phan_khu": "Masteri",
+  "toa": "MAS"
+ },
+ "cho-thue-can-ho-1-ngu-masteri-46m2-tt-1n-4970": {
+  "dien_tich": 46,
+  "loai": "1 Ngủ",
+  "ma": "TT.1N.4970",
+  "ngay_xuat_hien": "2026-10-30",
+  "phan_khu": "Masteri",
+  "toa": "MAS"
+ },
+ "cho-thue-can-ho-1-ngu-masteri-46m2-tt-1n-5194": {
+  "dien_tich": 46,
+  "loai": "1 Ngủ",
+  "ma": "TT.1N.5194",
+  "ngay_xuat_hien": "2026-10-30",
+  "phan_khu": "Masteri",
+  "toa": "MAS"
+ },
+ "cho-thue-can-ho-1-ngu-masteri-46m2-tt-1n-5366": {
+  "dien_tich": 46,
+  "loai": "1 Ngủ",
+  "ma": "TT.1N.5366",
+  "ngay_xuat_hien": "2026-10-30",
+  "phan_khu": "Masteri",
+  "toa": "MAS"
+ },
+ "cho-thue-can-ho-1-ngu-masteri-46m2-tt-1n-5417": {
+  "dien_tich": 46,
+  "loai": "1 Ngủ",
+  "ma": "TT.1N.5417",
+  "ngay_xuat_hien": "2026-10-30",
+  "phan_khu": "Masteri",
+  "toa": "MAS"
+ },
+ "cho-thue-can-ho-1-ngu-masteri-46m2-tt-1n-5478": {
+  "dien_tich": 46,
+  "loai": "1 Ngủ",
+  "ma": "TT.1N.5478",
+  "ngay_xuat_hien": "2026-10-30",
+  "phan_khu": "Masteri",
+  "toa": "MAS"
  },
  "cho-thue-can-ho-1-ngu-masteri-47m2-ct-1n-477": {
   "dien_tich": 47,
@@ -1183,6 +1831,54 @@
   "phan_khu": "Masteri",
   "toa": "MasA"
  },
+ "cho-thue-can-ho-1-ngu-masteri-47m2-tt-1n-4223": {
+  "dien_tich": 47,
+  "loai": "1 Ngủ",
+  "ma": "TT.1N.4223",
+  "ngay_xuat_hien": "2026-10-30",
+  "phan_khu": "Masteri",
+  "toa": "MAS"
+ },
+ "cho-thue-can-ho-1-ngu-masteri-47m2-tt-1n-4611": {
+  "dien_tich": 47,
+  "loai": "1 Ngủ",
+  "ma": "TT.1N.4611",
+  "ngay_xuat_hien": "2026-10-30",
+  "phan_khu": "Masteri",
+  "toa": "MAS"
+ },
+ "cho-thue-can-ho-1-ngu-masteri-47m2-tt-1n-4660": {
+  "dien_tich": 47,
+  "loai": "1 Ngủ",
+  "ma": "TT.1N.4660",
+  "ngay_xuat_hien": "2026-10-30",
+  "phan_khu": "Masteri",
+  "toa": "MAS"
+ },
+ "cho-thue-can-ho-1-ngu-masteri-47m2-tt-1n-4929": {
+  "dien_tich": 47,
+  "loai": "1 Ngủ",
+  "ma": "TT.1N.4929",
+  "ngay_xuat_hien": "2026-10-30",
+  "phan_khu": "Masteri",
+  "toa": "MAS"
+ },
+ "cho-thue-can-ho-1-ngu-masteri-47m2-tt-1n-4940": {
+  "dien_tich": 47,
+  "loai": "1 Ngủ",
+  "ma": "TT.1N.4940",
+  "ngay_xuat_hien": "2026-10-30",
+  "phan_khu": "Masteri",
+  "toa": "MAS"
+ },
+ "cho-thue-can-ho-1-ngu-masteri-47m2-tt-1n-5179": {
+  "dien_tich": 47,
+  "loai": "1 Ngủ",
+  "ma": "TT.1N.5179",
+  "ngay_xuat_hien": "2026-10-30",
+  "phan_khu": "Masteri",
+  "toa": "MAS"
+ },
  "cho-thue-can-ho-1-ngu-masteri-48m2-ct-1n-447": {
   "dien_tich": 48,
   "loai": "1 Ngủ +",
@@ -1263,6 +1959,46 @@
   "phan_khu": "Miami",
   "toa": "GS2"
  },
+ "cho-thue-can-ho-1-ngu-miami-43m2-tt-1n-4829": {
+  "dien_tich": 43,
+  "loai": "1 Ngủ",
+  "ma": "TT.1N.4829",
+  "ngay_xuat_hien": "2026-10-30",
+  "phan_khu": "Miami",
+  "toa": "GS"
+ },
+ "cho-thue-can-ho-1-ngu-miami-43m2-tt-1n-5048": {
+  "dien_tich": 43,
+  "loai": "1 Ngủ",
+  "ma": "TT.1N.5048",
+  "ngay_xuat_hien": "2026-10-30",
+  "phan_khu": "Miami",
+  "toa": "GS"
+ },
+ "cho-thue-can-ho-1-ngu-miami-43m2-tt-1n-5264": {
+  "dien_tich": 43,
+  "loai": "1 Ngủ",
+  "ma": "TT.1N.5264",
+  "ngay_xuat_hien": "2026-10-30",
+  "phan_khu": "Miami",
+  "toa": "GS"
+ },
+ "cho-thue-can-ho-1-ngu-miami-43m2-tt-1n-5512": {
+  "dien_tich": 43,
+  "loai": "1 Ngủ",
+  "ma": "TT.1N.5512",
+  "ngay_xuat_hien": "2026-10-30",
+  "phan_khu": "Miami",
+  "toa": "GS"
+ },
+ "cho-thue-can-ho-1-ngu-miami-43m2-tt-1n-5625": {
+  "dien_tich": 43,
+  "loai": "1 Ngủ",
+  "ma": "TT.1N.5625",
+  "ngay_xuat_hien": "2026-10-30",
+  "phan_khu": "Miami",
+  "toa": "GS"
+ },
  "cho-thue-can-ho-1-ngu-miami-45m2-ct-1n-157": {
   "dien_tich": 45,
   "loai": "1 Ngủ",
@@ -1303,6 +2039,22 @@
   "phan_khu": "Miami",
   "toa": "GS5"
  },
+ "cho-thue-can-ho-1-ngu-miami-46m2-tt-1n-5481": {
+  "dien_tich": 46,
+  "loai": "1 Ngủ",
+  "ma": "TT.1N.5481",
+  "ngay_xuat_hien": "2026-10-30",
+  "phan_khu": "Miami",
+  "toa": "GS"
+ },
+ "cho-thue-can-ho-1-ngu-miami-46m2-tt-1n-5757": {
+  "dien_tich": 46,
+  "loai": "1 Ngủ",
+  "ma": "TT.1N.5757",
+  "ngay_xuat_hien": "2026-10-30",
+  "phan_khu": "Miami",
+  "toa": "GS"
+ },
  "cho-thue-can-ho-1-ngu-miami-47m2-ct-1n-513": {
   "dien_tich": 47,
   "loai": "1 Ngủ +",
@@ -1327,6 +2079,14 @@
   "phan_khu": "Miami",
   "toa": "GS6"
  },
+ "cho-thue-can-ho-1-ngu-miami-47m2-tt-1n-5273": {
+  "dien_tich": 47,
+  "loai": "1 Ngủ",
+  "ma": "TT.1N.5273",
+  "ngay_xuat_hien": "2026-10-30",
+  "phan_khu": "Miami",
+  "toa": "GS"
+ },
  "cho-thue-can-ho-1-ngu-miami-48m2-ct-1n-596": {
   "dien_tich": 48,
   "loai": "1 Ngủ +",
@@ -1342,6 +2102,30 @@
   "ngay_xuat_hien": "2026-10-26",
   "phan_khu": "Miami",
   "toa": "GS5"
+ },
+ "cho-thue-can-ho-1-ngu-miami-48m2-tt-1n-5440": {
+  "dien_tich": 48,
+  "loai": "1 Ngủ",
+  "ma": "TT.1N.5440",
+  "ngay_xuat_hien": "2026-10-30",
+  "phan_khu": "Miami",
+  "toa": "GS"
+ },
+ "cho-thue-can-ho-1-ngu-miami-48m2-tt-1n-5560": {
+  "dien_tich": 48,
+  "loai": "1 Ngủ",
+  "ma": "TT.1N.5560",
+  "ngay_xuat_hien": "2026-10-30",
+  "phan_khu": "Miami",
+  "toa": "GS"
+ },
+ "cho-thue-can-ho-1-ngu-miami-48m2-tt-1n-5790": {
+  "dien_tich": 48,
+  "loai": "1 Ngủ",
+  "ma": "TT.1N.5790",
+  "ngay_xuat_hien": "2026-10-30",
+  "phan_khu": "Miami",
+  "toa": "GS"
  },
  "cho-thue-can-ho-1-ngu-sakura-33m2-ct-1n-181": {
   "dien_tich": 33,
@@ -1415,6 +2199,38 @@
   "phan_khu": "Sakura",
   "toa": "SA3"
  },
+ "cho-thue-can-ho-1-ngu-sakura-43m2-tt-1n-2313": {
+  "dien_tich": 43,
+  "loai": "1 Ngủ",
+  "ma": "TT.1N.2313",
+  "ngay_xuat_hien": "2026-10-30",
+  "phan_khu": "Sakura",
+  "toa": "SA"
+ },
+ "cho-thue-can-ho-1-ngu-sakura-43m2-tt-1n-4828": {
+  "dien_tich": 43,
+  "loai": "1 Ngủ",
+  "ma": "TT.1N.4828",
+  "ngay_xuat_hien": "2026-10-30",
+  "phan_khu": "Sakura",
+  "toa": "SA"
+ },
+ "cho-thue-can-ho-1-ngu-sakura-43m2-tt-1n-5101": {
+  "dien_tich": 43,
+  "loai": "1 Ngủ",
+  "ma": "TT.1N.5101",
+  "ngay_xuat_hien": "2026-10-30",
+  "phan_khu": "Sakura",
+  "toa": "SA"
+ },
+ "cho-thue-can-ho-1-ngu-sakura-43m2-tt-1n-5719": {
+  "dien_tich": 43,
+  "loai": "1 Ngủ",
+  "ma": "TT.1N.5719",
+  "ngay_xuat_hien": "2026-10-30",
+  "phan_khu": "Sakura",
+  "toa": "SA"
+ },
  "cho-thue-can-ho-1-ngu-sakura-47m2-ct-1n-163": {
   "dien_tich": 47,
   "loai": "1 Ngủ",
@@ -1463,6 +2279,22 @@
   "phan_khu": "Sakura",
   "toa": "SA3"
  },
+ "cho-thue-can-ho-1-ngu-sakura-47m2-tt-1n-4489": {
+  "dien_tich": 47,
+  "loai": "1 Ngủ",
+  "ma": "TT.1N.4489",
+  "ngay_xuat_hien": "2026-10-30",
+  "phan_khu": "Sakura",
+  "toa": "SA"
+ },
+ "cho-thue-can-ho-1-ngu-sakura-47m2-tt-1n-5686": {
+  "dien_tich": 47,
+  "loai": "1 Ngủ",
+  "ma": "TT.1N.5686",
+  "ngay_xuat_hien": "2026-10-30",
+  "phan_khu": "Sakura",
+  "toa": "SA"
+ },
  "cho-thue-can-ho-1-ngu-sakura-48m2-cc16": {
   "dien_tich": 48,
   "loai": "1 Ngủ +",
@@ -1503,6 +2335,14 @@
   "phan_khu": "Sapphire",
   "toa": "S303"
  },
+ "cho-thue-can-ho-1-ngu-sapphire-34m2-tt-1n-5585": {
+  "dien_tich": 34,
+  "loai": "1 Ngủ",
+  "ma": "TT.1N.5585",
+  "ngay_xuat_hien": "2026-10-30",
+  "phan_khu": "Sapphire",
+  "toa": "S3"
+ },
  "cho-thue-can-ho-1-ngu-sapphire-37m2-ct-1n-172": {
   "dien_tich": 37.3,
   "loai": "1 Ngủ",
@@ -1534,6 +2374,46 @@
   "ngay_xuat_hien": "2026-10-08",
   "phan_khu": "Sapphire",
   "toa": "S402"
+ },
+ "cho-thue-can-ho-1-ngu-sapphire-38m2-tt-1n-5405": {
+  "dien_tich": 38,
+  "loai": "1 Ngủ",
+  "ma": "TT.1N.5405",
+  "ngay_xuat_hien": "2026-10-30",
+  "phan_khu": "Sapphire",
+  "toa": "S4"
+ },
+ "cho-thue-can-ho-1-ngu-sapphire-38m2-tt-1n-5541": {
+  "dien_tich": 38,
+  "loai": "1 Ngủ",
+  "ma": "TT.1N.5541",
+  "ngay_xuat_hien": "2026-10-30",
+  "phan_khu": "Sapphire",
+  "toa": "S4"
+ },
+ "cho-thue-can-ho-1-ngu-sapphire-38m2-tt-1n-5587": {
+  "dien_tich": 38,
+  "loai": "1 Ngủ",
+  "ma": "TT.1N.5587",
+  "ngay_xuat_hien": "2026-10-30",
+  "phan_khu": "Sapphire",
+  "toa": "S4"
+ },
+ "cho-thue-can-ho-1-ngu-sapphire-38m2-tt-1n-5603": {
+  "dien_tich": 38,
+  "loai": "1 Ngủ",
+  "ma": "TT.1N.5603",
+  "ngay_xuat_hien": "2026-10-30",
+  "phan_khu": "Sapphire",
+  "toa": "S4"
+ },
+ "cho-thue-can-ho-1-ngu-sapphire-38m2-tt-1n-5785": {
+  "dien_tich": 38,
+  "loai": "1 Ngủ",
+  "ma": "TT.1N.5785",
+  "ngay_xuat_hien": "2026-10-30",
+  "phan_khu": "Sapphire",
+  "toa": "S4"
  },
  "cho-thue-can-ho-1-ngu-sapphire-39m2-ct-1n-216": {
   "dien_tich": 39,
@@ -1879,6 +2759,150 @@
   "phan_khu": "Sapphire",
   "toa": "S203"
  },
+ "cho-thue-can-ho-1-ngu-sapphire-43m2-tt-1n-2692": {
+  "dien_tich": 43,
+  "loai": "1 Ngủ",
+  "ma": "TT.1N.2692",
+  "ngay_xuat_hien": "2026-10-30",
+  "phan_khu": "Sapphire",
+  "toa": "S1"
+ },
+ "cho-thue-can-ho-1-ngu-sapphire-43m2-tt-1n-4149": {
+  "dien_tich": 43,
+  "loai": "1 Ngủ",
+  "ma": "TT.1N.4149",
+  "ngay_xuat_hien": "2026-10-30",
+  "phan_khu": "Sapphire",
+  "toa": "S1"
+ },
+ "cho-thue-can-ho-1-ngu-sapphire-43m2-tt-1n-4632": {
+  "dien_tich": 43,
+  "loai": "1 Ngủ",
+  "ma": "TT.1N.4632",
+  "ngay_xuat_hien": "2026-10-30",
+  "phan_khu": "Sapphire",
+  "toa": "S2"
+ },
+ "cho-thue-can-ho-1-ngu-sapphire-43m2-tt-1n-4879": {
+  "dien_tich": 43,
+  "loai": "1 Ngủ",
+  "ma": "TT.1N.4879",
+  "ngay_xuat_hien": "2026-10-30",
+  "phan_khu": "Sapphire",
+  "toa": "S3"
+ },
+ "cho-thue-can-ho-1-ngu-sapphire-43m2-tt-1n-4993": {
+  "dien_tich": 43,
+  "loai": "1 Ngủ",
+  "ma": "TT.1N.4993",
+  "ngay_xuat_hien": "2026-10-30",
+  "phan_khu": "Sapphire",
+  "toa": "S3"
+ },
+ "cho-thue-can-ho-1-ngu-sapphire-43m2-tt-1n-5238": {
+  "dien_tich": 43,
+  "loai": "1 Ngủ",
+  "ma": "TT.1N.5238",
+  "ngay_xuat_hien": "2026-10-30",
+  "phan_khu": "Sapphire",
+  "toa": "S4"
+ },
+ "cho-thue-can-ho-1-ngu-sapphire-43m2-tt-1n-5259": {
+  "dien_tich": 43,
+  "loai": "1 Ngủ",
+  "ma": "TT.1N.5259",
+  "ngay_xuat_hien": "2026-10-30",
+  "phan_khu": "Sapphire",
+  "toa": "S3"
+ },
+ "cho-thue-can-ho-1-ngu-sapphire-43m2-tt-1n-5434": {
+  "dien_tich": 43,
+  "loai": "1 Ngủ",
+  "ma": "TT.1N.5434",
+  "ngay_xuat_hien": "2026-10-30",
+  "phan_khu": "Sapphire",
+  "toa": "S4"
+ },
+ "cho-thue-can-ho-1-ngu-sapphire-43m2-tt-1n-5450": {
+  "dien_tich": 43,
+  "loai": "1 Ngủ",
+  "ma": "TT.1N.5450",
+  "ngay_xuat_hien": "2026-10-30",
+  "phan_khu": "Sapphire",
+  "toa": "S1"
+ },
+ "cho-thue-can-ho-1-ngu-sapphire-43m2-tt-1n-5457": {
+  "dien_tich": 43,
+  "loai": "1 Ngủ",
+  "ma": "TT.1N.5457",
+  "ngay_xuat_hien": "2026-10-30",
+  "phan_khu": "Sapphire",
+  "toa": "S2"
+ },
+ "cho-thue-can-ho-1-ngu-sapphire-43m2-tt-1n-5518": {
+  "dien_tich": 43,
+  "loai": "1 Ngủ",
+  "ma": "TT.1N.5518",
+  "ngay_xuat_hien": "2026-10-30",
+  "phan_khu": "Sapphire",
+  "toa": "S4"
+ },
+ "cho-thue-can-ho-1-ngu-sapphire-43m2-tt-1n-5538": {
+  "dien_tich": 43,
+  "loai": "1 Ngủ",
+  "ma": "TT.1N.5538",
+  "ngay_xuat_hien": "2026-10-30",
+  "phan_khu": "Sapphire",
+  "toa": "S1"
+ },
+ "cho-thue-can-ho-1-ngu-sapphire-43m2-tt-1n-5567": {
+  "dien_tich": 43,
+  "loai": "1 Ngủ",
+  "ma": "TT.1N.5567",
+  "ngay_xuat_hien": "2026-10-30",
+  "phan_khu": "Sapphire",
+  "toa": "S3"
+ },
+ "cho-thue-can-ho-1-ngu-sapphire-43m2-tt-1n-5697": {
+  "dien_tich": 43,
+  "loai": "1 Ngủ",
+  "ma": "TT.1N.5697",
+  "ngay_xuat_hien": "2026-10-30",
+  "phan_khu": "Sapphire",
+  "toa": "S4"
+ },
+ "cho-thue-can-ho-1-ngu-sapphire-43m2-tt-1n-5711": {
+  "dien_tich": 43,
+  "loai": "1 Ngủ",
+  "ma": "TT.1N.5711",
+  "ngay_xuat_hien": "2026-10-30",
+  "phan_khu": "Sapphire",
+  "toa": "S1"
+ },
+ "cho-thue-can-ho-1-ngu-sapphire-43m2-tt-1n-5751": {
+  "dien_tich": 43,
+  "loai": "1 Ngủ",
+  "ma": "TT.1N.5751",
+  "ngay_xuat_hien": "2026-10-30",
+  "phan_khu": "Sapphire",
+  "toa": "S1"
+ },
+ "cho-thue-can-ho-1-ngu-sapphire-43m2-tt-1n-5753": {
+  "dien_tich": 43,
+  "loai": "1 Ngủ",
+  "ma": "TT.1N.5753",
+  "ngay_xuat_hien": "2026-10-30",
+  "phan_khu": "Sapphire",
+  "toa": "S2"
+ },
+ "cho-thue-can-ho-1-ngu-sapphire-43m2-tt-1n-5780": {
+  "dien_tich": 43,
+  "loai": "1 Ngủ",
+  "ma": "TT.1N.5780",
+  "ngay_xuat_hien": "2026-10-30",
+  "phan_khu": "Sapphire",
+  "toa": "S3"
+ },
  "cho-thue-can-ho-1-ngu-sapphire-48m2-cc29": {
   "dien_tich": 48,
   "loai": "1 Ngủ +",
@@ -1926,6 +2950,30 @@
   "ngay_xuat_hien": "2026-10-23",
   "phan_khu": "Sapphire",
   "toa": "S401"
+ },
+ "cho-thue-can-ho-1-ngu-sapphire-48m2-tt-1n-4793": {
+  "dien_tich": 48,
+  "loai": "1 Ngủ",
+  "ma": "TT.1N.4793",
+  "ngay_xuat_hien": "2026-10-30",
+  "phan_khu": "Sapphire",
+  "toa": "S4"
+ },
+ "cho-thue-can-ho-1-ngu-sapphire-48m2-tt-1n-5468": {
+  "dien_tich": 48,
+  "loai": "1 Ngủ",
+  "ma": "TT.1N.5468",
+  "ngay_xuat_hien": "2026-10-30",
+  "phan_khu": "Sapphire",
+  "toa": "S4"
+ },
+ "cho-thue-can-ho-1-ngu-sapphire-48m2-tt-1n-5781": {
+  "dien_tich": 48,
+  "loai": "1 Ngủ",
+  "ma": "TT.1N.5781",
+  "ngay_xuat_hien": "2026-10-30",
+  "phan_khu": "Sapphire",
+  "toa": "S2"
  },
  "cho-thue-can-ho-1-ngu-sola-park-43m2-ct-1n-648": {
   "dien_tich": 43,
@@ -2047,6 +3095,158 @@
   "phan_khu": "Sola Park",
   "toa": "G3"
  },
+ "cho-thue-can-ho-1-ngu-sola-park-43m2-tt-1n-5614": {
+  "dien_tich": 43,
+  "loai": "1 Ngủ",
+  "ma": "TT.1N.5614",
+  "ngay_xuat_hien": "2026-10-30",
+  "phan_khu": "Sola Park",
+  "toa": "SolaPark"
+ },
+ "cho-thue-can-ho-1-ngu-sola-park-43m2-tt-1n-5629": {
+  "dien_tich": 43,
+  "loai": "1 Ngủ",
+  "ma": "TT.1N.5629",
+  "ngay_xuat_hien": "2026-10-30",
+  "phan_khu": "Sola Park",
+  "toa": "SolaPark"
+ },
+ "cho-thue-can-ho-1-ngu-sola-park-43m2-tt-1n-5632": {
+  "dien_tich": 43,
+  "loai": "1 Ngủ",
+  "ma": "TT.1N.5632",
+  "ngay_xuat_hien": "2026-10-30",
+  "phan_khu": "Sola Park",
+  "toa": "SolaPark"
+ },
+ "cho-thue-can-ho-1-ngu-sola-park-43m2-tt-1n-5642": {
+  "dien_tich": 43,
+  "loai": "1 Ngủ",
+  "ma": "TT.1N.5642",
+  "ngay_xuat_hien": "2026-10-30",
+  "phan_khu": "Sola Park",
+  "toa": "SolaPark"
+ },
+ "cho-thue-can-ho-1-ngu-sola-park-43m2-tt-1n-5667": {
+  "dien_tich": 43,
+  "loai": "1 Ngủ",
+  "ma": "TT.1N.5667",
+  "ngay_xuat_hien": "2026-10-30",
+  "phan_khu": "Sola Park",
+  "toa": "SolaPark"
+ },
+ "cho-thue-can-ho-1-ngu-sola-park-43m2-tt-1n-5671": {
+  "dien_tich": 43,
+  "loai": "1 Ngủ",
+  "ma": "TT.1N.5671",
+  "ngay_xuat_hien": "2026-10-30",
+  "phan_khu": "Sola Park",
+  "toa": "SolaPark"
+ },
+ "cho-thue-can-ho-1-ngu-sola-park-43m2-tt-1n-5677": {
+  "dien_tich": 43,
+  "loai": "1 Ngủ",
+  "ma": "TT.1N.5677",
+  "ngay_xuat_hien": "2026-10-30",
+  "phan_khu": "Sola Park",
+  "toa": "SolaPark"
+ },
+ "cho-thue-can-ho-1-ngu-sola-park-43m2-tt-1n-5679": {
+  "dien_tich": 43,
+  "loai": "1 Ngủ",
+  "ma": "TT.1N.5679",
+  "ngay_xuat_hien": "2026-10-30",
+  "phan_khu": "Sola Park",
+  "toa": "SolaPark"
+ },
+ "cho-thue-can-ho-1-ngu-sola-park-43m2-tt-1n-5689": {
+  "dien_tich": 43,
+  "loai": "1 Ngủ",
+  "ma": "TT.1N.5689",
+  "ngay_xuat_hien": "2026-10-30",
+  "phan_khu": "Sola Park",
+  "toa": "SolaPark"
+ },
+ "cho-thue-can-ho-1-ngu-sola-park-43m2-tt-1n-5693": {
+  "dien_tich": 43,
+  "loai": "1 Ngủ",
+  "ma": "TT.1N.5693",
+  "ngay_xuat_hien": "2026-10-30",
+  "phan_khu": "Sola Park",
+  "toa": "SolaPark"
+ },
+ "cho-thue-can-ho-1-ngu-sola-park-43m2-tt-1n-5710": {
+  "dien_tich": 43,
+  "loai": "1 Ngủ",
+  "ma": "TT.1N.5710",
+  "ngay_xuat_hien": "2026-10-30",
+  "phan_khu": "Sola Park",
+  "toa": "SolaPark"
+ },
+ "cho-thue-can-ho-1-ngu-sola-park-43m2-tt-1n-5730": {
+  "dien_tich": 43,
+  "loai": "1 Ngủ",
+  "ma": "TT.1N.5730",
+  "ngay_xuat_hien": "2026-10-30",
+  "phan_khu": "Sola Park",
+  "toa": "SolaPark"
+ },
+ "cho-thue-can-ho-1-ngu-sola-park-43m2-tt-1n-5731": {
+  "dien_tich": 43,
+  "loai": "1 Ngủ",
+  "ma": "TT.1N.5731",
+  "ngay_xuat_hien": "2026-10-30",
+  "phan_khu": "Sola Park",
+  "toa": "SolaPark"
+ },
+ "cho-thue-can-ho-1-ngu-sola-park-43m2-tt-1n-5752": {
+  "dien_tich": 43,
+  "loai": "1 Ngủ",
+  "ma": "TT.1N.5752",
+  "ngay_xuat_hien": "2026-10-30",
+  "phan_khu": "Sola Park",
+  "toa": "SolaPark"
+ },
+ "cho-thue-can-ho-1-ngu-sola-park-47m2-tt-1n-5615": {
+  "dien_tich": 47,
+  "loai": "1 Ngủ",
+  "ma": "TT.1N.5615",
+  "ngay_xuat_hien": "2026-10-30",
+  "phan_khu": "Sola Park",
+  "toa": "SolaPark"
+ },
+ "cho-thue-can-ho-1-ngu-sola-park-47m2-tt-1n-5631": {
+  "dien_tich": 47,
+  "loai": "1 Ngủ",
+  "ma": "TT.1N.5631",
+  "ngay_xuat_hien": "2026-10-30",
+  "phan_khu": "Sola Park",
+  "toa": "SolaPark"
+ },
+ "cho-thue-can-ho-1-ngu-sola-park-47m2-tt-1n-5649": {
+  "dien_tich": 47,
+  "loai": "1 Ngủ",
+  "ma": "TT.1N.5649",
+  "ngay_xuat_hien": "2026-10-30",
+  "phan_khu": "Sola Park",
+  "toa": "SolaPark"
+ },
+ "cho-thue-can-ho-1-ngu-sola-park-47m2-tt-1n-5653": {
+  "dien_tich": 47,
+  "loai": "1 Ngủ",
+  "ma": "TT.1N.5653",
+  "ngay_xuat_hien": "2026-10-30",
+  "phan_khu": "Sola Park",
+  "toa": "SolaPark"
+ },
+ "cho-thue-can-ho-1-ngu-sola-park-47m2-tt-1n-5750": {
+  "dien_tich": 47,
+  "loai": "1 Ngủ",
+  "ma": "TT.1N.5750",
+  "ngay_xuat_hien": "2026-10-30",
+  "phan_khu": "Sola Park",
+  "toa": "SolaPark"
+ },
  "cho-thue-can-ho-1-ngu-sola-park-48m2-ct-1n-649": {
   "dien_tich": 48,
   "loai": "1 Ngủ +",
@@ -2095,6 +3295,22 @@
   "phan_khu": "Sola Park",
   "toa": "G3"
  },
+ "cho-thue-can-ho-1-ngu-sola-park-48m2-tt-1n-5712": {
+  "dien_tich": 48,
+  "loai": "1 Ngủ",
+  "ma": "TT.1N.5712",
+  "ngay_xuat_hien": "2026-10-30",
+  "phan_khu": "Sola Park",
+  "toa": "SolaPark"
+ },
+ "cho-thue-can-ho-1-ngu-sola-park-48m2-tt-1n-5765": {
+  "dien_tich": 48,
+  "loai": "1 Ngủ",
+  "ma": "TT.1N.5765",
+  "ngay_xuat_hien": "2026-10-30",
+  "phan_khu": "Sola Park",
+  "toa": "SolaPark"
+ },
  "cho-thue-can-ho-1-ngu-tonkin-40m2-ct-1n-545": {
   "dien_tich": 40,
   "loai": "1 Ngủ +",
@@ -2103,6 +3319,22 @@
   "phan_khu": "Tonkin",
   "toa": "TK2"
  },
+ "cho-thue-can-ho-1-ngu-tonkin-41m2-tt-1n-5109": {
+  "dien_tich": 41,
+  "loai": "1 Ngủ",
+  "ma": "TT.1N.5109",
+  "ngay_xuat_hien": "2026-10-30",
+  "phan_khu": "Tonkin",
+  "toa": "TK"
+ },
+ "cho-thue-can-ho-1-ngu-tonkin-41m2-tt-1n-5769": {
+  "dien_tich": 41,
+  "loai": "1 Ngủ",
+  "ma": "TT.1N.5769",
+  "ngay_xuat_hien": "2026-10-30",
+  "phan_khu": "Tonkin",
+  "toa": "TK"
+ },
  "cho-thue-can-ho-1-ngu-tonkin-42m2-ct-1n-180": {
   "dien_tich": 42,
   "loai": "1 Ngủ",
@@ -2110,6 +3342,14 @@
   "ngay_xuat_hien": "2026-09-16",
   "phan_khu": "Tonkin",
   "toa": "TK2"
+ },
+ "cho-thue-can-ho-1-ngu-tonkin-42m2-tt-1n-4911": {
+  "dien_tich": 42,
+  "loai": "1 Ngủ",
+  "ma": "TT.1N.4911",
+  "ngay_xuat_hien": "2026-10-30",
+  "phan_khu": "Tonkin",
+  "toa": "TK"
  },
  "cho-thue-can-ho-1-ngu-tonkin-45m2-ct-1n-178": {
   "dien_tich": 45,
@@ -2142,6 +3382,14 @@
   "ngay_xuat_hien": "2026-07-20",
   "phan_khu": "Tonkin",
   "toa": "TK1"
+ },
+ "cho-thue-can-ho-1-ngu-tonkin-49m2-tt-1n-5572": {
+  "dien_tich": 49,
+  "loai": "1 Ngủ",
+  "ma": "TT.1N.5572",
+  "ngay_xuat_hien": "2026-10-30",
+  "phan_khu": "Tonkin",
+  "toa": "TK"
  },
  "cho-thue-can-ho-2-ngu-canopy-60m2-ct-2n2-350": {
   "dien_tich": 60,
@@ -2182,6 +3430,46 @@
   "ngay_xuat_hien": "2026-09-09",
   "phan_khu": "Canopy",
   "toa": "TC1"
+ },
+ "cho-thue-can-ho-2-ngu-canopy-61m2-tt-2n-3918": {
+  "dien_tich": 61,
+  "loai": "2 Ngủ",
+  "ma": "TT.2N.3918",
+  "ngay_xuat_hien": "2026-10-30",
+  "phan_khu": "Canopy",
+  "toa": "TC"
+ },
+ "cho-thue-can-ho-2-ngu-canopy-61m2-tt-2n-4399": {
+  "dien_tich": 61,
+  "loai": "2 Ngủ",
+  "ma": "TT.2N.4399",
+  "ngay_xuat_hien": "2026-10-30",
+  "phan_khu": "Canopy",
+  "toa": "TC"
+ },
+ "cho-thue-can-ho-2-ngu-canopy-61m2-tt-2n-5668": {
+  "dien_tich": 61,
+  "loai": "2 Ngủ",
+  "ma": "TT.2N.5668",
+  "ngay_xuat_hien": "2026-10-30",
+  "phan_khu": "Canopy",
+  "toa": "TC"
+ },
+ "cho-thue-can-ho-2-ngu-canopy-61m2-tt-2n-5787": {
+  "dien_tich": 61,
+  "loai": "2 Ngủ",
+  "ma": "TT.2N.5787",
+  "ngay_xuat_hien": "2026-10-30",
+  "phan_khu": "Canopy",
+  "toa": "TC"
+ },
+ "cho-thue-can-ho-2-ngu-canopy-61m2-tt-2n-5793": {
+  "dien_tich": 61,
+  "loai": "2 Ngủ",
+  "ma": "TT.2N.5793",
+  "ngay_xuat_hien": "2026-10-30",
+  "phan_khu": "Canopy",
+  "toa": "TC"
  },
  "cho-thue-can-ho-2-ngu-canopy-62m2-ct-2n2-352": {
   "dien_tich": 62.3,
@@ -2239,6 +3527,22 @@
   "phan_khu": "Canopy",
   "toa": "TC2"
  },
+ "cho-thue-can-ho-2-ngu-canopy-62m2-tt-2n-4733": {
+  "dien_tich": 62,
+  "loai": "2 Ngủ",
+  "ma": "TT.2N.4733",
+  "ngay_xuat_hien": "2026-10-30",
+  "phan_khu": "Canopy",
+  "toa": "TC"
+ },
+ "cho-thue-can-ho-2-ngu-canopy-62m2-tt-2n-4785": {
+  "dien_tich": 62,
+  "loai": "2 Ngủ",
+  "ma": "TT.2N.4785",
+  "ngay_xuat_hien": "2026-10-30",
+  "phan_khu": "Canopy",
+  "toa": "TC"
+ },
  "cho-thue-can-ho-2-ngu-canopy-63m2-ct-2n2-342": {
   "dien_tich": 63.4,
   "loai": "2 Ngủ",
@@ -2271,6 +3575,30 @@
   "phan_khu": "Canopy",
   "toa": "TC1"
  },
+ "cho-thue-can-ho-2-ngu-canopy-63m2-tt-2n-3139": {
+  "dien_tich": 63,
+  "loai": "2 Ngủ",
+  "ma": "TT.2N.3139",
+  "ngay_xuat_hien": "2026-10-30",
+  "phan_khu": "Canopy",
+  "toa": "TC"
+ },
+ "cho-thue-can-ho-2-ngu-canopy-63m2-tt-2n-4261": {
+  "dien_tich": 63,
+  "loai": "2 Ngủ",
+  "ma": "TT.2N.4261",
+  "ngay_xuat_hien": "2026-10-30",
+  "phan_khu": "Canopy",
+  "toa": "TC"
+ },
+ "cho-thue-can-ho-2-ngu-canopy-63m2-tt-2n-5215": {
+  "dien_tich": 63,
+  "loai": "2 Ngủ",
+  "ma": "TT.2N.5215",
+  "ngay_xuat_hien": "2026-10-30",
+  "phan_khu": "Canopy",
+  "toa": "TC"
+ },
  "cho-thue-can-ho-2-ngu-canopy-64m2-cc21": {
   "dien_tich": 64,
   "loai": "2 Ngủ +",
@@ -2286,6 +3614,38 @@
   "ngay_xuat_hien": "2026-09-18",
   "phan_khu": "Canopy",
   "toa": "TC1"
+ },
+ "cho-thue-can-ho-2-ngu-canopy-64m2-tt-2n-4303": {
+  "dien_tich": 64,
+  "loai": "2 Ngủ",
+  "ma": "TT.2N.4303",
+  "ngay_xuat_hien": "2026-10-30",
+  "phan_khu": "Canopy",
+  "toa": "TC"
+ },
+ "cho-thue-can-ho-2-ngu-canopy-64m2-tt-2n-4883": {
+  "dien_tich": 64,
+  "loai": "2 Ngủ",
+  "ma": "TT.2N.4883",
+  "ngay_xuat_hien": "2026-10-30",
+  "phan_khu": "Canopy",
+  "toa": "TC"
+ },
+ "cho-thue-can-ho-2-ngu-canopy-64m2-tt-2n-5211": {
+  "dien_tich": 64,
+  "loai": "2 Ngủ",
+  "ma": "TT.2N.5211",
+  "ngay_xuat_hien": "2026-10-30",
+  "phan_khu": "Canopy",
+  "toa": "TC"
+ },
+ "cho-thue-can-ho-2-ngu-canopy-64m2-tt-2n-5409": {
+  "dien_tich": 64,
+  "loai": "2 Ngủ",
+  "ma": "TT.2N.5409",
+  "ngay_xuat_hien": "2026-10-30",
+  "phan_khu": "Canopy",
+  "toa": "TC"
  },
  "cho-thue-can-ho-2-ngu-canopy-65m2-ct-2n2-344": {
   "dien_tich": 65,
@@ -2303,6 +3663,30 @@
   "phan_khu": "Canopy",
   "toa": "TC2"
  },
+ "cho-thue-can-ho-2-ngu-canopy-65m2-tt-2n-4286": {
+  "dien_tich": 65,
+  "loai": "2 Ngủ",
+  "ma": "TT.2N.4286",
+  "ngay_xuat_hien": "2026-10-30",
+  "phan_khu": "Canopy",
+  "toa": "TC"
+ },
+ "cho-thue-can-ho-2-ngu-canopy-65m2-tt-2n-5514": {
+  "dien_tich": 65,
+  "loai": "2 Ngủ",
+  "ma": "TT.2N.5514",
+  "ngay_xuat_hien": "2026-10-30",
+  "phan_khu": "Canopy",
+  "toa": "TC"
+ },
+ "cho-thue-can-ho-2-ngu-canopy-66m2-tt-2n-5243": {
+  "dien_tich": 66,
+  "loai": "2 Ngủ",
+  "ma": "TT.2N.5243",
+  "ngay_xuat_hien": "2026-10-30",
+  "phan_khu": "Canopy",
+  "toa": "TC"
+ },
  "cho-thue-can-ho-2-ngu-canopy-67m2-ct-2n2-478": {
   "dien_tich": 67,
   "loai": "2 Ngủ",
@@ -2318,6 +3702,22 @@
   "ngay_xuat_hien": "2026-10-21",
   "phan_khu": "Canopy",
   "toa": "TC2"
+ },
+ "cho-thue-can-ho-2-ngu-canopy-67m2-tt-2n-5474": {
+  "dien_tich": 67,
+  "loai": "2 Ngủ",
+  "ma": "TT.2N.5474",
+  "ngay_xuat_hien": "2026-10-30",
+  "phan_khu": "Canopy",
+  "toa": "TC"
+ },
+ "cho-thue-can-ho-2-ngu-canopy-67m2-tt-2n-5681": {
+  "dien_tich": 67,
+  "loai": "2 Ngủ",
+  "ma": "TT.2N.5681",
+  "ngay_xuat_hien": "2026-10-30",
+  "phan_khu": "Canopy",
+  "toa": "TC"
  },
  "cho-thue-can-ho-2-ngu-canopy-68m2-ct-2n2-403": {
   "dien_tich": 68,
@@ -2351,6 +3751,22 @@
   "phan_khu": "Canopy",
   "toa": "TC1"
  },
+ "cho-thue-can-ho-2-ngu-canopy-72m2-tt-2np-4827": {
+  "dien_tich": 72,
+  "loai": "2 Ngủ +",
+  "ma": "TT.2NP.4827",
+  "ngay_xuat_hien": "2026-10-30",
+  "phan_khu": "Canopy",
+  "toa": "TC"
+ },
+ "cho-thue-can-ho-2-ngu-canopy-72m2-tt-2np-5213": {
+  "dien_tich": 72,
+  "loai": "2 Ngủ +",
+  "ma": "TT.2NP.5213",
+  "ngay_xuat_hien": "2026-10-30",
+  "phan_khu": "Canopy",
+  "toa": "TC"
+ },
  "cho-thue-can-ho-2-ngu-canopy-73m2-ct-2n-329": {
   "dien_tich": 73,
   "loai": "2 Ngủ +",
@@ -2375,6 +3791,14 @@
   "phan_khu": "Canopy",
   "toa": "TC3"
  },
+ "cho-thue-can-ho-2-ngu-canopy-74m2-tt-2np-5548": {
+  "dien_tich": 74,
+  "loai": "2 Ngủ +",
+  "ma": "TT.2NP.5548",
+  "ngay_xuat_hien": "2026-10-30",
+  "phan_khu": "Canopy",
+  "toa": "TC"
+ },
  "cho-thue-can-ho-2-ngu-canopy-75m2-ct-2n-270": {
   "dien_tich": 75,
   "loai": "2 Ngủ +",
@@ -2391,6 +3815,54 @@
   "phan_khu": "Canopy",
   "toa": "TC2"
  },
+ "cho-thue-can-ho-2-ngu-canopy-75m2-tt-2np-2515": {
+  "dien_tich": 75,
+  "loai": "2 Ngủ +",
+  "ma": "TT.2NP.2515",
+  "ngay_xuat_hien": "2026-10-30",
+  "phan_khu": "Canopy",
+  "toa": "TC"
+ },
+ "cho-thue-can-ho-2-ngu-canopy-75m2-tt-2np-4532": {
+  "dien_tich": 75,
+  "loai": "2 Ngủ +",
+  "ma": "TT.2NP.4532",
+  "ngay_xuat_hien": "2026-10-30",
+  "phan_khu": "Canopy",
+  "toa": "TC"
+ },
+ "cho-thue-can-ho-2-ngu-canopy-75m2-tt-2np-4796": {
+  "dien_tich": 75,
+  "loai": "2 Ngủ +",
+  "ma": "TT.2NP.4796",
+  "ngay_xuat_hien": "2026-10-30",
+  "phan_khu": "Canopy",
+  "toa": "TC"
+ },
+ "cho-thue-can-ho-2-ngu-canopy-75m2-tt-2np-5502": {
+  "dien_tich": 75,
+  "loai": "2 Ngủ +",
+  "ma": "TT.2NP.5502",
+  "ngay_xuat_hien": "2026-10-30",
+  "phan_khu": "Canopy",
+  "toa": "TC"
+ },
+ "cho-thue-can-ho-2-ngu-canopy-75m2-tt-2np-5506": {
+  "dien_tich": 75,
+  "loai": "2 Ngủ +",
+  "ma": "TT.2NP.5506",
+  "ngay_xuat_hien": "2026-10-30",
+  "phan_khu": "Canopy",
+  "toa": "TC"
+ },
+ "cho-thue-can-ho-2-ngu-canopy-75m2-tt-2np-5682": {
+  "dien_tich": 75,
+  "loai": "2 Ngủ +",
+  "ma": "TT.2NP.5682",
+  "ngay_xuat_hien": "2026-10-30",
+  "phan_khu": "Canopy",
+  "toa": "TC"
+ },
  "cho-thue-can-ho-2-ngu-canopy-76m2-ct-2n-298": {
   "dien_tich": 76,
   "loai": "2 Ngủ +",
@@ -2406,6 +3878,22 @@
   "ngay_xuat_hien": "2026-10-19",
   "phan_khu": "Canopy",
   "toa": "TC1"
+ },
+ "cho-thue-can-ho-2-ngu-canopy-76m2-tt-2np-5458": {
+  "dien_tich": 76,
+  "loai": "2 Ngủ +",
+  "ma": "TT.2NP.5458",
+  "ngay_xuat_hien": "2026-10-30",
+  "phan_khu": "Canopy",
+  "toa": "TC"
+ },
+ "cho-thue-can-ho-2-ngu-canopy-76m2-tt-2np-5558": {
+  "dien_tich": 76,
+  "loai": "2 Ngủ +",
+  "ma": "TT.2NP.5558",
+  "ngay_xuat_hien": "2026-10-30",
+  "phan_khu": "Canopy",
+  "toa": "TC"
  },
  "cho-thue-can-ho-2-ngu-canopy-80m2-ct-2n-364": {
   "dien_tich": 80,
@@ -2470,6 +3958,30 @@
   "ngay_xuat_hien": "2026-10-30",
   "phan_khu": "Imperia",
   "toa": "I1"
+ },
+ "cho-thue-can-ho-2-ngu-imperia-54m2-tt-2n-2779": {
+  "dien_tich": 54,
+  "loai": "2 Ngủ",
+  "ma": "TT.2N.2779",
+  "ngay_xuat_hien": "2026-10-30",
+  "phan_khu": "Imperia",
+  "toa": "Imperia"
+ },
+ "cho-thue-can-ho-2-ngu-imperia-54m2-tt-2n-5644": {
+  "dien_tich": 54,
+  "loai": "2 Ngủ",
+  "ma": "TT.2N.5644",
+  "ngay_xuat_hien": "2026-10-30",
+  "phan_khu": "Imperia",
+  "toa": "Imperia"
+ },
+ "cho-thue-can-ho-2-ngu-imperia-54m2-tt-2n-5801": {
+  "dien_tich": 54,
+  "loai": "2 Ngủ",
+  "ma": "TT.2N.5801",
+  "ngay_xuat_hien": "2026-10-30",
+  "phan_khu": "Imperia",
+  "toa": "Imperia"
  },
  "cho-thue-can-ho-2-ngu-imperia-55m2-30": {
   "dien_tich": 55,
@@ -2583,6 +4095,22 @@
   "phan_khu": "Imperia",
   "toa": "I3"
  },
+ "cho-thue-can-ho-2-ngu-imperia-55m2-tt-2n-5574": {
+  "dien_tich": 55,
+  "loai": "2 Ngủ",
+  "ma": "TT.2N.5574",
+  "ngay_xuat_hien": "2026-10-30",
+  "phan_khu": "Imperia",
+  "toa": "Imperia"
+ },
+ "cho-thue-can-ho-2-ngu-imperia-55m2-tt-2n-5623": {
+  "dien_tich": 55,
+  "loai": "2 Ngủ",
+  "ma": "TT.2N.5623",
+  "ngay_xuat_hien": "2026-10-30",
+  "phan_khu": "Imperia",
+  "toa": "Imperia"
+ },
  "cho-thue-can-ho-2-ngu-imperia-61m2-ct-2n2-399": {
   "dien_tich": 61,
   "loai": "2 Ngủ",
@@ -2614,6 +4142,14 @@
   "ngay_xuat_hien": "2026-10-12",
   "phan_khu": "Imperia",
   "toa": "I1"
+ },
+ "cho-thue-can-ho-2-ngu-imperia-62m2-tt-2n-5674": {
+  "dien_tich": 62,
+  "loai": "2 Ngủ",
+  "ma": "TT.2N.5674",
+  "ngay_xuat_hien": "2026-10-30",
+  "phan_khu": "Imperia",
+  "toa": "Imperia"
  },
  "cho-thue-can-ho-2-ngu-imperia-63m2-ct-2n-271": {
   "dien_tich": 63,
@@ -2662,6 +4198,70 @@
   "ngay_xuat_hien": "2026-10-22",
   "phan_khu": "Imperia",
   "toa": "I1"
+ },
+ "cho-thue-can-ho-2-ngu-imperia-63m2-tt-2n-5374": {
+  "dien_tich": 63,
+  "loai": "2 Ngủ",
+  "ma": "TT.2N.5374",
+  "ngay_xuat_hien": "2026-10-30",
+  "phan_khu": "Imperia",
+  "toa": "Imperia"
+ },
+ "cho-thue-can-ho-2-ngu-imperia-63m2-tt-2np-3728": {
+  "dien_tich": 63,
+  "loai": "2 Ngủ +",
+  "ma": "TT.2NP.3728",
+  "ngay_xuat_hien": "2026-10-30",
+  "phan_khu": "Imperia",
+  "toa": "Imperia"
+ },
+ "cho-thue-can-ho-2-ngu-imperia-63m2-tt-2np-4467": {
+  "dien_tich": 63,
+  "loai": "2 Ngủ +",
+  "ma": "TT.2NP.4467",
+  "ngay_xuat_hien": "2026-10-30",
+  "phan_khu": "Imperia",
+  "toa": "Imperia"
+ },
+ "cho-thue-can-ho-2-ngu-imperia-63m2-tt-2np-4872": {
+  "dien_tich": 63,
+  "loai": "2 Ngủ +",
+  "ma": "TT.2NP.4872",
+  "ngay_xuat_hien": "2026-10-30",
+  "phan_khu": "Imperia",
+  "toa": "Imperia"
+ },
+ "cho-thue-can-ho-2-ngu-imperia-63m2-tt-2np-5145": {
+  "dien_tich": 63,
+  "loai": "2 Ngủ +",
+  "ma": "TT.2NP.5145",
+  "ngay_xuat_hien": "2026-10-30",
+  "phan_khu": "Imperia",
+  "toa": "Imperia"
+ },
+ "cho-thue-can-ho-2-ngu-imperia-63m2-tt-2np-5272": {
+  "dien_tich": 63,
+  "loai": "2 Ngủ +",
+  "ma": "TT.2NP.5272",
+  "ngay_xuat_hien": "2026-10-30",
+  "phan_khu": "Imperia",
+  "toa": "Imperia"
+ },
+ "cho-thue-can-ho-2-ngu-imperia-63m2-tt-2np-5280": {
+  "dien_tich": 63,
+  "loai": "2 Ngủ +",
+  "ma": "TT.2NP.5280",
+  "ngay_xuat_hien": "2026-10-30",
+  "phan_khu": "Imperia",
+  "toa": "Imperia"
+ },
+ "cho-thue-can-ho-2-ngu-imperia-63m2-tt-2np-5770": {
+  "dien_tich": 63,
+  "loai": "2 Ngủ +",
+  "ma": "TT.2NP.5770",
+  "ngay_xuat_hien": "2026-10-30",
+  "phan_khu": "Imperia",
+  "toa": "Imperia"
  },
  "cho-thue-can-ho-2-ngu-imperia-64m2-26": {
   "dien_tich": 64,
@@ -2735,6 +4335,30 @@
   "phan_khu": "Imperia",
   "toa": "I2"
  },
+ "cho-thue-can-ho-2-ngu-imperia-64m2-tt-2np-5326": {
+  "dien_tich": 64,
+  "loai": "2 Ngủ +",
+  "ma": "TT.2NP.5326",
+  "ngay_xuat_hien": "2026-10-30",
+  "phan_khu": "Imperia",
+  "toa": "Imperia"
+ },
+ "cho-thue-can-ho-2-ngu-imperia-64m2-tt-2np-5352": {
+  "dien_tich": 64,
+  "loai": "2 Ngủ +",
+  "ma": "TT.2NP.5352",
+  "ngay_xuat_hien": "2026-10-30",
+  "phan_khu": "Imperia",
+  "toa": "Imperia"
+ },
+ "cho-thue-can-ho-2-ngu-imperia-64m2-tt-2np-5763": {
+  "dien_tich": 64,
+  "loai": "2 Ngủ +",
+  "ma": "TT.2NP.5763",
+  "ngay_xuat_hien": "2026-10-30",
+  "phan_khu": "Imperia",
+  "toa": "Imperia"
+ },
  "cho-thue-can-ho-2-ngu-lumiere-52m2-ct-2n2-410": {
   "dien_tich": 52,
   "loai": "2 Ngủ",
@@ -2742,6 +4366,38 @@
   "ngay_xuat_hien": "2026-09-08",
   "phan_khu": "Lumiere",
   "toa": "A3"
+ },
+ "cho-thue-can-ho-2-ngu-lumiere-52m2-tt-2n-5140": {
+  "dien_tich": 52,
+  "loai": "2 Ngủ",
+  "ma": "TT.2N.5140",
+  "ngay_xuat_hien": "2026-10-30",
+  "phan_khu": "Lumiere",
+  "toa": "Lumiere"
+ },
+ "cho-thue-can-ho-2-ngu-lumiere-52m2-tt-2n-5167": {
+  "dien_tich": 52,
+  "loai": "2 Ngủ",
+  "ma": "TT.2N.5167",
+  "ngay_xuat_hien": "2026-10-30",
+  "phan_khu": "Lumiere",
+  "toa": "Lumiere"
+ },
+ "cho-thue-can-ho-2-ngu-lumiere-52m2-tt-2n-5626": {
+  "dien_tich": 52,
+  "loai": "2 Ngủ",
+  "ma": "TT.2N.5626",
+  "ngay_xuat_hien": "2026-10-30",
+  "phan_khu": "Lumiere",
+  "toa": "Lumiere"
+ },
+ "cho-thue-can-ho-2-ngu-lumiere-52m2-tt-2n-5638": {
+  "dien_tich": 52,
+  "loai": "2 Ngủ",
+  "ma": "TT.2N.5638",
+  "ngay_xuat_hien": "2026-10-30",
+  "phan_khu": "Lumiere",
+  "toa": "Lumiere"
  },
  "cho-thue-can-ho-2-ngu-lumiere-53m2-ct-2n2-397": {
   "dien_tich": 53,
@@ -2775,6 +4431,38 @@
   "phan_khu": "Lumiere",
   "toa": "A2"
  },
+ "cho-thue-can-ho-2-ngu-lumiere-54m2-tt-2n-4436": {
+  "dien_tich": 54,
+  "loai": "2 Ngủ",
+  "ma": "TT.2N.4436",
+  "ngay_xuat_hien": "2026-10-30",
+  "phan_khu": "Lumiere",
+  "toa": "Lumiere"
+ },
+ "cho-thue-can-ho-2-ngu-lumiere-54m2-tt-2n-4462": {
+  "dien_tich": 54,
+  "loai": "2 Ngủ",
+  "ma": "TT.2N.4462",
+  "ngay_xuat_hien": "2026-10-30",
+  "phan_khu": "Lumiere",
+  "toa": "Lumiere"
+ },
+ "cho-thue-can-ho-2-ngu-lumiere-54m2-tt-2n-4689": {
+  "dien_tich": 54,
+  "loai": "2 Ngủ",
+  "ma": "TT.2N.4689",
+  "ngay_xuat_hien": "2026-10-30",
+  "phan_khu": "Lumiere",
+  "toa": "Lumiere"
+ },
+ "cho-thue-can-ho-2-ngu-lumiere-54m2-tt-2n-5058": {
+  "dien_tich": 54,
+  "loai": "2 Ngủ",
+  "ma": "TT.2N.5058",
+  "ngay_xuat_hien": "2026-10-30",
+  "phan_khu": "Lumiere",
+  "toa": "Lumiere"
+ },
  "cho-thue-can-ho-2-ngu-lumiere-55m2-ct-2n2-400": {
   "dien_tich": 55,
   "loai": "2 Ngủ",
@@ -2806,6 +4494,22 @@
   "ngay_xuat_hien": "2026-09-05",
   "phan_khu": "Lumiere",
   "toa": "A2"
+ },
+ "cho-thue-can-ho-2-ngu-lumiere-57m2-tt-2n-4428": {
+  "dien_tich": 57,
+  "loai": "2 Ngủ",
+  "ma": "TT.2N.4428",
+  "ngay_xuat_hien": "2026-10-30",
+  "phan_khu": "Lumiere",
+  "toa": "Lumiere"
+ },
+ "cho-thue-can-ho-2-ngu-lumiere-57m2-tt-2n-5065": {
+  "dien_tich": 57,
+  "loai": "2 Ngủ",
+  "ma": "TT.2N.5065",
+  "ngay_xuat_hien": "2026-10-30",
+  "phan_khu": "Lumiere",
+  "toa": "Lumiere"
  },
  "cho-thue-can-ho-2-ngu-lumiere-60m2-ct-2n2-381": {
   "dien_tich": 60,
@@ -2863,6 +4567,30 @@
   "phan_khu": "Lumiere",
   "toa": "A2"
  },
+ "cho-thue-can-ho-2-ngu-lumiere-60m2-tt-2n-4250": {
+  "dien_tich": 60,
+  "loai": "2 Ngủ",
+  "ma": "TT.2N.4250",
+  "ngay_xuat_hien": "2026-10-30",
+  "phan_khu": "Lumiere",
+  "toa": "Lumiere"
+ },
+ "cho-thue-can-ho-2-ngu-lumiere-60m2-tt-2n-4540": {
+  "dien_tich": 60,
+  "loai": "2 Ngủ",
+  "ma": "TT.2N.4540",
+  "ngay_xuat_hien": "2026-10-30",
+  "phan_khu": "Lumiere",
+  "toa": "Lumiere"
+ },
+ "cho-thue-can-ho-2-ngu-lumiere-60m2-tt-2n-5253": {
+  "dien_tich": 60,
+  "loai": "2 Ngủ",
+  "ma": "TT.2N.5253",
+  "ngay_xuat_hien": "2026-10-30",
+  "phan_khu": "Lumiere",
+  "toa": "Lumiere"
+ },
  "cho-thue-can-ho-2-ngu-lumiere-61m2-ct-2n2-243": {
   "dien_tich": 61,
   "loai": "2 Ngủ",
@@ -2886,6 +4614,14 @@
   "ngay_xuat_hien": "2026-10-02",
   "phan_khu": "Lumiere",
   "toa": "A1"
+ },
+ "cho-thue-can-ho-2-ngu-lumiere-61m2-tt-2n-5136": {
+  "dien_tich": 61,
+  "loai": "2 Ngủ",
+  "ma": "TT.2N.5136",
+  "ngay_xuat_hien": "2026-10-30",
+  "phan_khu": "Lumiere",
+  "toa": "Lumiere"
  },
  "cho-thue-can-ho-2-ngu-lumiere-62m2-ct-2n2-294": {
   "dien_tich": 62,
@@ -2959,6 +4695,22 @@
   "phan_khu": "Lumiere",
   "toa": "A3"
  },
+ "cho-thue-can-ho-2-ngu-lumiere-62m2-tt-2n-5112": {
+  "dien_tich": 62,
+  "loai": "2 Ngủ",
+  "ma": "TT.2N.5112",
+  "ngay_xuat_hien": "2026-10-30",
+  "phan_khu": "Lumiere",
+  "toa": "Lumiere"
+ },
+ "cho-thue-can-ho-2-ngu-lumiere-62m2-tt-2n-5651": {
+  "dien_tich": 62,
+  "loai": "2 Ngủ",
+  "ma": "TT.2N.5651",
+  "ngay_xuat_hien": "2026-10-30",
+  "phan_khu": "Lumiere",
+  "toa": "Lumiere"
+ },
  "cho-thue-can-ho-2-ngu-lumiere-63m2-ct-2n-243": {
   "dien_tich": 63,
   "loai": "2 Ngủ +",
@@ -2966,6 +4718,206 @@
   "ngay_xuat_hien": "2026-07-20",
   "phan_khu": "Lumiere",
   "toa": "A3"
+ },
+ "cho-thue-can-ho-2-ngu-lumiere-63m2-tt-2n-3056": {
+  "dien_tich": 63,
+  "loai": "2 Ngủ",
+  "ma": "TT.2N.3056",
+  "ngay_xuat_hien": "2026-10-30",
+  "phan_khu": "Lumiere",
+  "toa": "Lumiere"
+ },
+ "cho-thue-can-ho-2-ngu-lumiere-63m2-tt-2n-3886": {
+  "dien_tich": 63,
+  "loai": "2 Ngủ",
+  "ma": "TT.2N.3886",
+  "ngay_xuat_hien": "2026-10-30",
+  "phan_khu": "Lumiere",
+  "toa": "Lumiere"
+ },
+ "cho-thue-can-ho-2-ngu-lumiere-63m2-tt-2n-3889": {
+  "dien_tich": 63,
+  "loai": "2 Ngủ",
+  "ma": "TT.2N.3889",
+  "ngay_xuat_hien": "2026-10-30",
+  "phan_khu": "Lumiere",
+  "toa": "Lumiere"
+ },
+ "cho-thue-can-ho-2-ngu-lumiere-63m2-tt-2n-4143": {
+  "dien_tich": 63,
+  "loai": "2 Ngủ",
+  "ma": "TT.2N.4143",
+  "ngay_xuat_hien": "2026-10-30",
+  "phan_khu": "Lumiere",
+  "toa": "Lumiere"
+ },
+ "cho-thue-can-ho-2-ngu-lumiere-63m2-tt-2n-4181": {
+  "dien_tich": 63,
+  "loai": "2 Ngủ",
+  "ma": "TT.2N.4181",
+  "ngay_xuat_hien": "2026-10-30",
+  "phan_khu": "Lumiere",
+  "toa": "Lumiere"
+ },
+ "cho-thue-can-ho-2-ngu-lumiere-63m2-tt-2n-4319": {
+  "dien_tich": 63,
+  "loai": "2 Ngủ",
+  "ma": "TT.2N.4319",
+  "ngay_xuat_hien": "2026-10-30",
+  "phan_khu": "Lumiere",
+  "toa": "Lumiere"
+ },
+ "cho-thue-can-ho-2-ngu-lumiere-63m2-tt-2n-4543": {
+  "dien_tich": 63,
+  "loai": "2 Ngủ",
+  "ma": "TT.2N.4543",
+  "ngay_xuat_hien": "2026-10-30",
+  "phan_khu": "Lumiere",
+  "toa": "Lumiere"
+ },
+ "cho-thue-can-ho-2-ngu-lumiere-63m2-tt-2n-4624": {
+  "dien_tich": 63,
+  "loai": "2 Ngủ",
+  "ma": "TT.2N.4624",
+  "ngay_xuat_hien": "2026-10-30",
+  "phan_khu": "Lumiere",
+  "toa": "Lumiere"
+ },
+ "cho-thue-can-ho-2-ngu-lumiere-63m2-tt-2n-4646": {
+  "dien_tich": 63,
+  "loai": "2 Ngủ",
+  "ma": "TT.2N.4646",
+  "ngay_xuat_hien": "2026-10-30",
+  "phan_khu": "Lumiere",
+  "toa": "Lumiere"
+ },
+ "cho-thue-can-ho-2-ngu-lumiere-63m2-tt-2n-4651": {
+  "dien_tich": 63,
+  "loai": "2 Ngủ",
+  "ma": "TT.2N.4651",
+  "ngay_xuat_hien": "2026-10-30",
+  "phan_khu": "Lumiere",
+  "toa": "Lumiere"
+ },
+ "cho-thue-can-ho-2-ngu-lumiere-63m2-tt-2n-4868": {
+  "dien_tich": 63,
+  "loai": "2 Ngủ",
+  "ma": "TT.2N.4868",
+  "ngay_xuat_hien": "2026-10-30",
+  "phan_khu": "Lumiere",
+  "toa": "Lumiere"
+ },
+ "cho-thue-can-ho-2-ngu-lumiere-63m2-tt-2n-5032": {
+  "dien_tich": 63,
+  "loai": "2 Ngủ",
+  "ma": "TT.2N.5032",
+  "ngay_xuat_hien": "2026-10-30",
+  "phan_khu": "Lumiere",
+  "toa": "Lumiere"
+ },
+ "cho-thue-can-ho-2-ngu-lumiere-63m2-tt-2n-5042": {
+  "dien_tich": 63,
+  "loai": "2 Ngủ",
+  "ma": "TT.2N.5042",
+  "ngay_xuat_hien": "2026-10-30",
+  "phan_khu": "Lumiere",
+  "toa": "Lumiere"
+ },
+ "cho-thue-can-ho-2-ngu-lumiere-63m2-tt-2n-5049": {
+  "dien_tich": 63,
+  "loai": "2 Ngủ",
+  "ma": "TT.2N.5049",
+  "ngay_xuat_hien": "2026-10-30",
+  "phan_khu": "Lumiere",
+  "toa": "Lumiere"
+ },
+ "cho-thue-can-ho-2-ngu-lumiere-63m2-tt-2n-5064": {
+  "dien_tich": 63,
+  "loai": "2 Ngủ",
+  "ma": "TT.2N.5064",
+  "ngay_xuat_hien": "2026-10-30",
+  "phan_khu": "Lumiere",
+  "toa": "Lumiere"
+ },
+ "cho-thue-can-ho-2-ngu-lumiere-63m2-tt-2n-5111": {
+  "dien_tich": 63,
+  "loai": "2 Ngủ",
+  "ma": "TT.2N.5111",
+  "ngay_xuat_hien": "2026-10-30",
+  "phan_khu": "Lumiere",
+  "toa": "Lumiere"
+ },
+ "cho-thue-can-ho-2-ngu-lumiere-63m2-tt-2n-5117": {
+  "dien_tich": 63,
+  "loai": "2 Ngủ",
+  "ma": "TT.2N.5117",
+  "ngay_xuat_hien": "2026-10-30",
+  "phan_khu": "Lumiere",
+  "toa": "Lumiere"
+ },
+ "cho-thue-can-ho-2-ngu-lumiere-63m2-tt-2n-5185": {
+  "dien_tich": 63,
+  "loai": "2 Ngủ",
+  "ma": "TT.2N.5185",
+  "ngay_xuat_hien": "2026-10-30",
+  "phan_khu": "Lumiere",
+  "toa": "Lumiere"
+ },
+ "cho-thue-can-ho-2-ngu-lumiere-63m2-tt-2n-5295": {
+  "dien_tich": 63,
+  "loai": "2 Ngủ",
+  "ma": "TT.2N.5295",
+  "ngay_xuat_hien": "2026-10-30",
+  "phan_khu": "Lumiere",
+  "toa": "Lumiere"
+ },
+ "cho-thue-can-ho-2-ngu-lumiere-63m2-tt-2n-5296": {
+  "dien_tich": 63,
+  "loai": "2 Ngủ",
+  "ma": "TT.2N.5296",
+  "ngay_xuat_hien": "2026-10-30",
+  "phan_khu": "Lumiere",
+  "toa": "Lumiere"
+ },
+ "cho-thue-can-ho-2-ngu-lumiere-63m2-tt-2n-5317": {
+  "dien_tich": 63,
+  "loai": "2 Ngủ",
+  "ma": "TT.2N.5317",
+  "ngay_xuat_hien": "2026-10-30",
+  "phan_khu": "Lumiere",
+  "toa": "Lumiere"
+ },
+ "cho-thue-can-ho-2-ngu-lumiere-63m2-tt-2n-5318": {
+  "dien_tich": 63,
+  "loai": "2 Ngủ",
+  "ma": "TT.2N.5318",
+  "ngay_xuat_hien": "2026-10-30",
+  "phan_khu": "Lumiere",
+  "toa": "Lumiere"
+ },
+ "cho-thue-can-ho-2-ngu-lumiere-63m2-tt-2n-5444": {
+  "dien_tich": 63,
+  "loai": "2 Ngủ",
+  "ma": "TT.2N.5444",
+  "ngay_xuat_hien": "2026-10-30",
+  "phan_khu": "Lumiere",
+  "toa": "Lumiere"
+ },
+ "cho-thue-can-ho-2-ngu-lumiere-63m2-tt-2np-2896": {
+  "dien_tich": 63,
+  "loai": "2 Ngủ +",
+  "ma": "TT.2NP.2896",
+  "ngay_xuat_hien": "2026-10-30",
+  "phan_khu": "Lumiere",
+  "toa": "Lumiere"
+ },
+ "cho-thue-can-ho-2-ngu-lumiere-63m2-tt-2np-4820": {
+  "dien_tich": 63,
+  "loai": "2 Ngủ +",
+  "ma": "TT.2NP.4820",
+  "ngay_xuat_hien": "2026-10-30",
+  "phan_khu": "Lumiere",
+  "toa": "Lumiere"
  },
  "cho-thue-can-ho-2-ngu-lumiere-64m2-cc13": {
   "dien_tich": 64,
@@ -3054,6 +5006,14 @@
   "ngay_xuat_hien": "2026-10-20",
   "phan_khu": "Lumiere",
   "toa": "A2"
+ },
+ "cho-thue-can-ho-2-ngu-lumiere-64m2-tt-2n-5648": {
+  "dien_tich": 64,
+  "loai": "2 Ngủ",
+  "ma": "TT.2N.5648",
+  "ngay_xuat_hien": "2026-10-30",
+  "phan_khu": "Lumiere",
+  "toa": "Lumiere"
  },
  "cho-thue-can-ho-2-ngu-lumiere-65m2-ct-2n-314": {
   "dien_tich": 65,
@@ -3151,6 +5111,22 @@
   "phan_khu": "Lumiere",
   "toa": "A2"
  },
+ "cho-thue-can-ho-2-ngu-lumiere-65m2-tt-2n-5427": {
+  "dien_tich": 65,
+  "loai": "2 Ngủ",
+  "ma": "TT.2N.5427",
+  "ngay_xuat_hien": "2026-10-30",
+  "phan_khu": "Lumiere",
+  "toa": "Lumiere"
+ },
+ "cho-thue-can-ho-2-ngu-lumiere-65m2-tt-2n-5617": {
+  "dien_tich": 65,
+  "loai": "2 Ngủ",
+  "ma": "TT.2N.5617",
+  "ngay_xuat_hien": "2026-10-30",
+  "phan_khu": "Lumiere",
+  "toa": "Lumiere"
+ },
  "cho-thue-can-ho-2-ngu-lumiere-66m2-ct-2n2-377": {
   "dien_tich": 66,
   "loai": "2 Ngủ",
@@ -3247,6 +5223,70 @@
   "phan_khu": "Lumiere",
   "toa": "A1"
  },
+ "cho-thue-can-ho-2-ngu-lumiere-66m2-tt-2n-5339": {
+  "dien_tich": 66,
+  "loai": "2 Ngủ",
+  "ma": "TT.2N.5339",
+  "ngay_xuat_hien": "2026-10-30",
+  "phan_khu": "Lumiere",
+  "toa": "Lumiere"
+ },
+ "cho-thue-can-ho-2-ngu-lumiere-66m2-tt-2n-5340": {
+  "dien_tich": 66,
+  "loai": "2 Ngủ",
+  "ma": "TT.2N.5340",
+  "ngay_xuat_hien": "2026-10-30",
+  "phan_khu": "Lumiere",
+  "toa": "Lumiere"
+ },
+ "cho-thue-can-ho-2-ngu-lumiere-66m2-tt-2n-5582": {
+  "dien_tich": 66,
+  "loai": "2 Ngủ",
+  "ma": "TT.2N.5582",
+  "ngay_xuat_hien": "2026-10-30",
+  "phan_khu": "Lumiere",
+  "toa": "Lumiere"
+ },
+ "cho-thue-can-ho-2-ngu-lumiere-66m2-tt-2n-5589": {
+  "dien_tich": 66,
+  "loai": "2 Ngủ",
+  "ma": "TT.2N.5589",
+  "ngay_xuat_hien": "2026-10-30",
+  "phan_khu": "Lumiere",
+  "toa": "Lumiere"
+ },
+ "cho-thue-can-ho-2-ngu-lumiere-66m2-tt-2n-5595": {
+  "dien_tich": 66,
+  "loai": "2 Ngủ",
+  "ma": "TT.2N.5595",
+  "ngay_xuat_hien": "2026-10-30",
+  "phan_khu": "Lumiere",
+  "toa": "Lumiere"
+ },
+ "cho-thue-can-ho-2-ngu-lumiere-66m2-tt-2n-5685": {
+  "dien_tich": 66,
+  "loai": "2 Ngủ",
+  "ma": "TT.2N.5685",
+  "ngay_xuat_hien": "2026-10-30",
+  "phan_khu": "Lumiere",
+  "toa": "Lumiere"
+ },
+ "cho-thue-can-ho-2-ngu-lumiere-66m2-tt-2n-5761": {
+  "dien_tich": 66,
+  "loai": "2 Ngủ",
+  "ma": "TT.2N.5761",
+  "ngay_xuat_hien": "2026-10-30",
+  "phan_khu": "Lumiere",
+  "toa": "Lumiere"
+ },
+ "cho-thue-can-ho-2-ngu-lumiere-66m2-tt-2n-5771": {
+  "dien_tich": 66,
+  "loai": "2 Ngủ",
+  "ma": "TT.2N.5771",
+  "ngay_xuat_hien": "2026-10-30",
+  "phan_khu": "Lumiere",
+  "toa": "Lumiere"
+ },
  "cho-thue-can-ho-2-ngu-lumiere-67m2-ct-2n2-456": {
   "dien_tich": 67,
   "loai": "2 Ngủ",
@@ -3254,6 +5294,118 @@
   "ngay_xuat_hien": "2026-09-25",
   "phan_khu": "Lumiere",
   "toa": "A2"
+ },
+ "cho-thue-can-ho-2-ngu-lumiere-67m2-tt-2n-4209": {
+  "dien_tich": 67,
+  "loai": "2 Ngủ",
+  "ma": "TT.2N.4209",
+  "ngay_xuat_hien": "2026-10-30",
+  "phan_khu": "Lumiere",
+  "toa": "Lumiere"
+ },
+ "cho-thue-can-ho-2-ngu-lumiere-67m2-tt-2n-4453": {
+  "dien_tich": 67,
+  "loai": "2 Ngủ",
+  "ma": "TT.2N.4453",
+  "ngay_xuat_hien": "2026-10-30",
+  "phan_khu": "Lumiere",
+  "toa": "Lumiere"
+ },
+ "cho-thue-can-ho-2-ngu-lumiere-67m2-tt-2n-5021": {
+  "dien_tich": 67,
+  "loai": "2 Ngủ",
+  "ma": "TT.2N.5021",
+  "ngay_xuat_hien": "2026-10-30",
+  "phan_khu": "Lumiere",
+  "toa": "Lumiere"
+ },
+ "cho-thue-can-ho-2-ngu-lumiere-67m2-tt-2n-5091": {
+  "dien_tich": 67,
+  "loai": "2 Ngủ",
+  "ma": "TT.2N.5091",
+  "ngay_xuat_hien": "2026-10-30",
+  "phan_khu": "Lumiere",
+  "toa": "Lumiere"
+ },
+ "cho-thue-can-ho-2-ngu-lumiere-67m2-tt-2n-5098": {
+  "dien_tich": 67,
+  "loai": "2 Ngủ",
+  "ma": "TT.2N.5098",
+  "ngay_xuat_hien": "2026-10-30",
+  "phan_khu": "Lumiere",
+  "toa": "Lumiere"
+ },
+ "cho-thue-can-ho-2-ngu-lumiere-67m2-tt-2n-5103": {
+  "dien_tich": 67,
+  "loai": "2 Ngủ",
+  "ma": "TT.2N.5103",
+  "ngay_xuat_hien": "2026-10-30",
+  "phan_khu": "Lumiere",
+  "toa": "Lumiere"
+ },
+ "cho-thue-can-ho-2-ngu-lumiere-67m2-tt-2n-5110": {
+  "dien_tich": 67,
+  "loai": "2 Ngủ",
+  "ma": "TT.2N.5110",
+  "ngay_xuat_hien": "2026-10-30",
+  "phan_khu": "Lumiere",
+  "toa": "Lumiere"
+ },
+ "cho-thue-can-ho-2-ngu-lumiere-67m2-tt-2n-5180": {
+  "dien_tich": 67,
+  "loai": "2 Ngủ",
+  "ma": "TT.2N.5180",
+  "ngay_xuat_hien": "2026-10-30",
+  "phan_khu": "Lumiere",
+  "toa": "Lumiere"
+ },
+ "cho-thue-can-ho-2-ngu-lumiere-67m2-tt-2n-5344": {
+  "dien_tich": 67,
+  "loai": "2 Ngủ",
+  "ma": "TT.2N.5344",
+  "ngay_xuat_hien": "2026-10-30",
+  "phan_khu": "Lumiere",
+  "toa": "Lumiere"
+ },
+ "cho-thue-can-ho-2-ngu-lumiere-67m2-tt-2n-5489": {
+  "dien_tich": 67,
+  "loai": "2 Ngủ",
+  "ma": "TT.2N.5489",
+  "ngay_xuat_hien": "2026-10-30",
+  "phan_khu": "Lumiere",
+  "toa": "Lumiere"
+ },
+ "cho-thue-can-ho-2-ngu-lumiere-67m2-tt-2n-5516": {
+  "dien_tich": 67,
+  "loai": "2 Ngủ",
+  "ma": "TT.2N.5516",
+  "ngay_xuat_hien": "2026-10-30",
+  "phan_khu": "Lumiere",
+  "toa": "Lumiere"
+ },
+ "cho-thue-can-ho-2-ngu-lumiere-67m2-tt-2n-5517": {
+  "dien_tich": 67,
+  "loai": "2 Ngủ",
+  "ma": "TT.2N.5517",
+  "ngay_xuat_hien": "2026-10-30",
+  "phan_khu": "Lumiere",
+  "toa": "Lumiere"
+ },
+ "cho-thue-can-ho-2-ngu-lumiere-67m2-tt-2n-5596": {
+  "dien_tich": 67,
+  "loai": "2 Ngủ",
+  "ma": "TT.2N.5596",
+  "ngay_xuat_hien": "2026-10-30",
+  "phan_khu": "Lumiere",
+  "toa": "Lumiere"
+ },
+ "cho-thue-can-ho-2-ngu-lumiere-69m2-tt-2np-5704": {
+  "dien_tich": 69,
+  "loai": "2 Ngủ +",
+  "ma": "TT.2NP.5704",
+  "ngay_xuat_hien": "2026-10-30",
+  "phan_khu": "Lumiere",
+  "toa": "Lumiere"
  },
  "cho-thue-can-ho-2-ngu-lumiere-70m2-ct-2n-366": {
   "dien_tich": 70,
@@ -3295,6 +5447,70 @@
   "phan_khu": "Lumiere",
   "toa": "A1"
  },
+ "cho-thue-can-ho-2-ngu-lumiere-72m2-tt-2n-4325": {
+  "dien_tich": 72,
+  "loai": "2 Ngủ",
+  "ma": "TT.2N.4325",
+  "ngay_xuat_hien": "2026-10-30",
+  "phan_khu": "Lumiere",
+  "toa": "Lumiere"
+ },
+ "cho-thue-can-ho-2-ngu-lumiere-72m2-tt-2n-4657": {
+  "dien_tich": 72,
+  "loai": "2 Ngủ",
+  "ma": "TT.2N.4657",
+  "ngay_xuat_hien": "2026-10-30",
+  "phan_khu": "Lumiere",
+  "toa": "Lumiere"
+ },
+ "cho-thue-can-ho-2-ngu-lumiere-72m2-tt-2n-5087": {
+  "dien_tich": 72,
+  "loai": "2 Ngủ",
+  "ma": "TT.2N.5087",
+  "ngay_xuat_hien": "2026-10-30",
+  "phan_khu": "Lumiere",
+  "toa": "Lumiere"
+ },
+ "cho-thue-can-ho-2-ngu-lumiere-72m2-tt-2n-5319": {
+  "dien_tich": 72,
+  "loai": "2 Ngủ",
+  "ma": "TT.2N.5319",
+  "ngay_xuat_hien": "2026-10-30",
+  "phan_khu": "Lumiere",
+  "toa": "Lumiere"
+ },
+ "cho-thue-can-ho-2-ngu-lumiere-72m2-tt-2n-5320": {
+  "dien_tich": 72,
+  "loai": "2 Ngủ",
+  "ma": "TT.2N.5320",
+  "ngay_xuat_hien": "2026-10-30",
+  "phan_khu": "Lumiere",
+  "toa": "Lumiere"
+ },
+ "cho-thue-can-ho-2-ngu-lumiere-72m2-tt-2n-5322": {
+  "dien_tich": 72,
+  "loai": "2 Ngủ",
+  "ma": "TT.2N.5322",
+  "ngay_xuat_hien": "2026-10-30",
+  "phan_khu": "Lumiere",
+  "toa": "Lumiere"
+ },
+ "cho-thue-can-ho-2-ngu-lumiere-72m2-tt-2n-5324": {
+  "dien_tich": 72,
+  "loai": "2 Ngủ",
+  "ma": "TT.2N.5324",
+  "ngay_xuat_hien": "2026-10-30",
+  "phan_khu": "Lumiere",
+  "toa": "Lumiere"
+ },
+ "cho-thue-can-ho-2-ngu-lumiere-72m2-tt-2n-5544": {
+  "dien_tich": 72,
+  "loai": "2 Ngủ",
+  "ma": "TT.2N.5544",
+  "ngay_xuat_hien": "2026-10-30",
+  "phan_khu": "Lumiere",
+  "toa": "Lumiere"
+ },
  "cho-thue-can-ho-2-ngu-lumiere-73m2-ct-2n-311": {
   "dien_tich": 73.2,
   "loai": "2 Ngủ +",
@@ -3310,6 +5526,30 @@
   "ngay_xuat_hien": "2026-09-18",
   "phan_khu": "Lumiere",
   "toa": "A1"
+ },
+ "cho-thue-can-ho-2-ngu-lumiere-74m2-tt-2np-5330": {
+  "dien_tich": 74,
+  "loai": "2 Ngủ +",
+  "ma": "TT.2NP.5330",
+  "ngay_xuat_hien": "2026-10-30",
+  "phan_khu": "Lumiere",
+  "toa": "Lumiere"
+ },
+ "cho-thue-can-ho-2-ngu-lumiere-74m2-tt-2np-5331": {
+  "dien_tich": 74,
+  "loai": "2 Ngủ +",
+  "ma": "TT.2NP.5331",
+  "ngay_xuat_hien": "2026-10-30",
+  "phan_khu": "Lumiere",
+  "toa": "Lumiere"
+ },
+ "cho-thue-can-ho-2-ngu-lumiere-74m2-tt-2np-5549": {
+  "dien_tich": 74,
+  "loai": "2 Ngủ +",
+  "ma": "TT.2NP.5549",
+  "ngay_xuat_hien": "2026-10-30",
+  "phan_khu": "Lumiere",
+  "toa": "Lumiere"
  },
  "cho-thue-can-ho-2-ngu-lumiere-75m2-ct-2n-322": {
   "dien_tich": 75,
@@ -3335,6 +5575,70 @@
   "phan_khu": "Lumiere",
   "toa": "A1"
  },
+ "cho-thue-can-ho-2-ngu-lumiere-75m2-tt-2np-2889": {
+  "dien_tich": 75,
+  "loai": "2 Ngủ +",
+  "ma": "TT.2NP.2889",
+  "ngay_xuat_hien": "2026-10-30",
+  "phan_khu": "Lumiere",
+  "toa": "Lumiere"
+ },
+ "cho-thue-can-ho-2-ngu-lumiere-75m2-tt-2np-2890": {
+  "dien_tich": 75,
+  "loai": "2 Ngủ +",
+  "ma": "TT.2NP.2890",
+  "ngay_xuat_hien": "2026-10-30",
+  "phan_khu": "Lumiere",
+  "toa": "Lumiere"
+ },
+ "cho-thue-can-ho-2-ngu-lumiere-75m2-tt-2np-4315": {
+  "dien_tich": 75,
+  "loai": "2 Ngủ +",
+  "ma": "TT.2NP.4315",
+  "ngay_xuat_hien": "2026-10-30",
+  "phan_khu": "Lumiere",
+  "toa": "Lumiere"
+ },
+ "cho-thue-can-ho-2-ngu-lumiere-75m2-tt-2np-5176": {
+  "dien_tich": 75,
+  "loai": "2 Ngủ +",
+  "ma": "TT.2NP.5176",
+  "ngay_xuat_hien": "2026-10-30",
+  "phan_khu": "Lumiere",
+  "toa": "Lumiere"
+ },
+ "cho-thue-can-ho-2-ngu-lumiere-75m2-tt-2np-5285": {
+  "dien_tich": 75,
+  "loai": "2 Ngủ +",
+  "ma": "TT.2NP.5285",
+  "ngay_xuat_hien": "2026-10-30",
+  "phan_khu": "Lumiere",
+  "toa": "Lumiere"
+ },
+ "cho-thue-can-ho-2-ngu-lumiere-75m2-tt-2np-5286": {
+  "dien_tich": 75,
+  "loai": "2 Ngủ +",
+  "ma": "TT.2NP.5286",
+  "ngay_xuat_hien": "2026-10-30",
+  "phan_khu": "Lumiere",
+  "toa": "Lumiere"
+ },
+ "cho-thue-can-ho-2-ngu-lumiere-75m2-tt-2np-5287": {
+  "dien_tich": 75,
+  "loai": "2 Ngủ +",
+  "ma": "TT.2NP.5287",
+  "ngay_xuat_hien": "2026-10-30",
+  "phan_khu": "Lumiere",
+  "toa": "Lumiere"
+ },
+ "cho-thue-can-ho-2-ngu-lumiere-75m2-tt-2np-5720": {
+  "dien_tich": 75,
+  "loai": "2 Ngủ +",
+  "ma": "TT.2NP.5720",
+  "ngay_xuat_hien": "2026-10-30",
+  "phan_khu": "Lumiere",
+  "toa": "Lumiere"
+ },
  "cho-thue-can-ho-2-ngu-lumiere-80m2-ct-2n-315": {
   "dien_tich": 80,
   "loai": "2 Ngủ +",
@@ -3342,6 +5646,30 @@
   "ngay_xuat_hien": "2026-09-21",
   "phan_khu": "Lumiere",
   "toa": "A3"
+ },
+ "cho-thue-can-ho-2-ngu-lumiere-80m2-tt-2np-4978": {
+  "dien_tich": 80,
+  "loai": "2 Ngủ +",
+  "ma": "TT.2NP.4978",
+  "ngay_xuat_hien": "2026-10-30",
+  "phan_khu": "Lumiere",
+  "toa": "Lumiere"
+ },
+ "cho-thue-can-ho-2-ngu-masteri-53m2-tt-2n-5675": {
+  "dien_tich": 53,
+  "loai": "2 Ngủ",
+  "ma": "TT.2N.5675",
+  "ngay_xuat_hien": "2026-10-30",
+  "phan_khu": "Masteri",
+  "toa": "MAS"
+ },
+ "cho-thue-can-ho-2-ngu-masteri-53m2-tt-2n-5759": {
+  "dien_tich": 53,
+  "loai": "2 Ngủ",
+  "ma": "TT.2N.5759",
+  "ngay_xuat_hien": "2026-10-30",
+  "phan_khu": "Masteri",
+  "toa": "MAS"
  },
  "cho-thue-can-ho-2-ngu-masteri-54m2-42": {
   "dien_tich": 54,
@@ -3415,6 +5743,78 @@
   "phan_khu": "Masteri",
   "toa": "MasB"
  },
+ "cho-thue-can-ho-2-ngu-masteri-54m2-tt-2n-2224": {
+  "dien_tich": 54,
+  "loai": "2 Ngủ",
+  "ma": "TT.2N.2224",
+  "ngay_xuat_hien": "2026-10-30",
+  "phan_khu": "Masteri",
+  "toa": "MAS"
+ },
+ "cho-thue-can-ho-2-ngu-masteri-54m2-tt-2n-3077": {
+  "dien_tich": 54,
+  "loai": "2 Ngủ",
+  "ma": "TT.2N.3077",
+  "ngay_xuat_hien": "2026-10-30",
+  "phan_khu": "Masteri",
+  "toa": "MAS"
+ },
+ "cho-thue-can-ho-2-ngu-masteri-54m2-tt-2n-4536": {
+  "dien_tich": 54,
+  "loai": "2 Ngủ",
+  "ma": "TT.2N.4536",
+  "ngay_xuat_hien": "2026-10-30",
+  "phan_khu": "Masteri",
+  "toa": "MAS"
+ },
+ "cho-thue-can-ho-2-ngu-masteri-54m2-tt-2n-4708": {
+  "dien_tich": 54,
+  "loai": "2 Ngủ",
+  "ma": "TT.2N.4708",
+  "ngay_xuat_hien": "2026-10-30",
+  "phan_khu": "Masteri",
+  "toa": "MAS"
+ },
+ "cho-thue-can-ho-2-ngu-masteri-54m2-tt-2n-4969": {
+  "dien_tich": 54,
+  "loai": "2 Ngủ",
+  "ma": "TT.2N.4969",
+  "ngay_xuat_hien": "2026-10-30",
+  "phan_khu": "Masteri",
+  "toa": "MAS"
+ },
+ "cho-thue-can-ho-2-ngu-masteri-54m2-tt-2n-5026": {
+  "dien_tich": 54,
+  "loai": "2 Ngủ",
+  "ma": "TT.2N.5026",
+  "ngay_xuat_hien": "2026-10-30",
+  "phan_khu": "Masteri",
+  "toa": "MAS"
+ },
+ "cho-thue-can-ho-2-ngu-masteri-54m2-tt-2n-5283": {
+  "dien_tich": 54,
+  "loai": "2 Ngủ",
+  "ma": "TT.2N.5283",
+  "ngay_xuat_hien": "2026-10-30",
+  "phan_khu": "Masteri",
+  "toa": "MAS"
+ },
+ "cho-thue-can-ho-2-ngu-masteri-54m2-tt-2n-5420": {
+  "dien_tich": 54,
+  "loai": "2 Ngủ",
+  "ma": "TT.2N.5420",
+  "ngay_xuat_hien": "2026-10-30",
+  "phan_khu": "Masteri",
+  "toa": "MAS"
+ },
+ "cho-thue-can-ho-2-ngu-masteri-54m2-tt-2n-5591": {
+  "dien_tich": 54,
+  "loai": "2 Ngủ",
+  "ma": "TT.2N.5591",
+  "ngay_xuat_hien": "2026-10-30",
+  "phan_khu": "Masteri",
+  "toa": "MAS"
+ },
  "cho-thue-can-ho-2-ngu-masteri-55m2-29": {
   "dien_tich": 55,
   "loai": "2 Ngủ +",
@@ -3470,6 +5870,54 @@
   "ngay_xuat_hien": "2026-10-08",
   "phan_khu": "Masteri",
   "toa": "MasA"
+ },
+ "cho-thue-can-ho-2-ngu-masteri-60m2-tt-2n-4024": {
+  "dien_tich": 60,
+  "loai": "2 Ngủ",
+  "ma": "TT.2N.4024",
+  "ngay_xuat_hien": "2026-10-30",
+  "phan_khu": "Masteri",
+  "toa": "MAS"
+ },
+ "cho-thue-can-ho-2-ngu-masteri-60m2-tt-2n-4815": {
+  "dien_tich": 60,
+  "loai": "2 Ngủ",
+  "ma": "TT.2N.4815",
+  "ngay_xuat_hien": "2026-10-30",
+  "phan_khu": "Masteri",
+  "toa": "MAS"
+ },
+ "cho-thue-can-ho-2-ngu-masteri-60m2-tt-2n-4932": {
+  "dien_tich": 60,
+  "loai": "2 Ngủ",
+  "ma": "TT.2N.4932",
+  "ngay_xuat_hien": "2026-10-30",
+  "phan_khu": "Masteri",
+  "toa": "MAS"
+ },
+ "cho-thue-can-ho-2-ngu-masteri-60m2-tt-2n-5162": {
+  "dien_tich": 60,
+  "loai": "2 Ngủ",
+  "ma": "TT.2N.5162",
+  "ngay_xuat_hien": "2026-10-30",
+  "phan_khu": "Masteri",
+  "toa": "MAS"
+ },
+ "cho-thue-can-ho-2-ngu-masteri-60m2-tt-2n-5399": {
+  "dien_tich": 60,
+  "loai": "2 Ngủ",
+  "ma": "TT.2N.5399",
+  "ngay_xuat_hien": "2026-10-30",
+  "phan_khu": "Masteri",
+  "toa": "MAS"
+ },
+ "cho-thue-can-ho-2-ngu-masteri-60m2-tt-2n-5423": {
+  "dien_tich": 60,
+  "loai": "2 Ngủ",
+  "ma": "TT.2N.5423",
+  "ngay_xuat_hien": "2026-10-30",
+  "phan_khu": "Masteri",
+  "toa": "MAS"
  },
  "cho-thue-can-ho-2-ngu-masteri-62m2-ct-2n-157": {
   "dien_tich": 62,
@@ -3591,6 +6039,38 @@
   "phan_khu": "Masteri",
   "toa": "MasA"
  },
+ "cho-thue-can-ho-2-ngu-masteri-62m2-tt-2n-5672": {
+  "dien_tich": 62,
+  "loai": "2 Ngủ",
+  "ma": "TT.2N.5672",
+  "ngay_xuat_hien": "2026-10-30",
+  "phan_khu": "Masteri",
+  "toa": "MAS"
+ },
+ "cho-thue-can-ho-2-ngu-masteri-62m2-tt-2np-5172": {
+  "dien_tich": 62,
+  "loai": "2 Ngủ +",
+  "ma": "TT.2NP.5172",
+  "ngay_xuat_hien": "2026-10-30",
+  "phan_khu": "Masteri",
+  "toa": "MAS"
+ },
+ "cho-thue-can-ho-2-ngu-masteri-62m2-tt-2np-5225": {
+  "dien_tich": 62,
+  "loai": "2 Ngủ +",
+  "ma": "TT.2NP.5225",
+  "ngay_xuat_hien": "2026-10-30",
+  "phan_khu": "Masteri",
+  "toa": "MAS"
+ },
+ "cho-thue-can-ho-2-ngu-masteri-62m2-tt-2np-5696": {
+  "dien_tich": 62,
+  "loai": "2 Ngủ +",
+  "ma": "TT.2NP.5696",
+  "ngay_xuat_hien": "2026-10-30",
+  "phan_khu": "Masteri",
+  "toa": "MAS"
+ },
  "cho-thue-can-ho-2-ngu-masteri-63m2-ct-2n-264": {
   "dien_tich": 63,
   "loai": "2 Ngủ +",
@@ -3654,6 +6134,142 @@
   "ngay_xuat_hien": "2026-10-23",
   "phan_khu": "Masteri",
   "toa": "MasA"
+ },
+ "cho-thue-can-ho-2-ngu-masteri-63m2-tt-2n-4985": {
+  "dien_tich": 63,
+  "loai": "2 Ngủ",
+  "ma": "TT.2N.4985",
+  "ngay_xuat_hien": "2026-10-30",
+  "phan_khu": "Masteri",
+  "toa": "MAS"
+ },
+ "cho-thue-can-ho-2-ngu-masteri-63m2-tt-2np-2356": {
+  "dien_tich": 63,
+  "loai": "2 Ngủ +",
+  "ma": "TT.2NP.2356",
+  "ngay_xuat_hien": "2026-10-30",
+  "phan_khu": "Masteri",
+  "toa": "MAS"
+ },
+ "cho-thue-can-ho-2-ngu-masteri-63m2-tt-2np-2797": {
+  "dien_tich": 63,
+  "loai": "2 Ngủ +",
+  "ma": "TT.2NP.2797",
+  "ngay_xuat_hien": "2026-10-30",
+  "phan_khu": "Masteri",
+  "toa": "MAS"
+ },
+ "cho-thue-can-ho-2-ngu-masteri-63m2-tt-2np-3326": {
+  "dien_tich": 63,
+  "loai": "2 Ngủ +",
+  "ma": "TT.2NP.3326",
+  "ngay_xuat_hien": "2026-10-30",
+  "phan_khu": "Masteri",
+  "toa": "MAS"
+ },
+ "cho-thue-can-ho-2-ngu-masteri-63m2-tt-2np-3617": {
+  "dien_tich": 63,
+  "loai": "2 Ngủ +",
+  "ma": "TT.2NP.3617",
+  "ngay_xuat_hien": "2026-10-30",
+  "phan_khu": "Masteri",
+  "toa": "MAS"
+ },
+ "cho-thue-can-ho-2-ngu-masteri-63m2-tt-2np-3736": {
+  "dien_tich": 63,
+  "loai": "2 Ngủ +",
+  "ma": "TT.2NP.3736",
+  "ngay_xuat_hien": "2026-10-30",
+  "phan_khu": "Masteri",
+  "toa": "MAS"
+ },
+ "cho-thue-can-ho-2-ngu-masteri-63m2-tt-2np-4132": {
+  "dien_tich": 63,
+  "loai": "2 Ngủ +",
+  "ma": "TT.2NP.4132",
+  "ngay_xuat_hien": "2026-10-30",
+  "phan_khu": "Masteri",
+  "toa": "MAS"
+ },
+ "cho-thue-can-ho-2-ngu-masteri-63m2-tt-2np-4225": {
+  "dien_tich": 63,
+  "loai": "2 Ngủ +",
+  "ma": "TT.2NP.4225",
+  "ngay_xuat_hien": "2026-10-30",
+  "phan_khu": "Masteri",
+  "toa": "MAS"
+ },
+ "cho-thue-can-ho-2-ngu-masteri-63m2-tt-2np-4363": {
+  "dien_tich": 63,
+  "loai": "2 Ngủ +",
+  "ma": "TT.2NP.4363",
+  "ngay_xuat_hien": "2026-10-30",
+  "phan_khu": "Masteri",
+  "toa": "MAS"
+ },
+ "cho-thue-can-ho-2-ngu-masteri-63m2-tt-2np-4406": {
+  "dien_tich": 63,
+  "loai": "2 Ngủ +",
+  "ma": "TT.2NP.4406",
+  "ngay_xuat_hien": "2026-10-30",
+  "phan_khu": "Masteri",
+  "toa": "MAS"
+ },
+ "cho-thue-can-ho-2-ngu-masteri-63m2-tt-2np-4441": {
+  "dien_tich": 63,
+  "loai": "2 Ngủ +",
+  "ma": "TT.2NP.4441",
+  "ngay_xuat_hien": "2026-10-30",
+  "phan_khu": "Masteri",
+  "toa": "MAS"
+ },
+ "cho-thue-can-ho-2-ngu-masteri-63m2-tt-2np-4551": {
+  "dien_tich": 63,
+  "loai": "2 Ngủ +",
+  "ma": "TT.2NP.4551",
+  "ngay_xuat_hien": "2026-10-30",
+  "phan_khu": "Masteri",
+  "toa": "MAS"
+ },
+ "cho-thue-can-ho-2-ngu-masteri-63m2-tt-2np-4642": {
+  "dien_tich": 63,
+  "loai": "2 Ngủ +",
+  "ma": "TT.2NP.4642",
+  "ngay_xuat_hien": "2026-10-30",
+  "phan_khu": "Masteri",
+  "toa": "MAS"
+ },
+ "cho-thue-can-ho-2-ngu-masteri-63m2-tt-2np-4966": {
+  "dien_tich": 63,
+  "loai": "2 Ngủ +",
+  "ma": "TT.2NP.4966",
+  "ngay_xuat_hien": "2026-10-30",
+  "phan_khu": "Masteri",
+  "toa": "MAS"
+ },
+ "cho-thue-can-ho-2-ngu-masteri-63m2-tt-2np-5387": {
+  "dien_tich": 63,
+  "loai": "2 Ngủ +",
+  "ma": "TT.2NP.5387",
+  "ngay_xuat_hien": "2026-10-30",
+  "phan_khu": "Masteri",
+  "toa": "MAS"
+ },
+ "cho-thue-can-ho-2-ngu-masteri-63m2-tt-2np-5554": {
+  "dien_tich": 63,
+  "loai": "2 Ngủ +",
+  "ma": "TT.2NP.5554",
+  "ngay_xuat_hien": "2026-10-30",
+  "phan_khu": "Masteri",
+  "toa": "MAS"
+ },
+ "cho-thue-can-ho-2-ngu-masteri-63m2-tt-2np-5583": {
+  "dien_tich": 63,
+  "loai": "2 Ngủ +",
+  "ma": "TT.2NP.5583",
+  "ngay_xuat_hien": "2026-10-30",
+  "phan_khu": "Masteri",
+  "toa": "MAS"
  },
  "cho-thue-can-ho-2-ngu-masteri-64m2-ct-2n-274": {
   "dien_tich": 64,
@@ -3751,6 +6367,22 @@
   "phan_khu": "Miami",
   "toa": "GS1"
  },
+ "cho-thue-can-ho-2-ngu-miami-54m2-tt-2n-5447": {
+  "dien_tich": 54,
+  "loai": "2 Ngủ",
+  "ma": "TT.2N.5447",
+  "ngay_xuat_hien": "2026-10-30",
+  "phan_khu": "Miami",
+  "toa": "GS"
+ },
+ "cho-thue-can-ho-2-ngu-miami-54m2-tt-2n-5613": {
+  "dien_tich": 54,
+  "loai": "2 Ngủ",
+  "ma": "TT.2N.5613",
+  "ngay_xuat_hien": "2026-10-30",
+  "phan_khu": "Miami",
+  "toa": "GS"
+ },
  "cho-thue-can-ho-2-ngu-miami-55m2-ct-2n2-259": {
   "dien_tich": 55,
   "loai": "2 Ngủ",
@@ -3758,6 +6390,30 @@
   "ngay_xuat_hien": "2026-07-08",
   "phan_khu": "Miami",
   "toa": "GS1"
+ },
+ "cho-thue-can-ho-2-ngu-miami-55m2-tt-2n-5343": {
+  "dien_tich": 55,
+  "loai": "2 Ngủ",
+  "ma": "TT.2N.5343",
+  "ngay_xuat_hien": "2026-10-30",
+  "phan_khu": "Miami",
+  "toa": "GS"
+ },
+ "cho-thue-can-ho-2-ngu-miami-55m2-tt-2n-5360": {
+  "dien_tich": 55,
+  "loai": "2 Ngủ",
+  "ma": "TT.2N.5360",
+  "ngay_xuat_hien": "2026-10-30",
+  "phan_khu": "Miami",
+  "toa": "GS"
+ },
+ "cho-thue-can-ho-2-ngu-miami-55m2-tt-2n-5491": {
+  "dien_tich": 55,
+  "loai": "2 Ngủ",
+  "ma": "TT.2N.5491",
+  "ngay_xuat_hien": "2026-10-30",
+  "phan_khu": "Miami",
+  "toa": "GS"
  },
  "cho-thue-can-ho-2-ngu-miami-61m2-ct-2n2-375": {
   "dien_tich": 61,
@@ -3991,6 +6647,150 @@
   "phan_khu": "Miami",
   "toa": "GS6"
  },
+ "cho-thue-can-ho-2-ngu-miami-63m2-tt-2n-4605": {
+  "dien_tich": 63,
+  "loai": "2 Ngủ",
+  "ma": "TT.2N.4605",
+  "ngay_xuat_hien": "2026-10-30",
+  "phan_khu": "Miami",
+  "toa": "GS"
+ },
+ "cho-thue-can-ho-2-ngu-miami-63m2-tt-2n-4901": {
+  "dien_tich": 63,
+  "loai": "2 Ngủ",
+  "ma": "TT.2N.4901",
+  "ngay_xuat_hien": "2026-10-30",
+  "phan_khu": "Miami",
+  "toa": "GS"
+ },
+ "cho-thue-can-ho-2-ngu-miami-63m2-tt-2n-4994": {
+  "dien_tich": 63,
+  "loai": "2 Ngủ",
+  "ma": "TT.2N.4994",
+  "ngay_xuat_hien": "2026-10-30",
+  "phan_khu": "Miami",
+  "toa": "GS"
+ },
+ "cho-thue-can-ho-2-ngu-miami-63m2-tt-2n-5014": {
+  "dien_tich": 63,
+  "loai": "2 Ngủ",
+  "ma": "TT.2N.5014",
+  "ngay_xuat_hien": "2026-10-30",
+  "phan_khu": "Miami",
+  "toa": "GS"
+ },
+ "cho-thue-can-ho-2-ngu-miami-63m2-tt-2n-5017": {
+  "dien_tich": 63,
+  "loai": "2 Ngủ",
+  "ma": "TT.2N.5017",
+  "ngay_xuat_hien": "2026-10-30",
+  "phan_khu": "Miami",
+  "toa": "GS"
+ },
+ "cho-thue-can-ho-2-ngu-miami-63m2-tt-2n-5044": {
+  "dien_tich": 63,
+  "loai": "2 Ngủ",
+  "ma": "TT.2N.5044",
+  "ngay_xuat_hien": "2026-10-30",
+  "phan_khu": "Miami",
+  "toa": "GS"
+ },
+ "cho-thue-can-ho-2-ngu-miami-63m2-tt-2n-5082": {
+  "dien_tich": 63,
+  "loai": "2 Ngủ",
+  "ma": "TT.2N.5082",
+  "ngay_xuat_hien": "2026-10-30",
+  "phan_khu": "Miami",
+  "toa": "GS"
+ },
+ "cho-thue-can-ho-2-ngu-miami-63m2-tt-2n-5159": {
+  "dien_tich": 63,
+  "loai": "2 Ngủ",
+  "ma": "TT.2N.5159",
+  "ngay_xuat_hien": "2026-10-30",
+  "phan_khu": "Miami",
+  "toa": "GS"
+ },
+ "cho-thue-can-ho-2-ngu-miami-63m2-tt-2n-5476": {
+  "dien_tich": 63,
+  "loai": "2 Ngủ",
+  "ma": "TT.2N.5476",
+  "ngay_xuat_hien": "2026-10-30",
+  "phan_khu": "Miami",
+  "toa": "GS"
+ },
+ "cho-thue-can-ho-2-ngu-miami-63m2-tt-2n-5508": {
+  "dien_tich": 63,
+  "loai": "2 Ngủ",
+  "ma": "TT.2N.5508",
+  "ngay_xuat_hien": "2026-10-30",
+  "phan_khu": "Miami",
+  "toa": "GS"
+ },
+ "cho-thue-can-ho-2-ngu-miami-63m2-tt-2n-5509": {
+  "dien_tich": 63,
+  "loai": "2 Ngủ",
+  "ma": "TT.2N.5509",
+  "ngay_xuat_hien": "2026-10-30",
+  "phan_khu": "Miami",
+  "toa": "GS"
+ },
+ "cho-thue-can-ho-2-ngu-miami-63m2-tt-2n-5535": {
+  "dien_tich": 63,
+  "loai": "2 Ngủ",
+  "ma": "TT.2N.5535",
+  "ngay_xuat_hien": "2026-10-30",
+  "phan_khu": "Miami",
+  "toa": "GS"
+ },
+ "cho-thue-can-ho-2-ngu-miami-63m2-tt-2n-5715": {
+  "dien_tich": 63,
+  "loai": "2 Ngủ",
+  "ma": "TT.2N.5715",
+  "ngay_xuat_hien": "2026-10-30",
+  "phan_khu": "Miami",
+  "toa": "GS"
+ },
+ "cho-thue-can-ho-2-ngu-miami-63m2-tt-2n-5754": {
+  "dien_tich": 63,
+  "loai": "2 Ngủ",
+  "ma": "TT.2N.5754",
+  "ngay_xuat_hien": "2026-10-30",
+  "phan_khu": "Miami",
+  "toa": "GS"
+ },
+ "cho-thue-can-ho-2-ngu-miami-63m2-tt-2np-4903": {
+  "dien_tich": 63,
+  "loai": "2 Ngủ +",
+  "ma": "TT.2NP.4903",
+  "ngay_xuat_hien": "2026-10-30",
+  "phan_khu": "Miami",
+  "toa": "GS"
+ },
+ "cho-thue-can-ho-2-ngu-miami-63m2-tt-2np-4959": {
+  "dien_tich": 63,
+  "loai": "2 Ngủ +",
+  "ma": "TT.2NP.4959",
+  "ngay_xuat_hien": "2026-10-30",
+  "phan_khu": "Miami",
+  "toa": "GS"
+ },
+ "cho-thue-can-ho-2-ngu-miami-63m2-tt-2np-5562": {
+  "dien_tich": 63,
+  "loai": "2 Ngủ +",
+  "ma": "TT.2NP.5562",
+  "ngay_xuat_hien": "2026-10-30",
+  "phan_khu": "Miami",
+  "toa": "GS"
+ },
+ "cho-thue-can-ho-2-ngu-miami-63m2-tt-2np-5600": {
+  "dien_tich": 63,
+  "loai": "2 Ngủ +",
+  "ma": "TT.2NP.5600",
+  "ngay_xuat_hien": "2026-10-30",
+  "phan_khu": "Miami",
+  "toa": "GS"
+ },
  "cho-thue-can-ho-2-ngu-miami-64m2-ct-2n-279": {
   "dien_tich": 64,
   "loai": "2 Ngủ +",
@@ -4055,6 +6855,30 @@
   "phan_khu": "Miami",
   "toa": "GS5"
  },
+ "cho-thue-can-ho-2-ngu-miami-64m2-tt-2n-5619": {
+  "dien_tich": 64,
+  "loai": "2 Ngủ",
+  "ma": "TT.2N.5619",
+  "ngay_xuat_hien": "2026-10-30",
+  "phan_khu": "Miami",
+  "toa": "GS"
+ },
+ "cho-thue-can-ho-2-ngu-miami-64m2-tt-2np-5358": {
+  "dien_tich": 64,
+  "loai": "2 Ngủ +",
+  "ma": "TT.2NP.5358",
+  "ngay_xuat_hien": "2026-10-30",
+  "phan_khu": "Miami",
+  "toa": "GS"
+ },
+ "cho-thue-can-ho-2-ngu-miami-64m2-tt-2np-5618": {
+  "dien_tich": 64,
+  "loai": "2 Ngủ +",
+  "ma": "TT.2NP.5618",
+  "ngay_xuat_hien": "2026-10-30",
+  "phan_khu": "Miami",
+  "toa": "GS"
+ },
  "cho-thue-can-ho-2-ngu-miami-71m2-ct-2n2-319": {
   "dien_tich": 70.6,
   "loai": "2 Ngủ",
@@ -4070,6 +6894,38 @@
   "ngay_xuat_hien": "2026-09-23",
   "phan_khu": "Miami",
   "toa": "GS6"
+ },
+ "cho-thue-can-ho-2-ngu-miami-71m2-tt-2n-4300": {
+  "dien_tich": 71,
+  "loai": "2 Ngủ",
+  "ma": "TT.2N.4300",
+  "ngay_xuat_hien": "2026-10-30",
+  "phan_khu": "Miami",
+  "toa": "GS"
+ },
+ "cho-thue-can-ho-2-ngu-miami-71m2-tt-2n-4478": {
+  "dien_tich": 71,
+  "loai": "2 Ngủ",
+  "ma": "TT.2N.4478",
+  "ngay_xuat_hien": "2026-10-30",
+  "phan_khu": "Miami",
+  "toa": "GS"
+ },
+ "cho-thue-can-ho-2-ngu-miami-71m2-tt-2n-5165": {
+  "dien_tich": 71,
+  "loai": "2 Ngủ",
+  "ma": "TT.2N.5165",
+  "ngay_xuat_hien": "2026-10-30",
+  "phan_khu": "Miami",
+  "toa": "GS"
+ },
+ "cho-thue-can-ho-2-ngu-miami-71m2-tt-2n-5234": {
+  "dien_tich": 71,
+  "loai": "2 Ngủ",
+  "ma": "TT.2N.5234",
+  "ngay_xuat_hien": "2026-10-30",
+  "phan_khu": "Miami",
+  "toa": "GS"
  },
  "cho-thue-can-ho-2-ngu-miami-72m2-ct-2n2-326": {
   "dien_tich": 72,
@@ -4263,6 +7119,46 @@
   "phan_khu": "Sakura",
   "toa": "SA3"
  },
+ "cho-thue-can-ho-2-ngu-sakura-54m2-tt-2n-3131": {
+  "dien_tich": 54,
+  "loai": "2 Ngủ",
+  "ma": "TT.2N.3131",
+  "ngay_xuat_hien": "2026-10-30",
+  "phan_khu": "Sakura",
+  "toa": "SA"
+ },
+ "cho-thue-can-ho-2-ngu-sakura-54m2-tt-2n-4533": {
+  "dien_tich": 54,
+  "loai": "2 Ngủ",
+  "ma": "TT.2N.4533",
+  "ngay_xuat_hien": "2026-10-30",
+  "phan_khu": "Sakura",
+  "toa": "SA"
+ },
+ "cho-thue-can-ho-2-ngu-sakura-54m2-tt-2n-4777": {
+  "dien_tich": 54,
+  "loai": "2 Ngủ",
+  "ma": "TT.2N.4777",
+  "ngay_xuat_hien": "2026-10-30",
+  "phan_khu": "Sakura",
+  "toa": "SA"
+ },
+ "cho-thue-can-ho-2-ngu-sakura-54m2-tt-2n-5100": {
+  "dien_tich": 54,
+  "loai": "2 Ngủ",
+  "ma": "TT.2N.5100",
+  "ngay_xuat_hien": "2026-10-30",
+  "phan_khu": "Sakura",
+  "toa": "SA"
+ },
+ "cho-thue-can-ho-2-ngu-sakura-54m2-tt-2n-5421": {
+  "dien_tich": 54,
+  "loai": "2 Ngủ",
+  "ma": "TT.2N.5421",
+  "ngay_xuat_hien": "2026-10-30",
+  "phan_khu": "Sakura",
+  "toa": "SA"
+ },
  "cho-thue-can-ho-2-ngu-sakura-55m2-ct-2n2-395": {
   "dien_tich": 55,
   "loai": "2 Ngủ",
@@ -4279,6 +7175,46 @@
   "phan_khu": "Sakura",
   "toa": "SA2"
  },
+ "cho-thue-can-ho-2-ngu-sakura-55m2-tt-2n-5520": {
+  "dien_tich": 55,
+  "loai": "2 Ngủ",
+  "ma": "TT.2N.5520",
+  "ngay_xuat_hien": "2026-10-30",
+  "phan_khu": "Sakura",
+  "toa": "SA"
+ },
+ "cho-thue-can-ho-2-ngu-sakura-55m2-tt-2n-5521": {
+  "dien_tich": 55,
+  "loai": "2 Ngủ",
+  "ma": "TT.2N.5521",
+  "ngay_xuat_hien": "2026-10-30",
+  "phan_khu": "Sakura",
+  "toa": "SA"
+ },
+ "cho-thue-can-ho-2-ngu-sakura-55m2-tt-2n-5592": {
+  "dien_tich": 55,
+  "loai": "2 Ngủ",
+  "ma": "TT.2N.5592",
+  "ngay_xuat_hien": "2026-10-30",
+  "phan_khu": "Sakura",
+  "toa": "SA"
+ },
+ "cho-thue-can-ho-2-ngu-sakura-55m2-tt-2n-5597": {
+  "dien_tich": 55,
+  "loai": "2 Ngủ",
+  "ma": "TT.2N.5597",
+  "ngay_xuat_hien": "2026-10-30",
+  "phan_khu": "Sakura",
+  "toa": "SA"
+ },
+ "cho-thue-can-ho-2-ngu-sakura-55m2-tt-2n-5749": {
+  "dien_tich": 55,
+  "loai": "2 Ngủ",
+  "ma": "TT.2N.5749",
+  "ngay_xuat_hien": "2026-10-30",
+  "phan_khu": "Sakura",
+  "toa": "SA"
+ },
  "cho-thue-can-ho-2-ngu-sakura-61m2-ct-2n2-494": {
   "dien_tich": 61,
   "loai": "2 Ngủ",
@@ -4286,6 +7222,22 @@
   "ngay_xuat_hien": "2026-10-21",
   "phan_khu": "Sakura",
   "toa": "SA5"
+ },
+ "cho-thue-can-ho-2-ngu-sakura-61m2-tt-2n-5570": {
+  "dien_tich": 61,
+  "loai": "2 Ngủ",
+  "ma": "TT.2N.5570",
+  "ngay_xuat_hien": "2026-10-30",
+  "phan_khu": "Sakura",
+  "toa": "SA"
+ },
+ "cho-thue-can-ho-2-ngu-sakura-61m2-tt-2n-5705": {
+  "dien_tich": 61,
+  "loai": "2 Ngủ",
+  "ma": "TT.2N.5705",
+  "ngay_xuat_hien": "2026-10-30",
+  "phan_khu": "Sakura",
+  "toa": "SA"
  },
  "cho-thue-can-ho-2-ngu-sakura-62m2-ct-2n2-315": {
   "dien_tich": 62,
@@ -4335,6 +7287,14 @@
   "phan_khu": "Sakura",
   "toa": "SA3"
  },
+ "cho-thue-can-ho-2-ngu-sakura-62m2-tt-2n-5726": {
+  "dien_tich": 62,
+  "loai": "2 Ngủ",
+  "ma": "TT.2N.5726",
+  "ngay_xuat_hien": "2026-10-30",
+  "phan_khu": "Sakura",
+  "toa": "SA"
+ },
  "cho-thue-can-ho-2-ngu-sakura-63m2-ct-2n-300": {
   "dien_tich": 63,
   "loai": "2 Ngủ +",
@@ -4375,6 +7335,62 @@
   "phan_khu": "Sakura",
   "toa": "SA3"
  },
+ "cho-thue-can-ho-2-ngu-sakura-63m2-tt-2np-2971": {
+  "dien_tich": 63,
+  "loai": "2 Ngủ +",
+  "ma": "TT.2NP.2971",
+  "ngay_xuat_hien": "2026-10-30",
+  "phan_khu": "Sakura",
+  "toa": "SA"
+ },
+ "cho-thue-can-ho-2-ngu-sakura-63m2-tt-2np-4129": {
+  "dien_tich": 63,
+  "loai": "2 Ngủ +",
+  "ma": "TT.2NP.4129",
+  "ngay_xuat_hien": "2026-10-30",
+  "phan_khu": "Sakura",
+  "toa": "SA"
+ },
+ "cho-thue-can-ho-2-ngu-sakura-63m2-tt-2np-4773": {
+  "dien_tich": 63,
+  "loai": "2 Ngủ +",
+  "ma": "TT.2NP.4773",
+  "ngay_xuat_hien": "2026-10-30",
+  "phan_khu": "Sakura",
+  "toa": "SA"
+ },
+ "cho-thue-can-ho-2-ngu-sakura-63m2-tt-2np-4835": {
+  "dien_tich": 63,
+  "loai": "2 Ngủ +",
+  "ma": "TT.2NP.4835",
+  "ngay_xuat_hien": "2026-10-30",
+  "phan_khu": "Sakura",
+  "toa": "SA"
+ },
+ "cho-thue-can-ho-2-ngu-sakura-63m2-tt-2np-5370": {
+  "dien_tich": 63,
+  "loai": "2 Ngủ +",
+  "ma": "TT.2NP.5370",
+  "ngay_xuat_hien": "2026-10-30",
+  "phan_khu": "Sakura",
+  "toa": "SA"
+ },
+ "cho-thue-can-ho-2-ngu-sakura-63m2-tt-2np-5396": {
+  "dien_tich": 63,
+  "loai": "2 Ngủ +",
+  "ma": "TT.2NP.5396",
+  "ngay_xuat_hien": "2026-10-30",
+  "phan_khu": "Sakura",
+  "toa": "SA"
+ },
+ "cho-thue-can-ho-2-ngu-sakura-63m2-tt-2np-5639": {
+  "dien_tich": 63,
+  "loai": "2 Ngủ +",
+  "ma": "TT.2NP.5639",
+  "ngay_xuat_hien": "2026-10-30",
+  "phan_khu": "Sakura",
+  "toa": "SA"
+ },
  "cho-thue-can-ho-2-ngu-sakura-64m2-ct-2n-265": {
   "dien_tich": 64,
   "loai": "2 Ngủ +",
@@ -4406,6 +7422,22 @@
   "ngay_xuat_hien": "2026-10-29",
   "phan_khu": "Sakura",
   "toa": "SA5"
+ },
+ "cho-thue-can-ho-2-ngu-sakura-64m2-tt-2np-5261": {
+  "dien_tich": 64,
+  "loai": "2 Ngủ +",
+  "ma": "TT.2NP.5261",
+  "ngay_xuat_hien": "2026-10-30",
+  "phan_khu": "Sakura",
+  "toa": "SA"
+ },
+ "cho-thue-can-ho-2-ngu-sakura-64m2-tt-2np-5584": {
+  "dien_tich": 64,
+  "loai": "2 Ngủ +",
+  "ma": "TT.2NP.5584",
+  "ngay_xuat_hien": "2026-10-30",
+  "phan_khu": "Sakura",
+  "toa": "SA"
  },
  "cho-thue-can-ho-2-ngu-sapphire-54m2-32": {
   "dien_tich": 54,
@@ -4590,6 +7622,118 @@
   "ngay_xuat_hien": "2026-10-26",
   "phan_khu": "Sapphire",
   "toa": "S103"
+ },
+ "cho-thue-can-ho-2-ngu-sapphire-54m2-tt-2n-4634": {
+  "dien_tich": 54,
+  "loai": "2 Ngủ",
+  "ma": "TT.2N.4634",
+  "ngay_xuat_hien": "2026-10-30",
+  "phan_khu": "Sapphire",
+  "toa": "S2"
+ },
+ "cho-thue-can-ho-2-ngu-sapphire-54m2-tt-2n-4686": {
+  "dien_tich": 54,
+  "loai": "2 Ngủ",
+  "ma": "TT.2N.4686",
+  "ngay_xuat_hien": "2026-10-30",
+  "phan_khu": "Sapphire",
+  "toa": "S4"
+ },
+ "cho-thue-can-ho-2-ngu-sapphire-54m2-tt-2n-4843": {
+  "dien_tich": 54,
+  "loai": "2 Ngủ",
+  "ma": "TT.2N.4843",
+  "ngay_xuat_hien": "2026-10-30",
+  "phan_khu": "Sapphire",
+  "toa": "S1"
+ },
+ "cho-thue-can-ho-2-ngu-sapphire-54m2-tt-2n-4992": {
+  "dien_tich": 54,
+  "loai": "2 Ngủ",
+  "ma": "TT.2N.4992",
+  "ngay_xuat_hien": "2026-10-30",
+  "phan_khu": "Sapphire",
+  "toa": "S4"
+ },
+ "cho-thue-can-ho-2-ngu-sapphire-54m2-tt-2n-5010": {
+  "dien_tich": 54,
+  "loai": "2 Ngủ",
+  "ma": "TT.2N.5010",
+  "ngay_xuat_hien": "2026-10-30",
+  "phan_khu": "Sapphire",
+  "toa": "S3"
+ },
+ "cho-thue-can-ho-2-ngu-sapphire-54m2-tt-2n-5024": {
+  "dien_tich": 54,
+  "loai": "2 Ngủ",
+  "ma": "TT.2N.5024",
+  "ngay_xuat_hien": "2026-10-30",
+  "phan_khu": "Sapphire",
+  "toa": "S2"
+ },
+ "cho-thue-can-ho-2-ngu-sapphire-54m2-tt-2n-5220": {
+  "dien_tich": 54,
+  "loai": "2 Ngủ",
+  "ma": "TT.2N.5220",
+  "ngay_xuat_hien": "2026-10-30",
+  "phan_khu": "Sapphire",
+  "toa": "S3"
+ },
+ "cho-thue-can-ho-2-ngu-sapphire-54m2-tt-2n-5426": {
+  "dien_tich": 54,
+  "loai": "2 Ngủ",
+  "ma": "TT.2N.5426",
+  "ngay_xuat_hien": "2026-10-30",
+  "phan_khu": "Sapphire",
+  "toa": "S1"
+ },
+ "cho-thue-can-ho-2-ngu-sapphire-54m2-tt-2n-5439": {
+  "dien_tich": 54,
+  "loai": "2 Ngủ",
+  "ma": "TT.2N.5439",
+  "ngay_xuat_hien": "2026-10-30",
+  "phan_khu": "Sapphire",
+  "toa": "S3"
+ },
+ "cho-thue-can-ho-2-ngu-sapphire-54m2-tt-2n-5448": {
+  "dien_tich": 54,
+  "loai": "2 Ngủ",
+  "ma": "TT.2N.5448",
+  "ngay_xuat_hien": "2026-10-30",
+  "phan_khu": "Sapphire",
+  "toa": "S1"
+ },
+ "cho-thue-can-ho-2-ngu-sapphire-54m2-tt-2n-5483": {
+  "dien_tich": 54,
+  "loai": "2 Ngủ",
+  "ma": "TT.2N.5483",
+  "ngay_xuat_hien": "2026-10-30",
+  "phan_khu": "Sapphire",
+  "toa": "S2"
+ },
+ "cho-thue-can-ho-2-ngu-sapphire-54m2-tt-2n-5519": {
+  "dien_tich": 54,
+  "loai": "2 Ngủ",
+  "ma": "TT.2N.5519",
+  "ngay_xuat_hien": "2026-10-30",
+  "phan_khu": "Sapphire",
+  "toa": "S1"
+ },
+ "cho-thue-can-ho-2-ngu-sapphire-54m2-tt-2n-5551": {
+  "dien_tich": 54,
+  "loai": "2 Ngủ",
+  "ma": "TT.2N.5551",
+  "ngay_xuat_hien": "2026-10-30",
+  "phan_khu": "Sapphire",
+  "toa": "S1"
+ },
+ "cho-thue-can-ho-2-ngu-sapphire-54m2-tt-2n-5635": {
+  "dien_tich": 54,
+  "loai": "2 Ngủ",
+  "ma": "TT.2N.5635",
+  "ngay_xuat_hien": "2026-10-30",
+  "phan_khu": "Sapphire",
+  "toa": "S2"
  },
  "cho-thue-can-ho-2-ngu-sapphire-55m2-ct-2n1-150": {
   "dien_tich": 55,
@@ -4911,6 +8055,110 @@
   "phan_khu": "Sapphire",
   "toa": "S401"
  },
+ "cho-thue-can-ho-2-ngu-sapphire-55m2-tt-2n-5191": {
+  "dien_tich": 55,
+  "loai": "2 Ngủ",
+  "ma": "TT.2N.5191",
+  "ngay_xuat_hien": "2026-10-30",
+  "phan_khu": "Sapphire",
+  "toa": "S4"
+ },
+ "cho-thue-can-ho-2-ngu-sapphire-55m2-tt-2n-5199": {
+  "dien_tich": 55,
+  "loai": "2 Ngủ",
+  "ma": "TT.2N.5199",
+  "ngay_xuat_hien": "2026-10-30",
+  "phan_khu": "Sapphire",
+  "toa": "S3"
+ },
+ "cho-thue-can-ho-2-ngu-sapphire-55m2-tt-2n-5228": {
+  "dien_tich": 55,
+  "loai": "2 Ngủ",
+  "ma": "TT.2N.5228",
+  "ngay_xuat_hien": "2026-10-30",
+  "phan_khu": "Sapphire",
+  "toa": "S3"
+ },
+ "cho-thue-can-ho-2-ngu-sapphire-55m2-tt-2n-5401": {
+  "dien_tich": 55,
+  "loai": "2 Ngủ",
+  "ma": "TT.2N.5401",
+  "ngay_xuat_hien": "2026-10-30",
+  "phan_khu": "Sapphire",
+  "toa": "S3"
+ },
+ "cho-thue-can-ho-2-ngu-sapphire-55m2-tt-2n-5425": {
+  "dien_tich": 55,
+  "loai": "2 Ngủ",
+  "ma": "TT.2N.5425",
+  "ngay_xuat_hien": "2026-10-30",
+  "phan_khu": "Sapphire",
+  "toa": "S3"
+ },
+ "cho-thue-can-ho-2-ngu-sapphire-55m2-tt-2n-5436": {
+  "dien_tich": 55,
+  "loai": "2 Ngủ",
+  "ma": "TT.2N.5436",
+  "ngay_xuat_hien": "2026-10-30",
+  "phan_khu": "Sapphire",
+  "toa": "S3"
+ },
+ "cho-thue-can-ho-2-ngu-sapphire-55m2-tt-2n-5460": {
+  "dien_tich": 55,
+  "loai": "2 Ngủ",
+  "ma": "TT.2N.5460",
+  "ngay_xuat_hien": "2026-10-30",
+  "phan_khu": "Sapphire",
+  "toa": "S2"
+ },
+ "cho-thue-can-ho-2-ngu-sapphire-55m2-tt-2n-5472": {
+  "dien_tich": 55,
+  "loai": "2 Ngủ",
+  "ma": "TT.2N.5472",
+  "ngay_xuat_hien": "2026-10-30",
+  "phan_khu": "Sapphire",
+  "toa": "S1"
+ },
+ "cho-thue-can-ho-2-ngu-sapphire-55m2-tt-2n-5527": {
+  "dien_tich": 55,
+  "loai": "2 Ngủ",
+  "ma": "TT.2N.5527",
+  "ngay_xuat_hien": "2026-10-30",
+  "phan_khu": "Sapphire",
+  "toa": "S4"
+ },
+ "cho-thue-can-ho-2-ngu-sapphire-55m2-tt-2n-5737": {
+  "dien_tich": 55,
+  "loai": "2 Ngủ",
+  "ma": "TT.2N.5737",
+  "ngay_xuat_hien": "2026-10-30",
+  "phan_khu": "Sapphire",
+  "toa": "S2"
+ },
+ "cho-thue-can-ho-2-ngu-sapphire-55m2-tt-2n-5739": {
+  "dien_tich": 55,
+  "loai": "2 Ngủ",
+  "ma": "TT.2N.5739",
+  "ngay_xuat_hien": "2026-10-30",
+  "phan_khu": "Sapphire",
+  "toa": "S1"
+ },
+ "cho-thue-can-ho-2-ngu-sapphire-55m2-tt-2n-5784": {
+  "dien_tich": 55,
+  "loai": "2 Ngủ",
+  "ma": "TT.2N.5784",
+  "ngay_xuat_hien": "2026-10-30",
+  "phan_khu": "Sapphire",
+  "toa": "S2"
+ },
+ "cho-thue-can-ho-2-ngu-sapphire-55m2-tt-2n-5788": {
+  "dien_tich": 55,
+  "loai": "2 Ngủ",
+  "ma": "TT.2N.5788",
+  "ngay_xuat_hien": "2026-10-30",
+  "phan_khu": "Sapphire",
+  "toa": "S1"
+ },
  "cho-thue-can-ho-2-ngu-sapphire-62m2-ct-2n-235": {
   "dien_tich": 62,
   "loai": "2 Ngủ +",
@@ -4974,6 +8222,38 @@
   "ngay_xuat_hien": "2026-09-23",
   "phan_khu": "Sapphire",
   "toa": "S402"
+ },
+ "cho-thue-can-ho-2-ngu-sapphire-62m2-tt-2np-5350": {
+  "dien_tich": 62,
+  "loai": "2 Ngủ +",
+  "ma": "TT.2NP.5350",
+  "ngay_xuat_hien": "2026-10-30",
+  "phan_khu": "Sapphire",
+  "toa": "S1"
+ },
+ "cho-thue-can-ho-2-ngu-sapphire-62m2-tt-2np-5501": {
+  "dien_tich": 62,
+  "loai": "2 Ngủ +",
+  "ma": "TT.2NP.5501",
+  "ngay_xuat_hien": "2026-10-30",
+  "phan_khu": "Sapphire",
+  "toa": "S1"
+ },
+ "cho-thue-can-ho-2-ngu-sapphire-62m2-tt-2np-5716": {
+  "dien_tich": 62,
+  "loai": "2 Ngủ +",
+  "ma": "TT.2NP.5716",
+  "ngay_xuat_hien": "2026-10-30",
+  "phan_khu": "Sapphire",
+  "toa": "S3"
+ },
+ "cho-thue-can-ho-2-ngu-sapphire-62m2-tt-2np-5789": {
+  "dien_tich": 62,
+  "loai": "2 Ngủ +",
+  "ma": "TT.2NP.5789",
+  "ngay_xuat_hien": "2026-10-30",
+  "phan_khu": "Sapphire",
+  "toa": "S1"
  },
  "cho-thue-can-ho-2-ngu-sapphire-63m2-ct-2n-227": {
   "dien_tich": 63,
@@ -5086,6 +8366,206 @@
   "ngay_xuat_hien": "2026-10-13",
   "phan_khu": "Sapphire",
   "toa": "S105"
+ },
+ "cho-thue-can-ho-2-ngu-sapphire-63m2-tt-2n-5555": {
+  "dien_tich": 63,
+  "loai": "2 Ngủ",
+  "ma": "TT.2N.5555",
+  "ngay_xuat_hien": "2026-10-30",
+  "phan_khu": "Sapphire",
+  "toa": "S4"
+ },
+ "cho-thue-can-ho-2-ngu-sapphire-63m2-tt-2np-3268": {
+  "dien_tich": 63,
+  "loai": "2 Ngủ +",
+  "ma": "TT.2NP.3268",
+  "ngay_xuat_hien": "2026-10-30",
+  "phan_khu": "Sapphire",
+  "toa": "S1"
+ },
+ "cho-thue-can-ho-2-ngu-sapphire-63m2-tt-2np-4034": {
+  "dien_tich": 63,
+  "loai": "2 Ngủ +",
+  "ma": "TT.2NP.4034",
+  "ngay_xuat_hien": "2026-10-30",
+  "phan_khu": "Sapphire",
+  "toa": "S1"
+ },
+ "cho-thue-can-ho-2-ngu-sapphire-63m2-tt-2np-4337": {
+  "dien_tich": 63,
+  "loai": "2 Ngủ +",
+  "ma": "TT.2NP.4337",
+  "ngay_xuat_hien": "2026-10-30",
+  "phan_khu": "Sapphire",
+  "toa": "S3"
+ },
+ "cho-thue-can-ho-2-ngu-sapphire-63m2-tt-2np-4415": {
+  "dien_tich": 63,
+  "loai": "2 Ngủ +",
+  "ma": "TT.2NP.4415",
+  "ngay_xuat_hien": "2026-10-30",
+  "phan_khu": "Sapphire",
+  "toa": "S2"
+ },
+ "cho-thue-can-ho-2-ngu-sapphire-63m2-tt-2np-4549": {
+  "dien_tich": 63,
+  "loai": "2 Ngủ +",
+  "ma": "TT.2NP.4549",
+  "ngay_xuat_hien": "2026-10-30",
+  "phan_khu": "Sapphire",
+  "toa": "S4"
+ },
+ "cho-thue-can-ho-2-ngu-sapphire-63m2-tt-2np-4685": {
+  "dien_tich": 63,
+  "loai": "2 Ngủ +",
+  "ma": "TT.2NP.4685",
+  "ngay_xuat_hien": "2026-10-30",
+  "phan_khu": "Sapphire",
+  "toa": "S1"
+ },
+ "cho-thue-can-ho-2-ngu-sapphire-63m2-tt-2np-4916": {
+  "dien_tich": 63,
+  "loai": "2 Ngủ +",
+  "ma": "TT.2NP.4916",
+  "ngay_xuat_hien": "2026-10-30",
+  "phan_khu": "Sapphire",
+  "toa": "S3"
+ },
+ "cho-thue-can-ho-2-ngu-sapphire-63m2-tt-2np-5018": {
+  "dien_tich": 63,
+  "loai": "2 Ngủ +",
+  "ma": "TT.2NP.5018",
+  "ngay_xuat_hien": "2026-10-30",
+  "phan_khu": "Sapphire",
+  "toa": "S2"
+ },
+ "cho-thue-can-ho-2-ngu-sapphire-63m2-tt-2np-5152": {
+  "dien_tich": 63,
+  "loai": "2 Ngủ +",
+  "ma": "TT.2NP.5152",
+  "ngay_xuat_hien": "2026-10-30",
+  "phan_khu": "Sapphire",
+  "toa": "S3"
+ },
+ "cho-thue-can-ho-2-ngu-sapphire-63m2-tt-2np-5155": {
+  "dien_tich": 63,
+  "loai": "2 Ngủ +",
+  "ma": "TT.2NP.5155",
+  "ngay_xuat_hien": "2026-10-30",
+  "phan_khu": "Sapphire",
+  "toa": "S2"
+ },
+ "cho-thue-can-ho-2-ngu-sapphire-63m2-tt-2np-5270": {
+  "dien_tich": 63,
+  "loai": "2 Ngủ +",
+  "ma": "TT.2NP.5270",
+  "ngay_xuat_hien": "2026-10-30",
+  "phan_khu": "Sapphire",
+  "toa": "S4"
+ },
+ "cho-thue-can-ho-2-ngu-sapphire-63m2-tt-2np-5289": {
+  "dien_tich": 63,
+  "loai": "2 Ngủ +",
+  "ma": "TT.2NP.5289",
+  "ngay_xuat_hien": "2026-10-30",
+  "phan_khu": "Sapphire",
+  "toa": "S2"
+ },
+ "cho-thue-can-ho-2-ngu-sapphire-63m2-tt-2np-5375": {
+  "dien_tich": 63,
+  "loai": "2 Ngủ +",
+  "ma": "TT.2NP.5375",
+  "ngay_xuat_hien": "2026-10-30",
+  "phan_khu": "Sapphire",
+  "toa": "S2"
+ },
+ "cho-thue-can-ho-2-ngu-sapphire-63m2-tt-2np-5385": {
+  "dien_tich": 63,
+  "loai": "2 Ngủ +",
+  "ma": "TT.2NP.5385",
+  "ngay_xuat_hien": "2026-10-30",
+  "phan_khu": "Sapphire",
+  "toa": "S3"
+ },
+ "cho-thue-can-ho-2-ngu-sapphire-63m2-tt-2np-5389": {
+  "dien_tich": 63,
+  "loai": "2 Ngủ +",
+  "ma": "TT.2NP.5389",
+  "ngay_xuat_hien": "2026-10-30",
+  "phan_khu": "Sapphire",
+  "toa": "S3"
+ },
+ "cho-thue-can-ho-2-ngu-sapphire-63m2-tt-2np-5394": {
+  "dien_tich": 63,
+  "loai": "2 Ngủ +",
+  "ma": "TT.2NP.5394",
+  "ngay_xuat_hien": "2026-10-30",
+  "phan_khu": "Sapphire",
+  "toa": "S1"
+ },
+ "cho-thue-can-ho-2-ngu-sapphire-63m2-tt-2np-5406": {
+  "dien_tich": 63,
+  "loai": "2 Ngủ +",
+  "ma": "TT.2NP.5406",
+  "ngay_xuat_hien": "2026-10-30",
+  "phan_khu": "Sapphire",
+  "toa": "S2"
+ },
+ "cho-thue-can-ho-2-ngu-sapphire-63m2-tt-2np-5453": {
+  "dien_tich": 63,
+  "loai": "2 Ngủ +",
+  "ma": "TT.2NP.5453",
+  "ngay_xuat_hien": "2026-10-30",
+  "phan_khu": "Sapphire",
+  "toa": "S1"
+ },
+ "cho-thue-can-ho-2-ngu-sapphire-63m2-tt-2np-5459": {
+  "dien_tich": 63,
+  "loai": "2 Ngủ +",
+  "ma": "TT.2NP.5459",
+  "ngay_xuat_hien": "2026-10-30",
+  "phan_khu": "Sapphire",
+  "toa": "S2"
+ },
+ "cho-thue-can-ho-2-ngu-sapphire-63m2-tt-2np-5467": {
+  "dien_tich": 63,
+  "loai": "2 Ngủ +",
+  "ma": "TT.2NP.5467",
+  "ngay_xuat_hien": "2026-10-30",
+  "phan_khu": "Sapphire",
+  "toa": "S2"
+ },
+ "cho-thue-can-ho-2-ngu-sapphire-63m2-tt-2np-5475": {
+  "dien_tich": 63,
+  "loai": "2 Ngủ +",
+  "ma": "TT.2NP.5475",
+  "ngay_xuat_hien": "2026-10-30",
+  "phan_khu": "Sapphire",
+  "toa": "S1"
+ },
+ "cho-thue-can-ho-2-ngu-sapphire-63m2-tt-2np-5557": {
+  "dien_tich": 63,
+  "loai": "2 Ngủ +",
+  "ma": "TT.2NP.5557",
+  "ngay_xuat_hien": "2026-10-30",
+  "phan_khu": "Sapphire",
+  "toa": "S3"
+ },
+ "cho-thue-can-ho-2-ngu-sapphire-63m2-tt-2np-5586": {
+  "dien_tich": 63,
+  "loai": "2 Ngủ +",
+  "ma": "TT.2NP.5586",
+  "ngay_xuat_hien": "2026-10-30",
+  "phan_khu": "Sapphire",
+  "toa": "S4"
+ },
+ "cho-thue-can-ho-2-ngu-sapphire-63m2-tt-2np-5608": {
+  "dien_tich": 63,
+  "loai": "2 Ngủ +",
+  "ma": "TT.2NP.5608",
+  "ngay_xuat_hien": "2026-10-30",
+  "phan_khu": "Sapphire",
+  "toa": "S1"
  },
  "cho-thue-can-ho-2-ngu-sapphire-64m2-cc25": {
   "dien_tich": 64,
@@ -5295,6 +8775,30 @@
   "phan_khu": "Sapphire",
   "toa": "S403"
  },
+ "cho-thue-can-ho-2-ngu-sapphire-64m2-tt-2np-5636": {
+  "dien_tich": 64,
+  "loai": "2 Ngủ +",
+  "ma": "TT.2NP.5636",
+  "ngay_xuat_hien": "2026-10-30",
+  "phan_khu": "Sapphire",
+  "toa": "S1"
+ },
+ "cho-thue-can-ho-2-ngu-sapphire-64m2-tt-2np-5699": {
+  "dien_tich": 64,
+  "loai": "2 Ngủ +",
+  "ma": "TT.2NP.5699",
+  "ngay_xuat_hien": "2026-10-30",
+  "phan_khu": "Sapphire",
+  "toa": "S2"
+ },
+ "cho-thue-can-ho-2-ngu-sapphire-64m2-tt-2np-5800": {
+  "dien_tich": 64,
+  "loai": "2 Ngủ +",
+  "ma": "TT.2NP.5800",
+  "ngay_xuat_hien": "2026-10-30",
+  "phan_khu": "Sapphire",
+  "toa": "S4"
+ },
  "cho-thue-can-ho-2-ngu-sapphire-65m2-ct-2n-348": {
   "dien_tich": 65,
   "loai": "2 Ngủ +",
@@ -5302,6 +8806,22 @@
   "ngay_xuat_hien": "2026-10-19",
   "phan_khu": "Sapphire",
   "toa": "S103"
+ },
+ "cho-thue-can-ho-2-ngu-sapphire-65m2-tt-2np-5482": {
+  "dien_tich": 65,
+  "loai": "2 Ngủ +",
+  "ma": "TT.2NP.5482",
+  "ngay_xuat_hien": "2026-10-30",
+  "phan_khu": "Sapphire",
+  "toa": "S2"
+ },
+ "cho-thue-can-ho-2-ngu-sapphire-65m2-tt-2np-5540": {
+  "dien_tich": 65,
+  "loai": "2 Ngủ +",
+  "ma": "TT.2NP.5540",
+  "ngay_xuat_hien": "2026-10-30",
+  "phan_khu": "Sapphire",
+  "toa": "S1"
  },
  "cho-thue-can-ho-2-ngu-sola-park-54m2-ct-2n2-522": {
   "dien_tich": 54,
@@ -5318,6 +8838,166 @@
   "ngay_xuat_hien": "2026-10-30",
   "phan_khu": "Sola Park",
   "toa": "G1"
+ },
+ "cho-thue-can-ho-2-ngu-sola-park-54m2-tt-2n-5605": {
+  "dien_tich": 54,
+  "loai": "2 Ngủ",
+  "ma": "TT.2N.5605",
+  "ngay_xuat_hien": "2026-10-30",
+  "phan_khu": "Sola Park",
+  "toa": "SolaPark"
+ },
+ "cho-thue-can-ho-2-ngu-sola-park-54m2-tt-2n-5616": {
+  "dien_tich": 54,
+  "loai": "2 Ngủ",
+  "ma": "TT.2N.5616",
+  "ngay_xuat_hien": "2026-10-30",
+  "phan_khu": "Sola Park",
+  "toa": "SolaPark"
+ },
+ "cho-thue-can-ho-2-ngu-sola-park-54m2-tt-2n-5624": {
+  "dien_tich": 54,
+  "loai": "2 Ngủ",
+  "ma": "TT.2N.5624",
+  "ngay_xuat_hien": "2026-10-30",
+  "phan_khu": "Sola Park",
+  "toa": "SolaPark"
+ },
+ "cho-thue-can-ho-2-ngu-sola-park-54m2-tt-2n-5666": {
+  "dien_tich": 54,
+  "loai": "2 Ngủ",
+  "ma": "TT.2N.5666",
+  "ngay_xuat_hien": "2026-10-30",
+  "phan_khu": "Sola Park",
+  "toa": "SolaPark"
+ },
+ "cho-thue-can-ho-2-ngu-sola-park-54m2-tt-2n-5670": {
+  "dien_tich": 54,
+  "loai": "2 Ngủ",
+  "ma": "TT.2N.5670",
+  "ngay_xuat_hien": "2026-10-30",
+  "phan_khu": "Sola Park",
+  "toa": "SolaPark"
+ },
+ "cho-thue-can-ho-2-ngu-sola-park-54m2-tt-2n-5680": {
+  "dien_tich": 54,
+  "loai": "2 Ngủ",
+  "ma": "TT.2N.5680",
+  "ngay_xuat_hien": "2026-10-30",
+  "phan_khu": "Sola Park",
+  "toa": "SolaPark"
+ },
+ "cho-thue-can-ho-2-ngu-sola-park-54m2-tt-2n-5691": {
+  "dien_tich": 54,
+  "loai": "2 Ngủ",
+  "ma": "TT.2N.5691",
+  "ngay_xuat_hien": "2026-10-30",
+  "phan_khu": "Sola Park",
+  "toa": "SolaPark"
+ },
+ "cho-thue-can-ho-2-ngu-sola-park-54m2-tt-2n-5692": {
+  "dien_tich": 54,
+  "loai": "2 Ngủ",
+  "ma": "TT.2N.5692",
+  "ngay_xuat_hien": "2026-10-30",
+  "phan_khu": "Sola Park",
+  "toa": "SolaPark"
+ },
+ "cho-thue-can-ho-2-ngu-sola-park-54m2-tt-2n-5709": {
+  "dien_tich": 54,
+  "loai": "2 Ngủ",
+  "ma": "TT.2N.5709",
+  "ngay_xuat_hien": "2026-10-30",
+  "phan_khu": "Sola Park",
+  "toa": "SolaPark"
+ },
+ "cho-thue-can-ho-2-ngu-sola-park-54m2-tt-2n-5722": {
+  "dien_tich": 54,
+  "loai": "2 Ngủ",
+  "ma": "TT.2N.5722",
+  "ngay_xuat_hien": "2026-10-30",
+  "phan_khu": "Sola Park",
+  "toa": "SolaPark"
+ },
+ "cho-thue-can-ho-2-ngu-sola-park-54m2-tt-2n-5724": {
+  "dien_tich": 54,
+  "loai": "2 Ngủ",
+  "ma": "TT.2N.5724",
+  "ngay_xuat_hien": "2026-10-30",
+  "phan_khu": "Sola Park",
+  "toa": "SolaPark"
+ },
+ "cho-thue-can-ho-2-ngu-sola-park-54m2-tt-2n-5733": {
+  "dien_tich": 54,
+  "loai": "2 Ngủ",
+  "ma": "TT.2N.5733",
+  "ngay_xuat_hien": "2026-10-30",
+  "phan_khu": "Sola Park",
+  "toa": "SolaPark"
+ },
+ "cho-thue-can-ho-2-ngu-sola-park-54m2-tt-2n-5743": {
+  "dien_tich": 54,
+  "loai": "2 Ngủ",
+  "ma": "TT.2N.5743",
+  "ngay_xuat_hien": "2026-10-30",
+  "phan_khu": "Sola Park",
+  "toa": "SolaPark"
+ },
+ "cho-thue-can-ho-2-ngu-sola-park-54m2-tt-2n-5747": {
+  "dien_tich": 54,
+  "loai": "2 Ngủ",
+  "ma": "TT.2N.5747",
+  "ngay_xuat_hien": "2026-10-30",
+  "phan_khu": "Sola Park",
+  "toa": "SolaPark"
+ },
+ "cho-thue-can-ho-2-ngu-sola-park-54m2-tt-2n-5767": {
+  "dien_tich": 54,
+  "loai": "2 Ngủ",
+  "ma": "TT.2N.5767",
+  "ngay_xuat_hien": "2026-10-30",
+  "phan_khu": "Sola Park",
+  "toa": "SolaPark"
+ },
+ "cho-thue-can-ho-2-ngu-sola-park-54m2-tt-2n-5786": {
+  "dien_tich": 54,
+  "loai": "2 Ngủ",
+  "ma": "TT.2N.5786",
+  "ngay_xuat_hien": "2026-10-30",
+  "phan_khu": "Sola Park",
+  "toa": "SolaPark"
+ },
+ "cho-thue-can-ho-2-ngu-sola-park-54m2-tt-2n-5797": {
+  "dien_tich": 54,
+  "loai": "2 Ngủ",
+  "ma": "TT.2N.5797",
+  "ngay_xuat_hien": "2026-10-30",
+  "phan_khu": "Sola Park",
+  "toa": "SolaPark"
+ },
+ "cho-thue-can-ho-2-ngu-sola-park-54m2-tt-2n-5798": {
+  "dien_tich": 54,
+  "loai": "2 Ngủ",
+  "ma": "TT.2N.5798",
+  "ngay_xuat_hien": "2026-10-30",
+  "phan_khu": "Sola Park",
+  "toa": "SolaPark"
+ },
+ "cho-thue-can-ho-2-ngu-sola-park-54m2-tt-2n-5799": {
+  "dien_tich": 54,
+  "loai": "2 Ngủ",
+  "ma": "TT.2N.5799",
+  "ngay_xuat_hien": "2026-10-30",
+  "phan_khu": "Sola Park",
+  "toa": "SolaPark"
+ },
+ "cho-thue-can-ho-2-ngu-sola-park-54m2-tt-2n-5802": {
+  "dien_tich": 54,
+  "loai": "2 Ngủ",
+  "ma": "TT.2N.5802",
+  "ngay_xuat_hien": "2026-10-30",
+  "phan_khu": "Sola Park",
+  "toa": "SolaPark"
  },
  "cho-thue-can-ho-2-ngu-sola-park-55m2-ct-2n2-518": {
   "dien_tich": 55,
@@ -5342,6 +9022,86 @@
   "ngay_xuat_hien": "2026-10-29",
   "phan_khu": "Sola Park",
   "toa": "G2"
+ },
+ "cho-thue-can-ho-2-ngu-sola-park-61m2-tt-2n-5630": {
+  "dien_tich": 61,
+  "loai": "2 Ngủ",
+  "ma": "TT.2N.5630",
+  "ngay_xuat_hien": "2026-10-30",
+  "phan_khu": "Sola Park",
+  "toa": "SolaPark"
+ },
+ "cho-thue-can-ho-2-ngu-sola-park-61m2-tt-2n-5663": {
+  "dien_tich": 61,
+  "loai": "2 Ngủ",
+  "ma": "TT.2N.5663",
+  "ngay_xuat_hien": "2026-10-30",
+  "phan_khu": "Sola Park",
+  "toa": "SolaPark"
+ },
+ "cho-thue-can-ho-2-ngu-sola-park-61m2-tt-2n-5687": {
+  "dien_tich": 61,
+  "loai": "2 Ngủ",
+  "ma": "TT.2N.5687",
+  "ngay_xuat_hien": "2026-10-30",
+  "phan_khu": "Sola Park",
+  "toa": "SolaPark"
+ },
+ "cho-thue-can-ho-2-ngu-sola-park-61m2-tt-2n-5723": {
+  "dien_tich": 61,
+  "loai": "2 Ngủ",
+  "ma": "TT.2N.5723",
+  "ngay_xuat_hien": "2026-10-30",
+  "phan_khu": "Sola Park",
+  "toa": "SolaPark"
+ },
+ "cho-thue-can-ho-2-ngu-sola-park-61m2-tt-2n-5741": {
+  "dien_tich": 61,
+  "loai": "2 Ngủ",
+  "ma": "TT.2N.5741",
+  "ngay_xuat_hien": "2026-10-30",
+  "phan_khu": "Sola Park",
+  "toa": "SolaPark"
+ },
+ "cho-thue-can-ho-2-ngu-sola-park-61m2-tt-2n-5742": {
+  "dien_tich": 61,
+  "loai": "2 Ngủ",
+  "ma": "TT.2N.5742",
+  "ngay_xuat_hien": "2026-10-30",
+  "phan_khu": "Sola Park",
+  "toa": "SolaPark"
+ },
+ "cho-thue-can-ho-2-ngu-sola-park-61m2-tt-2n-5746": {
+  "dien_tich": 61,
+  "loai": "2 Ngủ",
+  "ma": "TT.2N.5746",
+  "ngay_xuat_hien": "2026-10-30",
+  "phan_khu": "Sola Park",
+  "toa": "SolaPark"
+ },
+ "cho-thue-can-ho-2-ngu-sola-park-61m2-tt-2n-5760": {
+  "dien_tich": 61,
+  "loai": "2 Ngủ",
+  "ma": "TT.2N.5760",
+  "ngay_xuat_hien": "2026-10-30",
+  "phan_khu": "Sola Park",
+  "toa": "SolaPark"
+ },
+ "cho-thue-can-ho-2-ngu-sola-park-61m2-tt-2n-5773": {
+  "dien_tich": 61,
+  "loai": "2 Ngủ",
+  "ma": "TT.2N.5773",
+  "ngay_xuat_hien": "2026-10-30",
+  "phan_khu": "Sola Park",
+  "toa": "SolaPark"
+ },
+ "cho-thue-can-ho-2-ngu-sola-park-61m2-tt-2n-5796": {
+  "dien_tich": 61,
+  "loai": "2 Ngủ",
+  "ma": "TT.2N.5796",
+  "ngay_xuat_hien": "2026-10-30",
+  "phan_khu": "Sola Park",
+  "toa": "SolaPark"
  },
  "cho-thue-can-ho-2-ngu-sola-park-64m2-ct-2n-370": {
   "dien_tich": 64,
@@ -5374,6 +9134,78 @@
   "ngay_xuat_hien": "2026-10-29",
   "phan_khu": "Sola Park",
   "toa": "G3"
+ },
+ "cho-thue-can-ho-2-ngu-sola-park-64m2-tt-2np-5599": {
+  "dien_tich": 64,
+  "loai": "2 Ngủ +",
+  "ma": "TT.2NP.5599",
+  "ngay_xuat_hien": "2026-10-30",
+  "phan_khu": "Sola Park",
+  "toa": "SolaPark"
+ },
+ "cho-thue-can-ho-2-ngu-sola-park-64m2-tt-2np-5634": {
+  "dien_tich": 64,
+  "loai": "2 Ngủ +",
+  "ma": "TT.2NP.5634",
+  "ngay_xuat_hien": "2026-10-30",
+  "phan_khu": "Sola Park",
+  "toa": "SolaPark"
+ },
+ "cho-thue-can-ho-2-ngu-sola-park-64m2-tt-2np-5660": {
+  "dien_tich": 64,
+  "loai": "2 Ngủ +",
+  "ma": "TT.2NP.5660",
+  "ngay_xuat_hien": "2026-10-30",
+  "phan_khu": "Sola Park",
+  "toa": "SolaPark"
+ },
+ "cho-thue-can-ho-2-ngu-sola-park-64m2-tt-2np-5664": {
+  "dien_tich": 64,
+  "loai": "2 Ngủ +",
+  "ma": "TT.2NP.5664",
+  "ngay_xuat_hien": "2026-10-30",
+  "phan_khu": "Sola Park",
+  "toa": "SolaPark"
+ },
+ "cho-thue-can-ho-2-ngu-sola-park-64m2-tt-2np-5669": {
+  "dien_tich": 64,
+  "loai": "2 Ngủ +",
+  "ma": "TT.2NP.5669",
+  "ngay_xuat_hien": "2026-10-30",
+  "phan_khu": "Sola Park",
+  "toa": "SolaPark"
+ },
+ "cho-thue-can-ho-2-ngu-sola-park-64m2-tt-2np-5676": {
+  "dien_tich": 64,
+  "loai": "2 Ngủ +",
+  "ma": "TT.2NP.5676",
+  "ngay_xuat_hien": "2026-10-30",
+  "phan_khu": "Sola Park",
+  "toa": "SolaPark"
+ },
+ "cho-thue-can-ho-2-ngu-sola-park-64m2-tt-2np-5740": {
+  "dien_tich": 64,
+  "loai": "2 Ngủ +",
+  "ma": "TT.2NP.5740",
+  "ngay_xuat_hien": "2026-10-30",
+  "phan_khu": "Sola Park",
+  "toa": "SolaPark"
+ },
+ "cho-thue-can-ho-2-ngu-sola-park-64m2-tt-2np-5755": {
+  "dien_tich": 64,
+  "loai": "2 Ngủ +",
+  "ma": "TT.2NP.5755",
+  "ngay_xuat_hien": "2026-10-30",
+  "phan_khu": "Sola Park",
+  "toa": "SolaPark"
+ },
+ "cho-thue-can-ho-2-ngu-sola-park-64m2-tt-2np-5762": {
+  "dien_tich": 64,
+  "loai": "2 Ngủ +",
+  "ma": "TT.2NP.5762",
+  "ngay_xuat_hien": "2026-10-30",
+  "phan_khu": "Sola Park",
+  "toa": "SolaPark"
  },
  "cho-thue-can-ho-2-ngu-tonkin-60m2-ct-2n2-408": {
   "dien_tich": 60,
@@ -5447,6 +9279,14 @@
   "phan_khu": "Tonkin",
   "toa": "TK2"
  },
+ "cho-thue-can-ho-2-ngu-tonkin-70m2-tt-2np-5369": {
+  "dien_tich": 70,
+  "loai": "2 Ngủ +",
+  "ma": "TT.2NP.5369",
+  "ngay_xuat_hien": "2026-10-30",
+  "phan_khu": "Tonkin",
+  "toa": "TK"
+ },
  "cho-thue-can-ho-2-ngu-tonkin-72m2-ct-2n-223": {
   "dien_tich": 72,
   "loai": "2 Ngủ +",
@@ -5462,6 +9302,14 @@
   "ngay_xuat_hien": "2026-09-22",
   "phan_khu": "Tonkin",
   "toa": "TK2"
+ },
+ "cho-thue-can-ho-2-ngu-tonkin-75m2-tt-2np-4989": {
+  "dien_tich": 75,
+  "loai": "2 Ngủ +",
+  "ma": "TT.2NP.4989",
+  "ngay_xuat_hien": "2026-10-30",
+  "phan_khu": "Tonkin",
+  "toa": "TK"
  },
  "cho-thue-can-ho-3-ngu-canopy-80m2-ct-3n-167": {
   "dien_tich": 80.5,
@@ -5511,6 +9359,38 @@
   "phan_khu": "Canopy",
   "toa": "TC1"
  },
+ "cho-thue-can-ho-3-ngu-canopy-80m2-tt-3n-4256": {
+  "dien_tich": 80,
+  "loai": "3 Ngủ",
+  "ma": "TT.3N.4256",
+  "ngay_xuat_hien": "2026-10-30",
+  "phan_khu": "Canopy",
+  "toa": "TC"
+ },
+ "cho-thue-can-ho-3-ngu-canopy-80m2-tt-3n-5075": {
+  "dien_tich": 80,
+  "loai": "3 Ngủ",
+  "ma": "TT.3N.5075",
+  "ngay_xuat_hien": "2026-10-30",
+  "phan_khu": "Canopy",
+  "toa": "TC"
+ },
+ "cho-thue-can-ho-3-ngu-canopy-80m2-tt-3n-5177": {
+  "dien_tich": 80,
+  "loai": "3 Ngủ",
+  "ma": "TT.3N.5177",
+  "ngay_xuat_hien": "2026-10-30",
+  "phan_khu": "Canopy",
+  "toa": "TC"
+ },
+ "cho-thue-can-ho-3-ngu-canopy-80m2-tt-3n-5461": {
+  "dien_tich": 80,
+  "loai": "3 Ngủ",
+  "ma": "TT.3N.5461",
+  "ngay_xuat_hien": "2026-10-30",
+  "phan_khu": "Canopy",
+  "toa": "TC"
+ },
  "cho-thue-can-ho-3-ngu-canopy-81m2-ct-3n-205": {
   "dien_tich": 81,
   "loai": "3 Ngủ",
@@ -5518,6 +9398,14 @@
   "ngay_xuat_hien": "2026-10-26",
   "phan_khu": "Canopy",
   "toa": "TC3"
+ },
+ "cho-thue-can-ho-3-ngu-canopy-81m2-tt-3n-5214": {
+  "dien_tich": 81,
+  "loai": "3 Ngủ",
+  "ma": "TT.3N.5214",
+  "ngay_xuat_hien": "2026-10-30",
+  "phan_khu": "Canopy",
+  "toa": "TC"
  },
  "cho-thue-can-ho-3-ngu-canopy-83m2-ct-3n-184": {
   "dien_tich": 83,
@@ -5559,6 +9447,30 @@
   "phan_khu": "Imperia",
   "toa": "I1"
  },
+ "cho-thue-can-ho-3-ngu-imperia-75m2-tt-3n-4751": {
+  "dien_tich": 75,
+  "loai": "3 Ngủ",
+  "ma": "TT.3N.4751",
+  "ngay_xuat_hien": "2026-10-30",
+  "phan_khu": "Imperia",
+  "toa": "Imperia"
+ },
+ "cho-thue-can-ho-3-ngu-imperia-75m2-tt-3n-5374": {
+  "dien_tich": 75,
+  "loai": "3 Ngủ",
+  "ma": "TT.3N.5374",
+  "ngay_xuat_hien": "2026-10-30",
+  "phan_khu": "Imperia",
+  "toa": "Imperia"
+ },
+ "cho-thue-can-ho-3-ngu-imperia-75m2-tt-3n-5438": {
+  "dien_tich": 75,
+  "loai": "3 Ngủ",
+  "ma": "TT.3N.5438",
+  "ngay_xuat_hien": "2026-10-30",
+  "phan_khu": "Imperia",
+  "toa": "Imperia"
+ },
  "cho-thue-can-ho-3-ngu-imperia-76m2-ct-3n-151": {
   "dien_tich": 76,
   "loai": "3 Ngủ",
@@ -5574,6 +9486,14 @@
   "ngay_xuat_hien": "2026-09-21",
   "phan_khu": "Imperia",
   "toa": "I1"
+ },
+ "cho-thue-can-ho-3-ngu-lumiere-105m2-tt-3n-5526": {
+  "dien_tich": 105,
+  "loai": "3 Ngủ",
+  "ma": "TT.3N.5526",
+  "ngay_xuat_hien": "2026-10-30",
+  "phan_khu": "Lumiere",
+  "toa": "Lumiere"
  },
  "cho-thue-can-ho-3-ngu-lumiere-80m2-ct-3n-161": {
   "dien_tich": 80,
@@ -5607,6 +9527,30 @@
   "phan_khu": "Lumiere",
   "toa": "A3"
  },
+ "cho-thue-can-ho-3-ngu-lumiere-85m2-tt-3n-4329": {
+  "dien_tich": 85,
+  "loai": "3 Ngủ",
+  "ma": "TT.3N.4329",
+  "ngay_xuat_hien": "2026-10-30",
+  "phan_khu": "Lumiere",
+  "toa": "Lumiere"
+ },
+ "cho-thue-can-ho-3-ngu-lumiere-85m2-tt-3n-5175": {
+  "dien_tich": 85,
+  "loai": "3 Ngủ",
+  "ma": "TT.3N.5175",
+  "ngay_xuat_hien": "2026-10-30",
+  "phan_khu": "Lumiere",
+  "toa": "Lumiere"
+ },
+ "cho-thue-can-ho-3-ngu-lumiere-85m2-tt-3n-5534": {
+  "dien_tich": 85,
+  "loai": "3 Ngủ",
+  "ma": "TT.3N.5534",
+  "ngay_xuat_hien": "2026-10-30",
+  "phan_khu": "Lumiere",
+  "toa": "Lumiere"
+ },
  "cho-thue-can-ho-3-ngu-lumiere-87m2-ct-3n-146": {
   "dien_tich": 87,
   "loai": "3 Ngủ",
@@ -5614,6 +9558,30 @@
   "ngay_xuat_hien": "2026-08-05",
   "phan_khu": "Lumiere",
   "toa": "A2"
+ },
+ "cho-thue-can-ho-3-ngu-lumiere-88m2-tt-3n-5104": {
+  "dien_tich": 88,
+  "loai": "3 Ngủ",
+  "ma": "TT.3N.5104",
+  "ngay_xuat_hien": "2026-10-30",
+  "phan_khu": "Lumiere",
+  "toa": "Lumiere"
+ },
+ "cho-thue-can-ho-3-ngu-lumiere-88m2-tt-3n-5106": {
+  "dien_tich": 88,
+  "loai": "3 Ngủ",
+  "ma": "TT.3N.5106",
+  "ngay_xuat_hien": "2026-10-30",
+  "phan_khu": "Lumiere",
+  "toa": "Lumiere"
+ },
+ "cho-thue-can-ho-3-ngu-lumiere-88m2-tt-3n-5116": {
+  "dien_tich": 88,
+  "loai": "3 Ngủ",
+  "ma": "TT.3N.5116",
+  "ngay_xuat_hien": "2026-10-30",
+  "phan_khu": "Lumiere",
+  "toa": "Lumiere"
  },
  "cho-thue-can-ho-3-ngu-lumiere-93m2-ct-3n-159": {
   "dien_tich": 93,
@@ -5647,6 +9615,22 @@
   "phan_khu": "Lumiere",
   "toa": "A2"
  },
+ "cho-thue-can-ho-3-ngu-lumiere-94m2-tt-3n-5038": {
+  "dien_tich": 94,
+  "loai": "3 Ngủ",
+  "ma": "TT.3N.5038",
+  "ngay_xuat_hien": "2026-10-30",
+  "phan_khu": "Lumiere",
+  "toa": "Lumiere"
+ },
+ "cho-thue-can-ho-3-ngu-masteri-72m2-tt-3n-4416": {
+  "dien_tich": 72,
+  "loai": "3 Ngủ",
+  "ma": "TT.3N.4416",
+  "ngay_xuat_hien": "2026-10-30",
+  "phan_khu": "Masteri",
+  "toa": "MAS"
+ },
  "cho-thue-can-ho-3-ngu-masteri-73m2-ct-3n-189": {
   "dien_tich": 73,
   "loai": "3 Ngủ",
@@ -5663,6 +9647,46 @@
   "phan_khu": "Masteri",
   "toa": "MasB"
  },
+ "cho-thue-can-ho-3-ngu-masteri-73m2-tt-3n-4910": {
+  "dien_tich": 73,
+  "loai": "3 Ngủ",
+  "ma": "TT.3N.4910",
+  "ngay_xuat_hien": "2026-10-30",
+  "phan_khu": "Masteri",
+  "toa": "MAS"
+ },
+ "cho-thue-can-ho-3-ngu-masteri-73m2-tt-3n-5146": {
+  "dien_tich": 73,
+  "loai": "3 Ngủ",
+  "ma": "TT.3N.5146",
+  "ngay_xuat_hien": "2026-10-30",
+  "phan_khu": "Masteri",
+  "toa": "MAS"
+ },
+ "cho-thue-can-ho-3-ngu-masteri-73m2-tt-3n-5336": {
+  "dien_tich": 73,
+  "loai": "3 Ngủ",
+  "ma": "TT.3N.5336",
+  "ngay_xuat_hien": "2026-10-30",
+  "phan_khu": "Masteri",
+  "toa": "MAS"
+ },
+ "cho-thue-can-ho-3-ngu-masteri-73m2-tt-3n-5455": {
+  "dien_tich": 73,
+  "loai": "3 Ngủ",
+  "ma": "TT.3N.5455",
+  "ngay_xuat_hien": "2026-10-30",
+  "phan_khu": "Masteri",
+  "toa": "MAS"
+ },
+ "cho-thue-can-ho-3-ngu-masteri-73m2-tt-3n-5577": {
+  "dien_tich": 73,
+  "loai": "3 Ngủ",
+  "ma": "TT.3N.5577",
+  "ngay_xuat_hien": "2026-10-30",
+  "phan_khu": "Masteri",
+  "toa": "MAS"
+ },
  "cho-thue-can-ho-3-ngu-masteri-74m2-ct-3n-183": {
   "dien_tich": 74,
   "loai": "3 Ngủ",
@@ -5670,6 +9694,14 @@
   "ngay_xuat_hien": "2026-10-06",
   "phan_khu": "Masteri",
   "toa": "MasC"
+ },
+ "cho-thue-can-ho-3-ngu-masteri-74m2-tt-3n-5337": {
+  "dien_tich": 74,
+  "loai": "3 Ngủ",
+  "ma": "TT.3N.5337",
+  "ngay_xuat_hien": "2026-10-30",
+  "phan_khu": "Masteri",
+  "toa": "MAS"
  },
  "cho-thue-can-ho-3-ngu-masteri-79m2-ct-3n-125": {
   "dien_tich": 79,
@@ -5694,6 +9726,22 @@
   "ngay_xuat_hien": "2026-07-08",
   "phan_khu": "Masteri",
   "toa": "MasB"
+ },
+ "cho-thue-can-ho-3-ngu-masteri-80m2-tt-3n-2658": {
+  "dien_tich": 80,
+  "loai": "3 Ngủ",
+  "ma": "TT.3N.2658",
+  "ngay_xuat_hien": "2026-10-30",
+  "phan_khu": "Masteri",
+  "toa": "MAS"
+ },
+ "cho-thue-can-ho-3-ngu-masteri-80m2-tt-3n-3503": {
+  "dien_tich": 80,
+  "loai": "3 Ngủ",
+  "ma": "TT.3N.3503",
+  "ngay_xuat_hien": "2026-10-30",
+  "phan_khu": "Masteri",
+  "toa": "MAS"
  },
  "cho-thue-can-ho-3-ngu-miami-73m2-ct-3n-149": {
   "dien_tich": 73,
@@ -5759,6 +9807,46 @@
   "phan_khu": "Miami",
   "toa": "GS2"
  },
+ "cho-thue-can-ho-3-ngu-miami-75m2-tt-3n-3555": {
+  "dien_tich": 75,
+  "loai": "3 Ngủ",
+  "ma": "TT.3N.3555",
+  "ngay_xuat_hien": "2026-10-30",
+  "phan_khu": "Miami",
+  "toa": "GS"
+ },
+ "cho-thue-can-ho-3-ngu-miami-75m2-tt-3n-4172": {
+  "dien_tich": 75,
+  "loai": "3 Ngủ",
+  "ma": "TT.3N.4172",
+  "ngay_xuat_hien": "2026-10-30",
+  "phan_khu": "Miami",
+  "toa": "GS"
+ },
+ "cho-thue-can-ho-3-ngu-miami-75m2-tt-3n-4301": {
+  "dien_tich": 75,
+  "loai": "3 Ngủ",
+  "ma": "TT.3N.4301",
+  "ngay_xuat_hien": "2026-10-30",
+  "phan_khu": "Miami",
+  "toa": "GS"
+ },
+ "cho-thue-can-ho-3-ngu-miami-75m2-tt-3n-4582": {
+  "dien_tich": 75,
+  "loai": "3 Ngủ",
+  "ma": "TT.3N.4582",
+  "ngay_xuat_hien": "2026-10-30",
+  "phan_khu": "Miami",
+  "toa": "GS"
+ },
+ "cho-thue-can-ho-3-ngu-miami-75m2-tt-3n-5579": {
+  "dien_tich": 75,
+  "loai": "3 Ngủ",
+  "ma": "TT.3N.5579",
+  "ngay_xuat_hien": "2026-10-30",
+  "phan_khu": "Miami",
+  "toa": "GS"
+ },
  "cho-thue-can-ho-3-ngu-miami-76m2-ct-3n-129": {
   "dien_tich": 76,
   "loai": "3 Ngủ",
@@ -5766,6 +9854,22 @@
   "ngay_xuat_hien": "2026-07-08",
   "phan_khu": "Miami",
   "toa": "GS5"
+ },
+ "cho-thue-can-ho-3-ngu-miami-76m2-tt-3n-5486": {
+  "dien_tich": 76,
+  "loai": "3 Ngủ",
+  "ma": "TT.3N.5486",
+  "ngay_xuat_hien": "2026-10-30",
+  "phan_khu": "Miami",
+  "toa": "GS"
+ },
+ "cho-thue-can-ho-3-ngu-miami-76m2-tt-3n-5611": {
+  "dien_tich": 76,
+  "loai": "3 Ngủ",
+  "ma": "TT.3N.5611",
+  "ngay_xuat_hien": "2026-10-30",
+  "phan_khu": "Miami",
+  "toa": "GS"
  },
  "cho-thue-can-ho-3-ngu-miami-80m2-cc20": {
   "dien_tich": 80,
@@ -5823,6 +9927,38 @@
   "phan_khu": "Miami",
   "toa": "GS6"
  },
+ "cho-thue-can-ho-3-ngu-miami-80m2-tt-3n-4894": {
+  "dien_tich": 80,
+  "loai": "3 Ngủ",
+  "ma": "TT.3N.4894",
+  "ngay_xuat_hien": "2026-10-30",
+  "phan_khu": "Miami",
+  "toa": "GS"
+ },
+ "cho-thue-can-ho-3-ngu-miami-80m2-tt-3n-5325": {
+  "dien_tich": 80,
+  "loai": "3 Ngủ",
+  "ma": "TT.3N.5325",
+  "ngay_xuat_hien": "2026-10-30",
+  "phan_khu": "Miami",
+  "toa": "GS"
+ },
+ "cho-thue-can-ho-3-ngu-miami-80m2-tt-3n-5327": {
+  "dien_tich": 80,
+  "loai": "3 Ngủ",
+  "ma": "TT.3N.5327",
+  "ngay_xuat_hien": "2026-10-30",
+  "phan_khu": "Miami",
+  "toa": "GS"
+ },
+ "cho-thue-can-ho-3-ngu-miami-80m2-tt-3n-5418": {
+  "dien_tich": 80,
+  "loai": "3 Ngủ",
+  "ma": "TT.3N.5418",
+  "ngay_xuat_hien": "2026-10-30",
+  "phan_khu": "Miami",
+  "toa": "GS"
+ },
  "cho-thue-can-ho-3-ngu-miami-81m2-ct-3n-173": {
   "dien_tich": 81,
   "loai": "3 Ngủ",
@@ -5846,6 +9982,22 @@
   "ngay_xuat_hien": "2026-07-08",
   "phan_khu": "Miami",
   "toa": "GS5"
+ },
+ "cho-thue-can-ho-3-ngu-miami-82m2-tt-3n-5328": {
+  "dien_tich": 82,
+  "loai": "3 Ngủ",
+  "ma": "TT.3N.5328",
+  "ngay_xuat_hien": "2026-10-30",
+  "phan_khu": "Miami",
+  "toa": "GS"
+ },
+ "cho-thue-can-ho-3-ngu-miami-94m2-tt-3n-4571": {
+  "dien_tich": 94,
+  "loai": "3 Ngủ",
+  "ma": "TT.3N.4571",
+  "ngay_xuat_hien": "2026-10-30",
+  "phan_khu": "Miami",
+  "toa": "GS"
  },
  "cho-thue-can-ho-3-ngu-miami-95m2-ct-3n-124": {
   "dien_tich": 95,
@@ -5911,6 +10063,150 @@
   "phan_khu": "Sakura",
   "toa": "SA5"
  },
+ "cho-thue-can-ho-3-ngu-sakura-75m2-tt-3n-1455": {
+  "dien_tich": 75,
+  "loai": "3 Ngủ",
+  "ma": "TT.3N.1455",
+  "ngay_xuat_hien": "2026-10-30",
+  "phan_khu": "Sakura",
+  "toa": "SA"
+ },
+ "cho-thue-can-ho-3-ngu-sakura-75m2-tt-3n-2502": {
+  "dien_tich": 75,
+  "loai": "3 Ngủ",
+  "ma": "TT.3N.2502",
+  "ngay_xuat_hien": "2026-10-30",
+  "phan_khu": "Sakura",
+  "toa": "SA"
+ },
+ "cho-thue-can-ho-3-ngu-sakura-75m2-tt-3n-2511": {
+  "dien_tich": 75,
+  "loai": "3 Ngủ",
+  "ma": "TT.3N.2511",
+  "ngay_xuat_hien": "2026-10-30",
+  "phan_khu": "Sakura",
+  "toa": "SA"
+ },
+ "cho-thue-can-ho-3-ngu-sakura-75m2-tt-3n-2517": {
+  "dien_tich": 75,
+  "loai": "3 Ngủ",
+  "ma": "TT.3N.2517",
+  "ngay_xuat_hien": "2026-10-30",
+  "phan_khu": "Sakura",
+  "toa": "SA"
+ },
+ "cho-thue-can-ho-3-ngu-sakura-75m2-tt-3n-3668": {
+  "dien_tich": 75,
+  "loai": "3 Ngủ",
+  "ma": "TT.3N.3668",
+  "ngay_xuat_hien": "2026-10-30",
+  "phan_khu": "Sakura",
+  "toa": "SA"
+ },
+ "cho-thue-can-ho-3-ngu-sakura-75m2-tt-3n-3733": {
+  "dien_tich": 75,
+  "loai": "3 Ngủ",
+  "ma": "TT.3N.3733",
+  "ngay_xuat_hien": "2026-10-30",
+  "phan_khu": "Sakura",
+  "toa": "SA"
+ },
+ "cho-thue-can-ho-3-ngu-sakura-75m2-tt-3n-4476": {
+  "dien_tich": 75,
+  "loai": "3 Ngủ",
+  "ma": "TT.3N.4476",
+  "ngay_xuat_hien": "2026-10-30",
+  "phan_khu": "Sakura",
+  "toa": "SA"
+ },
+ "cho-thue-can-ho-3-ngu-sakura-75m2-tt-3n-4477": {
+  "dien_tich": 75,
+  "loai": "3 Ngủ",
+  "ma": "TT.3N.4477",
+  "ngay_xuat_hien": "2026-10-30",
+  "phan_khu": "Sakura",
+  "toa": "SA"
+ },
+ "cho-thue-can-ho-3-ngu-sakura-75m2-tt-3n-4508": {
+  "dien_tich": 75,
+  "loai": "3 Ngủ",
+  "ma": "TT.3N.4508",
+  "ngay_xuat_hien": "2026-10-30",
+  "phan_khu": "Sakura",
+  "toa": "SA"
+ },
+ "cho-thue-can-ho-3-ngu-sakura-75m2-tt-3n-4548": {
+  "dien_tich": 75,
+  "loai": "3 Ngủ",
+  "ma": "TT.3N.4548",
+  "ngay_xuat_hien": "2026-10-30",
+  "phan_khu": "Sakura",
+  "toa": "SA"
+ },
+ "cho-thue-can-ho-3-ngu-sakura-75m2-tt-3n-5216": {
+  "dien_tich": 75,
+  "loai": "3 Ngủ",
+  "ma": "TT.3N.5216",
+  "ngay_xuat_hien": "2026-10-30",
+  "phan_khu": "Sakura",
+  "toa": "SA"
+ },
+ "cho-thue-can-ho-3-ngu-sakura-75m2-tt-3n-5428": {
+  "dien_tich": 75,
+  "loai": "3 Ngủ",
+  "ma": "TT.3N.5428",
+  "ngay_xuat_hien": "2026-10-30",
+  "phan_khu": "Sakura",
+  "toa": "SA"
+ },
+ "cho-thue-can-ho-3-ngu-sakura-75m2-tt-3n-5559": {
+  "dien_tich": 75,
+  "loai": "3 Ngủ",
+  "ma": "TT.3N.5559",
+  "ngay_xuat_hien": "2026-10-30",
+  "phan_khu": "Sakura",
+  "toa": "SA"
+ },
+ "cho-thue-can-ho-3-ngu-sakura-75m2-tt-3n-5659": {
+  "dien_tich": 75,
+  "loai": "3 Ngủ",
+  "ma": "TT.3N.5659",
+  "ngay_xuat_hien": "2026-10-30",
+  "phan_khu": "Sakura",
+  "toa": "SA"
+ },
+ "cho-thue-can-ho-3-ngu-sakura-75m2-tt-3n-971": {
+  "dien_tich": 75,
+  "loai": "3 Ngủ",
+  "ma": "TT.3N.971",
+  "ngay_xuat_hien": "2026-10-30",
+  "phan_khu": "Sakura",
+  "toa": "SA"
+ },
+ "cho-thue-can-ho-3-ngu-sakura-76m2-tt-3n-5363": {
+  "dien_tich": 76,
+  "loai": "3 Ngủ",
+  "ma": "TT.3N.5363",
+  "ngay_xuat_hien": "2026-10-30",
+  "phan_khu": "Sakura",
+  "toa": "SA"
+ },
+ "cho-thue-can-ho-3-ngu-sakura-76m2-tt-3n-5388": {
+  "dien_tich": 76,
+  "loai": "3 Ngủ",
+  "ma": "TT.3N.5388",
+  "ngay_xuat_hien": "2026-10-30",
+  "phan_khu": "Sakura",
+  "toa": "SA"
+ },
+ "cho-thue-can-ho-3-ngu-sakura-76m2-tt-3n-5621": {
+  "dien_tich": 76,
+  "loai": "3 Ngủ",
+  "ma": "TT.3N.5621",
+  "ngay_xuat_hien": "2026-10-30",
+  "phan_khu": "Sakura",
+  "toa": "SA"
+ },
  "cho-thue-can-ho-3-ngu-sakura-78m2-ct-3n-136": {
   "dien_tich": 78,
   "loai": "3 Ngủ",
@@ -5927,6 +10223,54 @@
   "phan_khu": "Sakura",
   "toa": "SA2"
  },
+ "cho-thue-can-ho-3-ngu-sakura-81m2-tt-3n-5143": {
+  "dien_tich": 81,
+  "loai": "3 Ngủ",
+  "ma": "TT.3N.5143",
+  "ngay_xuat_hien": "2026-10-30",
+  "phan_khu": "Sakura",
+  "toa": "SA"
+ },
+ "cho-thue-can-ho-3-ngu-sakura-82m2-tt-3n-5390": {
+  "dien_tich": 82,
+  "loai": "3 Ngủ",
+  "ma": "TT.3N.5390",
+  "ngay_xuat_hien": "2026-10-30",
+  "phan_khu": "Sakura",
+  "toa": "SA"
+ },
+ "cho-thue-can-ho-3-ngu-sakura-83m2-tt-3n-5683": {
+  "dien_tich": 83,
+  "loai": "3 Ngủ",
+  "ma": "TT.3N.5683",
+  "ngay_xuat_hien": "2026-10-30",
+  "phan_khu": "Sakura",
+  "toa": "SA"
+ },
+ "cho-thue-can-ho-3-ngu-sakura-94m2-tt-3n-5573": {
+  "dien_tich": 94,
+  "loai": "3 Ngủ",
+  "ma": "TT.3N.5573",
+  "ngay_xuat_hien": "2026-10-30",
+  "phan_khu": "Sakura",
+  "toa": "SA"
+ },
+ "cho-thue-can-ho-3-ngu-sakura-95m2-tt-3n-5393": {
+  "dien_tich": 95,
+  "loai": "3 Ngủ",
+  "ma": "TT.3N.5393",
+  "ngay_xuat_hien": "2026-10-30",
+  "phan_khu": "Sakura",
+  "toa": "SA"
+ },
+ "cho-thue-can-ho-3-ngu-sakura-95m2-tt-3n-5441": {
+  "dien_tich": 95,
+  "loai": "3 Ngủ",
+  "ma": "TT.3N.5441",
+  "ngay_xuat_hien": "2026-10-30",
+  "phan_khu": "Sakura",
+  "toa": "SA"
+ },
  "cho-thue-can-ho-3-ngu-sapphire-74m2-ct-3n-137": {
   "dien_tich": 74,
   "loai": "3 Ngủ",
@@ -5942,6 +10286,14 @@
   "ngay_xuat_hien": "2026-10-22",
   "phan_khu": "Sapphire",
   "toa": "S103"
+ },
+ "cho-thue-can-ho-3-ngu-sapphire-74m2-tt-3n-5487": {
+  "dien_tich": 74,
+  "loai": "3 Ngủ",
+  "ma": "TT.3N.5487",
+  "ngay_xuat_hien": "2026-10-30",
+  "phan_khu": "Sapphire",
+  "toa": "S2"
  },
  "cho-thue-can-ho-3-ngu-sapphire-75m2-ct-3n-108": {
   "dien_tich": 75,
@@ -6015,6 +10367,22 @@
   "phan_khu": "Sapphire",
   "toa": "S401"
  },
+ "cho-thue-can-ho-3-ngu-sapphire-75m2-tt-3n-4936": {
+  "dien_tich": 75,
+  "loai": "3 Ngủ",
+  "ma": "TT.3N.4936",
+  "ngay_xuat_hien": "2026-10-30",
+  "phan_khu": "Sapphire",
+  "toa": "S2"
+ },
+ "cho-thue-can-ho-3-ngu-sapphire-75m2-tt-3n-5025": {
+  "dien_tich": 75,
+  "loai": "3 Ngủ",
+  "ma": "TT.3N.5025",
+  "ngay_xuat_hien": "2026-10-30",
+  "phan_khu": "Sapphire",
+  "toa": "S1"
+ },
  "cho-thue-can-ho-3-ngu-sapphire-76m2-ct-3n-133": {
   "dien_tich": 76,
   "loai": "3 Ngủ",
@@ -6023,6 +10391,38 @@
   "phan_khu": "Sapphire",
   "toa": "S106"
  },
+ "cho-thue-can-ho-3-ngu-sapphire-76m2-tt-3n-5384": {
+  "dien_tich": 76,
+  "loai": "3 Ngủ",
+  "ma": "TT.3N.5384",
+  "ngay_xuat_hien": "2026-10-30",
+  "phan_khu": "Sapphire",
+  "toa": "S4"
+ },
+ "cho-thue-can-ho-3-ngu-sapphire-76m2-tt-3n-5640": {
+  "dien_tich": 76,
+  "loai": "3 Ngủ",
+  "ma": "TT.3N.5640",
+  "ngay_xuat_hien": "2026-10-30",
+  "phan_khu": "Sapphire",
+  "toa": "S4"
+ },
+ "cho-thue-can-ho-3-ngu-sapphire-76m2-tt-3n-5738": {
+  "dien_tich": 76,
+  "loai": "3 Ngủ",
+  "ma": "TT.3N.5738",
+  "ngay_xuat_hien": "2026-10-30",
+  "phan_khu": "Sapphire",
+  "toa": "S4"
+ },
+ "cho-thue-can-ho-3-ngu-sapphire-80m2-tt-3n-3808": {
+  "dien_tich": 80,
+  "loai": "3 Ngủ",
+  "ma": "TT.3N.3808",
+  "ngay_xuat_hien": "2026-10-30",
+  "phan_khu": "Sapphire",
+  "toa": "S3"
+ },
  "cho-thue-can-ho-3-ngu-sapphire-82m2-ct-3n-111": {
   "dien_tich": 82,
   "loai": "3 Ngủ",
@@ -6030,6 +10430,14 @@
   "ngay_xuat_hien": "2026-07-08",
   "phan_khu": "Sapphire",
   "toa": "S401"
+ },
+ "cho-thue-can-ho-3-ngu-sapphire-83m2-tt-3n-3956": {
+  "dien_tich": 83,
+  "loai": "3 Ngủ",
+  "ma": "TT.3N.3956",
+  "ngay_xuat_hien": "2026-10-30",
+  "phan_khu": "Sapphire",
+  "toa": "S4"
  },
  "cho-thue-can-ho-3-ngu-sapphire-92m2-ct-3n-169": {
   "dien_tich": 92,
@@ -6063,6 +10471,14 @@
   "phan_khu": "Sapphire",
   "toa": "S303"
  },
+ "cho-thue-can-ho-3-ngu-sapphire-94m2-tt-3n-5628": {
+  "dien_tich": 94,
+  "loai": "3 Ngủ",
+  "ma": "TT.3N.5628",
+  "ngay_xuat_hien": "2026-10-30",
+  "phan_khu": "Sapphire",
+  "toa": "S3"
+ },
  "cho-thue-can-ho-3-ngu-sapphire-95m2-ct-3n-130": {
   "dien_tich": 95,
   "loai": "3 Ngủ",
@@ -6095,6 +10511,54 @@
   "phan_khu": "Sola Park",
   "toa": "G3"
  },
+ "cho-thue-can-ho-3-ngu-sola-park-74m2-tt-3n-5721": {
+  "dien_tich": 74,
+  "loai": "3 Ngủ",
+  "ma": "TT.3N.5721",
+  "ngay_xuat_hien": "2026-10-30",
+  "phan_khu": "Sola Park",
+  "toa": "SolaPark"
+ },
+ "cho-thue-can-ho-3-ngu-sola-park-74m2-tt-3n-5734": {
+  "dien_tich": 74,
+  "loai": "3 Ngủ",
+  "ma": "TT.3N.5734",
+  "ngay_xuat_hien": "2026-10-30",
+  "phan_khu": "Sola Park",
+  "toa": "SolaPark"
+ },
+ "cho-thue-can-ho-3-ngu-sola-park-75m2-tt-3n-5606": {
+  "dien_tich": 75,
+  "loai": "3 Ngủ",
+  "ma": "TT.3N.5606",
+  "ngay_xuat_hien": "2026-10-30",
+  "phan_khu": "Sola Park",
+  "toa": "SolaPark"
+ },
+ "cho-thue-can-ho-3-ngu-sola-park-75m2-tt-3n-5610": {
+  "dien_tich": 75,
+  "loai": "3 Ngủ",
+  "ma": "TT.3N.5610",
+  "ngay_xuat_hien": "2026-10-30",
+  "phan_khu": "Sola Park",
+  "toa": "SolaPark"
+ },
+ "cho-thue-can-ho-3-ngu-sola-park-75m2-tt-3n-5690": {
+  "dien_tich": 75,
+  "loai": "3 Ngủ",
+  "ma": "TT.3N.5690",
+  "ngay_xuat_hien": "2026-10-30",
+  "phan_khu": "Sola Park",
+  "toa": "SolaPark"
+ },
+ "cho-thue-can-ho-3-ngu-sola-park-75m2-tt-3n-5728": {
+  "dien_tich": 75,
+  "loai": "3 Ngủ",
+  "ma": "TT.3N.5728",
+  "ngay_xuat_hien": "2026-10-30",
+  "phan_khu": "Sola Park",
+  "toa": "SolaPark"
+ },
  "cho-thue-can-ho-3-ngu-tonkin-83m2-ct-3n-172": {
   "dien_tich": 83,
   "loai": "3 Ngủ",
@@ -6102,6 +10566,14 @@
   "ngay_xuat_hien": "2026-09-21",
   "phan_khu": "Tonkin",
   "toa": "TK2"
+ },
+ "cho-thue-can-ho-3-ngu-tonkin-83m2-tt-3n-4684": {
+  "dien_tich": 83,
+  "loai": "3 Ngủ",
+  "ma": "TT.3N.4684",
+  "ngay_xuat_hien": "2026-10-30",
+  "phan_khu": "Tonkin",
+  "toa": "TK"
  },
  "cho-thue-can-ho-studio-canopy-25m2-ct-stu-877": {
   "dien_tich": 25,
@@ -6126,6 +10598,46 @@
   "ngay_xuat_hien": "2026-10-22",
   "phan_khu": "Canopy",
   "toa": "TC2"
+ },
+ "cho-thue-can-ho-studio-canopy-25m2-tt-st-4056": {
+  "dien_tich": 25,
+  "loai": "Studio",
+  "ma": "TT.ST.4056",
+  "ngay_xuat_hien": "2026-10-30",
+  "phan_khu": "Canopy",
+  "toa": "TC"
+ },
+ "cho-thue-can-ho-studio-canopy-25m2-tt-st-4641": {
+  "dien_tich": 25,
+  "loai": "Studio",
+  "ma": "TT.ST.4641",
+  "ngay_xuat_hien": "2026-10-30",
+  "phan_khu": "Canopy",
+  "toa": "TC"
+ },
+ "cho-thue-can-ho-studio-canopy-25m2-tt-st-4844": {
+  "dien_tich": 25,
+  "loai": "Studio",
+  "ma": "TT.ST.4844",
+  "ngay_xuat_hien": "2026-10-30",
+  "phan_khu": "Canopy",
+  "toa": "TC"
+ },
+ "cho-thue-can-ho-studio-canopy-25m2-tt-st-5492": {
+  "dien_tich": 25,
+  "loai": "Studio",
+  "ma": "TT.ST.5492",
+  "ngay_xuat_hien": "2026-10-30",
+  "phan_khu": "Canopy",
+  "toa": "TC"
+ },
+ "cho-thue-can-ho-studio-canopy-25m2-tt-st-5795": {
+  "dien_tich": 25,
+  "loai": "Studio",
+  "ma": "TT.ST.5795",
+  "ngay_xuat_hien": "2026-10-30",
+  "phan_khu": "Canopy",
+  "toa": "TC"
  },
  "cho-thue-can-ho-studio-canopy-26m2-ct-stu-752": {
   "dien_tich": 26,
@@ -6167,6 +10679,14 @@
   "phan_khu": "Canopy",
   "toa": "TC1"
  },
+ "cho-thue-can-ho-studio-canopy-28m2-tt-st-4888": {
+  "dien_tich": 28,
+  "loai": "Studio",
+  "ma": "TT.ST.4888",
+  "ngay_xuat_hien": "2026-10-30",
+  "phan_khu": "Canopy",
+  "toa": "TC"
+ },
  "cho-thue-can-ho-studio-canopy-29m2-ct-stu-728": {
   "dien_tich": 29,
   "loai": "Studio",
@@ -6182,6 +10702,14 @@
   "ngay_xuat_hien": "2026-09-26",
   "phan_khu": "Canopy",
   "toa": "TC1"
+ },
+ "cho-thue-can-ho-studio-canopy-29m2-tt-st-5160": {
+  "dien_tich": 29,
+  "loai": "Studio",
+  "ma": "TT.ST.5160",
+  "ngay_xuat_hien": "2026-10-30",
+  "phan_khu": "Canopy",
+  "toa": "TC"
  },
  "cho-thue-can-ho-studio-canopy-30m2-ct-stu-785": {
   "dien_tich": 30,
@@ -6239,6 +10767,22 @@
   "phan_khu": "Canopy",
   "toa": "TC1"
  },
+ "cho-thue-can-ho-studio-canopy-30m2-tt-st-5442": {
+  "dien_tich": 30,
+  "loai": "Studio",
+  "ma": "TT.ST.5442",
+  "ngay_xuat_hien": "2026-10-30",
+  "phan_khu": "Canopy",
+  "toa": "TC"
+ },
+ "cho-thue-can-ho-studio-canopy-30m2-tt-st-5776": {
+  "dien_tich": 30,
+  "loai": "Studio",
+  "ma": "TT.ST.5776",
+  "ngay_xuat_hien": "2026-10-30",
+  "phan_khu": "Canopy",
+  "toa": "TC"
+ },
  "cho-thue-can-ho-studio-canopy-32m2-cc33": {
   "dien_tich": 32,
   "loai": "Studio",
@@ -6295,6 +10839,14 @@
   "phan_khu": "Imperia",
   "toa": "I4"
  },
+ "cho-thue-can-ho-studio-imperia-28m2-tt-st-5306": {
+  "dien_tich": 28,
+  "loai": "Studio",
+  "ma": "TT.ST.5306",
+  "ngay_xuat_hien": "2026-10-30",
+  "phan_khu": "Imperia",
+  "toa": "Imperia"
+ },
  "cho-thue-can-ho-studio-imperia-31m2-ct-stu-782": {
   "dien_tich": 31,
   "loai": "Studio",
@@ -6342,6 +10894,14 @@
   "ngay_xuat_hien": "2026-10-28",
   "phan_khu": "Imperia",
   "toa": "I1"
+ },
+ "cho-thue-can-ho-studio-imperia-32m2-tt-st-5278": {
+  "dien_tich": 32,
+  "loai": "Studio",
+  "ma": "TT.ST.5278",
+  "ngay_xuat_hien": "2026-10-30",
+  "phan_khu": "Imperia",
+  "toa": "Imperia"
  },
  "cho-thue-can-ho-studio-lumiere-30m2-cc12": {
   "dien_tich": 30,
@@ -6479,6 +11039,166 @@
   "phan_khu": "Lumiere",
   "toa": "A1"
  },
+ "cho-thue-can-ho-studio-lumiere-30m2-tt-st-4151": {
+  "dien_tich": 30,
+  "loai": "Studio",
+  "ma": "TT.ST.4151",
+  "ngay_xuat_hien": "2026-10-30",
+  "phan_khu": "Lumiere",
+  "toa": "Lumiere"
+ },
+ "cho-thue-can-ho-studio-lumiere-30m2-tt-st-4161": {
+  "dien_tich": 30,
+  "loai": "Studio",
+  "ma": "TT.ST.4161",
+  "ngay_xuat_hien": "2026-10-30",
+  "phan_khu": "Lumiere",
+  "toa": "Lumiere"
+ },
+ "cho-thue-can-ho-studio-lumiere-30m2-tt-st-4365": {
+  "dien_tich": 30,
+  "loai": "Studio",
+  "ma": "TT.ST.4365",
+  "ngay_xuat_hien": "2026-10-30",
+  "phan_khu": "Lumiere",
+  "toa": "Lumiere"
+ },
+ "cho-thue-can-ho-studio-lumiere-30m2-tt-st-4417": {
+  "dien_tich": 30,
+  "loai": "Studio",
+  "ma": "TT.ST.4417",
+  "ngay_xuat_hien": "2026-10-30",
+  "phan_khu": "Lumiere",
+  "toa": "Lumiere"
+ },
+ "cho-thue-can-ho-studio-lumiere-30m2-tt-st-4974": {
+  "dien_tich": 30,
+  "loai": "Studio",
+  "ma": "TT.ST.4974",
+  "ngay_xuat_hien": "2026-10-30",
+  "phan_khu": "Lumiere",
+  "toa": "Lumiere"
+ },
+ "cho-thue-can-ho-studio-lumiere-30m2-tt-st-5086": {
+  "dien_tich": 30,
+  "loai": "Studio",
+  "ma": "TT.ST.5086",
+  "ngay_xuat_hien": "2026-10-30",
+  "phan_khu": "Lumiere",
+  "toa": "Lumiere"
+ },
+ "cho-thue-can-ho-studio-lumiere-30m2-tt-st-5187": {
+  "dien_tich": 30,
+  "loai": "Studio",
+  "ma": "TT.ST.5187",
+  "ngay_xuat_hien": "2026-10-30",
+  "phan_khu": "Lumiere",
+  "toa": "Lumiere"
+ },
+ "cho-thue-can-ho-studio-lumiere-30m2-tt-st-5204": {
+  "dien_tich": 30,
+  "loai": "Studio",
+  "ma": "TT.ST.5204",
+  "ngay_xuat_hien": "2026-10-30",
+  "phan_khu": "Lumiere",
+  "toa": "Lumiere"
+ },
+ "cho-thue-can-ho-studio-lumiere-30m2-tt-st-5205": {
+  "dien_tich": 30,
+  "loai": "Studio",
+  "ma": "TT.ST.5205",
+  "ngay_xuat_hien": "2026-10-30",
+  "phan_khu": "Lumiere",
+  "toa": "Lumiere"
+ },
+ "cho-thue-can-ho-studio-lumiere-30m2-tt-st-5206": {
+  "dien_tich": 30,
+  "loai": "Studio",
+  "ma": "TT.ST.5206",
+  "ngay_xuat_hien": "2026-10-30",
+  "phan_khu": "Lumiere",
+  "toa": "Lumiere"
+ },
+ "cho-thue-can-ho-studio-lumiere-30m2-tt-st-5207": {
+  "dien_tich": 30,
+  "loai": "Studio",
+  "ma": "TT.ST.5207",
+  "ngay_xuat_hien": "2026-10-30",
+  "phan_khu": "Lumiere",
+  "toa": "Lumiere"
+ },
+ "cho-thue-can-ho-studio-lumiere-30m2-tt-st-5210": {
+  "dien_tich": 30,
+  "loai": "Studio",
+  "ma": "TT.ST.5210",
+  "ngay_xuat_hien": "2026-10-30",
+  "phan_khu": "Lumiere",
+  "toa": "Lumiere"
+ },
+ "cho-thue-can-ho-studio-lumiere-30m2-tt-st-5212": {
+  "dien_tich": 30,
+  "loai": "Studio",
+  "ma": "TT.ST.5212",
+  "ngay_xuat_hien": "2026-10-30",
+  "phan_khu": "Lumiere",
+  "toa": "Lumiere"
+ },
+ "cho-thue-can-ho-studio-lumiere-30m2-tt-st-5242": {
+  "dien_tich": 30,
+  "loai": "Studio",
+  "ma": "TT.ST.5242",
+  "ngay_xuat_hien": "2026-10-30",
+  "phan_khu": "Lumiere",
+  "toa": "Lumiere"
+ },
+ "cho-thue-can-ho-studio-lumiere-30m2-tt-st-5244": {
+  "dien_tich": 30,
+  "loai": "Studio",
+  "ma": "TT.ST.5244",
+  "ngay_xuat_hien": "2026-10-30",
+  "phan_khu": "Lumiere",
+  "toa": "Lumiere"
+ },
+ "cho-thue-can-ho-studio-lumiere-30m2-tt-st-5252": {
+  "dien_tich": 30,
+  "loai": "Studio",
+  "ma": "TT.ST.5252",
+  "ngay_xuat_hien": "2026-10-30",
+  "phan_khu": "Lumiere",
+  "toa": "Lumiere"
+ },
+ "cho-thue-can-ho-studio-lumiere-30m2-tt-st-5257": {
+  "dien_tich": 30,
+  "loai": "Studio",
+  "ma": "TT.ST.5257",
+  "ngay_xuat_hien": "2026-10-30",
+  "phan_khu": "Lumiere",
+  "toa": "Lumiere"
+ },
+ "cho-thue-can-ho-studio-lumiere-30m2-tt-st-5416": {
+  "dien_tich": 30,
+  "loai": "Studio",
+  "ma": "TT.ST.5416",
+  "ngay_xuat_hien": "2026-10-30",
+  "phan_khu": "Lumiere",
+  "toa": "Lumiere"
+ },
+ "cho-thue-can-ho-studio-lumiere-30m2-tt-st-5490": {
+  "dien_tich": 30,
+  "loai": "Studio",
+  "ma": "TT.ST.5490",
+  "ngay_xuat_hien": "2026-10-30",
+  "phan_khu": "Lumiere",
+  "toa": "Lumiere"
+ },
+ "cho-thue-can-ho-studio-lumiere-30m2-tt-st-5745": {
+  "dien_tich": 30,
+  "loai": "Studio",
+  "ma": "TT.ST.5745",
+  "ngay_xuat_hien": "2026-10-30",
+  "phan_khu": "Lumiere",
+  "toa": "Lumiere"
+ },
  "cho-thue-can-ho-studio-lumiere-32m2-ct-stu-888": {
   "dien_tich": 32,
   "loai": "Studio",
@@ -6494,6 +11214,14 @@
   "ngay_xuat_hien": "2026-10-20",
   "phan_khu": "Lumiere",
   "toa": "A3"
+ },
+ "cho-thue-can-ho-studio-lumiere-32m2-tt-st-5036": {
+  "dien_tich": 32,
+  "loai": "Studio",
+  "ma": "TT.ST.5036",
+  "ngay_xuat_hien": "2026-10-30",
+  "phan_khu": "Lumiere",
+  "toa": "Lumiere"
  },
  "cho-thue-can-ho-studio-masteri-27m2-ct-stu-789": {
   "dien_tich": 27,
@@ -6518,6 +11246,30 @@
   "ngay_xuat_hien": "2026-10-28",
   "phan_khu": "Masteri",
   "toa": "MasC"
+ },
+ "cho-thue-can-ho-studio-masteri-27m2-tt-st-5529": {
+  "dien_tich": 27,
+  "loai": "Studio",
+  "ma": "TT.ST.5529",
+  "ngay_xuat_hien": "2026-10-30",
+  "phan_khu": "Masteri",
+  "toa": "MAS"
+ },
+ "cho-thue-can-ho-studio-masteri-28m2-tt-st-4033": {
+  "dien_tich": 28,
+  "loai": "Studio",
+  "ma": "TT.ST.4033",
+  "ngay_xuat_hien": "2026-10-30",
+  "phan_khu": "Masteri",
+  "toa": "MAS"
+ },
+ "cho-thue-can-ho-studio-masteri-28m2-tt-st-4627": {
+  "dien_tich": 28,
+  "loai": "Studio",
+  "ma": "TT.ST.4627",
+  "ngay_xuat_hien": "2026-10-30",
+  "phan_khu": "Masteri",
+  "toa": "MAS"
  },
  "cho-thue-can-ho-studio-masteri-29m2-ct-stu-709": {
   "dien_tich": 29,
@@ -6647,6 +11399,70 @@
   "phan_khu": "Masteri",
   "toa": "MasC"
  },
+ "cho-thue-can-ho-studio-masteri-30m2-tt-st-4360": {
+  "dien_tich": 30,
+  "loai": "Studio",
+  "ma": "TT.ST.4360",
+  "ngay_xuat_hien": "2026-10-30",
+  "phan_khu": "Masteri",
+  "toa": "MAS"
+ },
+ "cho-thue-can-ho-studio-masteri-30m2-tt-st-4707": {
+  "dien_tich": 30,
+  "loai": "Studio",
+  "ma": "TT.ST.4707",
+  "ngay_xuat_hien": "2026-10-30",
+  "phan_khu": "Masteri",
+  "toa": "MAS"
+ },
+ "cho-thue-can-ho-studio-masteri-30m2-tt-st-4745": {
+  "dien_tich": 30,
+  "loai": "Studio",
+  "ma": "TT.ST.4745",
+  "ngay_xuat_hien": "2026-10-30",
+  "phan_khu": "Masteri",
+  "toa": "MAS"
+ },
+ "cho-thue-can-ho-studio-masteri-30m2-tt-st-4987": {
+  "dien_tich": 30,
+  "loai": "Studio",
+  "ma": "TT.ST.4987",
+  "ngay_xuat_hien": "2026-10-30",
+  "phan_khu": "Masteri",
+  "toa": "MAS"
+ },
+ "cho-thue-can-ho-studio-masteri-30m2-tt-st-5092": {
+  "dien_tich": 30,
+  "loai": "Studio",
+  "ma": "TT.ST.5092",
+  "ngay_xuat_hien": "2026-10-30",
+  "phan_khu": "Masteri",
+  "toa": "MAS"
+ },
+ "cho-thue-can-ho-studio-masteri-30m2-tt-st-5241": {
+  "dien_tich": 30,
+  "loai": "Studio",
+  "ma": "TT.ST.5241",
+  "ngay_xuat_hien": "2026-10-30",
+  "phan_khu": "Masteri",
+  "toa": "MAS"
+ },
+ "cho-thue-can-ho-studio-masteri-30m2-tt-st-5525": {
+  "dien_tich": 30,
+  "loai": "Studio",
+  "ma": "TT.ST.5525",
+  "ngay_xuat_hien": "2026-10-30",
+  "phan_khu": "Masteri",
+  "toa": "MAS"
+ },
+ "cho-thue-can-ho-studio-masteri-30m2-tt-st-5578": {
+  "dien_tich": 30,
+  "loai": "Studio",
+  "ma": "TT.ST.5578",
+  "ngay_xuat_hien": "2026-10-30",
+  "phan_khu": "Masteri",
+  "toa": "MAS"
+ },
  "cho-thue-can-ho-studio-masteri-31m2-ct-stu-753": {
   "dien_tich": 31,
   "loai": "Studio",
@@ -6759,6 +11575,22 @@
   "phan_khu": "Masteri",
   "toa": "MasB"
  },
+ "cho-thue-can-ho-studio-masteri-33m2-tt-st-4706": {
+  "dien_tich": 33,
+  "loai": "Studio",
+  "ma": "TT.ST.4706",
+  "ngay_xuat_hien": "2026-10-30",
+  "phan_khu": "Masteri",
+  "toa": "MAS"
+ },
+ "cho-thue-can-ho-studio-masteri-33m2-tt-st-5192": {
+  "dien_tich": 33,
+  "loai": "Studio",
+  "ma": "TT.ST.5192",
+  "ngay_xuat_hien": "2026-10-30",
+  "phan_khu": "Masteri",
+  "toa": "MAS"
+ },
  "cho-thue-can-ho-studio-masteri-35m2-ct-stu-794": {
   "dien_tich": 35,
   "loai": "Studio",
@@ -6774,6 +11606,14 @@
   "ngay_xuat_hien": "2026-10-08",
   "phan_khu": "Masteri",
   "toa": "MasA"
+ },
+ "cho-thue-can-ho-studio-masteri-35m2-tt-st-5511": {
+  "dien_tich": 35,
+  "loai": "Studio",
+  "ma": "TT.ST.5511",
+  "ngay_xuat_hien": "2026-10-30",
+  "phan_khu": "Masteri",
+  "toa": "MAS"
  },
  "cho-thue-can-ho-studio-miami-25m2-ct-stu-918": {
   "dien_tich": 25,
@@ -6831,6 +11671,30 @@
   "phan_khu": "Miami",
   "toa": "GS3"
  },
+ "cho-thue-can-ho-studio-miami-28m2-tt-st-4898": {
+  "dien_tich": 28,
+  "loai": "Studio",
+  "ma": "TT.ST.4898",
+  "ngay_xuat_hien": "2026-10-30",
+  "phan_khu": "Miami",
+  "toa": "GS"
+ },
+ "cho-thue-can-ho-studio-miami-28m2-tt-st-5099": {
+  "dien_tich": 28,
+  "loai": "Studio",
+  "ma": "TT.ST.5099",
+  "ngay_xuat_hien": "2026-10-30",
+  "phan_khu": "Miami",
+  "toa": "GS"
+ },
+ "cho-thue-can-ho-studio-miami-28m2-tt-st-5232": {
+  "dien_tich": 28,
+  "loai": "Studio",
+  "ma": "TT.ST.5232",
+  "ngay_xuat_hien": "2026-10-30",
+  "phan_khu": "Miami",
+  "toa": "GS"
+ },
  "cho-thue-can-ho-studio-miami-29m2-ct-stu-815": {
   "dien_tich": 29,
   "loai": "Studio",
@@ -6863,6 +11727,14 @@
   "phan_khu": "Miami",
   "toa": "GS2"
  },
+ "cho-thue-can-ho-studio-miami-30m2-tt-st-5016": {
+  "dien_tich": 30,
+  "loai": "Studio",
+  "ma": "TT.ST.5016",
+  "ngay_xuat_hien": "2026-10-30",
+  "phan_khu": "Miami",
+  "toa": "GS"
+ },
  "cho-thue-can-ho-studio-miami-31m2-ct-stu-871": {
   "dien_tich": 31,
   "loai": "Studio",
@@ -6894,6 +11766,22 @@
   "ngay_xuat_hien": "2026-10-12",
   "phan_khu": "Miami",
   "toa": "GS1"
+ },
+ "cho-thue-can-ho-studio-miami-32m2-tt-st-5224": {
+  "dien_tich": 32,
+  "loai": "Studio",
+  "ma": "TT.ST.5224",
+  "ngay_xuat_hien": "2026-10-30",
+  "phan_khu": "Miami",
+  "toa": "GS"
+ },
+ "cho-thue-can-ho-studio-miami-32m2-tt-st-5415": {
+  "dien_tich": 32,
+  "loai": "Studio",
+  "ma": "TT.ST.5415",
+  "ngay_xuat_hien": "2026-10-30",
+  "phan_khu": "Miami",
+  "toa": "GS"
  },
  "cho-thue-can-ho-studio-miami-34m2-ct-stu-931": {
   "dien_tich": 34,
@@ -6934,6 +11822,22 @@
   "ngay_xuat_hien": "2026-10-22",
   "phan_khu": "Sakura",
   "toa": "SA3"
+ },
+ "cho-thue-can-ho-studio-sakura-25m2-tt-st-4359": {
+  "dien_tich": 25,
+  "loai": "Studio",
+  "ma": "TT.ST.4359",
+  "ngay_xuat_hien": "2026-10-30",
+  "phan_khu": "Sakura",
+  "toa": "SA"
+ },
+ "cho-thue-can-ho-studio-sakura-25m2-tt-st-4813": {
+  "dien_tich": 25,
+  "loai": "Studio",
+  "ma": "TT.ST.4813",
+  "ngay_xuat_hien": "2026-10-30",
+  "phan_khu": "Sakura",
+  "toa": "SA"
  },
  "cho-thue-can-ho-studio-sakura-26m2-ct-stu": {
   "dien_tich": 26,
@@ -6991,6 +11895,22 @@
   "phan_khu": "Sakura",
   "toa": "SA2"
  },
+ "cho-thue-can-ho-studio-sakura-26m2-tt-st-5602": {
+  "dien_tich": 26,
+  "loai": "Studio",
+  "ma": "TT.ST.5602",
+  "ngay_xuat_hien": "2026-10-30",
+  "phan_khu": "Sakura",
+  "toa": "SA"
+ },
+ "cho-thue-can-ho-studio-sakura-26m2-tt-st-5803": {
+  "dien_tich": 26,
+  "loai": "Studio",
+  "ma": "TT.ST.5803",
+  "ngay_xuat_hien": "2026-10-30",
+  "phan_khu": "Sakura",
+  "toa": "SA"
+ },
  "cho-thue-can-ho-studio-sakura-28m2-ct-stu-928": {
   "dien_tich": 28,
   "loai": "Studio",
@@ -7014,6 +11934,14 @@
   "ngay_xuat_hien": "2026-10-30",
   "phan_khu": "Sakura",
   "toa": "SA2"
+ },
+ "cho-thue-can-ho-studio-sakura-28m2-tt-st-5783": {
+  "dien_tich": 28,
+  "loai": "Studio",
+  "ma": "TT.ST.5783",
+  "ngay_xuat_hien": "2026-10-30",
+  "phan_khu": "Sakura",
+  "toa": "SA"
  },
  "cho-thue-can-ho-studio-sakura-30m2-ct-stu-660": {
   "dien_tich": 30,
@@ -7054,6 +11982,30 @@
   "ngay_xuat_hien": "2026-10-23",
   "phan_khu": "Sakura",
   "toa": "SA2"
+ },
+ "cho-thue-can-ho-studio-sakura-30m2-tt-st-2910": {
+  "dien_tich": 30,
+  "loai": "Studio",
+  "ma": "TT.ST.2910",
+  "ngay_xuat_hien": "2026-10-30",
+  "phan_khu": "Sakura",
+  "toa": "SA"
+ },
+ "cho-thue-can-ho-studio-sakura-30m2-tt-st-4281": {
+  "dien_tich": 30,
+  "loai": "Studio",
+  "ma": "TT.ST.4281",
+  "ngay_xuat_hien": "2026-10-30",
+  "phan_khu": "Sakura",
+  "toa": "SA"
+ },
+ "cho-thue-can-ho-studio-sakura-30m2-tt-st-4475": {
+  "dien_tich": 30,
+  "loai": "Studio",
+  "ma": "TT.ST.4475",
+  "ngay_xuat_hien": "2026-10-30",
+  "phan_khu": "Sakura",
+  "toa": "SA"
  },
  "cho-thue-can-ho-studio-sakura-31m2-ct-stu-848": {
   "dien_tich": 31,
@@ -7135,6 +12087,62 @@
   "phan_khu": "Sakura",
   "toa": "SA5"
  },
+ "cho-thue-can-ho-studio-sakura-32m2-tt-st-4085": {
+  "dien_tich": 32,
+  "loai": "Studio",
+  "ma": "TT.ST.4085",
+  "ngay_xuat_hien": "2026-10-30",
+  "phan_khu": "Sakura",
+  "toa": "SA"
+ },
+ "cho-thue-can-ho-studio-sakura-32m2-tt-st-4510": {
+  "dien_tich": 32,
+  "loai": "Studio",
+  "ma": "TT.ST.4510",
+  "ngay_xuat_hien": "2026-10-30",
+  "phan_khu": "Sakura",
+  "toa": "SA"
+ },
+ "cho-thue-can-ho-studio-sakura-32m2-tt-st-4988": {
+  "dien_tich": 32,
+  "loai": "Studio",
+  "ma": "TT.ST.4988",
+  "ngay_xuat_hien": "2026-10-30",
+  "phan_khu": "Sakura",
+  "toa": "SA"
+ },
+ "cho-thue-can-ho-studio-sakura-32m2-tt-st-5088": {
+  "dien_tich": 32,
+  "loai": "Studio",
+  "ma": "TT.ST.5088",
+  "ngay_xuat_hien": "2026-10-30",
+  "phan_khu": "Sakura",
+  "toa": "SA"
+ },
+ "cho-thue-can-ho-studio-sakura-32m2-tt-st-5465": {
+  "dien_tich": 32,
+  "loai": "Studio",
+  "ma": "TT.ST.5465",
+  "ngay_xuat_hien": "2026-10-30",
+  "phan_khu": "Sakura",
+  "toa": "SA"
+ },
+ "cho-thue-can-ho-studio-sakura-32m2-tt-st-5727": {
+  "dien_tich": 32,
+  "loai": "Studio",
+  "ma": "TT.ST.5727",
+  "ngay_xuat_hien": "2026-10-30",
+  "phan_khu": "Sakura",
+  "toa": "SA"
+ },
+ "cho-thue-can-ho-studio-sakura-32m2-tt-st-5792": {
+  "dien_tich": 32,
+  "loai": "Studio",
+  "ma": "TT.ST.5792",
+  "ngay_xuat_hien": "2026-10-30",
+  "phan_khu": "Sakura",
+  "toa": "SA"
+ },
  "cho-thue-can-ho-studio-sakura-34m2-ct-stu-798": {
   "dien_tich": 34,
   "loai": "Studio",
@@ -7167,6 +12175,22 @@
   "phan_khu": "Sakura",
   "toa": "SA5"
  },
+ "cho-thue-can-ho-studio-sakura-34m2-tt-st-5265": {
+  "dien_tich": 34,
+  "loai": "Studio",
+  "ma": "TT.ST.5265",
+  "ngay_xuat_hien": "2026-10-30",
+  "phan_khu": "Sakura",
+  "toa": "SA"
+ },
+ "cho-thue-can-ho-studio-sakura-34m2-tt-st-5443": {
+  "dien_tich": 34,
+  "loai": "Studio",
+  "ma": "TT.ST.5443",
+  "ngay_xuat_hien": "2026-10-30",
+  "phan_khu": "Sakura",
+  "toa": "SA"
+ },
  "cho-thue-can-ho-studio-sakura-36m2-ct-stu-917": {
   "dien_tich": 36,
   "loai": "Studio",
@@ -7174,6 +12198,14 @@
   "ngay_xuat_hien": "2026-10-04",
   "phan_khu": "Sakura",
   "toa": "SA5"
+ },
+ "cho-thue-can-ho-studio-sapphire-24m2-tt-st-4979": {
+  "dien_tich": 24,
+  "loai": "Studio",
+  "ma": "TT.ST.4979",
+  "ngay_xuat_hien": "2026-10-30",
+  "phan_khu": "Sapphire",
+  "toa": "S4"
  },
  "cho-thue-can-ho-studio-sapphire-25m2-ct-stu-813": {
   "dien_tich": 25,
@@ -7239,6 +12271,14 @@
   "phan_khu": "Sapphire",
   "toa": "S303"
  },
+ "cho-thue-can-ho-studio-sapphire-25m2-tt-st-5701": {
+  "dien_tich": 25,
+  "loai": "Studio",
+  "ma": "TT.ST.5701",
+  "ngay_xuat_hien": "2026-10-30",
+  "phan_khu": "Sapphire",
+  "toa": "S3"
+ },
  "cho-thue-can-ho-studio-sapphire-27m2-ct-stu-869": {
   "dien_tich": 27,
   "loai": "Studio",
@@ -7246,6 +12286,14 @@
   "ngay_xuat_hien": "2026-09-17",
   "phan_khu": "Sapphire",
   "toa": "S403"
+ },
+ "cho-thue-can-ho-studio-sapphire-27m2-tt-st-5794": {
+  "dien_tich": 27,
+  "loai": "Studio",
+  "ma": "TT.ST.5794",
+  "ngay_xuat_hien": "2026-10-30",
+  "phan_khu": "Sapphire",
+  "toa": "S4"
  },
  "cho-thue-can-ho-studio-sapphire-28m2-ct-stu-731": {
   "dien_tich": 28,
@@ -7351,6 +12399,54 @@
   "phan_khu": "Sapphire",
   "toa": "S303"
  },
+ "cho-thue-can-ho-studio-sapphire-28m2-tt-st-4862": {
+  "dien_tich": 28,
+  "loai": "Studio",
+  "ma": "TT.ST.4862",
+  "ngay_xuat_hien": "2026-10-30",
+  "phan_khu": "Sapphire",
+  "toa": "S1"
+ },
+ "cho-thue-can-ho-studio-sapphire-28m2-tt-st-5351": {
+  "dien_tich": 28,
+  "loai": "Studio",
+  "ma": "TT.ST.5351",
+  "ngay_xuat_hien": "2026-10-30",
+  "phan_khu": "Sapphire",
+  "toa": "S1"
+ },
+ "cho-thue-can-ho-studio-sapphire-28m2-tt-st-5564": {
+  "dien_tich": 28,
+  "loai": "Studio",
+  "ma": "TT.ST.5564",
+  "ngay_xuat_hien": "2026-10-30",
+  "phan_khu": "Sapphire",
+  "toa": "S1"
+ },
+ "cho-thue-can-ho-studio-sapphire-28m2-tt-st-5645": {
+  "dien_tich": 28,
+  "loai": "Studio",
+  "ma": "TT.ST.5645",
+  "ngay_xuat_hien": "2026-10-30",
+  "phan_khu": "Sapphire",
+  "toa": "S3"
+ },
+ "cho-thue-can-ho-studio-sapphire-28m2-tt-st-5703": {
+  "dien_tich": 28,
+  "loai": "Studio",
+  "ma": "TT.ST.5703",
+  "ngay_xuat_hien": "2026-10-30",
+  "phan_khu": "Sapphire",
+  "toa": "S3"
+ },
+ "cho-thue-can-ho-studio-sapphire-28m2-tt-st-5772": {
+  "dien_tich": 28,
+  "loai": "Studio",
+  "ma": "TT.ST.5772",
+  "ngay_xuat_hien": "2026-10-30",
+  "phan_khu": "Sapphire",
+  "toa": "S1"
+ },
  "cho-thue-can-ho-studio-sapphire-30m2-ct-stu-825": {
   "dien_tich": 30,
   "loai": "Studio",
@@ -7390,6 +12486,38 @@
   "ngay_xuat_hien": "2026-10-30",
   "phan_khu": "Sapphire",
   "toa": "S302"
+ },
+ "cho-thue-can-ho-studio-sapphire-30m2-tt-st-4907": {
+  "dien_tich": 30,
+  "loai": "Studio",
+  "ma": "TT.ST.4907",
+  "ngay_xuat_hien": "2026-10-30",
+  "phan_khu": "Sapphire",
+  "toa": "S1"
+ },
+ "cho-thue-can-ho-studio-sapphire-30m2-tt-st-5173": {
+  "dien_tich": 30,
+  "loai": "Studio",
+  "ma": "TT.ST.5173",
+  "ngay_xuat_hien": "2026-10-30",
+  "phan_khu": "Sapphire",
+  "toa": "S1"
+ },
+ "cho-thue-can-ho-studio-sapphire-30m2-tt-st-5305": {
+  "dien_tich": 30,
+  "loai": "Studio",
+  "ma": "TT.ST.5305",
+  "ngay_xuat_hien": "2026-10-30",
+  "phan_khu": "Sapphire",
+  "toa": "S3"
+ },
+ "cho-thue-can-ho-studio-sapphire-30m2-tt-st-5403": {
+  "dien_tich": 30,
+  "loai": "Studio",
+  "ma": "TT.ST.5403",
+  "ngay_xuat_hien": "2026-10-30",
+  "phan_khu": "Sapphire",
+  "toa": "S3"
  },
  "cho-thue-can-ho-studio-sapphire-31m2-ct-stu-771": {
   "dien_tich": 31,
@@ -7679,6 +12807,102 @@
   "phan_khu": "Sapphire",
   "toa": "S401"
  },
+ "cho-thue-can-ho-studio-sapphire-32m2-tt-st-3415": {
+  "dien_tich": 32,
+  "loai": "Studio",
+  "ma": "TT.ST.3415",
+  "ngay_xuat_hien": "2026-10-30",
+  "phan_khu": "Sapphire",
+  "toa": "S1"
+ },
+ "cho-thue-can-ho-studio-sapphire-32m2-tt-st-4663": {
+  "dien_tich": 32,
+  "loai": "Studio",
+  "ma": "TT.ST.4663",
+  "ngay_xuat_hien": "2026-10-30",
+  "phan_khu": "Sapphire",
+  "toa": "S4"
+ },
+ "cho-thue-can-ho-studio-sapphire-32m2-tt-st-5174": {
+  "dien_tich": 32,
+  "loai": "Studio",
+  "ma": "TT.ST.5174",
+  "ngay_xuat_hien": "2026-10-30",
+  "phan_khu": "Sapphire",
+  "toa": "S1"
+ },
+ "cho-thue-can-ho-studio-sapphire-32m2-tt-st-5183": {
+  "dien_tich": 32,
+  "loai": "Studio",
+  "ma": "TT.ST.5183",
+  "ngay_xuat_hien": "2026-10-30",
+  "phan_khu": "Sapphire",
+  "toa": "S1"
+ },
+ "cho-thue-can-ho-studio-sapphire-32m2-tt-st-5300": {
+  "dien_tich": 32,
+  "loai": "Studio",
+  "ma": "TT.ST.5300",
+  "ngay_xuat_hien": "2026-10-30",
+  "phan_khu": "Sapphire",
+  "toa": "S1"
+ },
+ "cho-thue-can-ho-studio-sapphire-32m2-tt-st-5378": {
+  "dien_tich": 32,
+  "loai": "Studio",
+  "ma": "TT.ST.5378",
+  "ngay_xuat_hien": "2026-10-30",
+  "phan_khu": "Sapphire",
+  "toa": "S1"
+ },
+ "cho-thue-can-ho-studio-sapphire-32m2-tt-st-5407": {
+  "dien_tich": 32,
+  "loai": "Studio",
+  "ma": "TT.ST.5407",
+  "ngay_xuat_hien": "2026-10-30",
+  "phan_khu": "Sapphire",
+  "toa": "S1"
+ },
+ "cho-thue-can-ho-studio-sapphire-32m2-tt-st-5445": {
+  "dien_tich": 32,
+  "loai": "Studio",
+  "ma": "TT.ST.5445",
+  "ngay_xuat_hien": "2026-10-30",
+  "phan_khu": "Sapphire",
+  "toa": "S1"
+ },
+ "cho-thue-can-ho-studio-sapphire-32m2-tt-st-5556": {
+  "dien_tich": 32,
+  "loai": "Studio",
+  "ma": "TT.ST.5556",
+  "ngay_xuat_hien": "2026-10-30",
+  "phan_khu": "Sapphire",
+  "toa": "S3"
+ },
+ "cho-thue-can-ho-studio-sapphire-32m2-tt-st-5620": {
+  "dien_tich": 32,
+  "loai": "Studio",
+  "ma": "TT.ST.5620",
+  "ngay_xuat_hien": "2026-10-30",
+  "phan_khu": "Sapphire",
+  "toa": "S3"
+ },
+ "cho-thue-can-ho-studio-sapphire-32m2-tt-st-5633": {
+  "dien_tich": 32,
+  "loai": "Studio",
+  "ma": "TT.ST.5633",
+  "ngay_xuat_hien": "2026-10-30",
+  "phan_khu": "Sapphire",
+  "toa": "S4"
+ },
+ "cho-thue-can-ho-studio-sapphire-32m2-tt-st-5744": {
+  "dien_tich": 32,
+  "loai": "Studio",
+  "ma": "TT.ST.5744",
+  "ngay_xuat_hien": "2026-10-30",
+  "phan_khu": "Sapphire",
+  "toa": "S1"
+ },
  "cho-thue-can-ho-studio-sapphire-34m2-ct-stu-817": {
   "dien_tich": 34,
   "loai": "Studio",
@@ -7726,6 +12950,94 @@
   "ngay_xuat_hien": "2026-10-30",
   "phan_khu": "Sola Park",
   "toa": "G3"
+ },
+ "cho-thue-can-ho-studio-sola-park-32m2-tt-st-5598": {
+  "dien_tich": 32,
+  "loai": "Studio",
+  "ma": "TT.ST.5598",
+  "ngay_xuat_hien": "2026-10-30",
+  "phan_khu": "Sola Park",
+  "toa": "SolaPark"
+ },
+ "cho-thue-can-ho-studio-sola-park-32m2-tt-st-5641": {
+  "dien_tich": 32,
+  "loai": "Studio",
+  "ma": "TT.ST.5641",
+  "ngay_xuat_hien": "2026-10-30",
+  "phan_khu": "Sola Park",
+  "toa": "SolaPark"
+ },
+ "cho-thue-can-ho-studio-sola-park-32m2-tt-st-5654": {
+  "dien_tich": 32,
+  "loai": "Studio",
+  "ma": "TT.ST.5654",
+  "ngay_xuat_hien": "2026-10-30",
+  "phan_khu": "Sola Park",
+  "toa": "SolaPark"
+ },
+ "cho-thue-can-ho-studio-sola-park-32m2-tt-st-5665": {
+  "dien_tich": 32,
+  "loai": "Studio",
+  "ma": "TT.ST.5665",
+  "ngay_xuat_hien": "2026-10-30",
+  "phan_khu": "Sola Park",
+  "toa": "SolaPark"
+ },
+ "cho-thue-can-ho-studio-sola-park-32m2-tt-st-5678": {
+  "dien_tich": 32,
+  "loai": "Studio",
+  "ma": "TT.ST.5678",
+  "ngay_xuat_hien": "2026-10-30",
+  "phan_khu": "Sola Park",
+  "toa": "SolaPark"
+ },
+ "cho-thue-can-ho-studio-sola-park-32m2-tt-st-5688": {
+  "dien_tich": 32,
+  "loai": "Studio",
+  "ma": "TT.ST.5688",
+  "ngay_xuat_hien": "2026-10-30",
+  "phan_khu": "Sola Park",
+  "toa": "SolaPark"
+ },
+ "cho-thue-can-ho-studio-sola-park-32m2-tt-st-5708": {
+  "dien_tich": 32,
+  "loai": "Studio",
+  "ma": "TT.ST.5708",
+  "ngay_xuat_hien": "2026-10-30",
+  "phan_khu": "Sola Park",
+  "toa": "SolaPark"
+ },
+ "cho-thue-can-ho-studio-sola-park-32m2-tt-st-5714": {
+  "dien_tich": 32,
+  "loai": "Studio",
+  "ma": "TT.ST.5714",
+  "ngay_xuat_hien": "2026-10-30",
+  "phan_khu": "Sola Park",
+  "toa": "SolaPark"
+ },
+ "cho-thue-can-ho-studio-sola-park-32m2-tt-st-5774": {
+  "dien_tich": 32,
+  "loai": "Studio",
+  "ma": "TT.ST.5774",
+  "ngay_xuat_hien": "2026-10-30",
+  "phan_khu": "Sola Park",
+  "toa": "SolaPark"
+ },
+ "cho-thue-can-ho-studio-sola-park-32m2-tt-st-5778": {
+  "dien_tich": 32,
+  "loai": "Studio",
+  "ma": "TT.ST.5778",
+  "ngay_xuat_hien": "2026-10-30",
+  "phan_khu": "Sola Park",
+  "toa": "SolaPark"
+ },
+ "cho-thue-can-ho-studio-sola-park-32m2-tt-st-5779": {
+  "dien_tich": 32,
+  "loai": "Studio",
+  "ma": "TT.ST.5779",
+  "ngay_xuat_hien": "2026-10-30",
+  "phan_khu": "Sola Park",
+  "toa": "SolaPark"
  },
  "cho-thue-can-ho-studio-tonkin-25m2-ct-stu-715": {
   "dien_tich": 25,
@@ -7807,6 +13119,46 @@
   "phan_khu": "Tonkin",
   "toa": "TK2"
  },
+ "cho-thue-can-ho-studio-tonkin-25m2-tt-st-4120": {
+  "dien_tich": 25,
+  "loai": "Studio",
+  "ma": "TT.ST.4120",
+  "ngay_xuat_hien": "2026-10-30",
+  "phan_khu": "Tonkin",
+  "toa": "TK"
+ },
+ "cho-thue-can-ho-studio-tonkin-25m2-tt-st-5547": {
+  "dien_tich": 25,
+  "loai": "Studio",
+  "ma": "TT.ST.5547",
+  "ngay_xuat_hien": "2026-10-30",
+  "phan_khu": "Tonkin",
+  "toa": "TK"
+ },
+ "cho-thue-can-ho-studio-tonkin-25m2-tt-st-5735": {
+  "dien_tich": 25,
+  "loai": "Studio",
+  "ma": "TT.ST.5735",
+  "ngay_xuat_hien": "2026-10-30",
+  "phan_khu": "Tonkin",
+  "toa": "TK"
+ },
+ "cho-thue-can-ho-studio-tonkin-25m2-tt-st-5756": {
+  "dien_tich": 25,
+  "loai": "Studio",
+  "ma": "TT.ST.5756",
+  "ngay_xuat_hien": "2026-10-30",
+  "phan_khu": "Tonkin",
+  "toa": "TK"
+ },
+ "cho-thue-can-ho-studio-tonkin-25m2-tt-st-5782": {
+  "dien_tich": 25,
+  "loai": "Studio",
+  "ma": "TT.ST.5782",
+  "ngay_xuat_hien": "2026-10-30",
+  "phan_khu": "Tonkin",
+  "toa": "TK"
+ },
  "cho-thue-can-ho-studio-tonkin-28m2-ct-stu-809": {
   "dien_tich": 28,
   "loai": "Studio",
@@ -7870,6 +13222,22 @@
   "ngay_xuat_hien": "2026-10-12",
   "phan_khu": "Tonkin",
   "toa": "TK2"
+ },
+ "cho-thue-can-ho-studio-tonkin-29m2-tt-st-5736": {
+  "dien_tich": 29,
+  "loai": "Studio",
+  "ma": "TT.ST.5736",
+  "ngay_xuat_hien": "2026-10-30",
+  "phan_khu": "Tonkin",
+  "toa": "TK"
+ },
+ "cho-thue-can-ho-studio-tonkin-29m2-tt-st-5777": {
+  "dien_tich": 29,
+  "loai": "Studio",
+  "ma": "TT.ST.5777",
+  "ngay_xuat_hien": "2026-10-30",
+  "phan_khu": "Tonkin",
+  "toa": "TK"
  },
  "cho-thue-can-ho-studio-tonkin-30m2-cc22": {
   "dien_tich": 30,
