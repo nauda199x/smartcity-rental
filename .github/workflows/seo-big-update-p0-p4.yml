@@ -61,6 +61,9 @@ jobs:
           ref: ${{ github.event_name == 'pull_request' && github.event.pull_request.head.sha || 'main' }}
           fetch-depth: 0
 
+      - name: Bảo vệ giao diện trang chủ khỏi khối lọc phòng ngủ cồng kềnh
+        run: python3 scripts/test-quick-rent-removed.py
+
       - name: Mở rộng landing SEO theo tòa
         run: |
           set -o pipefail
