@@ -17,6 +17,7 @@ on:
       - "scripts/quet-thu-muc-anh.py"
       - "scripts/media_anh.py"
       - "scripts/test_quet_anh.py"
+      - "scripts/test-anh-thu-thao.cjs"
   workflow_run:
     workflows:
       - "Cập nhật số căn và tháng trong thẻ SEO"
@@ -74,7 +75,9 @@ jobs:
         run: pip install --quiet Pillow requests
 
       - name: Kiểm tra cơ chế quét ảnh
-        run: python3 -m unittest discover -s scripts -p test_quet_anh.py
+        run: |
+          python3 -m unittest discover -s scripts -p test_quet_anh.py
+          node scripts/test-anh-thu-thao.cjs
 
       - name: Quét lại các thư mục ảnh công khai
         id: photos

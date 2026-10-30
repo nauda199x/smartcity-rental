@@ -1,8 +1,9 @@
 #!/usr/bin/env python3
 """Quét thư mục ảnh công khai mỗi lượt đồng bộ, kể cả link không đổi.
 
-Nguồn thư mục ảnh là 7 tab của Sheet CTV mới. Chỉ đọc ID CĂN (cột C)
-và LINK ẢNH (cột J); không đọc ghi chú, hoa hồng hay dữ liệu liên hệ.
+Nguồn An Việt đọc ID CĂN (cột C) và LINK ẢNH (cột J) của 7 tab CTV.
+Nguồn Thu Thảo dùng Thư mục ảnh CTV đã đồng bộ từ cột I vào data.json.
+Không đọc ghi chú, hoa hồng hay dữ liệu liên hệ.
 Drive public HTML không phải API ổn định: kiểm tra đủ cấu trúc/phân trang,
 giữ snapshot gần nhất khi nguồn lỗi, và dừng nếu lỗi diện rộng.
 """
@@ -21,6 +22,7 @@ from media_anh import ROOT, MANIFEST, drive_id, source_key
 SHEET = "1Gnh6ILQT1mV1bQFw5OLVSXMIvqcrO-M36vjlinMiH0w"
 SHEETS = ("Stu", "1N", "1n+", "2n1", "2n2", "2n+", "3n")
 APARTMENT_ID = re.compile(r"^CT\.[A-Za-z0-9+]+\.\d+$")
+THAO_ID = re.compile(r"^TT\.(?:ST|1N|2N|2NP|3N)\.\d{3,6}$")
 ID = re.compile(r"^[A-Za-z0-9_-]{10,}$")
 
 
@@ -121,6 +123,27 @@ def read_folders():
         raise ValueError("Quá ít thư mục ảnh hợp lệ trong CTV: %d" % len(result))
     return result
 
+def read_thao_folders(rows):
+    """Use the same listing snapshot as the website, keeping source IDs separate."""
+    result = {}
+    for row in rows:
+        code = str(row.get("Mã nội bộ", "")).strip()
+        if not THAO_ID.fullmatch(code):
+            continue
+        link = str(row.get("Thư mục ảnh CTV") or "").strip()
+        if not link:
+            continue  # Sheet explicitly has no photos yet.
+        match = re.fullmatch(
+            r"https://drive\.google\.com/drive/(?:u/\d+/)?folders/([A-Za-z0-9_-]{10,})(?:[?&#].*)?",
+            link)
+        if not match:
+            raise ValueError("Link thư mục ảnh Thu Thảo không hợp lệ: " + code)
+        value = {"folderId": match.group(1), "Ảnh đại diện": "", "Danh sách ảnh": ""}
+        if code in result and result[code] != value:
+            raise ValueError("Mã Thu Thảo trùng thư mục khác nhau: " + code)
+        result[code] = value
+    return result
+
 def build_item(row, source, files, previous):
     current = {f["id"] for f in files if f.get("kind", "image") == "image"}
     videos = {f["id"] for f in files if f.get("kind") == "video"}
@@ -142,7 +165,8 @@ def scan(rows, sources, old, fetch_folder):
     work = {str(r.get("Mã nội bộ", "")).strip(): r for r in rows
             if str(r.get("Hiển thị trên Web", "")).strip().lower() in ("có", "co", "yes", "true", "1")
             and str(r.get("Mã nội bộ", "")).strip() in sources}
-    if not 1 <= len(work) <= 400:
+    thao_count = sum(bool(THAO_ID.fullmatch(code)) for code in work)
+    if not work or len(work) - thao_count > 400 or thao_count > 1200:
         raise ValueError("Số thư mục cần quét bất thường: " + str(len(work)))
     items = {k: v for k, v in old.get("items", {}).items() if k in work}
     revisions = dict(old.get("revisions", {}))
@@ -172,7 +196,9 @@ def scan(rows, sources, old, fetch_folder):
             continue
         files = results[source["folderId"]]
         item = build_item(row, source, files, previous)
-        old_ids = set(previous["photos"]) if previous else set(source_key(row).split("|")) - {"", item["poster"]}
+        old_ids = (set(previous["photos"]) if previous else
+                   {ident for ident in source_key(row).split("|")
+                    if ID.fullmatch(ident) and ident != item["poster"]})
         new_ids = set(item["photos"])
         if old_ids != new_ids:
             print(f"{code}: {len(old_ids)} → {len(new_ids)} ảnh (+{len(new_ids-old_ids)}, -{len(old_ids-new_ids)})", flush=True)
@@ -193,6 +219,9 @@ def main():
     rows = json.loads((ROOT / "data.json").read_text(encoding="utf-8"))
     old = json.loads(MANIFEST.read_text(encoding="utf-8")) if MANIFEST.exists() else {"version": 1, "items": {}, "revisions": {}}
     sources = read_folders()
+    thao_sources = read_thao_folders(rows)
+    print(f"Nguồn ảnh: An Việt {len(sources)} căn, Thu Thảo {len(thao_sources)} căn.")
+    sources.update(thao_sources)
     result = scan(rows, sources, old, fetch_folder_with_retry)
     if result == old:
         print("Danh sách và phiên bản ảnh không đổi.")

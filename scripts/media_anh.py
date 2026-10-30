@@ -14,9 +14,13 @@ def drive_id(url):
 
 
 def source_key(row):
-    return "|".join([drive_id(row.get("Ảnh đại diện"))] + [
+    parts = [drive_id(row.get("Ảnh đại diện"))] + [
         drive_id(x) for x in str(row.get("Danh sách ảnh") or "").splitlines() if x.strip()
-    ])
+    ]
+    folder = str(row.get("Thư mục ảnh CTV") or "").strip()
+    if folder:
+        parts.append("folder:" + folder)
+    return "|".join(parts)
 
 
 @lru_cache(maxsize=1)

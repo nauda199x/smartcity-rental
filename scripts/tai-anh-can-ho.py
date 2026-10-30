@@ -36,6 +36,8 @@ import os
 import random
 import sys
 import time
+import threading
+from concurrent.futures import ThreadPoolExecutor
 from xml.sax.saxutils import escape
 
 import requests
@@ -102,11 +104,19 @@ TRANG_TINH = [
     ]),
 ]
 
-PHIEN = requests.Session()
-PHIEN.headers.update({
+PHIEN = threading.local()
+HEADERS = {
     "User-Agent": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 "
                   "(KHTML, like Gecko) Chrome/124.0 Safari/537.36"
-})
+}
+
+
+def phien_http():
+    # Mỗi worker có Session riêng, không chia sẻ cookie/state giữa các luồng.
+    if not hasattr(PHIEN, "session"):
+        PHIEN.session = requests.Session()
+        PHIEN.session.headers.update(HEADERS)
+    return PHIEN.session
 
 
 def cac_url(ban_ghi):
@@ -120,7 +130,7 @@ def cac_url(ban_ghi):
 
 def tai_mot_url(url):
     """Trả về bytes ảnh, hoặc None kèm lý do lỗi."""
-    r = PHIEN.get(url, timeout=45)
+    r = phien_http().get(url, timeout=45)
     if r.status_code != 200:
         return None, "HTTP %d" % r.status_code
     noi_dung = r.content
@@ -318,6 +328,18 @@ def ghi_sitemap_anh(ban_ghi_ok):
     return len(theo_trang)
 
 
+def xu_ly_anh(bg, gia_lap=False):
+    ca_hai_ban = bg.get("loai_anh", "bia") == "bia"
+    duong_ra = os.path.join(THU_MUC_ANH, bg["ten_file"])
+    da_du = da_du_hai_ban(duong_ra) if ca_hai_ban else da_du_mot_ban(duong_ra)
+    if da_du:
+        return "skip", "đã có sẵn"
+    thanh_cong, mo_ta = tai_mot_anh(bg, ca_hai_ban, gia_lap)
+    if not gia_lap:
+        time.sleep(random.uniform(0.3, 0.5))
+    return ("ok" if thanh_cong else "error"), mo_ta
+
+
 def main():
     bo_phan_tich = argparse.ArgumentParser()
     bo_phan_tich.add_argument("--gioi-han", type=int, default=0,
@@ -350,34 +372,22 @@ def main():
         len(danh_sach), "anh-can-ho/", " (--gia-lap: không gọi Drive)"
         if tham_so.gia_lap else ""))
 
+    if len({bg["ten_file"] for bg in danh_sach}) != len(danh_sach):
+        raise ValueError("Trùng tên file ảnh; dừng trước khi tải để tránh ghi đè.")
     ok, that_bai, bo_qua = [], [], []
-    for i, bg in enumerate(danh_sach, 1):
-        ca_hai_ban = bg.get("loai_anh", "bia") == "bia"
-        duong_ra = os.path.join(THU_MUC_ANH, bg["ten_file"])
-        # Đã có đủ file cần thiết thì không gọi Drive nữa: chạy lại script
-        # nhiều lần chỉ tải phần còn thiếu. Ảnh vẫn vào anh-map.json và sitemap.
-        da_du = da_du_hai_ban(duong_ra) if ca_hai_ban else da_du_mot_ban(duong_ra)
-        if da_du:
-            ok.append(bg)
-            bo_qua.append(bg)
-            print("[%3d/%d] BỎ QUA %-12s %s (đã có sẵn)"
-                  % (i, len(danh_sach), bg["ma"], bg["ten_file"]))
-            sys.stdout.flush()
-            continue
-
-        thanh_cong, mo_ta = tai_mot_anh(bg, ca_hai_ban, tham_so.gia_lap)
-        if thanh_cong:
-            ok.append(bg)
-            print("[%3d/%d] OK   %-12s %s (%s)" % (i, len(danh_sach), bg["ma"],
-                                                   bg["ten_file"], mo_ta))
-        else:
-            that_bai.append((bg, mo_ta))
-            print("[%3d/%d] LỖI  %-12s %s" % (i, len(danh_sach), bg["ma"], mo_ta))
-        sys.stdout.flush()
-        # Chỉ nghỉ giữa hai lần thật sự gọi Drive; ảnh bỏ qua/giả lập không
-        # chạm mạng.
-        if i < len(danh_sach) and not tham_so.gia_lap:
-            time.sleep(random.uniform(0.3, 0.5))
+    # Bốn lượt tải có giới hạn để backfill nguồn mới; giữ retry, cache và thứ tự map.
+    with ThreadPoolExecutor(max_workers=4) as pool:
+        results = pool.map(lambda bg: xu_ly_anh(bg, tham_so.gia_lap), danh_sach)
+        for i, (bg, (status, mo_ta)) in enumerate(zip(danh_sach, results), 1):
+            if status == "error":
+                that_bai.append((bg, mo_ta))
+            else:
+                ok.append(bg)
+                if status == "skip":
+                    bo_qua.append(bg)
+            label = {"ok": "OK", "skip": "BỎ QUA", "error": "LỖI"}[status]
+            print("[%3d/%d] %s %-12s %s (%s)" %
+                  (i, len(danh_sach), label, bg["ma"], bg["ten_file"], mo_ta), flush=True)
 
     tong_byte = 0
     for bg in ok:

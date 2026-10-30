@@ -1,6 +1,8 @@
 # Đồng bộ ảnh thư mục Drive
 
-`data.json` vẫn do Apps Script quản lý. `quet-thu-muc-anh.py` đọc các cột công khai B/I/J/K/L của tab Cong ty trong Sheet web, đối chiếu mã căn đang hiển thị và quét lại từng thư mục Drive công khai. Không đọc cột chủ nhà hoặc ghi chú nội bộ.
+`quet-thu-muc-anh.py` không ghi vào `data.json`. Nguồn An Việt đọc mã căn và thư mục ảnh ở cột C/J của 7 tab CTV; nguồn Thu Thảo đọc `Thư mục ảnh CTV` đã đồng bộ từ cột I vào `data.json`. Đối chiếu mã nội bộ theo namespace CT.* / TT.* và chỉ quét các căn đang hiển thị. Không đọc cột chủ nhà hoặc ghi chú nội bộ.
+
+Ảnh Thu Thảo dùng cùng pipeline snapshot → WebP → album/trang chi tiết. Khóa snapshot bao gồm thư mục CTV, vì vậy khi Sheet đổi/xóa thư mục sẽ không áp ảnh cũ cho căn. Thư mục trùng chỉ quét một lần; tải tối đa 4 ảnh đồng thời, mỗi luồng có HTTP session riêng và vẫn giữ cache/retry.
 
 Kết quả lưu ở `anh-can-ho/nguon-anh.json`. Trang chủ, danh mục, trang chi tiết và danh sách tải WebP dùng cùng snapshot này. Khi các cột ảnh trong data.json mới hơn snapshot, hệ thống ưu tiên dữ liệu Sheet cho đến lượt quét tiếp theo. Video và ảnh bìa trích từ video được giữ riêng; video không được tính thành ảnh trong album.
 
