@@ -330,12 +330,12 @@ async function fetchThaoTab(tab) {
       if (/<!doctype|<html|accounts\.google\.com/i.test(body.slice(0, 1000)))
         throw new Error(tab.name + ": nguồn yêu cầu đăng nhập Google");
       const rows = parseCsv(body);
-      // Tên cột KHÔNG nằm ở hàng 1 như An Việt.
-      const header = rows.findIndex(c => key(c[0]) === "stt" &&
-        /giá|gia/i.test(txt(c[6])) && /tòa|khu/i.test(txt(c[2])));
-      if (header < 0 || header > 12 || rows.length - header < 15)
-        throw new Error(tab.name + ": thiếu header hoặc số hàng bất thường");
-      return rows.slice(header + 1);
+      // GViz có thể tự bỏ các dòng tiêu đề nhiều tầng; nhận diện dòng căn bằng
+      // STT số ở cột A, không dựa vào vị trí/dòng header của từng tab.
+      const candidates = rows.filter(c => /^\d{3,6}$/.test(txt(c[0])));
+      if (candidates.length < 15)
+        throw new Error(tab.name + ": chỉ nhận được " + candidates.length + " STT hợp lệ");
+      return candidates;
     } catch (e) {
       const retry = /HTTP (?:429|5\d\d)|timeout|fetch failed|network|socket/i.test(e.message);
       if (!retry || attempt === 4) throw e;
