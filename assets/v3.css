@@ -4046,16 +4046,3 @@ textarea:disabled{
   .thi-truong-table thead th{font-size:.7rem}
   .thi-truong-boost{align-items:flex-start}
 }
-
-
-/* SEO commercial landing: compact, crawlable links to live rental-type inventory (2026-10-25). */
-.seo-rent-shortcuts{margin:14px 0 20px;padding:16px 18px;border:1px solid #dbe4ee;border-radius:18px;background:#f8fafc}
-.seo-rent-shortcuts__head{margin:0 0 12px}
-.seo-rent-shortcuts__head h2{font-size:19px;line-height:1.35;font-weight:750;margin:0 0 4px;color:#142239}
-.seo-rent-shortcuts__head p{font-size:13px;line-height:1.5;margin:0;color:#5a6b82}
-.seo-rent-shortcuts__grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px}
-.seo-rent-shortcuts__card{display:flex;flex-direction:column;gap:4px;padding:12px 13px;border:1px solid #e1e8f0;border-radius:12px;background:#fff;color:#172945;text-decoration:none;min-width:0}
-.seo-rent-shortcuts__card strong{font-size:13.5px;font-weight:750;line-height:1.4}
-.seo-rent-shortcuts__card span{font-size:12px;line-height:1.45;color:#64748b}
-.seo-rent-shortcuts__card:hover,.seo-rent-shortcuts__card:focus-visible{border-color:#3677bf;background:#f0f6ff;outline-offset:2px}
-@media(max-width:650px){.seo-rent-shortcuts{padding:12px;margin:10px 0 15px;border-radius:13px}.seo-rent-shortcuts__head h2{font-size:16px}.seo-rent-shortcuts__grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:7px}.seo-rent-shortcuts__card{padding:10px 9px}.seo-rent-shortcuts__card strong{font-size:12.5px}.seo-rent-shortcuts__card span{font-size:11px}}
