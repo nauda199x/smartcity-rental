@@ -241,7 +241,7 @@ def remove_quick_rent_block(raw):
     Dọn cả hai marker để lần chạy SEO tiếp theo không tái tạo khối.
     """
     pattern = re.compile(
-        re.escape(QUICK_START) + r".*?" + re.escape(QUICK_END) + r"\\s*",
+        re.escape(QUICK_START) + r".*?" + re.escape(QUICK_END) + r"\s*",
         re.S,
     )
     return pattern.sub("", raw)
