@@ -274,7 +274,7 @@
       "area_max": 64,
       "area_min": 30,
       "code": "GS3",
-      "count": 9,
+      "count": 10,
       "data_code": "GS3",
       "district": "Miami",
       "first_seen": "2026-09-10",
@@ -298,16 +298,16 @@
           "price_min": 10000000
         },
         {
+          "count": 2,
+          "name": "Studio",
+          "price_max": 6000000,
+          "price_min": 5500000
+        },
+        {
           "count": 1,
           "name": "1 Ngủ +",
           "price_max": 9000000,
           "price_min": 9000000
-        },
-        {
-          "count": 1,
-          "name": "Studio",
-          "price_max": 5500000,
-          "price_min": 5500000
         }
       ]
     },
@@ -613,7 +613,7 @@
       "area_max": 105,
       "area_min": 30,
       "code": "LUMIERE",
-      "count": 146,
+      "count": 145,
       "data_code": "Lumiere",
       "district": "Lumiere",
       "first_seen": "2026-10-30",
@@ -625,7 +625,7 @@
       "price_min": 8000000,
       "types": [
         {
-          "count": 71,
+          "count": 70,
           "name": "2 Ngủ",
           "price_max": 22000000,
           "price_min": 10500000
@@ -1849,7 +1849,7 @@
       "area_max": 81,
       "area_min": 25,
       "code": "TC",
-      "count": 57,
+      "count": 56,
       "data_code": "TC",
       "district": "Canopy",
       "first_seen": "2026-10-30",
@@ -1861,7 +1861,7 @@
       "price_min": 6000000,
       "types": [
         {
-          "count": 17,
+          "count": 16,
           "name": "2 Ngủ",
           "price_max": 14000000,
           "price_min": 10000000
@@ -2101,7 +2101,7 @@
       "area_max": 70,
       "area_min": 25,
       "code": "TK2",
-      "count": 5,
+      "count": 6,
       "data_code": "TK2",
       "district": "Tonkin",
       "first_seen": "2026-09-10",
@@ -2123,6 +2123,12 @@
           "name": "1 Ngủ",
           "price_max": 10000000,
           "price_min": 10000000
+        },
+        {
+          "count": 1,
+          "name": "1 Ngủ +",
+          "price_max": 8500000,
+          "price_min": 8500000
         },
         {
           "count": 1,
