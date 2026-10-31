@@ -845,10 +845,10 @@
       ]
     },
     "MASD": {
-      "area_max": 63,
+      "area_max": 75,
       "area_min": 30,
       "code": "MASD",
-      "count": 13,
+      "count": 14,
       "data_code": "MasD",
       "district": "Masteri",
       "first_seen": "2026-09-10",
@@ -856,7 +856,7 @@
       "last_seen": "2026-10-31",
       "name": "West D Masteri",
       "path": "/west-d-masteri-smart-city/",
-      "price_max": 16000000,
+      "price_max": 18000000,
       "price_min": 7000000,
       "types": [
         {
@@ -882,6 +882,12 @@
           "name": "2 Ngủ",
           "price_max": 12500000,
           "price_min": 12500000
+        },
+        {
+          "count": 1,
+          "name": "3 Ngủ",
+          "price_max": 18000000,
+          "price_min": 18000000
         }
       ]
     },
@@ -1515,7 +1521,7 @@
       "area_max": 75,
       "area_min": 32,
       "code": "S401",
-      "count": 7,
+      "count": 8,
       "data_code": "S401",
       "district": "Sapphire",
       "first_seen": "2026-09-10",
@@ -1549,6 +1555,12 @@
           "name": "2 Ngủ",
           "price_max": 7500000,
           "price_min": 7500000
+        },
+        {
+          "count": 1,
+          "name": "2 Ngủ +",
+          "price_max": 11000000,
+          "price_min": 11000000
         }
       ]
     },
@@ -1755,7 +1767,7 @@
       "area_max": 75,
       "area_min": 25,
       "code": "SA3",
-      "count": 14,
+      "count": 15,
       "data_code": "SA3",
       "district": "Sakura",
       "first_seen": "2026-09-10",
@@ -1773,7 +1785,7 @@
           "price_min": 10500000
         },
         {
-          "count": 5,
+          "count": 6,
           "name": "Studio",
           "price_max": 7500000,
           "price_min": 6000000
