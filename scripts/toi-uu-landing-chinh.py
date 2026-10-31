@@ -105,7 +105,18 @@ def thong_ke(rows):
             z = ""
         if z:
             zones.add(str(z).strip())
+    by_type = {}
+    for r in rows:
+        loai = str(r.get("Loại", "")).strip()
+        gp = so_tien(r.get("Giá thuê"))
+        if not loai:
+            continue
+        d = by_type.setdefault(loai, {"n": 0, "min": 0})
+        d["n"] += 1
+        if gp and gp > 0 and (not d["min"] or gp < d["min"]):
+            d["min"] = gp
     return {
+        "by_type": by_type,
         "total": len(rows),
         "min_price": min(prices) if prices else 0,
         "max_price": max(prices) if prices else 0,
@@ -206,6 +217,7 @@ def body_block(stats):
         'mức giá trong quỹ hiện tại khoảng <strong>%s</strong>. Dữ liệu được đồng bộ thường xuyên từ bảng hàng thực tế; '
         'mỗi căn đang hoạt động có thông tin giá, tòa, loại căn, nội thất và tình trạng vào ở để người thuê so sánh trước khi đi xem.</p>'
         '</div>'
+        '%s'
         '<div class="seo-graph-grid">'
         '<div class="seo-graph-group"><h3>Xem quỹ căn đang thuê được</h3><div class="seo-graph-links">'
         '<a href="/can-ho/"><strong>Danh sách căn hộ đang cho thuê</strong><span>Mở từng căn có URL chi tiết, giá và tình trạng trống.</span></a>'
@@ -218,7 +230,35 @@ def body_block(stats):
         '<a href="/dang-ky-tam-tru-thue-nha-vinhomes-smart-city.html"><strong>Đăng ký tạm trú</strong><span>Thông tin cần biết sau khi nhận căn.</span></a>'
         '</div></div>'
         '</div></section>'
-    ) % (esc(thang_hien_tai()), stats["total"], esc(zone_text), esc(price_text)) + "\n" + BODY_END
+    ) % (esc(thang_hien_tai()), stats["total"], esc(zone_text), esc(price_text), thue_nha_block(stats)) + "\n" + BODY_END
+
+
+def thue_nha_block(stats):
+    """Đoạn intent "thuê nhà / thuê căn hộ" + các cách gõ phổ biến (Vinhome, VinSmart City).
+
+    Lý do (GSC 16 tháng, 31/10/2026): "thuê nhà vinhomes smart city" 395 hiển thị vị trí 15,
+    "thuê nhà vinhome smart city" 283, "thuê chung cư vinsmart city" 156, "thuê căn hộ smart city" 120
+    — trang chủ chưa có cụm nào trong số này. Số căn/giá lấy thẳng từ data.json.
+    """
+    order = [(k, label, href) for k, href, label in TYPE_ROUTES]
+    items = []
+    for key, label, href in order:
+        d = stats.get("by_type", {}).get(key)
+        if not d or not d["n"]:
+            continue
+        gia = (" từ %s triệu" % gia_trieu(d["min"])) if d["min"] else ""
+        items.append('<li><a href="%s">Thuê căn %s Smart City</a>: %d căn%s/tháng</li>' % (href, esc(label), d["n"], gia))
+    if not items:
+        return ""
+    return (
+        '<div class="seo-graph-head p8-thue-nha">'
+        '<h3>Thuê nhà Vinhomes Smart City (VinSmart City) theo loại căn</h3>'
+        '<p>Người tìm <strong>thuê nhà Vinhomes Smart City</strong>, <strong>thuê căn hộ Smart City</strong> hay '
+        '<strong>thuê chung cư Vinhome Smart City / VinSmart City</strong> ở Tây Mỗ, Hà Nội đều có thể lọc trực tiếp quỹ căn bên dưới. '
+        'Số căn và giá thấp nhất hiện tại theo từng loại:</p>'
+        '<ul>' + "".join(items) + '</ul>'
+        '</div>'
+    )
 
 
 
