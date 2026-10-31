@@ -4,7 +4,7 @@
       "area_max": 75,
       "area_min": 30,
       "code": "A1",
-      "count": 28,
+      "count": 27,
       "data_code": "A1",
       "district": "Lumiere",
       "first_seen": "2026-09-16",
@@ -28,9 +28,9 @@
           "price_min": 12000000
         },
         {
-          "count": 4,
+          "count": 3,
           "name": "Studio",
-          "price_max": 10500000,
+          "price_max": 8500000,
           "price_min": 8000000
         },
         {
