@@ -1031,12 +1031,12 @@
     "dien_tich": 81.0,
     "active": true
   },
-  "cho-thue-can-ho-1-ngu-s2-74m2-thue1n-29": {
+  "cho-thue-can-ho-1-ngu-s1-43m2-thue1n-29": {
     "id": "thue1N.29",
     "ma": "thue1N.29",
     "loai": "1 Ngủ",
-    "toa": "S2",
-    "dien_tich": 74.0,
+    "toa": "S1",
+    "dien_tich": 43.0,
     "active": false
   },
   "cho-thue-can-ho-2-ngu-s5-54m2-thue2n-74": {
