@@ -152,7 +152,7 @@
     "updated": "2026-10-31"
   },
   "cho-thue-2pn-plus-canopy-smart-city": {
-    "count": 16,
+    "count": 15,
     "created": "2026-09-17",
     "indexable": true,
     "loai": "2 Ngủ +",
@@ -288,7 +288,7 @@
     "updated": "2026-10-31"
   },
   "cho-thue-studio-canopy-smart-city": {
-    "count": 16,
+    "count": 15,
     "created": "2026-09-23",
     "indexable": true,
     "loai": "Studio",
@@ -296,7 +296,7 @@
     "updated": "2026-10-31"
   },
   "cho-thue-studio-imperia-smart-city": {
-    "count": 5,
+    "count": 4,
     "created": "2026-10-30",
     "indexable": true,
     "loai": "Studio",
