@@ -51,7 +51,7 @@
       "area_max": 87,
       "area_min": 30,
       "code": "A2",
-      "count": 19,
+      "count": 18,
       "data_code": "A2",
       "district": "Lumiere",
       "first_seen": "2026-09-10",
@@ -63,7 +63,7 @@
       "price_min": 8000000,
       "types": [
         {
-          "count": 14,
+          "count": 13,
           "name": "2 Ngủ",
           "price_max": 15000000,
           "price_min": 10500000
@@ -613,7 +613,7 @@
       "area_max": 105,
       "area_min": 30,
       "code": "LUMIERE",
-      "count": 148,
+      "count": 147,
       "data_code": "Lumiere",
       "district": "Lumiere",
       "first_seen": "2026-10-30",
@@ -625,7 +625,7 @@
       "price_min": 8000000,
       "types": [
         {
-          "count": 71,
+          "count": 70,
           "name": "2 Ngủ",
           "price_max": 22000000,
           "price_min": 10500000
@@ -660,7 +660,7 @@
       "area_max": 80,
       "area_min": 27,
       "code": "MAS",
-      "count": 96,
+      "count": 94,
       "data_code": "MAS",
       "district": "Masteri",
       "first_seen": "2026-10-30",
@@ -672,7 +672,7 @@
       "price_min": 7000000,
       "types": [
         {
-          "count": 37,
+          "count": 35,
           "name": "1 Ngủ",
           "price_max": 15000000,
           "price_min": 8500000
@@ -1123,7 +1123,7 @@
       "area_max": 75,
       "area_min": 43,
       "code": "S2",
-      "count": 23,
+      "count": 22,
       "data_code": "S2",
       "district": "Sapphire",
       "first_seen": "2026-10-30",
@@ -1147,9 +1147,9 @@
           "price_min": 8500000
         },
         {
-          "count": 4,
+          "count": 3,
           "name": "1 Ngủ",
-          "price_max": 9000000,
+          "price_max": 8500000,
           "price_min": 7000000
         },
         {
@@ -1650,7 +1650,7 @@
       "area_max": 95,
       "area_min": 25,
       "code": "SA",
-      "count": 68,
+      "count": 67,
       "data_code": "SA",
       "district": "Sakura",
       "first_seen": "2026-10-30",
@@ -1668,7 +1668,7 @@
           "price_min": 10500000
         },
         {
-          "count": 17,
+          "count": 16,
           "name": "Studio",
           "price_max": 8500000,
           "price_min": 6000000
@@ -1736,9 +1736,9 @@
     },
     "SA2": {
       "area_max": 80,
-      "area_min": 28,
+      "area_min": 30,
       "code": "SA2",
-      "count": 5,
+      "count": 4,
       "data_code": "SA2",
       "district": "Sakura",
       "first_seen": "2026-09-18",
@@ -1747,19 +1747,19 @@
       "name": "SA2 The Sakura",
       "path": "/sa2-the-sakura-smart-city/",
       "price_max": 14000000,
-      "price_min": 7000000,
+      "price_min": 7500000,
       "types": [
-        {
-          "count": 3,
-          "name": "Studio",
-          "price_max": 8500000,
-          "price_min": 7000000
-        },
         {
           "count": 2,
           "name": "3 Ngủ",
           "price_max": 14000000,
           "price_min": 11000000
+        },
+        {
+          "count": 2,
+          "name": "Studio",
+          "price_max": 8500000,
+          "price_min": 7500000
         }
       ]
     },
@@ -1941,9 +1941,9 @@
     },
     "TC2": {
       "area_max": 75,
-      "area_min": 25,
+      "area_min": 30,
       "code": "TC2",
-      "count": 15,
+      "count": 14,
       "data_code": "TC2",
       "district": "Canopy",
       "first_seen": "2026-09-10",
@@ -1967,7 +1967,7 @@
           "price_min": 12000000
         },
         {
-          "count": 3,
+          "count": 2,
           "name": "Studio",
           "price_max": 8000000,
           "price_min": 6000000
