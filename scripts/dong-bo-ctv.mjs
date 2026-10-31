@@ -247,7 +247,7 @@ function sync(old, ctv) {
     const id = txt(r["Mã nội bộ"]);
     // Giữ nguyên quy tắc An Việt cho nguồn cũ, nhưng KHÔNG tắt TT.* của Thu Thảo.
     // TT.* được đối soát độc lập sau khi tải đủ cả 5 tab nguồn thứ hai.
-    if (touched.has(id) || id.startsWith("TT.")) continue;
+    if (touched.has(id) || id.startsWith("TT.") || /^CC\d+$/.test(id)) continue;
     if (key(r["Hiển thị trên Web"]) === "có") {
       r["Hiển thị trên Web"] = "Không";
       stat.missing++;
@@ -442,13 +442,72 @@ function syncThao(rows, source) {
 
 const stable = x => JSON.stringify(x) + "\n";
 
+// Chủ nhà gửi căn: cờ duyệt trên Sheet là nguồn quyết định hiển thị.
+// Chỉ đọc các cột công khai A:L; không xuất ID căn thật, SĐT hay ghi chú.
+async function loadOwners() {
+  const url = "https://docs.google.com/spreadsheets/d/1BBnB5PPLR3HZWHqsa5qvvtgWvFMiHNE2ZMIlUSXcKZk" +
+    "/gviz/tq?tqx=out:csv&headers=0&gid=1055480132&range=A1:L1000";
+  const res = await fetch(url, {signal: AbortSignal.timeout(25000),
+    headers: {"cache-control": "no-cache"}});
+  if (!res.ok) throw new Error("Chủ nhà HTTP " + res.status);
+  const body = await res.text();
+  const rows = parseCsv(body);
+  const header = rows.findIndex(c => key(c[1]) === "mã nội bộ" && key(c[11]) === "hiển thị trên web");
+  if (header < 0) throw new Error("Chủ nhà: sai cấu trúc/không đọc được Sheet");
+  const map = new Map();
+  for (const c of rows.slice(header + 1)) {
+    if (c.every(v => !txt(v))) continue;
+    const id = txt(c[1]);
+    if (!/^CC\d+$/.test(id) || map.has(id)) throw new Error("Chủ nhà: mã trống/sai/trùng");
+    const price = Number(txt(c[6]).replace(/[,.\s₫]/g, ""));
+    const src = {id, tower: tower(c[2]), type: txt(c[3]), area: area(c[4]),
+      furniture: furniture(c[5]), price, moveIn: txt(c[7]),
+      cover: txt(c[9]), photos: txt(c[10]), show: key(c[11]) === "có"};
+    if (src.show && (!complete(src) || !src.type || !src.furniture))
+      throw new Error("Chủ nhà: căn bật hiển thị thiếu dữ liệu " + id);
+    map.set(id, src);
+  }
+  if (!map.size) throw new Error("Chủ nhà: nguồn rỗng, giữ snapshot cũ");
+  return map;
+}
+
+function syncOwners(rows, source) {
+  const next = rows.map(r => ({...r}));
+  const index = new Map();
+  next.forEach((r, i) => {
+    const id = txt(r["Mã nội bộ"]);
+    if (!/^CC\d+$/.test(id)) return;
+    if (index.has(id)) throw new Error("Chủ nhà: trùng mã trong data.json " + id);
+    index.set(id, i);
+  });
+  for (const [id, src] of source) {
+    let row = next[index.get(id)];
+    if (!row) {
+      if (!src.show) continue;
+      row = {"Mã nội bộ": id, "Video": "", "Ngày thêm vào hệ thống": ""};
+      next.push(row);
+    }
+    Object.assign(row, {"Tòa": src.tower, "Loại": src.type, "Diện tích": src.area,
+      "Nội thất": src.furniture, "Giá thuê": src.price, "Ngày vào ở": src.moveIn,
+      "Ảnh đại diện": src.cover, "Danh sách ảnh": src.photos,
+      "Hiển thị trên Web": src.show ? "Có" : "Không"});
+    // Xóa trường riêng tư nếu một snapshot cũ đã vô tình đưa vào.
+    for (const field of ["ID căn", "SĐT chủ nhà", "Ghi chú"]) delete row[field];
+  }
+  for (const row of next) {
+    const id = txt(row["Mã nội bộ"]);
+    if (/^CC\d+$/.test(id) && !source.has(id)) row["Hiển thị trên Web"] = "Không";
+  }
+  return next;
+}
+
 async function main() {
   const raw = readFileSync(DATA, "utf8");
   const old = JSON.parse(raw);
   if (!Array.isArray(old) || old.length < 150)
     throw new Error("data.json rỗng/bất thường; dừng an toàn");
 
-  // Hai bảng hàng độc lập: nguồn nào lỗi chỉ giữ snapshot CỦA NGUỒN ĐÓ.
+  // Các bảng hàng độc lập: nguồn nào lỗi chỉ giữ snapshot CỦA NGUỒN ĐÓ.
   // Không vì An Việt tạm mất mạng mà ngừng cập nhật Thu Thảo (và ngược lại).
   const result = {next: old.map(row => ({...row})), stat: null};
   let ctvStat = null, thaoStat = null, thaoSync = null;
@@ -475,9 +534,21 @@ async function main() {
     console.warn("::warning::Thu Thảo lỗi; giữ nguyên dữ liệu Thu Thảo cũ: " + err.message);
   }
 
-  // Không bao giờ xuất bản một snapshot mới khi cả hai nguồn đều không đọc được.
-  if (ctvFailed && thaoFailed)
-    throw new Error("Cả An Việt và Thu Thảo đều không đọc được; giữ data.json cũ.");
+  // Nguồn chủ nhà độc lập, kể cả khi hai nguồn CTV tạm lỗi.
+  let ownersFailed = false;
+  try {
+    const owners = await loadOwners();
+    result.next = syncOwners(result.next, owners);
+    console.log("Chủ nhà: " + owners.size + " căn, bật hiển thị " +
+      [...owners.values()].filter(r => r.show).length + ".");
+  } catch (err) {
+    ownersFailed = true;
+    if (process.env.REQUIRE_OWNERS === "1") throw err;
+    console.warn("::warning::Chủ nhà lỗi; giữ nguyên snapshot chủ nhà: " + err.message);
+  }
+
+  if (ctvFailed && thaoFailed && ownersFailed)
+    throw new Error("Cả An Việt và Thu Thảo cùng nguồn chủ nhà đều không đọc được; giữ data.json cũ.");
 
   const before = raw, after = stable(result.next);
   if (ctvStat) {
@@ -508,3 +579,4 @@ main().catch(err => {
   console.error("::error::" + (err.stack || err.message || err));
   process.exit(1);
 });
+

@@ -8,9 +8,34 @@ const start = source.indexOf("async function main() {");
 const end = source.indexOf("\nmain().catch(", start);
 assert.ok(start >= 0 && end > start, "Sync main() not found");
 const mainSource = source.slice(start, end);
+// Exercise the real merge: An Việt must never hide owner listings.
+const vm = require("node:vm");
+const sandbox = {process, console};
+vm.createContext(sandbox);
+vm.runInContext(source.slice(source.indexOf("const SHEET"), start), sandbox);
+vm.runInContext(`
+  const inputOwners = [
+    {"Mã nội bộ":"CC35", "Hiển thị trên Web":"Có", "Giá thuê":1},
+    {"Mã nội bộ":"CC99", "Hiển thị trên Web":"Có"},
+    {"Mã nội bộ":"CT.2N1.1", "Hiển thị trên Web":"Có"},
+    {"Mã nội bộ":"TT.2N.4127", "Hiển thị trên Web":"Có"}
+  ];
+  const afterCtv = sync(inputOwners, new Map()).next;
+  if (afterCtv[0]["Hiển thị trên Web"] !== "Có") throw Error("CTV hid owner");
+  const owner = {id:"CC35", tower:"S401", type:"2 Ngủ +", area:62,
+    furniture:"Full nội thất", price:11000000, moveIn:"", cover:"cover", photos:"photo", show:true};
+  const merged = syncOwners(afterCtv, new Map([[owner.id, owner]]));
+  if (merged[0]["Giá thuê"] !== 11000000 || merged[0]["Danh sách ảnh"] !== "photo") throw Error("Owner fields lost");
+  if (merged[1]["Hiển thị trên Web"] !== "Không") throw Error("Removed owner stayed active");
+  if (merged[3]["Hiển thị trên Web"] !== "Có") throw Error("Owner sync changed TT");
+  const hidden = syncOwners(merged, new Map([[owner.id, {...owner, show:false}]]));
+  if (hidden[0]["Hiển thị trên Web"] !== "Không") throw Error("Owner flag ignored");
+  const added = syncOwners([], new Map([[owner.id, owner]]));
+  if (added.length !== 1 || added[0]["Mã nội bộ"] !== "CC35") throw Error("Owner add failed");
+`, sandbox);
 const factory = new Function("ctx",
   "const {readFileSync, writeFileSync, DATA, loadCtv, loadThao, sync, syncThao, " +
-  "stable, DRY, console, process} = ctx;\n" + mainSource + "\nreturn main;");
+  "stable, DRY, console, process, loadOwners, syncOwners} = ctx;\n" + mainSource + "\nreturn main;");
 
 const initial = [
   {"Mã nội bộ": "CT.2N1.1", "Giá thuê": 8000000, "Hiển thị trên Web": "Có"},
@@ -46,6 +71,8 @@ async function simulate({failCtv = false, failThao = false, strictCtv = false, s
       if (failThao) throw Error("Thu Thao is unavailable");
       return {map: new Map(), stats: {rows: 600, excludedLumi: 0, badPrice: 0, photos: 100}};
     },
+    loadOwners: async () => { throw Error("Owner source unavailable in this fixture"); },
+    syncOwners: rows => rows,
     syncThao: rows => {
       rows[1]["Giá thuê"] = 13000000;
       return {added: 0, updated: 1, hidden: 0};
@@ -66,13 +93,13 @@ async function simulate({failCtv = false, failThao = false, strictCtv = false, s
   assert.equal(result.error, undefined);
   assert.equal(result.rows[0]["Giá thuê"], 8000000);
   assert.equal(result.rows[1]["Giá thuê"], 13000000);
-  assert.equal(result.warnings.length, 1);
+  assert.equal(result.warnings.length, 2);
 
   result = await simulate({failThao: true});
   assert.equal(result.error, undefined);
   assert.equal(result.rows[0]["Giá thuê"], 9000000);
   assert.equal(result.rows[1]["Giá thuê"], 12000000);
-  assert.equal(result.warnings.length, 1);
+  assert.equal(result.warnings.length, 2);
 
   result = await simulate({failCtv: true, failThao: true});
   assert.match(result.error.message, /Cả An Việt và Thu Thảo/);
