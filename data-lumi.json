@@ -2878,5 +2878,41 @@
     "Ảnh đại diện": "",
     "Danh sách ảnh": "",
     "Danh sách video": ""
+  },
+  {
+    "Mã nội bộ": "thue2N.80",
+    "Mã căn": "thue2N.80",
+    "Tòa": "S1",
+    "Loại": "2 Ngủ",
+    "Diện tích": 54,
+    "Nội thất": "Full nội thất",
+    "Giá thuê": 10000000,
+    "Hướng ban công": "",
+    "Ngày vào ở": "Vào luôn",
+    "Ngày cập nhật": "01/11/2026",
+    "Hiển thị trên Web": "Không",
+    "Ngày thêm vào hệ thống": "01/11/2026",
+    "Ảnh thư mục": "",
+    "Ảnh đại diện": "",
+    "Danh sách ảnh": "",
+    "Danh sách video": ""
+  },
+  {
+    "Mã nội bộ": "thue3N.52",
+    "Mã căn": "thue3N.52",
+    "Tòa": "S6",
+    "Loại": "3 Ngủ",
+    "Diện tích": 81,
+    "Nội thất": "Full nội thất",
+    "Giá thuê": 20000000,
+    "Hướng ban công": "",
+    "Ngày vào ở": "Vào luôn",
+    "Ngày cập nhật": "01/11/2026",
+    "Hiển thị trên Web": "Có",
+    "Ngày thêm vào hệ thống": "01/11/2026",
+    "Ảnh thư mục": "https://drive.google.com/drive/folders/1xj29VRQRhALI4-bOZoLeg5OgpNsTVWyq",
+    "Ảnh đại diện": "https://drive.google.com/thumbnail?id=1S1FQnjYmKNvqgQWcVFr4w0nrLXRVJJX3&sz=w1000",
+    "Danh sách ảnh": "https://drive.google.com/thumbnail?id=1S1FQnjYmKNvqgQWcVFr4w0nrLXRVJJX3&sz=w1000\nhttps://drive.google.com/thumbnail?id=1SWG5wGjneYbDmC8XG6Nyv6EiDXGNrDYi&sz=w1000\nhttps://drive.google.com/thumbnail?id=1RsV_eaD0s38aC93tOs2RwxVW8zH2ptTr&sz=w1000\nhttps://drive.google.com/thumbnail?id=1Y_mgQP3HOvHoNdcCkTpMCNU4bILeqqWb&sz=w1000\nhttps://drive.google.com/thumbnail?id=1tZlNWpHt-OTNhKvo3gZQVcINRSykOlrn&sz=w1000\nhttps://drive.google.com/thumbnail?id=1hl7MoW9H-rmkfgDASK9jCRvC3b4-Ssqi&sz=w1000",
+    "Danh sách video": ""
   }
 ]
