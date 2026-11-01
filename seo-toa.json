@@ -613,7 +613,7 @@
       "area_max": 105,
       "area_min": 30,
       "code": "LUMIERE",
-      "count": 147,
+      "count": 146,
       "data_code": "Lumiere",
       "district": "Lumiere",
       "first_seen": "2026-10-30",
@@ -625,10 +625,10 @@
       "price_min": 8000000,
       "types": [
         {
-          "count": 70,
+          "count": 69,
           "name": "2 Ngủ",
           "price_max": 22000000,
-          "price_min": 10500000
+          "price_min": 11000000
         },
         {
           "count": 31,
