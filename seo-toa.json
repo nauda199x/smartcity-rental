@@ -1386,7 +1386,7 @@
       "area_max": 62,
       "area_min": 25,
       "code": "S302",
-      "count": 11,
+      "count": 10,
       "data_code": "S302",
       "district": "Sapphire",
       "first_seen": "2026-09-10",
@@ -1404,7 +1404,7 @@
           "price_min": 9000000
         },
         {
-          "count": 5,
+          "count": 4,
           "name": "Studio",
           "price_max": 7500000,
           "price_min": 5500000
