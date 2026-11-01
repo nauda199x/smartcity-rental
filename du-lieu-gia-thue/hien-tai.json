@@ -117,16 +117,16 @@
       "median": 11000000
     },
     "Nhà Nguyên Bản": {
-      "n": 215,
+      "n": 214,
       "min": 5500000,
       "max": 15000000,
-      "median": 8000000
+      "median": 8000000.0
     },
     "Đồ Cơ bản": {
-      "n": 133,
+      "n": 134,
       "min": 6000000,
       "max": 17000000,
-      "median": 11000000
+      "median": 11000000.0
     }
   },
   "zone_type_interior": [
@@ -1340,10 +1340,19 @@
       "zone": "Tonkin",
       "type": "Studio",
       "interior": "Nhà Nguyên Bản",
-      "n": 2,
+      "n": 1,
       "min": 7000000,
       "max": 7000000,
-      "median": 7000000.0
+      "median": 7000000
+    },
+    {
+      "zone": "Tonkin",
+      "type": "Studio",
+      "interior": "Đồ Cơ bản",
+      "n": 1,
+      "min": 7000000,
+      "max": 7000000,
+      "median": 7000000
     }
   ]
 }
