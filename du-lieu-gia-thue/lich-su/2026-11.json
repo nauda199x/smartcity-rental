@@ -1,17 +1,17 @@
 {
   "updated": "2026-11-01",
   "source": "data.json",
-  "active_count": 848,
+  "active_count": 855,
   "min_sample": 3,
   "overall": {
-    "n": 848,
+    "n": 855,
     "min": 5500000,
     "max": 23000000,
-    "median": 10000000.0
+    "median": 10000000
   },
   "by_type": {
     "1 Ngủ": {
-      "n": 127,
+      "n": 131,
       "min": 6000000,
       "max": 15000000,
       "median": 9000000
@@ -23,25 +23,25 @@
       "median": 8800000
     },
     "2 Ngủ": {
-      "n": 228,
+      "n": 230,
       "min": 7500000,
       "max": 16000000,
       "median": 11000000.0
     },
     "2 Ngủ +": {
-      "n": 151,
+      "n": 152,
       "min": 7500000,
       "max": 18000000,
-      "median": 12000000
+      "median": 12000000.0
     },
     "3 Ngủ": {
-      "n": 105,
+      "n": 107,
       "min": 8500000,
       "max": 23000000,
       "median": 13000000
     },
     "Studio": {
-      "n": 150,
+      "n": 148,
       "min": 5500000,
       "max": 11500000,
       "median": 7000000.0
@@ -49,10 +49,10 @@
   },
   "by_zone": {
     "Canopy": {
-      "n": 90,
+      "n": 91,
       "min": 6000000,
       "max": 18000000,
-      "median": 11000000.0
+      "median": 11000000
     },
     "Imperia": {
       "n": 34,
@@ -67,25 +67,25 @@
       "median": 12000000.0
     },
     "Masteri": {
-      "n": 163,
+      "n": 164,
       "min": 7000000,
       "max": 23000000,
-      "median": 12000000
+      "median": 12000000.0
     },
     "Miami": {
-      "n": 110,
+      "n": 112,
       "min": 5500000,
       "max": 16000000,
       "median": 10000000.0
     },
     "Sakura": {
-      "n": 108,
+      "n": 107,
       "min": 5800000,
       "max": 18000000,
-      "median": 11000000.0
+      "median": 11000000
     },
     "Sapphire": {
-      "n": 223,
+      "n": 227,
       "min": 5500000,
       "max": 18000000,
       "median": 9000000
@@ -105,22 +105,22 @@
   },
   "by_interior": {
     "Full gỗ": {
-      "n": 19,
+      "n": 20,
       "min": 5800000,
       "max": 20000000,
-      "median": 10000000
+      "median": 10250000.0
     },
     "Full nội thất": {
-      "n": 481,
+      "n": 486,
       "min": 5800000,
       "max": 23000000,
-      "median": 11000000
+      "median": 11000000.0
     },
     "Nhà Nguyên Bản": {
-      "n": 214,
+      "n": 215,
       "min": 5500000,
       "max": 15000000,
-      "median": 8000000.0
+      "median": 8000000
     },
     "Đồ Cơ bản": {
       "n": 134,
@@ -242,10 +242,10 @@
       "zone": "Canopy",
       "type": "3 Ngủ",
       "interior": "Full nội thất",
-      "n": 2,
+      "n": 3,
       "min": 16000000,
       "max": 18000000,
-      "median": 17000000.0
+      "median": 16000000
     },
     {
       "zone": "Canopy",
@@ -530,10 +530,10 @@
       "zone": "Masteri",
       "type": "1 Ngủ",
       "interior": "Full nội thất",
-      "n": 23,
+      "n": 24,
       "min": 10000000,
       "max": 15000000,
-      "median": 12000000
+      "median": 12000000.0
     },
     {
       "zone": "Masteri",
@@ -692,10 +692,10 @@
       "zone": "Miami",
       "type": "1 Ngủ",
       "interior": "Full nội thất",
-      "n": 3,
+      "n": 4,
       "min": 9000000,
       "max": 11000000,
-      "median": 9000000
+      "median": 9000000.0
     },
     {
       "zone": "Miami",
@@ -773,10 +773,10 @@
       "zone": "Miami",
       "type": "2 Ngủ +",
       "interior": "Full gỗ",
-      "n": 1,
+      "n": 2,
       "min": 10000000,
-      "max": 10000000,
-      "median": 10000000
+      "max": 10500000,
+      "median": 10250000.0
     },
     {
       "zone": "Miami",
@@ -971,10 +971,10 @@
       "zone": "Sakura",
       "type": "Studio",
       "interior": "Full nội thất",
-      "n": 19,
+      "n": 18,
       "min": 7000000,
       "max": 8500000,
-      "median": 7500000
+      "median": 7500000.0
     },
     {
       "zone": "Sakura",
@@ -998,7 +998,7 @@
       "zone": "Sapphire",
       "type": "1 Ngủ",
       "interior": "Full nội thất",
-      "n": 20,
+      "n": 22,
       "min": 8000000,
       "max": 15000000,
       "median": 8650000.0
@@ -1061,7 +1061,7 @@
       "zone": "Sapphire",
       "type": "2 Ngủ",
       "interior": "Full nội thất",
-      "n": 41,
+      "n": 43,
       "min": 9000000,
       "max": 12000000,
       "median": 9500000
@@ -1133,10 +1133,10 @@
       "zone": "Sapphire",
       "type": "3 Ngủ",
       "interior": "Nhà Nguyên Bản",
-      "n": 5,
+      "n": 6,
       "min": 8500000,
       "max": 12500000,
-      "median": 9500000
+      "median": 10250000.0
     },
     {
       "zone": "Sapphire",
@@ -1160,10 +1160,10 @@
       "zone": "Sapphire",
       "type": "Studio",
       "interior": "Full nội thất",
-      "n": 33,
+      "n": 32,
       "min": 5800000,
       "max": 8000000,
-      "median": 7000000
+      "median": 7000000.0
     },
     {
       "zone": "Sapphire",
