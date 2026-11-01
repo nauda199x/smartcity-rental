@@ -660,7 +660,7 @@
       "area_max": 80,
       "area_min": 27,
       "code": "MAS",
-      "count": 94,
+      "count": 93,
       "data_code": "MAS",
       "district": "Masteri",
       "first_seen": "2026-10-30",
@@ -672,7 +672,7 @@
       "price_min": 7000000,
       "types": [
         {
-          "count": 35,
+          "count": 34,
           "name": "1 Ngủ",
           "price_max": 15000000,
           "price_min": 8500000
@@ -895,7 +895,7 @@
       "area_max": 75,
       "area_min": 28,
       "code": "S1",
-      "count": 43,
+      "count": 42,
       "data_code": "S1",
       "district": "Sapphire",
       "first_seen": "2026-10-30",
@@ -925,10 +925,10 @@
           "price_min": 8000000
         },
         {
-          "count": 6,
+          "count": 5,
           "name": "1 Ngủ",
           "price_max": 15000000,
-          "price_min": 8000000
+          "price_min": 8500000
         },
         {
           "count": 2,

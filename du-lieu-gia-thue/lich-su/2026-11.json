@@ -1,17 +1,17 @@
 {
   "updated": "2026-11-01",
   "source": "data.json",
-  "active_count": 850,
+  "active_count": 848,
   "min_sample": 3,
   "overall": {
-    "n": 850,
+    "n": 848,
     "min": 5500000,
     "max": 23000000,
     "median": 10000000.0
   },
   "by_type": {
     "1 Ngủ": {
-      "n": 129,
+      "n": 127,
       "min": 6000000,
       "max": 15000000,
       "median": 9000000
@@ -67,10 +67,10 @@
       "median": 12000000.0
     },
     "Masteri": {
-      "n": 164,
+      "n": 163,
       "min": 7000000,
       "max": 23000000,
-      "median": 12000000.0
+      "median": 12000000
     },
     "Miami": {
       "n": 110,
@@ -85,10 +85,10 @@
       "median": 11000000.0
     },
     "Sapphire": {
-      "n": 224,
+      "n": 223,
       "min": 5500000,
       "max": 18000000,
-      "median": 9000000.0
+      "median": 9000000
     },
     "Sola Park": {
       "n": 36,
@@ -111,7 +111,7 @@
       "median": 10000000
     },
     "Full nội thất": {
-      "n": 483,
+      "n": 481,
       "min": 5800000,
       "max": 23000000,
       "median": 11000000
@@ -530,10 +530,10 @@
       "zone": "Masteri",
       "type": "1 Ngủ",
       "interior": "Full nội thất",
-      "n": 24,
+      "n": 23,
       "min": 10000000,
       "max": 15000000,
-      "median": 12000000.0
+      "median": 12000000
     },
     {
       "zone": "Masteri",
@@ -998,10 +998,10 @@
       "zone": "Sapphire",
       "type": "1 Ngủ",
       "interior": "Full nội thất",
-      "n": 21,
+      "n": 20,
       "min": 8000000,
       "max": 15000000,
-      "median": 8500000
+      "median": 8650000.0
     },
     {
       "zone": "Sapphire",
