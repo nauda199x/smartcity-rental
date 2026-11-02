@@ -131,9 +131,9 @@
     },
     "GS": {
       "area_max": 94,
-      "area_min": 28,
+      "area_min": 26,
       "code": "GS",
-      "count": 62,
+      "count": 64,
       "data_code": "GS",
       "district": "Miami",
       "first_seen": "2026-10-30",
@@ -145,7 +145,7 @@
       "price_min": 5500000,
       "types": [
         {
-          "count": 24,
+          "count": 25,
           "name": "2 Ngủ",
           "price_max": 16000000,
           "price_min": 8500000
@@ -169,7 +169,7 @@
           "price_min": 8500000
         },
         {
-          "count": 5,
+          "count": 6,
           "name": "Studio",
           "price_max": 8000000,
           "price_min": 5500000
@@ -660,7 +660,7 @@
       "area_max": 80,
       "area_min": 27,
       "code": "MAS",
-      "count": 97,
+      "count": 98,
       "data_code": "MAS",
       "district": "Masteri",
       "first_seen": "2026-10-30",
@@ -672,7 +672,7 @@
       "price_min": 7000000,
       "types": [
         {
-          "count": 36,
+          "count": 37,
           "name": "1 Ngủ",
           "price_max": 15000000,
           "price_min": 8500000
@@ -1129,7 +1129,7 @@
       "area_max": 75,
       "area_min": 43,
       "code": "S2",
-      "count": 23,
+      "count": 25,
       "data_code": "S2",
       "district": "Sapphire",
       "first_seen": "2026-10-30",
@@ -1142,15 +1142,15 @@
       "types": [
         {
           "count": 10,
+          "name": "2 Ngủ",
+          "price_max": 10000000,
+          "price_min": 7200000
+        },
+        {
+          "count": 10,
           "name": "2 Ngủ +",
           "price_max": 13000000,
           "price_min": 10000000
-        },
-        {
-          "count": 8,
-          "name": "2 Ngủ",
-          "price_max": 10000000,
-          "price_min": 8500000
         },
         {
           "count": 3,
@@ -1205,7 +1205,7 @@
       "area_max": 75,
       "area_min": 43,
       "code": "S202",
-      "count": 7,
+      "count": 6,
       "data_code": "S202",
       "district": "Sapphire",
       "first_seen": "2026-09-10",
@@ -1217,16 +1217,16 @@
       "price_min": 7000000,
       "types": [
         {
-          "count": 3,
-          "name": "2 Ngủ +",
-          "price_max": 11000000,
-          "price_min": 10000000
-        },
-        {
           "count": 2,
           "name": "1 Ngủ +",
           "price_max": 8500000,
           "price_min": 7000000
+        },
+        {
+          "count": 2,
+          "name": "2 Ngủ +",
+          "price_max": 11000000,
+          "price_min": 10000000
         },
         {
           "count": 1,
@@ -1310,7 +1310,7 @@
       "area_max": 94,
       "area_min": 28,
       "code": "S3",
-      "count": 27,
+      "count": 28,
       "data_code": "S3",
       "district": "Sapphire",
       "first_seen": "2026-10-30",
@@ -1334,16 +1334,16 @@
           "price_min": 10500000
         },
         {
+          "count": 6,
+          "name": "Studio",
+          "price_max": 7500000,
+          "price_min": 5500000
+        },
+        {
           "count": 5,
           "name": "1 Ngủ",
           "price_max": 9000000,
           "price_min": 8000000
-        },
-        {
-          "count": 5,
-          "name": "Studio",
-          "price_max": 7500000,
-          "price_min": 5500000
         },
         {
           "count": 2,
@@ -1486,7 +1486,7 @@
       "area_max": 83,
       "area_min": 24,
       "code": "S4",
-      "count": 31,
+      "count": 30,
       "data_code": "S4",
       "district": "Sapphire",
       "first_seen": "2026-10-30",
@@ -1498,7 +1498,7 @@
       "price_min": 6000000,
       "types": [
         {
-          "count": 13,
+          "count": 12,
           "name": "1 Ngủ",
           "price_max": 10500000,
           "price_min": 6000000
@@ -1662,7 +1662,7 @@
       "area_max": 95,
       "area_min": 25,
       "code": "SA",
-      "count": 66,
+      "count": 68,
       "data_code": "SA",
       "district": "Sakura",
       "first_seen": "2026-10-30",
@@ -1680,7 +1680,7 @@
           "price_min": 10500000
         },
         {
-          "count": 15,
+          "count": 16,
           "name": "Studio",
           "price_max": 8500000,
           "price_min": 6000000
@@ -1698,7 +1698,7 @@
           "price_min": 8000000
         },
         {
-          "count": 6,
+          "count": 7,
           "name": "1 Ngủ",
           "price_max": 10500000,
           "price_min": 7500000
@@ -1861,7 +1861,7 @@
       "area_max": 81,
       "area_min": 25,
       "code": "TC",
-      "count": 58,
+      "count": 60,
       "data_code": "TC",
       "district": "Canopy",
       "first_seen": "2026-10-30",
@@ -1879,7 +1879,7 @@
           "price_min": 10000000
         },
         {
-          "count": 14,
+          "count": 15,
           "name": "1 Ngủ",
           "price_max": 14000000,
           "price_min": 7000000
@@ -1891,7 +1891,7 @@
           "price_min": 11000000
         },
         {
-          "count": 9,
+          "count": 10,
           "name": "Studio",
           "price_max": 9000000,
           "price_min": 6000000
