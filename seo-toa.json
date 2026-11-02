@@ -133,7 +133,7 @@
       "area_max": 94,
       "area_min": 26,
       "code": "GS",
-      "count": 64,
+      "count": 65,
       "data_code": "GS",
       "district": "Miami",
       "first_seen": "2026-10-30",
@@ -169,7 +169,7 @@
           "price_min": 8500000
         },
         {
-          "count": 6,
+          "count": 7,
           "name": "Studio",
           "price_max": 8000000,
           "price_min": 5500000
@@ -613,7 +613,7 @@
       "area_max": 105,
       "area_min": 30,
       "code": "LUMIERE",
-      "count": 144,
+      "count": 145,
       "data_code": "Lumiere",
       "district": "Lumiere",
       "first_seen": "2026-10-30",
@@ -631,7 +631,7 @@
           "price_min": 11000000
         },
         {
-          "count": 30,
+          "count": 31,
           "name": "1 Ngủ",
           "price_max": 14000000,
           "price_min": 9000000
@@ -1129,7 +1129,7 @@
       "area_max": 75,
       "area_min": 43,
       "code": "S2",
-      "count": 25,
+      "count": 26,
       "data_code": "S2",
       "district": "Sapphire",
       "first_seen": "2026-10-30",
@@ -1141,7 +1141,7 @@
       "price_min": 7000000,
       "types": [
         {
-          "count": 10,
+          "count": 11,
           "name": "2 Ngủ",
           "price_max": 10000000,
           "price_min": 7200000
