@@ -45,24 +45,25 @@ def parse_folder(text, folder_id):
     escaped = re.sub(r"\\x([0-9a-fA-F]{2})", r"\\u00\1", match.group(1)).replace("\\'", "'")
     data = json.loads(json.loads('"' + escaped + '"'))
     if (not isinstance(data, list) or len(data) != 6 or data[5] != 1
-            or not isinstance(data[0], list) or any(data[1:4])
-            or folder_id not in json.dumps(data[4]) or len(data[0]) >= 100):
+            or (data[0] is not None and not isinstance(data[0], list)) or any(data[1:4])
+            or folder_id not in json.dumps(data[4]) or len(data[0] or []) >= 100):
         raise ValueError("Cấu trúc Drive thay đổi hoặc thư mục chưa tải đủ")
     result = []
-    for row in data[0]:
+    for row in data[0] or []:
         if (not isinstance(row, list) or len(row) < 14 or not isinstance(row[0], str)
                 or not ID.fullmatch(row[0]) or not isinstance(row[1], list)
                 or folder_id not in row[1] or not isinstance(row[3], str)):
             raise ValueError("Bản ghi Drive không hợp lệ")
         if row[3] == "application/vnd.google-apps.folder":
-            raise ValueError("Có thư mục con; cần quét đầy đủ trước khi cập nhật")
-        if row[3].startswith(("image/", "video/")):
+            result.append({"id": row[0], "kind": "folder"})
+        elif row[3].startswith(("image/", "video/")):
             result.append({"id": row[0], "name": str(row[2]), "modified": row[9], "size": row[13],
                            "kind": "video" if row[3].startswith("video/") else "image"})
     return result
 
 
-def fetch_folder_with_retry(folder, *, fetch_text=None, sleep=None, attempts=4):
+def fetch_folder_with_retry(folder, *, fetch_text=None, sleep=None, attempts=4,
+                            _seen=None, _depth=0):
     """Retry both network errors and Drive HTML that lacks folder metadata.
 
     Drive may respond with a consent/login/challenge page while returning HTTP
@@ -73,20 +74,36 @@ def fetch_folder_with_retry(folder, *, fetch_text=None, sleep=None, attempts=4):
     sleep = sleep or time.sleep
     if attempts < 1:
         raise ValueError("attempts phải >= 1")
+    seen = set() if _seen is None else _seen
+    if _depth > 3 or folder in seen or len(seen) >= 32:
+        raise ValueError("Cây thư mục Drive quá sâu/lớn hoặc lặp; giữ snapshot cũ")
+    seen.add(folder)
     last_error = None
     for attempt in range(attempts):
         try:
-            return parse_folder(
+            entries = parse_folder(
                 fetch_text("https://drive.google.com/drive/folders/" + folder), folder
             )
+            break
         except (OSError, UnicodeError, ValueError) as error:
             last_error = error
             if attempt + 1 < attempts:
                 # Stagger concurrent retries instead of hammering Drive again.
                 sleep(min(4.0, 0.7 * (2 ** attempt)) + random.uniform(0, 0.4))
-    raise ValueError(
-        f"Đã thử {attempts} lần nhưng không quét được Drive: {last_error}"
-    ) from last_error
+    else:
+        raise ValueError(
+            f"Đã thử {attempts} lần nhưng không quét được Drive: {last_error}"
+        ) from last_error
+    # Chỉ công bố khi đọc thành công toàn bộ cây; không xuất album một phần.
+    files = {}
+    for entry in entries:
+        children = (fetch_folder_with_retry(
+            entry["id"], fetch_text=fetch_text, sleep=sleep, attempts=attempts,
+            _seen=seen, _depth=_depth + 1,
+        ) if entry["kind"] == "folder" else [entry])
+        for child in children:
+            files[child["id"]] = child
+    return list(files.values())
 
 
 def read_folders():
@@ -117,7 +134,7 @@ def read_folders():
             if code in result and result[code] != value:
                 raise ValueError("Mã căn trùng thư mục khác nhau: " + code)
             result[code] = value
-    if not 250 <= total_rows <= 500:
+    if not 250 <= total_rows <= 1500:
         raise ValueError("Sheet CTV rỗng/bất thường: %d dòng" % total_rows)
     if len(result) < 100:
         raise ValueError("Quá ít thư mục ảnh hợp lệ trong CTV: %d" % len(result))
@@ -215,13 +232,28 @@ def scan(rows, sources, old, fetch_folder):
     return {"version": 1, "items": items, "revisions": {k: v for k, v in revisions.items() if k in used}}
 
 
-def main():
-    rows = json.loads((ROOT / "data.json").read_text(encoding="utf-8"))
-    old = json.loads(MANIFEST.read_text(encoding="utf-8")) if MANIFEST.exists() else {"version": 1, "items": {}, "revisions": {}}
-    sources = read_folders()
+def collect_sources(rows, old, read_ctv=None):
+    try:
+        sources = (read_ctv or read_folders)()
+    except Exception as error:
+        print(f"::warning::Không đọc được Sheet ảnh An Việt: {error}; dùng thư mục đã xác minh.", flush=True)
+        sources = {}
+        for row in rows:
+            code = str(row.get("Mã nội bộ", "")).strip()
+            previous = old.get("items", {}).get(code, {})
+            if (APARTMENT_ID.fullmatch(code) and previous.get("source") == source_key(row)
+                    and ID.fullmatch(str(previous.get("folderId", "")))):
+                sources[code] = {**row, "folderId": previous["folderId"]}
     thao_sources = read_thao_folders(rows)
     print(f"Nguồn ảnh: An Việt {len(sources)} căn, Thu Thảo {len(thao_sources)} căn.")
     sources.update(thao_sources)
+    return sources
+
+
+def main():
+    rows = json.loads((ROOT / "data.json").read_text(encoding="utf-8"))
+    old = json.loads(MANIFEST.read_text(encoding="utf-8")) if MANIFEST.exists() else {"version": 1, "items": {}, "revisions": {}}
+    sources = collect_sources(rows, old)
     result = scan(rows, sources, old, fetch_folder_with_retry)
     if result == old:
         print("Danh sách và phiên bản ảnh không đổi.")

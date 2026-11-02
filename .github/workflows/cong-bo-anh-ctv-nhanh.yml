@@ -8,6 +8,11 @@ on:
     branches: [main]
     paths:
       - ".github/workflows/cong-bo-anh-ctv-nhanh.yml"
+      - "scripts/quet-thu-muc-anh.py"
+  workflow_run:
+    workflows: ["Đồng bộ quỹ căn từ Sheet CTV"]
+    types: [completed]
+    branches: [main]
   schedule:
     # Seven minutes after both 00/30 source syncs, Vietnam time.
     - cron: "7,37 * * * *"
@@ -23,6 +28,7 @@ concurrency:
 
 jobs:
   cong-bo:
+    if: ${{ github.event_name != 'workflow_run' || github.event.workflow_run.conclusion == 'success' }}
     runs-on: ubuntu-latest
     timeout-minutes: 25
     steps:

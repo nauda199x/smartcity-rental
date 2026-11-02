@@ -21,10 +21,10 @@ def photo(ident, modified=1):
     return {"id": ident, "name": ident + ".jpg", "modified": modified, "size": 123}
 
 
-def fixture(files, **changes):
-    rows = [[f["id"], [FOLDER], f["name"], "image/jpeg", 0, None, 0, 0, 0,
+def fixture(files, folder_id=FOLDER, **changes):
+    rows = [[f["id"], [folder_id], f["name"], f.get("mime", "image/jpeg"), 0, None, 0, 0, 0,
              f["modified"], 1, None, None, f["size"]] for f in files]
-    data = [rows, None, None, None, [[FOLDER]], 1]
+    data = [rows, None, None, None, [[folder_id]], 1]
     for index, value in changes.items():
         data[int(index)] = value
     encoded = json.dumps(json.dumps(data))[1:-1].replace("[", r"\x5b")
@@ -49,10 +49,53 @@ class PhotoSyncTest(unittest.TestCase):
 
     def test_empty_is_valid_only_with_complete_folder_metadata(self):
         self.assertEqual(scanner.parse_folder(fixture([]), FOLDER), [])
+        self.assertEqual(scanner.parse_folder(fixture([], **{"0": None}), FOLDER), [])
         for text in ["Login required", fixture([], **{"1": "next-page"}),
                      fixture([], **{"4": []}), fixture([photo(A)] * 100)]:
             with self.assertRaises(ValueError):
                 scanner.parse_folder(text, FOLDER)
+
+    def test_nested_folder_collects_images_and_excludes_video(self):
+        nested = {**photo(C), "mime": "application/vnd.google-apps.folder"}
+        video = "video_D123456789"
+        pages = {FOLDER: fixture([photo(A), photo(B), nested]),
+                 C: fixture([photo(B), {**photo(video), "mime": "video/mp4"}], folder_id=C)}
+        files = scanner.fetch_folder_with_retry(
+            FOLDER, fetch_text=lambda url: pages[url.rsplit("/", 1)[1]], attempts=1)
+        self.assertEqual({f["id"] for f in files}, {A, B, video})
+        self.assertEqual(len(files), 3)
+        item = scanner.build_item(self.row, self.source, files, None)
+        self.assertEqual(item["photos"], [A, B])
+
+    def test_unreadable_child_and_folder_cycle_cannot_publish_partial_album(self):
+        nested = {**photo(C), "mime": "application/vnd.google-apps.folder"}
+        root = fixture([photo(A), nested])
+        for child in ["not a folder", fixture([
+                {**photo(FOLDER), "mime": "application/vnd.google-apps.folder"}], folder_id=C)]:
+            with self.assertRaises(ValueError):
+                scanner.fetch_folder_with_retry(FOLDER, attempts=1,
+                    fetch_text=lambda url: root if url.endswith(FOLDER) else child)
+
+    def test_ctv_above_500_rows_and_source_failure_do_not_block_thao(self):
+        rows = [{"c": [{"v": "CT.2N." + str(i)}, {"v":
+                 "https://drive.google.com/drive/folders/" + FOLDER}]} for i in range(120)]
+        body = json.dumps({"status": "ok", "table": {"cols": [{}, {}], "rows": rows}})
+        with patch.object(scanner, "get_text", return_value=body):
+            # Seven tabs, 840 rows: the old 500-row cap rejected valid growth.
+            self.assertEqual(len(scanner.read_folders()), 120)
+        row = {**self.row, "Mã nội bộ": "CT.2N.123"}
+        old = {"items": {row["Mã nội bộ"]: {"folderId": FOLDER,
+               "source": media_anh.source_key(row)}}}
+        thao = {"Mã nội bộ": "TT.2N.4127", "Thư mục ảnh CTV":
+                "https://drive.google.com/drive/folders/" + FOLDER}
+        def fail():
+            raise OSError("source temporarily unavailable")
+        with contextlib.redirect_stdout(io.StringIO()):
+            sources = scanner.collect_sources([row, thao], old, read_ctv=fail)
+            self.assertEqual(set(sources), {"CT.2N.123", "TT.2N.4127"})
+            row["Ảnh đại diện"] = "new_photo_12345678"
+            sources = scanner.collect_sources([row, thao], old, read_ctv=fail)
+            self.assertEqual(set(sources), {"TT.2N.4127"})
 
     def test_retry_invalid_drive_html_without_losing_photo_list(self):
         responses = iter(["Temporary Drive challenge", fixture([photo(A)])])
