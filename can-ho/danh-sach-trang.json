@@ -5511,6 +5511,14 @@
   "phan_khu": "Lumiere",
   "toa": "A1"
  },
+ "cho-thue-can-ho-2-ngu-lumiere-66m2-ct-2n2-527": {
+  "dien_tich": 66,
+  "loai": "2 Ngủ",
+  "ma": "CT.2N2.527",
+  "ngay_xuat_hien": "2026-11-02",
+  "phan_khu": "Lumiere",
+  "toa": "A1"
+ },
  "cho-thue-can-ho-2-ngu-lumiere-66m2-tt-2n-5339": {
   "dien_tich": 66,
   "loai": "2 Ngủ",
@@ -10951,6 +10959,14 @@
   "phan_khu": "Sola Park",
   "toa": "SolaPark"
  },
+ "cho-thue-can-ho-3-ngu-sola-park-75m2-ct-3n-211": {
+  "dien_tich": 75,
+  "loai": "3 Ngủ",
+  "ma": "CT.3N.211",
+  "ngay_xuat_hien": "2026-11-02",
+  "phan_khu": "Sola Park",
+  "toa": "G2"
+ },
  "cho-thue-can-ho-3-ngu-sola-park-75m2-tt-3n-5606": {
   "dien_tich": 75,
   "loai": "3 Ngủ",
@@ -11030,6 +11046,14 @@
   "ngay_xuat_hien": "2026-10-22",
   "phan_khu": "Canopy",
   "toa": "TC2"
+ },
+ "cho-thue-can-ho-studio-canopy-25m2-ct-stu-998": {
+  "dien_tich": 25,
+  "loai": "Studio",
+  "ma": "CT.Stu.998",
+  "ngay_xuat_hien": "2026-11-02",
+  "phan_khu": "Canopy",
+  "toa": "TC3"
  },
  "cho-thue-can-ho-studio-canopy-25m2-tt-st-4056": {
   "dien_tich": 25,
@@ -11862,6 +11886,14 @@
   "ngay_xuat_hien": "2026-10-19",
   "phan_khu": "Masteri",
   "toa": "MasC"
+ },
+ "cho-thue-can-ho-studio-masteri-30m2-ct-stu-999": {
+  "dien_tich": 30,
+  "loai": "Studio",
+  "ma": "CT.Stu.999",
+  "ngay_xuat_hien": "2026-11-02",
+  "phan_khu": "Masteri",
+  "toa": "MasD"
  },
  "cho-thue-can-ho-studio-masteri-30m2-tt-st-4360": {
   "dien_tich": 30,

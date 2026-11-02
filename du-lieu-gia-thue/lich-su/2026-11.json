@@ -1,10 +1,10 @@
 {
   "updated": "2026-11-02",
   "source": "data.json",
-  "active_count": 868,
+  "active_count": 872,
   "min_sample": 3,
   "overall": {
-    "n": 868,
+    "n": 872,
     "min": 5500000,
     "max": 23000000,
     "median": 10000000.0
@@ -23,10 +23,10 @@
       "median": 8700000
     },
     "2 Ngủ": {
-      "n": 232,
+      "n": 233,
       "min": 7500000,
       "max": 16000000,
-      "median": 11000000.0
+      "median": 11000000
     },
     "2 Ngủ +": {
       "n": 156,
@@ -35,13 +35,13 @@
       "median": 11500000.0
     },
     "3 Ngủ": {
-      "n": 107,
+      "n": 108,
       "min": 8500000,
       "max": 23000000,
-      "median": 13000000
+      "median": 13000000.0
     },
     "Studio": {
-      "n": 153,
+      "n": 155,
       "min": 5500000,
       "max": 11500000,
       "median": 7000000
@@ -49,10 +49,10 @@
   },
   "by_zone": {
     "Canopy": {
-      "n": 93,
+      "n": 94,
       "min": 6000000,
       "max": 18000000,
-      "median": 11000000
+      "median": 11000000.0
     },
     "Imperia": {
       "n": 37,
@@ -61,16 +61,16 @@
       "median": 9500000
     },
     "Lumiere": {
-      "n": 57,
+      "n": 58,
       "min": 8000000,
       "max": 18000000,
-      "median": 12000000
+      "median": 12000000.0
     },
     "Masteri": {
-      "n": 165,
+      "n": 166,
       "min": 7000000,
       "max": 23000000,
-      "median": 12000000
+      "median": 12000000.0
     },
     "Miami": {
       "n": 113,
@@ -91,10 +91,10 @@
       "median": 9000000
     },
     "Sola Park": {
-      "n": 39,
+      "n": 40,
       "min": 6000000,
       "max": 13000000,
-      "median": 8000000
+      "median": 8250000.0
     },
     "Tonkin": {
       "n": 25,
@@ -111,22 +111,22 @@
       "median": 10250000.0
     },
     "Full nội thất": {
-      "n": 494,
+      "n": 496,
       "min": 5800000,
       "max": 23000000,
       "median": 11000000.0
     },
     "Nhà Nguyên Bản": {
-      "n": 216,
+      "n": 217,
       "min": 5500000,
       "max": 15000000,
-      "median": 8000000.0
+      "median": 8000000
     },
     "Đồ Cơ bản": {
-      "n": 138,
+      "n": 139,
       "min": 6000000,
       "max": 17000000,
-      "median": 10500000.0
+      "median": 10500000
     }
   },
   "zone_type_interior": [
@@ -278,10 +278,10 @@
       "zone": "Canopy",
       "type": "Studio",
       "interior": "Full nội thất",
-      "n": 11,
+      "n": 12,
       "min": 7500000,
       "max": 9000000,
-      "median": 8000000
+      "median": 8000000.0
     },
     {
       "zone": "Canopy",
@@ -467,10 +467,10 @@
       "zone": "Lumiere",
       "type": "2 Ngủ",
       "interior": "Đồ Cơ bản",
-      "n": 6,
+      "n": 7,
       "min": 11500000,
       "max": 13000000,
-      "median": 12000000.0
+      "median": 12000000
     },
     {
       "zone": "Lumiere",
@@ -665,10 +665,10 @@
       "zone": "Masteri",
       "type": "Studio",
       "interior": "Full nội thất",
-      "n": 13,
+      "n": 14,
       "min": 8500000,
       "max": 11500000,
-      "median": 9000000
+      "median": 9000000.0
     },
     {
       "zone": "Masteri",
@@ -1241,10 +1241,10 @@
       "zone": "Sola Park",
       "type": "3 Ngủ",
       "interior": "Nhà Nguyên Bản",
-      "n": 3,
+      "n": 4,
       "min": 10000000,
-      "max": 11000000,
-      "median": 11000000
+      "max": 12000000,
+      "median": 11000000.0
     },
     {
       "zone": "Sola Park",
