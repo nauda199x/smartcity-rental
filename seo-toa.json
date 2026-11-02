@@ -895,7 +895,7 @@
       "area_max": 75,
       "area_min": 28,
       "code": "S1",
-      "count": 43,
+      "count": 42,
       "data_code": "S1",
       "district": "Sapphire",
       "first_seen": "2026-10-30",
@@ -907,7 +907,7 @@
       "price_min": 5800000,
       "types": [
         {
-          "count": 14,
+          "count": 13,
           "name": "Studio",
           "price_max": 8000000,
           "price_min": 5800000
@@ -1129,7 +1129,7 @@
       "area_max": 75,
       "area_min": 43,
       "code": "S2",
-      "count": 24,
+      "count": 23,
       "data_code": "S2",
       "district": "Sapphire",
       "first_seen": "2026-10-30",
@@ -1141,7 +1141,7 @@
       "price_min": 7000000,
       "types": [
         {
-          "count": 11,
+          "count": 10,
           "name": "2 Ngủ +",
           "price_max": 13000000,
           "price_min": 10000000
@@ -1205,7 +1205,7 @@
       "area_max": 75,
       "area_min": 43,
       "code": "S202",
-      "count": 8,
+      "count": 7,
       "data_code": "S202",
       "district": "Sapphire",
       "first_seen": "2026-09-10",
@@ -1217,7 +1217,7 @@
       "price_min": 7000000,
       "types": [
         {
-          "count": 4,
+          "count": 3,
           "name": "2 Ngủ +",
           "price_max": 11000000,
           "price_min": 10000000
@@ -1486,7 +1486,7 @@
       "area_max": 83,
       "area_min": 24,
       "code": "S4",
-      "count": 32,
+      "count": 31,
       "data_code": "S4",
       "district": "Sapphire",
       "first_seen": "2026-10-30",
@@ -1516,16 +1516,16 @@
           "price_min": 8500000
         },
         {
-          "count": 5,
-          "name": "Studio",
-          "price_max": 7000000,
-          "price_min": 6200000
-        },
-        {
           "count": 4,
           "name": "2 Ngủ +",
           "price_max": 11000000,
           "price_min": 10000000
+        },
+        {
+          "count": 4,
+          "name": "Studio",
+          "price_max": 7000000,
+          "price_min": 6200000
         }
       ]
     },
@@ -1861,7 +1861,7 @@
       "area_max": 81,
       "area_min": 25,
       "code": "TC",
-      "count": 60,
+      "count": 58,
       "data_code": "TC",
       "district": "Canopy",
       "first_seen": "2026-10-30",
@@ -1891,7 +1891,7 @@
           "price_min": 11000000
         },
         {
-          "count": 11,
+          "count": 9,
           "name": "Studio",
           "price_max": 9000000,
           "price_min": 6000000
@@ -2043,7 +2043,7 @@
       "area_max": 83,
       "area_min": 25,
       "code": "TK",
-      "count": 17,
+      "count": 15,
       "data_code": "TK",
       "district": "Tonkin",
       "first_seen": "2026-10-30",
@@ -2055,7 +2055,7 @@
       "price_min": 7000000,
       "types": [
         {
-          "count": 8,
+          "count": 6,
           "name": "Studio",
           "price_max": 8000000,
           "price_min": 7000000
