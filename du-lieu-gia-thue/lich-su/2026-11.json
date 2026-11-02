@@ -1,13 +1,13 @@
 {
   "updated": "2026-11-02",
   "source": "data.json",
-  "active_count": 864,
+  "active_count": 865,
   "min_sample": 3,
   "overall": {
-    "n": 864,
+    "n": 865,
     "min": 5500000,
     "max": 23000000,
-    "median": 10000000.0
+    "median": 10000000
   },
   "by_type": {
     "1 Ngủ": {
@@ -17,10 +17,10 @@
       "median": 9000000
     },
     "1 Ngủ +": {
-      "n": 90,
+      "n": 91,
       "min": 7000000,
       "max": 13000000,
-      "median": 8650000.0
+      "median": 8700000
     },
     "2 Ngủ": {
       "n": 231,
@@ -67,10 +67,10 @@
       "median": 12000000
     },
     "Masteri": {
-      "n": 163,
+      "n": 164,
       "min": 7000000,
       "max": 23000000,
-      "median": 12000000
+      "median": 12000000.0
     },
     "Miami": {
       "n": 113,
@@ -111,10 +111,10 @@
       "median": 10250000.0
     },
     "Full nội thất": {
-      "n": 492,
+      "n": 493,
       "min": 5800000,
       "max": 23000000,
-      "median": 11000000.0
+      "median": 11000000
     },
     "Nhà Nguyên Bản": {
       "n": 216,
@@ -548,10 +548,10 @@
       "zone": "Masteri",
       "type": "1 Ngủ +",
       "interior": "Full nội thất",
-      "n": 24,
+      "n": 25,
       "min": 10000000,
       "max": 13000000,
-      "median": 11000000.0
+      "median": 11000000
     },
     {
       "zone": "Masteri",
