@@ -901,7 +901,7 @@
       "area_max": 75,
       "area_min": 28,
       "code": "S1",
-      "count": 41,
+      "count": 40,
       "data_code": "S1",
       "district": "Sapphire",
       "first_seen": "2026-10-30",
@@ -913,7 +913,7 @@
       "price_min": 5800000,
       "types": [
         {
-          "count": 13,
+          "count": 12,
           "name": "Studio",
           "price_max": 7800000,
           "price_min": 5800000
