@@ -40,7 +40,7 @@
     "updated": "2026-11-03"
   },
   "2pn-12-15-trieu": {
-    "count": 93,
+    "count": 92,
     "created": "2026-08-30",
     "indexable": true,
     "loai": "2 Ngủ",
@@ -64,7 +64,7 @@
     "updated": "2026-11-03"
   },
   "2pn-tren-15-trieu": {
-    "count": 20,
+    "count": 21,
     "created": "2026-08-30",
     "indexable": true,
     "loai": "2 Ngủ",
@@ -72,7 +72,7 @@
     "updated": "2026-11-03"
   },
   "3pn-10-12-trieu": {
-    "count": 41,
+    "count": 40,
     "created": "2026-08-30",
     "indexable": true,
     "loai": "3 Ngủ",
@@ -80,7 +80,7 @@
     "updated": "2026-11-03"
   },
   "3pn-tren-15-trieu": {
-    "count": 31,
+    "count": 34,
     "created": "2026-08-30",
     "indexable": true,
     "loai": "3 Ngủ",
@@ -88,7 +88,7 @@
     "updated": "2026-11-03"
   },
   "studio-10-12-trieu": {
-    "count": 14,
+    "count": 12,
     "created": "2026-10-30",
     "indexable": true,
     "loai": "Studio",
