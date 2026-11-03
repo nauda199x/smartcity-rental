@@ -1,13 +1,13 @@
 {
   "updated": "2026-11-03",
   "source": "data.json",
-  "active_count": 887,
+  "active_count": 884,
   "min_sample": 3,
   "overall": {
-    "n": 887,
+    "n": 884,
     "min": 5500000,
     "max": 25000000,
-    "median": 10500000
+    "median": 10500000.0
   },
   "by_type": {
     "1 Ngủ": {
@@ -41,10 +41,10 @@
       "median": 13000000.0
     },
     "Studio": {
-      "n": 152,
+      "n": 149,
       "min": 5500000,
       "max": 11500000,
-      "median": 7000000.0
+      "median": 7000000
     }
   },
   "by_zone": {
@@ -73,10 +73,10 @@
       "median": 12000000
     },
     "Miami": {
-      "n": 116,
+      "n": 113,
       "min": 5500000,
       "max": 16000000,
-      "median": 10000000.0
+      "median": 10000000
     },
     "Sakura": {
       "n": 108,
@@ -88,7 +88,7 @@
       "n": 228,
       "min": 5500000,
       "max": 18000000,
-      "median": 9300000.0
+      "median": 9150000.0
     },
     "Sola Park": {
       "n": 42,
@@ -111,13 +111,13 @@
       "median": 10250000.0
     },
     "Full nội thất": {
-      "n": 509,
+      "n": 508,
       "min": 5800000,
       "max": 25000000,
-      "median": 11000000
+      "median": 11000000.0
     },
     "Nhà Nguyên Bản": {
-      "n": 214,
+      "n": 212,
       "min": 5500000,
       "max": 15000000,
       "median": 8500000.0
@@ -863,19 +863,19 @@
       "zone": "Miami",
       "type": "Studio",
       "interior": "Full nội thất",
-      "n": 6,
-      "min": 6000000,
+      "n": 5,
+      "min": 7000000,
       "max": 8000000,
-      "median": 7500000.0
+      "median": 7500000
     },
     {
       "zone": "Miami",
       "type": "Studio",
       "interior": "Nhà Nguyên Bản",
-      "n": 10,
+      "n": 8,
       "min": 5500000,
       "max": 6000000,
-      "median": 5600000.0
+      "median": 5850000.0
     },
     {
       "zone": "Sakura",
