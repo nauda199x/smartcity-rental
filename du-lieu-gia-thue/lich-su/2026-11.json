@@ -1,20 +1,20 @@
 {
   "updated": "2026-11-03",
   "source": "data.json",
-  "active_count": 887,
+  "active_count": 888,
   "min_sample": 3,
   "overall": {
-    "n": 887,
+    "n": 888,
     "min": 5500000,
     "max": 23000000,
-    "median": 10000000
+    "median": 10000000.0
   },
   "by_type": {
     "1 Ngủ": {
-      "n": 131,
+      "n": 132,
       "min": 6000000,
       "max": 15000000,
-      "median": 9000000
+      "median": 9000000.0
     },
     "1 Ngủ +": {
       "n": 94,
@@ -61,10 +61,10 @@
       "median": 9500000
     },
     "Lumiere": {
-      "n": 58,
+      "n": 59,
       "min": 8000000,
       "max": 18000000,
-      "median": 12000000.0
+      "median": 12000000
     },
     "Masteri": {
       "n": 173,
@@ -73,16 +73,16 @@
       "median": 12000000
     },
     "Miami": {
-      "n": 118,
+      "n": 119,
       "min": 5500000,
       "max": 16000000,
-      "median": 9750000.0
+      "median": 9500000
     },
     "Sakura": {
-      "n": 110,
+      "n": 109,
       "min": 5500000,
       "max": 18000000,
-      "median": 10750000.0
+      "median": 11000000
     },
     "Sapphire": {
       "n": 232,
@@ -123,10 +123,10 @@
       "median": 8250000.0
     },
     "Đồ Cơ bản": {
-      "n": 143,
+      "n": 144,
       "min": 6000000,
       "max": 17000000,
-      "median": 10500000
+      "median": 10500000.0
     }
   },
   "zone_type_interior": [
@@ -431,10 +431,10 @@
       "zone": "Lumiere",
       "type": "1 Ngủ",
       "interior": "Đồ Cơ bản",
-      "n": 5,
+      "n": 6,
       "min": 9000000,
       "max": 10000000,
-      "median": 10000000
+      "median": 9750000.0
     },
     {
       "zone": "Lumiere",
@@ -659,7 +659,7 @@
       "n": 8,
       "min": 12000000,
       "max": 16000000,
-      "median": 13250000.0
+      "median": 13000000.0
     },
     {
       "zone": "Masteri",
@@ -854,10 +854,10 @@
       "zone": "Miami",
       "type": "Studio",
       "interior": "Full nội thất",
-      "n": 7,
+      "n": 8,
       "min": 6000000,
       "max": 8000000,
-      "median": 7500000
+      "median": 7500000.0
     },
     {
       "zone": "Miami",
@@ -980,10 +980,10 @@
       "zone": "Sakura",
       "type": "Studio",
       "interior": "Full nội thất",
-      "n": 19,
+      "n": 18,
       "min": 7000000,
       "max": 8500000,
-      "median": 7500000
+      "median": 7500000.0
     },
     {
       "zone": "Sakura",
