@@ -180,7 +180,7 @@
       "area_max": 81,
       "area_min": 32,
       "code": "GS1",
-      "count": 11,
+      "count": 10,
       "data_code": "GS1",
       "district": "Miami",
       "first_seen": "2026-09-10",
@@ -193,15 +193,15 @@
       "types": [
         {
           "count": 3,
-          "name": "1 Ngủ +",
-          "price_max": 9000000,
-          "price_min": 8000000
-        },
-        {
-          "count": 3,
           "name": "3 Ngủ",
           "price_max": 13000000,
           "price_min": 10500000
+        },
+        {
+          "count": 2,
+          "name": "1 Ngủ +",
+          "price_max": 9000000,
+          "price_min": 8000000
         },
         {
           "count": 2,
@@ -227,7 +227,7 @@
       "area_max": 75,
       "area_min": 30,
       "code": "GS2",
-      "count": 10,
+      "count": 11,
       "data_code": "GS2",
       "district": "Miami",
       "first_seen": "2026-09-10",
@@ -239,7 +239,7 @@
       "price_min": 7000000,
       "types": [
         {
-          "count": 5,
+          "count": 6,
           "name": "2 Ngủ +",
           "price_max": 12000000,
           "price_min": 8000000
@@ -807,7 +807,7 @@
       "area_max": 74,
       "area_min": 27,
       "code": "MASC",
-      "count": 12,
+      "count": 13,
       "data_code": "MasC",
       "district": "Masteri",
       "first_seen": "2026-09-10",
@@ -819,7 +819,7 @@
       "price_min": 9000000,
       "types": [
         {
-          "count": 4,
+          "count": 5,
           "name": "2 Ngủ +",
           "price_max": 14000000,
           "price_min": 12000000
@@ -1182,7 +1182,7 @@
       "area_max": 75,
       "area_min": 55,
       "code": "S201",
-      "count": 5,
+      "count": 6,
       "data_code": "S201",
       "district": "Sapphire",
       "first_seen": "2026-09-12",
@@ -1191,13 +1191,13 @@
       "name": "S2.01",
       "path": "/s2-01-vinhomes-smart-city/",
       "price_max": 13000000,
-      "price_min": 7500000,
+      "price_min": 7200000,
       "types": [
         {
-          "count": 3,
+          "count": 4,
           "name": "2 Ngủ",
           "price_max": 10000000,
-          "price_min": 7500000
+          "price_min": 7200000
         },
         {
           "count": 1,
