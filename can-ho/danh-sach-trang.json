@@ -6703,6 +6703,14 @@
   "phan_khu": "Masteri",
   "toa": "MasA"
  },
+ "cho-thue-can-ho-2-ngu-masteri-63m2-ct-2n-386": {
+  "dien_tich": 63,
+  "loai": "2 Ngủ +",
+  "ma": "CT.2N+.386",
+  "ngay_xuat_hien": "2026-11-04",
+  "phan_khu": "Masteri",
+  "toa": "MasB"
+ },
  "cho-thue-can-ho-2-ngu-masteri-63m2-tt-2n-4985": {
   "dien_tich": 63,
   "loai": "2 Ngủ",
@@ -8271,6 +8279,14 @@
   "phan_khu": "Sapphire",
   "toa": "S205"
  },
+ "cho-thue-can-ho-2-ngu-sapphire-54m2-ct-2n1-298": {
+  "dien_tich": 54,
+  "loai": "2 Ngủ",
+  "ma": "CT.2N1.298",
+  "ngay_xuat_hien": "2026-11-04",
+  "phan_khu": "Sapphire",
+  "toa": "S205"
+ },
  "cho-thue-can-ho-2-ngu-sapphire-54m2-tt-2n-4634": {
   "dien_tich": 54,
   "loai": "2 Ngủ",
@@ -8710,6 +8726,14 @@
   "ngay_xuat_hien": "2026-11-03",
   "phan_khu": "Sapphire",
   "toa": "S201"
+ },
+ "cho-thue-can-ho-2-ngu-sapphire-55m2-ct-2n1-297": {
+  "dien_tich": 55,
+  "loai": "2 Ngủ",
+  "ma": "CT.2N1.297",
+  "ngay_xuat_hien": "2026-11-04",
+  "phan_khu": "Sapphire",
+  "toa": "S202"
  },
  "cho-thue-can-ho-2-ngu-sapphire-55m2-ct-2n2-329": {
   "dien_tich": 55,
@@ -9519,6 +9543,14 @@
   "phan_khu": "Sapphire",
   "toa": "S201"
  },
+ "cho-thue-can-ho-2-ngu-sapphire-64m2-ct-2n-388": {
+  "dien_tich": 64,
+  "loai": "2 Ngủ +",
+  "ma": "CT.2N+.388",
+  "ngay_xuat_hien": "2026-11-04",
+  "phan_khu": "Sapphire",
+  "toa": "S403"
+ },
  "cho-thue-can-ho-2-ngu-sapphire-64m2-ct-2n2-366": {
   "dien_tich": 64,
   "loai": "2 Ngủ",
@@ -9918,6 +9950,14 @@
   "ngay_xuat_hien": "2026-11-03",
   "phan_khu": "Sola Park",
   "toa": "G3"
+ },
+ "cho-thue-can-ho-2-ngu-sola-park-64m2-ct-2n-387": {
+  "dien_tich": 64,
+  "loai": "2 Ngủ +",
+  "ma": "CT.2N+.387",
+  "ngay_xuat_hien": "2026-11-04",
+  "phan_khu": "Sola Park",
+  "toa": "G2"
  },
  "cho-thue-can-ho-2-ngu-sola-park-64m2-tt-2np-5599": {
   "dien_tich": 64,
@@ -11276,6 +11316,14 @@
   "loai": "3 Ngủ",
   "ma": "CT.3N.207",
   "ngay_xuat_hien": "2026-10-28",
+  "phan_khu": "Sapphire",
+  "toa": "S401"
+ },
+ "cho-thue-can-ho-3-ngu-sapphire-75m2-ct-3n-216": {
+  "dien_tich": 75,
+  "loai": "3 Ngủ",
+  "ma": "CT.3N.216",
+  "ngay_xuat_hien": "2026-11-04",
   "phan_khu": "Sapphire",
   "toa": "S401"
  },
