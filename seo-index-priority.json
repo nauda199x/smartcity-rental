@@ -10,7 +10,7 @@
       "url": "/",
       "label": "Trang thuê Smart City",
       "reason": "landing chính cho cụm từ khóa thuê Smart City",
-      "inbound_pages": 1497,
+      "inbound_pages": 1505,
       "exists": true,
       "indexable": true,
       "self_canonical": true,
@@ -20,7 +20,7 @@
       "url": "/can-ho/",
       "label": "Căn hộ đang cho thuê",
       "reason": "hub URL chi tiết căn active",
-      "inbound_pages": 1248,
+      "inbound_pages": 1256,
       "exists": true,
       "indexable": true,
       "self_canonical": true,
@@ -30,7 +30,7 @@
       "url": "/studio/",
       "label": "Thuê Studio",
       "reason": "intent theo loại căn",
-      "inbound_pages": 1289,
+      "inbound_pages": 1297,
       "exists": true,
       "indexable": true,
       "self_canonical": true,
@@ -40,7 +40,7 @@
       "url": "/1pn/",
       "label": "Thuê 1PN",
       "reason": "intent theo loại căn",
-      "inbound_pages": 222,
+      "inbound_pages": 226,
       "exists": true,
       "indexable": true,
       "self_canonical": true,
@@ -50,7 +50,7 @@
       "url": "/1pn-plus/",
       "label": "Thuê 1PN+",
       "reason": "intent theo loại căn",
-      "inbound_pages": 1289,
+      "inbound_pages": 1297,
       "exists": true,
       "indexable": true,
       "self_canonical": true,
@@ -60,7 +60,7 @@
       "url": "/2pn/",
       "label": "Thuê 2PN",
       "reason": "intent theo loại căn",
-      "inbound_pages": 1289,
+      "inbound_pages": 1297,
       "exists": true,
       "indexable": true,
       "self_canonical": true,
@@ -70,7 +70,7 @@
       "url": "/2pn-plus/",
       "label": "Thuê 2PN+",
       "reason": "intent theo loại căn",
-      "inbound_pages": 266,
+      "inbound_pages": 267,
       "exists": true,
       "indexable": true,
       "self_canonical": true,
@@ -80,7 +80,7 @@
       "url": "/3pn/",
       "label": "Thuê 3PN",
       "reason": "intent theo loại căn",
-      "inbound_pages": 1289,
+      "inbound_pages": 1297,
       "exists": true,
       "indexable": true,
       "self_canonical": true,
@@ -90,7 +90,7 @@
       "url": "/bang-gia-thue-vinhomes-smart-city.html",
       "label": "Bảng giá thuê",
       "reason": "intent giá thuê có dữ liệu thực tế",
-      "inbound_pages": 1291,
+      "inbound_pages": 1299,
       "exists": true,
       "indexable": true,
       "self_canonical": true,
@@ -110,7 +110,7 @@
       "url": "/lumiere/",
       "label": "Thuê Lumière Evergreen",
       "reason": "phân khu có quỹ căn active lớn",
-      "inbound_pages": 247,
+      "inbound_pages": 248,
       "exists": true,
       "indexable": true,
       "self_canonical": true,
@@ -120,7 +120,7 @@
       "url": "/masteri/",
       "label": "Thuê Masteri West Heights",
       "reason": "phân khu có quỹ căn active lớn",
-      "inbound_pages": 231,
+      "inbound_pages": 233,
       "exists": true,
       "indexable": true,
       "self_canonical": true,
@@ -130,7 +130,7 @@
       "url": "/miami/",
       "label": "Thuê The Miami",
       "reason": "phân khu có quỹ căn active lớn",
-      "inbound_pages": 170,
+      "inbound_pages": 173,
       "exists": true,
       "indexable": true,
       "self_canonical": true,
@@ -162,15 +162,22 @@
       "url": "/lumiere-lumiere-smart-city/",
       "label": "Lumiere Lumiere",
       "district": "Lumiere",
-      "inventory": 130,
+      "inventory": 131,
       "inbound_pages": 10
     },
     {
       "url": "/mas-masteri-smart-city/",
       "label": "MAS Masteri",
       "district": "Masteri",
-      "inventory": 96,
+      "inventory": 98,
       "inbound_pages": 12
+    },
+    {
+      "url": "/gs-miami-smart-city/",
+      "label": "GS Miami",
+      "district": "Miami",
+      "inventory": 64,
+      "inbound_pages": 13
     },
     {
       "url": "/sa-sakura-smart-city/",
@@ -178,13 +185,6 @@
       "district": "Sakura",
       "inventory": 62,
       "inbound_pages": 11
-    },
-    {
-      "url": "/gs-miami-smart-city/",
-      "label": "GS Miami",
-      "district": "Miami",
-      "inventory": 61,
-      "inbound_pages": 13
     },
     {
       "url": "/tc-canopy-smart-city/",
@@ -204,7 +204,7 @@
       "url": "/imperia-imperia-smart-city/",
       "label": "Imperia Imperia",
       "district": "Imperia",
-      "inventory": 37,
+      "inventory": 38,
       "inbound_pages": 13
     },
     {
@@ -335,6 +335,15 @@
       "inbound_pages": 5
     },
     {
+      "url": "/can-ho/cho-thue-can-ho-3-ngu-imperia-76m2-tt-3n-5934/",
+      "first_seen": "2026-11-04",
+      "code": "TT.3N.5934",
+      "tower": "Imperia",
+      "type": "3 Ngủ",
+      "district": "Imperia",
+      "inbound_pages": 7
+    },
+    {
       "url": "/can-ho/cho-thue-can-ho-3-ngu-canopy-81m2-tt-3n-5927/",
       "first_seen": "2026-11-04",
       "code": "TT.3N.5927",
@@ -414,25 +423,16 @@
       "type": "2 Ngủ",
       "district": "Sapphire",
       "inbound_pages": 13
-    },
-    {
-      "url": "/can-ho/cho-thue-can-ho-2-ngu-sakura-62m2-ct-2n2-530/",
-      "first_seen": "2026-11-04",
-      "code": "CT.2N2.530",
-      "tower": "SA5",
-      "type": "2 Ngủ",
-      "district": "Sakura",
-      "inbound_pages": 6
     }
   ],
   "district_inventory": {
     "Sapphire": 230,
-    "Lumiere": 191,
-    "Masteri": 174,
-    "Miami": 113,
+    "Lumiere": 192,
+    "Masteri": 176,
+    "Miami": 116,
     "Sakura": 105,
     "Canopy": 90,
-    "Imperia": 76,
+    "Imperia": 77,
     "Tonkin": 23
   },
   "summary": {

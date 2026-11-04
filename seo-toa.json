@@ -133,7 +133,7 @@
       "area_max": 94,
       "area_min": 27,
       "code": "GS",
-      "count": 61,
+      "count": 64,
       "data_code": "GS",
       "district": "Miami",
       "first_seen": "2026-10-30",
@@ -145,7 +145,7 @@
       "price_min": 5500000,
       "types": [
         {
-          "count": 22,
+          "count": 23,
           "name": "2 Ngủ",
           "price_max": 15000000,
           "price_min": 8500000
@@ -157,16 +157,16 @@
           "price_min": 9500000
         },
         {
+          "count": 11,
+          "name": "1 Ngủ",
+          "price_max": 11000000,
+          "price_min": 7000000
+        },
+        {
           "count": 10,
           "name": "2 Ngủ +",
           "price_max": 13000000,
           "price_min": 8200000
-        },
-        {
-          "count": 9,
-          "name": "1 Ngủ",
-          "price_max": 11000000,
-          "price_min": 7000000
         },
         {
           "count": 8,
@@ -572,7 +572,7 @@
       "area_max": 76,
       "area_min": 28,
       "code": "IMPERIA",
-      "count": 37,
+      "count": 38,
       "data_code": "Imperia",
       "district": "Imperia",
       "first_seen": "2026-10-30",
@@ -602,7 +602,7 @@
           "price_min": 9500000
         },
         {
-          "count": 4,
+          "count": 5,
           "name": "3 Ngủ",
           "price_max": 17500000,
           "price_min": 13000000
@@ -619,7 +619,7 @@
       "area_max": 105,
       "area_min": 30,
       "code": "LUMIERE",
-      "count": 130,
+      "count": 131,
       "data_code": "Lumiere",
       "district": "Lumiere",
       "first_seen": "2026-10-30",
@@ -637,7 +637,7 @@
           "price_min": 10500000
         },
         {
-          "count": 28,
+          "count": 29,
           "name": "1 Ngủ",
           "price_max": 15000000,
           "price_min": 8500000
@@ -666,7 +666,7 @@
       "area_max": 80,
       "area_min": 27,
       "code": "MAS",
-      "count": 96,
+      "count": 98,
       "data_code": "MAS",
       "district": "Masteri",
       "first_seen": "2026-10-30",
@@ -681,18 +681,18 @@
           "count": 34,
           "name": "1 Ngủ",
           "price_max": 15000000,
-          "price_min": 8500000
+          "price_min": 8000000
         },
         {
-          "count": 20,
+          "count": 21,
           "name": "2 Ngủ",
           "price_max": 16000000,
           "price_min": 10000000
         },
         {
-          "count": 18,
+          "count": 19,
           "name": "2 Ngủ +",
-          "price_max": 18000000,
+          "price_max": 18500000,
           "price_min": 11000000
         },
         {
