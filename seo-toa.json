@@ -133,7 +133,7 @@
       "area_max": 94,
       "area_min": 27,
       "code": "GS",
-      "count": 64,
+      "count": 61,
       "data_code": "GS",
       "district": "Miami",
       "first_seen": "2026-10-30",
@@ -145,7 +145,7 @@
       "price_min": 5500000,
       "types": [
         {
-          "count": 25,
+          "count": 22,
           "name": "2 Ngủ",
           "price_max": 15000000,
           "price_min": 8500000
@@ -619,7 +619,7 @@
       "area_max": 105,
       "area_min": 30,
       "code": "LUMIERE",
-      "count": 138,
+      "count": 130,
       "data_code": "Lumiere",
       "district": "Lumiere",
       "first_seen": "2026-10-30",
@@ -631,7 +631,7 @@
       "price_min": 8000000,
       "types": [
         {
-          "count": 63,
+          "count": 55,
           "name": "2 Ngủ",
           "price_max": 22000000,
           "price_min": 10500000
@@ -1141,7 +1141,7 @@
       "area_max": 75,
       "area_min": 32,
       "code": "S2",
-      "count": 25,
+      "count": 24,
       "data_code": "S2",
       "district": "Sapphire",
       "first_seen": "2026-10-30",
@@ -1159,7 +1159,7 @@
           "price_min": 7200000
         },
         {
-          "count": 8,
+          "count": 7,
           "name": "2 Ngủ +",
           "price_max": 13000000,
           "price_min": 11000000
@@ -1885,7 +1885,7 @@
       "area_max": 81,
       "area_min": 25,
       "code": "TC",
-      "count": 56,
+      "count": 54,
       "data_code": "TC",
       "district": "Canopy",
       "first_seen": "2026-10-30",
@@ -1897,7 +1897,7 @@
       "price_min": 6000000,
       "types": [
         {
-          "count": 17,
+          "count": 15,
           "name": "2 Ngủ",
           "price_max": 14000000,
           "price_min": 10000000
