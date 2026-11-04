@@ -1410,7 +1410,7 @@
       "area_max": 62,
       "area_min": 25,
       "code": "S302",
-      "count": 9,
+      "count": 10,
       "data_code": "S302",
       "district": "Sapphire",
       "first_seen": "2026-09-10",
@@ -1422,7 +1422,7 @@
       "price_min": 5500000,
       "types": [
         {
-          "count": 4,
+          "count": 5,
           "name": "2 Ngủ",
           "price_max": 10000000,
           "price_min": 9000000
@@ -1832,7 +1832,7 @@
       "area_max": 75,
       "area_min": 32,
       "code": "SA5",
-      "count": 13,
+      "count": 14,
       "data_code": "SA5",
       "district": "Sakura",
       "first_seen": "2026-09-10",
@@ -1844,7 +1844,7 @@
       "price_min": 6000000,
       "types": [
         {
-          "count": 6,
+          "count": 7,
           "name": "2 Ngủ",
           "price_max": 12500000,
           "price_min": 9000000
