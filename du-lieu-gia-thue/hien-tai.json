@@ -1,20 +1,20 @@
 {
   "updated": "2026-11-04",
   "source": "data.json",
-  "active_count": 886,
+  "active_count": 885,
   "min_sample": 3,
   "overall": {
-    "n": 886,
+    "n": 885,
     "min": 5500000,
     "max": 25000000,
-    "median": 10000000.0
+    "median": 10000000
   },
   "by_type": {
     "1 Ngủ": {
-      "n": 111,
+      "n": 110,
       "min": 7000000,
       "max": 15000000,
-      "median": 9000000
+      "median": 9000000.0
     },
     "1 Ngủ +": {
       "n": 97,
@@ -67,16 +67,16 @@
       "median": 12000000
     },
     "Masteri": {
-      "n": 176,
+      "n": 175,
       "min": 7000000,
       "max": 23000000,
-      "median": 12000000.0
+      "median": 12000000
     },
     "Miami": {
-      "n": 116,
+      "n": 115,
       "min": 5500000,
       "max": 15000000,
-      "median": 10000000.0
+      "median": 10000000
     },
     "Sakura": {
       "n": 105,
@@ -85,10 +85,10 @@
       "median": 11000000
     },
     "Sapphire": {
-      "n": 230,
+      "n": 231,
       "min": 5500000,
       "max": 18000000,
-      "median": 9150000.0
+      "median": 9000000
     },
     "Sola Park": {
       "n": 46,
@@ -123,10 +123,10 @@
       "median": 8500000.0
     },
     "Đồ Cơ bản": {
-      "n": 140,
+      "n": 139,
       "min": 6000000,
       "max": 17000000,
-      "median": 10500000.0
+      "median": 10500000
     }
   },
   "zone_type_interior": [
@@ -548,10 +548,10 @@
       "zone": "Masteri",
       "type": "1 Ngủ",
       "interior": "Đồ Cơ bản",
-      "n": 10,
+      "n": 9,
       "min": 8000000,
       "max": 10000000,
-      "median": 9000000.0
+      "median": 9000000
     },
     {
       "zone": "Masteri",
@@ -872,10 +872,10 @@
       "zone": "Miami",
       "type": "Studio",
       "interior": "Full nội thất",
-      "n": 8,
-      "min": 6800000,
+      "n": 7,
+      "min": 7000000,
       "max": 8000000,
-      "median": 7250000.0
+      "median": 7500000
     },
     {
       "zone": "Miami",
@@ -1178,10 +1178,10 @@
       "zone": "Sapphire",
       "type": "Studio",
       "interior": "Full nội thất",
-      "n": 34,
+      "n": 35,
       "min": 5800000,
       "max": 8000000,
-      "median": 7000000.0
+      "median": 7000000
     },
     {
       "zone": "Sapphire",
