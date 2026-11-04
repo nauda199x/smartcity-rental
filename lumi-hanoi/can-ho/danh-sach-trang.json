@@ -1662,5 +1662,21 @@
     "toa": "S2",
     "dien_tich": 81.0,
     "active": true
+  },
+  "cho-thue-can-ho-2-ngu-s3-54m2-thue2n-112": {
+    "id": "thue2N.112",
+    "ma": "thue2N.112",
+    "loai": "2 Ngủ",
+    "toa": "S3",
+    "dien_tich": 54.0,
+    "active": false
+  },
+  "cho-thue-can-ho-3-ngu-s1-81m2-thue3n-60": {
+    "id": "thue3N.60",
+    "ma": "thue3N.60",
+    "loai": "3 Ngủ",
+    "toa": "S1",
+    "dien_tich": 81.0,
+    "active": false
   }
 }
