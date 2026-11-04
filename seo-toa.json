@@ -268,7 +268,7 @@
       "area_max": 64,
       "area_min": 30,
       "code": "GS3",
-      "count": 10,
+      "count": 11,
       "data_code": "GS3",
       "district": "Miami",
       "first_seen": "2026-09-10",
@@ -292,16 +292,16 @@
           "price_min": 7500000
         },
         {
+          "count": 2,
+          "name": "Studio",
+          "price_max": 7000000,
+          "price_min": 5500000
+        },
+        {
           "count": 1,
           "name": "1 Ngủ +",
           "price_max": 9000000,
           "price_min": 9000000
-        },
-        {
-          "count": 1,
-          "name": "Studio",
-          "price_max": 5500000,
-          "price_min": 5500000
         }
       ]
     },
@@ -1355,7 +1355,7 @@
           "count": 4,
           "name": "1 Ngủ",
           "price_max": 9000000,
-          "price_min": 8000000
+          "price_min": 7500000
         },
         {
           "count": 2,
@@ -1410,7 +1410,7 @@
       "area_max": 62,
       "area_min": 25,
       "code": "S302",
-      "count": 10,
+      "count": 11,
       "data_code": "S302",
       "district": "Sapphire",
       "first_seen": "2026-09-10",
@@ -1422,7 +1422,7 @@
       "price_min": 5500000,
       "types": [
         {
-          "count": 5,
+          "count": 6,
           "name": "2 Ngủ",
           "price_max": 10000000,
           "price_min": 9000000
@@ -1545,7 +1545,7 @@
       "area_max": 75,
       "area_min": 32,
       "code": "S401",
-      "count": 9,
+      "count": 10,
       "data_code": "S401",
       "district": "Sapphire",
       "first_seen": "2026-09-10",
@@ -1558,15 +1558,15 @@
       "types": [
         {
           "count": 3,
-          "name": "3 Ngủ",
-          "price_max": 14000000,
-          "price_min": 8500000
-        },
-        {
-          "count": 2,
           "name": "1 Ngủ +",
           "price_max": 9500000,
           "price_min": 8000000
+        },
+        {
+          "count": 3,
+          "name": "3 Ngủ",
+          "price_max": 14000000,
+          "price_min": 8500000
         },
         {
           "count": 2,
