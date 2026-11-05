@@ -391,7 +391,7 @@
       "area_max": 76,
       "area_min": 43,
       "code": "I1",
-      "count": 10,
+      "count": 11,
       "data_code": "I1",
       "district": "Imperia",
       "first_seen": "2026-09-10",
@@ -410,15 +410,15 @@
         },
         {
           "count": 3,
+          "name": "1 Ngủ +",
+          "price_max": 10000000,
+          "price_min": 8000000
+        },
+        {
+          "count": 3,
           "name": "3 Ngủ",
           "price_max": 17500000,
           "price_min": 13000000
-        },
-        {
-          "count": 2,
-          "name": "1 Ngủ +",
-          "price_max": 8500000,
-          "price_min": 8000000
         }
       ]
     },
