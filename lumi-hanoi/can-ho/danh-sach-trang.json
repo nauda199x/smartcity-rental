@@ -1902,5 +1902,13 @@
     "toa": "S6",
     "dien_tich": 101.0,
     "active": true
+  },
+  "cho-thue-can-ho-2-ngu-s3-54m2-thue2n-119": {
+    "id": "thue2N.119",
+    "ma": "thue2N.119",
+    "loai": "2 Ngủ",
+    "toa": "S3",
+    "dien_tich": 54.0,
+    "active": false
   }
 }
