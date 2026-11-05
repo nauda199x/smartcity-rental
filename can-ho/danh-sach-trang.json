@@ -10503,6 +10503,14 @@
   "phan_khu": "Imperia",
   "toa": "I1"
  },
+ "cho-thue-can-ho-3-ngu-imperia-75m2-ct-3n-220": {
+  "dien_tich": 75,
+  "loai": "3 Ngủ",
+  "ma": "CT.3N.220",
+  "ngay_xuat_hien": "2026-11-05",
+  "phan_khu": "Imperia",
+  "toa": "I5"
+ },
  "cho-thue-can-ho-3-ngu-imperia-75m2-tt-3n-4751": {
   "dien_tich": 75,
   "loai": "3 Ngủ",
@@ -13567,6 +13575,14 @@
   "phan_khu": "Sakura",
   "toa": "SA"
  },
+ "cho-thue-can-ho-studio-sakura-34m2-ct-stu-1012": {
+  "dien_tich": 34,
+  "loai": "Studio",
+  "ma": "CT.Stu.1012",
+  "ngay_xuat_hien": "2026-11-05",
+  "phan_khu": "Sakura",
+  "toa": "SA5"
+ },
  "cho-thue-can-ho-studio-sakura-34m2-ct-stu-798": {
   "dien_tich": 34,
   "loai": "Studio",
@@ -14796,6 +14812,14 @@
   "loai": "Studio",
   "ma": "CT.Stu.985",
   "ngay_xuat_hien": "2026-10-29",
+  "phan_khu": "Tonkin",
+  "toa": "TK1"
+ },
+ "cho-thue-can-ho-studio-tonkin-29m2-ct-stu-1011": {
+  "dien_tich": 29,
+  "loai": "Studio",
+  "ma": "CT.Stu.1011",
+  "ngay_xuat_hien": "2026-11-05",
   "phan_khu": "Tonkin",
   "toa": "TK1"
  },
