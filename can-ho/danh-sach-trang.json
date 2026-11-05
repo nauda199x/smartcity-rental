@@ -543,6 +543,14 @@
   "phan_khu": "Imperia",
   "toa": "Imperia"
  },
+ "cho-thue-can-ho-1-ngu-imperia-43m2-tt-1n-5954": {
+  "dien_tich": 43,
+  "loai": "1 Ngủ",
+  "ma": "TT.1N.5954",
+  "ngay_xuat_hien": "2026-11-05",
+  "phan_khu": "Imperia",
+  "toa": "Imperia"
+ },
  "cho-thue-can-ho-1-ngu-imperia-47m2-ct-1n-505": {
   "dien_tich": 47,
   "loai": "1 Ngủ +",
@@ -2231,6 +2239,14 @@
   "phan_khu": "Miami",
   "toa": "GS"
  },
+ "cho-thue-can-ho-1-ngu-miami-43m2-tt-1n-5956": {
+  "dien_tich": 43,
+  "loai": "1 Ngủ",
+  "ma": "TT.1N.5956",
+  "ngay_xuat_hien": "2026-11-05",
+  "phan_khu": "Miami",
+  "toa": "GS"
+ },
  "cho-thue-can-ho-1-ngu-miami-45m2-ct-1n-157": {
   "dien_tich": 45,
   "loai": "1 Ngủ",
@@ -2270,6 +2286,22 @@
   "ngay_xuat_hien": "2026-10-19",
   "phan_khu": "Miami",
   "toa": "GS5"
+ },
+ "cho-thue-can-ho-1-ngu-miami-45m2-tt-1n-5955": {
+  "dien_tich": 45,
+  "loai": "1 Ngủ",
+  "ma": "TT.1N.5955",
+  "ngay_xuat_hien": "2026-11-05",
+  "phan_khu": "Miami",
+  "toa": "GS"
+ },
+ "cho-thue-can-ho-1-ngu-miami-45m2-tt-1n-5958": {
+  "dien_tich": 45,
+  "loai": "1 Ngủ",
+  "ma": "TT.1N.5958",
+  "ngay_xuat_hien": "2026-11-05",
+  "phan_khu": "Miami",
+  "toa": "GS"
  },
  "cho-thue-can-ho-1-ngu-miami-46m2-tt-1n-5481": {
   "dien_tich": 46,
@@ -11151,6 +11183,14 @@
   "phan_khu": "Miami",
   "toa": "GS"
  },
+ "cho-thue-can-ho-3-ngu-miami-80m2-tt-3n-5951": {
+  "dien_tich": 80,
+  "loai": "3 Ngủ",
+  "ma": "TT.3N.5951",
+  "ngay_xuat_hien": "2026-11-05",
+  "phan_khu": "Miami",
+  "toa": "GS"
+ },
  "cho-thue-can-ho-3-ngu-miami-81m2-ct-3n-173": {
   "dien_tich": 81,
   "loai": "3 Ngủ",
@@ -12239,6 +12279,14 @@
   "phan_khu": "Imperia",
   "toa": "Imperia"
  },
+ "cho-thue-can-ho-studio-imperia-31m2-tt-st-5949": {
+  "dien_tich": 31,
+  "loai": "Studio",
+  "ma": "TT.ST.5949",
+  "ngay_xuat_hien": "2026-11-05",
+  "phan_khu": "Imperia",
+  "toa": "Imperia"
+ },
  "cho-thue-can-ho-studio-imperia-32m2-ct-stu-828": {
   "dien_tich": 32,
   "loai": "Studio",
@@ -12292,6 +12340,14 @@
   "loai": "Studio",
   "ma": "TT.ST.5936",
   "ngay_xuat_hien": "2026-11-04",
+  "phan_khu": "Imperia",
+  "toa": "Imperia"
+ },
+ "cho-thue-can-ho-studio-imperia-32m2-tt-st-5950": {
+  "dien_tich": 32,
+  "loai": "Studio",
+  "ma": "TT.ST.5950",
+  "ngay_xuat_hien": "2026-11-05",
   "phan_khu": "Imperia",
   "toa": "Imperia"
  },
@@ -14044,6 +14100,22 @@
   "loai": "Studio",
   "ma": "TT.ST.5860",
   "ngay_xuat_hien": "2026-11-02",
+  "phan_khu": "Sapphire",
+  "toa": "S3"
+ },
+ "cho-thue-can-ho-studio-sapphire-28m2-tt-st-5952": {
+  "dien_tich": 28,
+  "loai": "Studio",
+  "ma": "TT.ST.5952",
+  "ngay_xuat_hien": "2026-11-05",
+  "phan_khu": "Sapphire",
+  "toa": "S3"
+ },
+ "cho-thue-can-ho-studio-sapphire-28m2-tt-st-5953": {
+  "dien_tich": 28,
+  "loai": "Studio",
+  "ma": "TT.ST.5953",
+  "ngay_xuat_hien": "2026-11-05",
   "phan_khu": "Sapphire",
   "toa": "S3"
  },

@@ -131,9 +131,9 @@
     },
     "GS": {
       "area_max": 94,
-      "area_min": 27,
+      "area_min": 28,
       "code": "GS",
-      "count": 61,
+      "count": 64,
       "data_code": "GS",
       "district": "Miami",
       "first_seen": "2026-10-30",
@@ -151,13 +151,13 @@
           "price_min": 8500000
         },
         {
-          "count": 12,
+          "count": 15,
           "name": "1 Ngủ",
           "price_max": 11000000,
           "price_min": 7000000
         },
         {
-          "count": 11,
+          "count": 12,
           "name": "3 Ngủ",
           "price_max": 15000000,
           "price_min": 9500000
@@ -169,7 +169,7 @@
           "price_min": 8200000
         },
         {
-          "count": 6,
+          "count": 5,
           "name": "Studio",
           "price_max": 8000000,
           "price_min": 5500000
@@ -584,7 +584,7 @@
       "area_max": 76,
       "area_min": 28,
       "code": "IMPERIA",
-      "count": 37,
+      "count": 40,
       "data_code": "Imperia",
       "district": "Imperia",
       "first_seen": "2026-10-30",
@@ -596,7 +596,7 @@
       "price_min": 6000000,
       "types": [
         {
-          "count": 13,
+          "count": 14,
           "name": "1 Ngủ",
           "price_max": 11500000,
           "price_min": 8000000
@@ -620,7 +620,7 @@
           "price_min": 13000000
         },
         {
-          "count": 3,
+          "count": 5,
           "name": "Studio",
           "price_max": 8000000,
           "price_min": 6000000
@@ -1346,7 +1346,7 @@
       "area_max": 94,
       "area_min": 28,
       "code": "S3",
-      "count": 26,
+      "count": 28,
       "data_code": "S3",
       "district": "Sapphire",
       "first_seen": "2026-10-30",
@@ -1358,16 +1358,16 @@
       "price_min": 5500000,
       "types": [
         {
+          "count": 9,
+          "name": "Studio",
+          "price_max": 7500000,
+          "price_min": 5500000
+        },
+        {
           "count": 7,
           "name": "2 Ngủ",
           "price_max": 10500000,
           "price_min": 8500000
-        },
-        {
-          "count": 7,
-          "name": "Studio",
-          "price_max": 7500000,
-          "price_min": 5500000
         },
         {
           "count": 6,
