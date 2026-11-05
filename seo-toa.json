@@ -133,7 +133,7 @@
       "area_max": 94,
       "area_min": 27,
       "code": "GS",
-      "count": 60,
+      "count": 61,
       "data_code": "GS",
       "district": "Miami",
       "first_seen": "2026-10-30",
@@ -151,7 +151,7 @@
           "price_min": 8500000
         },
         {
-          "count": 11,
+          "count": 12,
           "name": "1 Ngủ",
           "price_max": 11000000,
           "price_min": 7000000
@@ -625,7 +625,7 @@
       "area_max": 105,
       "area_min": 30,
       "code": "LUMIERE",
-      "count": 127,
+      "count": 128,
       "data_code": "Lumiere",
       "district": "Lumiere",
       "first_seen": "2026-10-30",
@@ -633,7 +633,7 @@
       "last_seen": "2026-11-05",
       "name": "Lumiere Lumiere",
       "path": "/lumiere-lumiere-smart-city/",
-      "price_max": 25000000,
+      "price_max": 27000000,
       "price_min": 8000000,
       "types": [
         {
@@ -661,9 +661,9 @@
           "price_min": 13000000
         },
         {
-          "count": 7,
+          "count": 8,
           "name": "3 Ngủ",
-          "price_max": 25000000,
+          "price_max": 27000000,
           "price_min": 16000000
         }
       ]
@@ -672,7 +672,7 @@
       "area_max": 80,
       "area_min": 27,
       "code": "MAS",
-      "count": 93,
+      "count": 94,
       "data_code": "MAS",
       "district": "Masteri",
       "first_seen": "2026-10-30",
@@ -690,7 +690,7 @@
           "price_min": 8000000
         },
         {
-          "count": 19,
+          "count": 20,
           "name": "2 Ngủ",
           "price_max": 16000000,
           "price_min": 10000000
@@ -1698,7 +1698,7 @@
       "area_max": 95,
       "area_min": 25,
       "code": "SA",
-      "count": 56,
+      "count": 58,
       "data_code": "SA",
       "district": "Sakura",
       "first_seen": "2026-10-30",
@@ -1707,7 +1707,7 @@
       "name": "SA Sakura",
       "path": "/sa-sakura-smart-city/",
       "price_max": 18000000,
-      "price_min": 6000000,
+      "price_min": 5500000,
       "types": [
         {
           "count": 24,
@@ -1716,10 +1716,10 @@
           "price_min": 11000000
         },
         {
-          "count": 13,
+          "count": 15,
           "name": "Studio",
           "price_max": 8000000,
-          "price_min": 6000000
+          "price_min": 5500000
         },
         {
           "count": 9,
@@ -1897,7 +1897,7 @@
       "area_max": 81,
       "area_min": 25,
       "code": "TC",
-      "count": 52,
+      "count": 53,
       "data_code": "TC",
       "district": "Canopy",
       "first_seen": "2026-10-30",
@@ -1915,7 +1915,7 @@
           "price_min": 10500000
         },
         {
-          "count": 11,
+          "count": 12,
           "name": "Studio",
           "price_max": 9000000,
           "price_min": 6000000

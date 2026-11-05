@@ -2279,6 +2279,14 @@
   "phan_khu": "Miami",
   "toa": "GS"
  },
+ "cho-thue-can-ho-1-ngu-miami-46m2-tt-1n-5942": {
+  "dien_tich": 46,
+  "loai": "1 Ngủ",
+  "ma": "TT.1N.5942",
+  "ngay_xuat_hien": "2026-11-05",
+  "phan_khu": "Miami",
+  "toa": "GS"
+ },
  "cho-thue-can-ho-1-ngu-miami-47m2-ct-1n-513": {
   "dien_tich": 47,
   "loai": "1 Ngủ +",
@@ -6454,6 +6462,14 @@
   "ngay_xuat_hien": "2026-09-22",
   "phan_khu": "Masteri",
   "toa": "MasD"
+ },
+ "cho-thue-can-ho-2-ngu-masteri-59m2-tt-2n-5946": {
+  "dien_tich": 59,
+  "loai": "2 Ngủ",
+  "ma": "TT.2N.5946",
+  "ngay_xuat_hien": "2026-11-05",
+  "phan_khu": "Masteri",
+  "toa": "MAS"
  },
  "cho-thue-can-ho-2-ngu-masteri-60m2-ct-2n2-333": {
   "dien_tich": 60,
@@ -10719,6 +10735,14 @@
   "phan_khu": "Lumiere",
   "toa": "A2"
  },
+ "cho-thue-can-ho-3-ngu-lumiere-93m2-tt-3n-5948": {
+  "dien_tich": 93,
+  "loai": "3 Ngủ",
+  "ma": "TT.3N.5948",
+  "ngay_xuat_hien": "2026-11-05",
+  "phan_khu": "Lumiere",
+  "toa": "Lumiere"
+ },
  "cho-thue-can-ho-3-ngu-lumiere-94m2-cc34": {
   "dien_tich": 94,
   "loai": "3 Ngủ",
@@ -12052,6 +12076,14 @@
   "loai": "Studio",
   "ma": "TT.ST.5913",
   "ngay_xuat_hien": "2026-11-03",
+  "phan_khu": "Canopy",
+  "toa": "TC"
+ },
+ "cho-thue-can-ho-studio-canopy-30m2-tt-st-5943": {
+  "dien_tich": 30,
+  "loai": "Studio",
+  "ma": "TT.ST.5943",
+  "ngay_xuat_hien": "2026-11-05",
   "phan_khu": "Canopy",
   "toa": "TC"
  },
@@ -13660,6 +13692,22 @@
   "loai": "Studio",
   "ma": "TT.ST.5443",
   "ngay_xuat_hien": "2026-10-30",
+  "phan_khu": "Sakura",
+  "toa": "SA"
+ },
+ "cho-thue-can-ho-studio-sakura-34m2-tt-st-5944": {
+  "dien_tich": 34,
+  "loai": "Studio",
+  "ma": "TT.ST.5944",
+  "ngay_xuat_hien": "2026-11-05",
+  "phan_khu": "Sakura",
+  "toa": "SA"
+ },
+ "cho-thue-can-ho-studio-sakura-34m2-tt-st-5945": {
+  "dien_tich": 34,
+  "loai": "Studio",
+  "ma": "TT.ST.5945",
+  "ngay_xuat_hien": "2026-11-05",
   "phan_khu": "Sakura",
   "toa": "SA"
  },
