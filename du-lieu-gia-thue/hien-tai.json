@@ -1,10 +1,10 @@
 {
   "updated": "2026-11-05",
   "source": "data.json",
-  "active_count": 885,
+  "active_count": 891,
   "min_sample": 3,
   "overall": {
-    "n": 885,
+    "n": 891,
     "min": 5500000,
     "max": 25000000,
     "median": 10000000
@@ -23,10 +23,10 @@
       "median": 9000000
     },
     "2 Ngủ": {
-      "n": 244,
+      "n": 245,
       "min": 7200000,
       "max": 20000000,
-      "median": 11000000.0
+      "median": 11000000
     },
     "2 Ngủ +": {
       "n": 162,
@@ -41,10 +41,10 @@
       "median": 13000000
     },
     "Studio": {
-      "n": 155,
+      "n": 160,
       "min": 5500000,
       "max": 11500000,
-      "median": 7000000
+      "median": 7000000.0
     }
   },
   "by_zone": {
@@ -73,10 +73,10 @@
       "median": 12000000
     },
     "Miami": {
-      "n": 115,
+      "n": 114,
       "min": 5500000,
       "max": 15000000,
-      "median": 10000000
+      "median": 10000000.0
     },
     "Sakura": {
       "n": 105,
@@ -85,7 +85,7 @@
       "median": 11000000
     },
     "Sapphire": {
-      "n": 231,
+      "n": 235,
       "min": 5500000,
       "max": 18000000,
       "median": 9000000
@@ -97,10 +97,10 @@
       "median": 8500000.0
     },
     "Tonkin": {
-      "n": 23,
+      "n": 26,
       "min": 7000000,
       "max": 17000000,
-      "median": 8500000
+      "median": 8500000.0
     }
   },
   "by_interior": {
@@ -111,19 +111,19 @@
       "median": 10000000.0
     },
     "Full nội thất": {
-      "n": 516,
+      "n": 523,
       "min": 5800000,
       "max": 25000000,
-      "median": 11000000.0
+      "median": 11000000
     },
     "Nhà Nguyên Bản": {
-      "n": 210,
+      "n": 207,
       "min": 5500000,
       "max": 15000000,
-      "median": 8500000.0
+      "median": 8500000
     },
     "Đồ Cơ bản": {
-      "n": 139,
+      "n": 141,
       "min": 6000000,
       "max": 17000000,
       "median": 10500000
@@ -190,7 +190,7 @@
       "interior": "Nhà Nguyên Bản",
       "n": 5,
       "min": 8000000,
-      "max": 11000000,
+      "max": 10500000,
       "median": 10000000
     },
     {
@@ -639,7 +639,7 @@
       "type": "2 Ngủ +",
       "interior": "Đồ Cơ bản",
       "n": 5,
-      "min": 11000000,
+      "min": 10500000,
       "max": 12500000,
       "median": 12500000
     },
@@ -854,19 +854,19 @@
       "zone": "Miami",
       "type": "3 Ngủ",
       "interior": "Nhà Nguyên Bản",
-      "n": 12,
+      "n": 10,
       "min": 9500000,
       "max": 13000000,
-      "median": 11750000.0
+      "median": 11250000.0
     },
     {
       "zone": "Miami",
       "type": "3 Ngủ",
       "interior": "Đồ Cơ bản",
-      "n": 6,
+      "n": 7,
       "min": 10500000,
       "max": 14000000,
-      "median": 12000000.0
+      "median": 12000000
     },
     {
       "zone": "Miami",
@@ -980,19 +980,19 @@
       "zone": "Sakura",
       "type": "3 Ngủ",
       "interior": "Nhà Nguyên Bản",
-      "n": 8,
-      "min": 10500000,
+      "n": 7,
+      "min": 11000000,
       "max": 14000000,
-      "median": 11000000.0
+      "median": 11000000
     },
     {
       "zone": "Sakura",
       "type": "3 Ngủ",
       "interior": "Đồ Cơ bản",
-      "n": 11,
+      "n": 12,
       "min": 11000000,
       "max": 13000000,
-      "median": 12500000
+      "median": 12500000.0
     },
     {
       "zone": "Sakura",
@@ -1178,7 +1178,7 @@
       "zone": "Sapphire",
       "type": "Studio",
       "interior": "Full nội thất",
-      "n": 35,
+      "n": 39,
       "min": 5800000,
       "max": 8000000,
       "median": 7000000
@@ -1304,10 +1304,10 @@
       "zone": "Tonkin",
       "type": "2 Ngủ",
       "interior": "Full nội thất",
-      "n": 2,
-      "min": 13500000,
+      "n": 3,
+      "min": 11500000,
       "max": 15000000,
-      "median": 14250000.0
+      "median": 13500000
     },
     {
       "zone": "Tonkin",
@@ -1331,19 +1331,19 @@
       "zone": "Tonkin",
       "type": "3 Ngủ",
       "interior": "Full nội thất",
-      "n": 1,
-      "min": 17000000,
+      "n": 2,
+      "min": 15000000,
       "max": 17000000,
-      "median": 17000000
+      "median": 16000000.0
     },
     {
       "zone": "Tonkin",
       "type": "Studio",
       "interior": "Full nội thất",
-      "n": 10,
+      "n": 11,
       "min": 7500000,
       "max": 8500000,
-      "median": 7900000.0
+      "median": 8000000
     },
     {
       "zone": "Tonkin",

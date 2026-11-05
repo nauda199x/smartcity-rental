@@ -133,7 +133,7 @@
       "area_max": 94,
       "area_min": 27,
       "code": "GS",
-      "count": 63,
+      "count": 62,
       "data_code": "GS",
       "district": "Miami",
       "first_seen": "2026-10-30",
@@ -151,16 +151,16 @@
           "price_min": 8500000
         },
         {
-          "count": 12,
-          "name": "3 Ngủ",
-          "price_max": 15000000,
-          "price_min": 9500000
-        },
-        {
           "count": 11,
           "name": "1 Ngủ",
           "price_max": 11000000,
           "price_min": 7000000
+        },
+        {
+          "count": 11,
+          "name": "3 Ngủ",
+          "price_max": 15000000,
+          "price_min": 9500000
         },
         {
           "count": 10,
@@ -693,7 +693,7 @@
           "count": 19,
           "name": "2 Ngủ +",
           "price_max": 18500000,
-          "price_min": 11000000
+          "price_min": 10500000
         },
         {
           "count": 15,
@@ -705,7 +705,7 @@
           "count": 9,
           "name": "3 Ngủ",
           "price_max": 23000000,
-          "price_min": 13000000
+          "price_min": 12000000
         }
       ]
     },
@@ -1162,7 +1162,7 @@
           "count": 7,
           "name": "2 Ngủ +",
           "price_max": 13000000,
-          "price_min": 11000000
+          "price_min": 10500000
         },
         {
           "count": 3,
@@ -1221,9 +1221,9 @@
     },
     "S202": {
       "area_max": 75,
-      "area_min": 43,
+      "area_min": 32,
       "code": "S202",
-      "count": 7,
+      "count": 8,
       "data_code": "S202",
       "district": "Sapphire",
       "first_seen": "2026-09-10",
@@ -1232,7 +1232,7 @@
       "name": "S2.02",
       "path": "/s2-02-vinhomes-smart-city/",
       "price_max": 11000000,
-      "price_min": 7000000,
+      "price_min": 6500000,
       "types": [
         {
           "count": 2,
@@ -1257,6 +1257,12 @@
           "name": "3 Ngủ",
           "price_max": 11000000,
           "price_min": 11000000
+        },
+        {
+          "count": 1,
+          "name": "Studio",
+          "price_max": 6500000,
+          "price_min": 6500000
         }
       ]
     },
@@ -1308,7 +1314,7 @@
           "count": 3,
           "name": "2 Ngủ",
           "price_max": 10000000,
-          "price_min": 9000000
+          "price_min": 8500000
         },
         {
           "count": 2,
@@ -1328,7 +1334,7 @@
       "area_max": 94,
       "area_min": 28,
       "code": "S3",
-      "count": 27,
+      "count": 28,
       "data_code": "S3",
       "district": "Sapphire",
       "first_seen": "2026-10-30",
@@ -1352,7 +1358,7 @@
           "price_min": 10500000
         },
         {
-          "count": 6,
+          "count": 7,
           "name": "Studio",
           "price_max": 7500000,
           "price_min": 5500000
@@ -1416,7 +1422,7 @@
       "area_max": 62,
       "area_min": 25,
       "code": "S302",
-      "count": 12,
+      "count": 14,
       "data_code": "S302",
       "district": "Sapphire",
       "first_seen": "2026-09-10",
@@ -1434,7 +1440,7 @@
           "price_min": 9000000
         },
         {
-          "count": 4,
+          "count": 6,
           "name": "Studio",
           "price_max": 7500000,
           "price_min": 5500000
@@ -1701,7 +1707,7 @@
           "count": 24,
           "name": "3 Ngủ",
           "price_max": 18000000,
-          "price_min": 10500000
+          "price_min": 11000000
         },
         {
           "count": 13,
@@ -2112,9 +2118,9 @@
     },
     "TK1": {
       "area_max": 66,
-      "area_min": 28,
+      "area_min": 25,
       "code": "TK1",
-      "count": 2,
+      "count": 3,
       "data_code": "TK1",
       "district": "Tonkin",
       "first_seen": "2026-09-10",
@@ -2126,24 +2132,24 @@
       "price_min": 7500000,
       "types": [
         {
+          "count": 2,
+          "name": "Studio",
+          "price_max": 8500000,
+          "price_min": 7500000
+        },
+        {
           "count": 1,
           "name": "2 Ngủ",
           "price_max": 13500000,
           "price_min": 13500000
-        },
-        {
-          "count": 1,
-          "name": "Studio",
-          "price_max": 7500000,
-          "price_min": 7500000
         }
       ]
     },
     "TK2": {
-      "area_max": 70,
+      "area_max": 83,
       "area_min": 25,
       "code": "TK2",
-      "count": 7,
+      "count": 9,
       "data_code": "TK2",
       "district": "Tonkin",
       "first_seen": "2026-09-10",
@@ -2151,7 +2157,7 @@
       "last_seen": "2026-11-05",
       "name": "TK2 Tonkin",
       "path": "/tk2-tonkin-smart-city/",
-      "price_max": 14500000,
+      "price_max": 15000000,
       "price_min": 7800000,
       "types": [
         {
@@ -2174,9 +2180,21 @@
         },
         {
           "count": 1,
+          "name": "2 Ngủ",
+          "price_max": 11500000,
+          "price_min": 11500000
+        },
+        {
+          "count": 1,
           "name": "2 Ngủ +",
           "price_max": 14500000,
           "price_min": 14500000
+        },
+        {
+          "count": 1,
+          "name": "3 Ngủ",
+          "price_max": 15000000,
+          "price_min": 15000000
         }
       ]
     }
