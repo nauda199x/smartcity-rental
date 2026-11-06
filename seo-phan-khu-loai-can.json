@@ -40,7 +40,7 @@
     "updated": "2026-11-06"
   },
   "cho-thue-1pn-plus-imperia-smart-city": {
-    "count": 12,
+    "count": 11,
     "created": "2026-08-30",
     "indexable": true,
     "loai": "1 Ngủ +",
@@ -128,7 +128,7 @@
     "updated": "2026-11-06"
   },
   "cho-thue-2pn-lumiere-smart-city": {
-    "count": 83,
+    "count": 82,
     "created": "2026-08-30",
     "indexable": true,
     "loai": "2 Ngủ",
@@ -320,7 +320,7 @@
     "updated": "2026-11-06"
   },
   "cho-thue-studio-miami-smart-city": {
-    "count": 13,
+    "count": 14,
     "created": "2026-09-17",
     "indexable": true,
     "loai": "Studio",

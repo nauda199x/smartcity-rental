@@ -166,7 +166,7 @@
           "count": 9,
           "name": "2 Ngủ +",
           "price_max": 13000000,
-          "price_min": 8200000
+          "price_min": 7500000
         },
         {
           "count": 5,
@@ -266,9 +266,9 @@
     },
     "GS3": {
       "area_max": 64,
-      "area_min": 30,
+      "area_min": 28,
       "code": "GS3",
-      "count": 12,
+      "count": 13,
       "data_code": "GS3",
       "district": "Miami",
       "first_seen": "2026-09-10",
@@ -292,7 +292,7 @@
           "price_min": 7500000
         },
         {
-          "count": 2,
+          "count": 3,
           "name": "Studio",
           "price_max": 7000000,
           "price_min": 5500000
@@ -502,7 +502,7 @@
       "area_max": 64,
       "area_min": 28,
       "code": "I4",
-      "count": 8,
+      "count": 7,
       "data_code": "I4",
       "district": "Imperia",
       "first_seen": "2026-09-10",
@@ -521,15 +521,15 @@
         },
         {
           "count": 2,
-          "name": "1 Ngủ +",
-          "price_max": 9000000,
-          "price_min": 8500000
-        },
-        {
-          "count": 2,
           "name": "2 Ngủ +",
           "price_max": 10000000,
           "price_min": 10000000
+        },
+        {
+          "count": 1,
+          "name": "1 Ngủ +",
+          "price_max": 8500000,
+          "price_min": 8500000
         },
         {
           "count": 1,
@@ -631,7 +631,7 @@
       "area_max": 105,
       "area_min": 30,
       "code": "LUMIERE",
-      "count": 123,
+      "count": 122,
       "data_code": "Lumiere",
       "district": "Lumiere",
       "first_seen": "2026-10-30",
@@ -643,7 +643,7 @@
       "price_min": 8000000,
       "types": [
         {
-          "count": 54,
+          "count": 53,
           "name": "2 Ngủ",
           "price_max": 22000000,
           "price_min": 10500000
@@ -692,7 +692,7 @@
         {
           "count": 30,
           "name": "1 Ngủ",
-          "price_max": 15000000,
+          "price_max": 14000000,
           "price_min": 8000000
         },
         {
