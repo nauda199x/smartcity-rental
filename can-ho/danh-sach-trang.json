@@ -3111,6 +3111,14 @@
   "phan_khu": "Sapphire",
   "toa": "S402"
  },
+ "cho-thue-can-ho-1-ngu-sapphire-43m2-ct-1n-695": {
+  "dien_tich": 43,
+  "loai": "1 Ngủ +",
+  "ma": "CT.1N+.695",
+  "ngay_xuat_hien": "2026-11-06",
+  "phan_khu": "Sapphire",
+  "toa": "S103"
+ },
  "cho-thue-can-ho-1-ngu-sapphire-43m2-tt-1n-2692": {
   "dien_tich": 43,
   "loai": "1 Ngủ",
@@ -3990,6 +3998,14 @@
   "ngay_xuat_hien": "2026-09-09",
   "phan_khu": "Canopy",
   "toa": "TC1"
+ },
+ "cho-thue-can-ho-2-ngu-canopy-61m2-ct-2n2-538": {
+  "dien_tich": 61,
+  "loai": "2 Ngủ",
+  "ma": "CT.2N2.538",
+  "ngay_xuat_hien": "2026-11-06",
+  "phan_khu": "Canopy",
+  "toa": "TC2"
  },
  "cho-thue-can-ho-2-ngu-canopy-61m2-tt-2n-3918": {
   "dien_tich": 61,
@@ -7212,6 +7228,14 @@
   "loai": "2 Ngủ",
   "ma": "CT.2N1.295",
   "ngay_xuat_hien": "2026-11-03",
+  "phan_khu": "Miami",
+  "toa": "GS3"
+ },
+ "cho-thue-can-ho-2-ngu-miami-54m2-ct-2n1-302": {
+  "dien_tich": 54,
+  "loai": "2 Ngủ",
+  "ma": "CT.2N1.302",
+  "ngay_xuat_hien": "2026-11-06",
   "phan_khu": "Miami",
   "toa": "GS3"
  },
@@ -12215,6 +12239,14 @@
   "phan_khu": "Canopy",
   "toa": "TC"
  },
+ "cho-thue-can-ho-studio-canopy-30m2-ct-stu-1015": {
+  "dien_tich": 30,
+  "loai": "Studio",
+  "ma": "CT.Stu.1015",
+  "ngay_xuat_hien": "2026-11-06",
+  "phan_khu": "Canopy",
+  "toa": "TC1"
+ },
  "cho-thue-can-ho-studio-canopy-30m2-ct-stu-785": {
   "dien_tich": 30,
   "loai": "Studio",
@@ -12310,6 +12342,14 @@
   "ngay_xuat_hien": "2026-09-22",
   "phan_khu": "Canopy",
   "toa": "TC3"
+ },
+ "cho-thue-can-ho-studio-canopy-34m2-ct-stu-1016": {
+  "dien_tich": 34,
+  "loai": "Studio",
+  "ma": "CT.Stu.1016",
+  "ngay_xuat_hien": "2026-11-06",
+  "phan_khu": "Canopy",
+  "toa": "TC1"
  },
  "cho-thue-can-ho-studio-canopy-35m2-ct-stu-981": {
   "dien_tich": 35,
