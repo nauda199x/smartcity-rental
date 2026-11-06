@@ -10,7 +10,7 @@
       "url": "/",
       "label": "Trang thuê Smart City",
       "reason": "landing chính cho cụm từ khóa thuê Smart City",
-      "inbound_pages": 1538,
+      "inbound_pages": 1540,
       "exists": true,
       "indexable": true,
       "self_canonical": true,
@@ -20,7 +20,7 @@
       "url": "/can-ho/",
       "label": "Căn hộ đang cho thuê",
       "reason": "hub URL chi tiết căn active",
-      "inbound_pages": 1271,
+      "inbound_pages": 1273,
       "exists": true,
       "indexable": true,
       "self_canonical": true,
@@ -30,7 +30,7 @@
       "url": "/studio/",
       "label": "Thuê Studio",
       "reason": "intent theo loại căn",
-      "inbound_pages": 1313,
+      "inbound_pages": 1315,
       "exists": true,
       "indexable": true,
       "self_canonical": true,
@@ -50,7 +50,7 @@
       "url": "/1pn-plus/",
       "label": "Thuê 1PN+",
       "reason": "intent theo loại căn",
-      "inbound_pages": 1313,
+      "inbound_pages": 1315,
       "exists": true,
       "indexable": true,
       "self_canonical": true,
@@ -60,7 +60,7 @@
       "url": "/2pn/",
       "label": "Thuê 2PN",
       "reason": "intent theo loại căn",
-      "inbound_pages": 1313,
+      "inbound_pages": 1315,
       "exists": true,
       "indexable": true,
       "self_canonical": true,
@@ -80,7 +80,7 @@
       "url": "/3pn/",
       "label": "Thuê 3PN",
       "reason": "intent theo loại căn",
-      "inbound_pages": 1313,
+      "inbound_pages": 1315,
       "exists": true,
       "indexable": true,
       "self_canonical": true,
@@ -90,7 +90,7 @@
       "url": "/bang-gia-thue-vinhomes-smart-city.html",
       "label": "Bảng giá thuê",
       "reason": "intent giá thuê có dữ liệu thực tế",
-      "inbound_pages": 1315,
+      "inbound_pages": 1317,
       "exists": true,
       "indexable": true,
       "self_canonical": true,
@@ -110,7 +110,7 @@
       "url": "/lumiere/",
       "label": "Thuê Lumière Evergreen",
       "reason": "phân khu có quỹ căn active lớn",
-      "inbound_pages": 240,
+      "inbound_pages": 241,
       "exists": true,
       "indexable": true,
       "self_canonical": true,
@@ -260,7 +260,7 @@
       "tower": "TK1",
       "type": "Studio",
       "district": "Tonkin",
-      "inbound_pages": 13
+      "inbound_pages": 14
     },
     {
       "url": "/can-ho/cho-thue-can-ho-studio-sapphire-31m2-tt-st-5973/",
@@ -317,6 +317,15 @@
       "inbound_pages": 6
     },
     {
+      "url": "/can-ho/cho-thue-can-ho-studio-lumiere-30m2-ct-stu-1018/",
+      "first_seen": "2026-11-06",
+      "code": "CT.Stu.1018",
+      "tower": "A2",
+      "type": "Studio",
+      "district": "Lumiere",
+      "inbound_pages": 6
+    },
+    {
       "url": "/can-ho/cho-thue-can-ho-studio-imperia-28m2-tt-st-5962/",
       "first_seen": "2026-11-06",
       "code": "TT.ST.5962",
@@ -362,6 +371,15 @@
       "inbound_pages": 7
     },
     {
+      "url": "/can-ho/cho-thue-can-ho-2-ngu-tonkin-61m2-ct-2n2-539/",
+      "first_seen": "2026-11-06",
+      "code": "CT.2N2.539",
+      "tower": "TK1",
+      "type": "2 Ngủ",
+      "district": "Tonkin",
+      "inbound_pages": 13
+    },
+    {
       "url": "/can-ho/cho-thue-can-ho-2-ngu-sapphire-64m2-tt-2np-5964/",
       "first_seen": "2026-11-06",
       "code": "TT.2NP.5964",
@@ -405,35 +423,17 @@
       "type": "2 Ngủ",
       "district": "Sapphire",
       "inbound_pages": 7
-    },
-    {
-      "url": "/can-ho/cho-thue-can-ho-2-ngu-miami-63m2-ct-2n2-536/",
-      "first_seen": "2026-11-06",
-      "code": "CT.2N2.536",
-      "tower": "GS5",
-      "type": "2 Ngủ",
-      "district": "Miami",
-      "inbound_pages": 7
-    },
-    {
-      "url": "/can-ho/cho-thue-can-ho-2-ngu-miami-63m2-ct-2n-394/",
-      "first_seen": "2026-11-06",
-      "code": "CT.2N+.394",
-      "tower": "GS2",
-      "type": "2 Ngủ +",
-      "district": "Miami",
-      "inbound_pages": 5
     }
   ],
   "district_inventory": {
     "Sapphire": 236,
-    "Lumiere": 184,
+    "Lumiere": 185,
     "Masteri": 171,
     "Miami": 121,
     "Sakura": 99,
     "Canopy": 94,
     "Imperia": 89,
-    "Tonkin": 29
+    "Tonkin": 30
   },
   "summary": {
     "tier_1_count": 15,

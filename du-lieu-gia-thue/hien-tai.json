@@ -1,10 +1,10 @@
 {
   "updated": "2026-11-06",
   "source": "data.json",
-  "active_count": 902,
+  "active_count": 904,
   "min_sample": 3,
   "overall": {
-    "n": 902,
+    "n": 904,
     "min": 5500000,
     "max": 25000000,
     "median": 10000000.0
@@ -23,10 +23,10 @@
       "median": 9000000
     },
     "2 Ngủ": {
-      "n": 242,
+      "n": 243,
       "min": 7200000,
       "max": 20000000,
-      "median": 11000000.0
+      "median": 11000000
     },
     "2 Ngủ +": {
       "n": 161,
@@ -41,10 +41,10 @@
       "median": 13000000
     },
     "Studio": {
-      "n": 173,
+      "n": 174,
       "min": 5500000,
       "max": 11500000,
-      "median": 7000000
+      "median": 7000000.0
     }
   },
   "by_zone": {
@@ -61,10 +61,10 @@
       "median": 10000000.0
     },
     "Lumiere": {
-      "n": 62,
+      "n": 63,
       "min": 8000000,
       "max": 25000000,
-      "median": 12000000.0
+      "median": 12000000
     },
     "Masteri": {
       "n": 171,
@@ -97,10 +97,10 @@
       "median": 8500000.0
     },
     "Tonkin": {
-      "n": 29,
+      "n": 30,
       "min": 7000000,
       "max": 15000000,
-      "median": 8500000
+      "median": 8500000.0
     }
   },
   "by_interior": {
@@ -111,16 +111,16 @@
       "median": 10000000
     },
     "Full nội thất": {
-      "n": 530,
+      "n": 531,
       "min": 5800000,
       "max": 25000000,
-      "median": 11000000.0
+      "median": 11000000
     },
     "Nhà Nguyên Bản": {
-      "n": 210,
+      "n": 211,
       "min": 5500000,
       "max": 15000000,
-      "median": 8500000.0
+      "median": 8500000
     },
     "Đồ Cơ bản": {
       "n": 141,
@@ -521,10 +521,10 @@
       "zone": "Lumiere",
       "type": "Studio",
       "interior": "Nhà Nguyên Bản",
-      "n": 3,
+      "n": 4,
       "min": 8000000,
       "max": 8500000,
-      "median": 8500000
+      "median": 8250000.0
     },
     {
       "zone": "Masteri",
@@ -1313,10 +1313,10 @@
       "zone": "Tonkin",
       "type": "2 Ngủ",
       "interior": "Full nội thất",
-      "n": 4,
+      "n": 5,
       "min": 11500000,
       "max": 15000000,
-      "median": 14250000.0
+      "median": 14000000
     },
     {
       "zone": "Tonkin",

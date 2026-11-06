@@ -10543,6 +10543,14 @@
   "phan_khu": "Tonkin",
   "toa": "TK1"
  },
+ "cho-thue-can-ho-2-ngu-tonkin-61m2-ct-2n2-539": {
+  "dien_tich": 61,
+  "loai": "2 Ngủ",
+  "ma": "CT.2N2.539",
+  "ngay_xuat_hien": "2026-11-06",
+  "phan_khu": "Tonkin",
+  "toa": "TK1"
+ },
  "cho-thue-can-ho-2-ngu-tonkin-64m2-ct-2n2-419": {
   "dien_tich": 64,
   "loai": "2 Ngủ",
@@ -12574,6 +12582,14 @@
   "ngay_xuat_hien": "2026-09-03",
   "phan_khu": "Lumiere",
   "toa": "A1"
+ },
+ "cho-thue-can-ho-studio-lumiere-30m2-ct-stu-1018": {
+  "dien_tich": 30,
+  "loai": "Studio",
+  "ma": "CT.Stu.1018",
+  "ngay_xuat_hien": "2026-11-06",
+  "phan_khu": "Lumiere",
+  "toa": "A2"
  },
  "cho-thue-can-ho-studio-lumiere-30m2-ct-stu-746": {
   "dien_tich": 30,
