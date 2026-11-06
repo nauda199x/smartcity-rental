@@ -631,7 +631,7 @@
       "area_max": 105,
       "area_min": 30,
       "code": "LUMIERE",
-      "count": 126,
+      "count": 123,
       "data_code": "Lumiere",
       "district": "Lumiere",
       "first_seen": "2026-10-30",
@@ -643,13 +643,13 @@
       "price_min": 8000000,
       "types": [
         {
-          "count": 55,
+          "count": 54,
           "name": "2 Ngủ",
           "price_max": 22000000,
           "price_min": 10500000
         },
         {
-          "count": 28,
+          "count": 26,
           "name": "1 Ngủ",
           "price_max": 15000000,
           "price_min": 8500000
@@ -678,7 +678,7 @@
       "area_max": 80,
       "area_min": 27,
       "code": "MAS",
-      "count": 92,
+      "count": 91,
       "data_code": "MAS",
       "district": "Masteri",
       "first_seen": "2026-10-30",
@@ -690,7 +690,7 @@
       "price_min": 7000000,
       "types": [
         {
-          "count": 32,
+          "count": 31,
           "name": "1 Ngủ",
           "price_max": 15000000,
           "price_min": 8000000
@@ -1153,7 +1153,7 @@
       "area_max": 75,
       "area_min": 32,
       "code": "S2",
-      "count": 24,
+      "count": 22,
       "data_code": "S2",
       "district": "Sapphire",
       "first_seen": "2026-10-30",
@@ -1165,13 +1165,13 @@
       "price_min": 6000000,
       "types": [
         {
-          "count": 11,
+          "count": 10,
           "name": "2 Ngủ",
           "price_max": 10000000,
           "price_min": 7200000
         },
         {
-          "count": 7,
+          "count": 6,
           "name": "2 Ngủ +",
           "price_max": 13000000,
           "price_min": 10500000
