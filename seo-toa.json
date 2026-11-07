@@ -690,7 +690,7 @@
       "area_max": 80,
       "area_min": 27,
       "code": "MAS",
-      "count": 91,
+      "count": 90,
       "data_code": "MAS",
       "district": "Masteri",
       "first_seen": "2026-10-30",
@@ -702,7 +702,7 @@
       "price_min": 7000000,
       "types": [
         {
-          "count": 31,
+          "count": 30,
           "name": "1 Ngủ",
           "price_max": 14000000,
           "price_min": 8000000
@@ -1581,7 +1581,7 @@
       "area_max": 75,
       "area_min": 32,
       "code": "S401",
-      "count": 10,
+      "count": 9,
       "data_code": "S401",
       "district": "Sapphire",
       "first_seen": "2026-09-10",
@@ -1590,7 +1590,7 @@
       "name": "S4.01",
       "path": "/s4-01-vinhomes-smart-city/",
       "price_max": 14000000,
-      "price_min": 6500000,
+      "price_min": 7000000,
       "types": [
         {
           "count": 3,
@@ -1605,12 +1605,6 @@
           "price_min": 8500000
         },
         {
-          "count": 2,
-          "name": "Studio",
-          "price_max": 7000000,
-          "price_min": 6500000
-        },
-        {
           "count": 1,
           "name": "2 Ngủ",
           "price_max": 7500000,
@@ -1621,6 +1615,12 @@
           "name": "2 Ngủ +",
           "price_max": 11000000,
           "price_min": 11000000
+        },
+        {
+          "count": 1,
+          "name": "Studio",
+          "price_max": 7000000,
+          "price_min": 7000000
         }
       ]
     },
@@ -1763,7 +1763,7 @@
       "area_max": 63,
       "area_min": 26,
       "code": "SA1",
-      "count": 10,
+      "count": 9,
       "data_code": "SA1",
       "district": "Sakura",
       "first_seen": "2026-09-10",
@@ -1775,9 +1775,9 @@
       "price_min": 5500000,
       "types": [
         {
-          "count": 6,
+          "count": 5,
           "name": "Studio",
-          "price_max": 7000000,
+          "price_max": 6000000,
           "price_min": 5500000
         },
         {
