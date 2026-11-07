@@ -2,13 +2,13 @@
   "critical": [],
   "critical_count": 0,
   "data_fingerprint": "a1f8316f2ebb739a",
-  "html_pages": 2402,
-  "indexable_pages": 1550,
-  "query_guard_pages": 2402,
+  "html_pages": 2404,
+  "indexable_pages": 1547,
+  "query_guard_pages": 2404,
   "tower_indexable": 52,
   "tower_registry": 52,
   "version": 2,
-  "warning_count": 46,
+  "warning_count": 44,
   "warnings": [
     {
       "count": 2,
@@ -81,6 +81,15 @@
       "count": 2,
       "issue": "duplicate title",
       "pages": [
+        "lumi-hanoi/can-ho/cho-thue-can-ho-2-ngu-s5-54m2-thue2n-74/index.html",
+        "lumi-hanoi/can-ho/cho-thue-can-ho-2-ngu-s5-54m2-thue2n-49/index.html"
+      ],
+      "value": "Cho thuê căn hộ 2 Ngủ S5 Lumi Hanoi 54m² – 7,5 triệu/tháng"
+    },
+    {
+      "count": 2,
+      "issue": "duplicate title",
+      "pages": [
         "lumi-hanoi/can-ho/cho-thue-can-ho-2-ngu-s6-54m2-thue2n-13/index.html",
         "lumi-hanoi/can-ho/cho-thue-can-ho-2-ngu-s6-54m2-thue2n-89/index.html"
       ],
@@ -105,11 +114,10 @@
       "value": "Cho thuê căn hộ 3 Ngủ S3 Lumi Hanoi 81m² – 11 triệu/tháng"
     },
     {
-      "count": 5,
+      "count": 4,
       "issue": "duplicate title",
       "pages": [
         "lumi-hanoi/can-ho/cho-thue-can-ho-2-ngu-s1-54m2-thue2n-30/index.html",
-        "lumi-hanoi/can-ho/cho-thue-can-ho-2-ngu-s1-54m2-thue2n-5/index.html",
         "lumi-hanoi/can-ho/cho-thue-can-ho-2-ngu-s1-54m2-thue2n-81/index.html",
         "lumi-hanoi/can-ho/cho-thue-can-ho-2-ngu-s1-54m2-thue2n-3/index.html",
         "lumi-hanoi/can-ho/cho-thue-can-ho-2-ngu-s1-54m2-thue2n-80/index.html"
@@ -230,15 +238,6 @@
       "count": 2,
       "issue": "duplicate title",
       "pages": [
-        "lumi-hanoi/can-ho/cho-thue-can-ho-2-ngu-s3-54m2-thue2n-88/index.html",
-        "lumi-hanoi/can-ho/cho-thue-can-ho-2-ngu-s3-54m2-thue2n-86/index.html"
-      ],
-      "value": "Cho thuê căn hộ 2 Ngủ S3 Lumi Hanoi 54m² – 8 triệu/tháng"
-    },
-    {
-      "count": 2,
-      "issue": "duplicate title",
-      "pages": [
         "lumi-hanoi/can-ho/cho-thue-can-ho-2-ngu-s2-54m2-thue2n-61/index.html",
         "lumi-hanoi/can-ho/cho-thue-can-ho-2-ngu-s2-54m2-thue2n-25/index.html"
       ],
@@ -281,13 +280,15 @@
       "value": "Cho thuê căn hộ 3 Ngủ S2 Lumi Hanoi 106m² – 20 triệu/tháng"
     },
     {
-      "count": 2,
+      "count": 4,
       "issue": "duplicate title",
       "pages": [
         "lumi-hanoi/can-ho/cho-thue-can-ho-2-ngu-s1-54m2-thue2n-7/index.html",
-        "lumi-hanoi/can-ho/cho-thue-can-ho-2-ngu-s1-54m2-thue2n-29/index.html"
+        "lumi-hanoi/can-ho/cho-thue-can-ho-2-ngu-s1-54m2-thue2n-104/index.html",
+        "lumi-hanoi/can-ho/cho-thue-can-ho-2-ngu-s1-54m2-thue2n-31/index.html",
+        "lumi-hanoi/can-ho/cho-thue-can-ho-2-ngu-s1-54m2-thue2n-113/index.html"
       ],
-      "value": "Cho thuê căn hộ 2 Ngủ S1 Lumi Hanoi 54m² – 8,5 triệu/tháng"
+      "value": "Cho thuê căn hộ 2 Ngủ S1 Lumi Hanoi 54m² – 8 triệu/tháng"
     },
     {
       "count": 2,
@@ -402,16 +403,6 @@
       "value": "Cho thuê căn hộ 2 Ngủ S5 Lumi Hanoi 62m² – 10 triệu/tháng"
     },
     {
-      "count": 3,
-      "issue": "duplicate title",
-      "pages": [
-        "lumi-hanoi/can-ho/cho-thue-can-ho-2-ngu-s1-54m2-thue2n-104/index.html",
-        "lumi-hanoi/can-ho/cho-thue-can-ho-2-ngu-s1-54m2-thue2n-31/index.html",
-        "lumi-hanoi/can-ho/cho-thue-can-ho-2-ngu-s1-54m2-thue2n-113/index.html"
-      ],
-      "value": "Cho thuê căn hộ 2 Ngủ S1 Lumi Hanoi 54m² – 8 triệu/tháng"
-    },
-    {
       "count": 2,
       "issue": "duplicate title",
       "pages": [
@@ -428,15 +419,6 @@
         "lumi-hanoi/can-ho/cho-thue-can-ho-2-ngu-s3-63m2-thue2n-100/index.html"
       ],
       "value": "Cho thuê căn hộ 2 Ngủ S3 Lumi Hanoi 63m² – 13 triệu/tháng"
-    },
-    {
-      "count": 2,
-      "issue": "duplicate title",
-      "pages": [
-        "lumi-hanoi/can-ho/cho-thue-can-ho-2-ngu-s3-62m2-thue2n-121/index.html",
-        "lumi-hanoi/can-ho/cho-thue-can-ho-2-ngu-s3-62m2-thue2n-91/index.html"
-      ],
-      "value": "Cho thuê căn hộ 2 Ngủ S3 Lumi Hanoi 62m² – 11,5 triệu/tháng"
     }
   ]
 }
