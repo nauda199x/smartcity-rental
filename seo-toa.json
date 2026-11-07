@@ -643,7 +643,7 @@
       "area_max": 105,
       "area_min": 30,
       "code": "LUMIERE",
-      "count": 115,
+      "count": 117,
       "data_code": "Lumiere",
       "district": "Lumiere",
       "first_seen": "2026-10-30",
@@ -655,13 +655,13 @@
       "price_min": 8000000,
       "types": [
         {
-          "count": 48,
+          "count": 49,
           "name": "2 Ngủ",
           "price_max": 22000000,
           "price_min": 10500000
         },
         {
-          "count": 26,
+          "count": 27,
           "name": "1 Ngủ",
           "price_max": 15000000,
           "price_min": 8500000
@@ -690,7 +690,7 @@
       "area_max": 80,
       "area_min": 27,
       "code": "MAS",
-      "count": 90,
+      "count": 93,
       "data_code": "MAS",
       "district": "Masteri",
       "first_seen": "2026-10-30",
@@ -714,13 +714,13 @@
           "price_min": 10000000
         },
         {
-          "count": 17,
+          "count": 19,
           "name": "2 Ngủ +",
           "price_max": 18500000,
           "price_min": 10500000
         },
         {
-          "count": 16,
+          "count": 17,
           "name": "Studio",
           "price_max": 11500000,
           "price_min": 7000000
@@ -1177,7 +1177,7 @@
       "price_min": 6000000,
       "types": [
         {
-          "count": 10,
+          "count": 9,
           "name": "2 Ngủ",
           "price_max": 10000000,
           "price_min": 7200000
@@ -1189,7 +1189,7 @@
           "price_min": 10500000
         },
         {
-          "count": 3,
+          "count": 4,
           "name": "Studio",
           "price_max": 8000000,
           "price_min": 6000000
