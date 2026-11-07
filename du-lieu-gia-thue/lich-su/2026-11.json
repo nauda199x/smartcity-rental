@@ -1,20 +1,20 @@
 {
   "updated": "2026-11-07",
   "source": "data.json",
-  "active_count": 915,
+  "active_count": 916,
   "min_sample": 3,
   "overall": {
-    "n": 915,
+    "n": 916,
     "min": 5500000,
     "max": 25000000,
-    "median": 10000000
+    "median": 10000000.0
   },
   "by_type": {
     "1 Ngủ": {
-      "n": 112,
+      "n": 113,
       "min": 7000000,
       "max": 14000000,
-      "median": 9000000.0
+      "median": 9000000
     },
     "1 Ngủ +": {
       "n": 98,
@@ -23,10 +23,10 @@
       "median": 8750000.0
     },
     "2 Ngủ": {
-      "n": 248,
+      "n": 247,
       "min": 7200000,
       "max": 20000000,
-      "median": 11000000.0
+      "median": 11000000
     },
     "2 Ngủ +": {
       "n": 163,
@@ -41,10 +41,10 @@
       "median": 13000000
     },
     "Studio": {
-      "n": 179,
+      "n": 180,
       "min": 5500000,
       "max": 11500000,
-      "median": 7000000
+      "median": 7000000.0
     }
   },
   "by_zone": {
@@ -67,16 +67,16 @@
       "median": 12000000.0
     },
     "Masteri": {
-      "n": 171,
+      "n": 172,
       "min": 7000000,
       "max": 23000000,
-      "median": 12000000
+      "median": 12000000.0
     },
     "Miami": {
-      "n": 124,
+      "n": 123,
       "min": 5500000,
       "max": 15000000,
-      "median": 10000000.0
+      "median": 10000000
     },
     "Sakura": {
       "n": 99,
@@ -85,10 +85,10 @@
       "median": 11000000
     },
     "Sapphire": {
-      "n": 240,
+      "n": 241,
       "min": 5500000,
       "max": 18000000,
-      "median": 9000000.0
+      "median": 9000000
     },
     "Sola Park": {
       "n": 47,
@@ -111,10 +111,10 @@
       "median": 10000000
     },
     "Full nội thất": {
-      "n": 531,
+      "n": 532,
       "min": 5800000,
       "max": 25000000,
-      "median": 11000000
+      "median": 11000000.0
     },
     "Nhà Nguyên Bản": {
       "n": 218,
@@ -692,10 +692,10 @@
       "zone": "Masteri",
       "type": "Studio",
       "interior": "Full nội thất",
-      "n": 17,
+      "n": 18,
       "min": 7500000,
       "max": 11500000,
-      "median": 9000000
+      "median": 9000000.0
     },
     {
       "zone": "Masteri",
@@ -782,10 +782,10 @@
       "zone": "Miami",
       "type": "2 Ngủ",
       "interior": "Full nội thất",
-      "n": 26,
+      "n": 25,
       "min": 9500000,
       "max": 15000000,
-      "median": 12000000.0
+      "median": 12000000
     },
     {
       "zone": "Miami",
@@ -1025,10 +1025,10 @@
       "zone": "Sapphire",
       "type": "1 Ngủ",
       "interior": "Full nội thất",
-      "n": 16,
+      "n": 17,
       "min": 7900000,
       "max": 11000000,
-      "median": 8500000.0
+      "median": 8500000
     },
     {
       "zone": "Sapphire",
