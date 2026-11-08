@@ -602,7 +602,7 @@
       "area_max": 76,
       "area_min": 28,
       "code": "IMPERIA",
-      "count": 45,
+      "count": 44,
       "data_code": "Imperia",
       "district": "Imperia",
       "first_seen": "2026-10-30",
@@ -621,15 +621,15 @@
         },
         {
           "count": 9,
-          "name": "2 Ngủ",
-          "price_max": 12500000,
-          "price_min": 9500000
-        },
-        {
-          "count": 9,
           "name": "2 Ngủ +",
           "price_max": 15000000,
           "price_min": 9500000
+        },
+        {
+          "count": 8,
+          "name": "2 Ngủ",
+          "price_max": 12500000,
+          "price_min": 10000000
         },
         {
           "count": 7,
