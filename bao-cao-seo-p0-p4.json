@@ -2,13 +2,13 @@
   "critical": [],
   "critical_count": 0,
   "data_fingerprint": "110b75916417b107",
-  "html_pages": 2468,
-  "indexable_pages": 1594,
-  "query_guard_pages": 2468,
+  "html_pages": 2471,
+  "indexable_pages": 1597,
+  "query_guard_pages": 2471,
   "tower_indexable": 52,
   "tower_registry": 52,
   "version": 2,
-  "warning_count": 46,
+  "warning_count": 45,
   "warnings": [
     {
       "count": 2,
@@ -170,11 +170,12 @@
       "value": "Cho thuê căn hộ 2 Ngủ S2 Lumi Hanoi 74m² – 10 triệu/tháng"
     },
     {
-      "count": 2,
+      "count": 3,
       "issue": "duplicate title",
       "pages": [
         "lumi-hanoi/can-ho/cho-thue-can-ho-2-ngu-s1-74m2-thue2n-84/index.html",
-        "lumi-hanoi/can-ho/cho-thue-can-ho-2-ngu-s1-74m2-thue2n-85/index.html"
+        "lumi-hanoi/can-ho/cho-thue-can-ho-2-ngu-s1-74m2-thue2n-85/index.html",
+        "lumi-hanoi/can-ho/cho-thue-can-ho-2-ngu-s1-74m2-thue2n-83/index.html"
       ],
       "value": "Cho thuê căn hộ 2 Ngủ S1 Lumi Hanoi 74m² – 10 triệu/tháng"
     },
@@ -260,15 +261,6 @@
         "lumi-hanoi/can-ho/cho-thue-can-ho-3-ngu-s3-106m2-thue3n-51/index.html"
       ],
       "value": "Cho thuê căn hộ 3 Ngủ S3 Lumi Hanoi 106m² – 15 triệu/tháng"
-    },
-    {
-      "count": 2,
-      "issue": "duplicate title",
-      "pages": [
-        "lumi-hanoi/can-ho/cho-thue-can-ho-2-ngu-s1-74m2-thue2n-83/index.html",
-        "lumi-hanoi/can-ho/cho-thue-can-ho-2-ngu-s1-74m2-thue2n-39/index.html"
-      ],
-      "value": "Cho thuê căn hộ 2 Ngủ S1 Lumi Hanoi 74m² – 9 triệu/tháng"
     },
     {
       "count": 2,
