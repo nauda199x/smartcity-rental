@@ -1,10 +1,10 @@
 {
   "updated": "2026-11-08",
   "source": "data.json",
-  "active_count": 928,
+  "active_count": 926,
   "min_sample": 3,
   "overall": {
-    "n": 928,
+    "n": 926,
     "min": 5500000,
     "max": 25000000,
     "median": 10000000.0
@@ -41,7 +41,7 @@
       "median": 13000000
     },
     "Studio": {
-      "n": 181,
+      "n": 179,
       "min": 5500000,
       "max": 11500000,
       "median": 7000000
@@ -73,7 +73,7 @@
       "median": 12000000.0
     },
     "Miami": {
-      "n": 127,
+      "n": 125,
       "min": 5500000,
       "max": 15000000,
       "median": 10000000
@@ -111,7 +111,7 @@
       "median": 10000000.0
     },
     "Full nội thất": {
-      "n": 534,
+      "n": 532,
       "min": 5800000,
       "max": 25000000,
       "median": 11000000.0
@@ -872,7 +872,7 @@
       "zone": "Miami",
       "type": "Studio",
       "interior": "Full nội thất",
-      "n": 6,
+      "n": 4,
       "min": 7000000,
       "max": 8000000,
       "median": 7250000.0
