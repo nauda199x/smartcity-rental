@@ -1326,10 +1326,10 @@
       ]
     },
     "S205": {
-      "area_max": 63,
+      "area_max": 62,
       "area_min": 28,
       "code": "S205",
-      "count": 7,
+      "count": 6,
       "data_code": "S205",
       "district": "Sapphire",
       "first_seen": "2026-10-14",
@@ -1348,15 +1348,15 @@
         },
         {
           "count": 2,
-          "name": "2 Ngủ +",
-          "price_max": 11000000,
-          "price_min": 9500000
-        },
-        {
-          "count": 2,
           "name": "Studio",
           "price_max": 7500000,
           "price_min": 6800000
+        },
+        {
+          "count": 1,
+          "name": "2 Ngủ +",
+          "price_max": 11000000,
+          "price_min": 11000000
         }
       ]
     },
