@@ -1956,7 +1956,7 @@
       "area_max": 80,
       "area_min": 29,
       "code": "TC1",
-      "count": 16,
+      "count": 15,
       "data_code": "TC1",
       "district": "Canopy",
       "first_seen": "2026-09-10",
@@ -1968,7 +1968,7 @@
       "price_min": 6500000,
       "types": [
         {
-          "count": 6,
+          "count": 5,
           "name": "Studio",
           "price_max": 8500000,
           "price_min": 6500000
