@@ -1,20 +1,20 @@
 {
   "updated": "2026-11-08",
   "source": "data.json",
-  "active_count": 918,
+  "active_count": 920,
   "min_sample": 3,
   "overall": {
-    "n": 918,
+    "n": 920,
     "min": 5500000,
     "max": 25000000,
     "median": 10000000.0
   },
   "by_type": {
     "1 Ngủ": {
-      "n": 114,
+      "n": 115,
       "min": 7000000,
       "max": 14000000,
-      "median": 9000000.0
+      "median": 9000000
     },
     "1 Ngủ +": {
       "n": 99,
@@ -23,10 +23,10 @@
       "median": 8800000
     },
     "2 Ngủ": {
-      "n": 247,
+      "n": 248,
       "min": 7200000,
       "max": 20000000,
-      "median": 11000000
+      "median": 11000000.0
     },
     "2 Ngủ +": {
       "n": 163,
@@ -73,10 +73,10 @@
       "median": 12000000.0
     },
     "Miami": {
-      "n": 124,
+      "n": 125,
       "min": 5500000,
       "max": 15000000,
-      "median": 10000000.0
+      "median": 10000000
     },
     "Sakura": {
       "n": 99,
@@ -85,10 +85,10 @@
       "median": 11000000
     },
     "Sapphire": {
-      "n": 242,
+      "n": 243,
       "min": 5500000,
       "max": 18000000,
-      "median": 9000000.0
+      "median": 9000000
     },
     "Sola Park": {
       "n": 47,
@@ -117,16 +117,16 @@
       "median": 11000000.0
     },
     "Nhà Nguyên Bản": {
-      "n": 218,
+      "n": 219,
       "min": 5500000,
       "max": 15000000,
-      "median": 8500000.0
+      "median": 8500000
     },
     "Đồ Cơ bản": {
-      "n": 145,
+      "n": 146,
       "min": 6000000,
       "max": 17000000,
-      "median": 10000000
+      "median": 10000000.0
     }
   },
   "zone_type_interior": [
@@ -737,10 +737,10 @@
       "zone": "Miami",
       "type": "1 Ngủ",
       "interior": "Nhà Nguyên Bản",
-      "n": 7,
+      "n": 8,
       "min": 7000000,
       "max": 8500000,
-      "median": 7000000
+      "median": 7250000.0
     },
     {
       "zone": "Miami",
@@ -1106,10 +1106,10 @@
       "zone": "Sapphire",
       "type": "2 Ngủ",
       "interior": "Đồ Cơ bản",
-      "n": 8,
+      "n": 9,
       "min": 7200000,
       "max": 9500000,
-      "median": 8500000.0
+      "median": 8500000
     },
     {
       "zone": "Sapphire",
