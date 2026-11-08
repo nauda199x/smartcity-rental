@@ -183,8 +183,12 @@ def scan(rows, sources, old, fetch_folder):
             if str(r.get("Hiển thị trên Web", "")).strip().lower() in ("có", "co", "yes", "true", "1")
             and str(r.get("Mã nội bộ", "")).strip() in sources}
     thao_count = sum(bool(THAO_ID.fullmatch(code)) for code in work)
-    if not work or len(work) - thao_count > 400 or thao_count > 1200:
-        raise ValueError("Số thư mục cần quét bất thường: " + str(len(work)))
+    # An Việt đã vượt ngưỡng cũ 400 căn có ảnh; giới hạn riêng cho từng
+    # nguồn vẫn chặn snapshot tăng đột biến trước khi truy vấn Drive.
+    an_viet_count = len(work) - thao_count
+    if not work or an_viet_count > 1000 or thao_count > 1200:
+        raise ValueError("Số thư mục cần quét bất thường: " + str(len(work)) +
+                         f" (An Việt {an_viet_count}, Thu Thảo {thao_count})")
     items = {k: v for k, v in old.get("items", {}).items() if k in work}
     revisions = dict(old.get("revisions", {}))
     errors = []

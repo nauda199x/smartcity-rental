@@ -18,20 +18,10 @@ on:
       - "scripts/media_anh.py"
       - "scripts/test_quet_anh.py"
       - "scripts/test-anh-thu-thao.cjs"
-  workflow_run:
-    workflows:
-      - "Cập nhật số căn và tháng trong thẻ SEO"
-    types:
-      - completed
-    branches:
-      - main
   schedule:
-    # 03:20 mỗi ngày theo giờ Việt Nam (20:20 UTC ngày hôm trước).
-    # Đây là lớp refresh sâu để bắt cả ảnh bị thay nội dung nhưng giữ nguyên
-    # Drive ID; các thay đổi link/Drive ID vẫn được bắt ngay sau data sync.
+    # 03:20 mỗi ngày theo giờ Việt Nam: refresh WebP sâu.
+    # Manifest ảnh Drive nhanh đã được công bố sau mỗi lượt sync CTV.
     - cron: "20 20 * * *"
-    # Bắt ảnh thêm/xóa và Replace file mà không cần Sheet đổi link.
-    - cron: "7,37 * * * *"
   workflow_dispatch:
     inputs:
       gioi_han:
@@ -56,9 +46,8 @@ concurrency:
 
 jobs:
   tai-anh:
-    # workflow_run chỉ chạy khi job cập nhật dữ liệu kết thúc thành công. Push,
-    # schedule và workflow_dispatch vẫn chạy bình thường.
-    if: ${{ github.event_name != 'workflow_run' || github.event.workflow_run.conclusion == 'success' }}
+    # WebP tải hàng ngày, thủ công hoặc sau thay đổi code, tránh chạy lặp
+    # đồng thời với manifest nhanh sau mỗi lần đồng bộ quỹ căn.
     runs-on: ubuntu-latest
     steps:
       - name: Lấy code

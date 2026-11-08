@@ -13,9 +13,7 @@ on:
     workflows: ["Đồng bộ quỹ căn từ Sheet CTV"]
     types: [completed]
     branches: [main]
-  schedule:
-    # Seven minutes after both 00/30 source syncs, Vietnam time.
-    - cron: "7,37 * * * *"
+  # No extra cron: workflow_run below already follows the 30-minute CTV sync.
   workflow_dispatch:
 
 permissions:

@@ -193,6 +193,31 @@ class PhotoSyncTest(unittest.TestCase):
         self.assertEqual(set(sources), {"TT.2N.4127", "TT.ST.4127"})
         self.assertEqual(sources["TT.2N.4127"]["folderId"], FOLDER)
 
+    def test_current_source_growth_410_an_viet_448_thu_thao_and_safety_cap(self):
+        # Production has >400 An Viet listings with image folders. This is
+        # legitimate growth, not a corrupt CTV snapshot.
+        rows = [{"Mã nội bộ": "CT.2N." + str(i), "Hiển thị trên Web": "Có"}
+                for i in range(410)]
+        rows += [{"Mã nội bộ": "TT.2N." + str(i), "Hiển thị trên Web": "Có"}
+                 for i in range(1000, 1448)]
+        sources = {r["Mã nội bộ"]: self.source for r in rows}
+        calls = []
+        def fetch(folder):
+            calls.append(folder)
+            return [photo(A)]
+        with contextlib.redirect_stdout(io.StringIO()):
+            result = scanner.scan(rows, sources, {}, fetch)
+        self.assertEqual(len(result["items"]), 858)
+        self.assertEqual(calls, [FOLDER])
+
+        # A runaway active-source count must still fail before any network I/O.
+        too_many = [{"Mã nội bộ": "CT.2N." + str(i), "Hiển thị trên Web": "Có"}
+                    for i in range(1001)]
+        too_many_sources = {r["Mã nội bộ"]: self.source for r in too_many}
+        with self.assertRaisesRegex(ValueError, "Số thư mục cần quét bất thường"):
+            scanner.scan(too_many, too_many_sources, {}, fetch)
+        self.assertEqual(calls, [FOLDER])
+
     def test_both_sources_scan_above_old_400_limit_and_dedupe_folders(self):
         rows = [{"Mã nội bộ": "CT.2N." + str(i), "Hiển thị trên Web": "Có"}
                 for i in range(339)]
