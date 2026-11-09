@@ -1,10 +1,10 @@
 {
   "updated": "2026-11-09",
   "source": "data.json",
-  "active_count": 907,
+  "active_count": 905,
   "min_sample": 3,
   "overall": {
-    "n": 907,
+    "n": 905,
     "min": 5500000,
     "max": 25000000,
     "median": 10000000
@@ -17,10 +17,10 @@
       "median": 9000000
     },
     "1 Ngủ +": {
-      "n": 99,
+      "n": 97,
       "min": 7000000,
       "max": 12500000,
-      "median": 8600000
+      "median": 8700000
     },
     "2 Ngủ": {
       "n": 242,
@@ -85,7 +85,7 @@
       "median": 11000000.0
     },
     "Sapphire": {
-      "n": 239,
+      "n": 237,
       "min": 5500000,
       "max": 18000000,
       "median": 9000000
@@ -111,7 +111,7 @@
       "median": 10000000
     },
     "Full nội thất": {
-      "n": 518,
+      "n": 516,
       "min": 5800000,
       "max": 25000000,
       "median": 11000000.0
@@ -1061,7 +1061,7 @@
       "zone": "Sapphire",
       "type": "1 Ngủ +",
       "interior": "Full nội thất",
-      "n": 19,
+      "n": 17,
       "min": 8000000,
       "max": 9500000,
       "median": 8500000
