@@ -1,10 +1,10 @@
 {
   "updated": "2026-11-09",
   "source": "data.json",
-  "active_count": 905,
+  "active_count": 909,
   "min_sample": 3,
   "overall": {
-    "n": 905,
+    "n": 909,
     "min": 5500000,
     "max": 25000000,
     "median": 10000000
@@ -23,7 +23,7 @@
       "median": 8700000
     },
     "2 Ngủ": {
-      "n": 242,
+      "n": 244,
       "min": 7000000,
       "max": 20000000,
       "median": 11000000.0
@@ -35,24 +35,24 @@
       "median": 11500000.0
     },
     "3 Ngủ": {
-      "n": 122,
+      "n": 123,
       "min": 8500000,
       "max": 25000000,
-      "median": 13000000.0
+      "median": 13000000
     },
     "Studio": {
-      "n": 171,
+      "n": 172,
       "min": 5500000,
       "max": 11500000,
-      "median": 7000000
+      "median": 7000000.0
     }
   },
   "by_zone": {
     "Canopy": {
-      "n": 92,
+      "n": 93,
       "min": 6000000,
       "max": 18000000,
-      "median": 11000000.0
+      "median": 11000000
     },
     "Imperia": {
       "n": 44,
@@ -67,7 +67,7 @@
       "median": 12000000
     },
     "Masteri": {
-      "n": 171,
+      "n": 173,
       "min": 7000000,
       "max": 23000000,
       "median": 12000000
@@ -85,10 +85,10 @@
       "median": 11000000.0
     },
     "Sapphire": {
-      "n": 237,
+      "n": 238,
       "min": 5500000,
       "max": 18000000,
-      "median": 9000000
+      "median": 9000000.0
     },
     "Sola Park": {
       "n": 55,
@@ -111,7 +111,7 @@
       "median": 10000000
     },
     "Full nội thất": {
-      "n": 516,
+      "n": 520,
       "min": 5800000,
       "max": 25000000,
       "median": 11000000.0
@@ -188,10 +188,10 @@
       "zone": "Canopy",
       "type": "2 Ngủ",
       "interior": "Full nội thất",
-      "n": 17,
+      "n": 18,
       "min": 11000000,
       "max": 14000000,
-      "median": 13000000
+      "median": 12750000.0
     },
     {
       "zone": "Canopy",
@@ -665,10 +665,10 @@
       "zone": "Masteri",
       "type": "3 Ngủ",
       "interior": "Full nội thất",
-      "n": 6,
-      "min": 17500000,
+      "n": 7,
+      "min": 15000000,
       "max": 23000000,
-      "median": 18000000.0
+      "median": 18000000
     },
     {
       "zone": "Masteri",
@@ -701,10 +701,10 @@
       "zone": "Masteri",
       "type": "Studio",
       "interior": "Full nội thất",
-      "n": 17,
+      "n": 18,
       "min": 7500000,
       "max": 11500000,
-      "median": 9000000
+      "median": 9000000.0
     },
     {
       "zone": "Masteri",
@@ -1097,10 +1097,10 @@
       "zone": "Sapphire",
       "type": "2 Ngủ",
       "interior": "Full nội thất",
-      "n": 47,
+      "n": 48,
       "min": 8500000,
       "max": 12000000,
-      "median": 9500000
+      "median": 9500000.0
     },
     {
       "zone": "Sapphire",
