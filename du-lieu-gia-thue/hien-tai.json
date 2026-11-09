@@ -1,20 +1,20 @@
 {
   "updated": "2026-11-09",
   "source": "data.json",
-  "active_count": 858,
+  "active_count": 857,
   "min_sample": 3,
   "overall": {
-    "n": 858,
+    "n": 857,
     "min": 5500000,
     "max": 23000000,
-    "median": 10000000.0
+    "median": 10000000
   },
   "by_type": {
     "1 Ngủ": {
-      "n": 107,
+      "n": 106,
       "min": 7000000,
       "max": 14000000,
-      "median": 9000000
+      "median": 9000000.0
     },
     "1 Ngủ +": {
       "n": 82,
@@ -85,10 +85,10 @@
       "median": 11000000
     },
     "Sapphire": {
-      "n": 217,
+      "n": 216,
       "min": 5500000,
       "max": 18000000,
-      "median": 9000000
+      "median": 9000000.0
     },
     "Sola Park": {
       "n": 54,
@@ -111,10 +111,10 @@
       "median": 10000000
     },
     "Full nội thất": {
-      "n": 485,
+      "n": 484,
       "min": 5800000,
       "max": 23000000,
-      "median": 11000000
+      "median": 11000000.0
     },
     "Nhà Nguyên Bản": {
       "n": 208,
@@ -1034,10 +1034,10 @@
       "zone": "Sapphire",
       "type": "1 Ngủ",
       "interior": "Full nội thất",
-      "n": 16,
+      "n": 15,
       "min": 7900000,
       "max": 11000000,
-      "median": 8500000.0
+      "median": 8500000
     },
     {
       "zone": "Sapphire",

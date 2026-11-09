@@ -1504,7 +1504,7 @@
       "area_max": 83,
       "area_min": 24,
       "code": "S4",
-      "count": 23,
+      "count": 22,
       "data_code": "S4",
       "district": "Sapphire",
       "first_seen": "2026-10-30",
@@ -1516,7 +1516,7 @@
       "price_min": 6200000,
       "types": [
         {
-          "count": 8,
+          "count": 7,
           "name": "1 Ngủ",
           "price_max": 10500000,
           "price_min": 7500000
