@@ -10,7 +10,7 @@
       "url": "/",
       "label": "Trang thuê Smart City",
       "reason": "landing chính cho cụm từ khóa thuê Smart City",
-      "inbound_pages": 1602,
+      "inbound_pages": 1608,
       "exists": true,
       "indexable": true,
       "self_canonical": true,
@@ -20,7 +20,7 @@
       "url": "/can-ho/",
       "label": "Căn hộ đang cho thuê",
       "reason": "hub URL chi tiết căn active",
-      "inbound_pages": 1329,
+      "inbound_pages": 1335,
       "exists": true,
       "indexable": true,
       "self_canonical": true,
@@ -30,7 +30,7 @@
       "url": "/studio/",
       "label": "Thuê Studio",
       "reason": "intent theo loại căn",
-      "inbound_pages": 1370,
+      "inbound_pages": 1376,
       "exists": true,
       "indexable": true,
       "self_canonical": true,
@@ -50,7 +50,7 @@
       "url": "/1pn-plus/",
       "label": "Thuê 1PN+",
       "reason": "intent theo loại căn",
-      "inbound_pages": 1370,
+      "inbound_pages": 1376,
       "exists": true,
       "indexable": true,
       "self_canonical": true,
@@ -60,7 +60,7 @@
       "url": "/2pn/",
       "label": "Thuê 2PN",
       "reason": "intent theo loại căn",
-      "inbound_pages": 1370,
+      "inbound_pages": 1376,
       "exists": true,
       "indexable": true,
       "self_canonical": true,
@@ -70,7 +70,7 @@
       "url": "/2pn-plus/",
       "label": "Thuê 2PN+",
       "reason": "intent theo loại căn",
-      "inbound_pages": 272,
+      "inbound_pages": 274,
       "exists": true,
       "indexable": true,
       "self_canonical": true,
@@ -80,7 +80,7 @@
       "url": "/3pn/",
       "label": "Thuê 3PN",
       "reason": "intent theo loại căn",
-      "inbound_pages": 1370,
+      "inbound_pages": 1376,
       "exists": true,
       "indexable": true,
       "self_canonical": true,
@@ -90,7 +90,7 @@
       "url": "/bang-gia-thue-vinhomes-smart-city.html",
       "label": "Bảng giá thuê",
       "reason": "intent giá thuê có dữ liệu thực tế",
-      "inbound_pages": 1372,
+      "inbound_pages": 1378,
       "exists": true,
       "indexable": true,
       "self_canonical": true,
@@ -272,6 +272,42 @@
       "inbound_pages": 7
     },
     {
+      "url": "/can-ho/cho-thue-can-ho-3-ngu-sola-park-75m2-ct-3n-229/",
+      "first_seen": "2026-11-09",
+      "code": "CT.3N.229",
+      "tower": "G1",
+      "type": "3 Ngủ",
+      "district": "Sola Park",
+      "inbound_pages": 9
+    },
+    {
+      "url": "/can-ho/cho-thue-can-ho-3-ngu-sola-park-75m2-ct-3n-228/",
+      "first_seen": "2026-11-09",
+      "code": "CT.3N.228",
+      "tower": "G3",
+      "type": "3 Ngủ",
+      "district": "Sola Park",
+      "inbound_pages": 3
+    },
+    {
+      "url": "/can-ho/cho-thue-can-ho-3-ngu-sola-park-75m2-ct-3n-227/",
+      "first_seen": "2026-11-09",
+      "code": "CT.3N.227",
+      "tower": "G3",
+      "type": "3 Ngủ",
+      "district": "Sola Park",
+      "inbound_pages": 3
+    },
+    {
+      "url": "/can-ho/cho-thue-can-ho-3-ngu-sola-park-75m2-ct-3n-226/",
+      "first_seen": "2026-11-09",
+      "code": "CT.3N.226",
+      "tower": "G1",
+      "type": "3 Ngủ",
+      "district": "Sola Park",
+      "inbound_pages": 9
+    },
+    {
       "url": "/can-ho/cho-thue-can-ho-3-ngu-lumiere-85m2-ct-3n-225/",
       "first_seen": "2026-11-09",
       "code": "CT.3N.225",
@@ -279,6 +315,24 @@
       "type": "3 Ngủ",
       "district": "Lumiere",
       "inbound_pages": 6
+    },
+    {
+      "url": "/can-ho/cho-thue-can-ho-2-ngu-sola-park-64m2-ct-2n-397/",
+      "first_seen": "2026-11-09",
+      "code": "CT.2N+.397",
+      "tower": "G1",
+      "type": "2 Ngủ +",
+      "district": "Sola Park",
+      "inbound_pages": 9
+    },
+    {
+      "url": "/can-ho/cho-thue-can-ho-2-ngu-sola-park-64m2-ct-2n-396/",
+      "first_seen": "2026-11-09",
+      "code": "CT.2N+.396",
+      "tower": "G2",
+      "type": "2 Ngủ +",
+      "district": "Sola Park",
+      "inbound_pages": 3
     },
     {
       "url": "/can-ho/cho-thue-can-ho-2-ngu-lumiere-64m2-ct-2n2-543/",
@@ -367,60 +421,6 @@
       "code": "TT.3N.6058",
       "tower": "SolaPark",
       "type": "3 Ngủ",
-      "district": "Sola Park",
-      "inbound_pages": 3
-    },
-    {
-      "url": "/can-ho/cho-thue-can-ho-3-ngu-sola-park-74m2-tt-3n-6055/",
-      "first_seen": "2026-11-08",
-      "code": "TT.3N.6055",
-      "tower": "SolaPark",
-      "type": "3 Ngủ",
-      "district": "Sola Park",
-      "inbound_pages": 4
-    },
-    {
-      "url": "/can-ho/cho-thue-can-ho-3-ngu-sola-park-74m2-tt-3n-6045/",
-      "first_seen": "2026-11-08",
-      "code": "TT.3N.6045",
-      "tower": "SolaPark",
-      "type": "3 Ngủ",
-      "district": "Sola Park",
-      "inbound_pages": 3
-    },
-    {
-      "url": "/can-ho/cho-thue-can-ho-3-ngu-masteri-73m2-tt-3n-6035/",
-      "first_seen": "2026-11-08",
-      "code": "TT.3N.6035",
-      "tower": "MAS",
-      "type": "3 Ngủ",
-      "district": "Masteri",
-      "inbound_pages": 6
-    },
-    {
-      "url": "/can-ho/cho-thue-can-ho-2-ngu-sola-park-64m2-tt-2np-6060/",
-      "first_seen": "2026-11-08",
-      "code": "TT.2NP.6060",
-      "tower": "SolaPark",
-      "type": "2 Ngủ +",
-      "district": "Sola Park",
-      "inbound_pages": 2
-    },
-    {
-      "url": "/can-ho/cho-thue-can-ho-2-ngu-sola-park-64m2-tt-2np-6057/",
-      "first_seen": "2026-11-08",
-      "code": "TT.2NP.6057",
-      "tower": "SolaPark",
-      "type": "2 Ngủ +",
-      "district": "Sola Park",
-      "inbound_pages": 3
-    },
-    {
-      "url": "/can-ho/cho-thue-can-ho-2-ngu-sola-park-61m2-tt-2n-6050/",
-      "first_seen": "2026-11-08",
-      "code": "TT.2N.6050",
-      "tower": "SolaPark",
-      "type": "2 Ngủ",
       "district": "Sola Park",
       "inbound_pages": 3
     }
