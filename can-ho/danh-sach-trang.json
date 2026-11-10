@@ -7687,6 +7687,14 @@
   "phan_khu": "Masteri",
   "toa": "MAS"
  },
+ "cho-thue-can-ho-2-ngu-masteri-63m2-tt-2np-6143": {
+  "dien_tich": 63,
+  "loai": "2 Ngủ +",
+  "ma": "TT.2NP.6143",
+  "ngay_xuat_hien": "2026-11-10",
+  "phan_khu": "Masteri",
+  "toa": "MAS"
+ },
  "cho-thue-can-ho-2-ngu-masteri-64m2-ct-2n-274": {
   "dien_tich": 64,
   "loai": "2 Ngủ +",
@@ -11187,6 +11195,14 @@
   "dien_tich": 61,
   "loai": "2 Ngủ",
   "ma": "TT.2N.6135",
+  "ngay_xuat_hien": "2026-11-10",
+  "phan_khu": "Sola Park",
+  "toa": "SolaPark"
+ },
+ "cho-thue-can-ho-2-ngu-sola-park-61m2-tt-2n-6139": {
+  "dien_tich": 61,
+  "loai": "2 Ngủ",
+  "ma": "TT.2N.6139",
   "ngay_xuat_hien": "2026-11-10",
   "phan_khu": "Sola Park",
   "toa": "SolaPark"
@@ -15148,6 +15164,22 @@
   "loai": "Studio",
   "ma": "TT.ST.5881",
   "ngay_xuat_hien": "2026-11-02",
+  "phan_khu": "Sakura",
+  "toa": "SA"
+ },
+ "cho-thue-can-ho-studio-sakura-26m2-tt-st-6141": {
+  "dien_tich": 26,
+  "loai": "Studio",
+  "ma": "TT.ST.6141",
+  "ngay_xuat_hien": "2026-11-10",
+  "phan_khu": "Sakura",
+  "toa": "SA"
+ },
+ "cho-thue-can-ho-studio-sakura-26m2-tt-st-6142": {
+  "dien_tich": 26,
+  "loai": "Studio",
+  "ma": "TT.ST.6142",
+  "ngay_xuat_hien": "2026-11-10",
   "phan_khu": "Sakura",
   "toa": "SA"
  },
