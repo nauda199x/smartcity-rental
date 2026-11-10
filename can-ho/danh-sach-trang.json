@@ -247,6 +247,14 @@
   "phan_khu": "Canopy",
   "toa": "TC2"
  },
+ "cho-thue-can-ho-1-ngu-canopy-50m2-ct-1n-701": {
+  "dien_tich": 50,
+  "loai": "1 Ngủ +",
+  "ma": "CT.1N+.701",
+  "ngay_xuat_hien": "2026-11-10",
+  "phan_khu": "Canopy",
+  "toa": "TC3"
+ },
  "cho-thue-can-ho-1-ngu-canopy-50m2-tt-1n-5652": {
   "dien_tich": 50,
   "loai": "1 Ngủ",

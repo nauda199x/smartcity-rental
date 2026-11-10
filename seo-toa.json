@@ -2014,7 +2014,7 @@
       "area_max": 83,
       "area_min": 25,
       "code": "TC3",
-      "count": 8,
+      "count": 9,
       "data_code": "TC3",
       "district": "Canopy",
       "first_seen": "2026-09-10",
@@ -2036,6 +2036,12 @@
           "name": "3 Ngủ",
           "price_max": 16000000,
           "price_min": 12000000
+        },
+        {
+          "count": 1,
+          "name": "1 Ngủ +",
+          "price_max": 8000000,
+          "price_min": 8000000
         },
         {
           "count": 1,
