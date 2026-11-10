@@ -502,7 +502,7 @@
       "area_max": 64,
       "area_min": 43,
       "code": "I4",
-      "count": 5,
+      "count": 6,
       "data_code": "I4",
       "district": "Imperia",
       "first_seen": "2026-09-10",
@@ -520,16 +520,16 @@
           "price_min": 9500000
         },
         {
+          "count": 2,
+          "name": "2 Ngủ +",
+          "price_max": 10000000,
+          "price_min": 10000000
+        },
+        {
           "count": 1,
           "name": "1 Ngủ +",
           "price_max": 8500000,
           "price_min": 8500000
-        },
-        {
-          "count": 1,
-          "name": "2 Ngủ +",
-          "price_max": 10000000,
-          "price_min": 10000000
         }
       ]
     },
@@ -719,7 +719,7 @@
       "area_max": 73,
       "area_min": 29,
       "code": "MASA",
-      "count": 18,
+      "count": 19,
       "data_code": "MasA",
       "district": "Masteri",
       "first_seen": "2026-09-10",
@@ -750,15 +750,15 @@
         },
         {
           "count": 2,
-          "name": "3 Ngủ",
-          "price_max": 15000000,
-          "price_min": 12000000
-        },
-        {
-          "count": 1,
           "name": "2 Ngủ +",
           "price_max": 16000000,
           "price_min": 16000000
+        },
+        {
+          "count": 2,
+          "name": "3 Ngủ",
+          "price_max": 15000000,
+          "price_min": 12000000
         }
       ]
     },
@@ -1762,7 +1762,7 @@
       "area_max": 80,
       "area_min": 25,
       "code": "SA2",
-      "count": 6,
+      "count": 7,
       "data_code": "SA2",
       "district": "Sakura",
       "first_seen": "2026-09-18",
@@ -1774,7 +1774,7 @@
       "price_min": 7000000,
       "types": [
         {
-          "count": 3,
+          "count": 4,
           "name": "3 Ngủ",
           "price_max": 16000000,
           "price_min": 11000000
@@ -2143,7 +2143,7 @@
       "area_max": 83,
       "area_min": 25,
       "code": "TK2",
-      "count": 6,
+      "count": 7,
       "data_code": "TK2",
       "district": "Tonkin",
       "first_seen": "2026-09-10",
@@ -2159,6 +2159,12 @@
           "name": "Studio",
           "price_max": 8000000,
           "price_min": 7500000
+        },
+        {
+          "count": 1,
+          "name": "1 Ngủ",
+          "price_max": 8500000,
+          "price_min": 8500000
         },
         {
           "count": 1,
