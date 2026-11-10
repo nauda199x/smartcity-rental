@@ -391,7 +391,7 @@
       "area_max": 76,
       "area_min": 43,
       "code": "I1",
-      "count": 11,
+      "count": 12,
       "data_code": "I1",
       "district": "Imperia",
       "first_seen": "2026-09-10",
@@ -403,16 +403,16 @@
       "price_min": 8000000,
       "types": [
         {
+          "count": 5,
+          "name": "2 Ngủ",
+          "price_max": 12000000,
+          "price_min": 9000000
+        },
+        {
           "count": 4,
           "name": "1 Ngủ +",
           "price_max": 10000000,
           "price_min": 8000000
-        },
-        {
-          "count": 4,
-          "name": "2 Ngủ",
-          "price_max": 12000000,
-          "price_min": 9000000
         },
         {
           "count": 3,
@@ -423,10 +423,10 @@
       ]
     },
     "I2": {
-      "area_max": 63,
+      "area_max": 64,
       "area_min": 31,
       "code": "I2",
-      "count": 11,
+      "count": 12,
       "data_code": "I2",
       "district": "Imperia",
       "first_seen": "2026-09-10",
@@ -438,6 +438,12 @@
       "price_min": 6800000,
       "types": [
         {
+          "count": 4,
+          "name": "2 Ngủ +",
+          "price_max": 15000000,
+          "price_min": 10000000
+        },
+        {
           "count": 3,
           "name": "1 Ngủ +",
           "price_max": 8500000,
@@ -448,12 +454,6 @@
           "name": "2 Ngủ",
           "price_max": 11500000,
           "price_min": 8000000
-        },
-        {
-          "count": 3,
-          "name": "2 Ngủ +",
-          "price_max": 15000000,
-          "price_min": 10700000
         },
         {
           "count": 2,
@@ -672,7 +672,7 @@
       "area_max": 80,
       "area_min": 27,
       "code": "MAS",
-      "count": 103,
+      "count": 101,
       "data_code": "MAS",
       "district": "Masteri",
       "first_seen": "2026-10-30",
@@ -702,7 +702,7 @@
           "price_min": 10500000
         },
         {
-          "count": 21,
+          "count": 19,
           "name": "Studio",
           "price_max": 11500000,
           "price_min": 7000000
@@ -1135,7 +1135,7 @@
       "area_max": 75,
       "area_min": 31,
       "code": "S2",
-      "count": 23,
+      "count": 22,
       "data_code": "S2",
       "district": "Sapphire",
       "first_seen": "2026-10-30",
@@ -1159,7 +1159,7 @@
           "price_min": 10500000
         },
         {
-          "count": 4,
+          "count": 3,
           "name": "Studio",
           "price_max": 8000000,
           "price_min": 6000000
@@ -1190,7 +1190,7 @@
       "last_seen": "2026-11-10",
       "name": "S2.01",
       "path": "/s2-01-vinhomes-smart-city/",
-      "price_max": 13000000,
+      "price_max": 12500000,
       "price_min": 7200000,
       "types": [
         {
@@ -1208,8 +1208,8 @@
         {
           "count": 1,
           "name": "3 Ngủ",
-          "price_max": 13000000,
-          "price_min": 13000000
+          "price_max": 12500000,
+          "price_min": 12500000
         }
       ]
     },
@@ -1873,7 +1873,7 @@
       "area_max": 81,
       "area_min": 25,
       "code": "TC",
-      "count": 57,
+      "count": 56,
       "data_code": "TC",
       "district": "Canopy",
       "first_seen": "2026-10-30",
@@ -1891,7 +1891,7 @@
           "price_min": 9000000
         },
         {
-          "count": 14,
+          "count": 13,
           "name": "Studio",
           "price_max": 9000000,
           "price_min": 6000000

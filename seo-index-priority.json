@@ -10,7 +10,7 @@
       "url": "/",
       "label": "Trang thuê Smart City",
       "reason": "landing chính cho cụm từ khóa thuê Smart City",
-      "inbound_pages": 1553,
+      "inbound_pages": 1552,
       "exists": true,
       "indexable": true,
       "self_canonical": true,
@@ -20,7 +20,7 @@
       "url": "/can-ho/",
       "label": "Căn hộ đang cho thuê",
       "reason": "hub URL chi tiết căn active",
-      "inbound_pages": 1275,
+      "inbound_pages": 1274,
       "exists": true,
       "indexable": true,
       "self_canonical": true,
@@ -30,7 +30,7 @@
       "url": "/studio/",
       "label": "Thuê Studio",
       "reason": "intent theo loại căn",
-      "inbound_pages": 1316,
+      "inbound_pages": 1315,
       "exists": true,
       "indexable": true,
       "self_canonical": true,
@@ -50,7 +50,7 @@
       "url": "/1pn-plus/",
       "label": "Thuê 1PN+",
       "reason": "intent theo loại căn",
-      "inbound_pages": 1316,
+      "inbound_pages": 1315,
       "exists": true,
       "indexable": true,
       "self_canonical": true,
@@ -60,7 +60,7 @@
       "url": "/2pn/",
       "label": "Thuê 2PN",
       "reason": "intent theo loại căn",
-      "inbound_pages": 1316,
+      "inbound_pages": 1315,
       "exists": true,
       "indexable": true,
       "self_canonical": true,
@@ -70,7 +70,7 @@
       "url": "/2pn-plus/",
       "label": "Thuê 2PN+",
       "reason": "intent theo loại căn",
-      "inbound_pages": 257,
+      "inbound_pages": 259,
       "exists": true,
       "indexable": true,
       "self_canonical": true,
@@ -80,7 +80,7 @@
       "url": "/3pn/",
       "label": "Thuê 3PN",
       "reason": "intent theo loại căn",
-      "inbound_pages": 1316,
+      "inbound_pages": 1315,
       "exists": true,
       "indexable": true,
       "self_canonical": true,
@@ -90,7 +90,7 @@
       "url": "/bang-gia-thue-vinhomes-smart-city.html",
       "label": "Bảng giá thuê",
       "reason": "intent giá thuê có dữ liệu thực tế",
-      "inbound_pages": 1318,
+      "inbound_pages": 1317,
       "exists": true,
       "indexable": true,
       "self_canonical": true,
@@ -100,7 +100,7 @@
       "url": "/sapphire/",
       "label": "Thuê Sapphire",
       "reason": "phân khu có quỹ căn active lớn",
-      "inbound_pages": 285,
+      "inbound_pages": 284,
       "exists": true,
       "indexable": true,
       "self_canonical": true,
@@ -110,7 +110,7 @@
       "url": "/masteri/",
       "label": "Thuê Masteri West Heights",
       "reason": "phân khu có quỹ căn active lớn",
-      "inbound_pages": 226,
+      "inbound_pages": 224,
       "exists": true,
       "indexable": true,
       "self_canonical": true,
@@ -150,7 +150,7 @@
       "url": "/canopy/",
       "label": "Thuê The Canopy",
       "reason": "phân khu có quỹ căn active lớn",
-      "inbound_pages": 147,
+      "inbound_pages": 146,
       "exists": true,
       "indexable": true,
       "self_canonical": true,
@@ -169,7 +169,7 @@
       "url": "/mas-masteri-smart-city/",
       "label": "MAS Masteri",
       "district": "Masteri",
-      "inventory": 103,
+      "inventory": 101,
       "inbound_pages": 12
     },
     {
@@ -190,7 +190,7 @@
       "url": "/tc-canopy-smart-city/",
       "label": "TC Canopy",
       "district": "Canopy",
-      "inventory": 57,
+      "inventory": 56,
       "inbound_pages": 10
     },
     {
@@ -218,7 +218,7 @@
       "url": "/s2-sapphire-smart-city/",
       "label": "S2 Sapphire",
       "district": "Sapphire",
-      "inventory": 23,
+      "inventory": 22,
       "inbound_pages": 26
     },
     {
@@ -335,6 +335,15 @@
       "inbound_pages": 2
     },
     {
+      "url": "/can-ho/cho-thue-can-ho-2-ngu-sola-park-64m2-ct-2n-399/",
+      "first_seen": "2026-11-10",
+      "code": "CT.2N+.399",
+      "tower": "G3",
+      "type": "2 Ngủ +",
+      "district": "Sola Park",
+      "inbound_pages": 2
+    },
+    {
       "url": "/can-ho/cho-thue-can-ho-2-ngu-sola-park-61m2-tt-2n-6102/",
       "first_seen": "2026-11-10",
       "code": "TT.2N.6102",
@@ -380,13 +389,31 @@
       "inbound_pages": 6
     },
     {
+      "url": "/can-ho/cho-thue-can-ho-2-ngu-imperia-64m2-ct-2n-400/",
+      "first_seen": "2026-11-10",
+      "code": "CT.2N+.400",
+      "tower": "I2",
+      "type": "2 Ngủ +",
+      "district": "Imperia",
+      "inbound_pages": 5
+    },
+    {
+      "url": "/can-ho/cho-thue-can-ho-2-ngu-imperia-55m2-ct-2n1-310/",
+      "first_seen": "2026-11-10",
+      "code": "CT.2N1.310",
+      "tower": "I1",
+      "type": "2 Ngủ",
+      "district": "Imperia",
+      "inbound_pages": 7
+    },
+    {
       "url": "/can-ho/cho-thue-can-ho-2-ngu-imperia-54m2-ct-2n1-309/",
       "first_seen": "2026-11-10",
       "code": "CT.2N1.309",
       "tower": "I2",
       "type": "2 Ngủ",
       "district": "Imperia",
-      "inbound_pages": 17
+      "inbound_pages": 18
     },
     {
       "url": "/can-ho/cho-thue-can-ho-2-ngu-canopy-73m2-ct-2n-398/",
@@ -396,43 +423,16 @@
       "type": "2 Ngủ +",
       "district": "Canopy",
       "inbound_pages": 6
-    },
-    {
-      "url": "/can-ho/cho-thue-can-ho-1-ngu-sola-park-43m2-tt-1n-6105/",
-      "first_seen": "2026-11-10",
-      "code": "TT.1N.6105",
-      "tower": "SolaPark",
-      "type": "1 Ngủ",
-      "district": "Sola Park",
-      "inbound_pages": 3
-    },
-    {
-      "url": "/can-ho/cho-thue-can-ho-1-ngu-sola-park-43m2-tt-1n-6104/",
-      "first_seen": "2026-11-10",
-      "code": "TT.1N.6104",
-      "tower": "SolaPark",
-      "type": "1 Ngủ",
-      "district": "Sola Park",
-      "inbound_pages": 3
-    },
-    {
-      "url": "/can-ho/cho-thue-can-ho-1-ngu-canopy-50m2-ct-1n-701/",
-      "first_seen": "2026-11-10",
-      "code": "CT.1N+.701",
-      "tower": "TC3",
-      "type": "1 Ngủ +",
-      "district": "Canopy",
-      "inbound_pages": 13
     }
   ],
   "district_inventory": {
-    "Sapphire": 215,
-    "Masteri": 169,
+    "Sapphire": 214,
+    "Masteri": 167,
     "Lumiere": 159,
     "Miami": 115,
     "Sakura": 99,
-    "Canopy": 93,
-    "Imperia": 85,
+    "Canopy": 92,
+    "Imperia": 87,
     "Tonkin": 30
   },
   "summary": {
