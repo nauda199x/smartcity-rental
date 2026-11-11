@@ -1,13 +1,13 @@
 {
   "updated": "2026-11-11",
   "source": "data.json",
-  "active_count": 877,
+  "active_count": 880,
   "min_sample": 3,
   "overall": {
-    "n": 877,
+    "n": 880,
     "min": 5000000,
     "max": 23000000,
-    "median": 10000000
+    "median": 10000000.0
   },
   "by_type": {
     "1 Ngủ": {
@@ -17,22 +17,22 @@
       "median": 9000000.0
     },
     "1 Ngủ +": {
-      "n": 85,
+      "n": 86,
       "min": 7000000,
       "max": 12500000,
-      "median": 8500000
+      "median": 8500000.0
     },
     "2 Ngủ": {
-      "n": 228,
+      "n": 229,
       "min": 7000000,
       "max": 16500000,
-      "median": 11000000.0
+      "median": 11000000
     },
     "2 Ngủ +": {
-      "n": 155,
+      "n": 156,
       "min": 7500000,
       "max": 18500000,
-      "median": 11500000
+      "median": 11500000.0
     },
     "3 Ngủ": {
       "n": 123,
@@ -49,10 +49,10 @@
   },
   "by_zone": {
     "Canopy": {
-      "n": 94,
+      "n": 95,
       "min": 6000000,
       "max": 18000000,
-      "median": 10500000.0
+      "median": 10500000
     },
     "Imperia": {
       "n": 44,
@@ -61,7 +61,7 @@
       "median": 10000000.0
     },
     "Lumiere": {
-      "n": 45,
+      "n": 47,
       "min": 8000000,
       "max": 23000000,
       "median": 12000000
@@ -85,10 +85,10 @@
       "median": 11000000
     },
     "Sapphire": {
-      "n": 216,
+      "n": 217,
       "min": 5500000,
       "max": 18000000,
-      "median": 8800000.0
+      "median": 8600000
     },
     "Sola Park": {
       "n": 58,
@@ -97,10 +97,10 @@
       "median": 9000000.0
     },
     "Tonkin": {
-      "n": 31,
+      "n": 30,
       "min": 7000000,
       "max": 16500000,
-      "median": 8500000
+      "median": 8500000.0
     }
   },
   "by_interior": {
@@ -111,22 +111,22 @@
       "median": 10000000
     },
     "Full nội thất": {
-      "n": 496,
+      "n": 497,
       "min": 5800000,
       "max": 23000000,
-      "median": 11000000.0
+      "median": 11000000
     },
     "Nhà Nguyên Bản": {
-      "n": 213,
+      "n": 214,
       "min": 5000000,
       "max": 17000000,
-      "median": 8500000
+      "median": 8500000.0
     },
     "Đồ Cơ bản": {
-      "n": 145,
+      "n": 146,
       "min": 5500000,
       "max": 17000000,
-      "median": 10000000
+      "median": 10250000.0
     }
   },
   "zone_type_interior": [
@@ -233,10 +233,10 @@
       "zone": "Canopy",
       "type": "2 Ngủ +",
       "interior": "Nhà Nguyên Bản",
-      "n": 1,
-      "min": 11000000,
+      "n": 2,
+      "min": 10000000,
       "max": 11000000,
-      "median": 11000000
+      "median": 10500000.0
     },
     {
       "zone": "Canopy",
@@ -422,10 +422,10 @@
       "zone": "Lumiere",
       "type": "1 Ngủ",
       "interior": "Full nội thất",
-      "n": 3,
+      "n": 4,
       "min": 12000000,
-      "max": 12000000,
-      "median": 12000000
+      "max": 12500000,
+      "median": 12000000.0
     },
     {
       "zone": "Lumiere",
@@ -476,10 +476,10 @@
       "zone": "Lumiere",
       "type": "2 Ngủ",
       "interior": "Đồ Cơ bản",
-      "n": 8,
+      "n": 9,
       "min": 10000000,
       "max": 13000000,
-      "median": 12000000.0
+      "median": 12000000
     },
     {
       "zone": "Lumiere",
@@ -1070,10 +1070,10 @@
       "zone": "Sapphire",
       "type": "1 Ngủ +",
       "interior": "Full nội thất",
-      "n": 14,
+      "n": 15,
       "min": 8000000,
       "max": 9500000,
-      "median": 8500000.0
+      "median": 8500000
     },
     {
       "zone": "Sapphire",
@@ -1313,10 +1313,10 @@
       "zone": "Tonkin",
       "type": "1 Ngủ",
       "interior": "Full nội thất",
-      "n": 3,
+      "n": 2,
       "min": 8500000,
       "max": 11000000,
-      "median": 10500000
+      "median": 9750000.0
     },
     {
       "zone": "Tonkin",

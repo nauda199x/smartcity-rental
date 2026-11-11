@@ -4,7 +4,7 @@
       "area_max": 88,
       "area_min": 30,
       "code": "A1",
-      "count": 21,
+      "count": 22,
       "data_code": "A1",
       "district": "Lumiere",
       "first_seen": "2026-09-16",
@@ -22,7 +22,7 @@
           "price_min": 8500000
         },
         {
-          "count": 6,
+          "count": 7,
           "name": "2 Ngủ",
           "price_max": 13000000,
           "price_min": 11000000
@@ -51,7 +51,7 @@
       "area_max": 80,
       "area_min": 30,
       "code": "A2",
-      "count": 14,
+      "count": 15,
       "data_code": "A2",
       "district": "Lumiere",
       "first_seen": "2026-09-10",
@@ -69,9 +69,9 @@
           "price_min": 10000000
         },
         {
-          "count": 1,
+          "count": 2,
           "name": "1 Ngủ",
-          "price_max": 9000000,
+          "price_max": 12500000,
           "price_min": 9000000
         },
         {
@@ -1551,7 +1551,7 @@
       "area_max": 75,
       "area_min": 32,
       "code": "S401",
-      "count": 6,
+      "count": 7,
       "data_code": "S401",
       "district": "Sapphire",
       "first_seen": "2026-09-10",
@@ -1564,15 +1564,15 @@
       "types": [
         {
           "count": 2,
+          "name": "1 Ngủ +",
+          "price_max": 8500000,
+          "price_min": 8000000
+        },
+        {
+          "count": 2,
           "name": "3 Ngủ",
           "price_max": 14000000,
           "price_min": 8500000
-        },
-        {
-          "count": 1,
-          "name": "1 Ngủ +",
-          "price_max": 8000000,
-          "price_min": 8000000
         },
         {
           "count": 1,
@@ -1920,7 +1920,7 @@
       "area_max": 80,
       "area_min": 30,
       "code": "TC1",
-      "count": 13,
+      "count": 14,
       "data_code": "TC1",
       "district": "Canopy",
       "first_seen": "2026-09-10",
@@ -1939,6 +1939,12 @@
         },
         {
           "count": 3,
+          "name": "2 Ngủ +",
+          "price_max": 14000000,
+          "price_min": 10000000
+        },
+        {
+          "count": 3,
           "name": "3 Ngủ",
           "price_max": 14000000,
           "price_min": 12000000
@@ -1954,12 +1960,6 @@
           "name": "1 Ngủ",
           "price_max": 8000000,
           "price_min": 7000000
-        },
-        {
-          "count": 2,
-          "name": "2 Ngủ +",
-          "price_max": 14000000,
-          "price_min": 11000000
         }
       ]
     },
@@ -2061,7 +2061,7 @@
       "area_max": 82,
       "area_min": 25,
       "code": "TK",
-      "count": 16,
+      "count": 15,
       "data_code": "TK",
       "district": "Tonkin",
       "first_seen": "2026-10-30",
@@ -2080,12 +2080,6 @@
         },
         {
           "count": 2,
-          "name": "1 Ngủ",
-          "price_max": 11000000,
-          "price_min": 10500000
-        },
-        {
-          "count": 2,
           "name": "2 Ngủ",
           "price_max": 15000000,
           "price_min": 14000000
@@ -2094,6 +2088,12 @@
           "count": 2,
           "name": "2 Ngủ +",
           "price_max": 12500000,
+          "price_min": 11000000
+        },
+        {
+          "count": 1,
+          "name": "1 Ngủ",
+          "price_max": 11000000,
           "price_min": 11000000
         },
         {
