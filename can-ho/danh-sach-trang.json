@@ -14455,6 +14455,14 @@
   "phan_khu": "Masteri",
   "toa": "MAS"
  },
+ "cho-thue-can-ho-studio-masteri-30m2-ct-stu-1031": {
+  "dien_tich": 30,
+  "loai": "Studio",
+  "ma": "CT.Stu.1031",
+  "ngay_xuat_hien": "2026-11-11",
+  "phan_khu": "Masteri",
+  "toa": "MasD"
+ },
  "cho-thue-can-ho-studio-masteri-30m2-ct-stu-743": {
   "dien_tich": 30,
   "loai": "Studio",

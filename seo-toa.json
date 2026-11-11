@@ -860,7 +860,7 @@
       "area_max": 75,
       "area_min": 30,
       "code": "MASD",
-      "count": 14,
+      "count": 15,
       "data_code": "MasD",
       "district": "Masteri",
       "first_seen": "2026-09-10",
@@ -884,7 +884,7 @@
           "price_min": 10000000
         },
         {
-          "count": 3,
+          "count": 4,
           "name": "Studio",
           "price_max": 8500000,
           "price_min": 7000000
