@@ -1,10 +1,10 @@
 {
   "updated": "2026-11-11",
   "source": "data.json",
-  "active_count": 881,
+  "active_count": 879,
   "min_sample": 3,
   "overall": {
-    "n": 881,
+    "n": 879,
     "min": 5000000,
     "max": 23000000,
     "median": 10000000
@@ -35,16 +35,16 @@
       "median": 11500000.0
     },
     "3 Ngủ": {
-      "n": 122,
+      "n": 121,
       "min": 8500000,
       "max": 23000000,
-      "median": 13000000.0
+      "median": 13000000
     },
     "Studio": {
-      "n": 178,
+      "n": 177,
       "min": 5000000,
       "max": 11500000,
-      "median": 7000000.0
+      "median": 7000000
     }
   },
   "by_zone": {
@@ -67,10 +67,10 @@
       "median": 12000000.0
     },
     "Masteri": {
-      "n": 171,
+      "n": 170,
       "min": 7000000,
       "max": 23000000,
-      "median": 12000000
+      "median": 12000000.0
     },
     "Miami": {
       "n": 116,
@@ -79,10 +79,10 @@
       "median": 10000000.0
     },
     "Sakura": {
-      "n": 102,
+      "n": 101,
       "min": 5500000,
       "max": 18000000,
-      "median": 11000000.0
+      "median": 11000000
     },
     "Sapphire": {
       "n": 214,
@@ -111,16 +111,16 @@
       "median": 10000000
     },
     "Full nội thất": {
-      "n": 499,
+      "n": 498,
       "min": 5800000,
       "max": 23000000,
-      "median": 11000000
+      "median": 11000000.0
     },
     "Nhà Nguyên Bản": {
-      "n": 212,
+      "n": 211,
       "min": 5000000,
       "max": 17000000,
-      "median": 8500000.0
+      "median": 8500000
     },
     "Đồ Cơ bản": {
       "n": 147,
@@ -665,10 +665,10 @@
       "zone": "Masteri",
       "type": "3 Ngủ",
       "interior": "Full nội thất",
-      "n": 7,
+      "n": 6,
       "min": 15000000,
       "max": 23000000,
-      "median": 18000000
+      "median": 18000000.0
     },
     {
       "zone": "Masteri",
@@ -1016,10 +1016,10 @@
       "zone": "Sakura",
       "type": "Studio",
       "interior": "Nhà Nguyên Bản",
-      "n": 13,
+      "n": 12,
       "min": 5500000,
       "max": 7500000,
-      "median": 6000000
+      "median": 6000000.0
     },
     {
       "zone": "Sakura",
