@@ -133,7 +133,7 @@
       "area_max": 94,
       "area_min": 28,
       "code": "GS",
-      "count": 69,
+      "count": 70,
       "data_code": "GS",
       "district": "Miami",
       "first_seen": "2026-10-30",
@@ -151,16 +151,16 @@
           "price_min": 8500000
         },
         {
+          "count": 13,
+          "name": "2 Ngủ +",
+          "price_max": 13000000,
+          "price_min": 8200000
+        },
+        {
           "count": 12,
           "name": "1 Ngủ",
           "price_max": 11000000,
           "price_min": 7000000
-        },
-        {
-          "count": 12,
-          "name": "2 Ngủ +",
-          "price_max": 13000000,
-          "price_min": 8200000
         },
         {
           "count": 12,
@@ -578,7 +578,7 @@
       "area_max": 76,
       "area_min": 28,
       "code": "IMPERIA",
-      "count": 45,
+      "count": 46,
       "data_code": "Imperia",
       "district": "Imperia",
       "first_seen": "2026-10-30",
@@ -590,7 +590,7 @@
       "price_min": 6000000,
       "types": [
         {
-          "count": 14,
+          "count": 15,
           "name": "1 Ngủ",
           "price_max": 11500000,
           "price_min": 8000000
@@ -672,7 +672,7 @@
       "area_max": 80,
       "area_min": 27,
       "code": "MAS",
-      "count": 102,
+      "count": 105,
       "data_code": "MAS",
       "district": "Masteri",
       "first_seen": "2026-10-30",
@@ -684,13 +684,13 @@
       "price_min": 7000000,
       "types": [
         {
-          "count": 31,
+          "count": 33,
           "name": "1 Ngủ",
           "price_max": 14000000,
           "price_min": 8000000
         },
         {
-          "count": 22,
+          "count": 23,
           "name": "2 Ngủ +",
           "price_max": 18500000,
           "price_min": 10500000
@@ -1873,7 +1873,7 @@
       "area_max": 81,
       "area_min": 25,
       "code": "TC",
-      "count": 58,
+      "count": 59,
       "data_code": "TC",
       "district": "Canopy",
       "first_seen": "2026-10-30",
@@ -1885,7 +1885,7 @@
       "price_min": 6000000,
       "types": [
         {
-          "count": 18,
+          "count": 19,
           "name": "2 Ngủ",
           "price_max": 14000000,
           "price_min": 9000000
