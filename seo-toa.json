@@ -233,7 +233,7 @@
       "area_max": 75,
       "area_min": 30,
       "code": "GS2",
-      "count": 8,
+      "count": 9,
       "data_code": "GS2",
       "district": "Miami",
       "first_seen": "2026-09-10",
@@ -255,6 +255,12 @@
           "name": "1 Ngủ +",
           "price_max": 7000000,
           "price_min": 7000000
+        },
+        {
+          "count": 1,
+          "name": "2 Ngủ",
+          "price_max": 10000000,
+          "price_min": 10000000
         },
         {
           "count": 1,
@@ -625,7 +631,7 @@
       "area_max": 105,
       "area_min": 30,
       "code": "LUMIERE",
-      "count": 117,
+      "count": 116,
       "data_code": "Lumiere",
       "district": "Lumiere",
       "first_seen": "2026-10-30",
@@ -643,7 +649,7 @@
           "price_min": 10500000
         },
         {
-          "count": 25,
+          "count": 24,
           "name": "1 Ngủ",
           "price_max": 15000000,
           "price_min": 8500000
@@ -719,7 +725,7 @@
       "area_max": 73,
       "area_min": 29,
       "code": "MASA",
-      "count": 19,
+      "count": 20,
       "data_code": "MasA",
       "district": "Masteri",
       "first_seen": "2026-09-10",
@@ -749,10 +755,10 @@
           "price_min": 7500000
         },
         {
-          "count": 2,
+          "count": 3,
           "name": "2 Ngủ +",
           "price_max": 16000000,
-          "price_min": 16000000
+          "price_min": 13000000
         },
         {
           "count": 2,
@@ -860,7 +866,7 @@
       "area_max": 75,
       "area_min": 30,
       "code": "MASD",
-      "count": 15,
+      "count": 14,
       "data_code": "MasD",
       "district": "Masteri",
       "first_seen": "2026-09-10",
@@ -879,15 +885,15 @@
         },
         {
           "count": 4,
-          "name": "1 Ngủ +",
-          "price_max": 12000000,
-          "price_min": 10000000
-        },
-        {
-          "count": 4,
           "name": "Studio",
           "price_max": 8500000,
           "price_min": 7000000
+        },
+        {
+          "count": 3,
+          "name": "1 Ngủ +",
+          "price_max": 12000000,
+          "price_min": 10000000
         },
         {
           "count": 1,
@@ -901,7 +907,7 @@
       "area_max": 75,
       "area_min": 28,
       "code": "S1",
-      "count": 36,
+      "count": 35,
       "data_code": "S1",
       "district": "Sapphire",
       "first_seen": "2026-10-30",
@@ -919,7 +925,7 @@
           "price_min": 6000000
         },
         {
-          "count": 11,
+          "count": 10,
           "name": "2 Ngủ +",
           "price_max": 12000000,
           "price_min": 8000000

@@ -17,16 +17,16 @@
       "median": 9000000.0
     },
     "1 Ngủ +": {
-      "n": 86,
+      "n": 85,
       "min": 7000000,
       "max": 12500000,
-      "median": 8500000.0
+      "median": 8500000
     },
     "2 Ngủ": {
-      "n": 229,
+      "n": 230,
       "min": 7000000,
       "max": 16500000,
-      "median": 11000000
+      "median": 11000000.0
     },
     "2 Ngủ +": {
       "n": 156,
@@ -73,10 +73,10 @@
       "median": 12000000.0
     },
     "Miami": {
-      "n": 117,
+      "n": 118,
       "min": 5000000,
       "max": 15000000,
-      "median": 10000000
+      "median": 10000000.0
     },
     "Sakura": {
       "n": 103,
@@ -85,10 +85,10 @@
       "median": 11000000
     },
     "Sapphire": {
-      "n": 217,
+      "n": 216,
       "min": 5500000,
       "max": 18000000,
-      "median": 8600000
+      "median": 8600000.0
     },
     "Sola Park": {
       "n": 58,
@@ -575,10 +575,10 @@
       "zone": "Masteri",
       "type": "1 Ngủ +",
       "interior": "Full nội thất",
-      "n": 21,
+      "n": 20,
       "min": 10000000,
       "max": 12500000,
-      "median": 11000000
+      "median": 11000000.0
     },
     {
       "zone": "Masteri",
@@ -638,10 +638,10 @@
       "zone": "Masteri",
       "type": "2 Ngủ +",
       "interior": "Full nội thất",
-      "n": 33,
+      "n": 34,
       "min": 11000000,
       "max": 18500000,
-      "median": 14000000
+      "median": 14000000.0
     },
     {
       "zone": "Masteri",
@@ -800,10 +800,10 @@
       "zone": "Miami",
       "type": "2 Ngủ",
       "interior": "Full nội thất",
-      "n": 24,
+      "n": 25,
       "min": 9500000,
       "max": 15000000,
-      "median": 12000000.0
+      "median": 12000000
     },
     {
       "zone": "Miami",
@@ -1142,10 +1142,10 @@
       "zone": "Sapphire",
       "type": "2 Ngủ +",
       "interior": "Full nội thất",
-      "n": 30,
+      "n": 29,
       "min": 10000000,
       "max": 13000000,
-      "median": 11000000.0
+      "median": 11000000
     },
     {
       "zone": "Sapphire",
