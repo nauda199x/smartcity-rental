@@ -877,7 +877,7 @@
     "loai": "2 Ngủ",
     "toa": "S2",
     "dien_tich": 54.0,
-    "active": true
+    "active": false
   },
   "cho-thue-can-ho-2-ngu-s2-74m2-thue2n-59": {
     "id": "thue2N.59",
@@ -901,7 +901,7 @@
     "loai": "2 Ngủ",
     "toa": "S2",
     "dien_tich": 54.0,
-    "active": true
+    "active": false
   },
   "cho-thue-can-ho-2-ngu-s3-62m2-thue2n-62": {
     "id": "thue2N.62",
@@ -1429,7 +1429,7 @@
     "loai": "1 Ngủ",
     "toa": "S5",
     "dien_tich": 43.0,
-    "active": true
+    "active": false
   },
   "cho-thue-can-ho-1-ngu-s1-43m2-thue1n-32": {
     "id": "thue1N.32",
@@ -1797,7 +1797,7 @@
     "loai": "1 Ngủ",
     "toa": "S5",
     "dien_tich": 43.0,
-    "active": true
+    "active": false
   },
   "cho-thue-can-ho-1-ngu-s3-42m2-thue1n-41": {
     "id": "thue1N.41",
@@ -2125,7 +2125,7 @@
     "loai": "2 Ngủ",
     "toa": "S1",
     "dien_tich": 53.8,
-    "active": false
+    "active": true
   },
   "cho-thue-can-ho-3-ngu-s3-84m2-thue3n-91": {
     "id": "thue3N.91",
@@ -2133,7 +2133,7 @@
     "loai": "3 Ngủ",
     "toa": "S3",
     "dien_tich": 84.0,
-    "active": false
+    "active": true
   },
   "cho-thue-can-ho-3-ngu-s3-107m2-thue3n-92": {
     "id": "thue3N.92",
@@ -2141,7 +2141,7 @@
     "loai": "3 Ngủ",
     "toa": "S3",
     "dien_tich": 106.6,
-    "active": false
+    "active": true
   },
   "cho-thue-can-ho-3-ngu-s3-107m2-thue3n-93": {
     "id": "thue3N.93",
@@ -2149,7 +2149,7 @@
     "loai": "3 Ngủ",
     "toa": "S3",
     "dien_tich": 106.6,
-    "active": false
+    "active": true
   },
   "cho-thue-can-ho-2-ngu-s1-62m2-thue2n-133": {
     "id": "thue2N.133",
@@ -2157,7 +2157,7 @@
     "loai": "2 Ngủ",
     "toa": "S1",
     "dien_tich": 62.2,
-    "active": false
+    "active": true
   },
   "cho-thue-can-ho-3-ngu-s1-107m2-thue3n-94": {
     "id": "thue3N.94",
@@ -2165,6 +2165,14 @@
     "loai": "3 Ngủ",
     "toa": "S1",
     "dien_tich": 106.6,
-    "active": false
+    "active": true
+  },
+  "cho-thue-can-ho-1-ngu-s6-42m2-thue1n-43": {
+    "id": "thue1N.43",
+    "ma": "thue1N.43",
+    "loai": "1 Ngủ",
+    "toa": "S6",
+    "dien_tich": 42.2,
+    "active": true
   }
 }
