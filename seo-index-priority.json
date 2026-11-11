@@ -70,7 +70,7 @@
       "url": "/2pn-plus/",
       "label": "Thuê 2PN+",
       "reason": "intent theo loại căn",
-      "inbound_pages": 271,
+      "inbound_pages": 270,
       "exists": true,
       "indexable": true,
       "self_canonical": true,
@@ -100,7 +100,7 @@
       "url": "/sapphire/",
       "label": "Thuê Sapphire",
       "reason": "phân khu có quỹ căn active lớn",
-      "inbound_pages": 287,
+      "inbound_pages": 286,
       "exists": true,
       "indexable": true,
       "self_canonical": true,
@@ -426,13 +426,13 @@
     }
   ],
   "district_inventory": {
-    "Sapphire": 217,
+    "Sapphire": 216,
     "Masteri": 170,
     "Lumiere": 161,
     "Miami": 119,
     "Sakura": 102,
     "Canopy": 96,
-    "Imperia": 90,
+    "Imperia": 91,
     "Tonkin": 31
   },
   "summary": {
