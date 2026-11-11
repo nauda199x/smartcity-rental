@@ -1,10 +1,10 @@
 {
   "towers": {
     "A1": {
-      "area_max": 88,
+      "area_max": 75,
       "area_min": 30,
       "code": "A1",
-      "count": 22,
+      "count": 21,
       "data_code": "A1",
       "district": "Lumiere",
       "first_seen": "2026-09-16",
@@ -12,7 +12,7 @@
       "last_seen": "2026-11-11",
       "name": "A1 Lumière",
       "path": "/a1-lumiere-evergreen/",
-      "price_max": 23000000,
+      "price_max": 18000000,
       "price_min": 8000000,
       "types": [
         {
@@ -38,12 +38,6 @@
           "name": "2 Ngủ +",
           "price_max": 18000000,
           "price_min": 13000000
-        },
-        {
-          "count": 1,
-          "name": "3 Ngủ",
-          "price_max": 23000000,
-          "price_min": 23000000
         }
       ]
     },
@@ -631,7 +625,7 @@
       "area_max": 105,
       "area_min": 30,
       "code": "LUMIERE",
-      "count": 117,
+      "count": 115,
       "data_code": "Lumiere",
       "district": "Lumiere",
       "first_seen": "2026-10-30",
@@ -649,7 +643,7 @@
           "price_min": 11000000
         },
         {
-          "count": 25,
+          "count": 23,
           "name": "1 Ngủ",
           "price_max": 15000000,
           "price_min": 8500000
@@ -2149,7 +2143,7 @@
       "area_max": 83,
       "area_min": 25,
       "code": "TK2",
-      "count": 7,
+      "count": 8,
       "data_code": "TK2",
       "district": "Tonkin",
       "first_seen": "2026-09-10",
@@ -2158,13 +2152,13 @@
       "name": "TK2 Tonkin",
       "path": "/tk2-tonkin-smart-city/",
       "price_max": 15000000,
-      "price_min": 7500000,
+      "price_min": 7000000,
       "types": [
         {
-          "count": 3,
+          "count": 4,
           "name": "Studio",
           "price_max": 8000000,
-          "price_min": 7500000
+          "price_min": 7000000
         },
         {
           "count": 1,
