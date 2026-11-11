@@ -1,10 +1,10 @@
 {
   "updated": "2026-11-11",
   "source": "data.json",
-  "active_count": 885,
+  "active_count": 883,
   "min_sample": 3,
   "overall": {
-    "n": 885,
+    "n": 883,
     "min": 5000000,
     "max": 23000000,
     "median": 10000000
@@ -41,7 +41,7 @@
       "median": 13000000
     },
     "Studio": {
-      "n": 181,
+      "n": 179,
       "min": 5000000,
       "max": 11500000,
       "median": 7000000
@@ -67,10 +67,10 @@
       "median": 12000000
     },
     "Masteri": {
-      "n": 171,
+      "n": 170,
       "min": 7000000,
       "max": 23000000,
-      "median": 12000000
+      "median": 12000000.0
     },
     "Miami": {
       "n": 119,
@@ -79,10 +79,10 @@
       "median": 10000000
     },
     "Sakura": {
-      "n": 103,
+      "n": 102,
       "min": 5500000,
       "max": 18000000,
-      "median": 11000000
+      "median": 11000000.0
     },
     "Sapphire": {
       "n": 217,
@@ -111,16 +111,16 @@
       "median": 10000000
     },
     "Full nội thất": {
-      "n": 501,
+      "n": 500,
       "min": 5800000,
       "max": 23000000,
-      "median": 11000000
+      "median": 11000000.0
     },
     "Nhà Nguyên Bản": {
-      "n": 215,
+      "n": 214,
       "min": 5000000,
       "max": 17000000,
-      "median": 8500000
+      "median": 8500000.0
     },
     "Đồ Cơ bản": {
       "n": 146,
@@ -710,10 +710,10 @@
       "zone": "Masteri",
       "type": "Studio",
       "interior": "Full nội thất",
-      "n": 18,
+      "n": 17,
       "min": 8000000,
       "max": 11500000,
-      "median": 9000000.0
+      "median": 9000000
     },
     {
       "zone": "Masteri",
@@ -1025,10 +1025,10 @@
       "zone": "Sakura",
       "type": "Studio",
       "interior": "Nhà Nguyên Bản",
-      "n": 14,
+      "n": 13,
       "min": 5500000,
       "max": 7500000,
-      "median": 6000000.0
+      "median": 6000000
     },
     {
       "zone": "Sakura",

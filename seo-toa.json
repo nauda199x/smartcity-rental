@@ -866,7 +866,7 @@
       "area_max": 75,
       "area_min": 30,
       "code": "MASD",
-      "count": 14,
+      "count": 13,
       "data_code": "MasD",
       "district": "Masteri",
       "first_seen": "2026-09-10",
@@ -884,16 +884,16 @@
           "price_min": 11500000
         },
         {
-          "count": 4,
-          "name": "Studio",
-          "price_max": 8500000,
-          "price_min": 7000000
-        },
-        {
           "count": 3,
           "name": "1 Ngủ +",
           "price_max": 12000000,
           "price_min": 10000000
+        },
+        {
+          "count": 3,
+          "name": "Studio",
+          "price_max": 8000000,
+          "price_min": 7000000
         },
         {
           "count": 1,
@@ -1686,7 +1686,7 @@
       "area_max": 95,
       "area_min": 25,
       "code": "SA",
-      "count": 63,
+      "count": 62,
       "data_code": "SA",
       "district": "Sakura",
       "first_seen": "2026-10-30",
@@ -1704,7 +1704,7 @@
           "price_min": 11000000
         },
         {
-          "count": 17,
+          "count": 16,
           "name": "Studio",
           "price_max": 8000000,
           "price_min": 5500000
