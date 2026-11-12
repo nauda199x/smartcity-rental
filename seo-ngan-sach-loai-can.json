@@ -8,7 +8,7 @@
     "updated": "2026-11-12"
   },
   "1pn-12-15-trieu": {
-    "count": 13,
+    "count": 14,
     "created": "2026-10-30",
     "indexable": true,
     "loai": "1 Ngủ",
@@ -16,7 +16,7 @@
     "updated": "2026-11-12"
   },
   "1pn-7-10-trieu": {
-    "count": 141,
+    "count": 142,
     "created": "2026-08-30",
     "indexable": true,
     "loai": "1 Ngủ",
@@ -40,7 +40,7 @@
     "updated": "2026-11-12"
   },
   "2pn-12-15-trieu": {
-    "count": 77,
+    "count": 79,
     "created": "2026-08-30",
     "indexable": true,
     "loai": "2 Ngủ",
@@ -48,7 +48,7 @@
     "updated": "2026-11-12"
   },
   "2pn-plus-10-12-trieu": {
-    "count": 89,
+    "count": 90,
     "created": "2026-08-30",
     "indexable": true,
     "loai": "2 Ngủ +",
