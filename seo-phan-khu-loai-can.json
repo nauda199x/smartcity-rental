@@ -24,7 +24,7 @@
     "updated": "2026-11-12"
   },
   "cho-thue-1pn-masteri-smart-city": {
-    "count": 33,
+    "count": 34,
     "created": "2026-10-30",
     "indexable": true,
     "loai": "1 Ngủ",
@@ -80,7 +80,7 @@
     "updated": "2026-11-12"
   },
   "cho-thue-1pn-plus-sapphire-smart-city": {
-    "count": 19,
+    "count": 20,
     "created": "2026-08-30",
     "indexable": true,
     "loai": "1 Ngủ +",
@@ -112,7 +112,7 @@
     "updated": "2026-11-12"
   },
   "cho-thue-2pn-canopy-smart-city": {
-    "count": 31,
+    "count": 32,
     "created": "2026-08-30",
     "indexable": true,
     "loai": "2 Ngủ",
@@ -128,7 +128,7 @@
     "updated": "2026-11-12"
   },
   "cho-thue-2pn-lumiere-smart-city": {
-    "count": 71,
+    "count": 72,
     "created": "2026-08-30",
     "indexable": true,
     "loai": "2 Ngủ",
@@ -216,7 +216,7 @@
     "updated": "2026-11-12"
   },
   "cho-thue-2pn-sapphire-smart-city": {
-    "count": 57,
+    "count": 58,
     "created": "2026-08-30",
     "indexable": true,
     "loai": "2 Ngủ",
@@ -232,7 +232,7 @@
     "updated": "2026-11-12"
   },
   "cho-thue-3pn-canopy-smart-city": {
-    "count": 12,
+    "count": 13,
     "created": "2026-10-07",
     "indexable": true,
     "loai": "3 Ngủ",
@@ -272,7 +272,7 @@
     "updated": "2026-11-12"
   },
   "cho-thue-3pn-sakura-smart-city": {
-    "count": 30,
+    "count": 31,
     "created": "2026-09-07",
     "indexable": true,
     "loai": "3 Ngủ",
@@ -288,7 +288,7 @@
     "updated": "2026-11-12"
   },
   "cho-thue-studio-canopy-smart-city": {
-    "count": 21,
+    "count": 23,
     "created": "2026-09-23",
     "indexable": true,
     "loai": "Studio",
@@ -312,7 +312,7 @@
     "updated": "2026-11-12"
   },
   "cho-thue-studio-masteri-smart-city": {
-    "count": 30,
+    "count": 31,
     "created": "2026-08-30",
     "indexable": true,
     "loai": "Studio",
@@ -320,7 +320,7 @@
     "updated": "2026-11-12"
   },
   "cho-thue-studio-miami-smart-city": {
-    "count": 11,
+    "count": 10,
     "created": "2026-09-17",
     "indexable": true,
     "loai": "Studio",
@@ -328,7 +328,7 @@
     "updated": "2026-11-12"
   },
   "cho-thue-studio-sakura-smart-city": {
-    "count": 32,
+    "count": 31,
     "created": "2026-08-30",
     "indexable": true,
     "loai": "Studio",
@@ -336,7 +336,7 @@
     "updated": "2026-11-12"
   },
   "cho-thue-studio-sapphire-smart-city": {
-    "count": 55,
+    "count": 57,
     "created": "2026-08-30",
     "indexable": true,
     "loai": "Studio",
