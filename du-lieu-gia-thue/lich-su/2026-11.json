@@ -117,16 +117,16 @@
       "median": 11000000.0
     },
     "Nhà Nguyên Bản": {
-      "n": 216,
+      "n": 215,
       "min": 5000000,
       "max": 17000000,
-      "median": 8500000.0
+      "median": 8500000
     },
     "Đồ Cơ bản": {
-      "n": 157,
+      "n": 158,
       "min": 5500000,
       "max": 17000000,
-      "median": 10000000
+      "median": 10000000.0
     }
   },
   "zone_type_interior": [
@@ -1142,19 +1142,19 @@
       "zone": "Sapphire",
       "type": "2 Ngủ +",
       "interior": "Nhà Nguyên Bản",
-      "n": 4,
+      "n": 3,
       "min": 8000000,
       "max": 10500000,
-      "median": 9000000.0
+      "median": 9000000
     },
     {
       "zone": "Sapphire",
       "type": "2 Ngủ +",
       "interior": "Đồ Cơ bản",
-      "n": 5,
+      "n": 6,
       "min": 9000000,
       "max": 12000000,
-      "median": 10000000
+      "median": 9750000.0
     },
     {
       "zone": "Sapphire",
