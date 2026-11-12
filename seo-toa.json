@@ -84,9 +84,9 @@
     },
     "A3": {
       "area_max": 85,
-      "area_min": 44,
+      "area_min": 41,
       "code": "A3",
-      "count": 10,
+      "count": 11,
       "data_code": "A3",
       "district": "Lumiere",
       "first_seen": "2026-09-10",
@@ -95,7 +95,7 @@
       "name": "A3 Lumière",
       "path": "/a3-lumiere-evergreen/",
       "price_max": 17000000,
-      "price_min": 11000000,
+      "price_min": 9500000,
       "types": [
         {
           "count": 3,
@@ -111,15 +111,15 @@
         },
         {
           "count": 2,
+          "name": "1 Ngủ",
+          "price_max": 12000000,
+          "price_min": 9500000
+        },
+        {
+          "count": 2,
           "name": "3 Ngủ",
           "price_max": 17000000,
           "price_min": 15000000
-        },
-        {
-          "count": 1,
-          "name": "1 Ngủ",
-          "price_max": 12000000,
-          "price_min": 12000000
         },
         {
           "count": 1,
@@ -681,7 +681,7 @@
       "name": "MAS Masteri",
       "path": "/mas-masteri-smart-city/",
       "price_max": 23000000,
-      "price_min": 7000000,
+      "price_min": 6500000,
       "types": [
         {
           "count": 33,
@@ -705,7 +705,7 @@
           "count": 20,
           "name": "Studio",
           "price_max": 11500000,
-          "price_min": 7000000
+          "price_min": 6500000
         },
         {
           "count": 10,
@@ -766,7 +766,7 @@
       "area_max": 79,
       "area_min": 31,
       "code": "MASB",
-      "count": 25,
+      "count": 26,
       "data_code": "MasB",
       "district": "Masteri",
       "first_seen": "2026-09-10",
@@ -796,16 +796,16 @@
           "price_min": 14000000
         },
         {
+          "count": 4,
+          "name": "Studio",
+          "price_max": 9500000,
+          "price_min": 7000000
+        },
+        {
           "count": 3,
           "name": "3 Ngủ",
           "price_max": 17500000,
           "price_min": 13000000
-        },
-        {
-          "count": 3,
-          "name": "Studio",
-          "price_max": 9500000,
-          "price_min": 7000000
         }
       ]
     },
@@ -1555,9 +1555,9 @@
     },
     "S401": {
       "area_max": 75,
-      "area_min": 32,
+      "area_min": 25,
       "code": "S401",
-      "count": 7,
+      "count": 8,
       "data_code": "S401",
       "district": "Sapphire",
       "first_seen": "2026-09-10",
@@ -1581,6 +1581,12 @@
           "price_min": 8500000
         },
         {
+          "count": 2,
+          "name": "Studio",
+          "price_max": 7000000,
+          "price_min": 7000000
+        },
+        {
           "count": 1,
           "name": "2 Ngủ",
           "price_max": 7500000,
@@ -1591,12 +1597,6 @@
           "name": "2 Ngủ +",
           "price_max": 11000000,
           "price_min": 11000000
-        },
-        {
-          "count": 1,
-          "name": "Studio",
-          "price_max": 7000000,
-          "price_min": 7000000
         }
       ]
     },
@@ -1692,7 +1692,7 @@
       "area_max": 95,
       "area_min": 25,
       "code": "SA",
-      "count": 61,
+      "count": 60,
       "data_code": "SA",
       "district": "Sakura",
       "first_seen": "2026-10-30",
@@ -1716,16 +1716,16 @@
           "price_min": 5500000
         },
         {
-          "count": 8,
-          "name": "2 Ngủ",
-          "price_max": 13000000,
-          "price_min": 8500000
-        },
-        {
           "count": 7,
           "name": "1 Ngủ",
           "price_max": 10500000,
           "price_min": 7000000
+        },
+        {
+          "count": 7,
+          "name": "2 Ngủ",
+          "price_max": 13000000,
+          "price_min": 8500000
         },
         {
           "count": 7,
@@ -1772,9 +1772,9 @@
     },
     "SA2": {
       "area_max": 80,
-      "area_min": 25,
+      "area_min": 30,
       "code": "SA2",
-      "count": 7,
+      "count": 6,
       "data_code": "SA2",
       "district": "Sakura",
       "first_seen": "2026-09-18",
@@ -1792,7 +1792,7 @@
           "price_min": 11000000
         },
         {
-          "count": 3,
+          "count": 2,
           "name": "Studio",
           "price_max": 8500000,
           "price_min": 7000000

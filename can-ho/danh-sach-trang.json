@@ -799,6 +799,14 @@
   "phan_khu": "Lumiere",
   "toa": "Lumiere"
  },
+ "cho-thue-can-ho-1-ngu-lumiere-41m2-ct-1n-234": {
+  "dien_tich": 41,
+  "loai": "1 Ngủ",
+  "ma": "CT.1N.234",
+  "ngay_xuat_hien": "2026-11-12",
+  "phan_khu": "Lumiere",
+  "toa": "A3"
+ },
  "cho-thue-can-ho-1-ngu-lumiere-41m2-tt-1n-6157": {
   "dien_tich": 41,
   "loai": "1 Ngủ",
@@ -13807,6 +13815,14 @@
   "phan_khu": "Sola Park",
   "toa": "SolaPark"
  },
+ "cho-thue-can-ho-3-ngu-sola-park-75m2-tt-3n-5734": {
+  "dien_tich": 75,
+  "loai": "3 Ngủ",
+  "ma": "TT.3N.5734",
+  "ngay_xuat_hien": "2026-10-30",
+  "phan_khu": "Sola Park",
+  "toa": "SolaPark"
+ },
  "cho-thue-can-ho-3-ngu-sola-park-75m2-tt-3n-5826": {
   "dien_tich": 75,
   "loai": "3 Ngủ",
@@ -13895,6 +13911,14 @@
   "phan_khu": "Sola Park",
   "toa": "SolaPark"
  },
+ "cho-thue-can-ho-3-ngu-sola-park-75m2-tt-3n-6127": {
+  "dien_tich": 75,
+  "loai": "3 Ngủ",
+  "ma": "TT.3N.6127",
+  "ngay_xuat_hien": "2026-11-10",
+  "phan_khu": "Sola Park",
+  "toa": "SolaPark"
+ },
  "cho-thue-can-ho-3-ngu-sola-park-75m2-tt-3n-6130": {
   "dien_tich": 75,
   "loai": "3 Ngủ",
@@ -13907,6 +13931,14 @@
   "dien_tich": 75,
   "loai": "3 Ngủ",
   "ma": "TT.3N.6147",
+  "ngay_xuat_hien": "2026-11-11",
+  "phan_khu": "Sola Park",
+  "toa": "SolaPark"
+ },
+ "cho-thue-can-ho-3-ngu-sola-park-75m2-tt-3n-6150": {
+  "dien_tich": 75,
+  "loai": "3 Ngủ",
+  "ma": "TT.3N.6150",
   "ngay_xuat_hien": "2026-11-11",
   "phan_khu": "Sola Park",
   "toa": "SolaPark"
@@ -15311,6 +15343,14 @@
   "phan_khu": "Masteri",
   "toa": "MAS"
  },
+ "cho-thue-can-ho-studio-masteri-35m2-ct-stu-1036": {
+  "dien_tich": 35,
+  "loai": "Studio",
+  "ma": "CT.Stu.1036",
+  "ngay_xuat_hien": "2026-11-12",
+  "phan_khu": "Masteri",
+  "toa": "MasB"
+ },
  "cho-thue-can-ho-studio-masteri-35m2-ct-stu-794": {
   "dien_tich": 35,
   "loai": "Studio",
@@ -16150,6 +16190,14 @@
   "ngay_xuat_hien": "2026-11-11",
   "phan_khu": "Sapphire",
   "toa": "S303"
+ },
+ "cho-thue-can-ho-studio-sapphire-25m2-ct-stu-1037": {
+  "dien_tich": 25,
+  "loai": "Studio",
+  "ma": "CT.Stu.1037",
+  "ngay_xuat_hien": "2026-11-12",
+  "phan_khu": "Sapphire",
+  "toa": "S401"
  },
  "cho-thue-can-ho-studio-sapphire-25m2-ct-stu-813": {
   "dien_tich": 25,

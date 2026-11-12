@@ -16,7 +16,7 @@
     "updated": "2026-11-12"
   },
   "1pn-7-10-trieu": {
-    "count": 142,
+    "count": 143,
     "created": "2026-08-30",
     "indexable": true,
     "loai": "1 Ngủ",
@@ -40,7 +40,7 @@
     "updated": "2026-11-12"
   },
   "2pn-12-15-trieu": {
-    "count": 79,
+    "count": 78,
     "created": "2026-08-30",
     "indexable": true,
     "loai": "2 Ngủ",
@@ -88,7 +88,7 @@
     "updated": "2026-11-12"
   },
   "studio-10-12-trieu": {
-    "count": 12,
+    "count": 11,
     "created": "2026-10-30",
     "indexable": true,
     "loai": "Studio",
