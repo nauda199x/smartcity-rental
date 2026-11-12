@@ -64,7 +64,7 @@
     "updated": "2026-11-12"
   },
   "cho-thue-1pn-plus-miami-smart-city": {
-    "count": 5,
+    "count": 6,
     "created": "2026-09-23",
     "indexable": true,
     "loai": "1 Ngủ +",
@@ -184,7 +184,7 @@
     "updated": "2026-11-12"
   },
   "cho-thue-2pn-plus-miami-smart-city": {
-    "count": 23,
+    "count": 24,
     "created": "2026-08-30",
     "indexable": true,
     "loai": "2 Ngủ +",
@@ -336,7 +336,7 @@
     "updated": "2026-11-12"
   },
   "cho-thue-studio-sapphire-smart-city": {
-    "count": 56,
+    "count": 55,
     "created": "2026-08-30",
     "indexable": true,
     "loai": "Studio",
