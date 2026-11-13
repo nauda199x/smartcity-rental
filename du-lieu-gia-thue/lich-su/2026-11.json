@@ -1,13 +1,13 @@
 {
   "updated": "2026-11-13",
   "source": "data.json",
-  "active_count": 930,
+  "active_count": 931,
   "min_sample": 3,
   "overall": {
-    "n": 930,
+    "n": 931,
     "min": 5000000,
     "max": 23000000,
-    "median": 10000000.0
+    "median": 10000000
   },
   "by_type": {
     "1 Ngủ": {
@@ -41,10 +41,10 @@
       "median": 13000000
     },
     "Studio": {
-      "n": 188,
+      "n": 189,
       "min": 5000000,
       "max": 11500000,
-      "median": 7000000.0
+      "median": 7000000
     }
   },
   "by_zone": {
@@ -91,10 +91,10 @@
       "median": 9000000
     },
     "Sola Park": {
-      "n": 72,
+      "n": 73,
       "min": 6000000,
       "max": 13000000,
-      "median": 9000000.0
+      "median": 9000000
     },
     "Tonkin": {
       "n": 32,
@@ -123,10 +123,10 @@
       "median": 8500000
     },
     "Đồ Cơ bản": {
-      "n": 166,
+      "n": 167,
       "min": 5500000,
       "max": 17000000,
-      "median": 10000000.0
+      "median": 10000000
     }
   },
   "zone_type_interior": [
@@ -1313,10 +1313,10 @@
       "zone": "Sola Park",
       "type": "Studio",
       "interior": "Đồ Cơ bản",
-      "n": 4,
+      "n": 5,
       "min": 6000000,
       "max": 6500000,
-      "median": 6000000.0
+      "median": 6000000
     },
     {
       "zone": "Tonkin",
