@@ -71,6 +71,14 @@
   "phan_khu": "Canopy",
   "toa": "TC2"
  },
+ "cho-thue-can-ho-1-ngu-canopy-43m2-ct-1n-236": {
+  "dien_tich": 43,
+  "loai": "1 Ngủ",
+  "ma": "CT.1N.236",
+  "ngay_xuat_hien": "2026-11-13",
+  "phan_khu": "Canopy",
+  "toa": "TC1"
+ },
  "cho-thue-can-ho-1-ngu-canopy-43m2-tt-1n-4554": {
   "dien_tich": 43,
   "loai": "1 Ngủ",
@@ -972,6 +980,14 @@
   "loai": "1 Ngủ",
   "ma": "CT.1N.221",
   "ngay_xuat_hien": "2026-10-22",
+  "phan_khu": "Lumiere",
+  "toa": "A1"
+ },
+ "cho-thue-can-ho-1-ngu-lumiere-43m2-ct-1n-237": {
+  "dien_tich": 43,
+  "loai": "1 Ngủ",
+  "ma": "CT.1N.237",
+  "ngay_xuat_hien": "2026-11-13",
   "phan_khu": "Lumiere",
   "toa": "A1"
  },
@@ -17383,6 +17399,38 @@
   "phan_khu": "Sola Park",
   "toa": "G2"
  },
+ "cho-thue-can-ho-studio-sola-park-32m2-ct-stu-1040": {
+  "dien_tich": 32,
+  "loai": "Studio",
+  "ma": "CT.Stu.1040",
+  "ngay_xuat_hien": "2026-11-13",
+  "phan_khu": "Sola Park",
+  "toa": "G2"
+ },
+ "cho-thue-can-ho-studio-sola-park-32m2-ct-stu-1041": {
+  "dien_tich": 32,
+  "loai": "Studio",
+  "ma": "CT.Stu.1041",
+  "ngay_xuat_hien": "2026-11-13",
+  "phan_khu": "Sola Park",
+  "toa": "G2"
+ },
+ "cho-thue-can-ho-studio-sola-park-32m2-ct-stu-1042": {
+  "dien_tich": 32,
+  "loai": "Studio",
+  "ma": "CT.Stu.1042",
+  "ngay_xuat_hien": "2026-11-13",
+  "phan_khu": "Sola Park",
+  "toa": "G3"
+ },
+ "cho-thue-can-ho-studio-sola-park-32m2-ct-stu-1043": {
+  "dien_tich": 32,
+  "loai": "Studio",
+  "ma": "CT.Stu.1043",
+  "ngay_xuat_hien": "2026-11-13",
+  "phan_khu": "Sola Park",
+  "toa": "G2"
+ },
  "cho-thue-can-ho-studio-sola-park-32m2-ct-stu-987": {
   "dien_tich": 32,
   "loai": "Studio",
@@ -17566,6 +17614,14 @@
   "ngay_xuat_hien": "2026-11-11",
   "phan_khu": "Tonkin",
   "toa": "TK2"
+ },
+ "cho-thue-can-ho-studio-tonkin-25m2-ct-stu-1039": {
+  "dien_tich": 25,
+  "loai": "Studio",
+  "ma": "CT.Stu.1039",
+  "ngay_xuat_hien": "2026-11-13",
+  "phan_khu": "Tonkin",
+  "toa": "TK1"
  },
  "cho-thue-can-ho-studio-tonkin-25m2-ct-stu-715": {
   "dien_tich": 25,
