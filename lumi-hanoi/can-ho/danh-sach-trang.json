@@ -2214,5 +2214,29 @@
     "toa": "S5",
     "dien_tich": 84.0,
     "active": false
+  },
+  "cho-thue-can-ho-2-ngu-s2-54m2-thue2n-136": {
+    "id": "thue2N.136",
+    "ma": "thue2N.136",
+    "loai": "2 Ngủ",
+    "toa": "S2",
+    "dien_tich": 53.8,
+    "active": true
+  },
+  "cho-thue-can-ho-2-ngu-s6-53m2-thue2n-137": {
+    "id": "thue2N.137",
+    "ma": "thue2N.137",
+    "loai": "2 Ngủ",
+    "toa": "S6",
+    "dien_tich": 53.4,
+    "active": false
+  },
+  "cho-thue-can-ho-2-ngu-s5-62m2-thue2n-138": {
+    "id": "thue2N.138",
+    "ma": "thue2N.138",
+    "loai": "2 Ngủ",
+    "toa": "S5",
+    "dien_tich": 62.2,
+    "active": false
   }
 }
