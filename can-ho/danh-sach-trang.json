@@ -3863,6 +3863,14 @@
   "phan_khu": "Sola Park",
   "toa": "G3"
  },
+ "cho-thue-can-ho-1-ngu-sola-park-43m2-ct-1n-710": {
+  "dien_tich": 43,
+  "loai": "1 Ngủ +",
+  "ma": "CT.1N+.710",
+  "ngay_xuat_hien": "2026-11-13",
+  "phan_khu": "Sola Park",
+  "toa": "G3"
+ },
  "cho-thue-can-ho-1-ngu-sola-park-43m2-tt-1n-5614": {
   "dien_tich": 43,
   "loai": "1 Ngủ",
@@ -4748,6 +4756,14 @@
   "loai": "2 Ngủ",
   "ma": "CT.2N2.529",
   "ngay_xuat_hien": "2026-11-03",
+  "phan_khu": "Canopy",
+  "toa": "TC3"
+ },
+ "cho-thue-can-ho-2-ngu-canopy-62m2-ct-2n2-553": {
+  "dien_tich": 62.3,
+  "loai": "2 Ngủ",
+  "ma": "CT.2N2.553",
+  "ngay_xuat_hien": "2026-11-13",
   "phan_khu": "Canopy",
   "toa": "TC3"
  },
@@ -8484,6 +8500,14 @@
   "loai": "2 Ngủ +",
   "ma": "CT.2N+.407",
   "ngay_xuat_hien": "2026-11-12",
+  "phan_khu": "Miami",
+  "toa": "GS2"
+ },
+ "cho-thue-can-ho-2-ngu-miami-63m2-ct-2n-412": {
+  "dien_tich": 63,
+  "loai": "2 Ngủ +",
+  "ma": "CT.2N+.412",
+  "ngay_xuat_hien": "2026-11-13",
   "phan_khu": "Miami",
   "toa": "GS2"
  },
@@ -12340,6 +12364,14 @@
   "loai": "3 Ngủ",
   "ma": "CT.3N.205",
   "ngay_xuat_hien": "2026-10-26",
+  "phan_khu": "Canopy",
+  "toa": "TC3"
+ },
+ "cho-thue-can-ho-3-ngu-canopy-81m2-ct-3n-232": {
+  "dien_tich": 81,
+  "loai": "3 Ngủ",
+  "ma": "CT.3N.232",
+  "ngay_xuat_hien": "2026-11-13",
   "phan_khu": "Canopy",
   "toa": "TC3"
  },

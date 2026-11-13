@@ -227,7 +227,7 @@
       "area_max": 75,
       "area_min": 30,
       "code": "GS2",
-      "count": 10,
+      "count": 11,
       "data_code": "GS2",
       "district": "Miami",
       "first_seen": "2026-09-10",
@@ -239,7 +239,7 @@
       "price_min": 7000000,
       "types": [
         {
-          "count": 6,
+          "count": 7,
           "name": "2 Ngủ +",
           "price_max": 12000000,
           "price_min": 8000000
@@ -440,7 +440,7 @@
         {
           "count": 4,
           "name": "1 Ngủ +",
-          "price_max": 11000000,
+          "price_max": 10500000,
           "price_min": 8000000
         },
         {
@@ -2020,7 +2020,7 @@
       "area_max": 83,
       "area_min": 25,
       "code": "TC3",
-      "count": 10,
+      "count": 12,
       "data_code": "TC3",
       "district": "Canopy",
       "first_seen": "2026-09-10",
@@ -2032,13 +2032,13 @@
       "price_min": 6000000,
       "types": [
         {
-          "count": 3,
+          "count": 4,
           "name": "2 Ngủ",
-          "price_max": 10000000,
+          "price_max": 13000000,
           "price_min": 10000000
         },
         {
-          "count": 3,
+          "count": 4,
           "name": "3 Ngủ",
           "price_max": 16000000,
           "price_min": 12000000
