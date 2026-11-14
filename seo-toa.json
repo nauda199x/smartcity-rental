@@ -578,7 +578,7 @@
       "area_max": 76,
       "area_min": 28,
       "code": "IMPERIA",
-      "count": 43,
+      "count": 41,
       "data_code": "Imperia",
       "district": "Imperia",
       "first_seen": "2026-10-30",
@@ -590,7 +590,7 @@
       "price_min": 6000000,
       "types": [
         {
-          "count": 12,
+          "count": 11,
           "name": "1 Ngủ",
           "price_max": 13000000,
           "price_min": 8000000
@@ -602,7 +602,7 @@
           "price_min": 9500000
         },
         {
-          "count": 9,
+          "count": 8,
           "name": "2 Ngủ",
           "price_max": 12500000,
           "price_min": 10000000
@@ -625,7 +625,7 @@
       "area_max": 105,
       "area_min": 30,
       "code": "LUMIERE",
-      "count": 113,
+      "count": 112,
       "data_code": "Lumiere",
       "district": "Lumiere",
       "first_seen": "2026-10-30",
@@ -637,7 +637,7 @@
       "price_min": 8000000,
       "types": [
         {
-          "count": 49,
+          "count": 48,
           "name": "2 Ngủ",
           "price_max": 22000000,
           "price_min": 11000000
