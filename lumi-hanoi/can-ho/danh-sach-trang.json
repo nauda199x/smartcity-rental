@@ -2245,6 +2245,30 @@
     "loai": "2 Ngủ",
     "toa": "S5",
     "dien_tich": 53.8,
+    "active": true
+  },
+  "cho-thue-can-ho-2-ngu-s3-54m2-thue2n-140": {
+    "id": "thue2N.140",
+    "ma": "thue2N.140",
+    "loai": "2 Ngủ",
+    "toa": "S3",
+    "dien_tich": 53.8,
+    "active": true
+  },
+  "cho-thue-can-ho-2-ngu-s3-54m2-thue2n-141": {
+    "id": "thue2N.141",
+    "ma": "thue2N.141",
+    "loai": "2 Ngủ",
+    "toa": "S3",
+    "dien_tich": 53.8,
     "active": false
+  },
+  "cho-thue-can-ho-3-ngu-s5-84m2-thue3n-96": {
+    "id": "thue3N.96",
+    "ma": "thue3N.96",
+    "loai": "3 Ngủ",
+    "toa": "S5",
+    "dien_tich": 84.0,
+    "active": true
   }
 }
