@@ -1838,7 +1838,7 @@
       "area_max": 75,
       "area_min": 32,
       "code": "SA5",
-      "count": 16,
+      "count": 17,
       "data_code": "SA5",
       "district": "Sakura",
       "first_seen": "2026-09-10",
@@ -1856,7 +1856,7 @@
           "price_min": 9000000
         },
         {
-          "count": 4,
+          "count": 5,
           "name": "Studio",
           "price_max": 7500000,
           "price_min": 5500000
@@ -2082,13 +2082,13 @@
       "name": "TK Tonkin",
       "path": "/tk-tonkin-smart-city/",
       "price_max": 16500000,
-      "price_min": 7000000,
+      "price_min": 6500000,
       "types": [
         {
           "count": 8,
           "name": "Studio",
           "price_max": 8500000,
-          "price_min": 7000000
+          "price_min": 6500000
         },
         {
           "count": 2,
