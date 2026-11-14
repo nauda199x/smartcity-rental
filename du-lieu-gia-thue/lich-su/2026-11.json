@@ -1,10 +1,10 @@
 {
   "updated": "2026-11-14",
   "source": "data.json",
-  "active_count": 955,
+  "active_count": 961,
   "min_sample": 3,
   "overall": {
-    "n": 955,
+    "n": 961,
     "min": 5000000,
     "max": 23000000,
     "median": 10000000
@@ -17,16 +17,16 @@
       "median": 9000000.0
     },
     "1 Ngủ +": {
-      "n": 104,
+      "n": 105,
       "min": 7000000,
       "max": 12500000,
-      "median": 8500000.0
+      "median": 8500000
     },
     "2 Ngủ": {
-      "n": 256,
+      "n": 261,
       "min": 7000000,
       "max": 16500000,
-      "median": 11000000.0
+      "median": 10500000
     },
     "2 Ngủ +": {
       "n": 167,
@@ -85,16 +85,16 @@
       "median": 10500000
     },
     "Sapphire": {
-      "n": 223,
+      "n": 222,
       "min": 5500000,
       "max": 18000000,
-      "median": 9000000
+      "median": 8800000.0
     },
     "Sola Park": {
-      "n": 86,
+      "n": 93,
       "min": 6000000,
       "max": 13000000,
-      "median": 8500000.0
+      "median": 8500000
     },
     "Tonkin": {
       "n": 32,
@@ -117,7 +117,7 @@
       "median": 11000000
     },
     "Nhà Nguyên Bản": {
-      "n": 229,
+      "n": 235,
       "min": 5000000,
       "max": 17000000,
       "median": 8500000
@@ -1124,10 +1124,10 @@
       "zone": "Sapphire",
       "type": "2 Ngủ +",
       "interior": "Full nội thất",
-      "n": 32,
+      "n": 31,
       "min": 10000000,
       "max": 13000000,
-      "median": 11000000.0
+      "median": 11000000
     },
     {
       "zone": "Sapphire",
@@ -1214,10 +1214,10 @@
       "zone": "Sola Park",
       "type": "1 Ngủ +",
       "interior": "Nhà Nguyên Bản",
-      "n": 27,
+      "n": 28,
       "min": 7000000,
       "max": 8500000,
-      "median": 8000000
+      "median": 7750000.0
     },
     {
       "zone": "Sola Park",
@@ -1232,16 +1232,16 @@
       "zone": "Sola Park",
       "type": "2 Ngủ",
       "interior": "Full nội thất",
-      "n": 1,
+      "n": 2,
       "min": 10000000,
       "max": 10000000,
-      "median": 10000000
+      "median": 10000000.0
     },
     {
       "zone": "Sola Park",
       "type": "2 Ngủ",
       "interior": "Nhà Nguyên Bản",
-      "n": 14,
+      "n": 18,
       "min": 8000000,
       "max": 10000000,
       "median": 9000000.0
@@ -1259,10 +1259,10 @@
       "zone": "Sola Park",
       "type": "2 Ngủ +",
       "interior": "Nhà Nguyên Bản",
-      "n": 10,
+      "n": 11,
       "min": 9000000,
       "max": 11000000,
-      "median": 10500000.0
+      "median": 10000000
     },
     {
       "zone": "Sola Park",
