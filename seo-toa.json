@@ -672,7 +672,7 @@
       "area_max": 80,
       "area_min": 27,
       "code": "MAS",
-      "count": 111,
+      "count": 110,
       "data_code": "MAS",
       "district": "Masteri",
       "first_seen": "2026-10-30",
@@ -684,7 +684,7 @@
       "price_min": 6500000,
       "types": [
         {
-          "count": 35,
+          "count": 34,
           "name": "1 Ngủ",
           "price_max": 14000000,
           "price_min": 8000000

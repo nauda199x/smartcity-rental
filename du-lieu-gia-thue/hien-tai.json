@@ -1,20 +1,20 @@
 {
   "updated": "2026-11-15",
   "source": "data.json",
-  "active_count": 965,
+  "active_count": 964,
   "min_sample": 3,
   "overall": {
-    "n": 965,
+    "n": 964,
     "min": 5000000,
     "max": 23000000,
-    "median": 10000000
+    "median": 10000000.0
   },
   "by_type": {
     "1 Ngủ": {
-      "n": 115,
+      "n": 114,
       "min": 7000000,
       "max": 14000000,
-      "median": 9000000
+      "median": 9000000.0
     },
     "1 Ngủ +": {
       "n": 104,
@@ -67,10 +67,10 @@
       "median": 12000000
     },
     "Masteri": {
-      "n": 182,
+      "n": 181,
       "min": 6500000,
       "max": 23000000,
-      "median": 12000000.0
+      "median": 12000000
     },
     "Miami": {
       "n": 121,
@@ -123,10 +123,10 @@
       "median": 8500000
     },
     "Đồ Cơ bản": {
-      "n": 168,
+      "n": 167,
       "min": 5500000,
       "max": 17000000,
-      "median": 10000000.0
+      "median": 10000000
     }
   },
   "zone_type_interior": [
@@ -557,10 +557,10 @@
       "zone": "Masteri",
       "type": "1 Ngủ",
       "interior": "Đồ Cơ bản",
-      "n": 9,
+      "n": 8,
       "min": 8000000,
       "max": 10000000,
-      "median": 9000000
+      "median": 9000000.0
     },
     {
       "zone": "Masteri",
