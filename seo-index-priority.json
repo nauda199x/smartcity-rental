@@ -204,14 +204,14 @@
       "url": "/s3-sapphire-smart-city/",
       "label": "S3 Sapphire",
       "district": "Sapphire",
-      "inventory": 38,
+      "inventory": 37,
       "inbound_pages": 26
     },
     {
       "url": "/s1-sapphire-smart-city/",
       "label": "S1 Sapphire",
       "district": "Sapphire",
-      "inventory": 34,
+      "inventory": 35,
       "inbound_pages": 26
     },
     {

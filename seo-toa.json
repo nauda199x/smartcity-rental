@@ -901,7 +901,7 @@
       "area_max": 75,
       "area_min": 28,
       "code": "S1",
-      "count": 34,
+      "count": 35,
       "data_code": "S1",
       "district": "Sapphire",
       "first_seen": "2026-10-30",
@@ -931,7 +931,7 @@
           "price_min": 9000000
         },
         {
-          "count": 5,
+          "count": 6,
           "name": "1 Ngủ",
           "price_max": 11000000,
           "price_min": 8000000
@@ -1328,7 +1328,7 @@
       "area_max": 94,
       "area_min": 25,
       "code": "S3",
-      "count": 38,
+      "count": 37,
       "data_code": "S3",
       "district": "Sapphire",
       "first_seen": "2026-10-30",
@@ -1358,7 +1358,7 @@
           "price_min": 10000000
         },
         {
-          "count": 5,
+          "count": 4,
           "name": "1 Ngủ",
           "price_max": 9000000,
           "price_min": 7500000
