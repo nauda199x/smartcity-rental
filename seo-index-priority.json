@@ -10,7 +10,7 @@
       "url": "/",
       "label": "Trang thuê Smart City",
       "reason": "landing chính cho cụm từ khóa thuê Smart City",
-      "inbound_pages": 1698,
+      "inbound_pages": 1696,
       "exists": true,
       "indexable": true,
       "self_canonical": true,
@@ -20,7 +20,7 @@
       "url": "/can-ho/",
       "label": "Căn hộ đang cho thuê",
       "reason": "hub URL chi tiết căn active",
-      "inbound_pages": 1404,
+      "inbound_pages": 1402,
       "exists": true,
       "indexable": true,
       "self_canonical": true,
@@ -30,7 +30,7 @@
       "url": "/studio/",
       "label": "Thuê Studio",
       "reason": "intent theo loại căn",
-      "inbound_pages": 1445,
+      "inbound_pages": 1443,
       "exists": true,
       "indexable": true,
       "self_canonical": true,
@@ -50,7 +50,7 @@
       "url": "/1pn-plus/",
       "label": "Thuê 1PN+",
       "reason": "intent theo loại căn",
-      "inbound_pages": 1445,
+      "inbound_pages": 1443,
       "exists": true,
       "indexable": true,
       "self_canonical": true,
@@ -60,7 +60,7 @@
       "url": "/2pn/",
       "label": "Thuê 2PN",
       "reason": "intent theo loại căn",
-      "inbound_pages": 1445,
+      "inbound_pages": 1443,
       "exists": true,
       "indexable": true,
       "self_canonical": true,
@@ -80,7 +80,7 @@
       "url": "/3pn/",
       "label": "Thuê 3PN",
       "reason": "intent theo loại căn",
-      "inbound_pages": 1445,
+      "inbound_pages": 1443,
       "exists": true,
       "indexable": true,
       "self_canonical": true,
@@ -90,7 +90,7 @@
       "url": "/bang-gia-thue-vinhomes-smart-city.html",
       "label": "Bảng giá thuê",
       "reason": "intent giá thuê có dữ liệu thực tế",
-      "inbound_pages": 1447,
+      "inbound_pages": 1445,
       "exists": true,
       "indexable": true,
       "self_canonical": true,
@@ -100,7 +100,7 @@
       "url": "/sapphire/",
       "label": "Thuê Sapphire",
       "reason": "phân khu có quỹ căn active lớn",
-      "inbound_pages": 298,
+      "inbound_pages": 296,
       "exists": true,
       "indexable": true,
       "self_canonical": true,
@@ -140,7 +140,7 @@
       "url": "/canopy/",
       "label": "Thuê The Canopy",
       "reason": "phân khu có quỹ căn active lớn",
-      "inbound_pages": 159,
+      "inbound_pages": 160,
       "exists": true,
       "indexable": true,
       "self_canonical": true,
@@ -190,7 +190,7 @@
       "url": "/tc-canopy-smart-city/",
       "label": "TC Canopy",
       "district": "Canopy",
-      "inventory": 63,
+      "inventory": 64,
       "inbound_pages": 10
     },
     {
@@ -204,7 +204,7 @@
       "url": "/s3-sapphire-smart-city/",
       "label": "S3 Sapphire",
       "district": "Sapphire",
-      "inventory": 39,
+      "inventory": 38,
       "inbound_pages": 26
     },
     {
@@ -232,7 +232,7 @@
       "url": "/s2-sapphire-smart-city/",
       "label": "S2 Sapphire",
       "district": "Sapphire",
-      "inventory": 24,
+      "inventory": 23,
       "inbound_pages": 26
     },
     {
@@ -244,6 +244,24 @@
     }
   ],
   "tier_3": [
+    {
+      "url": "/can-ho/cho-thue-can-ho-studio-masteri-29m2-tt-st-6258/",
+      "first_seen": "2026-11-15",
+      "code": "TT.ST.6258",
+      "tower": "MAS",
+      "type": "Studio",
+      "district": "Masteri",
+      "inbound_pages": 7
+    },
+    {
+      "url": "/can-ho/cho-thue-can-ho-3-ngu-canopy-80m2-tt-3n-6257/",
+      "first_seen": "2026-11-15",
+      "code": "TT.3N.6257",
+      "tower": "TC",
+      "type": "3 Ngủ",
+      "district": "Canopy",
+      "inbound_pages": 6
+    },
     {
       "url": "/can-ho/cho-thue-can-ho-studio-tonkin-25m2-ct-stu-1048/",
       "first_seen": "2026-11-14",
@@ -405,32 +423,14 @@
       "type": "2 Ngủ",
       "district": "Sola Park",
       "inbound_pages": 3
-    },
-    {
-      "url": "/can-ho/cho-thue-can-ho-2-ngu-sola-park-55m2-ct-2n2-561/",
-      "first_seen": "2026-11-14",
-      "code": "CT.2N2.561",
-      "tower": "G3",
-      "type": "2 Ngủ",
-      "district": "Sola Park",
-      "inbound_pages": 4
-    },
-    {
-      "url": "/can-ho/cho-thue-can-ho-2-ngu-sola-park-54m2-ct-2n2-564/",
-      "first_seen": "2026-11-14",
-      "code": "CT.2N2.564",
-      "tower": "G3",
-      "type": "2 Ngủ",
-      "district": "Sola Park",
-      "inbound_pages": 3
     }
   ],
   "district_inventory": {
-    "Sapphire": 228,
+    "Sapphire": 226,
     "Masteri": 181,
     "Lumiere": 158,
     "Miami": 121,
-    "Canopy": 105,
+    "Canopy": 106,
     "Sakura": 105,
     "Imperia": 88,
     "Tonkin": 33

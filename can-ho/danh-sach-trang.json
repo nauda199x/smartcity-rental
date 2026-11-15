@@ -12823,6 +12823,14 @@
   "phan_khu": "Canopy",
   "toa": "TC"
  },
+ "cho-thue-can-ho-3-ngu-canopy-80m2-tt-3n-6257": {
+  "dien_tich": 80,
+  "loai": "3 Ngủ",
+  "ma": "TT.3N.6257",
+  "ngay_xuat_hien": "2026-11-15",
+  "phan_khu": "Canopy",
+  "toa": "TC"
+ },
  "cho-thue-can-ho-3-ngu-canopy-81m2-ct-3n-205": {
   "dien_tich": 81,
   "loai": "3 Ngủ",
@@ -15636,6 +15644,14 @@
   "loai": "Studio",
   "ma": "TT.ST.5972",
   "ngay_xuat_hien": "2026-11-06",
+  "phan_khu": "Masteri",
+  "toa": "MAS"
+ },
+ "cho-thue-can-ho-studio-masteri-29m2-tt-st-6258": {
+  "dien_tich": 29,
+  "loai": "Studio",
+  "ma": "TT.ST.6258",
+  "ngay_xuat_hien": "2026-11-15",
   "phan_khu": "Masteri",
   "toa": "MAS"
  },
