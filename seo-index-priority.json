@@ -70,7 +70,7 @@
       "url": "/2pn-plus/",
       "label": "Thuê 2PN+",
       "reason": "intent theo loại căn",
-      "inbound_pages": 280,
+      "inbound_pages": 279,
       "exists": true,
       "indexable": true,
       "self_canonical": true,
@@ -110,7 +110,7 @@
       "url": "/masteri/",
       "label": "Thuê Masteri West Heights",
       "reason": "phân khu có quỹ căn active lớn",
-      "inbound_pages": 240,
+      "inbound_pages": 241,
       "exists": true,
       "indexable": true,
       "self_canonical": true,
@@ -120,7 +120,7 @@
       "url": "/lumiere/",
       "label": "Thuê Lumière Evergreen",
       "reason": "phân khu có quỹ căn active lớn",
-      "inbound_pages": 214,
+      "inbound_pages": 213,
       "exists": true,
       "indexable": true,
       "self_canonical": true,
@@ -169,7 +169,7 @@
       "url": "/lumiere-lumiere-smart-city/",
       "label": "Lumiere Lumiere",
       "district": "Lumiere",
-      "inventory": 106,
+      "inventory": 105,
       "inbound_pages": 10
     },
     {
@@ -272,6 +272,15 @@
       "inbound_pages": 7
     },
     {
+      "url": "/can-ho/cho-thue-can-ho-studio-masteri-30m2-ct-stu-1052/",
+      "first_seen": "2026-11-16",
+      "code": "CT.Stu.1052",
+      "tower": "MasC",
+      "type": "Studio",
+      "district": "Masteri",
+      "inbound_pages": 7
+    },
+    {
       "url": "/can-ho/cho-thue-can-ho-studio-canopy-30m2-tt-st-6271/",
       "first_seen": "2026-11-16",
       "code": "TT.ST.6271",
@@ -344,6 +353,15 @@
       "inbound_pages": 3
     },
     {
+      "url": "/can-ho/cho-thue-can-ho-2-ngu-sola-park-54m2-ct-2n2-571/",
+      "first_seen": "2026-11-16",
+      "code": "CT.2N2.571",
+      "tower": "G2",
+      "type": "2 Ngủ",
+      "district": "Sola Park",
+      "inbound_pages": 3
+    },
+    {
       "url": "/can-ho/cho-thue-can-ho-2-ngu-sola-park-54m2-ct-2n2-569/",
       "first_seen": "2026-11-16",
       "code": "CT.2N2.569",
@@ -405,30 +423,12 @@
       "type": "1 Ngủ +",
       "district": "Sapphire",
       "inbound_pages": 13
-    },
-    {
-      "url": "/can-ho/cho-thue-can-ho-1-ngu-sapphire-43m2-tt-1n-6264/",
-      "first_seen": "2026-11-16",
-      "code": "TT.1N.6264",
-      "tower": "S2",
-      "type": "1 Ngủ",
-      "district": "Sapphire",
-      "inbound_pages": 30
-    },
-    {
-      "url": "/can-ho/cho-thue-can-ho-1-ngu-sapphire-43m2-tt-1n-6262/",
-      "first_seen": "2026-11-16",
-      "code": "TT.1N.6262",
-      "tower": "S2",
-      "type": "1 Ngủ",
-      "district": "Sapphire",
-      "inbound_pages": 30
     }
   ],
   "district_inventory": {
     "Sapphire": 230,
-    "Masteri": 183,
-    "Lumiere": 158,
+    "Masteri": 184,
+    "Lumiere": 157,
     "Miami": 120,
     "Canopy": 108,
     "Sakura": 103,

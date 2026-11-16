@@ -11759,6 +11759,14 @@
   "phan_khu": "Sola Park",
   "toa": "G3"
  },
+ "cho-thue-can-ho-2-ngu-sola-park-54m2-ct-2n2-571": {
+  "dien_tich": 54,
+  "loai": "2 Ngủ",
+  "ma": "CT.2N2.571",
+  "ngay_xuat_hien": "2026-11-16",
+  "phan_khu": "Sola Park",
+  "toa": "G2"
+ },
  "cho-thue-can-ho-2-ngu-sola-park-54m2-tt-2n-5605": {
   "dien_tich": 54,
   "loai": "2 Ngủ",
@@ -15814,6 +15822,14 @@
   "ngay_xuat_hien": "2026-11-11",
   "phan_khu": "Masteri",
   "toa": "MasD"
+ },
+ "cho-thue-can-ho-studio-masteri-30m2-ct-stu-1052": {
+  "dien_tich": 30,
+  "loai": "Studio",
+  "ma": "CT.Stu.1052",
+  "ngay_xuat_hien": "2026-11-16",
+  "phan_khu": "Masteri",
+  "toa": "MasC"
  },
  "cho-thue-can-ho-studio-masteri-30m2-ct-stu-743": {
   "dien_tich": 30,
