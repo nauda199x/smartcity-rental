@@ -389,7 +389,7 @@
     "loai": "2 Ngủ",
     "toa": "S6",
     "dien_tich": 54.0,
-    "active": true
+    "active": false
   },
   "cho-thue-can-ho-1-ngu-s5-43m2-thue1n-13": {
     "id": "thue1N.13",
@@ -2310,5 +2310,21 @@
     "toa": "S3",
     "dien_tich": 106.3,
     "active": true
+  },
+  "cho-thue-can-ho-3-ngu-s6-86m2-thue3n-100": {
+    "id": "thue3N.100",
+    "ma": "thue3N.100",
+    "loai": "3 Ngủ",
+    "toa": "S6",
+    "dien_tich": 85.8,
+    "active": false
+  },
+  "cho-thue-can-ho-3-ngu-s6-83m2-thue3n-101": {
+    "id": "thue3N.101",
+    "ma": "thue3N.101",
+    "loai": "3 Ngủ",
+    "toa": "S6",
+    "dien_tich": 82.9,
+    "active": false
   }
 }
