@@ -1,10 +1,10 @@
 {
   "updated": "2026-11-16",
   "source": "data.json",
-  "active_count": 976,
+  "active_count": 974,
   "min_sample": 3,
   "overall": {
-    "n": 976,
+    "n": 974,
     "min": 5000000,
     "max": 23000000,
     "median": 10000000.0
@@ -23,10 +23,10 @@
       "median": 8500000
     },
     "2 Ngủ": {
-      "n": 268,
+      "n": 267,
       "min": 5800000,
       "max": 16500000,
-      "median": 10500000.0
+      "median": 10500000
     },
     "2 Ngủ +": {
       "n": 166,
@@ -41,10 +41,10 @@
       "median": 13000000
     },
     "Studio": {
-      "n": 191,
+      "n": 190,
       "min": 5000000,
       "max": 11500000,
-      "median": 7000000
+      "median": 7000000.0
     }
   },
   "by_zone": {
@@ -67,7 +67,7 @@
       "median": 12000000.0
     },
     "Masteri": {
-      "n": 184,
+      "n": 182,
       "min": 6500000,
       "max": 23000000,
       "median": 12000000.0
@@ -111,19 +111,19 @@
       "median": 10000000
     },
     "Full nội thất": {
-      "n": 541,
+      "n": 539,
       "min": 5800000,
       "max": 23000000,
       "median": 11000000
     },
     "Nhà Nguyên Bản": {
-      "n": 246,
+      "n": 244,
       "min": 5000000,
       "max": 17000000,
       "median": 8500000.0
     },
     "Đồ Cơ bản": {
-      "n": 166,
+      "n": 168,
       "min": 6000000,
       "max": 17000000,
       "median": 10000000.0
@@ -602,10 +602,10 @@
       "zone": "Masteri",
       "type": "2 Ngủ",
       "interior": "Full nội thất",
-      "n": 30,
+      "n": 29,
       "min": 12000000,
       "max": 16000000,
-      "median": 13000000.0
+      "median": 13000000
     },
     {
       "zone": "Masteri",
@@ -701,25 +701,25 @@
       "zone": "Masteri",
       "type": "Studio",
       "interior": "Full nội thất",
-      "n": 21,
+      "n": 20,
       "min": 8000000,
       "max": 11500000,
-      "median": 9000000
+      "median": 9000000.0
     },
     {
       "zone": "Masteri",
       "type": "Studio",
       "interior": "Nhà Nguyên Bản",
-      "n": 4,
+      "n": 2,
       "min": 7000000,
       "max": 8500000,
-      "median": 7000000.0
+      "median": 7750000.0
     },
     {
       "zone": "Masteri",
       "type": "Studio",
       "interior": "Đồ Cơ bản",
-      "n": 8,
+      "n": 10,
       "min": 6500000,
       "max": 7500000,
       "median": 7000000.0
