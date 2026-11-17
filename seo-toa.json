@@ -511,7 +511,7 @@
       "name": "I4 Imperia",
       "path": "/i4-imperia-smart-city/",
       "price_max": 10500000,
-      "price_min": 8500000,
+      "price_min": 9200000,
       "types": [
         {
           "count": 3,
@@ -522,8 +522,8 @@
         {
           "count": 1,
           "name": "1 Ngủ +",
-          "price_max": 8500000,
-          "price_min": 8500000
+          "price_max": 9200000,
+          "price_min": 9200000
         },
         {
           "count": 1,
