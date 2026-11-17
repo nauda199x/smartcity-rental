@@ -672,7 +672,7 @@
       "area_max": 80,
       "area_min": 27,
       "code": "MAS",
-      "count": 109,
+      "count": 108,
       "data_code": "MAS",
       "district": "Masteri",
       "first_seen": "2026-10-30",
@@ -684,7 +684,7 @@
       "price_min": 6500000,
       "types": [
         {
-          "count": 35,
+          "count": 34,
           "name": "1 Ngủ",
           "price_max": 14000000,
           "price_min": 8000000
@@ -1182,7 +1182,7 @@
       "area_max": 75,
       "area_min": 55,
       "code": "S201",
-      "count": 6,
+      "count": 7,
       "data_code": "S201",
       "district": "Sapphire",
       "first_seen": "2026-09-12",
@@ -1201,15 +1201,15 @@
         },
         {
           "count": 2,
+          "name": "2 Ngủ +",
+          "price_max": 11500000,
+          "price_min": 11000000
+        },
+        {
+          "count": 2,
           "name": "3 Ngủ",
           "price_max": 12500000,
           "price_min": 9500000
-        },
-        {
-          "count": 1,
-          "name": "2 Ngủ +",
-          "price_max": 11000000,
-          "price_min": 11000000
         }
       ]
     },
@@ -1328,7 +1328,7 @@
       "area_max": 94,
       "area_min": 25,
       "code": "S3",
-      "count": 37,
+      "count": 36,
       "data_code": "S3",
       "district": "Sapphire",
       "first_seen": "2026-10-30",
@@ -1340,7 +1340,7 @@
       "price_min": 5500000,
       "types": [
         {
-          "count": 16,
+          "count": 15,
           "name": "Studio",
           "price_max": 8500000,
           "price_min": 5500000
@@ -1457,7 +1457,7 @@
       "area_max": 94,
       "area_min": 25,
       "code": "S303",
-      "count": 10,
+      "count": 11,
       "data_code": "S303",
       "district": "Sapphire",
       "first_seen": "2026-09-10",
@@ -1469,9 +1469,9 @@
       "price_min": 5500000,
       "types": [
         {
-          "count": 3,
+          "count": 4,
           "name": "2 Ngủ",
-          "price_max": 9000000,
+          "price_max": 9500000,
           "price_min": 7000000
         },
         {
