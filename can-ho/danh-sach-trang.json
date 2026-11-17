@@ -11855,6 +11855,14 @@
   "phan_khu": "Sola Park",
   "toa": "G3"
  },
+ "cho-thue-can-ho-2-ngu-sola-park-54m2-ct-2n2-578": {
+  "dien_tich": 54,
+  "loai": "2 Ngủ",
+  "ma": "CT.2N2.578",
+  "ngay_xuat_hien": "2026-11-17",
+  "phan_khu": "Sola Park",
+  "toa": "G2"
+ },
  "cho-thue-can-ho-2-ngu-sola-park-54m2-tt-2n-5605": {
   "dien_tich": 54,
   "loai": "2 Ngủ",
@@ -12339,6 +12347,14 @@
   "dien_tich": 61,
   "loai": "2 Ngủ",
   "ma": "CT.2N2.577",
+  "ngay_xuat_hien": "2026-11-17",
+  "phan_khu": "Sola Park",
+  "toa": "G2"
+ },
+ "cho-thue-can-ho-2-ngu-sola-park-61m2-ct-2n2-579": {
+  "dien_tich": 61,
+  "loai": "2 Ngủ",
+  "ma": "CT.2N2.579",
   "ngay_xuat_hien": "2026-11-17",
   "phan_khu": "Sola Park",
   "toa": "G2"
@@ -15476,6 +15492,14 @@
   "loai": "Studio",
   "ma": "CT.Stu.1047",
   "ngay_xuat_hien": "2026-11-14",
+  "phan_khu": "Lumiere",
+  "toa": "A2"
+ },
+ "cho-thue-can-ho-studio-lumiere-30m2-ct-stu-1054": {
+  "dien_tich": 30,
+  "loai": "Studio",
+  "ma": "CT.Stu.1054",
+  "ngay_xuat_hien": "2026-11-17",
   "phan_khu": "Lumiere",
   "toa": "A2"
  },

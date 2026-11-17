@@ -51,7 +51,7 @@
       "area_max": 80,
       "area_min": 30,
       "code": "A2",
-      "count": 16,
+      "count": 17,
       "data_code": "A2",
       "district": "Lumiere",
       "first_seen": "2026-09-10",
@@ -75,16 +75,16 @@
           "price_min": 9000000
         },
         {
+          "count": 2,
+          "name": "Studio",
+          "price_max": 9000000,
+          "price_min": 8000000
+        },
+        {
           "count": 1,
           "name": "3 Ngủ",
           "price_max": 17000000,
           "price_min": 17000000
-        },
-        {
-          "count": 1,
-          "name": "Studio",
-          "price_max": 8000000,
-          "price_min": 8000000
         }
       ]
     },
@@ -1686,7 +1686,7 @@
       "area_max": 95,
       "area_min": 25,
       "code": "SA",
-      "count": 64,
+      "count": 63,
       "data_code": "SA",
       "district": "Sakura",
       "first_seen": "2026-10-30",
@@ -1704,7 +1704,7 @@
           "price_min": 11000000
         },
         {
-          "count": 17,
+          "count": 16,
           "name": "Studio",
           "price_max": 8000000,
           "price_min": 5500000
