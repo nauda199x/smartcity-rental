@@ -948,7 +948,7 @@
       "area_max": 63,
       "area_min": 28,
       "code": "S101",
-      "count": 5,
+      "count": 6,
       "data_code": "S101",
       "district": "Sapphire",
       "first_seen": "2026-09-10",
@@ -960,16 +960,16 @@
       "price_min": 5800000,
       "types": [
         {
+          "count": 3,
+          "name": "2 Ngủ +",
+          "price_max": 12000000,
+          "price_min": 11000000
+        },
+        {
           "count": 2,
           "name": "2 Ngủ",
           "price_max": 9500000,
           "price_min": 9000000
-        },
-        {
-          "count": 2,
-          "name": "2 Ngủ +",
-          "price_max": 12000000,
-          "price_min": 12000000
         },
         {
           "count": 1,
@@ -1604,7 +1604,7 @@
       "area_max": 63,
       "area_min": 39,
       "code": "S402",
-      "count": 10,
+      "count": 11,
       "data_code": "S402",
       "district": "Sapphire",
       "first_seen": "2026-09-10",
@@ -1623,6 +1623,12 @@
         },
         {
           "count": 2,
+          "name": "2 Ngủ",
+          "price_max": 11000000,
+          "price_min": 9500000
+        },
+        {
+          "count": 2,
           "name": "2 Ngủ +",
           "price_max": 11500000,
           "price_min": 9500000
@@ -1632,12 +1638,6 @@
           "name": "1 Ngủ",
           "price_max": 7000000,
           "price_min": 7000000
-        },
-        {
-          "count": 1,
-          "name": "2 Ngủ",
-          "price_max": 11000000,
-          "price_min": 11000000
         }
       ]
     },
@@ -1645,7 +1645,7 @@
       "area_max": 95,
       "area_min": 34,
       "code": "S403",
-      "count": 6,
+      "count": 5,
       "data_code": "S403",
       "district": "Sapphire",
       "first_seen": "2026-09-10",
@@ -1667,12 +1667,6 @@
           "name": "1 Ngủ +",
           "price_max": 8000000,
           "price_min": 8000000
-        },
-        {
-          "count": 1,
-          "name": "2 Ngủ",
-          "price_max": 9500000,
-          "price_min": 9500000
         },
         {
           "count": 1,
