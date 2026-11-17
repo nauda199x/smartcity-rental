@@ -1,13 +1,13 @@
 {
   "updated": "2026-11-17",
   "source": "data.json",
-  "active_count": 1003,
+  "active_count": 1006,
   "min_sample": 3,
   "overall": {
-    "n": 1003,
+    "n": 1006,
     "min": 5000000,
     "max": 23000000,
-    "median": 10000000
+    "median": 10000000.0
   },
   "by_type": {
     "1 Ngủ": {
@@ -17,16 +17,16 @@
       "median": 9000000
     },
     "1 Ngủ +": {
-      "n": 110,
+      "n": 111,
       "min": 7000000,
       "max": 12500000,
-      "median": 8500000.0
+      "median": 8500000
     },
     "2 Ngủ": {
-      "n": 278,
+      "n": 279,
       "min": 7000000,
       "max": 16500000,
-      "median": 10500000.0
+      "median": 10500000
     },
     "2 Ngủ +": {
       "n": 169,
@@ -41,10 +41,10 @@
       "median": 13000000
     },
     "Studio": {
-      "n": 192,
+      "n": 193,
       "min": 5000000,
       "max": 11500000,
-      "median": 7000000.0
+      "median": 7000000
     }
   },
   "by_zone": {
@@ -67,10 +67,10 @@
       "median": 12000000
     },
     "Masteri": {
-      "n": 186,
+      "n": 189,
       "min": 6500000,
       "max": 23000000,
-      "median": 12000000.0
+      "median": 12000000
     },
     "Miami": {
       "n": 126,
@@ -111,10 +111,10 @@
       "median": 10000000
     },
     "Full nội thất": {
-      "n": 556,
+      "n": 559,
       "min": 5800000,
       "max": 23000000,
-      "median": 11000000.0
+      "median": 11000000
     },
     "Nhà Nguyên Bản": {
       "n": 248,
@@ -566,10 +566,10 @@
       "zone": "Masteri",
       "type": "1 Ngủ +",
       "interior": "Full nội thất",
-      "n": 22,
+      "n": 23,
       "min": 9500000,
       "max": 12500000,
-      "median": 11000000.0
+      "median": 11000000
     },
     {
       "zone": "Masteri",
@@ -602,10 +602,10 @@
       "zone": "Masteri",
       "type": "2 Ngủ",
       "interior": "Full nội thất",
-      "n": 29,
+      "n": 30,
       "min": 12000000,
       "max": 16000000,
-      "median": 13000000
+      "median": 13250000.0
     },
     {
       "zone": "Masteri",
@@ -701,10 +701,10 @@
       "zone": "Masteri",
       "type": "Studio",
       "interior": "Full nội thất",
-      "n": 21,
+      "n": 22,
       "min": 8000000,
       "max": 11500000,
-      "median": 9000000
+      "median": 9000000.0
     },
     {
       "zone": "Masteri",

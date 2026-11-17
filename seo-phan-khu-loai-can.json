@@ -56,7 +56,7 @@
     "updated": "2026-11-17"
   },
   "cho-thue-1pn-plus-masteri-smart-city": {
-    "count": 26,
+    "count": 27,
     "created": "2026-08-30",
     "indexable": true,
     "loai": "1 Ngủ +",
@@ -136,7 +136,7 @@
     "updated": "2026-11-17"
   },
   "cho-thue-2pn-masteri-smart-city": {
-    "count": 33,
+    "count": 34,
     "created": "2026-08-30",
     "indexable": true,
     "loai": "2 Ngủ",
@@ -312,7 +312,7 @@
     "updated": "2026-11-17"
   },
   "cho-thue-studio-masteri-smart-city": {
-    "count": 34,
+    "count": 35,
     "created": "2026-08-30",
     "indexable": true,
     "loai": "Studio",
