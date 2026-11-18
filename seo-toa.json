@@ -406,7 +406,7 @@
       "name": "I1 Imperia",
       "path": "/i1-imperia-smart-city/",
       "price_max": 17500000,
-      "price_min": 8000000,
+      "price_min": 7500000,
       "types": [
         {
           "count": 7,
@@ -418,7 +418,7 @@
           "count": 5,
           "name": "1 Ngủ +",
           "price_max": 10000000,
-          "price_min": 8000000
+          "price_min": 7500000
         },
         {
           "count": 3,
@@ -473,7 +473,7 @@
       "area_max": 55,
       "area_min": 31,
       "code": "I3",
-      "count": 4,
+      "count": 5,
       "data_code": "I3",
       "district": "Imperia",
       "first_seen": "2026-09-10",
@@ -489,6 +489,12 @@
           "name": "2 Ngủ",
           "price_max": 12500000,
           "price_min": 9000000
+        },
+        {
+          "count": 1,
+          "name": "1 Ngủ +",
+          "price_max": 7500000,
+          "price_min": 7500000
         },
         {
           "count": 1,
@@ -1080,7 +1086,7 @@
           "count": 2,
           "name": "1 Ngủ +",
           "price_max": 9500000,
-          "price_min": 8500000
+          "price_min": 8000000
         },
         {
           "count": 2,
@@ -1267,13 +1273,13 @@
       "name": "S2.03",
       "path": "/s2-03-vinhomes-smart-city/",
       "price_max": 9500000,
-      "price_min": 8500000,
+      "price_min": 8000000,
       "types": [
         {
           "count": 2,
           "name": "1 Ngủ +",
           "price_max": 8500000,
-          "price_min": 8500000
+          "price_min": 8000000
         },
         {
           "count": 2,
@@ -1842,9 +1848,9 @@
     },
     "SA5": {
       "area_max": 75,
-      "area_min": 34,
+      "area_min": 25,
       "code": "SA5",
-      "count": 15,
+      "count": 16,
       "data_code": "SA5",
       "district": "Sakura",
       "first_seen": "2026-09-10",
@@ -1853,7 +1859,7 @@
       "name": "SA5 The Sakura",
       "path": "/sa5-the-sakura-smart-city/",
       "price_max": 15000000,
-      "price_min": 7000000,
+      "price_min": 5500000,
       "types": [
         {
           "count": 7,
@@ -1862,10 +1868,10 @@
           "price_min": 9000000
         },
         {
-          "count": 3,
+          "count": 4,
           "name": "Studio",
           "price_max": 7500000,
-          "price_min": 7000000
+          "price_min": 5500000
         },
         {
           "count": 2,

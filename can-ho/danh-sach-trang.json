@@ -535,6 +535,14 @@
   "phan_khu": "Imperia",
   "toa": "I1"
  },
+ "cho-thue-can-ho-1-ngu-imperia-43m2-ct-1n-738": {
+  "dien_tich": 43,
+  "loai": "1 Ngủ +",
+  "ma": "CT.1N+.738",
+  "ngay_xuat_hien": "2026-11-18",
+  "phan_khu": "Imperia",
+  "toa": "I3"
+ },
  "cho-thue-can-ho-1-ngu-imperia-43m2-tt-1n-2603": {
   "dien_tich": 43,
   "loai": "1 Ngủ",
@@ -13023,6 +13031,14 @@
   "phan_khu": "Sola Park",
   "toa": "G3"
  },
+ "cho-thue-can-ho-2-ngu-sola-park-64m2-ct-2n-428": {
+  "dien_tich": 64,
+  "loai": "2 Ngủ +",
+  "ma": "CT.2N+.428",
+  "ngay_xuat_hien": "2026-11-18",
+  "phan_khu": "Sola Park",
+  "toa": "G1"
+ },
  "cho-thue-can-ho-2-ngu-sola-park-64m2-tt-2np-5599": {
   "dien_tich": 64,
   "loai": "2 Ngủ +",
@@ -17222,6 +17238,14 @@
   "ngay_xuat_hien": "2026-11-09",
   "phan_khu": "Sakura",
   "toa": "SA2"
+ },
+ "cho-thue-can-ho-studio-sakura-25m2-ct-stu-1058": {
+  "dien_tich": 25,
+  "loai": "Studio",
+  "ma": "CT.Stu.1058",
+  "ngay_xuat_hien": "2026-11-18",
+  "phan_khu": "Sakura",
+  "toa": "SA5"
  },
  "cho-thue-can-ho-studio-sakura-25m2-ct-stu-835": {
   "dien_tich": 25,
