@@ -527,6 +527,14 @@
   "phan_khu": "Imperia",
   "toa": "I2"
  },
+ "cho-thue-can-ho-1-ngu-imperia-43m2-ct-1n-735": {
+  "dien_tich": 43,
+  "loai": "1 Ngủ +",
+  "ma": "CT.1N+.735",
+  "ngay_xuat_hien": "2026-11-18",
+  "phan_khu": "Imperia",
+  "toa": "I1"
+ },
  "cho-thue-can-ho-1-ngu-imperia-43m2-tt-1n-2603": {
   "dien_tich": 43,
   "loai": "1 Ngủ",
@@ -652,6 +660,14 @@
   "loai": "1 Ngủ",
   "ma": "TT.1N.6192",
   "ngay_xuat_hien": "2026-11-12",
+  "phan_khu": "Imperia",
+  "toa": "Imperia"
+ },
+ "cho-thue-can-ho-1-ngu-imperia-43m2-tt-1n-6327": {
+  "dien_tich": 43,
+  "loai": "1 Ngủ",
+  "ma": "TT.1N.6327",
+  "ngay_xuat_hien": "2026-11-18",
   "phan_khu": "Imperia",
   "toa": "Imperia"
  },
@@ -3623,6 +3639,14 @@
   "phan_khu": "Sapphire",
   "toa": "S301"
  },
+ "cho-thue-can-ho-1-ngu-sapphire-43m2-ct-1n-737": {
+  "dien_tich": 43,
+  "loai": "1 Ngủ +",
+  "ma": "CT.1N+.737",
+  "ngay_xuat_hien": "2026-11-18",
+  "phan_khu": "Sapphire",
+  "toa": "S203"
+ },
  "cho-thue-can-ho-1-ngu-sapphire-43m2-tt-1n-2692": {
   "dien_tich": 43,
   "loai": "1 Ngủ",
@@ -3828,6 +3852,14 @@
   "loai": "1 Ngủ",
   "ma": "TT.1N.6264",
   "ngay_xuat_hien": "2026-11-16",
+  "phan_khu": "Sapphire",
+  "toa": "S2"
+ },
+ "cho-thue-can-ho-1-ngu-sapphire-43m2-tt-1n-6328": {
+  "dien_tich": 43,
+  "loai": "1 Ngủ",
+  "ma": "TT.1N.6328",
+  "ngay_xuat_hien": "2026-11-18",
   "phan_khu": "Sapphire",
   "toa": "S2"
  },
@@ -4876,6 +4908,14 @@
   "loai": "1 Ngủ",
   "ma": "TT.1N.6291",
   "ngay_xuat_hien": "2026-11-17",
+  "phan_khu": "Sola Park",
+  "toa": "SolaPark"
+ },
+ "cho-thue-can-ho-1-ngu-sola-park-48m2-tt-1n-6322": {
+  "dien_tich": 48,
+  "loai": "1 Ngủ",
+  "ma": "TT.1N.6322",
+  "ngay_xuat_hien": "2026-11-18",
   "phan_khu": "Sola Park",
   "toa": "SolaPark"
  },
@@ -7012,6 +7052,14 @@
   "loai": "2 Ngủ",
   "ma": "CT.2N2.543",
   "ngay_xuat_hien": "2026-11-09",
+  "phan_khu": "Lumiere",
+  "toa": "A2"
+ },
+ "cho-thue-can-ho-2-ngu-lumiere-64m2-ct-2n2-583": {
+  "dien_tich": 64,
+  "loai": "2 Ngủ",
+  "ma": "CT.2N2.583",
+  "ngay_xuat_hien": "2026-11-18",
   "phan_khu": "Lumiere",
   "toa": "A2"
  },
@@ -10415,6 +10463,14 @@
   "phan_khu": "Sapphire",
   "toa": "S303"
  },
+ "cho-thue-can-ho-2-ngu-sapphire-54m2-ct-2n1-318": {
+  "dien_tich": 54,
+  "loai": "2 Ngủ",
+  "ma": "CT.2N1.318",
+  "ngay_xuat_hien": "2026-11-18",
+  "phan_khu": "Sapphire",
+  "toa": "S203"
+ },
  "cho-thue-can-ho-2-ngu-sapphire-54m2-tt-2n-4634": {
   "dien_tich": 54,
   "loai": "2 Ngủ",
@@ -10612,6 +10668,14 @@
   "loai": "2 Ngủ",
   "ma": "TT.2N.6261",
   "ngay_xuat_hien": "2026-11-16",
+  "phan_khu": "Sapphire",
+  "toa": "S2"
+ },
+ "cho-thue-can-ho-2-ngu-sapphire-54m2-tt-2n-6333": {
+  "dien_tich": 54,
+  "loai": "2 Ngủ",
+  "ma": "TT.2N.6333",
+  "ngay_xuat_hien": "2026-11-18",
   "phan_khu": "Sapphire",
   "toa": "S2"
  },
@@ -11175,6 +11239,14 @@
   "phan_khu": "Sapphire",
   "toa": "S4"
  },
+ "cho-thue-can-ho-2-ngu-sapphire-55m2-tt-2n-6326": {
+  "dien_tich": 55,
+  "loai": "2 Ngủ",
+  "ma": "TT.2N.6326",
+  "ngay_xuat_hien": "2026-11-18",
+  "phan_khu": "Sapphire",
+  "toa": "S2"
+ },
  "cho-thue-can-ho-2-ngu-sapphire-62m2-cc35": {
   "dien_tich": 62,
   "loai": "2 Ngủ +",
@@ -11478,6 +11550,14 @@
   "ngay_xuat_hien": "2026-11-13",
   "phan_khu": "Sapphire",
   "toa": "S301"
+ },
+ "cho-thue-can-ho-2-ngu-sapphire-63m2-ct-2n-426": {
+  "dien_tich": 63,
+  "loai": "2 Ngủ +",
+  "ma": "CT.2N+.426",
+  "ngay_xuat_hien": "2026-11-18",
+  "phan_khu": "Sapphire",
+  "toa": "S205"
  },
  "cho-thue-can-ho-2-ngu-sapphire-63m2-tt-2n-5555": {
   "dien_tich": 63,
@@ -12903,6 +12983,38 @@
   "phan_khu": "Sola Park",
   "toa": "G2"
  },
+ "cho-thue-can-ho-2-ngu-sola-park-64m2-ct-2n-423": {
+  "dien_tich": 64,
+  "loai": "2 Ngủ +",
+  "ma": "CT.2N+.423",
+  "ngay_xuat_hien": "2026-11-18",
+  "phan_khu": "Sola Park",
+  "toa": "G3"
+ },
+ "cho-thue-can-ho-2-ngu-sola-park-64m2-ct-2n-424": {
+  "dien_tich": 64,
+  "loai": "2 Ngủ +",
+  "ma": "CT.2N+.424",
+  "ngay_xuat_hien": "2026-11-18",
+  "phan_khu": "Sola Park",
+  "toa": "G3"
+ },
+ "cho-thue-can-ho-2-ngu-sola-park-64m2-ct-2n-425": {
+  "dien_tich": 64,
+  "loai": "2 Ngủ +",
+  "ma": "CT.2N+.425",
+  "ngay_xuat_hien": "2026-11-18",
+  "phan_khu": "Sola Park",
+  "toa": "G3"
+ },
+ "cho-thue-can-ho-2-ngu-sola-park-64m2-ct-2n-427": {
+  "dien_tich": 64,
+  "loai": "2 Ngủ +",
+  "ma": "CT.2N+.427",
+  "ngay_xuat_hien": "2026-11-18",
+  "phan_khu": "Sola Park",
+  "toa": "G3"
+ },
  "cho-thue-can-ho-2-ngu-sola-park-64m2-tt-2np-5599": {
   "dien_tich": 64,
   "loai": "2 Ngủ +",
@@ -13132,6 +13244,14 @@
   "loai": "2 Ngủ +",
   "ma": "TT.2NP.6286",
   "ngay_xuat_hien": "2026-11-17",
+  "phan_khu": "Sola Park",
+  "toa": "SolaPark"
+ },
+ "cho-thue-can-ho-2-ngu-sola-park-64m2-tt-2np-6334": {
+  "dien_tich": 64,
+  "loai": "2 Ngủ +",
+  "ma": "TT.2NP.6334",
+  "ngay_xuat_hien": "2026-11-18",
   "phan_khu": "Sola Park",
   "toa": "SolaPark"
  },
@@ -15191,6 +15311,14 @@
   "phan_khu": "Sola Park",
   "toa": "SolaPark"
  },
+ "cho-thue-can-ho-3-ngu-sola-park-75m2-tt-3n-6335": {
+  "dien_tich": 75,
+  "loai": "3 Ngủ",
+  "ma": "TT.3N.6335",
+  "ngay_xuat_hien": "2026-11-18",
+  "phan_khu": "Sola Park",
+  "toa": "SolaPark"
+ },
  "cho-thue-can-ho-3-ngu-tonkin-82m2-ct-3n-230": {
   "dien_tich": 82,
   "loai": "3 Ngủ",
@@ -16975,6 +17103,14 @@
   "phan_khu": "Miami",
   "toa": "GS"
  },
+ "cho-thue-can-ho-studio-miami-30m2-tt-st-6330": {
+  "dien_tich": 30,
+  "loai": "Studio",
+  "ma": "TT.ST.6330",
+  "ngay_xuat_hien": "2026-11-18",
+  "phan_khu": "Miami",
+  "toa": "GS"
+ },
  "cho-thue-can-ho-studio-miami-31m2-ct-stu-871": {
   "dien_tich": 31,
   "loai": "Studio",
@@ -17252,6 +17388,14 @@
   "loai": "Studio",
   "ma": "TT.ST.6301",
   "ngay_xuat_hien": "2026-11-17",
+  "phan_khu": "Sakura",
+  "toa": "SA"
+ },
+ "cho-thue-can-ho-studio-sakura-26m2-tt-st-6331": {
+  "dien_tich": 26,
+  "loai": "Studio",
+  "ma": "TT.ST.6331",
+  "ngay_xuat_hien": "2026-11-18",
   "phan_khu": "Sakura",
   "toa": "SA"
  },
@@ -19051,6 +19195,14 @@
   "dien_tich": 32,
   "loai": "Studio",
   "ma": "TT.ST.6317",
+  "ngay_xuat_hien": "2026-11-18",
+  "phan_khu": "Sola Park",
+  "toa": "SolaPark"
+ },
+ "cho-thue-can-ho-studio-sola-park-32m2-tt-st-6329": {
+  "dien_tich": 32,
+  "loai": "Studio",
+  "ma": "TT.ST.6329",
   "ngay_xuat_hien": "2026-11-18",
   "phan_khu": "Sola Park",
   "toa": "SolaPark"
