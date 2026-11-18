@@ -139,7 +139,7 @@
       "area_max": 94,
       "area_min": 28,
       "code": "GS",
-      "count": 77,
+      "count": 75,
       "data_code": "GS",
       "district": "Miami",
       "first_seen": "2026-10-30",
@@ -151,7 +151,7 @@
       "price_min": 5000000,
       "types": [
         {
-          "count": 29,
+          "count": 27,
           "name": "2 Ngủ",
           "price_max": 15000000,
           "price_min": 8500000
