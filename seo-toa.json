@@ -1516,7 +1516,7 @@
       "area_max": 83,
       "area_min": 24,
       "code": "S4",
-      "count": 27,
+      "count": 26,
       "data_code": "S4",
       "district": "Sapphire",
       "first_seen": "2026-10-30",
@@ -1540,16 +1540,16 @@
           "price_min": 7500000
         },
         {
-          "count": 5,
-          "name": "Studio",
-          "price_max": 7000000,
-          "price_min": 6500000
-        },
-        {
           "count": 4,
           "name": "3 Ngủ",
           "price_max": 14000000,
           "price_min": 8500000
+        },
+        {
+          "count": 4,
+          "name": "Studio",
+          "price_max": 7000000,
+          "price_min": 6500000
         },
         {
           "count": 2,
