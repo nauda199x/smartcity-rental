@@ -4223,6 +4223,14 @@
   "phan_khu": "Sola Park",
   "toa": "G3"
  },
+ "cho-thue-can-ho-1-ngu-sola-park-43m2-ct-1n-742": {
+  "dien_tich": 43,
+  "loai": "1 Ngủ +",
+  "ma": "CT.1N+.742",
+  "ngay_xuat_hien": "2026-11-19",
+  "phan_khu": "Sola Park",
+  "toa": "G3"
+ },
  "cho-thue-can-ho-1-ngu-sola-park-43m2-tt-1n-5614": {
   "dien_tich": 43,
   "loai": "1 Ngủ",
@@ -5822,6 +5830,14 @@
   "ngay_xuat_hien": "2026-11-13",
   "phan_khu": "Imperia",
   "toa": "I1"
+ },
+ "cho-thue-can-ho-2-ngu-imperia-54m2-ct-2n1-320": {
+  "dien_tich": 54,
+  "loai": "2 Ngủ",
+  "ma": "CT.2N1.320",
+  "ngay_xuat_hien": "2026-11-19",
+  "phan_khu": "Imperia",
+  "toa": "I2"
  },
  "cho-thue-can-ho-2-ngu-imperia-54m2-tt-2n-2779": {
   "dien_tich": 54,
@@ -8231,6 +8247,14 @@
   "phan_khu": "Masteri",
   "toa": "MasA"
  },
+ "cho-thue-can-ho-2-ngu-masteri-60m2-ct-2n2-589": {
+  "dien_tich": 60,
+  "loai": "2 Ngủ",
+  "ma": "CT.2N2.589",
+  "ngay_xuat_hien": "2026-11-19",
+  "phan_khu": "Masteri",
+  "toa": "MasA"
+ },
  "cho-thue-can-ho-2-ngu-masteri-60m2-tt-2n-4024": {
   "dien_tich": 60,
   "loai": "2 Ngủ",
@@ -9934,6 +9958,14 @@
   "ngay_xuat_hien": "2026-10-28",
   "phan_khu": "Sakura",
   "toa": "SA3"
+ },
+ "cho-thue-can-ho-2-ngu-sakura-54m2-ct-2n2-590": {
+  "dien_tich": 54,
+  "loai": "2 Ngủ",
+  "ma": "CT.2N2.590",
+  "ngay_xuat_hien": "2026-11-19",
+  "phan_khu": "Sakura",
+  "toa": "SA2"
  },
  "cho-thue-can-ho-2-ngu-sakura-54m2-tt-2n-3131": {
   "dien_tich": 54,
@@ -16687,6 +16719,14 @@
   "phan_khu": "Masteri",
   "toa": "MasC"
  },
+ "cho-thue-can-ho-studio-masteri-30m2-ct-stu-1062": {
+  "dien_tich": 30,
+  "loai": "Studio",
+  "ma": "CT.Stu.1062",
+  "ngay_xuat_hien": "2026-11-19",
+  "phan_khu": "Masteri",
+  "toa": "MasC"
+ },
  "cho-thue-can-ho-studio-masteri-30m2-ct-stu-743": {
   "dien_tich": 30,
   "loai": "Studio",
@@ -17310,6 +17350,14 @@
   "ngay_xuat_hien": "2026-11-18",
   "phan_khu": "Miami",
   "toa": "GS3"
+ },
+ "cho-thue-can-ho-studio-miami-30m2-ct-stu-1063": {
+  "dien_tich": 30,
+  "loai": "Studio",
+  "ma": "CT.Stu.1063",
+  "ngay_xuat_hien": "2026-11-19",
+  "phan_khu": "Miami",
+  "toa": "GS2"
  },
  "cho-thue-can-ho-studio-miami-30m2-ct-stu-860": {
   "dien_tich": 30,
