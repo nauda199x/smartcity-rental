@@ -197,7 +197,7 @@
       "url": "/imperia-imperia-smart-city/",
       "label": "Imperia Imperia",
       "district": "Imperia",
-      "inventory": 44,
+      "inventory": 43,
       "inbound_pages": 13
     },
     {
@@ -416,10 +416,10 @@
       "inbound_pages": 7
     },
     {
-      "url": "/can-ho/cho-thue-can-ho-3-ngu-sola-park-74m2-ct-3n-236/",
+      "url": "/can-ho/cho-thue-can-ho-3-ngu-sola-park-75m2-tt-3n-5662/",
       "first_seen": "2026-11-19",
-      "code": "CT.3N.236",
-      "tower": "G3",
+      "code": "TT.3N.5662",
+      "tower": "SolaPark",
       "type": "3 Ngủ",
       "district": "Sola Park",
       "inbound_pages": 3
@@ -432,7 +432,7 @@
     "Miami": 127,
     "Sakura": 124,
     "Canopy": 111,
-    "Imperia": 93,
+    "Imperia": 92,
     "Tonkin": 37
   },
   "summary": {
