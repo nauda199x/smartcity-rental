@@ -4255,6 +4255,14 @@
   "phan_khu": "Sola Park",
   "toa": "G3"
  },
+ "cho-thue-can-ho-1-ngu-sola-park-43m2-ct-1n-744": {
+  "dien_tich": 43,
+  "loai": "1 Ngủ +",
+  "ma": "CT.1N+.744",
+  "ngay_xuat_hien": "2026-11-19",
+  "phan_khu": "Sola Park",
+  "toa": "G3"
+ },
  "cho-thue-can-ho-1-ngu-sola-park-43m2-tt-1n-5614": {
   "dien_tich": 43,
   "loai": "1 Ngủ",
@@ -19507,6 +19515,14 @@
   "dien_tich": 32,
   "loai": "Studio",
   "ma": "CT.Stu.1070",
+  "ngay_xuat_hien": "2026-11-19",
+  "phan_khu": "Sola Park",
+  "toa": "G3"
+ },
+ "cho-thue-can-ho-studio-sola-park-32m2-ct-stu-1072": {
+  "dien_tich": 32,
+  "loai": "Studio",
+  "ma": "CT.Stu.1072",
   "ngay_xuat_hien": "2026-11-19",
   "phan_khu": "Sola Park",
   "toa": "G3"
