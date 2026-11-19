@@ -1,10 +1,10 @@
 {
   "updated": "2026-11-19",
   "source": "data.json",
-  "active_count": 1063,
+  "active_count": 1067,
   "min_sample": 3,
   "overall": {
-    "n": 1063,
+    "n": 1067,
     "min": 5000000,
     "max": 23000000,
     "median": 10000000
@@ -23,10 +23,10 @@
       "median": 8500000
     },
     "2 Ngủ": {
-      "n": 293,
+      "n": 294,
       "min": 7000000,
       "max": 16500000,
-      "median": 10500000
+      "median": 10500000.0
     },
     "2 Ngủ +": {
       "n": 182,
@@ -41,10 +41,10 @@
       "median": 13000000
     },
     "Studio": {
-      "n": 212,
+      "n": 215,
       "min": 5000000,
       "max": 11500000,
-      "median": 7000000.0
+      "median": 7000000
     }
   },
   "by_zone": {
@@ -79,10 +79,10 @@
       "median": 10000000.0
     },
     "Sakura": {
-      "n": 118,
+      "n": 119,
       "min": 5500000,
       "max": 18000000,
-      "median": 10000000.0
+      "median": 10000000
     },
     "Sapphire": {
       "n": 246,
@@ -91,10 +91,10 @@
       "median": 9000000.0
     },
     "Sola Park": {
-      "n": 127,
+      "n": 130,
       "min": 5500000,
       "max": 13000000,
-      "median": 9000000
+      "median": 9000000.0
     },
     "Tonkin": {
       "n": 35,
@@ -111,22 +111,22 @@
       "median": 10000000
     },
     "Full nội thất": {
-      "n": 590,
+      "n": 591,
       "min": 5800000,
       "max": 23000000,
-      "median": 11000000.0
+      "median": 11000000
     },
     "Nhà Nguyên Bản": {
-      "n": 253,
+      "n": 254,
       "min": 5000000,
       "max": 17000000,
-      "median": 8500000
+      "median": 8500000.0
     },
     "Đồ Cơ bản": {
-      "n": 197,
+      "n": 199,
       "min": 6000000,
       "max": 17000000,
-      "median": 10000000
+      "median": 9500000
     }
   },
   "zone_type_interior": [
@@ -1016,10 +1016,10 @@
       "zone": "Sakura",
       "type": "Studio",
       "interior": "Full nội thất",
-      "n": 24,
+      "n": 25,
       "min": 6500000,
       "max": 8500000,
-      "median": 7500000.0
+      "median": 7500000
     },
     {
       "zone": "Sakura",
@@ -1259,10 +1259,10 @@
       "zone": "Sola Park",
       "type": "2 Ngủ",
       "interior": "Nhà Nguyên Bản",
-      "n": 26,
+      "n": 27,
       "min": 8000000,
       "max": 10000000,
-      "median": 9000000.0
+      "median": 9000000
     },
     {
       "zone": "Sola Park",
@@ -1331,7 +1331,7 @@
       "zone": "Sola Park",
       "type": "Studio",
       "interior": "Đồ Cơ bản",
-      "n": 3,
+      "n": 5,
       "min": 6000000,
       "max": 6500000,
       "median": 6000000
