@@ -1,13 +1,13 @@
 {
   "updated": "2026-11-20",
   "source": "data.json",
-  "active_count": 1059,
+  "active_count": 1058,
   "min_sample": 3,
   "overall": {
-    "n": 1059,
+    "n": 1058,
     "min": 5000000,
     "max": 23000000,
-    "median": 10000000
+    "median": 10000000.0
   },
   "by_type": {
     "1 Ngủ": {
@@ -41,10 +41,10 @@
       "median": 13000000
     },
     "Studio": {
-      "n": 199,
+      "n": 198,
       "min": 5000000,
       "max": 11500000,
-      "median": 7000000
+      "median": 7000000.0
     }
   },
   "by_zone": {
@@ -79,10 +79,10 @@
       "median": 10000000.0
     },
     "Sakura": {
-      "n": 121,
+      "n": 120,
       "min": 5500000,
       "max": 18000000,
-      "median": 10000000
+      "median": 10000000.0
     },
     "Sapphire": {
       "n": 241,
@@ -111,10 +111,10 @@
       "median": 10000000.0
     },
     "Full nội thất": {
-      "n": 575,
+      "n": 574,
       "min": 5800000,
       "max": 23000000,
-      "median": 11000000
+      "median": 11000000.0
     },
     "Nhà Nguyên Bản": {
       "n": 252,
@@ -1025,10 +1025,10 @@
       "zone": "Sakura",
       "type": "Studio",
       "interior": "Full nội thất",
-      "n": 23,
+      "n": 22,
       "min": 6500000,
       "max": 8500000,
-      "median": 7500000
+      "median": 7500000.0
     },
     {
       "zone": "Sakura",

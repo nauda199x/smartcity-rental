@@ -1692,7 +1692,7 @@
       "area_max": 95,
       "area_min": 25,
       "code": "SA",
-      "count": 80,
+      "count": 79,
       "data_code": "SA",
       "district": "Sakura",
       "first_seen": "2026-10-30",
@@ -1704,16 +1704,16 @@
       "price_min": 5500000,
       "types": [
         {
-          "count": 26,
-          "name": "Studio",
-          "price_max": 8000000,
-          "price_min": 5500000
-        },
-        {
           "count": 25,
           "name": "3 Ngủ",
           "price_max": 18000000,
           "price_min": 10000000
+        },
+        {
+          "count": 25,
+          "name": "Studio",
+          "price_max": 8000000,
+          "price_min": 5500000
         },
         {
           "count": 11,
