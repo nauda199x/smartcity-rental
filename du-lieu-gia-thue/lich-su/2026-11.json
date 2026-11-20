@@ -1,10 +1,10 @@
 {
   "updated": "2026-11-20",
   "source": "data.json",
-  "active_count": 1095,
+  "active_count": 1093,
   "min_sample": 3,
   "overall": {
-    "n": 1095,
+    "n": 1093,
     "min": 5000000,
     "max": 23000000,
     "median": 10000000
@@ -23,28 +23,28 @@
       "median": 8500000.0
     },
     "2 Ngủ": {
-      "n": 299,
+      "n": 298,
       "min": 7000000,
       "max": 16500000,
-      "median": 10500000
+      "median": 10500000.0
     },
     "2 Ngủ +": {
-      "n": 185,
+      "n": 186,
       "min": 7500000,
       "max": 18500000,
-      "median": 11000000
+      "median": 11000000.0
     },
     "3 Ngủ": {
-      "n": 136,
+      "n": 137,
       "min": 8500000,
       "max": 23000000,
-      "median": 13000000.0
+      "median": 13000000
     },
     "Studio": {
-      "n": 218,
+      "n": 215,
       "min": 5000000,
       "max": 11500000,
-      "median": 7000000.0
+      "median": 7000000
     }
   },
   "by_zone": {
@@ -85,16 +85,16 @@
       "median": 10000000.0
     },
     "Sapphire": {
-      "n": 250,
+      "n": 247,
       "min": 5500000,
       "max": 18000000,
-      "median": 9000000.0
+      "median": 9000000
     },
     "Sola Park": {
-      "n": 142,
+      "n": 143,
       "min": 5500000,
       "max": 13000000,
-      "median": 8900000.0
+      "median": 9000000
     },
     "Tonkin": {
       "n": 37,
@@ -111,16 +111,16 @@
       "median": 10000000.0
     },
     "Full nội thất": {
-      "n": 602,
+      "n": 599,
       "min": 5800000,
       "max": 23000000,
-      "median": 11000000.0
+      "median": 11000000
     },
     "Nhà Nguyên Bản": {
-      "n": 257,
+      "n": 258,
       "min": 5000000,
       "max": 17000000,
-      "median": 8500000
+      "median": 8500000.0
     },
     "Đồ Cơ bản": {
       "n": 212,
@@ -1115,10 +1115,10 @@
       "zone": "Sapphire",
       "type": "2 Ngủ",
       "interior": "Full nội thất",
-      "n": 48,
+      "n": 47,
       "min": 8500000,
       "max": 12000000,
-      "median": 9500000.0
+      "median": 9500000
     },
     {
       "zone": "Sapphire",
@@ -1151,10 +1151,10 @@
       "zone": "Sapphire",
       "type": "2 Ngủ +",
       "interior": "Full nội thất",
-      "n": 34,
+      "n": 35,
       "min": 10000000,
       "max": 13000000,
-      "median": 11000000.0
+      "median": 11000000
     },
     {
       "zone": "Sapphire",
@@ -1205,10 +1205,10 @@
       "zone": "Sapphire",
       "type": "Studio",
       "interior": "Full nội thất",
-      "n": 49,
+      "n": 46,
       "min": 5800000,
       "max": 8500000,
-      "median": 7000000
+      "median": 7000000.0
     },
     {
       "zone": "Sapphire",
@@ -1313,10 +1313,10 @@
       "zone": "Sola Park",
       "type": "3 Ngủ",
       "interior": "Nhà Nguyên Bản",
-      "n": 12,
+      "n": 13,
       "min": 10000000,
       "max": 13000000,
-      "median": 11500000.0
+      "median": 12000000
     },
     {
       "zone": "Sola Park",
