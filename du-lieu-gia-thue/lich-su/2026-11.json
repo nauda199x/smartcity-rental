@@ -1,13 +1,13 @@
 {
   "updated": "2026-11-20",
   "source": "data.json",
-  "active_count": 1052,
+  "active_count": 1047,
   "min_sample": 3,
   "overall": {
-    "n": 1052,
+    "n": 1047,
     "min": 5000000,
     "max": 23000000,
-    "median": 10000000.0
+    "median": 10000000
   },
   "by_type": {
     "1 Ngủ": {
@@ -17,22 +17,22 @@
       "median": 9000000.0
     },
     "1 Ngủ +": {
-      "n": 125,
+      "n": 126,
       "min": 7000000,
       "max": 12500000,
-      "median": 8500000
+      "median": 8500000.0
     },
     "2 Ngủ": {
-      "n": 289,
+      "n": 291,
       "min": 7000000,
       "max": 16500000,
       "median": 10500000
     },
     "2 Ngủ +": {
-      "n": 181,
+      "n": 173,
       "min": 7500000,
       "max": 18500000,
-      "median": 11500000
+      "median": 11000000
     },
     "3 Ngủ": {
       "n": 137,
@@ -55,22 +55,22 @@
       "median": 10500000
     },
     "Imperia": {
-      "n": 39,
+      "n": 37,
       "min": 7000000,
       "max": 17500000,
       "median": 10500000
     },
     "Lumiere": {
-      "n": 56,
+      "n": 54,
       "min": 8000000,
       "max": 18000000,
       "median": 12000000.0
     },
     "Masteri": {
-      "n": 186,
+      "n": 185,
       "min": 6500000,
       "max": 23000000,
-      "median": 12000000.0
+      "median": 12000000
     },
     "Miami": {
       "n": 123,
@@ -79,13 +79,13 @@
       "median": 10000000
     },
     "Sakura": {
-      "n": 119,
+      "n": 117,
       "min": 5500000,
       "max": 18000000,
       "median": 10000000
     },
     "Sapphire": {
-      "n": 241,
+      "n": 243,
       "min": 5500000,
       "max": 18000000,
       "median": 9000000
@@ -111,22 +111,22 @@
       "median": 10000000.0
     },
     "Full nội thất": {
-      "n": 571,
+      "n": 566,
       "min": 5800000,
       "max": 23000000,
-      "median": 11000000
+      "median": 11000000.0
     },
     "Nhà Nguyên Bản": {
-      "n": 249,
+      "n": 248,
       "min": 5000000,
       "max": 17000000,
-      "median": 8500000
+      "median": 8500000.0
     },
     "Đồ Cơ bản": {
-      "n": 208,
+      "n": 209,
       "min": 6000000,
       "max": 17000000,
-      "median": 9500000.0
+      "median": 9500000
     }
   },
   "zone_type_interior": [
@@ -314,10 +314,10 @@
       "zone": "Imperia",
       "type": "1 Ngủ +",
       "interior": "Full nội thất",
-      "n": 4,
+      "n": 5,
       "min": 9000000,
       "max": 10500000,
-      "median": 9100000.0
+      "median": 9000000
     },
     {
       "zone": "Imperia",
@@ -359,10 +359,10 @@
       "zone": "Imperia",
       "type": "2 Ngủ +",
       "interior": "Full nội thất",
-      "n": 5,
+      "n": 2,
       "min": 12000000,
-      "max": 15000000,
-      "median": 13500000
+      "max": 12000000,
+      "median": 12000000.0
     },
     {
       "zone": "Imperia",
@@ -494,19 +494,19 @@
       "zone": "Lumiere",
       "type": "2 Ngủ +",
       "interior": "Nhà Nguyên Bản",
-      "n": 2,
+      "n": 1,
       "min": 13000000,
-      "max": 13500000,
-      "median": 13250000.0
+      "max": 13000000,
+      "median": 13000000
     },
     {
       "zone": "Lumiere",
       "type": "2 Ngủ +",
       "interior": "Đồ Cơ bản",
-      "n": 3,
+      "n": 2,
       "min": 12500000,
-      "max": 14000000,
-      "median": 13000000
+      "max": 13000000,
+      "median": 12750000.0
     },
     {
       "zone": "Lumiere",
@@ -629,10 +629,10 @@
       "zone": "Masteri",
       "type": "2 Ngủ +",
       "interior": "Full nội thất",
-      "n": 36,
+      "n": 35,
       "min": 11000000,
       "max": 18500000,
-      "median": 14000000.0
+      "median": 14000000
     },
     {
       "zone": "Masteri",
@@ -944,7 +944,7 @@
       "zone": "Sakura",
       "type": "2 Ngủ +",
       "interior": "Full nội thất",
-      "n": 9,
+      "n": 7,
       "min": 11500000,
       "max": 13000000,
       "median": 12000000
@@ -1124,7 +1124,7 @@
       "zone": "Sapphire",
       "type": "2 Ngủ",
       "interior": "Đồ Cơ bản",
-      "n": 6,
+      "n": 8,
       "min": 7200000,
       "max": 9500000,
       "median": 8000000.0
