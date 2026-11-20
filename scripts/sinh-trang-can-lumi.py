@@ -18,6 +18,33 @@ SITEMAP = ROOT / "sitemap-lumi.xml"
 DOMAIN = "https://timthuesmartcity.com"
 ZALO = "0977923284"
 FALLBACK_OG = "https://timthuesmartcity.com/assets/media/lumi-hero-desktop.jpeg"
+# Web chuyên Lumi: canholumi.com xuất bản bản đồ mã căn → URL để hai web liên kết đúng căn.
+CANHOLUMI = "https://canholumi.com"
+_CANHOLUMI_MAP = None
+
+
+def canholumi_map():
+    global _CANHOLUMI_MAP
+    if _CANHOLUMI_MAP is None:
+        _CANHOLUMI_MAP = {}
+        try:
+            import urllib.request
+            req = urllib.request.Request(CANHOLUMI + "/data/id-url.json", headers={"User-Agent": "timthuesmartcity-build"})
+            with urllib.request.urlopen(req, timeout=20) as r:
+                _CANHOLUMI_MAP = json.loads(r.read().decode("utf-8"))
+        except Exception as e:
+            print("Không tải được bản đồ canholumi.com:", e)
+    return _CANHOLUMI_MAP
+
+
+def canholumi_url(row, typ):
+    m = canholumi_map()
+    for k in (row.get("Mã căn"), row.get("Mã nội bộ")):
+        u = m.get(key(k))
+        if u:
+            return CANHOLUMI + u
+    n = re.search(r"\d", typ or "")
+    return CANHOLUMI + ("/cho-thue/%s-phong-ngu/" % n.group(0) if n else "/")
 
 
 def txt(v):
@@ -166,6 +193,7 @@ def detail_html(row, page_slug, similar, slug_by_id):
     imgs = images(row)
     vids = videos(row)
     url = DOMAIN + "/lumi-hanoi/can-ho/" + page_slug + "/"
+    clumi = canholumi_url(row, typ) if is_active else CANHOLUMI + "/"
 
     if is_active:
         title = "Cho thuê căn hộ %s %s Lumi Hanoi %sm² – %s/tháng" % (typ, tower, area_text, price(p))
@@ -354,6 +382,7 @@ def detail_html(row, page_slug, similar, slug_by_id):
     <a href="/lumi-hanoi/?tower=%(tower_key)s" rel="nofollow">Căn tòa %(tower)s</a>
     <a href="/lumi-hanoi/?type=%(type_slug)s" rel="nofollow">Căn %(type)s</a>
     <a href="/">Xem quỹ căn Vinhomes Smart City</a>
+    <a href="%(clumi)s">%(clumi_text)s</a>
   </div>
 
   <h2 style="font-size:19px;margin-bottom:2px">Căn tương tự</h2>
@@ -363,7 +392,7 @@ def detail_html(row, page_slug, similar, slug_by_id):
 <footer class="chan">
   <div class="khung">
     <p>Tìm Thuê Smart City · Quỹ căn Smart City &amp; Lumi Hanoi · Hotline &amp; Zalo:
-    <a href="tel:+84977923284">0977 923 284</a> · <a href="/lumi-hanoi/">Quay lại bảng hàng Lumi Hanoi</a></p>
+    <a href="tel:+84977923284">0977 923 284</a> · <a href="/lumi-hanoi/">Quay lại bảng hàng Lumi Hanoi</a> · <a href="https://canholumi.com/">Căn Hộ Lumi Hà Nội</a></p>
   </div>
 </footer>
 <a class="zalo-noi" href="https://zalo.me/%(zalo)s" target="_blank" rel="noopener">Nhắn Zalo tư vấn</a>
@@ -381,6 +410,8 @@ def detail_html(row, page_slug, similar, slug_by_id):
         "price": h(price(p)), "interior": h(interior), "move": h(move), "code": h(code),
         "direction": h(direction), "updated": h(updated or "Đang cập nhật"), "zalo": ZALO,
         "tower_key": h(key(tower)), "type_slug": h(slug(typ)), "similar": similar_html,
+        "clumi": h(clumi),
+        "clumi_text": h(("Căn %s trên Căn Hộ Lumi (canholumi.com)" % code) if is_active else "Căn Lumi đang trống trên canholumi.com"),
     }
 
 
