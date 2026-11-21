@@ -136,51 +136,20 @@
       ]
     },
     "GS": {
-      "area_max": 94,
-      "area_min": 28,
+      "area_max": 0,
+      "area_min": 0,
       "code": "GS",
-      "count": 80,
+      "count": 0,
       "data_code": "GS",
       "district": "Miami",
       "first_seen": "2026-10-30",
-      "indexable": true,
-      "last_seen": "2026-11-21",
+      "indexable": false,
+      "last_seen": null,
       "name": "GS Miami",
       "path": "/gs-miami-smart-city/",
-      "price_max": 18000000,
-      "price_min": 5000000,
-      "types": [
-        {
-          "count": 26,
-          "name": "2 Ngủ",
-          "price_max": 15000000,
-          "price_min": 8500000
-        },
-        {
-          "count": 16,
-          "name": "1 Ngủ",
-          "price_max": 11000000,
-          "price_min": 7000000
-        },
-        {
-          "count": 15,
-          "name": "3 Ngủ",
-          "price_max": 18000000,
-          "price_min": 9500000
-        },
-        {
-          "count": 14,
-          "name": "2 Ngủ +",
-          "price_max": 14000000,
-          "price_min": 8200000
-        },
-        {
-          "count": 9,
-          "name": "Studio",
-          "price_max": 8000000,
-          "price_min": 5000000
-        }
-      ]
+      "price_max": 0,
+      "price_min": 0,
+      "types": []
     },
     "GS1": {
       "area_max": 81,
@@ -581,145 +550,52 @@
       ]
     },
     "IMPERIA": {
-      "area_max": 76,
-      "area_min": 28,
+      "area_max": 0,
+      "area_min": 0,
       "code": "IMPERIA",
-      "count": 46,
+      "count": 0,
       "data_code": "Imperia",
       "district": "Imperia",
       "first_seen": "2026-10-30",
-      "indexable": true,
-      "last_seen": "2026-11-21",
+      "indexable": false,
+      "last_seen": null,
       "name": "Imperia Imperia",
       "path": "/imperia-imperia-smart-city/",
-      "price_max": 17500000,
-      "price_min": 6000000,
-      "types": [
-        {
-          "count": 14,
-          "name": "1 Ngủ",
-          "price_max": 13000000,
-          "price_min": 8000000
-        },
-        {
-          "count": 10,
-          "name": "2 Ngủ",
-          "price_max": 12500000,
-          "price_min": 9000000
-        },
-        {
-          "count": 10,
-          "name": "2 Ngủ +",
-          "price_max": 15000000,
-          "price_min": 9500000
-        },
-        {
-          "count": 7,
-          "name": "Studio",
-          "price_max": 7500000,
-          "price_min": 6000000
-        },
-        {
-          "count": 5,
-          "name": "3 Ngủ",
-          "price_max": 17500000,
-          "price_min": 14500000
-        }
-      ]
+      "price_max": 0,
+      "price_min": 0,
+      "types": []
     },
     "LUMIERE": {
-      "area_max": 93,
-      "area_min": 30,
+      "area_max": 0,
+      "area_min": 0,
       "code": "LUMIERE",
-      "count": 102,
+      "count": 0,
       "data_code": "Lumiere",
       "district": "Lumiere",
       "first_seen": "2026-10-30",
-      "indexable": true,
-      "last_seen": "2026-11-21",
+      "indexable": false,
+      "last_seen": null,
       "name": "Lumiere Lumiere",
       "path": "/lumiere-lumiere-smart-city/",
-      "price_max": 27000000,
-      "price_min": 8000000,
-      "types": [
-        {
-          "count": 46,
-          "name": "2 Ngủ",
-          "price_max": 22000000,
-          "price_min": 10500000
-        },
-        {
-          "count": 22,
-          "name": "1 Ngủ",
-          "price_max": 14000000,
-          "price_min": 8500000
-        },
-        {
-          "count": 15,
-          "name": "Studio",
-          "price_max": 12500000,
-          "price_min": 8000000
-        },
-        {
-          "count": 13,
-          "name": "2 Ngủ +",
-          "price_max": 21000000,
-          "price_min": 12500000
-        },
-        {
-          "count": 6,
-          "name": "3 Ngủ",
-          "price_max": 27000000,
-          "price_min": 17000000
-        }
-      ]
+      "price_max": 0,
+      "price_min": 0,
+      "types": []
     },
     "MAS": {
-      "area_max": 80,
-      "area_min": 27,
+      "area_max": 0,
+      "area_min": 0,
       "code": "MAS",
-      "count": 108,
+      "count": 0,
       "data_code": "MAS",
       "district": "Masteri",
       "first_seen": "2026-10-30",
-      "indexable": true,
-      "last_seen": "2026-11-21",
+      "indexable": false,
+      "last_seen": null,
       "name": "MAS Masteri",
       "path": "/mas-masteri-smart-city/",
-      "price_max": 23000000,
-      "price_min": 6500000,
-      "types": [
-        {
-          "count": 35,
-          "name": "1 Ngủ",
-          "price_max": 14000000,
-          "price_min": 8000000
-        },
-        {
-          "count": 24,
-          "name": "2 Ngủ",
-          "price_max": 16000000,
-          "price_min": 10000000
-        },
-        {
-          "count": 23,
-          "name": "2 Ngủ +",
-          "price_max": 18000000,
-          "price_min": 10500000
-        },
-        {
-          "count": 16,
-          "name": "Studio",
-          "price_max": 11500000,
-          "price_min": 6500000
-        },
-        {
-          "count": 10,
-          "name": "3 Ngủ",
-          "price_max": 23000000,
-          "price_min": 12000000
-        }
-      ]
+      "price_max": 0,
+      "price_min": 0,
+      "types": []
     },
     "MASA": {
       "area_max": 79,
@@ -904,51 +780,20 @@
       ]
     },
     "S1": {
-      "area_max": 75,
-      "area_min": 28,
+      "area_max": 0,
+      "area_min": 0,
       "code": "S1",
-      "count": 42,
+      "count": 0,
       "data_code": "S1",
       "district": "Sapphire",
       "first_seen": "2026-10-30",
-      "indexable": true,
-      "last_seen": "2026-11-21",
+      "indexable": false,
+      "last_seen": null,
       "name": "S1 Sapphire",
       "path": "/s1-sapphire-smart-city/",
-      "price_max": 14000000,
-      "price_min": 6000000,
-      "types": [
-        {
-          "count": 14,
-          "name": "Studio",
-          "price_max": 7500000,
-          "price_min": 6000000
-        },
-        {
-          "count": 11,
-          "name": "2 Ngủ +",
-          "price_max": 12000000,
-          "price_min": 8000000
-        },
-        {
-          "count": 9,
-          "name": "2 Ngủ",
-          "price_max": 10500000,
-          "price_min": 8000000
-        },
-        {
-          "count": 6,
-          "name": "1 Ngủ",
-          "price_max": 11000000,
-          "price_min": 8000000
-        },
-        {
-          "count": 2,
-          "name": "3 Ngủ",
-          "price_max": 14000000,
-          "price_min": 13000000
-        }
-      ]
+      "price_max": 0,
+      "price_min": 0,
+      "types": []
     },
     "S101": {
       "area_max": 63,
@@ -1132,51 +977,20 @@
       ]
     },
     "S2": {
-      "area_max": 75,
-      "area_min": 32,
+      "area_max": 0,
+      "area_min": 0,
       "code": "S2",
-      "count": 29,
+      "count": 0,
       "data_code": "S2",
       "district": "Sapphire",
       "first_seen": "2026-10-30",
-      "indexable": true,
-      "last_seen": "2026-11-21",
+      "indexable": false,
+      "last_seen": null,
       "name": "S2 Sapphire",
       "path": "/s2-sapphire-smart-city/",
-      "price_max": 18000000,
-      "price_min": 7200000,
-      "types": [
-        {
-          "count": 12,
-          "name": "2 Ngủ",
-          "price_max": 10500000,
-          "price_min": 7200000
-        },
-        {
-          "count": 7,
-          "name": "2 Ngủ +",
-          "price_max": 13000000,
-          "price_min": 10500000
-        },
-        {
-          "count": 5,
-          "name": "3 Ngủ",
-          "price_max": 18000000,
-          "price_min": 8500000
-        },
-        {
-          "count": 4,
-          "name": "1 Ngủ",
-          "price_max": 9500000,
-          "price_min": 8000000
-        },
-        {
-          "count": 1,
-          "name": "Studio",
-          "price_max": 8000000,
-          "price_min": 8000000
-        }
-      ]
+      "price_max": 0,
+      "price_min": 0,
+      "types": []
     },
     "S201": {
       "area_max": 75,
@@ -1325,51 +1139,20 @@
       ]
     },
     "S3": {
-      "area_max": 94,
-      "area_min": 24,
+      "area_max": 0,
+      "area_min": 0,
       "code": "S3",
-      "count": 39,
+      "count": 0,
       "data_code": "S3",
       "district": "Sapphire",
       "first_seen": "2026-10-30",
-      "indexable": true,
-      "last_seen": "2026-11-21",
+      "indexable": false,
+      "last_seen": null,
       "name": "S3 Sapphire",
       "path": "/s3-sapphire-smart-city/",
-      "price_max": 17000000,
-      "price_min": 5500000,
-      "types": [
-        {
-          "count": 18,
-          "name": "Studio",
-          "price_max": 8500000,
-          "price_min": 5500000
-        },
-        {
-          "count": 8,
-          "name": "2 Ngủ",
-          "price_max": 10500000,
-          "price_min": 8500000
-        },
-        {
-          "count": 7,
-          "name": "2 Ngủ +",
-          "price_max": 12000000,
-          "price_min": 10000000
-        },
-        {
-          "count": 4,
-          "name": "1 Ngủ",
-          "price_max": 9000000,
-          "price_min": 7500000
-        },
-        {
-          "count": 2,
-          "name": "3 Ngủ",
-          "price_max": 17000000,
-          "price_min": 12500000
-        }
-      ]
+      "price_max": 0,
+      "price_min": 0,
+      "types": []
     },
     "S301": {
       "area_max": 80,
@@ -1507,51 +1290,20 @@
       ]
     },
     "S4": {
-      "area_max": 83,
-      "area_min": 24,
+      "area_max": 0,
+      "area_min": 0,
       "code": "S4",
-      "count": 26,
+      "count": 0,
       "data_code": "S4",
       "district": "Sapphire",
       "first_seen": "2026-10-30",
-      "indexable": true,
-      "last_seen": "2026-11-21",
+      "indexable": false,
+      "last_seen": null,
       "name": "S4 Sapphire",
       "path": "/s4-sapphire-smart-city/",
-      "price_max": 14000000,
-      "price_min": 6500000,
-      "types": [
-        {
-          "count": 9,
-          "name": "1 Ngủ",
-          "price_max": 10000000,
-          "price_min": 7000000
-        },
-        {
-          "count": 7,
-          "name": "2 Ngủ",
-          "price_max": 12000000,
-          "price_min": 7500000
-        },
-        {
-          "count": 4,
-          "name": "3 Ngủ",
-          "price_max": 14000000,
-          "price_min": 8500000
-        },
-        {
-          "count": 4,
-          "name": "Studio",
-          "price_max": 7000000,
-          "price_min": 6500000
-        },
-        {
-          "count": 2,
-          "name": "2 Ngủ +",
-          "price_max": 11000000,
-          "price_min": 11000000
-        }
-      ]
+      "price_max": 0,
+      "price_min": 0,
+      "types": []
     },
     "S401": {
       "area_max": 75,
@@ -1683,51 +1435,20 @@
       ]
     },
     "SA": {
-      "area_max": 95,
-      "area_min": 25,
+      "area_max": 0,
+      "area_min": 0,
       "code": "SA",
-      "count": 85,
+      "count": 0,
       "data_code": "SA",
       "district": "Sakura",
       "first_seen": "2026-10-30",
-      "indexable": true,
-      "last_seen": "2026-11-21",
+      "indexable": false,
+      "last_seen": null,
       "name": "SA Sakura",
       "path": "/sa-sakura-smart-city/",
-      "price_max": 18000000,
-      "price_min": 5500000,
-      "types": [
-        {
-          "count": 27,
-          "name": "Studio",
-          "price_max": 8000000,
-          "price_min": 5500000
-        },
-        {
-          "count": 26,
-          "name": "3 Ngủ",
-          "price_max": 18000000,
-          "price_min": 10000000
-        },
-        {
-          "count": 13,
-          "name": "2 Ngủ",
-          "price_max": 13000000,
-          "price_min": 8000000
-        },
-        {
-          "count": 11,
-          "name": "1 Ngủ",
-          "price_max": 10000000,
-          "price_min": 7000000
-        },
-        {
-          "count": 8,
-          "name": "2 Ngủ +",
-          "price_max": 13000000,
-          "price_min": 9000000
-        }
-      ]
+      "price_max": 0,
+      "price_min": 0,
+      "types": []
     },
     "SA1": {
       "area_max": 63,
@@ -1888,51 +1609,20 @@
       ]
     },
     "TC": {
-      "area_max": 81,
-      "area_min": 25,
+      "area_max": 0,
+      "area_min": 0,
       "code": "TC",
-      "count": 68,
+      "count": 0,
       "data_code": "TC",
       "district": "Canopy",
       "first_seen": "2026-10-30",
-      "indexable": true,
-      "last_seen": "2026-11-21",
+      "indexable": false,
+      "last_seen": null,
       "name": "TC Canopy",
       "path": "/tc-canopy-smart-city/",
-      "price_max": 18000000,
-      "price_min": 6000000,
-      "types": [
-        {
-          "count": 20,
-          "name": "2 Ngủ",
-          "price_max": 14000000,
-          "price_min": 9000000
-        },
-        {
-          "count": 17,
-          "name": "Studio",
-          "price_max": 9000000,
-          "price_min": 6000000
-        },
-        {
-          "count": 13,
-          "name": "1 Ngủ",
-          "price_max": 14000000,
-          "price_min": 7500000
-        },
-        {
-          "count": 9,
-          "name": "2 Ngủ +",
-          "price_max": 14000000,
-          "price_min": 9500000
-        },
-        {
-          "count": 9,
-          "name": "3 Ngủ",
-          "price_max": 18000000,
-          "price_min": 12000000
-        }
-      ]
+      "price_max": 0,
+      "price_min": 0,
+      "types": []
     },
     "TC1": {
       "area_max": 80,
@@ -2076,51 +1766,20 @@
       ]
     },
     "TK": {
-      "area_max": 82,
-      "area_min": 25,
+      "area_max": 0,
+      "area_min": 0,
       "code": "TK",
-      "count": 17,
+      "count": 0,
       "data_code": "TK",
       "district": "Tonkin",
       "first_seen": "2026-10-30",
-      "indexable": true,
-      "last_seen": "2026-11-21",
+      "indexable": false,
+      "last_seen": null,
       "name": "TK Tonkin",
       "path": "/tk-tonkin-smart-city/",
-      "price_max": 16500000,
-      "price_min": 6500000,
-      "types": [
-        {
-          "count": 8,
-          "name": "Studio",
-          "price_max": 7500000,
-          "price_min": 6500000
-        },
-        {
-          "count": 3,
-          "name": "1 Ngủ",
-          "price_max": 11000000,
-          "price_min": 9500000
-        },
-        {
-          "count": 2,
-          "name": "2 Ngủ",
-          "price_max": 15000000,
-          "price_min": 13000000
-        },
-        {
-          "count": 2,
-          "name": "2 Ngủ +",
-          "price_max": 12500000,
-          "price_min": 11000000
-        },
-        {
-          "count": 2,
-          "name": "3 Ngủ",
-          "price_max": 16500000,
-          "price_min": 15000000
-        }
-      ]
+      "price_max": 0,
+      "price_min": 0,
+      "types": []
     },
     "TK1": {
       "area_max": 82,
