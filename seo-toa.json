@@ -48,10 +48,10 @@
       ]
     },
     "A2": {
-      "area_max": 80,
+      "area_max": 81,
       "area_min": 30,
       "code": "A2",
-      "count": 17,
+      "count": 18,
       "data_code": "A2",
       "district": "Lumiere",
       "first_seen": "2026-09-10",
@@ -76,15 +76,15 @@
         },
         {
           "count": 2,
+          "name": "3 Ngủ",
+          "price_max": 17000000,
+          "price_min": 16000000
+        },
+        {
+          "count": 2,
           "name": "Studio",
           "price_max": 9000000,
           "price_min": 8000000
-        },
-        {
-          "count": 1,
-          "name": "3 Ngủ",
-          "price_max": 17000000,
-          "price_min": 17000000
         }
       ]
     },
@@ -231,9 +231,9 @@
     },
     "GS2": {
       "area_max": 75,
-      "area_min": 30,
+      "area_min": 28,
       "code": "GS2",
-      "count": 11,
+      "count": 12,
       "data_code": "GS2",
       "district": "Miami",
       "first_seen": "2026-09-10",
@@ -249,6 +249,12 @@
           "name": "2 Ngủ +",
           "price_max": 12000000,
           "price_min": 8000000
+        },
+        {
+          "count": 2,
+          "name": "Studio",
+          "price_max": 7500000,
+          "price_min": 6000000
         },
         {
           "count": 1,
@@ -267,12 +273,6 @@
           "name": "3 Ngủ",
           "price_max": 11000000,
           "price_min": 11000000
-        },
-        {
-          "count": 1,
-          "name": "Studio",
-          "price_max": 6000000,
-          "price_min": 6000000
         }
       ]
     },
@@ -508,7 +508,7 @@
       "area_max": 64,
       "area_min": 43,
       "code": "I4",
-      "count": 6,
+      "count": 7,
       "data_code": "I4",
       "district": "Imperia",
       "first_seen": "2026-09-10",
@@ -527,15 +527,15 @@
         },
         {
           "count": 2,
+          "name": "1 Ngủ +",
+          "price_max": 10000000,
+          "price_min": 9200000
+        },
+        {
+          "count": 2,
           "name": "2 Ngủ +",
           "price_max": 12000000,
           "price_min": 10000000
-        },
-        {
-          "count": 1,
-          "name": "1 Ngủ +",
-          "price_max": 9200000,
-          "price_min": 9200000
         }
       ]
     },
@@ -772,7 +772,7 @@
       "area_max": 79,
       "area_min": 31,
       "code": "MASB",
-      "count": 24,
+      "count": 25,
       "data_code": "MasB",
       "district": "Masteri",
       "first_seen": "2026-09-10",
@@ -784,7 +784,7 @@
       "price_min": 7000000,
       "types": [
         {
-          "count": 8,
+          "count": 9,
           "name": "1 Ngủ +",
           "price_max": 12500000,
           "price_min": 10000000

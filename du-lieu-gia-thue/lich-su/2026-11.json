@@ -1,13 +1,13 @@
 {
   "updated": "2026-11-21",
   "source": "data.json",
-  "active_count": 1032,
+  "active_count": 1039,
   "min_sample": 3,
   "overall": {
-    "n": 1032,
+    "n": 1039,
     "min": 5000000,
     "max": 23000000,
-    "median": 10000000.0
+    "median": 10000000
   },
   "by_type": {
     "1 Ngủ": {
@@ -17,13 +17,13 @@
       "median": 9000000
     },
     "1 Ngủ +": {
-      "n": 125,
+      "n": 128,
       "min": 7000000,
       "max": 12500000,
-      "median": 8000000
+      "median": 8100000.0
     },
     "2 Ngủ": {
-      "n": 283,
+      "n": 285,
       "min": 7000000,
       "max": 16000000,
       "median": 10500000
@@ -35,16 +35,16 @@
       "median": 11000000.0
     },
     "3 Ngủ": {
-      "n": 132,
+      "n": 133,
       "min": 8500000,
       "max": 23000000,
-      "median": 13000000.0
+      "median": 13000000
     },
     "Studio": {
-      "n": 193,
+      "n": 194,
       "min": 5000000,
       "max": 11500000,
-      "median": 7000000
+      "median": 7000000.0
     }
   },
   "by_zone": {
@@ -55,28 +55,28 @@
       "median": 10500000.0
     },
     "Imperia": {
-      "n": 35,
+      "n": 36,
       "min": 7000000,
       "max": 17500000,
-      "median": 10500000
+      "median": 10500000.0
     },
     "Lumiere": {
-      "n": 48,
+      "n": 49,
       "min": 8000000,
       "max": 18000000,
-      "median": 12000000.0
+      "median": 12000000
     },
     "Masteri": {
-      "n": 184,
+      "n": 185,
       "min": 6500000,
       "max": 23000000,
-      "median": 12000000.0
+      "median": 12000000
     },
     "Miami": {
-      "n": 125,
+      "n": 126,
       "min": 5000000,
       "max": 18000000,
-      "median": 10000000
+      "median": 10000000.0
     },
     "Sakura": {
       "n": 119,
@@ -91,10 +91,10 @@
       "median": 9000000
     },
     "Sola Park": {
-      "n": 142,
+      "n": 145,
       "min": 5500000,
       "max": 13000000,
-      "median": 8900000.0
+      "median": 8800000
     },
     "Tonkin": {
       "n": 36,
@@ -111,10 +111,10 @@
       "median": 10000000.0
     },
     "Full nội thất": {
-      "n": 558,
+      "n": 561,
       "min": 5800000,
       "max": 23000000,
-      "median": 11000000.0
+      "median": 11000000
     },
     "Nhà Nguyên Bản": {
       "n": 245,
@@ -123,7 +123,7 @@
       "median": 8500000
     },
     "Đồ Cơ bản": {
-      "n": 205,
+      "n": 209,
       "min": 6000000,
       "max": 17000000,
       "median": 9500000
@@ -314,10 +314,10 @@
       "zone": "Imperia",
       "type": "1 Ngủ +",
       "interior": "Full nội thất",
-      "n": 5,
+      "n": 6,
       "min": 9000000,
       "max": 10500000,
-      "median": 9000000
+      "median": 9100000.0
     },
     {
       "zone": "Imperia",
@@ -512,10 +512,10 @@
       "zone": "Lumiere",
       "type": "3 Ngủ",
       "interior": "Đồ Cơ bản",
-      "n": 1,
-      "min": 17000000,
+      "n": 2,
+      "min": 16000000,
       "max": 17000000,
-      "median": 17000000
+      "median": 16500000.0
     },
     {
       "zone": "Lumiere",
@@ -557,10 +557,10 @@
       "zone": "Masteri",
       "type": "1 Ngủ +",
       "interior": "Full nội thất",
-      "n": 24,
+      "n": 25,
       "min": 9000000,
       "max": 12500000,
-      "median": 11000000.0
+      "median": 11000000
     },
     {
       "zone": "Masteri",
@@ -854,10 +854,10 @@
       "zone": "Miami",
       "type": "Studio",
       "interior": "Full nội thất",
-      "n": 5,
+      "n": 6,
       "min": 6500000,
       "max": 8000000,
-      "median": 7000000
+      "median": 7000000.0
     },
     {
       "zone": "Miami",
@@ -1232,10 +1232,10 @@
       "zone": "Sola Park",
       "type": "1 Ngủ +",
       "interior": "Đồ Cơ bản",
-      "n": 20,
+      "n": 21,
       "min": 7000000,
       "max": 9000000,
-      "median": 7500000.0
+      "median": 7500000
     },
     {
       "zone": "Sola Park",
@@ -1259,7 +1259,7 @@
       "zone": "Sola Park",
       "type": "2 Ngủ",
       "interior": "Đồ Cơ bản",
-      "n": 10,
+      "n": 12,
       "min": 8000000,
       "max": 9500000,
       "median": 9000000.0
