@@ -46,6 +46,7 @@ import argparse
 import importlib.util
 import json
 import os
+import random
 import re
 import sys
 
@@ -121,7 +122,7 @@ THI_TRUONG_KHU = [
 # ===========================================================================
 
 def chon_theo_tran(ung_vien, tran, con_thieu, da_chon_ma):
-    """Duyệt ung_vien (đã sắp giá tăng dần), nhận vào tối đa `tran` căn mỗi
+    """Duyệt ung_vien theo thứ tự đã xáo, nhận vào tối đa `tran` căn mỗi
     tòa, dừng khi đủ `con_thieu` căn hoặc hết ung_vien."""
     ket_qua = []
     dem_toa = {}
@@ -144,8 +145,10 @@ def chon_16_can(cac_can_hien_thi):
     """Trả về (danh sách tối đa SO_CARD căn, có đủ SO_CARD hay không)."""
     co_anh = [r for r in cac_can_hien_thi if anh_bia(r, {})]
     khong_anh = [r for r in cac_can_hien_thi if not anh_bia(r, {})]
-    co_anh.sort(key=lambda r: so_tien(r.get("Giá thuê")))
-    khong_anh.sort(key=lambda r: so_tien(r.get("Giá thuê")))
+    # Cùng ngày và cùng dữ liệu cho cùng thứ tự ở các lượt dựng HTML.
+    thu_tu = random.Random(ngay_hom_nay().isoformat())
+    thu_tu.shuffle(co_anh)
+    thu_tu.shuffle(khong_anh)
 
     da_chon_ma = set()
     ket_qua = chon_theo_tran(co_anh, TRAN_TOA_BAT_DAU, SO_CARD, da_chon_ma)

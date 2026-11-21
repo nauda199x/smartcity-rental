@@ -70,6 +70,12 @@
         hoặc chọn nhanh một nhóm bên dưới.
       </p>
       <a class="cta-home" href="/">Về trang chủ tìm căn đang trống</a>
+      <p id="lumi-moved" hidden>Quỹ căn Lumi Hà Nội đã chuyển sang <a href="https://canholumi.com/">canholumi.com</a>.</p>
+      <script>
+        if (location.pathname.startsWith("/lumi-hanoi/")) {
+          document.getElementById("lumi-moved").hidden = false;
+        }
+      </script>
     </section>
 
     <section class="muc-luc" aria-label="Mục lục danh mục cho thuê">
