@@ -62,6 +62,7 @@ on:
 permissions:
   contents: write
   actions: write
+  pages: write
 
 # SEO, ảnh và video cùng ghi HTML trên main. Dùng chung hàng đợi để không
 # rebase các trang được sinh từ hai snapshot khác nhau; giữ mọi run đang chờ.
@@ -92,7 +93,9 @@ jobs:
       # Khóa snapshot nguồn: không được push HTML cũ nếu data.json đổi
       # trong lúc generator đang chạy (CTV có thể cập nhật mỗi 30 phút).
       - name: Chặn snapshot nguồn chưa ghép CTV
-        run: node scripts/kiem-tra-nguon-seo.mjs
+        run: |
+          node scripts/kiem-tra-nguon-seo.mjs
+          node scripts/validate-listings.mjs
 
       - name: Chốt phiên bản dữ liệu để dựng trang
         run: echo "DATA_HASH_INITIAL=$(sha256sum data.json | cut -d ' ' -f1)" >> "$GITHUB_ENV"
@@ -403,6 +406,7 @@ jobs:
           fi
           if git diff --cached --quiet; then
             echo "Không có gì thay đổi — bỏ qua commit, không tạo commit rác."
+            gh api --method POST "repos/$GITHUB_REPOSITORY/pages/builds" --jq '.status'
             exit 0
           fi
 
@@ -424,6 +428,7 @@ jobs:
             fi
             if git rebase "origin/$NHANH" && git push origin "HEAD:$NHANH"; then
               echo "Đã push thành công."
+              gh api --method POST "repos/$GITHUB_REPOSITORY/pages/builds" --jq '.status'
               exit 0
             fi
             cho=$((2 ** lan))

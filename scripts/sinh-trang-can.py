@@ -77,7 +77,9 @@ NGUONG_TOI_THIEU = 150
 # bước dựng album mặc dù tải 4.239 ảnh WebP thành công. Nâng lên 1.500
 # để hỗ trợ hai nguồn; vẫn giữ giới hạn trên, ngưỡng data tối thiểu,
 # kiểm tra slug trùng/rác và cảnh báo từ 80% trần.
-TOI_DA = 1500
+# 23/11/2026: 1.444 căn đã chạm 96% trần 1.500. Dành dư địa cho
+# quỹ Thu Thảo/An Việt tăng, vẫn có snapshot gate và giới hạn cứng.
+TOI_DA = 3000
 
 # Từ ngưỡng này (tỷ lệ trên TOI_DA) trở lên script vẫn sinh trang bình
 # thường (exit 0) nhưng in thêm một dòng CẢNH BÁO, để thấy trước lúc còn dư
@@ -359,21 +361,28 @@ def ghi_so_dang_ky(so_dang_ky):
         f.write("\n")
 
 
-def can_tuong_tu(slug_hien_tai, toa, phan_khu, loai, active, gioi_han=6):
-    """6 căn cùng tòa; không đủ thì lấy tiếp cùng phân khu + cùng loại.
+def can_tuong_tu(slug_hien_tai, toa, phan_khu, loai, active, gioi_han=6,
+                 gia=0, dien_tich=0):
+    """Gợi ý cùng loại trước, rồi ưu tiên vị trí, ngân sách và diện tích.
 
     `active` là dict slug -> {toa, phan_khu, loai, ...} của các căn ĐANG có
     trang thật (không gợi ý sang căn cũng đã có khách)."""
     ma_toa = chuan_ma_toa(toa)
-    cung_toa = [s for s, c in active.items()
-                if s != slug_hien_tai and chuan_ma_toa(c["toa"]) == ma_toa]
-    con_thieu = gioi_han - len(cung_toa)
-    cung_pk_loai = []
-    if con_thieu > 0:
-        cung_pk_loai = [s for s, c in active.items()
-                        if s != slug_hien_tai and s not in cung_toa
-                        and c["phan_khu"] == phan_khu and c["loai"] == loai]
-    return (cung_toa + cung_pk_loai)[:gioi_han]
+    gia = so_tien(gia)
+    dien_tich = dien_tich_so(dien_tich)
+
+    def diem(item):
+        s, c = item
+        cung_toa = chuan_ma_toa(c["toa"]) == ma_toa
+        cung_khu = c["phan_khu"] == phan_khu
+        lech_gia = abs(so_tien(c.get("gia", 0)) - gia) / gia if gia else 0
+        lech_dt = abs(dien_tich_so(c.get("dien_tich")) - dien_tich) / dien_tich if dien_tich else 0
+        return (not cung_toa, not cung_khu, lech_gia + lech_dt * .5, s)
+
+    # Không chuyển căn Studio/1 ngủ thành gợi ý cho khách cần 3 ngủ.
+    candidates = [(s, c) for s, c in active.items()
+                  if s != slug_hien_tai and c["loai"] == loai]
+    return [s for s, _ in sorted(candidates, key=diem)[:gioi_han]]
 
 
 def dung_the_tuong_tu(s, c):
@@ -580,7 +589,7 @@ def dung_trang_can(can, s, active, hom_nay):
     tieu_de = "Thuê căn hộ %s %s Vinhomes Smart City %dm² – %s | %s" % (
         loai, toa, dt, gia, ma_hien_thi)
     mo_ta = ("Cho thuê căn hộ %s tòa %s phân khu %s Vinhomes Smart City, diện tích "
-              "%dm², %s, giá %s/tháng. %s. Cập nhật %s." % (
+              "%dm², %s, giá %s/tháng. %s. Đăng từ %s." % (
                   loai, toa, phan_khu or toa, dt,
                   noi_that.lower() if noi_that else "nội thất theo mô tả",
                   gia,
@@ -684,14 +693,14 @@ def dung_trang_can(can, s, active, hom_nay):
             "<tr><td>Nội thất</td><td>%s</td></tr>"
             "<tr><td>Giá thuê</td><td>%s/tháng</td></tr>"
             "<tr><td>Ngày vào ở</td><td>%s</td></tr>"
-            "<tr><td>Ngày cập nhật</td><td>%s</td></tr>"
+            "<tr><td>Ngày đăng</td><td>%s</td></tr>"
             "</tbody></table>") % (
         esc(ma_hien_thi), esc(loai), dt, esc(toa), esc(phan_khu or toa), esc(noi_that or "Liên hệ"),
         esc(gia), esc(ngay_vao_o_hien_thi(can, hom_nay)), ngay_xuat_hien_str)
 
     lien_ket = lien_ket_noi_bo(phan_khu, loai, toa, gia_so, noi_that)
 
-    tuong_tu = can_tuong_tu(s, toa, phan_khu, loai, active["ban_do"])
+    tuong_tu = can_tuong_tu(s, toa, phan_khu, loai, active["ban_do"], gia=gia_so, dien_tich=dt)
     tuong_tu_html = ""
     if tuong_tu:
         the_list = "".join(dung_the_tuong_tu(x, active["ban_do"][x]) for x in tuong_tu)
@@ -701,7 +710,7 @@ def dung_trang_can(can, s, active, hom_nay):
 
     than = """  <h1>Cho thuê căn hộ %(loai)s %(dt)dm² tòa %(toa)s – Vinhomes Smart City · Mã %(ma)s</h1>
   <p class="tt">Căn hộ %(loai)s diện tích %(dt)dm² tại tòa %(toa)s, phân khu %(phan_khu)s,
-Vinhomes Smart City. %(noi_that_cau)s Giá thuê %(gia)s/tháng. Cập nhật %(ngay)s.</p>
+Vinhomes Smart City. %(noi_that_cau)s Giá thuê %(gia)s/tháng. Đăng từ %(ngay)s.</p>
 
 %(gallery)s
   <div class="sl">
@@ -810,7 +819,7 @@ def dung_trang_da_thue(s, ho_so, active, hom_nay):
 
     lien_ket = lien_ket_noi_bo(phan_khu, loai, toa, 0, "")
 
-    tuong_tu = can_tuong_tu(s, toa, phan_khu, loai, active["ban_do"])
+    tuong_tu = can_tuong_tu(s, toa, phan_khu, loai, active["ban_do"], gia=ho_so.get("gia", 0), dien_tich=dt)
     tuong_tu_html = "<p>Hiện chưa có căn trống tương tự, mời xem <a href=\"/can-ho/\">toàn bộ căn hộ đang cho thuê</a>.</p>"
     if tuong_tu:
         the_list = "".join(dung_the_tuong_tu(x, active["ban_do"][x]) for x in tuong_tu)

@@ -1,5 +1,13 @@
 # Smart City Design System
 
+## Smart City 2.0 (23/11/2026)
+
+- Hướng thiết kế residential editorial: nền kem, đen xanh, CTA emerald, ảnh thật. Layout hero trang chủ chia cột desktop, xếp dọc gọn trên mobile. Shared CSS ở cuối `assets/v3.css` giữ nguyên hợp đồng class/ID đang dùng.
+- Thanh khám phá phân khu dùng chung state và phép đếm của bộ lọc hiện có; không tạo URL filter indexable mới hoặc tọa độ tòa giả định.
+- `assets/shortlist-v2.js` bổ sung lưu tối đa 30 căn theo URL ổn định, so sánh tối đa 3 căn, sao chép danh sách cho Zalo. Dữ liệu lưu ở trình duyệt khách, giá/tình trạng được ghi chú là snapshot lúc xem.
+- Các thay đổi SEO/chi tiết phải triển khai ở generator, không sửa hàng nghìn trang sinh tự động: gợi ý cùng loại phòng ngủ, ưu tiên cùng tòa/phân khu rồi khoảng giá và diện tích. Ngày đăng không phải ngày xác minh tình trạng gần nhất.
+- Kiểm tra snapshot bằng `node scripts/validate-listings.mjs`; chỉ cho phép trường công khai, mã không trùng trong quỹ đang hiển thị, kiểm tra giá và diện tích trước khi xuất bản.
+
 > Áp dụng cho timthuesmartcity.com. Token nền: `assets/v3.css`, khối **SMART CITY DESIGN SYSTEM V11**. Theme hiện hành và mật độ card: `assets/ngon-ngu.css`.
 
 ## 1. Nguyên tắc
