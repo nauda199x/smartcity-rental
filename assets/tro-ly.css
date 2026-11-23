@@ -251,3 +251,7 @@ body.tro-ly-lock{overflow:hidden}
   }
   .floating-zalo svg{display:none}
 }
+
+/* Keep the assistant header readable with site-wide heading typography. */
+html body .tro-ly-head h3{color:#fff!important;letter-spacing:-.01em!important}
+html body .tro-ly-head p{color:rgba(255,255,255,.88)!important}
