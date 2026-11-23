@@ -1100,7 +1100,7 @@
       "area_max": 64,
       "area_min": 28,
       "code": "S106",
-      "count": 4,
+      "count": 5,
       "data_code": "S106",
       "district": "Sapphire",
       "first_seen": "2026-09-10",
@@ -1118,16 +1118,16 @@
           "price_min": 9000000
         },
         {
+          "count": 2,
+          "name": "Studio",
+          "price_max": 7000000,
+          "price_min": 7000000
+        },
+        {
           "count": 1,
           "name": "1 Ngủ +",
           "price_max": 8000000,
           "price_min": 8000000
-        },
-        {
-          "count": 1,
-          "name": "Studio",
-          "price_max": 7000000,
-          "price_min": 7000000
         }
       ]
     },
@@ -1460,7 +1460,7 @@
       "name": "S3.03",
       "path": "/s3-03-vinhomes-smart-city/",
       "price_max": 11000000,
-      "price_min": 5500000,
+      "price_min": 5000000,
       "types": [
         {
           "count": 3,
@@ -1472,7 +1472,7 @@
           "count": 3,
           "name": "Studio",
           "price_max": 7000000,
-          "price_min": 5500000
+          "price_min": 5000000
         },
         {
           "count": 1,
@@ -1826,7 +1826,7 @@
       "area_max": 75,
       "area_min": 25,
       "code": "SA5",
-      "count": 16,
+      "count": 17,
       "data_code": "SA5",
       "district": "Sakura",
       "first_seen": "2026-09-10",
@@ -1850,7 +1850,7 @@
           "price_min": 5500000
         },
         {
-          "count": 2,
+          "count": 3,
           "name": "1 Ngủ",
           "price_max": 7000000,
           "price_min": 6000000
@@ -1967,7 +1967,7 @@
       "area_max": 73,
       "area_min": 26,
       "code": "TC2",
-      "count": 14,
+      "count": 15,
       "data_code": "TC2",
       "district": "Canopy",
       "first_seen": "2026-09-10",
@@ -1985,16 +1985,16 @@
           "price_min": 9500000
         },
         {
+          "count": 4,
+          "name": "Studio",
+          "price_max": 8000000,
+          "price_min": 6000000
+        },
+        {
           "count": 3,
           "name": "1 Ngủ",
           "price_max": 9000000,
           "price_min": 7000000
-        },
-        {
-          "count": 3,
-          "name": "Studio",
-          "price_max": 8000000,
-          "price_min": 6000000
         },
         {
           "count": 2,
