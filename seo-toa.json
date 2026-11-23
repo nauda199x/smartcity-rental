@@ -186,7 +186,7 @@
       "area_max": 81,
       "area_min": 34,
       "code": "GS1",
-      "count": 13,
+      "count": 12,
       "data_code": "GS1",
       "district": "Miami",
       "first_seen": "2026-09-10",
@@ -222,9 +222,9 @@
           "price_min": 11500000
         },
         {
-          "count": 2,
+          "count": 1,
           "name": "Studio",
-          "price_max": 7000000,
+          "price_max": 5000000,
           "price_min": 5000000
         }
       ]
@@ -522,7 +522,7 @@
         {
           "count": 3,
           "name": "2 Ngủ",
-          "price_max": 10500000,
+          "price_max": 10000000,
           "price_min": 9500000
         },
         {
@@ -866,7 +866,7 @@
       "area_max": 75,
       "area_min": 30,
       "code": "MASD",
-      "count": 16,
+      "count": 15,
       "data_code": "MasD",
       "district": "Masteri",
       "first_seen": "2026-09-10",
@@ -878,7 +878,7 @@
       "price_min": 6500000,
       "types": [
         {
-          "count": 6,
+          "count": 5,
           "name": "1 Ngủ +",
           "price_max": 12000000,
           "price_min": 9000000
@@ -1838,7 +1838,7 @@
       "area_max": 75,
       "area_min": 25,
       "code": "SA5",
-      "count": 14,
+      "count": 15,
       "data_code": "SA5",
       "district": "Sakura",
       "first_seen": "2026-09-10",
@@ -1856,7 +1856,7 @@
           "price_min": 9000000
         },
         {
-          "count": 3,
+          "count": 4,
           "name": "Studio",
           "price_max": 7000000,
           "price_min": 5500000
@@ -2141,7 +2141,7 @@
           "count": 2,
           "name": "2 Ngủ",
           "price_max": 13500000,
-          "price_min": 13500000
+          "price_min": 13000000
         },
         {
           "count": 1,
