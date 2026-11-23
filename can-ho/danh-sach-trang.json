@@ -5247,6 +5247,14 @@
   "phan_khu": "Sola Park",
   "toa": "SolaPark"
  },
+ "cho-thue-can-ho-1-ngu-sola-park-47m2-tt-1n-6461": {
+  "dien_tich": 47,
+  "loai": "1 Ngủ",
+  "ma": "TT.1N.6461",
+  "ngay_xuat_hien": "2026-11-23",
+  "phan_khu": "Sola Park",
+  "toa": "SolaPark"
+ },
  "cho-thue-can-ho-1-ngu-sola-park-48m2-ct-1n-649": {
   "dien_tich": 48,
   "loai": "1 Ngủ +",
@@ -9695,6 +9703,14 @@
   "phan_khu": "Miami",
   "toa": "GS"
  },
+ "cho-thue-can-ho-2-ngu-miami-55m2-tt-2n-6463": {
+  "dien_tich": 55,
+  "loai": "2 Ngủ",
+  "ma": "TT.2N.6463",
+  "ngay_xuat_hien": "2026-11-23",
+  "phan_khu": "Miami",
+  "toa": "GS"
+ },
  "cho-thue-can-ho-2-ngu-miami-61m2-ct-2n2-375": {
   "dien_tich": 61,
   "loai": "2 Ngủ",
@@ -10900,6 +10916,14 @@
   "loai": "2 Ngủ",
   "ma": "TT.2N.6423",
   "ngay_xuat_hien": "2026-11-22",
+  "phan_khu": "Sakura",
+  "toa": "SA"
+ },
+ "cho-thue-can-ho-2-ngu-sakura-62m2-tt-2n-6464": {
+  "dien_tich": 62,
+  "loai": "2 Ngủ",
+  "ma": "TT.2N.6464",
+  "ngay_xuat_hien": "2026-11-23",
   "phan_khu": "Sakura",
   "toa": "SA"
  },
@@ -14791,6 +14815,14 @@
   "phan_khu": "Canopy",
   "toa": "TC"
  },
+ "cho-thue-can-ho-3-ngu-canopy-80m2-tt-3n-6465": {
+  "dien_tich": 80,
+  "loai": "3 Ngủ",
+  "ma": "TT.3N.6465",
+  "ngay_xuat_hien": "2026-11-23",
+  "phan_khu": "Canopy",
+  "toa": "TC"
+ },
  "cho-thue-can-ho-3-ngu-canopy-81m2-ct-3n-205": {
   "dien_tich": 81,
   "loai": "3 Ngủ",
@@ -16732,6 +16764,14 @@
   "loai": "3 Ngủ",
   "ma": "TT.3N.6409",
   "ngay_xuat_hien": "2026-11-21",
+  "phan_khu": "Sola Park",
+  "toa": "SolaPark"
+ },
+ "cho-thue-can-ho-3-ngu-sola-park-75m2-tt-3n-6462": {
+  "dien_tich": 75,
+  "loai": "3 Ngủ",
+  "ma": "TT.3N.6462",
+  "ngay_xuat_hien": "2026-11-23",
   "phan_khu": "Sola Park",
   "toa": "SolaPark"
  },
