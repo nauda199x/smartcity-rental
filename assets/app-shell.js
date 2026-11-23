@@ -178,7 +178,7 @@
   s.async = false;
   document.head.appendChild(s);
   var shortlist = document.createElement("script");
-  shortlist.src = "/assets/shortlist-v2.js?v=20261123-1";
+  shortlist.src = "/assets/shortlist-v2.js?v=20261123-3";
   shortlist.defer = true;
   document.head.appendChild(shortlist);
 })();
