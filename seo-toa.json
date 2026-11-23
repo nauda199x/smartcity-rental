@@ -356,7 +356,7 @@
       "area_max": 80,
       "area_min": 45,
       "code": "GS6",
-      "count": 6,
+      "count": 7,
       "data_code": "GS6",
       "district": "Miami",
       "first_seen": "2026-09-10",
@@ -365,7 +365,7 @@
       "name": "GS6 The Miami",
       "path": "/gs6-the-miami-smart-city/",
       "price_max": 13200000,
-      "price_min": 7500000,
+      "price_min": 7000000,
       "types": [
         {
           "count": 3,
@@ -375,15 +375,15 @@
         },
         {
           "count": 2,
+          "name": "1 Ngủ",
+          "price_max": 7500000,
+          "price_min": 7000000
+        },
+        {
+          "count": 2,
           "name": "3 Ngủ",
           "price_max": 13200000,
           "price_min": 13000000
-        },
-        {
-          "count": 1,
-          "name": "1 Ngủ",
-          "price_max": 7500000,
-          "price_min": 7500000
         }
       ]
     },
@@ -813,7 +813,7 @@
       "area_max": 74,
       "area_min": 27,
       "code": "MASC",
-      "count": 14,
+      "count": 15,
       "data_code": "MasC",
       "district": "Masteri",
       "first_seen": "2026-09-10",
@@ -832,15 +832,15 @@
         },
         {
           "count": 4,
-          "name": "Studio",
-          "price_max": 9000000,
-          "price_min": 8500000
-        },
-        {
-          "count": 3,
           "name": "2 Ngủ +",
           "price_max": 14000000,
           "price_min": 11000000
+        },
+        {
+          "count": 4,
+          "name": "Studio",
+          "price_max": 9000000,
+          "price_min": 8500000
         },
         {
           "count": 1,
