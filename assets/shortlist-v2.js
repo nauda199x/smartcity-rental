@@ -38,7 +38,7 @@
       button.textContent = button.classList.contains("sc-save-inline") ? (on ? "♥ " : "♡ ") + label : on ? "♥" : "♡";
     });
     if (count) count.textContent = String(saved.length);
-    if (trigger) trigger.hidden = !saved.length;
+    if (trigger) trigger.hidden = !saved.length && !trigger.classList.contains("sc-shortlist-in-list");
   }
   function toggle(item) {
     if (isSaved(item.path)) {
@@ -133,7 +133,13 @@
     const head = element("div", "sc-shortlist-head"); const title = element("h2", "", tr("Căn đã lưu & so sánh", "Saved homes & comparison", "저장 및 비교")); title.id = "sc-shortlist-title";
     const close = element("button", "", tr("Đóng", "Close", "닫기")); close.type = "button"; close.addEventListener("click", () => { if (typeof dialog.close === "function") dialog.close(); else dialog.removeAttribute("open"); });
     head.append(title,close); body = element("div"); feedback = element("p", "sc-shortlist-note"); feedback.setAttribute("role", "status"); dialog.append(head,body,feedback);
-    trigger.addEventListener("click", openDialog); document.body.append(trigger,dialog);
+    trigger.addEventListener("click", openDialog);
+    const listHead = document.querySelector("#listingGrid") && document.querySelector(".list-head");
+    if (listHead) {
+      trigger.classList.add("sc-shortlist-in-list");
+      listHead.insertBefore(trigger, listHead.querySelector("#sortSelect"));
+    } else document.body.append(trigger);
+    document.body.append(dialog);
     enhance();
     const container = document.querySelector("#listingGrid, .luoi, main");
     let pending = false;
