@@ -4599,6 +4599,14 @@
   "phan_khu": "Sola Park",
   "toa": "G3"
  },
+ "cho-thue-can-ho-1-ngu-sola-park-43m2-ct-1n-773": {
+  "dien_tich": 43,
+  "loai": "1 Ngủ +",
+  "ma": "CT.1N+.773",
+  "ngay_xuat_hien": "2026-11-23",
+  "phan_khu": "Sola Park",
+  "toa": "G3"
+ },
  "cho-thue-can-ho-1-ngu-sola-park-43m2-tt-1n-5614": {
   "dien_tich": 43,
   "loai": "1 Ngủ",
@@ -5462,6 +5470,14 @@
   "ngay_xuat_hien": "2026-11-23",
   "phan_khu": "Sola Park",
   "toa": "G2"
+ },
+ "cho-thue-can-ho-1-ngu-sola-park-48m2-ct-1n-774": {
+  "dien_tich": 48,
+  "loai": "1 Ngủ +",
+  "ma": "CT.1N+.774",
+  "ngay_xuat_hien": "2026-11-23",
+  "phan_khu": "Sola Park",
+  "toa": "G3"
  },
  "cho-thue-can-ho-1-ngu-sola-park-48m2-tt-1n-5712": {
   "dien_tich": 48,
@@ -7660,6 +7676,14 @@
   "loai": "2 Ngủ +",
   "ma": "CT.2N+.376",
   "ngay_xuat_hien": "2026-10-31",
+  "phan_khu": "Lumiere",
+  "toa": "A3"
+ },
+ "cho-thue-can-ho-2-ngu-lumiere-64m2-ct-2n-443": {
+  "dien_tich": 64,
+  "loai": "2 Ngủ +",
+  "ma": "CT.2N+.443",
+  "ngay_xuat_hien": "2026-11-23",
   "phan_khu": "Lumiere",
   "toa": "A3"
  },
@@ -14719,6 +14743,14 @@
   "phan_khu": "Tonkin",
   "toa": "TK2"
  },
+ "cho-thue-can-ho-2-ngu-tonkin-70m2-ct-2n-444": {
+  "dien_tich": 70,
+  "loai": "2 Ngủ +",
+  "ma": "CT.2N+.444",
+  "ngay_xuat_hien": "2026-11-23",
+  "phan_khu": "Tonkin",
+  "toa": "TK2"
+ },
  "cho-thue-can-ho-2-ngu-tonkin-70m2-tt-2np-5369": {
   "dien_tich": 70,
   "loai": "2 Ngủ +",
@@ -20063,6 +20095,14 @@
   "phan_khu": "Sapphire",
   "toa": "S101"
  },
+ "cho-thue-can-ho-studio-sapphire-31m2-ct-stu-1087": {
+  "dien_tich": 31,
+  "loai": "Studio",
+  "ma": "CT.Stu.1087",
+  "ngay_xuat_hien": "2026-11-23",
+  "phan_khu": "Sapphire",
+  "toa": "S301"
+ },
  "cho-thue-can-ho-studio-sapphire-31m2-ct-stu-771": {
   "dien_tich": 31,
   "loai": "Studio",
@@ -20827,6 +20867,14 @@
   "dien_tich": 32,
   "loai": "Studio",
   "ma": "CT.Stu.1082",
+  "ngay_xuat_hien": "2026-11-23",
+  "phan_khu": "Sola Park",
+  "toa": "G3"
+ },
+ "cho-thue-can-ho-studio-sola-park-32m2-ct-stu-1085": {
+  "dien_tich": 32,
+  "loai": "Studio",
+  "ma": "CT.Stu.1085",
   "ngay_xuat_hien": "2026-11-23",
   "phan_khu": "Sola Park",
   "toa": "G3"
