@@ -177,6 +177,10 @@
   s.src = "/assets/app-shell-core.js?v=20260906-seo4";
   s.async = false;
   document.head.appendChild(s);
+  var shortlist = document.createElement("script");
+  shortlist.src = "/assets/shortlist-v2.js?v=20261123-1";
+  shortlist.defer = true;
+  document.head.appendChild(shortlist);
 })();
 
 /* Chỉ trang gửi thuê mới tải mô-đun video. Trang khác không chịu thêm request. */

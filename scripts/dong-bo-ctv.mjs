@@ -74,10 +74,13 @@ async function fetchTab(tab) {
 function money(v) {
   const s = txt(v).replace(/\s+/g, "").replace(/₫|vnd|triệu|tr|tháng/gi, "");
   if (!s) return 0;
-  if (/^\d{1,3}(?:\.\d{3})+$/.test(s)) return Number(s.replace(/\./g, "")) * 1000;
-  if (/^\d{1,3}(?:,\d{3})+$/.test(s)) return Number(s.replace(/,/g, "")) * 1000;
+  if (/^\d{1,3}(?:\.\d{3})+$/.test(s) || /^\d{1,3}(?:,\d{3})+$/.test(s)) {
+    const n = Number(s.replace(/[.,]/g, ""));
+    return n >= 1000000 ? n : n * 1000;
+  }
   if (/^\d+[,.]\d{1,2}$/.test(s)) return Math.round(Number(s.replace(",", ".")) * 1000000);
-  const n = Number(s.replace(/[^\d]/g, ""));
+  if (!/^\d+$/.test(s)) return 0; // không diễn giải khoảng giá thành một số
+  const n = Number(s);
   if (!Number.isFinite(n) || n <= 0) return 0;
   if (n >= 1000000) return n;
   if (n >= 1000) return n * 1000;

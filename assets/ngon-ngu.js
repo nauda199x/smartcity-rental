@@ -76,6 +76,8 @@
     "nav.consign":    ["List your apartment", "매물 등록"],
     "nav.zalo":       ["Chat on Zalo", "잘로 상담"],
     "nav.main":       ["Main navigation", "메인 메뉴"],
+    "v2.zones":       ["Explore neighborhoods", "단지별 둘러보기"],
+    "v2.map":         ["View map ↗", "지도 보기 ↗"],
     "search.ph":      ["Search by zone, unit code or type (e.g. Sapphire, 2BR, 8 million)",
                        "구역·매물번호·타입 검색 (예: Sapphire, 2BR, 800만)"],
     "search.al":      ["Search apartments by zone, unit code, type or price",

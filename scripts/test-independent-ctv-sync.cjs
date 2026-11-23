@@ -114,8 +114,8 @@ async function simulate({failCtv = false, failThao = false, strictCtv = false, s
   assert.equal(result.writes.length, 0);
 
   const syncYaml = fs.readFileSync(".github/workflows/dong-bo-ctv.yml", "utf8");
-  const photoYaml = fs.readFileSync(".github/workflows/tai-anh-can-ho.yml", "utf8");
+  const photoYaml = fs.readFileSync(".github/workflows/cong-bo-anh-ctv-nhanh.yml", "utf8");
   assert.ok(syncYaml.includes('cron: "*/30 * * * *"'), "CTV 30-minute schedule missing");
-  assert.ok(photoYaml.includes('cron: "7,37 * * * *"'), "Photos 30-minute schedule missing");
+  assert.ok(photoYaml.includes('workflows: ["Đồng bộ quỹ căn từ Sheet CTV"]'), "Quick photo refresh must follow CTV sync");
   console.log("PASS: 2 sources independent, safe fallback, strict checks and 30-minute sync");
 })().catch(error => {console.error(error); process.exitCode = 1;});

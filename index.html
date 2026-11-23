@@ -244,7 +244,7 @@
           <path d="m21 21-4.35-4.35M10.5 18a7.5 7.5 0 1 1 0-15 7.5 7.5 0 0 1 0 15Z" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
         </svg>
         <input id="searchInput" type="search" autocomplete="off"
-               placeholder="Tìm phân khu, mã căn, loại căn… (VD: Sapphire, 2PN, 8 triệu)"
+               placeholder="VD: 2 ngủ, full đồ, dưới 10 triệu"
                aria-label="Tìm căn hộ theo phân khu, mã căn, loại căn hoặc giá"
                data-i18n-ph="search.ph" data-i18n-al="search.al">
         <!-- Bảng gợi ý chỉ bật lên khi khách bấm vào ô tìm, nên không chiếm chỗ cố định
@@ -301,7 +301,7 @@
        Đoạn chữ THẬT là .ntb-doan đầu tiên (chứa #newTodayCount do JS bơm số vào);
        các đoạn sau là bản sao aria-hidden do script ở cuối trang nhân ra cho vòng
        lặp liền mạch — không có đoạn nào ghi cứng số căn. -->
-  <button class="new-today-bar" id="newTodayBar" type="button">
+  <button class="new-today-bar" id="newTodayBar" type="button" hidden>
     <span class="ntb-chay" id="newTodayChay">
       <span class="ntb-doan"><span data-i18n="bar.new1">✨ Hôm nay cập nhật thêm</span> <strong id="newTodayCount">0</strong> <span data-i18n="bar.new2">căn hộ mới toanh — bấm xem ngay kẻo lỡ</span><span class="arrow" aria-hidden="true">→</span></span>
     </span>
@@ -350,6 +350,7 @@
 
     <div class="shell hero-v4__trong">
       <div class="hero-v4__chu">
+        <p class="sc-v2-eyebrow" aria-hidden="true">SMART CITY &nbsp; / &nbsp; TÂY MỖ, HÀ NỘI</p>
         <h1 data-i18n="hero.h1">Cho Thuê Căn Hộ Chung Cư Vinhomes Smart City</h1>
         <p data-i18n="hero.p">Bộ lọc thông minh — tìm nhanh theo giá thuê, loại căn hộ và tình trạng nội thất. Dữ liệu cập nhật liên tục từ thực tế, giúp anh/chị chọn đúng căn ưng ý chỉ trong vài phút.</p>
         <!-- Dấu hiệu dữ liệu sống (V3). 30 phút là chu kỳ THẬT của Apps Script
@@ -489,6 +490,10 @@
       <button class="afs-clear" id="activeFilterClear" type="button" data-i18n="f.clear">Xóa bộ lọc</button>
     </div>
 
+    <section class="sc-zone-explore" aria-label="Khám phá phân khu" id="scZoneExplore" hidden>
+      <div class="sc-zone-head"><div><span>VINHOMES SMART CITY</span><h2 data-i18n="v2.zones">Khám phá theo phân khu</h2></div><a href="https://www.google.com/maps/search/?api=1&amp;query=Vinhomes+Smart+City+Tay+Mo+Ha+Noi" target="_blank" rel="noopener noreferrer" data-i18n="v2.map">Xem bản đồ ↗</a></div>
+      <div class="sc-zone-rail" id="scZoneRail"></div>
+    </section>
 <div class="list-head">
       <div class="result-count" id="resultCount" data-i18n="l.loading"><strong>1444</strong> căn hộ đang trống phù hợp</div>
       <select id="sortSelect" aria-label="Sắp xếp căn hộ" data-i18n-al="l.sortAl">
@@ -1805,7 +1810,12 @@
 
     function bienDichTuKhoa(tuKhoa) {
       if (boNhoTuKhoa.raw === tuKhoa) return boNhoTuKhoa.dieuKien;
-      const cacTu = boDau(tuKhoa).toLowerCase().split(/\s+/).filter(Boolean);
+      const cau = boDau(tuKhoa).toLowerCase();
+      const gia = /(?:\b(duoi|toi da|khong qua|tren|tu)\s+)(\d+(?:[,.]\d+)?)\s*(?:trieu|tr)\b/.exec(cau);
+      const nguong = gia ? Number(gia[2].replace(",", ".")) * 1000000 : null;
+      const cacTu = (gia ? cau.replace(gia[0], " ") : cau)
+        .replace(/[,;]+(?=\s|[a-z]|$)\s*/g, " ")
+        .split(/\s+/).filter(Boolean);
       const dieuKien = cacTu.map(tu => {
         const an = tu.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
         /* Tu bat dau bang CHU SO phai khop TRON VEN ca tu.
@@ -1820,13 +1830,21 @@
           ? new RegExp("(^|[^a-z0-9.,])" + an + "($|[^a-z0-9+])")
           : new RegExp("(^|[^a-z0-9])" + an);
       });
-      boNhoTuKhoa = { raw: tuKhoa, dieuKien };
+      boNhoTuKhoa = { raw: tuKhoa, dieuKien, nguong, toanTu: gia ? gia[1] : "" };
       return dieuKien;
     }
 
     function khopTuKhoa(apartment, tuKhoa) {
       if (!tuKhoa) return true;
       const dieuKien = bienDichTuKhoa(tuKhoa);
+      if (boNhoTuKhoa.nguong !== null) {
+        const gia = boNhoTuKhoa.nguong;
+        const op = boNhoTuKhoa.toanTu;
+        if (op === "duoi" && apartment.price >= gia) return false;
+        if ((op === "toi da" || op === "khong qua") && apartment.price > gia) return false;
+        if (op === "tren" && apartment.price <= gia) return false;
+        if (op === "tu" && apartment.price < gia) return false;
+      }
       if (!dieuKien.length) return true;
       return dieuKien.every(dk => dk.test(apartment.blobTim));
     }
@@ -1936,6 +1954,12 @@
       $("#phanKhuFilters").innerHTML = dsPhanKhu
         .map(muc => veChip(muc, demTheoBoLoc("phanKhu", muc.key), "data-phankhu", state.phanKhu === muc.key))
         .join("");
+      const rail = $("#scZoneRail");
+      if (rail) {
+        rail.innerHTML = dsPhanKhu.filter(muc => muc.key !== "all")
+          .map(muc => veChip(muc, demTheoBoLoc("phanKhu", muc.key), "data-phankhu", state.phanKhu === muc.key)).join("");
+        $("#scZoneExplore").hidden = !rail.childElementCount;
+      }
 
       const chipLoaiCan = typeFilters
         .map(muc => veChip(muc, demTheoBoLoc("type", muc.key), "data-type", state.type === muc.key))
@@ -1964,6 +1988,7 @@
         });
       };
       ganSuKien("#phanKhuFilters", "phankhu", "phanKhu");
+      if (rail) ganSuKien("#scZoneRail", "phankhu", "phanKhu");
       ganSuKien("#typeFilters", "type", "type");
       if ($("#quickTypeFilters")) {
         ganSuKien("#quickTypeFilters", "type", "type");
@@ -2357,6 +2382,7 @@
     function renderNewTodayBar() {
       const soCanMoiHomNay = state.apartments.filter(item => item.show && laThemVaoHomNay(item.addedAt)).length;
       const bar = $("#newTodayBar");
+      bar.hidden = soCanMoiHomNay === 0;
       if (soCanMoiHomNay > 0) {
         $("#newTodayCount").textContent = soCanMoiHomNay;
         bar.classList.add("show");

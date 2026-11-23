@@ -4,6 +4,11 @@ on:
   pull_request:
     paths:
       - "scripts/dong-bo-ctv.mjs"
+      - "scripts/validate-listings.mjs"
+      - "scripts/test-smartcity-v2.mjs"
+      - "scripts/test-smartcity-related.py"
+      - "assets/shortlist-v2.js"
+      - "assets/v3.css"
       - "dong-bo-can.js"
       - "index.html"
       - "scripts/dung-lai-trang-chu.py"
@@ -23,6 +28,7 @@ on:
     paths:
       - "data.json"
       - "scripts/dong-bo-ctv.mjs"
+      - "scripts/validate-listings.mjs"
       - "scripts/quet-thu-muc-anh.py"
       - ".github/workflows/dong-bo-ctv.yml"
   schedule:
@@ -59,6 +65,9 @@ jobs:
           node scripts/test-sola-park-filter.cjs
           node scripts/test-ma-can-thu-thao.cjs
           node scripts/test-independent-ctv-sync.cjs
+          node scripts/test-smartcity-v2.mjs
+          node --check assets/shortlist-v2.js
+          python3 scripts/test-smartcity-related.py
           node --check scripts/cap-nhat-so-can.mjs
           python3 -m py_compile scripts/sinh-danh-sach-anh.py scripts/dung-lai-trang-chu.py scripts/sinh-trang-toa.py scripts/sinh-trang-can.py scripts/ma_can_hien_thi.py
           python3 scripts/test-ma-can-thu-thao.py
@@ -94,6 +103,7 @@ jobs:
             git reset --hard origin/main
 
             node scripts/dong-bo-ctv.mjs
+            node scripts/validate-listings.mjs
             git add data.json
 
             if git diff --cached --quiet; then
@@ -102,7 +112,7 @@ jobs:
               # Khi workflow vừa được chỉnh hoặc chạy thủ công, yêu cầu Pages
               # phục vụ snapshot main hiện tại dù data.json đã khớp.
               if [ "$GITHUB_EVENT_NAME" = "push" ] || [ "$GITHUB_EVENT_NAME" = "workflow_dispatch" ]; then
-                gh api --method POST "repos/$GITHUB_REPOSITORY/pages/builds" --jq '.status'
+                gh workflow run cap-nhat-so-can.yml --ref main
               fi
               exit 0
             fi
@@ -110,8 +120,7 @@ jobs:
             git commit -m "Tự động đồng bộ quỹ căn từ Sheet CTV"
             if git push origin HEAD:main; then
               echo "Đã cập nhật data.json từ Sheet CTV."
-              # GITHUB_TOKEN push không tự kích hoạt GitHub Pages.
-              gh api --method POST "repos/$GITHUB_REPOSITORY/pages/builds" --jq '.status'
+              # Chỉ yêu cầu build Pages sau khi generator SEO hoàn tất snapshot.
               # GITHUB_TOKEN push khong kich hoat workflow push khac.
               # workflow_dispatch duoc GitHub cho phep: dung HTML chi tiet ngay
               # sau khi gia, tinh trang can ho trong data.json thay doi.
