@@ -1826,7 +1826,7 @@
       "area_max": 75,
       "area_min": 25,
       "code": "SA5",
-      "count": 19,
+      "count": 21,
       "data_code": "SA5",
       "district": "Sakura",
       "first_seen": "2026-09-10",
@@ -1838,10 +1838,10 @@
       "price_min": 5500000,
       "types": [
         {
-          "count": 9,
+          "count": 10,
           "name": "2 Ngủ",
           "price_max": 12000000,
-          "price_min": 9000000
+          "price_min": 8500000
         },
         {
           "count": 5,
@@ -1850,7 +1850,7 @@
           "price_min": 5500000
         },
         {
-          "count": 3,
+          "count": 4,
           "name": "1 Ngủ",
           "price_max": 7000000,
           "price_min": 6000000
@@ -1940,7 +1940,7 @@
         {
           "count": 3,
           "name": "2 Ngủ",
-          "price_max": 14000000,
+          "price_max": 12000000,
           "price_min": 12000000
         },
         {
@@ -2155,7 +2155,7 @@
       "area_max": 83,
       "area_min": 25,
       "code": "TK2",
-      "count": 12,
+      "count": 11,
       "data_code": "TK2",
       "district": "Tonkin",
       "first_seen": "2026-09-10",
@@ -2173,7 +2173,7 @@
           "price_min": 11000000
         },
         {
-          "count": 4,
+          "count": 3,
           "name": "Studio",
           "price_max": 8000000,
           "price_min": 7000000
