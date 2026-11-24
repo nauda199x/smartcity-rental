@@ -1,6 +1,6 @@
 {
   "cho-thue-1pn-canopy-smart-city": {
-    "count": 19,
+    "count": 20,
     "created": "2026-09-10",
     "indexable": true,
     "loai": "1 Ngủ",
@@ -24,7 +24,7 @@
     "updated": "2026-11-24"
   },
   "cho-thue-1pn-masteri-smart-city": {
-    "count": 35,
+    "count": 36,
     "created": "2026-10-30",
     "indexable": true,
     "loai": "1 Ngủ",
@@ -96,7 +96,7 @@
     "updated": "2026-11-24"
   },
   "cho-thue-1pn-sapphire-smart-city": {
-    "count": 26,
+    "count": 27,
     "created": "2026-10-30",
     "indexable": true,
     "loai": "1 Ngủ",
@@ -112,7 +112,7 @@
     "updated": "2026-11-24"
   },
   "cho-thue-2pn-canopy-smart-city": {
-    "count": 32,
+    "count": 35,
     "created": "2026-08-30",
     "indexable": true,
     "loai": "2 Ngủ",
@@ -200,7 +200,7 @@
     "updated": "2026-11-24"
   },
   "cho-thue-2pn-plus-sapphire-smart-city": {
-    "count": 47,
+    "count": 48,
     "created": "2026-08-30",
     "indexable": true,
     "loai": "2 Ngủ +",
@@ -208,7 +208,7 @@
     "updated": "2026-11-24"
   },
   "cho-thue-2pn-plus-tonkin-smart-city": {
-    "count": 4,
+    "count": 5,
     "created": "2026-11-23",
     "indexable": true,
     "loai": "2 Ngủ +",
