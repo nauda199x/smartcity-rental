@@ -4671,6 +4671,14 @@
   "phan_khu": "Sola Park",
   "toa": "G3"
  },
+ "cho-thue-can-ho-1-ngu-sola-park-43m2-ct-1n-778": {
+  "dien_tich": 43,
+  "loai": "1 Ngủ +",
+  "ma": "CT.1N+.778",
+  "ngay_xuat_hien": "2026-11-24",
+  "phan_khu": "Sola Park",
+  "toa": "G3"
+ },
  "cho-thue-can-ho-1-ngu-sola-park-43m2-tt-1n-5614": {
   "dien_tich": 43,
   "loai": "1 Ngủ",
@@ -5836,6 +5844,14 @@
   "loai": "2 Ngủ",
   "ma": "CT.2N2.538",
   "ngay_xuat_hien": "2026-11-06",
+  "phan_khu": "Canopy",
+  "toa": "TC2"
+ },
+ "cho-thue-can-ho-2-ngu-canopy-61m2-ct-2n2-615": {
+  "dien_tich": 61,
+  "loai": "2 Ngủ",
+  "ma": "CT.2N2.615",
+  "ngay_xuat_hien": "2026-11-24",
   "phan_khu": "Canopy",
   "toa": "TC2"
  },
@@ -9263,6 +9279,22 @@
   "phan_khu": "Masteri",
   "toa": "MasC"
  },
+ "cho-thue-can-ho-2-ngu-masteri-62m2-ct-2n-446": {
+  "dien_tich": 62,
+  "loai": "2 Ngủ +",
+  "ma": "CT.2N+.446",
+  "ngay_xuat_hien": "2026-11-24",
+  "phan_khu": "Masteri",
+  "toa": "MasD"
+ },
+ "cho-thue-can-ho-2-ngu-masteri-62m2-ct-2n-447": {
+  "dien_tich": 62,
+  "loai": "2 Ngủ +",
+  "ma": "CT.2N+.447",
+  "ngay_xuat_hien": "2026-11-24",
+  "phan_khu": "Masteri",
+  "toa": "MasD"
+ },
  "cho-thue-can-ho-2-ngu-masteri-62m2-ct-2n2-320": {
   "dien_tich": 62,
   "loai": "2 Ngủ",
@@ -10868,6 +10900,14 @@
   "loai": "2 Ngủ",
   "ma": "CT.2N2.600",
   "ngay_xuat_hien": "2026-11-20",
+  "phan_khu": "Sakura",
+  "toa": "SA5"
+ },
+ "cho-thue-can-ho-2-ngu-sakura-54m2-ct-2n2-613": {
+  "dien_tich": 54,
+  "loai": "2 Ngủ",
+  "ma": "CT.2N2.613",
+  "ngay_xuat_hien": "2026-11-24",
   "phan_khu": "Sakura",
   "toa": "SA5"
  },
@@ -14311,6 +14351,14 @@
   "phan_khu": "Sola Park",
   "toa": "SolaPark"
  },
+ "cho-thue-can-ho-2-ngu-sola-park-62m2-ct-2n2-614": {
+  "dien_tich": 62,
+  "loai": "2 Ngủ",
+  "ma": "CT.2N2.614",
+  "ngay_xuat_hien": "2026-11-24",
+  "phan_khu": "Sola Park",
+  "toa": "G3"
+ },
  "cho-thue-can-ho-2-ngu-sola-park-63m2-ct-2n-406": {
   "dien_tich": 63,
   "loai": "2 Ngủ +",
@@ -15062,6 +15110,14 @@
   "ngay_xuat_hien": "2026-11-23",
   "phan_khu": "Canopy",
   "toa": "TC1"
+ },
+ "cho-thue-can-ho-3-ngu-canopy-80m2-ct-3n-243": {
+  "dien_tich": 80,
+  "loai": "3 Ngủ",
+  "ma": "CT.3N.243",
+  "ngay_xuat_hien": "2026-11-24",
+  "phan_khu": "Canopy",
+  "toa": "TC2"
  },
  "cho-thue-can-ho-3-ngu-canopy-80m2-tt-3n-4256": {
   "dien_tich": 80,

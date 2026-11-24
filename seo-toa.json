@@ -860,7 +860,7 @@
       "area_max": 75,
       "area_min": 30,
       "code": "MASD",
-      "count": 14,
+      "count": 16,
       "data_code": "MasD",
       "district": "Masteri",
       "first_seen": "2026-09-10",
@@ -872,16 +872,16 @@
       "price_min": 6500000,
       "types": [
         {
+          "count": 6,
+          "name": "2 Ngủ +",
+          "price_max": 16000000,
+          "price_min": 12000000
+        },
+        {
           "count": 5,
           "name": "1 Ngủ +",
           "price_max": 11000000,
           "price_min": 9000000
-        },
-        {
-          "count": 4,
-          "name": "2 Ngủ +",
-          "price_max": 16000000,
-          "price_min": 13000000
         },
         {
           "count": 4,
@@ -1826,7 +1826,7 @@
       "area_max": 75,
       "area_min": 25,
       "code": "SA5",
-      "count": 18,
+      "count": 19,
       "data_code": "SA5",
       "district": "Sakura",
       "first_seen": "2026-09-10",
@@ -1838,7 +1838,7 @@
       "price_min": 5500000,
       "types": [
         {
-          "count": 8,
+          "count": 9,
           "name": "2 Ngủ",
           "price_max": 12000000,
           "price_min": 9000000
@@ -1964,10 +1964,10 @@
       ]
     },
     "TC2": {
-      "area_max": 73,
+      "area_max": 80,
       "area_min": 26,
       "code": "TC2",
-      "count": 16,
+      "count": 18,
       "data_code": "TC2",
       "district": "Canopy",
       "first_seen": "2026-09-10",
@@ -1979,7 +1979,7 @@
       "price_min": 6000000,
       "types": [
         {
-          "count": 6,
+          "count": 7,
           "name": "2 Ngủ",
           "price_max": 13000000,
           "price_min": 9500000
@@ -2007,6 +2007,12 @@
           "name": "1 Ngủ +",
           "price_max": 10500000,
           "price_min": 10500000
+        },
+        {
+          "count": 1,
+          "name": "3 Ngủ",
+          "price_max": 10000000,
+          "price_min": 10000000
         }
       ]
     },
