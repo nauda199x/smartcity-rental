@@ -51,7 +51,7 @@
       "area_max": 81,
       "area_min": 30,
       "code": "A2",
-      "count": 18,
+      "count": 19,
       "data_code": "A2",
       "district": "Lumiere",
       "first_seen": "2026-09-10",
@@ -81,9 +81,9 @@
           "price_min": 16000000
         },
         {
-          "count": 1,
+          "count": 2,
           "name": "Studio",
-          "price_max": 9000000,
+          "price_max": 9500000,
           "price_min": 9000000
         }
       ]
@@ -766,7 +766,7 @@
       "area_max": 79,
       "area_min": 31,
       "code": "MASB",
-      "count": 24,
+      "count": 25,
       "data_code": "MasB",
       "district": "Masteri",
       "first_seen": "2026-09-10",
@@ -784,16 +784,16 @@
           "price_min": 10000000
         },
         {
+          "count": 6,
+          "name": "2 Ngủ +",
+          "price_max": 18500000,
+          "price_min": 14000000
+        },
+        {
           "count": 5,
           "name": "2 Ngủ",
           "price_max": 14500000,
           "price_min": 12000000
-        },
-        {
-          "count": 5,
-          "name": "2 Ngủ +",
-          "price_max": 18500000,
-          "price_min": 14000000
         },
         {
           "count": 3,
@@ -1826,7 +1826,7 @@
       "area_max": 75,
       "area_min": 25,
       "code": "SA5",
-      "count": 17,
+      "count": 18,
       "data_code": "SA5",
       "district": "Sakura",
       "first_seen": "2026-09-10",
@@ -1838,9 +1838,9 @@
       "price_min": 5500000,
       "types": [
         {
-          "count": 7,
+          "count": 8,
           "name": "2 Ngủ",
-          "price_max": 12500000,
+          "price_max": 12000000,
           "price_min": 9000000
         },
         {

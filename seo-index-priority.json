@@ -10,7 +10,7 @@
       "url": "/",
       "label": "Trang thuê Smart City",
       "reason": "landing chính cho cụm từ khóa thuê Smart City",
-      "inbound_pages": 1626,
+      "inbound_pages": 1630,
       "exists": true,
       "indexable": true,
       "self_canonical": true,
@@ -20,7 +20,7 @@
       "url": "/can-ho/",
       "label": "Căn hộ đang cho thuê",
       "reason": "hub URL chi tiết căn active",
-      "inbound_pages": 1573,
+      "inbound_pages": 1577,
       "exists": true,
       "indexable": true,
       "self_canonical": true,
@@ -30,7 +30,7 @@
       "url": "/studio/",
       "label": "Thuê Studio",
       "reason": "intent theo loại căn",
-      "inbound_pages": 1614,
+      "inbound_pages": 1618,
       "exists": true,
       "indexable": true,
       "self_canonical": true,
@@ -50,7 +50,7 @@
       "url": "/1pn-plus/",
       "label": "Thuê 1PN+",
       "reason": "intent theo loại căn",
-      "inbound_pages": 1614,
+      "inbound_pages": 1618,
       "exists": true,
       "indexable": true,
       "self_canonical": true,
@@ -60,7 +60,7 @@
       "url": "/2pn/",
       "label": "Thuê 2PN",
       "reason": "intent theo loại căn",
-      "inbound_pages": 1614,
+      "inbound_pages": 1618,
       "exists": true,
       "indexable": true,
       "self_canonical": true,
@@ -70,7 +70,7 @@
       "url": "/2pn-plus/",
       "label": "Thuê 2PN+",
       "reason": "intent theo loại căn",
-      "inbound_pages": 293,
+      "inbound_pages": 294,
       "exists": true,
       "indexable": true,
       "self_canonical": true,
@@ -80,7 +80,7 @@
       "url": "/3pn/",
       "label": "Thuê 3PN",
       "reason": "intent theo loại căn",
-      "inbound_pages": 1614,
+      "inbound_pages": 1618,
       "exists": true,
       "indexable": true,
       "self_canonical": true,
@@ -90,7 +90,7 @@
       "url": "/bang-gia-thue-vinhomes-smart-city.html",
       "label": "Bảng giá thuê",
       "reason": "intent giá thuê có dữ liệu thực tế",
-      "inbound_pages": 1616,
+      "inbound_pages": 1620,
       "exists": true,
       "indexable": true,
       "self_canonical": true,
@@ -110,7 +110,7 @@
       "url": "/masteri/",
       "label": "Thuê Masteri West Heights",
       "reason": "phân khu có quỹ căn active lớn",
-      "inbound_pages": 241,
+      "inbound_pages": 242,
       "exists": true,
       "indexable": true,
       "self_canonical": true,
@@ -120,7 +120,7 @@
       "url": "/lumiere/",
       "label": "Thuê Lumière Evergreen",
       "reason": "phân khu có quỹ căn active lớn",
-      "inbound_pages": 212,
+      "inbound_pages": 213,
       "exists": true,
       "indexable": true,
       "self_canonical": true,
@@ -140,7 +140,7 @@
       "url": "/sakura/",
       "label": "Thuê The Sakura",
       "reason": "phân khu có quỹ căn active lớn",
-      "inbound_pages": 181,
+      "inbound_pages": 182,
       "exists": true,
       "indexable": true,
       "self_canonical": true,
@@ -232,8 +232,8 @@
       "url": "/west-b-masteri-smart-city/",
       "label": "West B Masteri",
       "district": "Masteri",
-      "inventory": 24,
-      "inbound_pages": 36
+      "inventory": 25,
+      "inbound_pages": 37
     },
     {
       "url": "/a1-lumiere-evergreen/",
@@ -263,6 +263,15 @@
       "inbound_pages": 13
     },
     {
+      "url": "/can-ho/cho-thue-can-ho-studio-lumiere-30m2-ct-stu-1091/",
+      "first_seen": "2026-11-24",
+      "code": "CT.Stu.1091",
+      "tower": "A2",
+      "type": "Studio",
+      "district": "Lumiere",
+      "inbound_pages": 8
+    },
+    {
       "url": "/can-ho/cho-thue-can-ho-studio-imperia-28m2-ct-stu-1089/",
       "first_seen": "2026-11-24",
       "code": "CT.Stu.1089",
@@ -281,6 +290,15 @@
       "inbound_pages": 10
     },
     {
+      "url": "/can-ho/cho-thue-can-ho-2-ngu-sola-park-54m2-ct-2n2-610/",
+      "first_seen": "2026-11-24",
+      "code": "CT.2N2.610",
+      "tower": "G2",
+      "type": "2 Ngủ",
+      "district": "Sola Park",
+      "inbound_pages": 9
+    },
+    {
       "url": "/can-ho/cho-thue-can-ho-2-ngu-sola-park-54m2-ct-2n2-608/",
       "first_seen": "2026-11-24",
       "code": "CT.2N2.608",
@@ -288,6 +306,24 @@
       "type": "2 Ngủ",
       "district": "Sola Park",
       "inbound_pages": 9
+    },
+    {
+      "url": "/can-ho/cho-thue-can-ho-2-ngu-sakura-62m2-ct-2n2-611/",
+      "first_seen": "2026-11-24",
+      "code": "CT.2N2.611",
+      "tower": "SA5",
+      "type": "2 Ngủ",
+      "district": "Sakura",
+      "inbound_pages": 13
+    },
+    {
+      "url": "/can-ho/cho-thue-can-ho-2-ngu-masteri-63m2-ct-2n-445/",
+      "first_seen": "2026-11-24",
+      "code": "CT.2N+.445",
+      "tower": "MasB",
+      "type": "2 Ngủ +",
+      "district": "Masteri",
+      "inbound_pages": 11
     },
     {
       "url": "/can-ho/cho-thue-can-ho-2-ngu-masteri-54m2-ct-2n2-609/",
@@ -387,50 +423,14 @@
       "type": "Studio",
       "district": "Sapphire",
       "inbound_pages": 10
-    },
-    {
-      "url": "/can-ho/cho-thue-can-ho-studio-sakura-32m2-ct-stu-1078/",
-      "first_seen": "2026-11-23",
-      "code": "CT.Stu.1078",
-      "tower": "SA5",
-      "type": "Studio",
-      "district": "Sakura",
-      "inbound_pages": 12
-    },
-    {
-      "url": "/can-ho/cho-thue-can-ho-studio-sakura-25m2-ct-stu-1077/",
-      "first_seen": "2026-11-23",
-      "code": "CT.Stu.1077",
-      "tower": "SA5",
-      "type": "Studio",
-      "district": "Sakura",
-      "inbound_pages": 12
-    },
-    {
-      "url": "/can-ho/cho-thue-can-ho-studio-canopy-35m2-tt-st-6473/",
-      "first_seen": "2026-11-23",
-      "code": "TT.ST.6473",
-      "tower": "TC",
-      "type": "Studio",
-      "district": "Canopy",
-      "inbound_pages": 11
-    },
-    {
-      "url": "/can-ho/cho-thue-can-ho-studio-canopy-30m2-tt-st-6467/",
-      "first_seen": "2026-11-23",
-      "code": "TT.ST.6467",
-      "tower": "TC",
-      "type": "Studio",
-      "district": "Canopy",
-      "inbound_pages": 13
     }
   ],
   "district_inventory": {
     "Sapphire": 234,
-    "Masteri": 184,
-    "Lumiere": 156,
+    "Masteri": 185,
+    "Lumiere": 157,
     "Miami": 132,
-    "Sakura": 127,
+    "Sakura": 128,
     "Canopy": 117,
     "Imperia": 87,
     "Tonkin": 36
