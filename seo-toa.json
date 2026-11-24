@@ -1328,7 +1328,7 @@
       "area_max": 94,
       "area_min": 24,
       "code": "S3",
-      "count": 38,
+      "count": 39,
       "data_code": "S3",
       "district": "Sapphire",
       "first_seen": "2026-10-30",
@@ -1340,7 +1340,7 @@
       "price_min": 5500000,
       "types": [
         {
-          "count": 16,
+          "count": 17,
           "name": "Studio",
           "price_max": 8500000,
           "price_min": 5500000
