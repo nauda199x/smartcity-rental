@@ -40,7 +40,7 @@
       "url": "/1pn/",
       "label": "Thuê 1PN",
       "reason": "intent theo loại căn",
-      "inbound_pages": 302,
+      "inbound_pages": 303,
       "exists": true,
       "indexable": true,
       "self_canonical": true,
@@ -110,7 +110,7 @@
       "url": "/masteri/",
       "label": "Thuê Masteri West Heights",
       "reason": "phân khu có quỹ căn active lớn",
-      "inbound_pages": 251,
+      "inbound_pages": 250,
       "exists": true,
       "indexable": true,
       "self_canonical": true,
@@ -169,7 +169,7 @@
       "url": "/lumiere-lumiere-smart-city/",
       "label": "Lumiere Lumiere",
       "district": "Lumiere",
-      "inventory": 99,
+      "inventory": 98,
       "inbound_pages": 11
     },
     {
@@ -239,7 +239,7 @@
       "url": "/a1-lumiere-evergreen/",
       "label": "A1 Lumière",
       "district": "Lumiere",
-      "inventory": 21,
+      "inventory": 22,
       "inbound_pages": 11
     }
   ],
@@ -305,7 +305,7 @@
       "tower": "MasC",
       "type": "Studio",
       "district": "Masteri",
-      "inbound_pages": 11
+      "inbound_pages": 10
     },
     {
       "url": "/can-ho/cho-thue-can-ho-studio-masteri-29m2-tt-st-6513/",
@@ -427,12 +427,12 @@
   ],
   "district_inventory": {
     "Sapphire": 238,
-    "Masteri": 194,
+    "Masteri": 193,
     "Lumiere": 152,
     "Sakura": 132,
     "Miami": 130,
     "Canopy": 126,
-    "Imperia": 88,
+    "Imperia": 87,
     "Tonkin": 36
   },
   "summary": {
