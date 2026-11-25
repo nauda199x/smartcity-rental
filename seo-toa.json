@@ -813,7 +813,7 @@
       "area_max": 74,
       "area_min": 27,
       "code": "MASC",
-      "count": 17,
+      "count": 18,
       "data_code": "MasC",
       "district": "Masteri",
       "first_seen": "2026-09-10",
@@ -843,7 +843,7 @@
           "price_min": 8500000
         },
         {
-          "count": 2,
+          "count": 3,
           "name": "2 Ngủ",
           "price_max": 13000000,
           "price_min": 12500000
@@ -1375,7 +1375,7 @@
       "area_max": 80,
       "area_min": 25,
       "code": "S301",
-      "count": 12,
+      "count": 13,
       "data_code": "S301",
       "district": "Sapphire",
       "first_seen": "2026-09-10",
@@ -1387,7 +1387,7 @@
       "price_min": 5500000,
       "types": [
         {
-          "count": 5,
+          "count": 6,
           "name": "Studio",
           "price_max": 8000000,
           "price_min": 5500000
@@ -2114,7 +2114,7 @@
       "area_max": 82,
       "area_min": 25,
       "code": "TK1",
-      "count": 8,
+      "count": 7,
       "data_code": "TK1",
       "district": "Tonkin",
       "first_seen": "2026-09-10",
@@ -2126,7 +2126,7 @@
       "price_min": 7000000,
       "types": [
         {
-          "count": 4,
+          "count": 3,
           "name": "Studio",
           "price_max": 7500000,
           "price_min": 7000000
@@ -2155,7 +2155,7 @@
       "area_max": 83,
       "area_min": 25,
       "code": "TK2",
-      "count": 11,
+      "count": 10,
       "data_code": "TK2",
       "district": "Tonkin",
       "first_seen": "2026-09-10",
@@ -2164,7 +2164,7 @@
       "name": "TK2 Tonkin",
       "path": "/tk2-tonkin-smart-city/",
       "price_max": 15000000,
-      "price_min": 7000000,
+      "price_min": 7800000,
       "types": [
         {
           "count": 4,
@@ -2173,16 +2173,16 @@
           "price_min": 11000000
         },
         {
-          "count": 3,
-          "name": "Studio",
-          "price_max": 8000000,
-          "price_min": 7000000
-        },
-        {
           "count": 2,
           "name": "2 Ngủ +",
           "price_max": 14500000,
           "price_min": 12000000
+        },
+        {
+          "count": 2,
+          "name": "Studio",
+          "price_max": 8000000,
+          "price_min": 7800000
         },
         {
           "count": 1,
