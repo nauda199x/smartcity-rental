@@ -663,7 +663,7 @@
         {
           "count": 13,
           "name": "2 Ngủ +",
-          "price_max": 21000000,
+          "price_max": 18500000,
           "price_min": 12500000
         },
         {
@@ -933,7 +933,7 @@
         {
           "count": 9,
           "name": "2 Ngủ",
-          "price_max": 10500000,
+          "price_max": 10000000,
           "price_min": 8000000
         },
         {
@@ -1106,7 +1106,7 @@
       "area_max": 64,
       "area_min": 28,
       "code": "S106",
-      "count": 5,
+      "count": 6,
       "data_code": "S106",
       "district": "Sapphire",
       "first_seen": "2026-09-10",
@@ -1134,6 +1134,12 @@
           "name": "1 Ngủ +",
           "price_max": 8000000,
           "price_min": 8000000
+        },
+        {
+          "count": 1,
+          "name": "2 Ngủ",
+          "price_max": 9500000,
+          "price_min": 9500000
         }
       ]
     },
@@ -1724,10 +1730,10 @@
       ]
     },
     "SA1": {
-      "area_max": 54,
+      "area_max": 63,
       "area_min": 28,
       "code": "SA1",
-      "count": 5,
+      "count": 6,
       "data_code": "SA1",
       "district": "Sakura",
       "first_seen": "2026-09-10",
@@ -1749,6 +1755,12 @@
           "name": "2 Ngủ",
           "price_max": 11000000,
           "price_min": 11000000
+        },
+        {
+          "count": 1,
+          "name": "2 Ngủ +",
+          "price_max": 10000000,
+          "price_min": 10000000
         }
       ]
     },
