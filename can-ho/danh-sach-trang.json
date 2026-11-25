@@ -2663,6 +2663,14 @@
   "phan_khu": "Masteri",
   "toa": "MasB"
  },
+ "cho-thue-can-ho-1-ngu-masteri-47m2-ct-1n-784": {
+  "dien_tich": 47,
+  "loai": "1 Ngủ +",
+  "ma": "CT.1N+.784",
+  "ngay_xuat_hien": "2026-11-25",
+  "phan_khu": "Masteri",
+  "toa": "MasD"
+ },
  "cho-thue-can-ho-1-ngu-masteri-47m2-tt-1n-4223": {
   "dien_tich": 47,
   "loai": "1 Ngủ",
@@ -3310,6 +3318,14 @@
   "ngay_xuat_hien": "2026-11-17",
   "phan_khu": "Sakura",
   "toa": "SA3"
+ },
+ "cho-thue-can-ho-1-ngu-sakura-43m2-ct-1n-782": {
+  "dien_tich": 43,
+  "loai": "1 Ngủ +",
+  "ma": "CT.1N+.782",
+  "ngay_xuat_hien": "2026-11-25",
+  "phan_khu": "Sakura",
+  "toa": "SA2"
  },
  "cho-thue-can-ho-1-ngu-sakura-43m2-tt-1n-2313": {
   "dien_tich": 43,
@@ -4743,6 +4759,14 @@
   "phan_khu": "Sola Park",
   "toa": "G2"
  },
+ "cho-thue-can-ho-1-ngu-sola-park-43m2-ct-1n-783": {
+  "dien_tich": 43,
+  "loai": "1 Ngủ +",
+  "ma": "CT.1N+.783",
+  "ngay_xuat_hien": "2026-11-25",
+  "phan_khu": "Sola Park",
+  "toa": "G2"
+ },
  "cho-thue-can-ho-1-ngu-sola-park-43m2-tt-1n-5614": {
   "dien_tich": 43,
   "loai": "1 Ngủ",
@@ -5691,6 +5715,14 @@
   "dien_tich": 48,
   "loai": "1 Ngủ +",
   "ma": "CT.1N+.780",
+  "ngay_xuat_hien": "2026-11-25",
+  "phan_khu": "Sola Park",
+  "toa": "G2"
+ },
+ "cho-thue-can-ho-1-ngu-sola-park-48m2-ct-1n-785": {
+  "dien_tich": 48,
+  "loai": "1 Ngủ +",
+  "ma": "CT.1N+.785",
   "ngay_xuat_hien": "2026-11-25",
   "phan_khu": "Sola Park",
   "toa": "G2"
@@ -13479,6 +13511,14 @@
   "phan_khu": "Sapphire",
   "toa": "S205"
  },
+ "cho-thue-can-ho-2-ngu-sapphire-64m2-ct-2n-457": {
+  "dien_tich": 64,
+  "loai": "2 Ngủ +",
+  "ma": "CT.2N+.457",
+  "ngay_xuat_hien": "2026-11-25",
+  "phan_khu": "Sapphire",
+  "toa": "S105"
+ },
  "cho-thue-can-ho-2-ngu-sapphire-64m2-ct-2n2-366": {
   "dien_tich": 64,
   "loai": "2 Ngủ",
@@ -18031,6 +18071,14 @@
   "phan_khu": "Imperia",
   "toa": "I3"
  },
+ "cho-thue-can-ho-studio-imperia-28m2-ct-stu-1097": {
+  "dien_tich": 28,
+  "loai": "Studio",
+  "ma": "CT.Stu.1097",
+  "ngay_xuat_hien": "2026-11-25",
+  "phan_khu": "Imperia",
+  "toa": "I4"
+ },
  "cho-thue-can-ho-studio-imperia-28m2-ct-stu-808": {
   "dien_tich": 28,
   "loai": "Studio",
@@ -18174,6 +18222,14 @@
   "ngay_xuat_hien": "2026-11-24",
   "phan_khu": "Imperia",
   "toa": "Imperia"
+ },
+ "cho-thue-can-ho-studio-imperia-32m2-ct-stu-1096": {
+  "dien_tich": 32,
+  "loai": "Studio",
+  "ma": "CT.Stu.1096",
+  "ngay_xuat_hien": "2026-11-25",
+  "phan_khu": "Imperia",
+  "toa": "I5"
  },
  "cho-thue-can-ho-studio-imperia-32m2-ct-stu-828": {
   "dien_tich": 32,
