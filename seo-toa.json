@@ -813,7 +813,7 @@
       "area_max": 74,
       "area_min": 27,
       "code": "MASC",
-      "count": 18,
+      "count": 19,
       "data_code": "MasC",
       "district": "Masteri",
       "first_seen": "2026-09-10",
@@ -831,16 +831,16 @@
           "price_min": 8000000
         },
         {
+          "count": 5,
+          "name": "Studio",
+          "price_max": 9000000,
+          "price_min": 8000000
+        },
+        {
           "count": 4,
           "name": "2 Ngủ +",
           "price_max": 14000000,
           "price_min": 11000000
-        },
-        {
-          "count": 4,
-          "name": "Studio",
-          "price_max": 9000000,
-          "price_min": 8500000
         },
         {
           "count": 3,
@@ -1375,7 +1375,7 @@
       "area_max": 80,
       "area_min": 25,
       "code": "S301",
-      "count": 13,
+      "count": 14,
       "data_code": "S301",
       "district": "Sapphire",
       "first_seen": "2026-09-10",
@@ -1387,7 +1387,7 @@
       "price_min": 5500000,
       "types": [
         {
-          "count": 6,
+          "count": 7,
           "name": "Studio",
           "price_max": 8000000,
           "price_min": 5500000
