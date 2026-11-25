@@ -1,10 +1,10 @@
 {
   "updated": "2026-11-25",
   "source": "data.json",
-  "active_count": 1110,
+  "active_count": 1114,
   "min_sample": 3,
   "overall": {
-    "n": 1110,
+    "n": 1114,
     "min": 5000000,
     "max": 23000000,
     "median": 10000000.0
@@ -29,30 +29,30 @@
       "median": 10500000.0
     },
     "2 Ngủ +": {
-      "n": 180,
+      "n": 184,
       "min": 7500000,
       "max": 18500000,
       "median": 11000000.0
     },
     "3 Ngủ": {
-      "n": 137,
+      "n": 138,
       "min": 8500000,
       "max": 23000000,
-      "median": 13000000
+      "median": 13000000.0
     },
     "Studio": {
-      "n": 211,
+      "n": 210,
       "min": 5000000,
       "max": 11500000,
-      "median": 7000000
+      "median": 7000000.0
     }
   },
   "by_zone": {
     "Canopy": {
-      "n": 128,
+      "n": 127,
       "min": 6000000,
       "max": 18000000,
-      "median": 10000000.0
+      "median": 10000000
     },
     "Imperia": {
       "n": 38,
@@ -68,7 +68,7 @@
     },
     "Masteri": {
       "n": 189,
-      "min": 6500000,
+      "min": 6000000,
       "max": 23000000,
       "median": 12000000
     },
@@ -91,10 +91,10 @@
       "median": 9000000.0
     },
     "Sola Park": {
-      "n": 163,
+      "n": 168,
       "min": 6000000,
       "max": 14000000,
-      "median": 9000000
+      "median": 9000000.0
     },
     "Tonkin": {
       "n": 36,
@@ -111,10 +111,10 @@
       "median": 10000000
     },
     "Full nội thất": {
-      "n": 605,
+      "n": 604,
       "min": 5800000,
       "max": 23000000,
-      "median": 11000000
+      "median": 11000000.0
     },
     "Nhà Nguyên Bản": {
       "n": 246,
@@ -123,10 +123,10 @@
       "median": 8500000.0
     },
     "Đồ Cơ bản": {
-      "n": 234,
+      "n": 239,
       "min": 6000000,
       "max": 17000000,
-      "median": 9000000.0
+      "median": 9500000
     }
   },
   "zone_type_interior": [
@@ -287,10 +287,10 @@
       "zone": "Canopy",
       "type": "Studio",
       "interior": "Full nội thất",
-      "n": 23,
+      "n": 22,
       "min": 7500000,
       "max": 9000000,
-      "median": 8000000
+      "median": 8000000.0
     },
     {
       "zone": "Canopy",
@@ -711,7 +711,7 @@
       "type": "Studio",
       "interior": "Đồ Cơ bản",
       "n": 9,
-      "min": 6500000,
+      "min": 6000000,
       "max": 7500000,
       "median": 7000000
     },
@@ -1295,7 +1295,7 @@
       "zone": "Sola Park",
       "type": "2 Ngủ +",
       "interior": "Đồ Cơ bản",
-      "n": 14,
+      "n": 18,
       "min": 9500000,
       "max": 12000000,
       "median": 10000000.0
@@ -1322,10 +1322,10 @@
       "zone": "Sola Park",
       "type": "3 Ngủ",
       "interior": "Đồ Cơ bản",
-      "n": 3,
+      "n": 4,
       "min": 11000000,
       "max": 12000000,
-      "median": 11000000
+      "median": 11500000.0
     },
     {
       "zone": "Sola Park",
