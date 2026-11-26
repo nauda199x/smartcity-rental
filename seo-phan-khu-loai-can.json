@@ -16,7 +16,7 @@
     "updated": "2026-11-26"
   },
   "cho-thue-1pn-lumiere-smart-city": {
-    "count": 32,
+    "count": 33,
     "created": "2026-08-30",
     "indexable": true,
     "loai": "1 Ngủ",
@@ -128,7 +128,7 @@
     "updated": "2026-11-26"
   },
   "cho-thue-2pn-lumiere-smart-city": {
-    "count": 70,
+    "count": 69,
     "created": "2026-08-30",
     "indexable": true,
     "loai": "2 Ngủ",
@@ -352,7 +352,7 @@
     "updated": "2026-11-26"
   },
   "cho-thue-studio-sapphire-smart-city": {
-    "count": 59,
+    "count": 60,
     "created": "2026-08-30",
     "indexable": true,
     "loai": "Studio",

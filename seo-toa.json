@@ -4,7 +4,7 @@
       "area_max": 75,
       "area_min": 30,
       "code": "A1",
-      "count": 23,
+      "count": 24,
       "data_code": "A1",
       "district": "Lumiere",
       "first_seen": "2026-09-16",
@@ -16,7 +16,7 @@
       "price_min": 8000000,
       "types": [
         {
-          "count": 9,
+          "count": 10,
           "name": "1 Ngủ",
           "price_max": 13000000,
           "price_min": 8500000
@@ -637,7 +637,7 @@
       "area_max": 93,
       "area_min": 30,
       "code": "LUMIERE",
-      "count": 93,
+      "count": 92,
       "data_code": "Lumiere",
       "district": "Lumiere",
       "first_seen": "2026-10-30",
@@ -649,7 +649,7 @@
       "price_min": 8000000,
       "types": [
         {
-          "count": 47,
+          "count": 46,
           "name": "2 Ngủ",
           "price_max": 22000000,
           "price_min": 10500000
@@ -1387,7 +1387,7 @@
       "area_max": 80,
       "area_min": 25,
       "code": "S301",
-      "count": 12,
+      "count": 13,
       "data_code": "S301",
       "district": "Sapphire",
       "first_seen": "2026-09-10",
@@ -1399,7 +1399,7 @@
       "price_min": 5500000,
       "types": [
         {
-          "count": 6,
+          "count": 7,
           "name": "Studio",
           "price_max": 8000000,
           "price_min": 5500000
