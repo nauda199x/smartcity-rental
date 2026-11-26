@@ -321,7 +321,7 @@
       "area_max": 82,
       "area_min": 45,
       "code": "GS5",
-      "count": 10,
+      "count": 11,
       "data_code": "GS5",
       "district": "Miami",
       "first_seen": "2026-09-10",
@@ -333,7 +333,7 @@
       "price_min": 7000000,
       "types": [
         {
-          "count": 6,
+          "count": 7,
           "name": "2 Ngủ",
           "price_max": 13500000,
           "price_min": 8500000
@@ -406,13 +406,13 @@
       "name": "I1 Imperia",
       "path": "/i1-imperia-smart-city/",
       "price_max": 17500000,
-      "price_min": 7500000,
+      "price_min": 7000000,
       "types": [
         {
           "count": 4,
           "name": "1 Ngủ +",
           "price_max": 9000000,
-          "price_min": 7500000
+          "price_min": 7000000
         },
         {
           "count": 4,
@@ -1569,7 +1569,7 @@
       "area_max": 75,
       "area_min": 25,
       "code": "S401",
-      "count": 8,
+      "count": 9,
       "data_code": "S401",
       "district": "Sapphire",
       "first_seen": "2026-09-10",
@@ -1578,8 +1578,14 @@
       "name": "S4.01",
       "path": "/s4-01-vinhomes-smart-city/",
       "price_max": 14000000,
-      "price_min": 6700000,
+      "price_min": 6300000,
       "types": [
+        {
+          "count": 3,
+          "name": "Studio",
+          "price_max": 7000000,
+          "price_min": 6300000
+        },
         {
           "count": 2,
           "name": "1 Ngủ +",
@@ -1591,12 +1597,6 @@
           "name": "3 Ngủ",
           "price_max": 14000000,
           "price_min": 8500000
-        },
-        {
-          "count": 2,
-          "name": "Studio",
-          "price_max": 7000000,
-          "price_min": 6700000
         },
         {
           "count": 1,
