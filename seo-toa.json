@@ -145,7 +145,7 @@
       "area_max": 82,
       "area_min": 27,
       "code": "GS",
-      "count": 71,
+      "count": 72,
       "data_code": "GS",
       "district": "Miami",
       "first_seen": "2026-10-30",
@@ -157,7 +157,7 @@
       "price_min": 5000000,
       "types": [
         {
-          "count": 25,
+          "count": 26,
           "name": "2 Ngủ",
           "price_max": 15000000,
           "price_min": 8500000
@@ -643,7 +643,7 @@
       "area_max": 93,
       "area_min": 30,
       "code": "LUMIERE",
-      "count": 94,
+      "count": 95,
       "data_code": "Lumiere",
       "district": "Lumiere",
       "first_seen": "2026-10-30",
@@ -679,10 +679,10 @@
           "price_min": 8000000
         },
         {
-          "count": 4,
+          "count": 5,
           "name": "3 Ngủ",
           "price_max": 27000000,
-          "price_min": 17000000
+          "price_min": 16000000
         }
       ]
     },
