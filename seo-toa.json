@@ -477,9 +477,9 @@
     },
     "I3": {
       "area_max": 64,
-      "area_min": 28,
+      "area_min": 31,
       "code": "I3",
-      "count": 5,
+      "count": 4,
       "data_code": "I3",
       "district": "Imperia",
       "first_seen": "2026-09-10",
@@ -488,14 +488,8 @@
       "name": "I3 Imperia",
       "path": "/i3-imperia-smart-city/",
       "price_max": 14000000,
-      "price_min": 6500000,
+      "price_min": 7500000,
       "types": [
-        {
-          "count": 2,
-          "name": "Studio",
-          "price_max": 7500000,
-          "price_min": 6500000
-        },
         {
           "count": 1,
           "name": "1 Ngủ +",
@@ -513,6 +507,12 @@
           "name": "2 Ngủ +",
           "price_max": 14000000,
           "price_min": 14000000
+        },
+        {
+          "count": 1,
+          "name": "Studio",
+          "price_max": 7500000,
+          "price_min": 7500000
         }
       ]
     },

@@ -1,13 +1,13 @@
 {
   "updated": "2026-11-27",
   "source": "data.json",
-  "active_count": 1182,
+  "active_count": 1181,
   "min_sample": 3,
   "overall": {
-    "n": 1182,
+    "n": 1181,
     "min": 5000000,
     "max": 23000000,
-    "median": 9500000.0
+    "median": 9500000
   },
   "by_type": {
     "1 Ngủ": {
@@ -41,10 +41,10 @@
       "median": 13000000.0
     },
     "Studio": {
-      "n": 216,
+      "n": 215,
       "min": 5000000,
       "max": 11500000,
-      "median": 7000000.0
+      "median": 7000000
     }
   },
   "by_zone": {
@@ -55,10 +55,10 @@
       "median": 10500000.0
     },
     "Imperia": {
-      "n": 44,
-      "min": 6500000,
+      "n": 43,
+      "min": 7000000,
       "max": 17500000,
-      "median": 10000000.0
+      "median": 10000000
     },
     "Lumiere": {
       "n": 62,
@@ -111,10 +111,10 @@
       "median": 9250000.0
     },
     "Full nội thất": {
-      "n": 617,
+      "n": 616,
       "min": 5800000,
       "max": 23000000,
-      "median": 10500000
+      "median": 10500000.0
     },
     "Nhà Nguyên Bản": {
       "n": 247,
@@ -395,10 +395,10 @@
       "zone": "Imperia",
       "type": "Studio",
       "interior": "Full nội thất",
-      "n": 6,
-      "min": 6500000,
+      "n": 5,
+      "min": 7000000,
       "max": 7500000,
-      "median": 7250000.0
+      "median": 7500000
     },
     {
       "zone": "Lumiere",
