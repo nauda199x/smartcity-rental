@@ -1,10 +1,10 @@
 {
   "updated": "2026-11-27",
   "source": "data.json",
-  "active_count": 1167,
+  "active_count": 1163,
   "min_sample": 3,
   "overall": {
-    "n": 1167,
+    "n": 1163,
     "min": 5000000,
     "max": 23000000,
     "median": 9500000
@@ -23,7 +23,7 @@
       "median": 8000000
     },
     "2 Ngủ": {
-      "n": 319,
+      "n": 315,
       "min": 7000000,
       "max": 16000000,
       "median": 10000000
@@ -55,10 +55,10 @@
       "median": 10000000
     },
     "Imperia": {
-      "n": 40,
+      "n": 39,
       "min": 6500000,
       "max": 17500000,
-      "median": 10000000.0
+      "median": 10000000
     },
     "Lumiere": {
       "n": 59,
@@ -67,10 +67,10 @@
       "median": 12000000
     },
     "Masteri": {
-      "n": 189,
+      "n": 186,
       "min": 6000000,
       "max": 23000000,
-      "median": 12000000
+      "median": 12000000.0
     },
     "Miami": {
       "n": 126,
@@ -88,7 +88,7 @@
       "n": 252,
       "min": 5000000,
       "max": 17000000,
-      "median": 8600000.0
+      "median": 8550000.0
     },
     "Sola Park": {
       "n": 205,
@@ -111,7 +111,7 @@
       "median": 9650000.0
     },
     "Full nội thất": {
-      "n": 614,
+      "n": 610,
       "min": 5800000,
       "max": 23000000,
       "median": 11000000.0
@@ -332,10 +332,10 @@
       "zone": "Imperia",
       "type": "2 Ngủ",
       "interior": "Full nội thất",
-      "n": 12,
+      "n": 11,
       "min": 9500000,
       "max": 12000000,
-      "median": 11000000.0
+      "median": 11000000
     },
     {
       "zone": "Imperia",
@@ -611,10 +611,10 @@
       "zone": "Masteri",
       "type": "2 Ngủ",
       "interior": "Full nội thất",
-      "n": 32,
+      "n": 29,
       "min": 12000000,
       "max": 16000000,
-      "median": 13000000.0
+      "median": 13000000
     },
     {
       "zone": "Masteri",

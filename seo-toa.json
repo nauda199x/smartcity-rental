@@ -438,7 +438,7 @@
       "area_max": 63,
       "area_min": 31,
       "code": "I2",
-      "count": 6,
+      "count": 5,
       "data_code": "I2",
       "district": "Imperia",
       "first_seen": "2026-09-10",
@@ -450,7 +450,7 @@
       "price_min": 7000000,
       "types": [
         {
-          "count": 3,
+          "count": 2,
           "name": "2 Ngủ",
           "price_max": 12000000,
           "price_min": 8000000
@@ -743,7 +743,7 @@
       "area_max": 79,
       "area_min": 35,
       "code": "MASA",
-      "count": 20,
+      "count": 19,
       "data_code": "MasA",
       "district": "Masteri",
       "first_seen": "2026-09-10",
@@ -761,7 +761,7 @@
           "price_min": 8500000
         },
         {
-          "count": 6,
+          "count": 5,
           "name": "2 Ngủ",
           "price_max": 14000000,
           "price_min": 12000000
@@ -790,7 +790,7 @@
       "area_max": 79,
       "area_min": 31,
       "code": "MASB",
-      "count": 26,
+      "count": 24,
       "data_code": "MasB",
       "district": "Masteri",
       "first_seen": "2026-09-10",
@@ -814,9 +814,9 @@
           "price_min": 13000000
         },
         {
-          "count": 5,
+          "count": 3,
           "name": "2 Ngủ",
-          "price_max": 14500000,
+          "price_max": 14000000,
           "price_min": 12000000
         },
         {
@@ -1390,7 +1390,7 @@
         {
           "count": 5,
           "name": "1 Ngủ",
-          "price_max": 9000000,
+          "price_max": 8500000,
           "price_min": 7200000
         },
         {
