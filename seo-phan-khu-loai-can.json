@@ -40,7 +40,7 @@
     "updated": "2026-11-27"
   },
   "cho-thue-1pn-plus-imperia-smart-city": {
-    "count": 9,
+    "count": 10,
     "created": "2026-08-30",
     "indexable": true,
     "loai": "1 Ngủ +",
@@ -160,7 +160,7 @@
     "updated": "2026-11-27"
   },
   "cho-thue-2pn-plus-imperia-smart-city": {
-    "count": 16,
+    "count": 17,
     "created": "2026-08-30",
     "indexable": true,
     "loai": "2 Ngủ +",
@@ -256,7 +256,7 @@
     "updated": "2026-11-27"
   },
   "cho-thue-3pn-lumiere-smart-city": {
-    "count": 8,
+    "count": 9,
     "created": "2026-08-30",
     "indexable": true,
     "loai": "3 Ngủ",
@@ -360,7 +360,7 @@
     "updated": "2026-11-27"
   },
   "cho-thue-studio-tonkin-smart-city": {
-    "count": 14,
+    "count": 13,
     "created": "2026-09-04",
     "indexable": true,
     "loai": "Studio",
