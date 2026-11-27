@@ -3559,6 +3559,14 @@
   "phan_khu": "Sakura",
   "toa": "SA"
  },
+ "cho-thue-can-ho-1-ngu-sakura-47m2-tt-1n-6588": {
+  "dien_tich": 47,
+  "loai": "1 Ngủ",
+  "ma": "TT.1N.6588",
+  "ngay_xuat_hien": "2026-11-27",
+  "phan_khu": "Sakura",
+  "toa": "SA"
+ },
  "cho-thue-can-ho-1-ngu-sakura-48m2-cc16": {
   "dien_tich": 48,
   "loai": "1 Ngủ +",
@@ -4380,6 +4388,22 @@
   "loai": "1 Ngủ",
   "ma": "TT.1N.6426",
   "ngay_xuat_hien": "2026-11-22",
+  "phan_khu": "Sapphire",
+  "toa": "S1"
+ },
+ "cho-thue-can-ho-1-ngu-sapphire-43m2-tt-1n-6580": {
+  "dien_tich": 43,
+  "loai": "1 Ngủ",
+  "ma": "TT.1N.6580",
+  "ngay_xuat_hien": "2026-11-27",
+  "phan_khu": "Sapphire",
+  "toa": "S3"
+ },
+ "cho-thue-can-ho-1-ngu-sapphire-43m2-tt-1n-6591": {
+  "dien_tich": 43,
+  "loai": "1 Ngủ",
+  "ma": "TT.1N.6591",
+  "ngay_xuat_hien": "2026-11-27",
   "phan_khu": "Sapphire",
   "toa": "S1"
  },
@@ -5503,6 +5527,22 @@
   "phan_khu": "Sola Park",
   "toa": "SolaPark"
  },
+ "cho-thue-can-ho-1-ngu-sola-park-43m2-tt-1n-6583": {
+  "dien_tich": 43,
+  "loai": "1 Ngủ",
+  "ma": "TT.1N.6583",
+  "ngay_xuat_hien": "2026-11-27",
+  "phan_khu": "Sola Park",
+  "toa": "SolaPark"
+ },
+ "cho-thue-can-ho-1-ngu-sola-park-43m2-tt-1n-6592": {
+  "dien_tich": 43,
+  "loai": "1 Ngủ",
+  "ma": "TT.1N.6592",
+  "ngay_xuat_hien": "2026-11-27",
+  "phan_khu": "Sola Park",
+  "toa": "SolaPark"
+ },
  "cho-thue-can-ho-1-ngu-sola-park-47m2-ct-1n-700": {
   "dien_tich": 47,
   "loai": "1 Ngủ +",
@@ -6007,6 +6047,14 @@
   "phan_khu": "Sola Park",
   "toa": "SolaPark"
  },
+ "cho-thue-can-ho-1-ngu-sola-park-48m2-tt-1n-6581": {
+  "dien_tich": 48,
+  "loai": "1 Ngủ",
+  "ma": "TT.1N.6581",
+  "ngay_xuat_hien": "2026-11-27",
+  "phan_khu": "Sola Park",
+  "toa": "SolaPark"
+ },
  "cho-thue-can-ho-1-ngu-tonkin-40m2-ct-1n-545": {
   "dien_tich": 40,
   "loai": "1 Ngủ +",
@@ -6308,6 +6356,14 @@
   "loai": "2 Ngủ",
   "ma": "TT.2N.6552",
   "ngay_xuat_hien": "2026-11-26",
+  "phan_khu": "Canopy",
+  "toa": "TC"
+ },
+ "cho-thue-can-ho-2-ngu-canopy-61m2-tt-2n-6582": {
+  "dien_tich": 61,
+  "loai": "2 Ngủ",
+  "ma": "TT.2N.6582",
+  "ngay_xuat_hien": "2026-11-27",
   "phan_khu": "Canopy",
   "toa": "TC"
  },
@@ -7620,6 +7676,14 @@
   "loai": "2 Ngủ +",
   "ma": "TT.2NP.6116",
   "ngay_xuat_hien": "2026-11-10",
+  "phan_khu": "Imperia",
+  "toa": "Imperia"
+ },
+ "cho-thue-can-ho-2-ngu-imperia-64m2-tt-2np-6589": {
+  "dien_tich": 64,
+  "loai": "2 Ngủ +",
+  "ma": "TT.2NP.6589",
+  "ngay_xuat_hien": "2026-11-27",
   "phan_khu": "Imperia",
   "toa": "Imperia"
  },
@@ -11092,6 +11156,14 @@
   "loai": "2 Ngủ",
   "ma": "TT.2N.6421",
   "ngay_xuat_hien": "2026-11-22",
+  "phan_khu": "Miami",
+  "toa": "GS"
+ },
+ "cho-thue-can-ho-2-ngu-miami-64m2-tt-2n-6586": {
+  "dien_tich": 64,
+  "loai": "2 Ngủ",
+  "ma": "TT.2N.6586",
+  "ngay_xuat_hien": "2026-11-27",
   "phan_khu": "Miami",
   "toa": "GS"
  },
@@ -19511,6 +19583,22 @@
   "phan_khu": "Masteri",
   "toa": "MAS"
  },
+ "cho-thue-can-ho-studio-masteri-27m2-tt-st-6585": {
+  "dien_tich": 27,
+  "loai": "Studio",
+  "ma": "TT.ST.6585",
+  "ngay_xuat_hien": "2026-11-27",
+  "phan_khu": "Masteri",
+  "toa": "MAS"
+ },
+ "cho-thue-can-ho-studio-masteri-27m2-tt-st-6587": {
+  "dien_tich": 27,
+  "loai": "Studio",
+  "ma": "TT.ST.6587",
+  "ngay_xuat_hien": "2026-11-27",
+  "phan_khu": "Masteri",
+  "toa": "MAS"
+ },
  "cho-thue-can-ho-studio-masteri-28m2-tt-st-4033": {
   "dien_tich": 28,
   "loai": "Studio",
@@ -22967,6 +23055,14 @@
   "phan_khu": "Sola Park",
   "toa": "SolaPark"
  },
+ "cho-thue-can-ho-studio-sola-park-32m2-tt-st-6590": {
+  "dien_tich": 32,
+  "loai": "Studio",
+  "ma": "TT.ST.6590",
+  "ngay_xuat_hien": "2026-11-27",
+  "phan_khu": "Sola Park",
+  "toa": "SolaPark"
+ },
  "cho-thue-can-ho-studio-sola-park-33m2-ct-stu-1060": {
   "dien_tich": 33,
   "loai": "Studio",
@@ -23196,6 +23292,14 @@
   "loai": "Studio",
   "ma": "TT.ST.6549",
   "ngay_xuat_hien": "2026-11-26",
+  "phan_khu": "Tonkin",
+  "toa": "TK"
+ },
+ "cho-thue-can-ho-studio-tonkin-25m2-tt-st-6584": {
+  "dien_tich": 25,
+  "loai": "Studio",
+  "ma": "TT.ST.6584",
+  "ngay_xuat_hien": "2026-11-27",
   "phan_khu": "Tonkin",
   "toa": "TK"
  },
