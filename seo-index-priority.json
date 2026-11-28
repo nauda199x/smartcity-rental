@@ -10,7 +10,7 @@
       "url": "/",
       "label": "Trang thuê Smart City",
       "reason": "landing chính cho cụm từ khóa thuê Smart City",
-      "inbound_pages": 1739,
+      "inbound_pages": 1752,
       "exists": true,
       "indexable": true,
       "self_canonical": true,
@@ -20,7 +20,7 @@
       "url": "/can-ho/",
       "label": "Căn hộ đang cho thuê",
       "reason": "hub URL chi tiết căn active",
-      "inbound_pages": 1686,
+      "inbound_pages": 1699,
       "exists": true,
       "indexable": true,
       "self_canonical": true,
@@ -30,7 +30,7 @@
       "url": "/studio/",
       "label": "Thuê Studio",
       "reason": "intent theo loại căn",
-      "inbound_pages": 1727,
+      "inbound_pages": 1740,
       "exists": true,
       "indexable": true,
       "self_canonical": true,
@@ -40,7 +40,7 @@
       "url": "/1pn/",
       "label": "Thuê 1PN",
       "reason": "intent theo loại căn",
-      "inbound_pages": 299,
+      "inbound_pages": 303,
       "exists": true,
       "indexable": true,
       "self_canonical": true,
@@ -50,7 +50,7 @@
       "url": "/1pn-plus/",
       "label": "Thuê 1PN+",
       "reason": "intent theo loại căn",
-      "inbound_pages": 1727,
+      "inbound_pages": 1740,
       "exists": true,
       "indexable": true,
       "self_canonical": true,
@@ -60,7 +60,7 @@
       "url": "/2pn/",
       "label": "Thuê 2PN",
       "reason": "intent theo loại căn",
-      "inbound_pages": 1727,
+      "inbound_pages": 1740,
       "exists": true,
       "indexable": true,
       "self_canonical": true,
@@ -70,7 +70,7 @@
       "url": "/2pn-plus/",
       "label": "Thuê 2PN+",
       "reason": "intent theo loại căn",
-      "inbound_pages": 329,
+      "inbound_pages": 330,
       "exists": true,
       "indexable": true,
       "self_canonical": true,
@@ -80,7 +80,7 @@
       "url": "/3pn/",
       "label": "Thuê 3PN",
       "reason": "intent theo loại căn",
-      "inbound_pages": 1727,
+      "inbound_pages": 1740,
       "exists": true,
       "indexable": true,
       "self_canonical": true,
@@ -90,7 +90,7 @@
       "url": "/bang-gia-thue-vinhomes-smart-city.html",
       "label": "Bảng giá thuê",
       "reason": "intent giá thuê có dữ liệu thực tế",
-      "inbound_pages": 1729,
+      "inbound_pages": 1742,
       "exists": true,
       "indexable": true,
       "self_canonical": true,
@@ -110,7 +110,7 @@
       "url": "/masteri/",
       "label": "Thuê Masteri West Heights",
       "reason": "phân khu có quỹ căn active lớn",
-      "inbound_pages": 245,
+      "inbound_pages": 246,
       "exists": true,
       "indexable": true,
       "self_canonical": true,
@@ -162,7 +162,7 @@
       "url": "/mas-masteri-smart-city/",
       "label": "MAS Masteri",
       "district": "Masteri",
-      "inventory": 108,
+      "inventory": 109,
       "inbound_pages": 12
     },
     {
@@ -173,18 +173,18 @@
       "inbound_pages": 11
     },
     {
-      "url": "/sa-sakura-smart-city/",
-      "label": "SA Sakura",
-      "district": "Sakura",
-      "inventory": 84,
-      "inbound_pages": 11
-    },
-    {
       "url": "/tc-canopy-smart-city/",
       "label": "TC Canopy",
       "district": "Canopy",
       "inventory": 84,
       "inbound_pages": 10
+    },
+    {
+      "url": "/sa-sakura-smart-city/",
+      "label": "SA Sakura",
+      "district": "Sakura",
+      "inventory": 83,
+      "inbound_pages": 11
     },
     {
       "url": "/gs-miami-smart-city/",
@@ -197,14 +197,14 @@
       "url": "/imperia-imperia-smart-city/",
       "label": "Imperia Imperia",
       "district": "Imperia",
-      "inventory": 48,
+      "inventory": 47,
       "inbound_pages": 13
     },
     {
       "url": "/s1-sapphire-smart-city/",
       "label": "S1 Sapphire",
       "district": "Sapphire",
-      "inventory": 47,
+      "inventory": 46,
       "inbound_pages": 26
     },
     {
@@ -254,6 +254,42 @@
       "inbound_pages": 9
     },
     {
+      "url": "/can-ho/cho-thue-can-ho-studio-sapphire-28m2-ct-stu-1115/",
+      "first_seen": "2026-11-28",
+      "code": "CT.Stu.1115",
+      "tower": "S106",
+      "type": "Studio",
+      "district": "Sapphire",
+      "inbound_pages": 12
+    },
+    {
+      "url": "/can-ho/cho-thue-can-ho-studio-sakura-32m2-tt-st-6615/",
+      "first_seen": "2026-11-28",
+      "code": "TT.ST.6615",
+      "tower": "SA",
+      "type": "Studio",
+      "district": "Sakura",
+      "inbound_pages": 16
+    },
+    {
+      "url": "/can-ho/cho-thue-can-ho-studio-sakura-26m2-ct-stu-1114/",
+      "first_seen": "2026-11-28",
+      "code": "CT.Stu.1114",
+      "tower": "SA2",
+      "type": "Studio",
+      "district": "Sakura",
+      "inbound_pages": 11
+    },
+    {
+      "url": "/can-ho/cho-thue-can-ho-3-ngu-sola-park-75m2-tt-3n-6610/",
+      "first_seen": "2026-11-28",
+      "code": "TT.3N.6610",
+      "tower": "SolaPark",
+      "type": "3 Ngủ",
+      "district": "Sola Park",
+      "inbound_pages": 9
+    },
+    {
       "url": "/can-ho/cho-thue-can-ho-3-ngu-sola-park-75m2-ct-3n-253/",
       "first_seen": "2026-11-28",
       "code": "CT.3N.253",
@@ -281,13 +317,49 @@
       "inbound_pages": 2
     },
     {
+      "url": "/can-ho/cho-thue-can-ho-2-ngu-sola-park-64m2-ct-2n-479/",
+      "first_seen": "2026-11-28",
+      "code": "CT.2N+.479",
+      "tower": "G1",
+      "type": "2 Ngủ +",
+      "district": "Sola Park",
+      "inbound_pages": 8
+    },
+    {
+      "url": "/can-ho/cho-thue-can-ho-2-ngu-sola-park-64m2-ct-2n-478/",
+      "first_seen": "2026-11-28",
+      "code": "CT.2N+.478",
+      "tower": "G3",
+      "type": "2 Ngủ +",
+      "district": "Sola Park",
+      "inbound_pages": 6
+    },
+    {
+      "url": "/can-ho/cho-thue-can-ho-2-ngu-sola-park-64m2-ct-2n-477/",
+      "first_seen": "2026-11-28",
+      "code": "CT.2N+.477",
+      "tower": "G1",
+      "type": "2 Ngủ +",
+      "district": "Sola Park",
+      "inbound_pages": 8
+    },
+    {
+      "url": "/can-ho/cho-thue-can-ho-2-ngu-sola-park-64m2-ct-2n-476/",
+      "first_seen": "2026-11-28",
+      "code": "CT.2N+.476",
+      "tower": "G1",
+      "type": "2 Ngủ +",
+      "district": "Sola Park",
+      "inbound_pages": 8
+    },
+    {
       "url": "/can-ho/cho-thue-can-ho-2-ngu-sola-park-64m2-ct-2n-475/",
       "first_seen": "2026-11-28",
       "code": "CT.2N+.475",
       "tower": "G1",
       "type": "2 Ngủ +",
       "district": "Sola Park",
-      "inbound_pages": 5
+      "inbound_pages": 8
     },
     {
       "url": "/can-ho/cho-thue-can-ho-2-ngu-sola-park-64m2-ct-2n-474/",
@@ -296,7 +368,25 @@
       "tower": "G1",
       "type": "2 Ngủ +",
       "district": "Sola Park",
-      "inbound_pages": 5
+      "inbound_pages": 8
+    },
+    {
+      "url": "/can-ho/cho-thue-can-ho-2-ngu-sola-park-61m2-tt-2n-6618/",
+      "first_seen": "2026-11-28",
+      "code": "TT.2N.6618",
+      "tower": "SolaPark",
+      "type": "2 Ngủ",
+      "district": "Sola Park",
+      "inbound_pages": 3
+    },
+    {
+      "url": "/can-ho/cho-thue-can-ho-2-ngu-sola-park-61m2-tt-2n-6616/",
+      "first_seen": "2026-11-28",
+      "code": "TT.2N.6616",
+      "tower": "SolaPark",
+      "type": "2 Ngủ",
+      "district": "Sola Park",
+      "inbound_pages": 6
     },
     {
       "url": "/can-ho/cho-thue-can-ho-2-ngu-sola-park-61m2-ct-2n2-638/",
@@ -308,6 +398,24 @@
       "inbound_pages": 9
     },
     {
+      "url": "/can-ho/cho-thue-can-ho-2-ngu-sola-park-55m2-ct-2n2-640/",
+      "first_seen": "2026-11-28",
+      "code": "CT.2N2.640",
+      "tower": "G2",
+      "type": "2 Ngủ",
+      "district": "Sola Park",
+      "inbound_pages": 7
+    },
+    {
+      "url": "/can-ho/cho-thue-can-ho-2-ngu-sola-park-55m2-ct-2n2-639/",
+      "first_seen": "2026-11-28",
+      "code": "CT.2N2.639",
+      "tower": "G3",
+      "type": "2 Ngủ",
+      "district": "Sola Park",
+      "inbound_pages": 10
+    },
+    {
       "url": "/can-ho/cho-thue-can-ho-2-ngu-sapphire-54m2-ct-2n1-330/",
       "first_seen": "2026-11-28",
       "code": "CT.2N1.330",
@@ -315,124 +423,16 @@
       "type": "2 Ngủ",
       "district": "Sapphire",
       "inbound_pages": 14
-    },
-    {
-      "url": "/can-ho/cho-thue-can-ho-1-ngu-sola-park-48m2-ct-1n-818/",
-      "first_seen": "2026-11-28",
-      "code": "CT.1N+.818",
-      "tower": "G1",
-      "type": "1 Ngủ +",
-      "district": "Sola Park",
-      "inbound_pages": 6
-    },
-    {
-      "url": "/can-ho/cho-thue-can-ho-1-ngu-sola-park-47m2-ct-1n-815/",
-      "first_seen": "2026-11-28",
-      "code": "CT.1N+.815",
-      "tower": "G1",
-      "type": "1 Ngủ +",
-      "district": "Sola Park",
-      "inbound_pages": 11
-    },
-    {
-      "url": "/can-ho/cho-thue-can-ho-1-ngu-sola-park-43m2-ct-1n-817/",
-      "first_seen": "2026-11-28",
-      "code": "CT.1N+.817",
-      "tower": "G2",
-      "type": "1 Ngủ +",
-      "district": "Sola Park",
-      "inbound_pages": 9
-    },
-    {
-      "url": "/can-ho/cho-thue-can-ho-1-ngu-masteri-42m2-ct-1n-816/",
-      "first_seen": "2026-11-28",
-      "code": "CT.1N+.816",
-      "tower": "MasA",
-      "type": "1 Ngủ +",
-      "district": "Masteri",
-      "inbound_pages": 12
-    },
-    {
-      "url": "/can-ho/cho-thue-can-ho-studio-tonkin-25m2-tt-st-6584/",
-      "first_seen": "2026-11-27",
-      "code": "TT.ST.6584",
-      "tower": "TK",
-      "type": "Studio",
-      "district": "Tonkin",
-      "inbound_pages": 15
-    },
-    {
-      "url": "/can-ho/cho-thue-can-ho-studio-sola-park-32m2-tt-st-6590/",
-      "first_seen": "2026-11-27",
-      "code": "TT.ST.6590",
-      "tower": "SolaPark",
-      "type": "Studio",
-      "district": "Sola Park",
-      "inbound_pages": 9
-    },
-    {
-      "url": "/can-ho/cho-thue-can-ho-studio-sola-park-32m2-ct-stu-1112/",
-      "first_seen": "2026-11-27",
-      "code": "CT.Stu.1112",
-      "tower": "G1",
-      "type": "Studio",
-      "district": "Sola Park",
-      "inbound_pages": 10
-    },
-    {
-      "url": "/can-ho/cho-thue-can-ho-studio-sola-park-32m2-ct-stu-1110/",
-      "first_seen": "2026-11-27",
-      "code": "CT.Stu.1110",
-      "tower": "G1",
-      "type": "Studio",
-      "district": "Sola Park",
-      "inbound_pages": 3
-    },
-    {
-      "url": "/can-ho/cho-thue-can-ho-studio-sola-park-32m2-ct-stu-1109/",
-      "first_seen": "2026-11-27",
-      "code": "CT.Stu.1109",
-      "tower": "G1",
-      "type": "Studio",
-      "district": "Sola Park",
-      "inbound_pages": 10
-    },
-    {
-      "url": "/can-ho/cho-thue-can-ho-studio-sola-park-32m2-ct-stu-1108/",
-      "first_seen": "2026-11-27",
-      "code": "CT.Stu.1108",
-      "tower": "G1",
-      "type": "Studio",
-      "district": "Sola Park",
-      "inbound_pages": 10
-    },
-    {
-      "url": "/can-ho/cho-thue-can-ho-studio-sola-park-32m2-ct-stu-1107/",
-      "first_seen": "2026-11-27",
-      "code": "CT.Stu.1107",
-      "tower": "G1",
-      "type": "Studio",
-      "district": "Sola Park",
-      "inbound_pages": 10
-    },
-    {
-      "url": "/can-ho/cho-thue-can-ho-studio-sapphire-32m2-tt-st-6599/",
-      "first_seen": "2026-11-27",
-      "code": "TT.ST.6599",
-      "tower": "S1",
-      "type": "Studio",
-      "district": "Sapphire",
-      "inbound_pages": 14
     }
   ],
   "district_inventory": {
     "Sapphire": 250,
-    "Masteri": 188,
+    "Masteri": 189,
     "Lumiere": 156,
     "Canopy": 130,
     "Sakura": 125,
     "Miami": 120,
-    "Imperia": 91,
+    "Imperia": 89,
     "Tonkin": 39
   },
   "summary": {
