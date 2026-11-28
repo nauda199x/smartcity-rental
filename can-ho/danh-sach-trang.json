@@ -631,6 +631,14 @@
   "phan_khu": "Imperia",
   "toa": "I5"
  },
+ "cho-thue-can-ho-1-ngu-imperia-43m2-ct-1n-831": {
+  "dien_tich": 43,
+  "loai": "1 Ngủ +",
+  "ma": "CT.1N+.831",
+  "ngay_xuat_hien": "2026-11-28",
+  "phan_khu": "Imperia",
+  "toa": "I2"
+ },
  "cho-thue-can-ho-1-ngu-imperia-43m2-tt-1n-2603": {
   "dien_tich": 43,
   "loai": "1 Ngủ",
@@ -5207,6 +5215,22 @@
   "phan_khu": "Sola Park",
   "toa": "G3"
  },
+ "cho-thue-can-ho-1-ngu-sola-park-43m2-ct-1n-830": {
+  "dien_tich": 43,
+  "loai": "1 Ngủ +",
+  "ma": "CT.1N+.830",
+  "ngay_xuat_hien": "2026-11-28",
+  "phan_khu": "Sola Park",
+  "toa": "G3"
+ },
+ "cho-thue-can-ho-1-ngu-sola-park-43m2-ct-1n-832": {
+  "dien_tich": 43,
+  "loai": "1 Ngủ +",
+  "ma": "CT.1N+.832",
+  "ngay_xuat_hien": "2026-11-28",
+  "phan_khu": "Sola Park",
+  "toa": "G3"
+ },
  "cho-thue-can-ho-1-ngu-sola-park-43m2-tt-1n-5614": {
   "dien_tich": 43,
   "loai": "1 Ngủ",
@@ -6310,6 +6334,14 @@
   "ngay_xuat_hien": "2026-11-28",
   "phan_khu": "Sola Park",
   "toa": "G1"
+ },
+ "cho-thue-can-ho-1-ngu-sola-park-48m2-ct-1n-833": {
+  "dien_tich": 48,
+  "loai": "1 Ngủ +",
+  "ma": "CT.1N+.833",
+  "ngay_xuat_hien": "2026-11-28",
+  "phan_khu": "Sola Park",
+  "toa": "G3"
  },
  "cho-thue-can-ho-1-ngu-sola-park-48m2-tt-1n-5712": {
   "dien_tich": 48,
@@ -16255,6 +16287,14 @@
   "phan_khu": "Sola Park",
   "toa": "G1"
  },
+ "cho-thue-can-ho-2-ngu-sola-park-64m2-ct-2n-481": {
+  "dien_tich": 64,
+  "loai": "2 Ngủ +",
+  "ma": "CT.2N+.481",
+  "ngay_xuat_hien": "2026-11-28",
+  "phan_khu": "Sola Park",
+  "toa": "G1"
+ },
  "cho-thue-can-ho-2-ngu-sola-park-64m2-tt-2np-5599": {
   "dien_tich": 64,
   "loai": "2 Ngủ +",
@@ -18814,6 +18854,14 @@
   "ngay_xuat_hien": "2026-11-28",
   "phan_khu": "Sola Park",
   "toa": "G3"
+ },
+ "cho-thue-can-ho-3-ngu-sola-park-75m2-ct-3n-254": {
+  "dien_tich": 75,
+  "loai": "3 Ngủ",
+  "ma": "CT.3N.254",
+  "ngay_xuat_hien": "2026-11-28",
+  "phan_khu": "Sola Park",
+  "toa": "G1"
  },
  "cho-thue-can-ho-3-ngu-sola-park-75m2-tt-3n-5606": {
   "dien_tich": 75,
@@ -23542,6 +23590,14 @@
   "ngay_xuat_hien": "2026-11-28",
   "phan_khu": "Sola Park",
   "toa": "G1"
+ },
+ "cho-thue-can-ho-studio-sola-park-32m2-ct-stu-1118": {
+  "dien_tich": 32,
+  "loai": "Studio",
+  "ma": "CT.Stu.1118",
+  "ngay_xuat_hien": "2026-11-28",
+  "phan_khu": "Sola Park",
+  "toa": "G2"
  },
  "cho-thue-can-ho-studio-sola-park-32m2-ct-stu-987": {
   "dien_tich": 32,
