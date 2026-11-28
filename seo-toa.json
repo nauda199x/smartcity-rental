@@ -4,7 +4,7 @@
       "area_max": 85,
       "area_min": 30,
       "code": "A1",
-      "count": 26,
+      "count": 27,
       "data_code": "A1",
       "district": "Lumiere",
       "first_seen": "2026-09-16",
@@ -16,7 +16,7 @@
       "price_min": 8000000,
       "types": [
         {
-          "count": 11,
+          "count": 12,
           "name": "1 Ngủ",
           "price_max": 14500000,
           "price_min": 8500000
@@ -561,7 +561,7 @@
       "area_max": 75,
       "area_min": 28,
       "code": "I5",
-      "count": 12,
+      "count": 13,
       "data_code": "I5",
       "district": "Imperia",
       "first_seen": "2026-09-10",
@@ -573,7 +573,7 @@
       "price_min": 7000000,
       "types": [
         {
-          "count": 4,
+          "count": 5,
           "name": "2 Ngủ",
           "price_max": 11000000,
           "price_min": 8500000
@@ -2203,7 +2203,7 @@
       "area_max": 83,
       "area_min": 25,
       "code": "TK2",
-      "count": 8,
+      "count": 9,
       "data_code": "TK2",
       "district": "Tonkin",
       "first_seen": "2026-09-10",
@@ -2225,6 +2225,12 @@
           "name": "1 Ngủ",
           "price_max": 8500000,
           "price_min": 8500000
+        },
+        {
+          "count": 1,
+          "name": "1 Ngủ +",
+          "price_max": 9000000,
+          "price_min": 9000000
         },
         {
           "count": 1,
